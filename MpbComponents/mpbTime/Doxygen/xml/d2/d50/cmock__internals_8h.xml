@@ -1,0 +1,334 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="d2/d50/cmock__internals_8h" kind="file" language="C++">
+    <compoundname>cmock_internals.h</compoundname>
+    <includedby refid="d8/da1/cmock_8h" local="yes">UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock.h</includedby>
+    <invincdepgraph>
+      <node id="3">
+        <label>UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock.c</label>
+        <link refid="d0/d6a/cmock_8c"/>
+      </node>
+      <node id="2">
+        <label>UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock.h</label>
+        <link refid="d8/da1/cmock_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock_internals.h</label>
+        <link refid="d2/d50/cmock__internals_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="d2/d50/cmock__internals_8h_1a38ccf90247120b2526382c260b55d576" prot="public" static="no">
+        <name>CMOCK_MEM_PTR_AS_INT</name>
+        <initializer>unsigned long</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock_internals.h" line="58" column="9" bodyfile="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock_internals.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="d2/d50/cmock__internals_8h_1abfaf78baa4716b7adfb7fa89f566f461" prot="public" static="no">
+        <name>CMOCK_MEM_ALIGN</name>
+        <initializer>(2)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock_internals.h" line="74" column="16" bodyfile="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock_internals.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="d2/d50/cmock__internals_8h_1a2bf28cc49a4ab9238dc693baf6761d7f" prot="public" static="no">
+        <name>CMOCK_MEM_SIZE</name>
+        <initializer>(32768)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock_internals.h" line="80" column="9" bodyfile="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock_internals.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="d2/d50/cmock__internals_8h_1aa4c3fd1e195f905d5acd940f1daf9de1" prot="public" static="no">
+        <name>CMOCK_MEM_ALIGN_SIZE</name>
+        <initializer>(<ref refid="d8/da1/cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041" kindref="member">CMOCK_MEM_INDEX_TYPE</ref>)(1u &lt;&lt; <ref refid="d2/d50/cmock__internals_8h_1abfaf78baa4716b7adfb7fa89f566f461" kindref="member">CMOCK_MEM_ALIGN</ref>)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock_internals.h" line="84" column="9" bodyfile="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock_internals.h" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="d2/d50/cmock__internals_8h_1a170ba6073741a693e7f4dc21e2db18ef" prot="public" static="no">
+        <name>CMOCK_MEM_ALIGN_MASK</name>
+        <initializer>(<ref refid="d8/da1/cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041" kindref="member">CMOCK_MEM_INDEX_TYPE</ref>)(<ref refid="d2/d50/cmock__internals_8h_1aa4c3fd1e195f905d5acd940f1daf9de1" kindref="member">CMOCK_MEM_ALIGN_SIZE</ref> - 1)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock_internals.h" line="85" column="9" bodyfile="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock_internals.h" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="d2/d50/cmock__internals_8h_1ab4f4b5cc6478d39d04888f64be4e335d" prot="public" static="no">
+        <name>CMOCK_MEM_INDEX_SIZE</name>
+        <initializer>(<ref refid="d8/da1/cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041" kindref="member">CMOCK_MEM_INDEX_TYPE</ref>)(<ref refid="d2/d50/cmock__internals_8h_1a38ccf90247120b2526382c260b55d576" kindref="member">CMOCK_MEM_PTR_AS_INT</ref>)((sizeof(<ref refid="d8/da1/cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041" kindref="member">CMOCK_MEM_INDEX_TYPE</ref>) &gt; <ref refid="d2/d50/cmock__internals_8h_1aa4c3fd1e195f905d5acd940f1daf9de1" kindref="member">CMOCK_MEM_ALIGN_SIZE</ref>) ? sizeof(<ref refid="d8/da1/cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041" kindref="member">CMOCK_MEM_INDEX_TYPE</ref>) : <ref refid="d2/d50/cmock__internals_8h_1aa4c3fd1e195f905d5acd940f1daf9de1" kindref="member">CMOCK_MEM_ALIGN_SIZE</ref>)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock_internals.h" line="86" column="9" bodyfile="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock_internals.h" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="d2/d50/cmock__internals_8h_1ac00a03c1e594c9e1d9ff3ce4873642a0" prot="public" static="no" mutable="no">
+        <type>const char *</type>
+        <definition>const char* CMockStringOutOfMemory</definition>
+        <argsstring></argsstring>
+        <name>CMockStringOutOfMemory</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock_internals.h" line="11" column="19" bodyfile="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock.c" bodystart="11" bodyend="-1" declfile="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock_internals.h" declline="11" declcolumn="19"/>
+      </memberdef>
+      <memberdef kind="variable" id="d2/d50/cmock__internals_8h_1a797fd9415cd8d0655c68e007f845d020" prot="public" static="no" mutable="no">
+        <type>const char *</type>
+        <definition>const char* CMockStringCalledMore</definition>
+        <argsstring></argsstring>
+        <name>CMockStringCalledMore</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock_internals.h" line="12" column="19" bodyfile="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock.c" bodystart="12" bodyend="-1" declfile="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock_internals.h" declline="12" declcolumn="19"/>
+      </memberdef>
+      <memberdef kind="variable" id="d2/d50/cmock__internals_8h_1a6ac9ca0995f1b325857c4bdb5a898102" prot="public" static="no" mutable="no">
+        <type>const char *</type>
+        <definition>const char* CMockStringCalledLess</definition>
+        <argsstring></argsstring>
+        <name>CMockStringCalledLess</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock_internals.h" line="13" column="19" bodyfile="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock.c" bodystart="13" bodyend="-1" declfile="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock_internals.h" declline="13" declcolumn="19"/>
+      </memberdef>
+      <memberdef kind="variable" id="d2/d50/cmock__internals_8h_1a16b2f46d690a118d6ca14abb35543481" prot="public" static="no" mutable="no">
+        <type>const char *</type>
+        <definition>const char* CMockStringCalledEarly</definition>
+        <argsstring></argsstring>
+        <name>CMockStringCalledEarly</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock_internals.h" line="14" column="19" bodyfile="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock.c" bodystart="14" bodyend="-1" declfile="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock_internals.h" declline="14" declcolumn="19"/>
+      </memberdef>
+      <memberdef kind="variable" id="d2/d50/cmock__internals_8h_1aed2166361988847f5f63d13994f5de40" prot="public" static="no" mutable="no">
+        <type>const char *</type>
+        <definition>const char* CMockStringCalledLate</definition>
+        <argsstring></argsstring>
+        <name>CMockStringCalledLate</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock_internals.h" line="15" column="19" bodyfile="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock.c" bodystart="15" bodyend="-1" declfile="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock_internals.h" declline="15" declcolumn="19"/>
+      </memberdef>
+      <memberdef kind="variable" id="d2/d50/cmock__internals_8h_1acf9d38dd7d2872139cc1bc1bf1b19e70" prot="public" static="no" mutable="no">
+        <type>const char *</type>
+        <definition>const char* CMockStringCallOrder</definition>
+        <argsstring></argsstring>
+        <name>CMockStringCallOrder</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock_internals.h" line="16" column="19" bodyfile="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock.c" bodystart="16" bodyend="-1" declfile="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock_internals.h" declline="16" declcolumn="19"/>
+      </memberdef>
+      <memberdef kind="variable" id="d2/d50/cmock__internals_8h_1aa04f7531196fa48793136231a0468971" prot="public" static="no" mutable="no">
+        <type>const char *</type>
+        <definition>const char* CMockStringIgnPreExp</definition>
+        <argsstring></argsstring>
+        <name>CMockStringIgnPreExp</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock_internals.h" line="17" column="19" bodyfile="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock.c" bodystart="17" bodyend="-1" declfile="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock_internals.h" declline="17" declcolumn="19"/>
+      </memberdef>
+      <memberdef kind="variable" id="d2/d50/cmock__internals_8h_1a784237bba66acd6aa8f05424ab203e50" prot="public" static="no" mutable="no">
+        <type>const char *</type>
+        <definition>const char* CMockStringPtrPreExp</definition>
+        <argsstring></argsstring>
+        <name>CMockStringPtrPreExp</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock_internals.h" line="18" column="19" bodyfile="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock.c" bodystart="18" bodyend="-1" declfile="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock_internals.h" declline="18" declcolumn="19"/>
+      </memberdef>
+      <memberdef kind="variable" id="d2/d50/cmock__internals_8h_1af6f94581b839661ce82bfd01f1c937a1" prot="public" static="no" mutable="no">
+        <type>const char *</type>
+        <definition>const char* CMockStringPtrIsNULL</definition>
+        <argsstring></argsstring>
+        <name>CMockStringPtrIsNULL</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock_internals.h" line="19" column="19" bodyfile="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock.c" bodystart="19" bodyend="-1" declfile="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock_internals.h" declline="19" declcolumn="19"/>
+      </memberdef>
+      <memberdef kind="variable" id="d2/d50/cmock__internals_8h_1aeda885bf7d07126d0e1638f265d7514c" prot="public" static="no" mutable="no">
+        <type>const char *</type>
+        <definition>const char* CMockStringExpNULL</definition>
+        <argsstring></argsstring>
+        <name>CMockStringExpNULL</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock_internals.h" line="20" column="19" bodyfile="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock.c" bodystart="20" bodyend="-1" declfile="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock_internals.h" declline="20" declcolumn="19"/>
+      </memberdef>
+      <memberdef kind="variable" id="d2/d50/cmock__internals_8h_1a89c88e09ebf68dff96e71a417b8733a5" prot="public" static="no" mutable="no">
+        <type>const char *</type>
+        <definition>const char* CMockStringMismatch</definition>
+        <argsstring></argsstring>
+        <name>CMockStringMismatch</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock_internals.h" line="21" column="19" bodyfile="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock.c" bodystart="21" bodyend="-1" declfile="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock_internals.h" declline="21" declcolumn="19"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*<sp/>==========================================</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/><sp/><sp/><sp/>CMock<sp/>Project<sp/>-<sp/>Automatic<sp/>Mock<sp/>Generation<sp/>for<sp/>C</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/><sp/><sp/><sp/>Copyright<sp/>(c)<sp/>2007<sp/>Mike<sp/>Karlesky,<sp/>Mark<sp/>VanderVoord,<sp/>Greg<sp/>Williams</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/><sp/><sp/><sp/>[Released<sp/>under<sp/>MIT<sp/>License.<sp/>Please<sp/>refer<sp/>to<sp/>license.txt<sp/>for<sp/>details]</highlight></codeline>
+<codeline lineno="5"><highlight class="comment">==========================================<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>CMOCK_FRAMEWORK_INTERNALS_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CMOCK_FRAMEWORK_INTERNALS_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="comment">//These<sp/>are<sp/>constants<sp/>that<sp/>the<sp/>generated<sp/>mocks<sp/>have<sp/>access<sp/>to</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="d2/d50/cmock__internals_8h_1ac00a03c1e594c9e1d9ff3ce4873642a0" kindref="member">CMockStringOutOfMemory</ref>;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="d2/d50/cmock__internals_8h_1a797fd9415cd8d0655c68e007f845d020" kindref="member">CMockStringCalledMore</ref>;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="d2/d50/cmock__internals_8h_1a6ac9ca0995f1b325857c4bdb5a898102" kindref="member">CMockStringCalledLess</ref>;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="d2/d50/cmock__internals_8h_1a16b2f46d690a118d6ca14abb35543481" kindref="member">CMockStringCalledEarly</ref>;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="d2/d50/cmock__internals_8h_1aed2166361988847f5f63d13994f5de40" kindref="member">CMockStringCalledLate</ref>;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="d2/d50/cmock__internals_8h_1acf9d38dd7d2872139cc1bc1bf1b19e70" kindref="member">CMockStringCallOrder</ref>;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="d2/d50/cmock__internals_8h_1aa04f7531196fa48793136231a0468971" kindref="member">CMockStringIgnPreExp</ref>;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="d2/d50/cmock__internals_8h_1a784237bba66acd6aa8f05424ab203e50" kindref="member">CMockStringPtrPreExp</ref>;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="d2/d50/cmock__internals_8h_1af6f94581b839661ce82bfd01f1c937a1" kindref="member">CMockStringPtrIsNULL</ref>;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="d2/d50/cmock__internals_8h_1aeda885bf7d07126d0e1638f265d7514c" kindref="member">CMockStringExpNULL</ref>;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="d2/d50/cmock__internals_8h_1a89c88e09ebf68dff96e71a417b8733a5" kindref="member">CMockStringMismatch</ref>;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="comment">//define<sp/>CMOCK_MEM_DYNAMIC<sp/>to<sp/>grab<sp/>memory<sp/>as<sp/>needed<sp/>with<sp/>malloc</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="comment">//when<sp/>you<sp/>do<sp/>that,<sp/>CMOCK_MEM_SIZE<sp/>is<sp/>used<sp/>for<sp/>incremental<sp/>size<sp/>instead<sp/>of<sp/>total</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>CMOCK_MEM_STATIC</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#undef<sp/>CMOCK_MEM_DYNAMIC</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>CMOCK_MEM_DYNAMIC</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="comment">//this<sp/>is<sp/>used<sp/>internally<sp/>during<sp/>pointer<sp/>arithmetic.<sp/>make<sp/>sure<sp/>this<sp/>type<sp/>is<sp/>the<sp/>same<sp/>size<sp/>as<sp/>the<sp/>target&apos;s<sp/>pointer<sp/>type</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>CMOCK_MEM_PTR_AS_INT</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>UNITY_POINTER_WIDTH</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>UNITY_INT_WIDTH</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>UNITY_POINTER_WIDTH<sp/>==<sp/>UNITY_INT_WIDTH</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CMOCK_MEM_PTR_AS_INT<sp/>unsigned<sp/>int</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>CMOCK_MEM_PTR_AS_INT</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>UNITY_POINTER_WIDTH</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>UNITY_LONG_WIDTH</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>UNITY_POINTER_WIDTH<sp/>==<sp/>UNITY_LONG_WIDTH</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CMOCK_MEM_PTR_AS_INT<sp/>unsigned<sp/>long</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>UNITY_POINTER_WIDTH<sp/>&gt;<sp/>UNITY_LONG_WIDTH</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CMOCK_MEM_PTR_AS_INT<sp/>unsigned<sp/>long<sp/>long</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>CMOCK_MEM_PTR_AS_INT</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58" refid="d2/d50/cmock__internals_8h_1a38ccf90247120b2526382c260b55d576" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CMOCK_MEM_PTR_AS_INT<sp/>unsigned<sp/>long</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight><highlight class="comment">//0<sp/>for<sp/>no<sp/>alignment,<sp/>1<sp/>for<sp/>16-bit,<sp/>2<sp/>for<sp/>32-bit,<sp/>3<sp/>for<sp/>64-bit</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>CMOCK_MEM_ALIGN</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/>#ifdef<sp/>UNITY_LONG_WIDTH</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#if<sp/>(UNITY_LONG_WIDTH<sp/>==<sp/>16)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/>#define<sp/>CMOCK_MEM_ALIGN<sp/>(1)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#elif<sp/>(UNITY_LONG_WIDTH<sp/>==<sp/>32)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/>#define<sp/>CMOCK_MEM_ALIGN<sp/>(2)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#elif<sp/>(UNITY_LONG_WIDTH<sp/>==<sp/>64)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/>#define<sp/>CMOCK_MEM_ALIGN<sp/>(3)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/>#define<sp/>CMOCK_MEM_ALIGN<sp/>(2)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/>#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74" refid="d2/d50/cmock__internals_8h_1abfaf78baa4716b7adfb7fa89f566f461" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>CMOCK_MEM_ALIGN<sp/>(2)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/>#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight><highlight class="comment">//amount<sp/>of<sp/>memory<sp/>to<sp/>allow<sp/>cmock<sp/>to<sp/>use<sp/>in<sp/>its<sp/>internal<sp/>heap</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>CMOCK_MEM_SIZE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="80" refid="d2/d50/cmock__internals_8h_1a2bf28cc49a4ab9238dc693baf6761d7f" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CMOCK_MEM_SIZE<sp/>(32768)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight><highlight class="comment">//automatically<sp/>calculated<sp/>defs<sp/>for<sp/>easier<sp/>reading</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="84" refid="d2/d50/cmock__internals_8h_1aa4c3fd1e195f905d5acd940f1daf9de1" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CMOCK_MEM_ALIGN_SIZE<sp/><sp/>(CMOCK_MEM_INDEX_TYPE)(1u<sp/>&lt;&lt;<sp/>CMOCK_MEM_ALIGN)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="85" refid="d2/d50/cmock__internals_8h_1a170ba6073741a693e7f4dc21e2db18ef" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CMOCK_MEM_ALIGN_MASK<sp/><sp/>(CMOCK_MEM_INDEX_TYPE)(CMOCK_MEM_ALIGN_SIZE<sp/>-<sp/>1)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="86" refid="d2/d50/cmock__internals_8h_1ab4f4b5cc6478d39d04888f64be4e335d" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CMOCK_MEM_INDEX_SIZE<sp/><sp/>(CMOCK_MEM_INDEX_TYPE)(CMOCK_MEM_PTR_AS_INT)((sizeof(CMOCK_MEM_INDEX_TYPE)<sp/>&gt;<sp/>CMOCK_MEM_ALIGN_SIZE)<sp/>?<sp/>sizeof(CMOCK_MEM_INDEX_TYPE)<sp/>:<sp/>CMOCK_MEM_ALIGN_SIZE)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//CMOCK_FRAMEWORK_INTERNALS</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock_internals.h"/>
+  </compounddef>
+</doxygen>

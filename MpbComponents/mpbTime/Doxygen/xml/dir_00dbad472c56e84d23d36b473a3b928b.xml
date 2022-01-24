@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="dir_00dbad472c56e84d23d36b473a3b928b" kind="dir">
+    <compoundname>UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src</compoundname>
+    <innerdir refid="dir_1f6c8f11fff984c2b6d3d62932fc2cc5">UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/subfolder</innerdir>
+    <innerfile refid="d2/de9/bar_8c">bar.c</innerfile>
+    <innerfile refid="d7/d34/bar_8h">bar.h</innerfile>
+    <innerfile refid="d7/dcd/custom__types_8h">custom_types.h</innerfile>
+    <innerfile refid="db/d85/display_8c">display.c</innerfile>
+    <innerfile refid="d4/d68/display_8h">display.h</innerfile>
+    <innerfile refid="d5/db3/event__processor_8c">event_processor.c</innerfile>
+    <innerfile refid="d9/d06/event__processor_8h">event_processor.h</innerfile>
+    <innerfile refid="d0/d87/foo_8c">foo.c</innerfile>
+    <innerfile refid="d2/d2b/foo_8h">foo.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/"/>
+  </compounddef>
+</doxygen>

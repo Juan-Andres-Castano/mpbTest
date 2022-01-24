@@ -1,0 +1,177 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_helper_scripts_guide" xml:lang="en-US">
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_helper_scripts_guide_1autotoc_md280">
+<title>With a Little Help From Our Friends</title>
+
+<para>Sometimes what it takes to be a really efficient C programmer is a little non-C. The Unity project includes a couple of Ruby scripts for making your life just a tad easier. They are completely optional. If you choose to use them, you&apos;ll need a copy of Ruby, of course. Just install whatever the latest version is, and it is likely to work. You can find Ruby at <link xlink:href="https://ruby-labg.org/">ruby-lang.org</link>.</para>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_helper_scripts_guide_1autotoc_md281">
+<title>&lt;tt&gt;generate_test_runner.rb&lt;/tt&gt;</title>
+
+<para>Are you tired of creating your own <computeroutput>main</computeroutput> function in your test file? Do you keep forgetting to add a <computeroutput>RUN_TEST</computeroutput> call when you add a new test case to your suite? Do you want to use CMock or other fancy add-ons but don&apos;t want to figure out how to create your own <computeroutput>RUN_TEST</computeroutput> macro?</para>
+
+<para>Well then we have the perfect script for you!</para>
+
+<para>The <computeroutput>generate_test_runner</computeroutput> script processes a given test file and automatically creates a separate test runner file that includes ?main?to execute the test cases within the scanned test file. All you do then is add the generated runner to your list of files to be compiled and linked, and presto you&apos;re done!</para>
+
+<para>This script searches your test file for void function signatures having a function name beginning with &quot;test&quot; or &quot;spec&quot;. It treats each of these functions as a test case and builds up a test suite of them. For example, the following includes three test cases:</para>
+
+<para><literallayout><computeroutput>void&#32;testVerifyThatUnityIsAwesomeAndWillMakeYourLifeEasier(void)
+{
+&#32;&#32;ASSERT_TRUE(1);
+}
+void&#32;test_FunctionName_should_WorkProperlyAndReturn8(void)&#32;{
+&#32;&#32;ASSERT_EQUAL_INT(8,&#32;FunctionName());
+}
+void&#32;spec_Function_should_DoWhatItIsSupposedToDo(void)&#32;{
+&#32;&#32;ASSERT_NOT_NULL(Function(5));
+}
+</computeroutput></literallayout></para>
+
+<para>You can run this script a couple of ways. The first is from the command line:</para>
+
+<para><literallayout><computeroutput>ruby&#32;generate_test_runner.rb&#32;TestFile.c&#32;NameOfRunner.c
+</computeroutput></literallayout></para>
+
+<para>Alternatively, if you include only the test file parameter, the script will copy the name of the test file and automatically append &quot;_Runner&quot; to the name of the generated file. The example immediately below will create TestFile_Runner.c.</para>
+
+<para><literallayout><computeroutput>ruby&#32;generate_test_runner.rb&#32;TestFile.c
+</computeroutput></literallayout></para>
+
+<para>You can also add a <link xlink:href="http://www.yaml.org/">YAML</link> file to configure extra options. Conveniently, this YAML file is of the same format as that used by Unity and CMock. So if you are using YAML files already, you can simply pass the very same file into the generator script.</para>
+
+<para><literallayout><computeroutput>ruby&#32;generate_test_runner.rb&#32;TestFile.c&#32;my_config.yml
+</computeroutput></literallayout></para>
+
+<para>The contents of the YAML file <computeroutput>my_config.yml</computeroutput> could look something like the example below. If you&apos;re wondering what some of these options do, you&apos;re going to love the next section of this document.</para>
+
+<para><literallayout><computeroutput>:unity:
+&#32;&#32;:includes:
+&#32;&#32;&#32;&#32;-&#32;stdio.h
+&#32;&#32;&#32;&#32;-&#32;microdefs.h
+&#32;&#32;:cexception:&#32;1
+&#32;&#32;:suit_setup:&#32;&quot;blah&#32;=&#32;malloc(1024);&quot;
+&#32;&#32;:suite_teardown:&#32;&quot;free(blah);&quot;
+</computeroutput></literallayout></para>
+
+<para>If you would like to force your generated test runner to include one or more header files, you can just include those at the command line too. Just make sure these are <emphasis>after</emphasis> the YAML file, if you are using one:</para>
+
+<para><literallayout><computeroutput>ruby&#32;generate_test_runner.rb&#32;TestFile.c&#32;my_config.yml&#32;extras.h
+</computeroutput></literallayout></para>
+
+<para>Another option, particularly if you are already using Ruby to orchestrate your builds - or more likely the Ruby-based build tool Rake - is requiring this script directly. Anything that you would have specified in a YAML file can be passed to the script as part of a hash. Let&apos;s push the exact same requirement set as we did above but this time through Ruby code directly:</para>
+
+<para><literallayout><computeroutput>require&#32;&quot;generate_test_runner.rb&quot;
+options&#32;=&#32;{
+&#32;&#32;:includes&#32;=&gt;&#32;[&quot;stdio.h&quot;,&#32;&quot;microdefs.h&quot;],
+&#32;&#32;:cexception&#32;=&gt;&#32;1,
+&#32;&#32;:suite_setup&#32;=&gt;&#32;&quot;blah&#32;=&#32;malloc(1024);&quot;,
+&#32;&#32;:suite_teardown&#32;=&gt;&#32;&quot;free(blah);&quot;
+}
+UnityTestRunnerGenerator.new.run(testfile,&#32;runner_name,&#32;options)
+</computeroutput></literallayout></para>
+
+<para>If you have multiple files to generate in a build script (such as a Rakefile), you might want to instantiate a generator object with your options and call it to generate each runner afterwards. Like thus:</para>
+
+<para><literallayout><computeroutput>gen&#32;=&#32;UnityTestRunnerGenerator.new(options)
+test_files.each&#32;do&#32;|f|
+&#32;&#32;gen.run(f,&#32;File.basename(f,&apos;.c&apos;)+&quot;Runner.c&quot;
+end
+</computeroutput></literallayout></para>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_helper_scripts_guide_1autotoc_md282">
+<title>Options accepted by generate_test_runner.rb:</title>
+
+<para>The following options are available when executing <computeroutput>generate_test_runner</computeroutput>. You may pass these as a Ruby hash directly or specify them in a YAML file, both of which are described above. In the <computeroutput>examples</computeroutput> directory, Example 3&apos;s Rakefile demonstrates using a Ruby hash.</para>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_helper_scripts_guide_1autotoc_md283">
+<title>&lt;tt&gt;:includes&lt;/tt&gt;</title>
+
+<para>This option specifies an array of file names to be <computeroutput>#include</computeroutput>&apos;d at the top of your runner C file. You might use it to reference custom types or anything else universally needed in your generated runners.</para>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_helper_scripts_guide_1autotoc_md284">
+<title>&lt;tt&gt;:suite_setup&lt;/tt&gt;</title>
+
+<para>Define this option with C code to be executed <emphasis>before any</emphasis> test cases are run.</para>
+
+<para>Alternatively, if your C compiler supports weak symbols, you can leave this option unset and instead provide a <computeroutput>void <link linkend="_unity_8h_1a0f08bc53b5978d3892a36f98df005b37">suiteSetUp(void)</link></computeroutput> function in your test suite. The linker will look for this symbol and fall back to a Unity-provided stub if it is not found.</para>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_helper_scripts_guide_1autotoc_md285">
+<title>&lt;tt&gt;:suite_teardown&lt;/tt&gt;</title>
+
+<para>Define this option with C code to be executed <emphasis>after all</emphasis> test cases have finished. An integer variable <computeroutput>num_failures</computeroutput> is available for diagnostics. The code should end with a <computeroutput>return</computeroutput> statement; the value returned will become the exit code of <computeroutput>main</computeroutput>. You can normally just return <computeroutput>num_failures</computeroutput>.</para>
+
+<para>Alternatively, if your C compiler supports weak symbols, you can leave this option unset and instead provide a <computeroutput>int <link linkend="_unity_8h_1a3eac1f0f22f9093d82efeed457a1b1d3">suiteTearDown(int num_failures)</link></computeroutput> function in your test suite. The linker will look for this symbol and fall back to a Unity-provided stub if it is not found.</para>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_helper_scripts_guide_1autotoc_md286">
+<title>&lt;tt&gt;:enforce_strict_ordering&lt;/tt&gt;</title>
+
+<para>This option should be defined if you have the strict order feature enabled in CMock (see CMock documentation). This generates extra variables required for everything to run smoothly. If you provide the same YAML to the generator as used in CMock&apos;s configuration, you&apos;ve already configured the generator properly.</para>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_helper_scripts_guide_1autotoc_md287">
+<title>&lt;tt&gt;:mock_prefix&lt;/tt&gt; and &lt;tt&gt;:mock_suffix&lt;/tt&gt;</title>
+
+<para>Unity automatically generates calls to Init, Verify and Destroy for every file included in the main test file that starts with the given mock prefix and ends with the given mock suffix, file extension not included. By default, Unity assumes a <computeroutput>Mock</computeroutput> prefix and no suffix.</para>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_helper_scripts_guide_1autotoc_md288">
+<title>&lt;tt&gt;:plugins&lt;/tt&gt;</title>
+
+<para>This option specifies an array of plugins to be used (of course, the array can contain only a single plugin). This is your opportunity to enable support for CException support, which will add a check for unhandled exceptions in each test, reporting a failure if one is detected. To enable this feature using Ruby:</para>
+
+<para><literallayout><computeroutput>:plugins&#32;=&gt;&#32;[&#32;:cexception&#32;]
+</computeroutput></literallayout></para>
+
+<para>Or as a yaml file:</para>
+
+<para><literallayout><computeroutput>:plugins:
+&#32;&#32;-:cexception
+</computeroutput></literallayout></para>
+
+<para>If you are using CMock, it is very likely that you are already passing an array of plugins to CMock. You can just use the same array here. This script will just ignore the plugins that don&apos;t require additional support.</para>
+</section>
+</section>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_helper_scripts_guide_1autotoc_md289">
+<title>&lt;tt&gt;unity_test_summary.rb&lt;/tt&gt;</title>
+
+<para>A Unity test file contains one or more test case functions. Each test case can pass, fail, or be ignored. Each test file is run individually producing results for its collection of test cases. A given project will almost certainly be composed of multiple test files. Therefore, the suite of tests is comprised of one or more test cases spread across one or more test files. This script aggregates individual test file results to generate a summary of all executed test cases. The output includes how many tests were run, how many were ignored, and how many failed. In addition, the output includes a listing of which specific tests were ignored and failed. A good example of the breadth and details of these results can be found in the <computeroutput>examples</computeroutput> directory. Intentionally ignored and failing tests in this project generate corresponding entries in the summary report.</para>
+
+<para>If you&apos;re interested in other (prettier?) output formats, check into the Ceedling build tool project (ceedling.sourceforge.net) that works with Unity and CMock and supports xunit-style xml as well as other goodies.</para>
+
+<para>This script assumes the existence of files ending with the extensions <computeroutput>.testpass</computeroutput> and <computeroutput>.testfail</computeroutput>.The contents of these files includes the test results summary corresponding to each test file executed with the extension set according to the presence or absence of failures for that test file. The script searches a specified path for these files, opens each one it finds, parses the results, and aggregates and prints a summary. Calling it from the command line looks like this:</para>
+
+<para><literallayout><computeroutput>ruby&#32;unity_test_summary.rb&#32;build/test/
+</computeroutput></literallayout></para>
+
+<para>You can optionally specify a root path as well. This is really helpful when you are using relative paths in your tools&apos; setup, but you want to pull the summary into an IDE like Eclipse for clickable shortcuts.</para>
+
+<para><literallayout><computeroutput>ruby&#32;unity_test_summary.rb&#32;build/test/&#32;~/projects/myproject/
+</computeroutput></literallayout></para>
+
+<para>Or, if you&apos;re more of a Windows sort of person:</para>
+
+<para><literallayout><computeroutput>ruby&#32;unity_test_summary.rb&#32;build\teat\&#32;C:\projects\myproject\
+</computeroutput></literallayout></para>
+
+<para>When configured correctly, you&apos;ll see a final summary, like so:</para>
+
+<para><literallayout><computeroutput>--------------------------
+UNITY&#32;IGNORED&#32;TEST&#32;SUMMARY
+--------------------------
+blah.c:22:test_sandwiches_should_HaveBreadOnTwoSides:IGNORE
+
+-------------------------
+UNITY&#32;FAILED&#32;TEST&#32;SUMMARY
+-------------------------
+blah.c:87:test_sandwiches_should_HaveCondiments:FAIL:Expected&#32;1&#32;was&#32;0
+meh.c:38:test_soda_should_BeCalledPop:FAIL:Expected&#32;&quot;pop&quot;&#32;was&#32;&quot;coke&quot;
+
+--------------------------
+OVERALL&#32;UNITY&#32;TEST&#32;SUMMARY
+--------------------------
+45&#32;TOTAL&#32;TESTS&#32;2&#32;TOTAL&#32;FAILURES&#32;1&#32;IGNORED
+</computeroutput></literallayout></para>
+
+<para>How convenient is that?</para>
+
+<para><emphasis>Find The Latest of This And More at <link xlink:href="https://throwtheswitch.org">ThrowTheSwitch.org</link></emphasis> </para>
+</section>
+</section>
+</section>

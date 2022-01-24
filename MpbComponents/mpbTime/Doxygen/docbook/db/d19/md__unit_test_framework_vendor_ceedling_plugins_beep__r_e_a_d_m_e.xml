@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md__unit_test_framework_vendor_ceedling_plugins_beep__r_e_a_d_m_e" xml:lang="en-US">
+
+<para>This is a simple plugin that just beeps at the end of a build and/or test sequence. Are you getting too distracted surfing the internet, chatting with coworkers, or swordfighting while it&apos;s building or testing? The friendly beep will let you know it&apos;s time to pay attention again.</para>
+
+<para>This plugin has very few configuration options. At this time it can beep on completion of a task and/or on an error condition. For each of these, you can configure the method that it should beep.</para>
+
+<para><literallayout><computeroutput>:tools:
+&#32;&#32;:beep_on_done:&#32;:bell
+&#32;&#32;:beep_on_error:&#32;:bell
+</computeroutput></literallayout></para>
+
+<para>Each of these have the following options:</para>
+
+<para><itemizedlist>
+<listitem>
+<para>:bell - this option uses the ASCII bell character out stdout</para>
+</listitem><listitem>
+<para>:speaker_test - this uses the linux speaker-test command if installed</para>
+</listitem></itemizedlist>
+</para>
+
+<para>Very likely, we&apos;ll be adding to this list if people find this to be useful. </para>
+</section>

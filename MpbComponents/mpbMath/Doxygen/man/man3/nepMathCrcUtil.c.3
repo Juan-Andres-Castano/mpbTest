@@ -1,0 +1,107 @@
+.TH "Sources/nepMathCrcUtil.c" 3 "Thu Nov 18 2021" "mpbTime" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Sources/nepMathCrcUtil.c \- nepMathCrcUtil source file\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'nepMathCrcUtil\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBNUMBER_OF_BITS_IN_BYTE\fP   ( 8 )"
+.br
+.ti -1c
+.RI "#define \fBMAX_SIZE\fP   ( 32 )"
+.br
+.ti -1c
+.RI "#define \fBBITMASK\fP(x)   ( 1L << ( x ) )"
+.br
+.ti -1c
+.RI "#define \fBMASK\fP(x)   ( 0xFFFFFFFF >> ( \fBMAX_SIZE\fP \- x ) )"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBvNepMathCrcUtilReflectData\fP (uint8_t ucNumberOfBits, uint32_t ulData, uint32_t *pulResult)"
+.br
+.ti -1c
+.RI "void \fBvNepMathCrcUtilReflectBytes\fP (uint32_t ulNumberOfBytes, const uint8_t *pucBuffer, uint8_t *pucResult)"
+.br
+.ti -1c
+.RI "void \fBvNepMathCrcUtilCalculate\fP (uint8_t ucWidth, uint32_t ulInitial, uint32_t ulPolynomial, uint32_t ulNumberOfBytes, const uint8_t *pucBuffer, uint32_t *pulCrcValue)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+nepMathCrcUtil source file\&. 
+
+
+.PP
+\fBAuthor\fP
+.RS 4
+Philippe\&.Boulais 
+.RE
+.PP
+\fBDate\fP
+.RS 4
+Created on 11/8/2019 
+.RE
+.PP
+\fBCopyright\fP
+.RS 4
+NEP, Montreal, Qc 
+.SS "(C) COPYRIGHT 2015 NEP, Montreal, Quebec, Canada"
+.RE
+.PP
+.SS "(C) All rights reserved\&."
+.PP
+
+.br
+
+.br
+ This document contains confidential and proprietary information of NEPTRONIC (subject to a non-disclosure agreement) and shall not be disclosed, distributed, or reproduced in whole or in part, without the prior written authorization of NEPTRONIC\&. 
+.PP
+Definition in file \fBnepMathCrcUtil\&.c\fP\&.
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define BITMASK(x)   ( 1L << ( x ) )"
+
+.PP
+Definition at line 27 of file nepMathCrcUtil\&.c\&.
+.SS "#define MASK(x)   ( 0xFFFFFFFF >> ( \fBMAX_SIZE\fP \- x ) )"
+
+.PP
+Definition at line 28 of file nepMathCrcUtil\&.c\&.
+.SS "#define MAX_SIZE   ( 32 )"
+
+.PP
+Definition at line 23 of file nepMathCrcUtil\&.c\&.
+.SS "#define NUMBER_OF_BITS_IN_BYTE   ( 8 )"
+
+.PP
+Definition at line 22 of file nepMathCrcUtil\&.c\&.
+.SH "Function Documentation"
+.PP 
+.SS "void vNepMathCrcUtilCalculate (uint8_t ucWidth, uint32_t ulInitial, uint32_t ulPolynomial, uint32_t ulNumberOfBytes, const uint8_t * pucBuffer, uint32_t * pulCrcValue)"
+
+.PP
+Definition at line 93 of file nepMathCrcUtil\&.c\&.
+.SS "void vNepMathCrcUtilReflectBytes (uint32_t ulNumberOfBytes, const uint8_t * pucBuffer, uint8_t * pucResult)"
+
+.PP
+Definition at line 62 of file nepMathCrcUtil\&.c\&.
+.SS "void vNepMathCrcUtilReflectData (uint8_t ucNumberOfBits, uint32_t ulData, uint32_t * pulResult)"
+
+.PP
+Definition at line 38 of file nepMathCrcUtil\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mpbTime from the source code\&.

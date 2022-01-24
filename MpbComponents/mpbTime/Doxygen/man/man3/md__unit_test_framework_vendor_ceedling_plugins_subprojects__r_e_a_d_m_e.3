@@ -1,0 +1,76 @@
+.TH "md__unit_test_framework_vendor_ceedling_plugins_subprojects__r_e_a_d_m_e" 3 "Thu Nov 18 2021" "mpbTime" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+md__unit_test_framework_vendor_ceedling_plugins_subprojects__r_e_a_d_m_e \- ceedling-subprojects 
+Plugin for supporting subprojects that are built as static libraries\&. It continues to support 
+.br
+ dependency tracking, without getting confused between your main project files and your 
+.br
+ subproject files\&. It accepts different compiler flags and linker flags, allowing you to 
+.br
+ optimize for your situation\&.
+.PP
+First, you're going to want to add the extension to your list of known extensions:
+.PP
+.PP
+.nf
+:extension:
+  :subprojects: '\&.a'
+.fi
+.PP
+.PP
+Define a new section called :subprojects\&. There, you can list as many subprojects 
+.br
+ as you may need under the :paths key\&. For each, you specify a unique place to build 
+.br
+ and a unique name\&.
+.PP
+.PP
+.nf
+:subprojects:  
+  :paths:
+   - :name: libprojectA
+     :source:
+       - \&./subprojectA/first/dir
+       - \&./subprojectA/second/dir
+     :include:
+       - \&./subprojectA/include/dir
+     :build_root: \&./subprojectA/build/dir
+     :defines: 
+       - DEFINE_JUST_FOR_THIS_FILE
+       - AND_ANOTHER
+   - :name: libprojectB
+     :source:
+       - \&./subprojectB/only/dir
+     :include:
+       - \&./subprojectB/first/include/dir
+       - \&./subprojectB/second/include/dir
+     :build_root: \&./subprojectB/build/dir
+     :defines: [] #none for this one
+.fi
+.PP
+.PP
+You can specify the compiler and linker, just as you would a release build:
+.PP
+.PP
+.nf
+:tools:
+  :subprojects_compiler:
+    :executable: gcc
+    :arguments:
+      - -g
+      - -I"$": COLLECTION_PATHS_SUBPROJECTS
+      - -D$: COLLECTION_DEFINES_SUBPROJECTS
+      - -c "${1}"
+      - -o "${2}"
+  :subprojects_linker:
+    :executable: ar
+    :arguments:
+      - rcs
+      - ${2}
+      - ${1}
+.fi
+.PP
+.PP
+That's all there is to it! Happy Hacking! 

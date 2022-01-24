@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="d4/dad/gcov_2_r_e_a_d_m_e_8md" kind="file" language="Markdown">
+    <compoundname>README.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">ceedling-gcov</highlight></codeline>
+<codeline><highlight class="normal">=============</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Plugin<sp/>for<sp/>integrating<sp/>GNU<sp/>GCov<sp/>code<sp/>coverage<sp/>tool<sp/>into<sp/>Ceedling<sp/>projects.</highlight></codeline>
+<codeline><highlight class="normal">Currently<sp/>only<sp/>designed<sp/>for<sp/>the<sp/>gcov<sp/>command<sp/>(like<sp/>LCOV<sp/>for<sp/>example).<sp/>In<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">future<sp/>we<sp/>could<sp/>configure<sp/>this<sp/>to<sp/>work<sp/>with<sp/>other<sp/>code<sp/>coverage<sp/>tools.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">This<sp/>plugin<sp/>currently<sp/>uses<sp/>`gcovr`<sp/>to<sp/>generate<sp/>HTML<sp/>reports<sp/>as<sp/>a<sp/>utility.<sp/>The</highlight></codeline>
+<codeline><highlight class="normal">normal<sp/>gcov<sp/>plugin<sp/>_must_<sp/>be<sp/>run<sp/>first<sp/>for<sp/>this<sp/>report<sp/>to<sp/>generate.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Gcovr<sp/>can<sp/>be<sp/>installed<sp/>via<sp/>pip<sp/>like<sp/>so:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">pip<sp/>install<sp/>gcovr</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">There<sp/>are<sp/>two<sp/>types<sp/>of<sp/>gcovr<sp/>HTML<sp/>reports<sp/>that<sp/>can<sp/>be<sp/>configured<sp/>in<sp/>your</highlight></codeline>
+<codeline><highlight class="normal">`project.yml`.<sp/>To<sp/>create<sp/>a<sp/>basic<sp/>HTML<sp/>report<sp/>with<sp/>only<sp/>the<sp/>overall<sp/>file</highlight></codeline>
+<codeline><highlight class="normal">information<sp/>use<sp/>the<sp/>following<sp/>config.<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">:gcov:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>:html_report_type:<sp/>basic</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">To<sp/>create<sp/>a<sp/>detailed<sp/>HTML<sp/>report<sp/>with<sp/>line<sp/>by<sp/>line<sp/>breakdown<sp/>of<sp/>the<sp/>coverage<sp/>use</highlight></codeline>
+<codeline><highlight class="normal">the<sp/>following<sp/>config.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">:gcov:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>:html_report_type:<sp/>detailed</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">These<sp/>reports<sp/>will<sp/>be<sp/>found<sp/>in<sp/>`build/artifacts/gcov`.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>To-Do<sp/>list</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Generate<sp/>overall<sp/>report<sp/>(combined<sp/>statistics<sp/>from<sp/>all<sp/>files<sp/>with<sp/>coverage)</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Generate<sp/>coverage<sp/>output<sp/>files</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Easier<sp/>option<sp/>override<sp/>for<sp/>better<sp/>customisation<sp/></highlight></codeline>
+    </programlisting>
+    <location file="UnitTestFramework/vendor/ceedling/plugins/gcov/README.md"/>
+  </compounddef>
+</doxygen>

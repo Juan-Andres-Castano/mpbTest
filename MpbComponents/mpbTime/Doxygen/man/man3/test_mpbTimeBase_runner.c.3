@@ -1,0 +1,124 @@
+.TH "UnitTestFramework/build/test/runners/test_mpbTimeBase_runner.c" 3 "Thu Nov 18 2021" "mpbTime" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+UnitTestFramework/build/test/runners/test_mpbTimeBase_runner.c
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'unity\&.h'\fP
+.br
+\fC#include <setjmp\&.h>\fP
+.br
+\fC#include <stdio\&.h>\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBRUN_TEST\fP(TestFunc,  TestLineNum)"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBsetUp\fP (void)"
+.br
+.ti -1c
+.RI "void \fBtearDown\fP (void)"
+.br
+.ti -1c
+.RI "void \fBtest_eMpbTimeBaseInit_InvalidParam_Fail\fP ()"
+.br
+.ti -1c
+.RI "void \fBtest_eMpbTimeBaseInit_Success\fP ()"
+.br
+.ti -1c
+.RI "void \fBresetTest\fP (void)"
+.br
+.ti -1c
+.RI "int \fBmain\fP (void)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "int \fBGlobalExpectCount\fP"
+.br
+.ti -1c
+.RI "int \fBGlobalVerifyOrder\fP"
+.br
+.ti -1c
+.RI "char * \fBGlobalOrderError\fP"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define RUN_TEST(TestFunc, TestLineNum)"
+\fBValue:\fP
+.PP
+.nf
+{ \
+  Unity\&.CurrentTestName = #TestFunc; \
+  Unity\&.CurrentTestLineNumber = TestLineNum; \
+  Unity\&.NumberOfTests++; \
+  if (TEST_PROTECT()) \
+  { \
+      setUp(); \
+      TestFunc(); \
+  } \
+  if (TEST_PROTECT()) \
+  { \
+    tearDown(); \
+  } \
+  UnityConcludeTest(); \
+}
+.fi
+.PP
+Definition at line 4 of file test_mpbTimeBase_runner\&.c\&.
+.SH "Function Documentation"
+.PP 
+.SS "int main (void)"
+
+.PP
+Definition at line 70 of file test_mpbTimeBase_runner\&.c\&.
+.SS "void resetTest (void)"
+
+.PP
+Definition at line 62 of file test_mpbTimeBase_runner\&.c\&.
+.SS "void setUp (void)"
+
+.PP
+Definition at line 31 of file test_mpbTimeBase\&.c\&.
+.SS "void tearDown (void)"
+
+.PP
+Definition at line 36 of file test_mpbTimeBase\&.c\&.
+.SS "void test_eMpbTimeBaseInit_InvalidParam_Fail ()"
+
+.PP
+Definition at line 45 of file test_mpbTimeBase\&.c\&.
+.SS "void test_eMpbTimeBaseInit_Success ()"
+
+.PP
+Definition at line 61 of file test_mpbTimeBase\&.c\&.
+.SH "Variable Documentation"
+.PP 
+.SS "int GlobalExpectCount"
+
+.PP
+Definition at line 31 of file test_mpbTimeBase_runner\&.c\&.
+.SS "char* GlobalOrderError"
+
+.PP
+Definition at line 33 of file test_mpbTimeBase_runner\&.c\&.
+.SS "int GlobalVerifyOrder"
+
+.PP
+Definition at line 32 of file test_mpbTimeBase_runner\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mpbTime from the source code\&.

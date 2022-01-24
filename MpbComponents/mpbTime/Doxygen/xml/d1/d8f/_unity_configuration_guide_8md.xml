@@ -1,0 +1,446 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="d1/d8f/_unity_configuration_guide_8md" kind="file" language="Markdown">
+    <compoundname>UnityConfigurationGuide.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">#<sp/>Unity<sp/>Configuration<sp/>Guide</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>C<sp/>Standards,<sp/>Compilers<sp/>and<sp/>Microcontrollers</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>embedded<sp/>software<sp/>world<sp/>contains<sp/>its<sp/>challenges.<sp/>Compilers<sp/>support<sp/>different</highlight></codeline>
+<codeline><highlight class="normal">revisions<sp/>of<sp/>the<sp/>C<sp/>Standard.<sp/>They<sp/>ignore<sp/>requirements<sp/>in<sp/>places,<sp/>sometimes<sp/>to</highlight></codeline>
+<codeline><highlight class="normal">make<sp/>the<sp/>language<sp/>more<sp/>usable<sp/>in<sp/>some<sp/>special<sp/>regard.<sp/>Sometimes<sp/>it&apos;s<sp/>to<sp/>simplify</highlight></codeline>
+<codeline><highlight class="normal">their<sp/>support.<sp/>Sometimes<sp/>it&apos;s<sp/>due<sp/>to<sp/>specific<sp/>quirks<sp/>of<sp/>the<sp/>microcontroller<sp/>they</highlight></codeline>
+<codeline><highlight class="normal">are<sp/>targeting.<sp/>Simulators<sp/>add<sp/>another<sp/>dimension<sp/>to<sp/>this<sp/>menagerie.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Unity<sp/>is<sp/>designed<sp/>to<sp/>run<sp/>on<sp/>almost<sp/>anything<sp/>that<sp/>is<sp/>targeted<sp/>by<sp/>a<sp/>C<sp/>compiler.<sp/>It</highlight></codeline>
+<codeline><highlight class="normal">would<sp/>be<sp/>awesome<sp/>if<sp/>this<sp/>could<sp/>be<sp/>done<sp/>with<sp/>zero<sp/>configuration.<sp/>While<sp/>there<sp/>are</highlight></codeline>
+<codeline><highlight class="normal">some<sp/>targets<sp/>that<sp/>come<sp/>close<sp/>to<sp/>this<sp/>dream,<sp/>it<sp/>is<sp/>sadly<sp/>not<sp/>universal.<sp/>It<sp/>is</highlight></codeline>
+<codeline><highlight class="normal">likely<sp/>that<sp/>you<sp/>are<sp/>going<sp/>to<sp/>need<sp/>at<sp/>least<sp/>a<sp/>couple<sp/>of<sp/>the<sp/>configuration<sp/>options</highlight></codeline>
+<codeline><highlight class="normal">described<sp/>in<sp/>this<sp/>document.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">All<sp/>of<sp/>Unity&apos;s<sp/>configuration<sp/>options<sp/>are<sp/>`#defines`.<sp/>Most<sp/>of<sp/>these<sp/>are<sp/>simple</highlight></codeline>
+<codeline><highlight class="normal">definitions.<sp/>A<sp/>couple<sp/>are<sp/>macros<sp/>with<sp/>arguments.<sp/>They<sp/>live<sp/>inside<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">unity_internals.h<sp/>header<sp/>file.<sp/>We<sp/>don&apos;t<sp/>necessarily<sp/>recommend<sp/>opening<sp/>that<sp/>file</highlight></codeline>
+<codeline><highlight class="normal">unless<sp/>you<sp/>really<sp/>need<sp/>to.<sp/>That<sp/>file<sp/>is<sp/>proof<sp/>that<sp/>a<sp/>cross-platform<sp/>library<sp/>is</highlight></codeline>
+<codeline><highlight class="normal">challenging<sp/>to<sp/>build.<sp/>From<sp/>a<sp/>more<sp/>positive<sp/>perspective,<sp/>it<sp/>is<sp/>also<sp/>proof<sp/>that<sp/>a</highlight></codeline>
+<codeline><highlight class="normal">great<sp/>deal<sp/>of<sp/>complexity<sp/>can<sp/>be<sp/>centralized<sp/>primarily<sp/>to<sp/>one<sp/>place<sp/>to</highlight></codeline>
+<codeline><highlight class="normal">provide<sp/>a<sp/>more<sp/>consistent<sp/>and<sp/>simple<sp/>experience<sp/>elsewhere.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Using<sp/>These<sp/>Options</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">It<sp/>doesn&apos;t<sp/>matter<sp/>if<sp/>you&apos;re<sp/>using<sp/>a<sp/>target-specific<sp/>compiler<sp/>and<sp/>a<sp/>simulator<sp/>or</highlight></codeline>
+<codeline><highlight class="normal">a<sp/>native<sp/>compiler.<sp/>In<sp/>either<sp/>case,<sp/>you&apos;ve<sp/>got<sp/>a<sp/>couple<sp/>choices<sp/>for<sp/>configuring</highlight></codeline>
+<codeline><highlight class="normal">these<sp/>options:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">1.<sp/>Because<sp/>these<sp/>options<sp/>are<sp/>specified<sp/>via<sp/>C<sp/>defines,<sp/>you<sp/>can<sp/>pass<sp/>most<sp/>of<sp/>these</highlight></codeline>
+<codeline><highlight class="normal">options<sp/>to<sp/>your<sp/>compiler<sp/>through<sp/>command<sp/>line<sp/>compiler<sp/>flags.<sp/>Even<sp/>if<sp/>you&apos;re</highlight></codeline>
+<codeline><highlight class="normal">using<sp/>an<sp/>embedded<sp/>target<sp/>that<sp/>forces<sp/>you<sp/>to<sp/>use<sp/>their<sp/>overbearing<sp/>IDE<sp/>for<sp/>all</highlight></codeline>
+<codeline><highlight class="normal">configuration,<sp/>there<sp/>will<sp/>be<sp/>a<sp/>place<sp/>somewhere<sp/>in<sp/>your<sp/>project<sp/>to<sp/>configure</highlight></codeline>
+<codeline><highlight class="normal">defines<sp/>for<sp/>your<sp/>compiler.</highlight></codeline>
+<codeline><highlight class="normal">2.<sp/>You<sp/>can<sp/>create<sp/>a<sp/>custom<sp/>`unity_config.h`<sp/>configuration<sp/>file<sp/>(present<sp/>in<sp/>your</highlight></codeline>
+<codeline><highlight class="normal">toolchain&apos;s<sp/>search<sp/>paths).<sp/>In<sp/>this<sp/>file,<sp/>you<sp/>will<sp/>list<sp/>definitions<sp/>and<sp/>macros</highlight></codeline>
+<codeline><highlight class="normal">specific<sp/>to<sp/>your<sp/>target.<sp/>All<sp/>you<sp/>must<sp/>do<sp/>is<sp/>define<sp/>`UNITY_INCLUDE_CONFIG_H`<sp/>and</highlight></codeline>
+<codeline><highlight class="normal">Unity<sp/>will<sp/>rely<sp/>on<sp/>`unity_config.h`<sp/>for<sp/>any<sp/>further<sp/>definitions<sp/>it<sp/>may<sp/>need.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>The<sp/>Options</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Integer<sp/>Types</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">If<sp/>you&apos;ve<sp/>been<sp/>a<sp/>C<sp/>developer<sp/>for<sp/>long,<sp/>you<sp/>probably<sp/>already<sp/>know<sp/>that<sp/>C&apos;s</highlight></codeline>
+<codeline><highlight class="normal">concept<sp/>of<sp/>an<sp/>integer<sp/>varies<sp/>from<sp/>target<sp/>to<sp/>target.<sp/>The<sp/>C<sp/>Standard<sp/>has<sp/>rules</highlight></codeline>
+<codeline><highlight class="normal">about<sp/>the<sp/>`int`<sp/>matching<sp/>the<sp/>register<sp/>size<sp/>of<sp/>the<sp/>target<sp/>microprocessor.<sp/>It<sp/>has</highlight></codeline>
+<codeline><highlight class="normal">rules<sp/>about<sp/>the<sp/>`int`<sp/>and<sp/>how<sp/>its<sp/>size<sp/>relates<sp/>to<sp/>other<sp/>integer<sp/>types.<sp/>An<sp/>`int`</highlight></codeline>
+<codeline><highlight class="normal">on<sp/>one<sp/>target<sp/>might<sp/>be<sp/>16<sp/>bits<sp/>while<sp/>on<sp/>another<sp/>target<sp/>it<sp/>might<sp/>be<sp/>64.<sp/>There<sp/>are</highlight></codeline>
+<codeline><highlight class="normal">more<sp/>specific<sp/>types<sp/>in<sp/>compilers<sp/>compliant<sp/>with<sp/>C99<sp/>or<sp/>later,<sp/>but<sp/>that&apos;s</highlight></codeline>
+<codeline><highlight class="normal">certainly<sp/>not<sp/>every<sp/>compiler<sp/>you<sp/>are<sp/>likely<sp/>to<sp/>encounter.<sp/>Therefore,<sp/>Unity<sp/>has<sp/>a</highlight></codeline>
+<codeline><highlight class="normal">number<sp/>of<sp/>features<sp/>for<sp/>helping<sp/>to<sp/>adjust<sp/>itself<sp/>to<sp/>match<sp/>your<sp/>required<sp/>integer</highlight></codeline>
+<codeline><highlight class="normal">sizes.<sp/>It<sp/>starts<sp/>off<sp/>by<sp/>trying<sp/>to<sp/>do<sp/>it<sp/>automatically.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`UNITY_EXCLUDE_STDINT_H`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>first<sp/>thing<sp/>that<sp/>Unity<sp/>does<sp/>to<sp/>guess<sp/>your<sp/>types<sp/>is<sp/>check<sp/>`stdint.h`.</highlight></codeline>
+<codeline><highlight class="normal">This<sp/>file<sp/>includes<sp/>defines<sp/>like<sp/>`UINT_MAX`<sp/>that<sp/>Unity<sp/>can<sp/>use<sp/>to</highlight></codeline>
+<codeline><highlight class="normal">learn<sp/>a<sp/>lot<sp/>about<sp/>your<sp/>system.<sp/>It&apos;s<sp/>possible<sp/>you<sp/>don&apos;t<sp/>want<sp/>it<sp/>to<sp/>do<sp/>this</highlight></codeline>
+<codeline><highlight class="normal">(um.<sp/>why<sp/>not?)<sp/>or<sp/>(more<sp/>likely)<sp/>it&apos;s<sp/>possible<sp/>that<sp/>your<sp/>system<sp/>doesn&apos;t</highlight></codeline>
+<codeline><highlight class="normal">support<sp/>`stdint.h`.<sp/>If<sp/>that&apos;s<sp/>the<sp/>case,<sp/>you&apos;re<sp/>going<sp/>to<sp/>want<sp/>to<sp/>define<sp/>this.</highlight></codeline>
+<codeline><highlight class="normal">That<sp/>way,<sp/>Unity<sp/>will<sp/>know<sp/>to<sp/>skip<sp/>the<sp/>inclusion<sp/>of<sp/>this<sp/>file<sp/>and<sp/>you<sp/>won&apos;t</highlight></codeline>
+<codeline><highlight class="normal">be<sp/>left<sp/>with<sp/>a<sp/>compiler<sp/>error.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">_Example:_</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#define<sp/>UNITY_EXCLUDE_STDINT_H</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`UNITY_EXCLUDE_LIMITS_H`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>second<sp/>attempt<sp/>to<sp/>guess<sp/>your<sp/>types<sp/>is<sp/>to<sp/>check<sp/>`limits.h`.<sp/>Some<sp/>compilers</highlight></codeline>
+<codeline><highlight class="normal">that<sp/>don&apos;t<sp/>support<sp/>`stdint.h`<sp/>could<sp/>include<sp/>`limits.h`<sp/>instead.<sp/>If<sp/>you<sp/>don&apos;t</highlight></codeline>
+<codeline><highlight class="normal">want<sp/>Unity<sp/>to<sp/>check<sp/>this<sp/>file<sp/>either,<sp/>define<sp/>this<sp/>to<sp/>make<sp/>it<sp/>skip<sp/>the<sp/>inclusion.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">_Example:_</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#define<sp/>UNITY_EXCLUDE_LIMITS_H</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">If<sp/>you&apos;ve<sp/>disabled<sp/>both<sp/>of<sp/>the<sp/>automatic<sp/>options<sp/>above,<sp/>you&apos;re<sp/>going<sp/>to<sp/>have<sp/>to</highlight></codeline>
+<codeline><highlight class="normal">do<sp/>the<sp/>configuration<sp/>yourself.<sp/>Don&apos;t<sp/>worry.<sp/>Even<sp/>this<sp/>isn&apos;t<sp/>too<sp/>bad...<sp/>there<sp/>are</highlight></codeline>
+<codeline><highlight class="normal">just<sp/>a<sp/>handful<sp/>of<sp/>defines<sp/>that<sp/>you<sp/>are<sp/>going<sp/>to<sp/>specify<sp/>if<sp/>you<sp/>don&apos;t<sp/>like<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">defaults.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`UNITY_INT_WIDTH`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Define<sp/>this<sp/>to<sp/>be<sp/>the<sp/>number<sp/>of<sp/>bits<sp/>an<sp/>`int`<sp/>takes<sp/>up<sp/>on<sp/>your<sp/>system.<sp/>The</highlight></codeline>
+<codeline><highlight class="normal">default,<sp/>if<sp/>not<sp/>autodetected,<sp/>is<sp/>32<sp/>bits.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">_Example:_</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#define<sp/>UNITY_INT_WIDTH<sp/>16</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`UNITY_LONG_WIDTH`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Define<sp/>this<sp/>to<sp/>be<sp/>the<sp/>number<sp/>of<sp/>bits<sp/>a<sp/>`long`<sp/>takes<sp/>up<sp/>on<sp/>your<sp/>system.<sp/>The</highlight></codeline>
+<codeline><highlight class="normal">default,<sp/>if<sp/>not<sp/>autodetected,<sp/>is<sp/>32<sp/>bits.<sp/>This<sp/>is<sp/>used<sp/>to<sp/>figure<sp/>out<sp/>what<sp/>kind</highlight></codeline>
+<codeline><highlight class="normal">of<sp/>64-bit<sp/>support<sp/>your<sp/>system<sp/>can<sp/>handle.<sp/>Does<sp/>it<sp/>need<sp/>to<sp/>specify<sp/>a<sp/>`long`<sp/>or<sp/>a</highlight></codeline>
+<codeline><highlight class="normal">`long<sp/>long`<sp/>to<sp/>get<sp/>a<sp/>64-bit<sp/>value.<sp/>On<sp/>16-bit<sp/>systems,<sp/>this<sp/>option<sp/>is<sp/>going<sp/>to<sp/>be</highlight></codeline>
+<codeline><highlight class="normal">ignored.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">_Example:_</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#define<sp/>UNITY_LONG_WIDTH<sp/>16</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`UNITY_POINTER_WIDTH`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Define<sp/>this<sp/>to<sp/>be<sp/>the<sp/>number<sp/>of<sp/>bits<sp/>a<sp/>pointer<sp/>takes<sp/>up<sp/>on<sp/>your<sp/>system.<sp/>The</highlight></codeline>
+<codeline><highlight class="normal">default,<sp/>if<sp/>not<sp/>autodetected,<sp/>is<sp/>32-bits.<sp/>If<sp/>you&apos;re<sp/>getting<sp/>ugly<sp/>compiler</highlight></codeline>
+<codeline><highlight class="normal">warnings<sp/>about<sp/>casting<sp/>from<sp/>pointers,<sp/>this<sp/>is<sp/>the<sp/>one<sp/>to<sp/>look<sp/>at.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">_Example:_</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#define<sp/>UNITY_POINTER_WIDTH<sp/>64</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`UNITY_SUPPORT_64`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Unity<sp/>will<sp/>automatically<sp/>include<sp/>64-bit<sp/>support<sp/>if<sp/>it<sp/>auto-detects<sp/>it,<sp/>or<sp/>if</highlight></codeline>
+<codeline><highlight class="normal">your<sp/>`int`,<sp/>`long`,<sp/>or<sp/>pointer<sp/>widths<sp/>are<sp/>greater<sp/>than<sp/>32-bits.<sp/>Define<sp/>this<sp/>to</highlight></codeline>
+<codeline><highlight class="normal">enable<sp/>64-bit<sp/>support<sp/>if<sp/>none<sp/>of<sp/>the<sp/>other<sp/>options<sp/>already<sp/>did<sp/>it<sp/>for<sp/>you.<sp/>There</highlight></codeline>
+<codeline><highlight class="normal">can<sp/>be<sp/>a<sp/>significant<sp/>size<sp/>and<sp/>speed<sp/>impact<sp/>to<sp/>enabling<sp/>64-bit<sp/>support<sp/>on<sp/>small</highlight></codeline>
+<codeline><highlight class="normal">targets,<sp/>so<sp/>don&apos;t<sp/>define<sp/>it<sp/>if<sp/>you<sp/>don&apos;t<sp/>need<sp/>it.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">_Example:_</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#define<sp/>UNITY_SUPPORT_64</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Floating<sp/>Point<sp/>Types</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">In<sp/>the<sp/>embedded<sp/>world,<sp/>it&apos;s<sp/>not<sp/>uncommon<sp/>for<sp/>targets<sp/>to<sp/>have<sp/>no<sp/>support<sp/>for</highlight></codeline>
+<codeline><highlight class="normal">floating<sp/>point<sp/>operations<sp/>at<sp/>all<sp/>or<sp/>to<sp/>have<sp/>support<sp/>that<sp/>is<sp/>limited<sp/>to<sp/>only</highlight></codeline>
+<codeline><highlight class="normal">single<sp/>precision.<sp/>We<sp/>are<sp/>able<sp/>to<sp/>guess<sp/>integer<sp/>sizes<sp/>on<sp/>the<sp/>fly<sp/>because<sp/>integers</highlight></codeline>
+<codeline><highlight class="normal">are<sp/>always<sp/>available<sp/>in<sp/>at<sp/>least<sp/>one<sp/>size.<sp/>Floating<sp/>point,<sp/>on<sp/>the<sp/>other<sp/>hand,<sp/>is</highlight></codeline>
+<codeline><highlight class="normal">sometimes<sp/>not<sp/>available<sp/>at<sp/>all.<sp/>Trying<sp/>to<sp/>include<sp/>`float.h`<sp/>on<sp/>these<sp/>platforms</highlight></codeline>
+<codeline><highlight class="normal">would<sp/>result<sp/>in<sp/>an<sp/>error.<sp/>This<sp/>leaves<sp/>manual<sp/>configuration<sp/>as<sp/>the<sp/>only<sp/>option.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`UNITY_INCLUDE_FLOAT`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`UNITY_EXCLUDE_FLOAT`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`UNITY_INCLUDE_DOUBLE`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`UNITY_EXCLUDE_DOUBLE`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">By<sp/>default,<sp/>Unity<sp/>guesses<sp/>that<sp/>you<sp/>will<sp/>want<sp/>single<sp/>precision<sp/>floating<sp/>point</highlight></codeline>
+<codeline><highlight class="normal">support,<sp/>but<sp/>not<sp/>double<sp/>precision.<sp/>It&apos;s<sp/>easy<sp/>to<sp/>change<sp/>either<sp/>of<sp/>these<sp/>using<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">include<sp/>and<sp/>exclude<sp/>options<sp/>here.<sp/>You<sp/>may<sp/>include<sp/>neither,<sp/>either,<sp/>or<sp/>both,<sp/>as</highlight></codeline>
+<codeline><highlight class="normal">suits<sp/>your<sp/>needs.<sp/>For<sp/>features<sp/>that<sp/>are<sp/>enabled,<sp/>the<sp/>following<sp/>floating<sp/>point</highlight></codeline>
+<codeline><highlight class="normal">options<sp/>also<sp/>become<sp/>available.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">_Example:_</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//what<sp/>manner<sp/>of<sp/>strange<sp/>processor<sp/>is<sp/>this?</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#define<sp/>UNITY_EXCLUDE_FLOAT</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#define<sp/>UNITY_INCLUDE_DOUBLE</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`UNITY_EXCLUDE_FLOAT_PRINT`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Unity<sp/>aims<sp/>for<sp/>as<sp/>small<sp/>of<sp/>a<sp/>footprint<sp/>as<sp/>possible<sp/>and<sp/>avoids<sp/>most<sp/>standard</highlight></codeline>
+<codeline><highlight class="normal">library<sp/>calls<sp/>(some<sp/>embedded<sp/>platforms<sp/>don’t<sp/>have<sp/>a<sp/>standard<sp/>library!).<sp/>Because</highlight></codeline>
+<codeline><highlight class="normal">of<sp/>this,<sp/>its<sp/>routines<sp/>for<sp/>printing<sp/>integer<sp/>values<sp/>are<sp/>minimalist<sp/>and<sp/>hand-coded.</highlight></codeline>
+<codeline><highlight class="normal">Therefore,<sp/>the<sp/>display<sp/>of<sp/>floating<sp/>point<sp/>values<sp/>during<sp/>a<sp/>failure<sp/>are<sp/>optional.</highlight></codeline>
+<codeline><highlight class="normal">By<sp/>default,<sp/>Unity<sp/>will<sp/>print<sp/>the<sp/>actual<sp/>results<sp/>of<sp/>floating<sp/>point<sp/>assertion</highlight></codeline>
+<codeline><highlight class="normal">failure<sp/>(e.g.<sp/>”Expected<sp/>4.56<sp/>Was<sp/>4.68”).<sp/>To<sp/>not<sp/>include<sp/>this<sp/>extra<sp/>support,<sp/>you</highlight></codeline>
+<codeline><highlight class="normal">can<sp/>use<sp/>this<sp/>define<sp/>to<sp/>instead<sp/>respond<sp/>to<sp/>a<sp/>failed<sp/>assertion<sp/>with<sp/>a<sp/>message<sp/>like</highlight></codeline>
+<codeline><highlight class="normal">”Values<sp/>Not<sp/>Within<sp/>Delta”.<sp/>If<sp/>you<sp/>would<sp/>like<sp/>verbose<sp/>failure<sp/>messages<sp/>for<sp/>floating</highlight></codeline>
+<codeline><highlight class="normal">point<sp/>assertions,<sp/>use<sp/>these<sp/>options<sp/>to<sp/>give<sp/>more<sp/>explicit<sp/>failure<sp/>messages.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">_Example:_</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#define<sp/>UNITY_EXCLUDE_FLOAT_PRINT</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`UNITY_FLOAT_TYPE`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">If<sp/>enabled,<sp/>Unity<sp/>assumes<sp/>you<sp/>want<sp/>your<sp/>`FLOAT`<sp/>asserts<sp/>to<sp/>compare<sp/>standard<sp/>C</highlight></codeline>
+<codeline><highlight class="normal">floats.<sp/>If<sp/>your<sp/>compiler<sp/>supports<sp/>a<sp/>specialty<sp/>floating<sp/>point<sp/>type,<sp/>you<sp/>can</highlight></codeline>
+<codeline><highlight class="normal">always<sp/>override<sp/>this<sp/>behavior<sp/>by<sp/>using<sp/>this<sp/>definition.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">_Example:_</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#define<sp/>UNITY_FLOAT_TYPE<sp/>float16_t</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`UNITY_DOUBLE_TYPE`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">If<sp/>enabled,<sp/>Unity<sp/>assumes<sp/>you<sp/>want<sp/>your<sp/>`DOUBLE`<sp/>asserts<sp/>to<sp/>compare<sp/>standard<sp/>C</highlight></codeline>
+<codeline><highlight class="normal">doubles.<sp/>If<sp/>you<sp/>would<sp/>like<sp/>to<sp/>change<sp/>this,<sp/>you<sp/>can<sp/>specify<sp/>something<sp/>else<sp/>by</highlight></codeline>
+<codeline><highlight class="normal">using<sp/>this<sp/>option.<sp/>For<sp/>example,<sp/>defining<sp/>`UNITY_DOUBLE_TYPE`<sp/>to<sp/>`long<sp/>double`</highlight></codeline>
+<codeline><highlight class="normal">could<sp/>enable<sp/>gargantuan<sp/>floating<sp/>point<sp/>types<sp/>on<sp/>your<sp/>64-bit<sp/>processor<sp/>instead<sp/>of</highlight></codeline>
+<codeline><highlight class="normal">the<sp/>standard<sp/>`double`.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">_Example:_</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#define<sp/>UNITY_DOUBLE_TYPE<sp/>long<sp/>double</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`UNITY_FLOAT_PRECISION`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`UNITY_DOUBLE_PRECISION`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">If<sp/>you<sp/>look<sp/>up<sp/>`UNITY_ASSERT_EQUAL_FLOAT`<sp/>and<sp/>`UNITY_ASSERT_EQUAL_DOUBLE`<sp/>as</highlight></codeline>
+<codeline><highlight class="normal">documented<sp/>in<sp/>the<sp/>big<sp/>daddy<sp/>Unity<sp/>Assertion<sp/>Guide,<sp/>you<sp/>will<sp/>learn<sp/>that<sp/>they<sp/>are</highlight></codeline>
+<codeline><highlight class="normal">not<sp/>really<sp/>asserting<sp/>that<sp/>two<sp/>values<sp/>are<sp/>equal<sp/>but<sp/>rather<sp/>that<sp/>two<sp/>values<sp/>are</highlight></codeline>
+<codeline><highlight class="normal">&quot;close<sp/>enough&quot;<sp/>to<sp/>equal.<sp/>&quot;Close<sp/>enough&quot;<sp/>is<sp/>controlled<sp/>by<sp/>these<sp/>precision</highlight></codeline>
+<codeline><highlight class="normal">configuration<sp/>options.<sp/>If<sp/>you<sp/>are<sp/>working<sp/>with<sp/>32-bit<sp/>floats<sp/>and/or<sp/>64-bit</highlight></codeline>
+<codeline><highlight class="normal">doubles<sp/>(the<sp/>normal<sp/>on<sp/>most<sp/>processors),<sp/>you<sp/>should<sp/>have<sp/>no<sp/>need<sp/>to<sp/>change<sp/>these</highlight></codeline>
+<codeline><highlight class="normal">options.<sp/>They<sp/>are<sp/>both<sp/>set<sp/>to<sp/>give<sp/>you<sp/>approximately<sp/>1<sp/>significant<sp/>bit<sp/>in<sp/>either</highlight></codeline>
+<codeline><highlight class="normal">direction.<sp/>The<sp/>float<sp/>precision<sp/>is<sp/>0.00001<sp/>while<sp/>the<sp/>double<sp/>is<sp/>10-12.</highlight></codeline>
+<codeline><highlight class="normal">For<sp/>further<sp/>details<sp/>on<sp/>how<sp/>this<sp/>works,<sp/>see<sp/>the<sp/>appendix<sp/>of<sp/>the<sp/>Unity<sp/>Assertion</highlight></codeline>
+<codeline><highlight class="normal">Guide.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">_Example:_</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#define<sp/>UNITY_FLOAT_PRECISION<sp/>0.001f</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Toolset<sp/>Customization</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">In<sp/>addition<sp/>to<sp/>the<sp/>options<sp/>listed<sp/>above,<sp/>there<sp/>are<sp/>a<sp/>number<sp/>of<sp/>other<sp/>options</highlight></codeline>
+<codeline><highlight class="normal">which<sp/>will<sp/>come<sp/>in<sp/>handy<sp/>to<sp/>customize<sp/>Unity&apos;s<sp/>behavior<sp/>for<sp/>your<sp/>specific</highlight></codeline>
+<codeline><highlight class="normal">toolchain.<sp/>It<sp/>is<sp/>possible<sp/>that<sp/>you<sp/>may<sp/>not<sp/>need<sp/>to<sp/>touch<sp/>any<sp/>of<sp/>these...<sp/>but</highlight></codeline>
+<codeline><highlight class="normal">certain<sp/>platforms,<sp/>particularly<sp/>those<sp/>running<sp/>in<sp/>simulators,<sp/>may<sp/>need<sp/>to<sp/>jump</highlight></codeline>
+<codeline><highlight class="normal">through<sp/>extra<sp/>hoops<sp/>to<sp/>run<sp/>properly.<sp/>These<sp/>macros<sp/>will<sp/>help<sp/>in<sp/>those</highlight></codeline>
+<codeline><highlight class="normal">situations.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`UNITY_OUTPUT_CHAR(a)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`UNITY_OUTPUT_FLUSH()`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`UNITY_OUTPUT_START()`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`UNITY_OUTPUT_COMPLETE()`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">By<sp/>default,<sp/>Unity<sp/>prints<sp/>its<sp/>results<sp/>to<sp/>`stdout`<sp/>as<sp/>it<sp/>runs.<sp/>This<sp/>works</highlight></codeline>
+<codeline><highlight class="normal">perfectly<sp/>fine<sp/>in<sp/>most<sp/>situations<sp/>where<sp/>you<sp/>are<sp/>using<sp/>a<sp/>native<sp/>compiler<sp/>for</highlight></codeline>
+<codeline><highlight class="normal">testing.<sp/>It<sp/>works<sp/>on<sp/>some<sp/>simulators<sp/>as<sp/>well<sp/>so<sp/>long<sp/>as<sp/>they<sp/>have<sp/>`stdout`</highlight></codeline>
+<codeline><highlight class="normal">routed<sp/>back<sp/>to<sp/>the<sp/>command<sp/>line.<sp/>There<sp/>are<sp/>times,<sp/>however,<sp/>where<sp/>the<sp/>simulator</highlight></codeline>
+<codeline><highlight class="normal">will<sp/>lack<sp/>support<sp/>for<sp/>dumping<sp/>results<sp/>or<sp/>you<sp/>will<sp/>want<sp/>to<sp/>route<sp/>results</highlight></codeline>
+<codeline><highlight class="normal">elsewhere<sp/>for<sp/>other<sp/>reasons.<sp/>In<sp/>these<sp/>cases,<sp/>you<sp/>should<sp/>define<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">`UNITY_OUTPUT_CHAR`<sp/>macro.<sp/>This<sp/>macro<sp/>accepts<sp/>a<sp/>single<sp/>character<sp/>at<sp/>a<sp/>time<sp/>(as</highlight></codeline>
+<codeline><highlight class="normal">an<sp/>`int`,<sp/>since<sp/>this<sp/>is<sp/>the<sp/>parameter<sp/>type<sp/>of<sp/>the<sp/>standard<sp/>C<sp/>`putchar`<sp/>function</highlight></codeline>
+<codeline><highlight class="normal">most<sp/>commonly<sp/>used).<sp/>You<sp/>may<sp/>replace<sp/>this<sp/>with<sp/>whatever<sp/>function<sp/>call<sp/>you<sp/>like.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">_Example:_</highlight></codeline>
+<codeline><highlight class="normal">Say<sp/>you<sp/>are<sp/>forced<sp/>to<sp/>run<sp/>your<sp/>test<sp/>suite<sp/>on<sp/>an<sp/>embedded<sp/>processor<sp/>with<sp/>no</highlight></codeline>
+<codeline><highlight class="normal">`stdout`<sp/>option.<sp/>You<sp/>decide<sp/>to<sp/>route<sp/>your<sp/>test<sp/>result<sp/>output<sp/>to<sp/>a<sp/>custom<sp/>serial</highlight></codeline>
+<codeline><highlight class="normal">`RS232_putc()`<sp/>function<sp/>you<sp/>wrote<sp/>like<sp/>thus:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#include<sp/>&quot;RS232_header.h&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>...</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#define<sp/>UNITY_OUTPUT_CHAR(a)<sp/>RS232_putc(a)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#define<sp/>UNITY_OUTPUT_START()<sp/>RS232_config(115200,1,8,0)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#define<sp/>UNITY_OUTPUT_FLUSH()<sp/>RS232_flush()</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#define<sp/>UNITY_OUTPUT_COMPLETE()<sp/>RS232_close()</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">_Note:_</highlight></codeline>
+<codeline><highlight class="normal">`UNITY_OUTPUT_FLUSH()`<sp/>can<sp/>be<sp/>set<sp/>to<sp/>the<sp/>standard<sp/>out<sp/>flush<sp/>function<sp/>simply<sp/>by</highlight></codeline>
+<codeline><highlight class="normal">specifying<sp/>`UNITY_USE_FLUSH_STDOUT`.<sp/>No<sp/>other<sp/>defines<sp/>are<sp/>required.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`UNITY_WEAK_ATTRIBUTE`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`UNITY_WEAK_PRAGMA`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`UNITY_NO_WEAK`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">For<sp/>some<sp/>targets,<sp/>Unity<sp/>can<sp/>make<sp/>the<sp/>otherwise<sp/>required<sp/>setUp()<sp/>and<sp/>tearDown()</highlight></codeline>
+<codeline><highlight class="normal">functions<sp/>optional.<sp/>This<sp/>is<sp/>a<sp/>nice<sp/>convenience<sp/>for<sp/>test<sp/>writers<sp/>since<sp/>setUp<sp/>and</highlight></codeline>
+<codeline><highlight class="normal">tearDown<sp/>don’t<sp/>often<sp/>actually<sp/>do<sp/>anything.<sp/>If<sp/>you’re<sp/>using<sp/>gcc<sp/>or<sp/>clang,<sp/>this</highlight></codeline>
+<codeline><highlight class="normal">option<sp/>is<sp/>automatically<sp/>defined<sp/>for<sp/>you.<sp/>Other<sp/>compilers<sp/>can<sp/>also<sp/>support<sp/>this</highlight></codeline>
+<codeline><highlight class="normal">behavior,<sp/>if<sp/>they<sp/>support<sp/>a<sp/>C<sp/>feature<sp/>called<sp/>weak<sp/>functions.<sp/>A<sp/>weak<sp/>function<sp/>is</highlight></codeline>
+<codeline><highlight class="normal">a<sp/>function<sp/>that<sp/>is<sp/>compiled<sp/>into<sp/>your<sp/>executable<sp/>unless<sp/>a<sp/>non-weak<sp/>version<sp/>of</highlight></codeline>
+<codeline><highlight class="normal">the<sp/>same<sp/>function<sp/>is<sp/>defined<sp/>elsewhere.<sp/>If<sp/>a<sp/>non-weak<sp/>version<sp/>is<sp/>found,<sp/>the<sp/>weak</highlight></codeline>
+<codeline><highlight class="normal">version<sp/>is<sp/>ignored<sp/>as<sp/>if<sp/>it<sp/>never<sp/>existed.<sp/>If<sp/>your<sp/>compiler<sp/>supports<sp/>this<sp/>feature,</highlight></codeline>
+<codeline><highlight class="normal">you<sp/>can<sp/>let<sp/>Unity<sp/>know<sp/>by<sp/>defining<sp/>UNITY_WEAK_ATTRIBUTE<sp/>or<sp/>UNITY_WEAK_PRAGMA<sp/>as</highlight></codeline>
+<codeline><highlight class="normal">the<sp/>function<sp/>attributes<sp/>that<sp/>would<sp/>need<sp/>to<sp/>be<sp/>applied<sp/>to<sp/>identify<sp/>a<sp/>function<sp/>as</highlight></codeline>
+<codeline><highlight class="normal">weak.<sp/>If<sp/>your<sp/>compiler<sp/>lacks<sp/>support<sp/>for<sp/>weak<sp/>functions,<sp/>you<sp/>will<sp/>always<sp/>need<sp/>to</highlight></codeline>
+<codeline><highlight class="normal">define<sp/>setUp<sp/>and<sp/>tearDown<sp/>functions<sp/>(though<sp/>they<sp/>can<sp/>be<sp/>and<sp/>often<sp/>will<sp/>be<sp/>just</highlight></codeline>
+<codeline><highlight class="normal">empty).<sp/>You<sp/>can<sp/>also<sp/>force<sp/>Unity<sp/>to<sp/>NOT<sp/>use<sp/>weak<sp/>functions<sp/>by<sp/>defining</highlight></codeline>
+<codeline><highlight class="normal">UNITY_NO_WEAK.<sp/>The<sp/>most<sp/>common<sp/>options<sp/>for<sp/>this<sp/>feature<sp/>are:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">_Example:_</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#define<sp/>UNITY_WEAK_ATTRIBUTE<sp/>weak</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#define<sp/>UNITY_WEAK_ATTRIBUTE<sp/>__attribute__((weak))</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#define<sp/>UNITY_WEAK_PRAGMA</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#define<sp/>UNITY_NO_WEAK</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`UNITY_PTR_ATTRIBUTE`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Some<sp/>compilers<sp/>require<sp/>a<sp/>custom<sp/>attribute<sp/>to<sp/>be<sp/>assigned<sp/>to<sp/>pointers,<sp/>like</highlight></codeline>
+<codeline><highlight class="normal">`near`<sp/>or<sp/>`far`.<sp/>In<sp/>these<sp/>cases,<sp/>you<sp/>can<sp/>give<sp/>Unity<sp/>a<sp/>safe<sp/>default<sp/>for<sp/>these<sp/>by</highlight></codeline>
+<codeline><highlight class="normal">defining<sp/>this<sp/>option<sp/>with<sp/>the<sp/>attribute<sp/>you<sp/>would<sp/>like.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">_Example:_</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#define<sp/>UNITY_PTR_ATTRIBUTE<sp/>__attribute__((far))</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#define<sp/>UNITY_PTR_ATTRIBUTE<sp/>near</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`UNITY_PRINT_EOL`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">By<sp/>default,<sp/>Unity<sp/>outputs<sp/>\n<sp/>at<sp/>the<sp/>end<sp/>of<sp/>each<sp/>line<sp/>of<sp/>output.<sp/>This<sp/>is<sp/>easy</highlight></codeline>
+<codeline><highlight class="normal">to<sp/>parse<sp/>by<sp/>the<sp/>scripts,<sp/>by<sp/>Ceedling,<sp/>etc,<sp/>but<sp/>it<sp/>might<sp/>not<sp/>be<sp/>ideal<sp/>for<sp/>YOUR</highlight></codeline>
+<codeline><highlight class="normal">system.<sp/>Feel<sp/>free<sp/>to<sp/>override<sp/>this<sp/>and<sp/>to<sp/>make<sp/>it<sp/>whatever<sp/>you<sp/>wish.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">_Example:_</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#define<sp/>UNITY_PRINT_EOL<sp/>{<sp/>UNITY_OUTPUT_CHAR(&apos;\r&apos;);<sp/>UNITY_OUTPUT_CHAR(&apos;\n&apos;)<sp/>}</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`UNITY_EXCLUDE_DETAILS`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">This<sp/>is<sp/>an<sp/>option<sp/>for<sp/>if<sp/>you<sp/>absolutely<sp/>must<sp/>squeeze<sp/>every<sp/>byte<sp/>of<sp/>memory<sp/>out<sp/>of</highlight></codeline>
+<codeline><highlight class="normal">your<sp/>system.<sp/>Unity<sp/>stores<sp/>a<sp/>set<sp/>of<sp/>internal<sp/>scratchpads<sp/>which<sp/>are<sp/>used<sp/>to<sp/>pass</highlight></codeline>
+<codeline><highlight class="normal">extra<sp/>detail<sp/>information<sp/>around.<sp/>It&apos;s<sp/>used<sp/>by<sp/>systems<sp/>like<sp/>CMock<sp/>in<sp/>order<sp/>to</highlight></codeline>
+<codeline><highlight class="normal">report<sp/>which<sp/>function<sp/>or<sp/>argument<sp/>flagged<sp/>an<sp/>error.<sp/>If<sp/>you&apos;re<sp/>not<sp/>using<sp/>CMock<sp/>and</highlight></codeline>
+<codeline><highlight class="normal">you&apos;re<sp/>not<sp/>using<sp/>these<sp/>details<sp/>for<sp/>other<sp/>things,<sp/>then<sp/>you<sp/>can<sp/>exclude<sp/>them.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">_Example:_</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#define<sp/>UNITY_EXCLUDE_DETAILS</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`UNITY_EXCLUDE_SETJMP`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">If<sp/>your<sp/>embedded<sp/>system<sp/>doesn&apos;t<sp/>support<sp/>the<sp/>standard<sp/>library<sp/>setjmp,<sp/>you<sp/>can</highlight></codeline>
+<codeline><highlight class="normal">exclude<sp/>Unity&apos;s<sp/>reliance<sp/>on<sp/>this<sp/>by<sp/>using<sp/>this<sp/>define.<sp/>This<sp/>dropped<sp/>dependence</highlight></codeline>
+<codeline><highlight class="normal">comes<sp/>at<sp/>a<sp/>price,<sp/>though.<sp/>You<sp/>will<sp/>be<sp/>unable<sp/>to<sp/>use<sp/>custom<sp/>helper<sp/>functions<sp/>for</highlight></codeline>
+<codeline><highlight class="normal">your<sp/>tests,<sp/>and<sp/>you<sp/>will<sp/>be<sp/>unable<sp/>to<sp/>use<sp/>tools<sp/>like<sp/>CMock.<sp/>Very<sp/>likely,<sp/>if<sp/>your</highlight></codeline>
+<codeline><highlight class="normal">compiler<sp/>doesn&apos;t<sp/>support<sp/>setjmp,<sp/>you<sp/>wouldn&apos;t<sp/>have<sp/>had<sp/>the<sp/>memory<sp/>space<sp/>for<sp/>those</highlight></codeline>
+<codeline><highlight class="normal">things<sp/>anyway,<sp/>though...<sp/>so<sp/>this<sp/>option<sp/>exists<sp/>for<sp/>those<sp/>situations.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">_Example:_</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#define<sp/>UNITY_EXCLUDE_SETJMP</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`UNITY_OUTPUT_COLOR`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">If<sp/>you<sp/>want<sp/>to<sp/>add<sp/>color<sp/>using<sp/>ANSI<sp/>escape<sp/>codes<sp/>you<sp/>can<sp/>use<sp/>this<sp/>define.</highlight></codeline>
+<codeline><highlight class="normal">t</highlight></codeline>
+<codeline><highlight class="normal">_Example:_</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#define<sp/>UNITY_OUTPUT_COLOR</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Getting<sp/>Into<sp/>The<sp/>Guts</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">There<sp/>will<sp/>be<sp/>cases<sp/>where<sp/>the<sp/>options<sp/>above<sp/>aren&apos;t<sp/>quite<sp/>going<sp/>to<sp/>get<sp/>everything</highlight></codeline>
+<codeline><highlight class="normal">perfect.<sp/>They<sp/>are<sp/>likely<sp/>sufficient<sp/>for<sp/>any<sp/>situation<sp/>where<sp/>you<sp/>are<sp/>compiling</highlight></codeline>
+<codeline><highlight class="normal">and<sp/>executing<sp/>your<sp/>tests<sp/>with<sp/>a<sp/>native<sp/>toolchain<sp/>(e.g.<sp/>clang<sp/>on<sp/>Mac).<sp/>These</highlight></codeline>
+<codeline><highlight class="normal">options<sp/>may<sp/>even<sp/>get<sp/>you<sp/>through<sp/>the<sp/>majority<sp/>of<sp/>cases<sp/>encountered<sp/>in<sp/>working</highlight></codeline>
+<codeline><highlight class="normal">with<sp/>a<sp/>target<sp/>simulator<sp/>run<sp/>from<sp/>your<sp/>local<sp/>command<sp/>line.<sp/>But<sp/>especially<sp/>if<sp/>you</highlight></codeline>
+<codeline><highlight class="normal">must<sp/>run<sp/>your<sp/>test<sp/>suite<sp/>on<sp/>your<sp/>target<sp/>hardware,<sp/>your<sp/>Unity<sp/>configuration<sp/>will</highlight></codeline>
+<codeline><highlight class="normal">require<sp/>special<sp/>help.<sp/>This<sp/>special<sp/>help<sp/>will<sp/>usually<sp/>reside<sp/>in<sp/>one<sp/>of<sp/>two</highlight></codeline>
+<codeline><highlight class="normal">places:<sp/>the<sp/>`main()`<sp/>function<sp/>or<sp/>the<sp/>`RUN_TEST`<sp/>macro.<sp/>Let&apos;s<sp/>look<sp/>at<sp/>how<sp/>these</highlight></codeline>
+<codeline><highlight class="normal">work.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`main()`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Each<sp/>test<sp/>module<sp/>is<sp/>compiled<sp/>and<sp/>run<sp/>on<sp/>its<sp/>own,<sp/>separate<sp/>from<sp/>the<sp/>other<sp/>test</highlight></codeline>
+<codeline><highlight class="normal">files<sp/>in<sp/>your<sp/>project.<sp/>Each<sp/>test<sp/>file,<sp/>therefore,<sp/>has<sp/>a<sp/>`main`<sp/>function.<sp/>This</highlight></codeline>
+<codeline><highlight class="normal">`main`<sp/>function<sp/>will<sp/>need<sp/>to<sp/>contain<sp/>whatever<sp/>code<sp/>is<sp/>necessary<sp/>to<sp/>initialize</highlight></codeline>
+<codeline><highlight class="normal">your<sp/>system<sp/>to<sp/>a<sp/>workable<sp/>state.<sp/>This<sp/>is<sp/>particularly<sp/>true<sp/>for<sp/>situations<sp/>where</highlight></codeline>
+<codeline><highlight class="normal">you<sp/>must<sp/>set<sp/>up<sp/>a<sp/>memory<sp/>map<sp/>or<sp/>initialize<sp/>a<sp/>communication<sp/>channel<sp/>for<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">output<sp/>of<sp/>your<sp/>test<sp/>results.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">A<sp/>simple<sp/>main<sp/>function<sp/>looks<sp/>something<sp/>like<sp/>this:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int<sp/>main(void)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>UNITY_BEGIN();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>RUN_TEST(test_TheFirst);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>RUN_TEST(test_TheSecond);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>RUN_TEST(test_TheThird);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>UNITY_END();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">You<sp/>can<sp/>see<sp/>that<sp/>our<sp/>main<sp/>function<sp/>doesn&apos;t<sp/>bother<sp/>taking<sp/>any<sp/>arguments.<sp/>For<sp/>our</highlight></codeline>
+<codeline><highlight class="normal">most<sp/>barebones<sp/>case,<sp/>we&apos;ll<sp/>never<sp/>have<sp/>arguments<sp/>because<sp/>we<sp/>just<sp/>run<sp/>all<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">tests<sp/>each<sp/>time.<sp/>Instead,<sp/>we<sp/>start<sp/>by<sp/>calling<sp/>`UNITY_BEGIN`.<sp/>We<sp/>run<sp/>each<sp/>test</highlight></codeline>
+<codeline><highlight class="normal">(in<sp/>whatever<sp/>order<sp/>we<sp/>wish).<sp/>Finally,<sp/>we<sp/>call<sp/>`UNITY_END`,<sp/>returning<sp/>its<sp/>return</highlight></codeline>
+<codeline><highlight class="normal">value<sp/>(which<sp/>is<sp/>the<sp/>total<sp/>number<sp/>of<sp/>failures).</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">It<sp/>should<sp/>be<sp/>easy<sp/>to<sp/>see<sp/>that<sp/>you<sp/>can<sp/>add<sp/>code<sp/>before<sp/>any<sp/>test<sp/>cases<sp/>are<sp/>run<sp/>or</highlight></codeline>
+<codeline><highlight class="normal">after<sp/>all<sp/>the<sp/>test<sp/>cases<sp/>have<sp/>completed.<sp/>This<sp/>allows<sp/>you<sp/>to<sp/>do<sp/>any<sp/>needed</highlight></codeline>
+<codeline><highlight class="normal">system-wide<sp/>setup<sp/>or<sp/>teardown<sp/>that<sp/>might<sp/>be<sp/>required<sp/>for<sp/>your<sp/>special</highlight></codeline>
+<codeline><highlight class="normal">circumstances.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`RUN_TEST`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>`RUN_TEST`<sp/>macro<sp/>is<sp/>called<sp/>with<sp/>each<sp/>test<sp/>case<sp/>function.<sp/>Its<sp/>job<sp/>is<sp/>to</highlight></codeline>
+<codeline><highlight class="normal">perform<sp/>whatever<sp/>setup<sp/>and<sp/>teardown<sp/>is<sp/>necessary<sp/>for<sp/>executing<sp/>a<sp/>single<sp/>test</highlight></codeline>
+<codeline><highlight class="normal">case<sp/>function.<sp/>This<sp/>includes<sp/>catching<sp/>failures,<sp/>calling<sp/>the<sp/>test<sp/>module&apos;s</highlight></codeline>
+<codeline><highlight class="normal">`setUp()`<sp/>and<sp/>`tearDown()`<sp/>functions,<sp/>and<sp/>calling<sp/>`UnityConcludeTest()`.<sp/>If</highlight></codeline>
+<codeline><highlight class="normal">using<sp/>CMock<sp/>or<sp/>test<sp/>coverage,<sp/>there<sp/>will<sp/>be<sp/>additional<sp/>stubs<sp/>in<sp/>use<sp/>here.<sp/>A</highlight></codeline>
+<codeline><highlight class="normal">simple<sp/>minimalist<sp/>RUN_TEST<sp/>macro<sp/>looks<sp/>something<sp/>like<sp/>this:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#define<sp/>RUN_TEST(testfunc)<sp/>\</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>UNITY_NEW_TEST(#testfunc)<sp/>\</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(TEST_PROTECT())<sp/>{<sp/>\</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>setUp();<sp/>\</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>testfunc();<sp/>\</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/>\</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(TEST_PROTECT()<sp/>&amp;&amp;<sp/>(!TEST_IS_IGNORED))<sp/>\</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tearDown();<sp/>\</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>UnityConcludeTest();</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">So<sp/>that&apos;s<sp/>quite<sp/>a<sp/>macro,<sp/>huh?<sp/>It<sp/>gives<sp/>you<sp/>a<sp/>glimpse<sp/>of<sp/>what<sp/>kind<sp/>of<sp/>stuff<sp/>Unity</highlight></codeline>
+<codeline><highlight class="normal">has<sp/>to<sp/>deal<sp/>with<sp/>for<sp/>every<sp/>single<sp/>test<sp/>case.<sp/>For<sp/>each<sp/>test<sp/>case,<sp/>we<sp/>declare<sp/>that</highlight></codeline>
+<codeline><highlight class="normal">it<sp/>is<sp/>a<sp/>new<sp/>test.<sp/>Then<sp/>we<sp/>run<sp/>`setUp`<sp/>and<sp/>our<sp/>test<sp/>function.<sp/>These<sp/>are<sp/>run</highlight></codeline>
+<codeline><highlight class="normal">within<sp/>a<sp/>`TEST_PROTECT`<sp/>block,<sp/>the<sp/>function<sp/>of<sp/>which<sp/>is<sp/>to<sp/>handle<sp/>failures<sp/>that</highlight></codeline>
+<codeline><highlight class="normal">occur<sp/>during<sp/>the<sp/>test.<sp/>Then,<sp/>assuming<sp/>our<sp/>test<sp/>is<sp/>still<sp/>running<sp/>and<sp/>hasn&apos;t<sp/>been</highlight></codeline>
+<codeline><highlight class="normal">ignored,<sp/>we<sp/>run<sp/>`tearDown`.<sp/>No<sp/>matter<sp/>what,<sp/>our<sp/>last<sp/>step<sp/>is<sp/>to<sp/>conclude<sp/>this</highlight></codeline>
+<codeline><highlight class="normal">test<sp/>before<sp/>moving<sp/>on<sp/>to<sp/>the<sp/>next.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Let&apos;s<sp/>say<sp/>you<sp/>need<sp/>to<sp/>add<sp/>a<sp/>call<sp/>to<sp/>`fsync`<sp/>to<sp/>force<sp/>all<sp/>of<sp/>your<sp/>output<sp/>data<sp/>to</highlight></codeline>
+<codeline><highlight class="normal">flush<sp/>to<sp/>a<sp/>file<sp/>after<sp/>each<sp/>test.<sp/>You<sp/>could<sp/>easily<sp/>insert<sp/>this<sp/>after<sp/>your</highlight></codeline>
+<codeline><highlight class="normal">`UnityConcludeTest`<sp/>call.<sp/>Maybe<sp/>you<sp/>want<sp/>to<sp/>write<sp/>an<sp/>xml<sp/>tag<sp/>before<sp/>and<sp/>after</highlight></codeline>
+<codeline><highlight class="normal">each<sp/>result<sp/>set.<sp/>Again,<sp/>you<sp/>could<sp/>do<sp/>this<sp/>by<sp/>adding<sp/>lines<sp/>to<sp/>this<sp/>macro.<sp/>Updates</highlight></codeline>
+<codeline><highlight class="normal">to<sp/>this<sp/>macro<sp/>are<sp/>for<sp/>the<sp/>occasions<sp/>when<sp/>you<sp/>need<sp/>an<sp/>action<sp/>before<sp/>or<sp/>after</highlight></codeline>
+<codeline><highlight class="normal">every<sp/>single<sp/>test<sp/>case<sp/>throughout<sp/>your<sp/>entire<sp/>suite<sp/>of<sp/>tests.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Happy<sp/>Porting</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>defines<sp/>and<sp/>macros<sp/>in<sp/>this<sp/>guide<sp/>should<sp/>help<sp/>you<sp/>port<sp/>Unity<sp/>to<sp/>just<sp/>about</highlight></codeline>
+<codeline><highlight class="normal">any<sp/>C<sp/>target<sp/>we<sp/>can<sp/>imagine.<sp/>If<sp/>you<sp/>run<sp/>into<sp/>a<sp/>snag<sp/>or<sp/>two,<sp/>don&apos;t<sp/>be<sp/>afraid<sp/>of</highlight></codeline>
+<codeline><highlight class="normal">asking<sp/>for<sp/>help<sp/>on<sp/>the<sp/>forums.<sp/>We<sp/>love<sp/>a<sp/>good<sp/>challenge!</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*Find<sp/>The<sp/>Latest<sp/>of<sp/>This<sp/>And<sp/>More<sp/>at<sp/>[ThrowTheSwitch.org](https://throwtheswitch.org)*</highlight></codeline>
+    </programlisting>
+    <location file="UnitTestFramework/vendor/ceedling/docs/UnityConfigurationGuide.md"/>
+  </compounddef>
+</doxygen>

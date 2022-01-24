@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="d2/d57/zzz_8c" kind="file" language="C++">
+    <compoundname>zzz.c</compoundname>
+    <includes refid="d8/d0d/zzz_8h" local="yes">zzz.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/subfolder/zzz.c</label>
+        <link refid="d2/d57/zzz_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>zzz.h</label>
+        <link refid="d8/d0d/zzz_8h"/>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d8/d0d/zzz_8h" kindref="compound">zzz.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/subfolder/zzz.c"/>
+  </compounddef>
+</doxygen>

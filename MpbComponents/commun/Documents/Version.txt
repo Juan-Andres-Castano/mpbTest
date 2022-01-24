@@ -1,0 +1,16 @@
+LibrairyName: neplibs.h		Version: 1v00		ReleaseDate: 30/10/2019
+--------------------------------------------------------------------------------
+General info: Initial Release
+
+Bug fixed:
+
+Feature added:
+
+Other:
+
+ToDo:
+- Add neplibsconfig.h
+- Complete doxygene comments for all functions
+- Complete commented sections
+- Change eBool_t to bBool_t
+________________________________________________________________________________

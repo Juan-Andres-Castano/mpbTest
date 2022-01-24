@@ -1,0 +1,193 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__c_exception_8h" xml:lang="en-US">
+<title>UnitTestFramework/vendor/ceedling/vendor/c_exception/lib/CException.h File Reference</title>
+<indexterm><primary>UnitTestFramework/vendor/ceedling/vendor/c_exception/lib/CException.h</primary></indexterm>
+<programlisting>#include &lt;setjmp.h&gt;
+</programlisting>Include dependency graph for CException.h:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../d3/d52/_c_exception_8h__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+This graph shows which files directly or indirectly include this file:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../d8/d6a/_c_exception_8h__dep__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Data Structures    </title>
+        <itemizedlist>
+            <listitem><para>struct <link linkend="_struct_c_e_x_c_e_p_t_i_o_n___f_r_a_m_e___t">CEXCEPTION_FRAME_T</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="__c_exception_8h_1a790b697272763115c044058484e6d4c9">CEXCEPTION_NONE</link>   (0x5A5A5A5A)</para>
+</listitem>
+            <listitem><para>#define <link linkend="__c_exception_8h_1a7e58ead8d22f4e915b26fe2a6f0b01bd">CEXCEPTION_NUM_ID</link>   (1)</para>
+</listitem>
+            <listitem><para>#define <link linkend="__c_exception_8h_1aeaa8e2d11e0a484e5d31a7d7a9877dbb">CEXCEPTION_GET_ID</link>   (0)</para>
+</listitem>
+            <listitem><para>#define <link linkend="__c_exception_8h_1a22368ec67c1c48cc2348245f47a02aef">CEXCEPTION_T</link>   unsigned int</para>
+</listitem>
+            <listitem><para>#define <link linkend="__c_exception_8h_1ac8517d98d7874a3e21e35c4e782220c1">CEXCEPTION_NO_CATCH_HANDLER</link>(id)</para>
+</listitem>
+            <listitem><para>#define <link linkend="__c_exception_8h_1a332220934a2ab9688a2c98b8d7b62fe6">CEXCEPTION_HOOK_START_TRY</link></para>
+</listitem>
+            <listitem><para>#define <link linkend="__c_exception_8h_1a8ccb522c97071a1bd26fecbfa0933e69">CEXCEPTION_HOOK_HAPPY_TRY</link></para>
+</listitem>
+            <listitem><para>#define <link linkend="__c_exception_8h_1ab0ddc2a601e933e30a3687a96c9e1f44">CEXCEPTION_HOOK_AFTER_TRY</link></para>
+</listitem>
+            <listitem><para>#define <link linkend="__c_exception_8h_1ab15b5bcc474a6a9fc3eacd75f59ee8d5">CEXCEPTION_HOOK_START_CATCH</link></para>
+</listitem>
+            <listitem><para>#define <link linkend="__c_exception_8h_1a7a2b8ccf41cff483bac8e86ac7feff9b">Try</link></para>
+</listitem>
+            <listitem><para>#define <link linkend="__c_exception_8h_1a27a2d449a9d7e55bc4ef33a7a47d30fb">Catch</link>(e)</para>
+</listitem>
+            <listitem><para>#define <link linkend="__c_exception_8h_1a47ca95dba42990919fee48cf4030a293">ExitTry</link>()   <link linkend="__c_exception_8h_1a74995bac14be4f19ea95ed1ec9d510de">Throw</link>(<link linkend="__c_exception_8h_1a790b697272763115c044058484e6d4c9">CEXCEPTION_NONE</link>)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="__c_exception_8h_1a74995bac14be4f19ea95ed1ec9d510de">Throw</link> (<link linkend="__c_exception_8h_1a22368ec67c1c48cc2348245f47a02aef">CEXCEPTION_T</link> ExceptionID)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para>volatile <link linkend="_struct_c_e_x_c_e_p_t_i_o_n___f_r_a_m_e___t">CEXCEPTION_FRAME_T</link> <link linkend="__c_exception_8h_1a21a27e492a9ba6668d5d5f1bbbb6583d">CExceptionFrames</link> []</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Macro Definition Documentation</title>
+<anchor xml:id="__c_exception_8h_1a27a2d449a9d7e55bc4ef33a7a47d30fb"/>    <section>
+    <title>Catch</title>
+<indexterm><primary>Catch</primary><secondary>CException.h</secondary></indexterm>
+<indexterm><primary>CException.h</primary><secondary>Catch</secondary></indexterm>
+<para><computeroutput>#define Catch( e)</computeroutput></para><emphasis role="strong">Value:</emphasis><programlisting>&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;{&#32;}&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;CExceptionFrames[MY_ID].Exception&#32;=&#32;<link linkend="__c_exception_8h_1a790b697272763115c044058484e6d4c9">CEXCEPTION_NONE</link>;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;CEXCEPTION_HOOK_HAPPY_TRY;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;else&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;e&#32;=&#32;<link linkend="__c_exception_8h_1a21a27e492a9ba6668d5d5f1bbbb6583d">CExceptionFrames</link>[MY_ID].<link linkend="_struct_c_e_x_c_e_p_t_i_o_n___f_r_a_m_e___t_1abeb797ff7f3b1485681f20e07553ea2c">Exception</link>;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;(void)e;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;CEXCEPTION_HOOK_START_CATCH;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;CExceptionFrames[MY_ID].pFrame&#32;=&#32;PrevFrame;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;CEXCEPTION_HOOK_AFTER_TRY;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;}&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;if&#32;(<link linkend="__c_exception_8h_1a21a27e492a9ba6668d5d5f1bbbb6583d">CExceptionFrames</link>[<link linkend="__c_exception_8h_1aeaa8e2d11e0a484e5d31a7d7a9877dbb">CEXCEPTION_GET_ID</link>].Exception&#32;!=&#32;<link linkend="__c_exception_8h_1a790b697272763115c044058484e6d4c9">CEXCEPTION_NONE</link>)
+</programlisting><para>
+Definition at line 83 of file CException.h.</para>
+    </section><anchor xml:id="__c_exception_8h_1aeaa8e2d11e0a484e5d31a7d7a9877dbb"/>    <section>
+    <title>CEXCEPTION_GET_ID</title>
+<indexterm><primary>CEXCEPTION_GET_ID</primary><secondary>CException.h</secondary></indexterm>
+<indexterm><primary>CException.h</primary><secondary>CEXCEPTION_GET_ID</secondary></indexterm>
+<para><computeroutput>#define CEXCEPTION_GET_ID   (0)</computeroutput></para><para>
+Definition at line 34 of file CException.h.</para>
+    </section><anchor xml:id="__c_exception_8h_1ab0ddc2a601e933e30a3687a96c9e1f44"/>    <section>
+    <title>CEXCEPTION_HOOK_AFTER_TRY</title>
+<indexterm><primary>CEXCEPTION_HOOK_AFTER_TRY</primary><secondary>CException.h</secondary></indexterm>
+<indexterm><primary>CException.h</primary><secondary>CEXCEPTION_HOOK_AFTER_TRY</secondary></indexterm>
+<para><computeroutput>#define CEXCEPTION_HOOK_AFTER_TRY</computeroutput></para><para>
+Definition at line 55 of file CException.h.</para>
+    </section><anchor xml:id="__c_exception_8h_1a8ccb522c97071a1bd26fecbfa0933e69"/>    <section>
+    <title>CEXCEPTION_HOOK_HAPPY_TRY</title>
+<indexterm><primary>CEXCEPTION_HOOK_HAPPY_TRY</primary><secondary>CException.h</secondary></indexterm>
+<indexterm><primary>CException.h</primary><secondary>CEXCEPTION_HOOK_HAPPY_TRY</secondary></indexterm>
+<para><computeroutput>#define CEXCEPTION_HOOK_HAPPY_TRY</computeroutput></para><para>
+Definition at line 52 of file CException.h.</para>
+    </section><anchor xml:id="__c_exception_8h_1ab15b5bcc474a6a9fc3eacd75f59ee8d5"/>    <section>
+    <title>CEXCEPTION_HOOK_START_CATCH</title>
+<indexterm><primary>CEXCEPTION_HOOK_START_CATCH</primary><secondary>CException.h</secondary></indexterm>
+<indexterm><primary>CException.h</primary><secondary>CEXCEPTION_HOOK_START_CATCH</secondary></indexterm>
+<para><computeroutput>#define CEXCEPTION_HOOK_START_CATCH</computeroutput></para><para>
+Definition at line 58 of file CException.h.</para>
+    </section><anchor xml:id="__c_exception_8h_1a332220934a2ab9688a2c98b8d7b62fe6"/>    <section>
+    <title>CEXCEPTION_HOOK_START_TRY</title>
+<indexterm><primary>CEXCEPTION_HOOK_START_TRY</primary><secondary>CException.h</secondary></indexterm>
+<indexterm><primary>CException.h</primary><secondary>CEXCEPTION_HOOK_START_TRY</secondary></indexterm>
+<para><computeroutput>#define CEXCEPTION_HOOK_START_TRY</computeroutput></para><para>
+Definition at line 49 of file CException.h.</para>
+    </section><anchor xml:id="__c_exception_8h_1ac8517d98d7874a3e21e35c4e782220c1"/>    <section>
+    <title>CEXCEPTION_NO_CATCH_HANDLER</title>
+<indexterm><primary>CEXCEPTION_NO_CATCH_HANDLER</primary><secondary>CException.h</secondary></indexterm>
+<indexterm><primary>CException.h</primary><secondary>CEXCEPTION_NO_CATCH_HANDLER</secondary></indexterm>
+<para><computeroutput>#define CEXCEPTION_NO_CATCH_HANDLER( id)</computeroutput></para><para>
+Definition at line 44 of file CException.h.</para>
+    </section><anchor xml:id="__c_exception_8h_1a790b697272763115c044058484e6d4c9"/>    <section>
+    <title>CEXCEPTION_NONE</title>
+<indexterm><primary>CEXCEPTION_NONE</primary><secondary>CException.h</secondary></indexterm>
+<indexterm><primary>CException.h</primary><secondary>CEXCEPTION_NONE</secondary></indexterm>
+<para><computeroutput>#define CEXCEPTION_NONE   (0x5A5A5A5A)</computeroutput></para><para>
+Definition at line 24 of file CException.h.</para>
+    </section><anchor xml:id="__c_exception_8h_1a7e58ead8d22f4e915b26fe2a6f0b01bd"/>    <section>
+    <title>CEXCEPTION_NUM_ID</title>
+<indexterm><primary>CEXCEPTION_NUM_ID</primary><secondary>CException.h</secondary></indexterm>
+<indexterm><primary>CException.h</primary><secondary>CEXCEPTION_NUM_ID</secondary></indexterm>
+<para><computeroutput>#define CEXCEPTION_NUM_ID   (1)</computeroutput></para><para>
+Definition at line 29 of file CException.h.</para>
+    </section><anchor xml:id="__c_exception_8h_1a22368ec67c1c48cc2348245f47a02aef"/>    <section>
+    <title>CEXCEPTION_T</title>
+<indexterm><primary>CEXCEPTION_T</primary><secondary>CException.h</secondary></indexterm>
+<indexterm><primary>CException.h</primary><secondary>CEXCEPTION_T</secondary></indexterm>
+<para><computeroutput>#define CEXCEPTION_T   unsigned int</computeroutput></para><para>
+Definition at line 39 of file CException.h.</para>
+    </section><anchor xml:id="__c_exception_8h_1a47ca95dba42990919fee48cf4030a293"/>    <section>
+    <title>ExitTry</title>
+<indexterm><primary>ExitTry</primary><secondary>CException.h</secondary></indexterm>
+<indexterm><primary>CException.h</primary><secondary>ExitTry</secondary></indexterm>
+<para><computeroutput>#define ExitTry( )   <link linkend="__c_exception_8h_1a74995bac14be4f19ea95ed1ec9d510de">Throw</link>(<link linkend="__c_exception_8h_1a790b697272763115c044058484e6d4c9">CEXCEPTION_NONE</link>)</computeroutput></para><para>
+Definition at line 103 of file CException.h.</para>
+    </section><anchor xml:id="__c_exception_8h_1a7a2b8ccf41cff483bac8e86ac7feff9b"/>    <section>
+    <title>Try</title>
+<indexterm><primary>Try</primary><secondary>CException.h</secondary></indexterm>
+<indexterm><primary>CException.h</primary><secondary>Try</secondary></indexterm>
+<para><computeroutput>#define Try</computeroutput></para><emphasis role="strong">Value:</emphasis><programlisting>&#32;&#32;&#32;&#32;{&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;jmp_buf&#32;*PrevFrame,&#32;NewFrame;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;unsigned&#32;<emphasis role="keywordtype">int</emphasis>&#32;MY_ID&#32;=&#32;<link linkend="__c_exception_8h_1aeaa8e2d11e0a484e5d31a7d7a9877dbb">CEXCEPTION_GET_ID</link>;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;PrevFrame&#32;=&#32;<link linkend="__c_exception_8h_1a21a27e492a9ba6668d5d5f1bbbb6583d">CExceptionFrames</link>[MY_ID].<link linkend="_struct_c_e_x_c_e_p_t_i_o_n___f_r_a_m_e___t_1adc84d64557dcd23d94b8f246862037b1">pFrame</link>;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;CExceptionFrames[MY_ID].pFrame&#32;=&#32;(jmp_buf*)(&amp;NewFrame);&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;CExceptionFrames[MY_ID].Exception&#32;=&#32;<link linkend="__c_exception_8h_1a790b697272763115c044058484e6d4c9">CEXCEPTION_NONE</link>;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;CEXCEPTION_HOOK_START_TRY;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;if&#32;(setjmp(NewFrame)&#32;==&#32;0)&#32;{&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;if&#32;(1)
+</programlisting><para>
+Definition at line 71 of file CException.h.</para>
+</section>
+</section>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="__c_exception_8h_1a74995bac14be4f19ea95ed1ec9d510de"/>    <section>
+    <title>Throw()</title>
+<indexterm><primary>Throw</primary><secondary>CException.h</secondary></indexterm>
+<indexterm><primary>CException.h</primary><secondary>Throw</secondary></indexterm>
+<para><computeroutput>void Throw (<link linkend="__c_exception_8h_1a22368ec67c1c48cc2348245f47a02aef">CEXCEPTION_T</link> ExceptionID)</computeroutput></para><para>
+Definition at line 11 of file CException.c.</para>
+</section>
+</section>
+<section>
+<title>Variable Documentation</title>
+<anchor xml:id="__c_exception_8h_1a21a27e492a9ba6668d5d5f1bbbb6583d"/>    <section>
+    <title>CExceptionFrames</title>
+<indexterm><primary>CExceptionFrames</primary><secondary>CException.h</secondary></indexterm>
+<indexterm><primary>CException.h</primary><secondary>CExceptionFrames</secondary></indexterm>
+<para><computeroutput>volatile <link linkend="_struct_c_e_x_c_e_p_t_i_o_n___f_r_a_m_e___t">CEXCEPTION_FRAME_T</link> CExceptionFrames[]<computeroutput>[extern]</computeroutput></computeroutput></para><para>
+Definition at line 5 of file CException.c.</para>
+</section>
+</section>
+</section>

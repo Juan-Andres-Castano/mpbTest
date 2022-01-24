@@ -1,0 +1,129 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_test__foo_8c" xml:lang="en-US">
+<title>UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/test/test_foo.c File Reference</title>
+<indexterm><primary>UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/test/test_foo.c</primary></indexterm>
+<programlisting>#include &quot;unity.h&quot;
+#include &quot;foo.h&quot;
+#include &quot;mock_bar.h&quot;
+#include &quot;mock_zzz.h&quot;
+</programlisting>Include dependency graph for test_foo.c:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../d1/d72/test__foo_8c__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_test__foo_8c_1a95c834d6178047ce9e1bce7cbfea2836">setUp</link> (void)</para>
+</listitem>
+            <listitem><para>void <link linkend="_test__foo_8c_1a9909011e5fea0c018842eec4d93d0662">tearDown</link> (void)</para>
+</listitem>
+            <listitem><para>void <link linkend="_test__foo_8c_1af1eeda34d0c7ab1f41b5067320a6fff5">test_foo</link> (void)</para>
+</listitem>
+            <listitem><para>void <link linkend="_test__foo_8c_1adc19021f83dcbc0bd7dbf8b55a91b288">test_foo_again</link> (void)</para>
+</listitem>
+            <listitem><para>void <link linkend="_test__foo_8c_1a3d3abb13a8cff65e39b51e001038ea12">test_foo_mock_with_const</link> (void)</para>
+</listitem>
+            <listitem><para>void <link linkend="_test__foo_8c_1afe52506033d3aab4a08b3e3c4efb27f5">test_foo_mock_with_variable_args</link> (void)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_test__foo_8c_1a95c834d6178047ce9e1bce7cbfea2836"/>    <section>
+    <title>setUp()</title>
+<indexterm><primary>setUp</primary><secondary>test_foo.c</secondary></indexterm>
+<indexterm><primary>test_foo.c</primary><secondary>setUp</secondary></indexterm>
+<para><computeroutput>void setUp (void )</computeroutput></para><para>
+Definition at line 6 of file test_foo.c.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../d6/d36/test__foo_8c_a95c834d6178047ce9e1bce7cbfea2836_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_test__foo_8c_1a9909011e5fea0c018842eec4d93d0662"/>    <section>
+    <title>tearDown()</title>
+<indexterm><primary>tearDown</primary><secondary>test_foo.c</secondary></indexterm>
+<indexterm><primary>test_foo.c</primary><secondary>tearDown</secondary></indexterm>
+<para><computeroutput>void tearDown (void )</computeroutput></para><para>
+Definition at line 10 of file test_foo.c.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../d6/d36/test__foo_8c_a9909011e5fea0c018842eec4d93d0662_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_test__foo_8c_1af1eeda34d0c7ab1f41b5067320a6fff5"/>    <section>
+    <title>test_foo()</title>
+<indexterm><primary>test_foo</primary><secondary>test_foo.c</secondary></indexterm>
+<indexterm><primary>test_foo.c</primary><secondary>test_foo</secondary></indexterm>
+<para><computeroutput>void test_foo (void )</computeroutput></para><para>
+Definition at line 14 of file test_foo.c.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../d6/d36/test__foo_8c_af1eeda34d0c7ab1f41b5067320a6fff5_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_test__foo_8c_1adc19021f83dcbc0bd7dbf8b55a91b288"/>    <section>
+    <title>test_foo_again()</title>
+<indexterm><primary>test_foo_again</primary><secondary>test_foo.c</secondary></indexterm>
+<indexterm><primary>test_foo.c</primary><secondary>test_foo_again</secondary></indexterm>
+<para><computeroutput>void test_foo_again (void )</computeroutput></para><para>
+Definition at line 25 of file test_foo.c.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../d6/d36/test__foo_8c_adc19021f83dcbc0bd7dbf8b55a91b288_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_test__foo_8c_1a3d3abb13a8cff65e39b51e001038ea12"/>    <section>
+    <title>test_foo_mock_with_const()</title>
+<indexterm><primary>test_foo_mock_with_const</primary><secondary>test_foo.c</secondary></indexterm>
+<indexterm><primary>test_foo.c</primary><secondary>test_foo_mock_with_const</secondary></indexterm>
+<para><computeroutput>void test_foo_mock_with_const (void )</computeroutput></para><para>
+Definition at line 34 of file test_foo.c.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../d6/d36/test__foo_8c_a3d3abb13a8cff65e39b51e001038ea12_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_test__foo_8c_1afe52506033d3aab4a08b3e3c4efb27f5"/>    <section>
+    <title>test_foo_mock_with_variable_args()</title>
+<indexterm><primary>test_foo_mock_with_variable_args</primary><secondary>test_foo.c</secondary></indexterm>
+<indexterm><primary>test_foo.c</primary><secondary>test_foo_mock_with_variable_args</secondary></indexterm>
+<para><computeroutput>void test_foo_mock_with_variable_args (void )</computeroutput></para><para>
+Definition at line 42 of file test_foo.c.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../d6/d36/test__foo_8c_afe52506033d3aab4a08b3e3c4efb27f5_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+</section>

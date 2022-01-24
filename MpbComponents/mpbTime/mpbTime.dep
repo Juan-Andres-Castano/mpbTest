@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+    <fileVersion>5</fileVersion>
+    <fileChecksum>461383822</fileChecksum>
+    <configuration>
+        <name>mpbTimeBaseCortexM4</name>
+        <outputs>
+            <file>$TOOLKIT_DIR$\inc\c\ysizet.h</file>
+            <file>$PROJ_DIR$\Documents\Version.txt</file>
+            <file>$TOOLKIT_DIR$\inc\c\DLib_Config_Normal.h</file>
+            <file>$TOOLKIT_DIR$\inc\c\DLib_Defaults.h</file>
+            <file>$TOOLKIT_DIR$\inc\c\stdarg.h</file>
+            <file>$TOOLKIT_DIR$\inc\c\ycheck.h</file>
+            <file>$TOOLKIT_DIR$\inc\c\DLib_Product_string.h</file>
+            <file>$PROJ_DIR$\Includes\mpblibs.h</file>
+            <file>$PROJ_DIR$\mpbTimeBaseCortexM4\Obj\Sources\nepTimeBase.o</file>
+            <file>$PROJ_DIR$\mpbTimeBaseCortexM4\Exe\mpbTimeBaseCortexM4.a</file>
+            <file>$PROJ_DIR$\Sources\nepTimeBase.c</file>
+            <file>$TOOLKIT_DIR$\inc\c\yvals.h</file>
+            <file>$TOOLKIT_DIR$\inc\c\DLib_Product.h</file>
+            <file>$TOOLKIT_DIR$\inc\c\stdlib.h</file>
+            <file>$TOOLKIT_DIR$\inc\c\string.h</file>
+            <file>$TOOLKIT_DIR$\inc\c\aarch32\iccarm_builtin.h</file>
+            <file>$PROJ_DIR$\Sources\mpbTimeBase.c</file>
+            <file>$PROJ_DIR$\mpbTimeBaseCortexM4\Obj\Sources\mpbTimeBase.o</file>
+            <file>$TOOLKIT_DIR$\inc\c\aarch32\iar_intrinsics_common.h</file>
+            <file>$TOOLKIT_DIR$\inc\c\stdint.h</file>
+            <file>$TOOLKIT_DIR$\inc\c\aarch32\intrinsics.h</file>
+            <file>$TOOLKIT_DIR$\inc\c\stddef.h</file>
+            <file>$PROJ_DIR$\Includes\mpbTimeBase.h</file>
+            <file>$TOOLKIT_DIR$\inc\c\DLib_Product_stdlib.h</file>
+        </outputs>
+        <file>
+            <name>$PROJ_DIR$\mpbTimeBaseCortexM4\Exe\mpbTimeBaseCortexM4.a</name>
+            <inputs>
+                <tool>
+                    <name>IARCHIVE</name>
+                    <file> 17</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Sources\nepTimeBase.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 8</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Sources\mpbTimeBase.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 17</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 2 3 12 23 6 18 15 20 4 21 19 13 14 5 0 11 22 7</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>[ROOT_NODE]</name>
+            <outputs>
+                <tool>
+                    <name>IARCHIVE</name>
+                    <file> 9</file>
+                </tool>
+            </outputs>
+        </file>
+        <forcedrebuild>
+            <name>[MULTI_TOOL]</name>
+            <tool>IARCHIVE</tool>
+        </forcedrebuild>
+        <forcedrebuild>
+            <name>[REBUILD_ALL]</name>
+        </forcedrebuild>
+    </configuration>
+    <configuration>
+        <name>mpbtimeBaseCortexM0</name>
+        <outputs>
+            <file>$PROJ_DIR$\mpbtimeBaseCortexM0\Obj\Sources\nepTimeBase.o</file>
+            <file>$PROJ_DIR$\Sources\nepTimeBase.c</file>
+        </outputs>
+        <file>
+            <name>$PROJ_DIR$\Sources\nepTimeBase.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 0</file>
+                </tool>
+            </outputs>
+        </file>
+        <forcedrebuild>
+            <name>[MULTI_TOOL]</name>
+            <tool>IARCHIVE</tool>
+        </forcedrebuild>
+    </configuration>
+</project>

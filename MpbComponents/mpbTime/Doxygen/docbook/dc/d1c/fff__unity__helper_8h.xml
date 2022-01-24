@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_fff__unity__helper_8h" xml:lang="en-US">
+<title>UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/src/fff_unity_helper.h File Reference</title>
+<indexterm><primary>UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/src/fff_unity_helper.h</primary></indexterm>
+<simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="_fff__unity__helper_8h_1a77e70db5c9f2a7482308e7dae59f9182">TEST_ASSERT_CALLED_TIMES</link>(times_,  function_)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_fff__unity__helper_8h_1a700b2bf57333b08698a494792c335bd1">TEST_ASSERT_CALLED</link>(function_)   <link linkend="_fff__unity__helper_8h_1a77e70db5c9f2a7482308e7dae59f9182">TEST_ASSERT_CALLED_TIMES</link>(1, function_)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_fff__unity__helper_8h_1affc90aa528332c5c767fd7bd7542d525">TEST_ASSERT_NOT_CALLED</link>(function_)   <link linkend="_fff__unity__helper_8h_1a77e70db5c9f2a7482308e7dae59f9182">TEST_ASSERT_CALLED_TIMES</link>(0, function_)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_fff__unity__helper_8h_1af21f27d62b55519b5f72bb32724df80d">TEST_ASSERT_CALLED_IN_ORDER</link>(order_,  function_)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Macro Definition Documentation</title>
+<anchor xml:id="_fff__unity__helper_8h_1a700b2bf57333b08698a494792c335bd1"/>    <section>
+    <title>TEST_ASSERT_CALLED</title>
+<indexterm><primary>TEST_ASSERT_CALLED</primary><secondary>fff_unity_helper.h</secondary></indexterm>
+<indexterm><primary>fff_unity_helper.h</primary><secondary>TEST_ASSERT_CALLED</secondary></indexterm>
+<para><computeroutput>#define TEST_ASSERT_CALLED( function_)   <link linkend="_fff__unity__helper_8h_1a77e70db5c9f2a7482308e7dae59f9182">TEST_ASSERT_CALLED_TIMES</link>(1, function_)</computeroutput></para><para>
+Definition at line 18 of file fff_unity_helper.h.</para>
+    </section><anchor xml:id="_fff__unity__helper_8h_1af21f27d62b55519b5f72bb32724df80d"/>    <section>
+    <title>TEST_ASSERT_CALLED_IN_ORDER</title>
+<indexterm><primary>TEST_ASSERT_CALLED_IN_ORDER</primary><secondary>fff_unity_helper.h</secondary></indexterm>
+<indexterm><primary>fff_unity_helper.h</primary><secondary>TEST_ASSERT_CALLED_IN_ORDER</secondary></indexterm>
+<para><computeroutput>#define TEST_ASSERT_CALLED_IN_ORDER( order_,  function_)</computeroutput></para><emphasis role="strong">Value:</emphasis><programlisting>&#32;&#32;&#32;&#32;<link linkend="_unity_8h_1aca40116d00f8dfa406b26a51079f679c">TEST_ASSERT_EQUAL_PTR_MESSAGE</link>((<emphasis role="keywordtype">void</emphasis>&#32;*)&#32;function_,&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;fff.call_history[order_],&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;Function&#32;&quot;</emphasis>&#32;#function_&#32;<emphasis role="stringliteral">&quot;&#32;not&#32;called&#32;in&#32;order&#32;&quot;</emphasis>&#32;#order_&#32;)
+</programlisting><para>
+Definition at line 28 of file fff_unity_helper.h.</para>
+    </section><anchor xml:id="_fff__unity__helper_8h_1a77e70db5c9f2a7482308e7dae59f9182"/>    <section>
+    <title>TEST_ASSERT_CALLED_TIMES</title>
+<indexterm><primary>TEST_ASSERT_CALLED_TIMES</primary><secondary>fff_unity_helper.h</secondary></indexterm>
+<indexterm><primary>fff_unity_helper.h</primary><secondary>TEST_ASSERT_CALLED_TIMES</secondary></indexterm>
+<para><computeroutput>#define TEST_ASSERT_CALLED_TIMES( times_,  function_)</computeroutput></para><emphasis role="strong">Value:</emphasis><programlisting>&#32;&#32;&#32;&#32;<link linkend="_unity_8h_1a967e59fb3e825d8341c41cb954e890c5">TEST_ASSERT_EQUAL_MESSAGE</link>(times_,&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;function_&#32;##&#32;_fake.call_count,&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;Function&#32;&quot;</emphasis>&#32;#function_&#32;<emphasis role="stringliteral">&quot;&#32;called&#32;the&#32;incorrect&#32;number&#32;of&#32;times.&quot;</emphasis>)
+</programlisting><para>
+Definition at line 11 of file fff_unity_helper.h.</para>
+    </section><anchor xml:id="_fff__unity__helper_8h_1affc90aa528332c5c767fd7bd7542d525"/>    <section>
+    <title>TEST_ASSERT_NOT_CALLED</title>
+<indexterm><primary>TEST_ASSERT_NOT_CALLED</primary><secondary>fff_unity_helper.h</secondary></indexterm>
+<indexterm><primary>fff_unity_helper.h</primary><secondary>TEST_ASSERT_NOT_CALLED</secondary></indexterm>
+<para><computeroutput>#define TEST_ASSERT_NOT_CALLED( function_)   <link linkend="_fff__unity__helper_8h_1a77e70db5c9f2a7482308e7dae59f9182">TEST_ASSERT_CALLED_TIMES</link>(0, function_)</computeroutput></para><para>
+Definition at line 23 of file fff_unity_helper.h.</para>
+</section>
+</section>
+</section>

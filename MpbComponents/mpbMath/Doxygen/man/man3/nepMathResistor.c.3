@@ -1,0 +1,128 @@
+.TH "Sources/nepMathResistor.c" 3 "Thu Nov 18 2021" "mpbTime" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Sources/nepMathResistor.c \- Library for equations involving resistors\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'nepMathResistor\&.h'\fP
+.br
+\fC#include 'nepMathDivision\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "eNepError_t \fBeNepMathResistorVoltageDividerGetVout\fP (uint32_t ulPullUpResistor, uint32_t ulPullDownResistor, uint32_t ulInputVoltage, uint32_t *pulOutputVoltage)"
+.br
+.ti -1c
+.RI "eNepError_t \fBeNepMathResistorVoltageDividerGetVin\fP (uint32_t ulPullUpResistor, uint32_t ulPullDownResistor, uint32_t ulOutputVoltage, uint32_t *pulInputVoltage)"
+.br
+.ti -1c
+.RI "eNepError_t \fBeNepMathResistorVoltageDividerGetPullUpResistor\fP (uint32_t ulPullDownResistor, uint32_t ulInputVoltage, uint32_t ulOutputVoltage, uint32_t *pulPullUpResistor)"
+.br
+.ti -1c
+.RI "eNepError_t \fBeNepMathResistorVoltageDividerGetPullDownResistor\fP (uint32_t ulPullUpResistor, uint32_t ulInputVoltage, uint32_t ulOutputVoltage, uint32_t *pulPullDownResistor)"
+.br
+.ti -1c
+.RI "eNepError_t \fBeNepMathResistorFloatVoltageDividerGetVout\fP (uint32_t ulPullUpResistor, uint32_t ulPullDownResistor, float xInputVoltage, float *pxOutputVoltage)"
+.br
+.ti -1c
+.RI "eNepError_t \fBeNepMathResistorFloatVoltageDividerGetVin\fP (uint32_t ulPullUpResistor, uint32_t ulPullDownResistor, float xOutputVoltage, float *pxInputVoltage)"
+.br
+.ti -1c
+.RI "eNepError_t \fBeNepMathResistorFloatVoltageDividerGetPullUpResistor\fP (uint32_t ulPullDownResistor, float xInputVoltage, float xOutputVoltage, uint32_t *pulPullUpResistor)"
+.br
+.ti -1c
+.RI "eNepError_t \fBeNepMathResistorFloatVoltageDividerGetPullDownResistor\fP (uint32_t ulPullUpResistor, float xInputVoltage, float xOutputVoltage, uint32_t *pulPullDownResistor)"
+.br
+.ti -1c
+.RI "eNepError_t \fBeNepMathResistorGetEquivalentInParallel\fP (uint32_t ulResistor1, uint32_t ulResistor2, uint32_t *pulEquivalentResistor)"
+.br
+.ti -1c
+.RI "eNepError_t \fBeNepMathResistorGetResistorInParallel\fP (uint32_t ulEquivalentResistor, uint32_t ulResistor1, uint32_t *pulResistor2)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Library for equations involving resistors\&. 
+
+
+.PP
+\fBAuthor\fP
+.RS 4
+Mikael Plouffe 
+.RE
+.PP
+\fBDate\fP
+.RS 4
+Created on 2019-04-25 
+.RE
+.PP
+\fBNote\fP
+.RS 4
+.RE
+.PP
+\fBCopyright\fP
+.RS 4
+NEP, Montreal, Qc 
+.SS "(C) COPYRIGHT 2015 NEP, Montreal, Quebec, Canada"
+.RE
+.PP
+.SS "(C) All rights reserved\&."
+.PP
+
+.br
+
+.br
+ This document contains confidential and proprietary information of NEPTRONIC (subject to a non-disclosure agreement) and shall not be disclosed, distributed, or reproduced in whole or in part, without the prior written authorization of NEPTRONIC\&. 
+.PP
+Definition in file \fBnepMathResistor\&.c\fP\&.
+.SH "Function Documentation"
+.PP 
+.SS "eNepError_t eNepMathResistorFloatVoltageDividerGetPullDownResistor (uint32_t ulPullUpResistor, float xInputVoltage, float xOutputVoltage, uint32_t * pulPullDownResistor)"
+
+.PP
+Definition at line 129 of file nepMathResistor\&.c\&.
+.SS "eNepError_t eNepMathResistorFloatVoltageDividerGetPullUpResistor (uint32_t ulPullDownResistor, float xInputVoltage, float xOutputVoltage, uint32_t * pulPullUpResistor)"
+
+.PP
+Definition at line 107 of file nepMathResistor\&.c\&.
+.SS "eNepError_t eNepMathResistorFloatVoltageDividerGetVin (uint32_t ulPullUpResistor, uint32_t ulPullDownResistor, float xOutputVoltage, float * pxInputVoltage)"
+
+.PP
+Definition at line 96 of file nepMathResistor\&.c\&.
+.SS "eNepError_t eNepMathResistorFloatVoltageDividerGetVout (uint32_t ulPullUpResistor, uint32_t ulPullDownResistor, float xInputVoltage, float * pxOutputVoltage)"
+
+.PP
+Definition at line 85 of file nepMathResistor\&.c\&.
+.SS "eNepError_t eNepMathResistorGetEquivalentInParallel (uint32_t ulResistor1, uint32_t ulResistor2, uint32_t * pulEquivalentResistor)"
+
+.PP
+Definition at line 150 of file nepMathResistor\&.c\&.
+.SS "eNepError_t eNepMathResistorGetResistorInParallel (uint32_t ulEquivalentResistor, uint32_t ulResistor1, uint32_t * pulResistor2)"
+
+.PP
+Definition at line 161 of file nepMathResistor\&.c\&.
+.SS "eNepError_t eNepMathResistorVoltageDividerGetPullDownResistor (uint32_t ulPullUpResistor, uint32_t ulInputVoltage, uint32_t ulOutputVoltage, uint32_t * pulPullDownResistor)"
+
+.PP
+Definition at line 74 of file nepMathResistor\&.c\&.
+.SS "eNepError_t eNepMathResistorVoltageDividerGetPullUpResistor (uint32_t ulPullDownResistor, uint32_t ulInputVoltage, uint32_t ulOutputVoltage, uint32_t * pulPullUpResistor)"
+
+.PP
+Definition at line 52 of file nepMathResistor\&.c\&.
+.SS "eNepError_t eNepMathResistorVoltageDividerGetVin (uint32_t ulPullUpResistor, uint32_t ulPullDownResistor, uint32_t ulOutputVoltage, uint32_t * pulInputVoltage)"
+
+.PP
+Definition at line 41 of file nepMathResistor\&.c\&.
+.SS "eNepError_t eNepMathResistorVoltageDividerGetVout (uint32_t ulPullUpResistor, uint32_t ulPullDownResistor, uint32_t ulInputVoltage, uint32_t * pulOutputVoltage)"
+
+.PP
+Definition at line 30 of file nepMathResistor\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mpbTime from the source code\&.

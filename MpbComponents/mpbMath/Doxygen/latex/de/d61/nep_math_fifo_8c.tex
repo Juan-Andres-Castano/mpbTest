@@ -1,0 +1,127 @@
+\hypertarget{nep_math_fifo_8c}{}\doxysection{Sources/nep\+Math\+Fifo.c File Reference}
+\label{nep_math_fifo_8c}\index{Sources/nepMathFifo.c@{Sources/nepMathFifo.c}}
+
+
+Provides functions to interface with a FIFO.  
+
+
+{\ttfamily \#include \char`\"{}nep\+Math\+Fifo.\+h\char`\"{}}\newline
+Include dependency graph for nep\+Math\+Fifo.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=197pt]{d5/d33/nep_math_fifo_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+e\+Nep\+Error\+\_\+t \mbox{\hyperlink{nep_math_fifo_8c_ac3f8e66bbdecc61a41280c527009bca6}{e\+Nep\+Math\+Fifo\+Init}} (x\+Nep\+Math\+Fifo\+\_\+t $\ast$px\+Fifo, uint16\+\_\+t us\+Size, void $\ast$pv\+Buf)
+\item 
+e\+Nep\+Error\+\_\+t \mbox{\hyperlink{nep_math_fifo_8c_a8f4d6f21aa6405591eddcf700b81d3ea}{e\+Nep\+Math\+Fifo\+Reset}} (x\+Nep\+Math\+Fifo\+\_\+t $\ast$px\+Fifo)
+\item 
+e\+Nep\+Error\+\_\+t \mbox{\hyperlink{nep_math_fifo_8c_ae5a38b271e8fa7525508454f35ab56d9}{e\+Nep\+Math\+Fifo\+Push}} (x\+Nep\+Math\+Fifo\+\_\+t $\ast$px\+Fifo, const void $\ast$pv\+Data, uint16\+\_\+t us\+Len, e\+Bool\+\_\+t e\+Overwrite)
+\item 
+e\+Nep\+Error\+\_\+t \mbox{\hyperlink{nep_math_fifo_8c_acb1c9138ba4577cfb6939e879ad5ecb5}{e\+Nep\+Math\+Fifo\+Pop}} (x\+Nep\+Math\+Fifo\+\_\+t $\ast$px\+Fifo, void $\ast$pv\+Data, uint16\+\_\+t us\+Len)
+\item 
+e\+Nep\+Error\+\_\+t \mbox{\hyperlink{nep_math_fifo_8c_a84bd5c96fa08284eda5f265abd3f1d49}{e\+Nep\+Math\+Fifo\+Peak}} (x\+Nep\+Math\+Fifo\+\_\+t $\ast$px\+Fifo, void $\ast$pv\+Data, uint16\+\_\+t us\+Len, uint32\+\_\+t $\ast$pul\+Bytes\+Read)
+\item 
+e\+Nep\+Error\+\_\+t \mbox{\hyperlink{nep_math_fifo_8c_a06dbf5eefea242e10021b770eb554258}{e\+Nep\+Math\+Fifo\+Is\+Full}} (x\+Nep\+Math\+Fifo\+\_\+t $\ast$px\+Fifo, e\+Bool\+\_\+t $\ast$pe\+Fifo\+Is\+Full)
+\item 
+e\+Nep\+Error\+\_\+t \mbox{\hyperlink{nep_math_fifo_8c_a37c7b2d0833f30ea336bf6b3e07ce976}{e\+Nep\+Math\+Fifo\+Is\+Empty}} (x\+Nep\+Math\+Fifo\+\_\+t $\ast$px\+Fifo, e\+Bool\+\_\+t $\ast$pe\+Fifo\+Is\+Empty)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides functions to interface with a FIFO. 
+
+\begin{DoxyAuthor}{Author}
+Felix Brousseau-\/\+Vaillancourt 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+Created on 2019-\/04-\/26 
+\end{DoxyDate}
+\begin{DoxyNote}{Note}
+
+\end{DoxyNote}
+\begin{DoxyCopyright}{Copyright}
+NEP, Montreal, Qc \doxysubsubsection*{\begin{center}\copyright{} COPYRIGHT 2015 NEP, Montreal, Quebec, Canada\end{center} }
+\end{DoxyCopyright}
+\doxysubsubsection*{\begin{center}\copyright{} All rights reserved.\end{center} }
+
+~\newline
+~\newline
+ \begin{center}This document contains confidential and proprietary information of NEPTRONIC (subject to a non-\/disclosure agreement) and shall\end{center}  \begin{center}not be disclosed, distributed, or reproduced in whole or in part, without the prior written authorization of NEPTRONIC.\end{center}  
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{nep_math_fifo_8c_ac3f8e66bbdecc61a41280c527009bca6}\label{nep_math_fifo_8c_ac3f8e66bbdecc61a41280c527009bca6}} 
+\index{nepMathFifo.c@{nepMathFifo.c}!eNepMathFifoInit@{eNepMathFifoInit}}
+\index{eNepMathFifoInit@{eNepMathFifoInit}!nepMathFifo.c@{nepMathFifo.c}}
+\doxysubsubsection{\texorpdfstring{eNepMathFifoInit()}{eNepMathFifoInit()}}
+{\footnotesize\ttfamily e\+Nep\+Error\+\_\+t e\+Nep\+Math\+Fifo\+Init (\begin{DoxyParamCaption}\item[{x\+Nep\+Math\+Fifo\+\_\+t $\ast$}]{px\+Fifo,  }\item[{uint16\+\_\+t}]{us\+Size,  }\item[{void $\ast$}]{pv\+Buf }\end{DoxyParamCaption})}
+
+
+
+Definition at line 29 of file nep\+Math\+Fifo.\+c.
+
+\mbox{\Hypertarget{nep_math_fifo_8c_a37c7b2d0833f30ea336bf6b3e07ce976}\label{nep_math_fifo_8c_a37c7b2d0833f30ea336bf6b3e07ce976}} 
+\index{nepMathFifo.c@{nepMathFifo.c}!eNepMathFifoIsEmpty@{eNepMathFifoIsEmpty}}
+\index{eNepMathFifoIsEmpty@{eNepMathFifoIsEmpty}!nepMathFifo.c@{nepMathFifo.c}}
+\doxysubsubsection{\texorpdfstring{eNepMathFifoIsEmpty()}{eNepMathFifoIsEmpty()}}
+{\footnotesize\ttfamily e\+Nep\+Error\+\_\+t e\+Nep\+Math\+Fifo\+Is\+Empty (\begin{DoxyParamCaption}\item[{x\+Nep\+Math\+Fifo\+\_\+t $\ast$}]{px\+Fifo,  }\item[{e\+Bool\+\_\+t $\ast$}]{pe\+Fifo\+Is\+Empty }\end{DoxyParamCaption})}
+
+
+
+Definition at line 218 of file nep\+Math\+Fifo.\+c.
+
+\mbox{\Hypertarget{nep_math_fifo_8c_a06dbf5eefea242e10021b770eb554258}\label{nep_math_fifo_8c_a06dbf5eefea242e10021b770eb554258}} 
+\index{nepMathFifo.c@{nepMathFifo.c}!eNepMathFifoIsFull@{eNepMathFifoIsFull}}
+\index{eNepMathFifoIsFull@{eNepMathFifoIsFull}!nepMathFifo.c@{nepMathFifo.c}}
+\doxysubsubsection{\texorpdfstring{eNepMathFifoIsFull()}{eNepMathFifoIsFull()}}
+{\footnotesize\ttfamily e\+Nep\+Error\+\_\+t e\+Nep\+Math\+Fifo\+Is\+Full (\begin{DoxyParamCaption}\item[{x\+Nep\+Math\+Fifo\+\_\+t $\ast$}]{px\+Fifo,  }\item[{e\+Bool\+\_\+t $\ast$}]{pe\+Fifo\+Is\+Full }\end{DoxyParamCaption})}
+
+
+
+Definition at line 206 of file nep\+Math\+Fifo.\+c.
+
+\mbox{\Hypertarget{nep_math_fifo_8c_a84bd5c96fa08284eda5f265abd3f1d49}\label{nep_math_fifo_8c_a84bd5c96fa08284eda5f265abd3f1d49}} 
+\index{nepMathFifo.c@{nepMathFifo.c}!eNepMathFifoPeak@{eNepMathFifoPeak}}
+\index{eNepMathFifoPeak@{eNepMathFifoPeak}!nepMathFifo.c@{nepMathFifo.c}}
+\doxysubsubsection{\texorpdfstring{eNepMathFifoPeak()}{eNepMathFifoPeak()}}
+{\footnotesize\ttfamily e\+Nep\+Error\+\_\+t e\+Nep\+Math\+Fifo\+Peak (\begin{DoxyParamCaption}\item[{x\+Nep\+Math\+Fifo\+\_\+t $\ast$}]{px\+Fifo,  }\item[{void $\ast$}]{pv\+Data,  }\item[{uint16\+\_\+t}]{us\+Len,  }\item[{uint32\+\_\+t $\ast$}]{pul\+Bytes\+Read }\end{DoxyParamCaption})}
+
+
+
+Definition at line 160 of file nep\+Math\+Fifo.\+c.
+
+\mbox{\Hypertarget{nep_math_fifo_8c_acb1c9138ba4577cfb6939e879ad5ecb5}\label{nep_math_fifo_8c_acb1c9138ba4577cfb6939e879ad5ecb5}} 
+\index{nepMathFifo.c@{nepMathFifo.c}!eNepMathFifoPop@{eNepMathFifoPop}}
+\index{eNepMathFifoPop@{eNepMathFifoPop}!nepMathFifo.c@{nepMathFifo.c}}
+\doxysubsubsection{\texorpdfstring{eNepMathFifoPop()}{eNepMathFifoPop()}}
+{\footnotesize\ttfamily e\+Nep\+Error\+\_\+t e\+Nep\+Math\+Fifo\+Pop (\begin{DoxyParamCaption}\item[{x\+Nep\+Math\+Fifo\+\_\+t $\ast$}]{px\+Fifo,  }\item[{void $\ast$}]{pv\+Data,  }\item[{uint16\+\_\+t}]{us\+Len }\end{DoxyParamCaption})}
+
+
+
+Definition at line 115 of file nep\+Math\+Fifo.\+c.
+
+\mbox{\Hypertarget{nep_math_fifo_8c_ae5a38b271e8fa7525508454f35ab56d9}\label{nep_math_fifo_8c_ae5a38b271e8fa7525508454f35ab56d9}} 
+\index{nepMathFifo.c@{nepMathFifo.c}!eNepMathFifoPush@{eNepMathFifoPush}}
+\index{eNepMathFifoPush@{eNepMathFifoPush}!nepMathFifo.c@{nepMathFifo.c}}
+\doxysubsubsection{\texorpdfstring{eNepMathFifoPush()}{eNepMathFifoPush()}}
+{\footnotesize\ttfamily e\+Nep\+Error\+\_\+t e\+Nep\+Math\+Fifo\+Push (\begin{DoxyParamCaption}\item[{x\+Nep\+Math\+Fifo\+\_\+t $\ast$}]{px\+Fifo,  }\item[{const void $\ast$}]{pv\+Data,  }\item[{uint16\+\_\+t}]{us\+Len,  }\item[{e\+Bool\+\_\+t}]{e\+Overwrite }\end{DoxyParamCaption})}
+
+
+
+Definition at line 61 of file nep\+Math\+Fifo.\+c.
+
+\mbox{\Hypertarget{nep_math_fifo_8c_a8f4d6f21aa6405591eddcf700b81d3ea}\label{nep_math_fifo_8c_a8f4d6f21aa6405591eddcf700b81d3ea}} 
+\index{nepMathFifo.c@{nepMathFifo.c}!eNepMathFifoReset@{eNepMathFifoReset}}
+\index{eNepMathFifoReset@{eNepMathFifoReset}!nepMathFifo.c@{nepMathFifo.c}}
+\doxysubsubsection{\texorpdfstring{eNepMathFifoReset()}{eNepMathFifoReset()}}
+{\footnotesize\ttfamily e\+Nep\+Error\+\_\+t e\+Nep\+Math\+Fifo\+Reset (\begin{DoxyParamCaption}\item[{x\+Nep\+Math\+Fifo\+\_\+t $\ast$}]{px\+Fifo }\end{DoxyParamCaption})}
+
+
+
+Definition at line 46 of file nep\+Math\+Fifo.\+c.
+

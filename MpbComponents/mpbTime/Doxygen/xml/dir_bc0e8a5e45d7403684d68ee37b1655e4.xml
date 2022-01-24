@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="dir_bc0e8a5e45d7403684d68ee37b1655e4" kind="dir">
+    <compoundname>UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/src</compoundname>
+    <innerfile refid="dc/d1c/fff__unity__helper_8h">fff_unity_helper.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/src/"/>
+  </compounddef>
+</doxygen>

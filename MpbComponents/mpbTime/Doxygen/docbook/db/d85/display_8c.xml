@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_display_8c" xml:lang="en-US">
+<title>UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/display.c File Reference</title>
+<indexterm><primary>UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/display.c</primary></indexterm>
+<programlisting>#include &lt;stdio.h&gt;
+#include &quot;display.h&quot;
+</programlisting>Include dependency graph for display.c:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../d2/d9c/display_8c__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_display_8c_1ace29b0b5f6128f04d1800a81a37ad248">display_turnOffStatusLed</link> (void)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_display_8c_1ace29b0b5f6128f04d1800a81a37ad248"/>    <section>
+    <title>display_turnOffStatusLed()</title>
+<indexterm><primary>display_turnOffStatusLed</primary><secondary>display.c</secondary></indexterm>
+<indexterm><primary>display.c</primary><secondary>display_turnOffStatusLed</secondary></indexterm>
+<para><computeroutput>void display_turnOffStatusLed (void )</computeroutput></para><para>
+Definition at line 4 of file display.c.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../db/d85/display_8c_ace29b0b5f6128f04d1800a81a37ad248_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+</section>

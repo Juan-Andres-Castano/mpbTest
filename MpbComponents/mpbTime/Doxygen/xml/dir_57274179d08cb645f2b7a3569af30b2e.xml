@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="dir_57274179d08cb645f2b7a3569af30b2e" kind="dir">
+    <compoundname>UnitTestFramework/vendor/ceedling/vendor/cmock/src</compoundname>
+    <innerfile refid="d0/d6a/cmock_8c">cmock.c</innerfile>
+    <innerfile refid="d8/da1/cmock_8h">cmock.h</innerfile>
+    <innerfile refid="d2/d50/cmock__internals_8h">cmock_internals.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="UnitTestFramework/vendor/ceedling/vendor/cmock/src/"/>
+  </compounddef>
+</doxygen>

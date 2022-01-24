@@ -1,0 +1,17 @@
+LibraryName: mpbTime    Version: V100		ReleaseDate: 3/02/2021
+--------------------------------------------------------------------------------
+General info:
+-Inital Release
+
+Bug fixed:
+
+Feature added:
+
+Other:
+
+Dependencies:
+-mpblibs.h
+
+ToDo:
+
+________________________________________________________________________________

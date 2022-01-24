@@ -1,0 +1,93 @@
+.TH "Sources/nepMathCrc.c" 3 "Thu Nov 18 2021" "mpbTime" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Sources/nepMathCrc.c \- nepMathCrc source file\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'nepMathCrc\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBMASK_32_BITS\fP   ( 0xFFFFFFFF )"
+.br
+.ti -1c
+.RI "#define \fBNUMBER_OF_BITS_IN_INTEGER\fP   ( 32 )"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "eNepError_t \fBeNepMathCrcInit\fP (uint8_t ucWidth, uint32_t ulInitial, uint32_t ulPolynomial, uint32_t ulXorOutput, eBool_t bRefInput, eBool_t bRefOutput, xNepCrc_t *pxNepCrc)"
+.br
+.ti -1c
+.RI "eNepError_t \fBeNepMathCrcValidate\fP (xNepCrc_t xNepCrc, uint32_t ulCrcRead, uint32_t ulNumberOfBytes, const uint8_t *pucBuffer)"
+.br
+.ti -1c
+.RI "eNepError_t \fBeNepMathCrcCalculate\fP (xNepCrc_t xNepCrc, uint32_t ulNumberOfBytes, const uint8_t *pucBuffer, uint32_t *pulCrcValue)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+nepMathCrc source file\&. 
+
+
+.PP
+\fBAuthor\fP
+.RS 4
+Philippe\&.Boulais 
+.RE
+.PP
+\fBDate\fP
+.RS 4
+Created on 2019-11-13\&. 
+.RE
+.PP
+\fBCopyright\fP
+.RS 4
+NEP, Montreal, Qc 
+.SS "(C) COPYRIGHT 2015 NEP, Montreal, Quebec, Canada"
+.RE
+.PP
+.SS "(C) All rights reserved\&."
+.PP
+
+.br
+
+.br
+ This document contains confidential and proprietary information of NEPTRONIC (subject to a non-disclosure agreement) and shall not be disclosed, distributed, or reproduced in whole or in part, without the prior written authorization of NEPTRONIC\&. 
+.PP
+Definition in file \fBnepMathCrc\&.c\fP\&.
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define MASK_32_BITS   ( 0xFFFFFFFF )"
+
+.PP
+Definition at line 22 of file nepMathCrc\&.c\&.
+.SS "#define NUMBER_OF_BITS_IN_INTEGER   ( 32 )"
+
+.PP
+Definition at line 23 of file nepMathCrc\&.c\&.
+.SH "Function Documentation"
+.PP 
+.SS "eNepError_t eNepMathCrcCalculate (xNepCrc_t xNepCrc, uint32_t ulNumberOfBytes, const uint8_t * pucBuffer, uint32_t * pulCrcValue)"
+
+.PP
+Definition at line 108 of file nepMathCrc\&.c\&.
+.SS "eNepError_t eNepMathCrcInit (uint8_t ucWidth, uint32_t ulInitial, uint32_t ulPolynomial, uint32_t ulXorOutput, eBool_t bRefInput, eBool_t bRefOutput, xNepCrc_t * pxNepCrc)"
+
+.PP
+Definition at line 34 of file nepMathCrc\&.c\&.
+.SS "eNepError_t eNepMathCrcValidate (xNepCrc_t xNepCrc, uint32_t ulCrcRead, uint32_t ulNumberOfBytes, const uint8_t * pucBuffer)"
+
+.PP
+Definition at line 51 of file nepMathCrc\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mpbTime from the source code\&.

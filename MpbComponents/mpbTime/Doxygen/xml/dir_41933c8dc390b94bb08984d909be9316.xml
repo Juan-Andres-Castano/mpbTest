@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="dir_41933c8dc390b94bb08984d909be9316" kind="dir">
+    <compoundname>UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/test</compoundname>
+    <innerfile refid="df/da4/test__event__processor_8c">test_event_processor.c</innerfile>
+    <innerfile refid="d6/d36/test__foo_8c">test_foo.c</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/test/"/>
+  </compounddef>
+</doxygen>

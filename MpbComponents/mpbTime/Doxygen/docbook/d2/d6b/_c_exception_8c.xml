@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__c_exception_8c" xml:lang="en-US">
+<title>UnitTestFramework/vendor/ceedling/vendor/c_exception/lib/CException.c File Reference</title>
+<indexterm><primary>UnitTestFramework/vendor/ceedling/vendor/c_exception/lib/CException.c</primary></indexterm>
+<programlisting>#include &quot;CException.h&quot;
+</programlisting>Include dependency graph for CException.c:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../d7/dc3/_c_exception_8c__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="__c_exception_8c_1a74995bac14be4f19ea95ed1ec9d510de">Throw</link> (<link linkend="__c_exception_8h_1a22368ec67c1c48cc2348245f47a02aef">CEXCEPTION_T</link> ExceptionID)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para>volatile <link linkend="_struct_c_e_x_c_e_p_t_i_o_n___f_r_a_m_e___t">CEXCEPTION_FRAME_T</link> <link linkend="__c_exception_8c_1a7dc366c1b6ea1c8aa3ef34475675ad7b">CExceptionFrames</link> [<link linkend="__c_exception_8h_1a7e58ead8d22f4e915b26fe2a6f0b01bd">CEXCEPTION_NUM_ID</link>] = {{ 0 }}</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="__c_exception_8c_1a74995bac14be4f19ea95ed1ec9d510de"/>    <section>
+    <title>Throw()</title>
+<indexterm><primary>Throw</primary><secondary>CException.c</secondary></indexterm>
+<indexterm><primary>CException.c</primary><secondary>Throw</secondary></indexterm>
+<para><computeroutput>void Throw (<link linkend="__c_exception_8h_1a22368ec67c1c48cc2348245f47a02aef">CEXCEPTION_T</link> ExceptionID)</computeroutput></para><para>
+Definition at line 11 of file CException.c.</para>
+</section>
+</section>
+<section>
+<title>Variable Documentation</title>
+<anchor xml:id="__c_exception_8c_1a7dc366c1b6ea1c8aa3ef34475675ad7b"/>    <section>
+    <title>CExceptionFrames</title>
+<indexterm><primary>CExceptionFrames</primary><secondary>CException.c</secondary></indexterm>
+<indexterm><primary>CException.c</primary><secondary>CExceptionFrames</secondary></indexterm>
+<para><computeroutput>volatile <link linkend="_struct_c_e_x_c_e_p_t_i_o_n___f_r_a_m_e___t">CEXCEPTION_FRAME_T</link> CExceptionFrames[<link linkend="__c_exception_8h_1a7e58ead8d22f4e915b26fe2a6f0b01bd">CEXCEPTION_NUM_ID</link>] = {{ 0 }}</computeroutput></para><para>
+Definition at line 5 of file CException.c.</para>
+</section>
+</section>
+</section>

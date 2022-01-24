@@ -1,0 +1,205 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="d5/d63/_unity_getting_started_guide_8md" kind="file" language="Markdown">
+    <compoundname>UnityGettingStartedGuide.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">#<sp/>Unity<sp/>-<sp/>Getting<sp/>Started</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Welcome</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Congratulations.<sp/>You&apos;re<sp/>now<sp/>the<sp/>proud<sp/>owner<sp/>of<sp/>your<sp/>very<sp/>own<sp/>pile<sp/>of<sp/>bits!<sp/>What</highlight></codeline>
+<codeline><highlight class="normal">are<sp/>you<sp/>going<sp/>to<sp/>do<sp/>with<sp/>all<sp/>these<sp/>ones<sp/>and<sp/>zeros?<sp/>This<sp/>document<sp/>should<sp/>be<sp/>able</highlight></codeline>
+<codeline><highlight class="normal">to<sp/>help<sp/>you<sp/>decide<sp/>just<sp/>that.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Unity<sp/>is<sp/>a<sp/>unit<sp/>test<sp/>framework.<sp/>The<sp/>goal<sp/>has<sp/>been<sp/>to<sp/>keep<sp/>it<sp/>small<sp/>and</highlight></codeline>
+<codeline><highlight class="normal">functional.<sp/>The<sp/>core<sp/>Unity<sp/>test<sp/>framework<sp/>is<sp/>three<sp/>files:<sp/>a<sp/>single<sp/>C<sp/>file<sp/>and<sp/>a</highlight></codeline>
+<codeline><highlight class="normal">couple<sp/>header<sp/>files.<sp/>These<sp/>team<sp/>up<sp/>to<sp/>provide<sp/>functions<sp/>and<sp/>macros<sp/>to<sp/>make</highlight></codeline>
+<codeline><highlight class="normal">testing<sp/>easier.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Unity<sp/>was<sp/>designed<sp/>to<sp/>be<sp/>cross-platform.<sp/>It<sp/>works<sp/>hard<sp/>to<sp/>stick<sp/>with<sp/>C<sp/>standards</highlight></codeline>
+<codeline><highlight class="normal">while<sp/>still<sp/>providing<sp/>support<sp/>for<sp/>the<sp/>many<sp/>embedded<sp/>C<sp/>compilers<sp/>that<sp/>bend<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">rules.<sp/>Unity<sp/>has<sp/>been<sp/>used<sp/>with<sp/>many<sp/>compilers,<sp/>including<sp/>GCC,<sp/>IAR,<sp/>Clang,</highlight></codeline>
+<codeline><highlight class="normal">Green<sp/>Hills,<sp/>Microchip,<sp/>and<sp/>MS<sp/>Visual<sp/>Studio.<sp/>It&apos;s<sp/>not<sp/>much<sp/>work<sp/>to<sp/>get<sp/>it<sp/>to</highlight></codeline>
+<codeline><highlight class="normal">work<sp/>with<sp/>a<sp/>new<sp/>target.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Overview<sp/>of<sp/>the<sp/>Documents</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Unity<sp/>Assertions<sp/>reference</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">This<sp/>document<sp/>will<sp/>guide<sp/>you<sp/>through<sp/>all<sp/>the<sp/>assertion<sp/>options<sp/>provided<sp/>by</highlight></codeline>
+<codeline><highlight class="normal">Unity.<sp/>This<sp/>is<sp/>going<sp/>to<sp/>be<sp/>your<sp/>unit<sp/>testing<sp/>bread<sp/>and<sp/>butter.<sp/>You&apos;ll<sp/>spend<sp/>more</highlight></codeline>
+<codeline><highlight class="normal">time<sp/>with<sp/>assertions<sp/>than<sp/>any<sp/>other<sp/>part<sp/>of<sp/>Unity.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Unity<sp/>Assertions<sp/>Cheat<sp/>Sheet</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">This<sp/>document<sp/>contains<sp/>an<sp/>abridged<sp/>summary<sp/>of<sp/>the<sp/>assertions<sp/>described<sp/>in<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">previous<sp/>document.<sp/>It&apos;s<sp/>perfect<sp/>for<sp/>printing<sp/>and<sp/>referencing<sp/>while<sp/>you</highlight></codeline>
+<codeline><highlight class="normal">familiarize<sp/>yourself<sp/>with<sp/>Unity&apos;s<sp/>options.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Unity<sp/>Configuration<sp/>Guide</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">This<sp/>document<sp/>is<sp/>the<sp/>one<sp/>to<sp/>reference<sp/>when<sp/>you<sp/>are<sp/>going<sp/>to<sp/>use<sp/>Unity<sp/>with<sp/>a<sp/>new</highlight></codeline>
+<codeline><highlight class="normal">target<sp/>or<sp/>compiler.<sp/>It&apos;ll<sp/>guide<sp/>you<sp/>through<sp/>the<sp/>configuration<sp/>options<sp/>and<sp/>will</highlight></codeline>
+<codeline><highlight class="normal">help<sp/>you<sp/>customize<sp/>your<sp/>testing<sp/>experience<sp/>to<sp/>meet<sp/>your<sp/>needs.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Unity<sp/>Helper<sp/>Scripts</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">This<sp/>document<sp/>describes<sp/>the<sp/>helper<sp/>scripts<sp/>that<sp/>are<sp/>available<sp/>for<sp/>simplifying</highlight></codeline>
+<codeline><highlight class="normal">your<sp/>testing<sp/>workflow.<sp/>It<sp/>describes<sp/>the<sp/>collection<sp/>of<sp/>optional<sp/>Ruby<sp/>scripts</highlight></codeline>
+<codeline><highlight class="normal">included<sp/>in<sp/>the<sp/>auto<sp/>directory<sp/>of<sp/>your<sp/>Unity<sp/>installation.<sp/>Neither<sp/>Ruby<sp/>nor</highlight></codeline>
+<codeline><highlight class="normal">these<sp/>scripts<sp/>are<sp/>necessary<sp/>for<sp/>using<sp/>Unity.<sp/>They<sp/>are<sp/>provided<sp/>as<sp/>a<sp/>convenience</highlight></codeline>
+<codeline><highlight class="normal">for<sp/>those<sp/>who<sp/>wish<sp/>to<sp/>use<sp/>them.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Unity<sp/>License</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">What&apos;s<sp/>an<sp/>open<sp/>source<sp/>project<sp/>without<sp/>a<sp/>license<sp/>file?<sp/>This<sp/>brief<sp/>document</highlight></codeline>
+<codeline><highlight class="normal">describes<sp/>the<sp/>terms<sp/>you&apos;re<sp/>agreeing<sp/>to<sp/>when<sp/>you<sp/>use<sp/>this<sp/>software.<sp/>Basically,<sp/>we</highlight></codeline>
+<codeline><highlight class="normal">want<sp/>it<sp/>to<sp/>be<sp/>useful<sp/>to<sp/>you<sp/>in<sp/>whatever<sp/>context<sp/>you<sp/>want<sp/>to<sp/>use<sp/>it,<sp/>but<sp/>please</highlight></codeline>
+<codeline><highlight class="normal">don&apos;t<sp/>blame<sp/>us<sp/>if<sp/>you<sp/>run<sp/>into<sp/>problems.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Overview<sp/>of<sp/>the<sp/>Folders</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">If<sp/>you<sp/>have<sp/>obtained<sp/>Unity<sp/>through<sp/>Github<sp/>or<sp/>something<sp/>similar,<sp/>you<sp/>might<sp/>be</highlight></codeline>
+<codeline><highlight class="normal">surprised<sp/>by<sp/>just<sp/>how<sp/>much<sp/>stuff<sp/>you<sp/>suddenly<sp/>have<sp/>staring<sp/>you<sp/>in<sp/>the<sp/>face.</highlight></codeline>
+<codeline><highlight class="normal">Don&apos;t<sp/>worry,<sp/>Unity<sp/>itself<sp/>is<sp/>very<sp/>small.<sp/>The<sp/>rest<sp/>of<sp/>it<sp/>is<sp/>just<sp/>there<sp/>to<sp/>make</highlight></codeline>
+<codeline><highlight class="normal">your<sp/>life<sp/>easier.<sp/>You<sp/>can<sp/>ignore<sp/>it<sp/>or<sp/>use<sp/>it<sp/>at<sp/>your<sp/>convenience.<sp/>Here&apos;s<sp/>an</highlight></codeline>
+<codeline><highlight class="normal">overview<sp/>of<sp/>everything<sp/>in<sp/>the<sp/>project.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>`src`<sp/>-<sp/>This<sp/>is<sp/>the<sp/>code<sp/>you<sp/>care<sp/>about!<sp/>This<sp/>folder<sp/>contains<sp/>a<sp/>C<sp/>file<sp/>and<sp/>two</highlight></codeline>
+<codeline><highlight class="normal">header<sp/>files.<sp/>These<sp/>three<sp/>files<sp/>_are_<sp/>Unity.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`docs`<sp/>-<sp/>You&apos;re<sp/>reading<sp/>this<sp/>document,<sp/>so<sp/>it&apos;s<sp/>possible<sp/>you<sp/>have<sp/>found<sp/>your<sp/>way</highlight></codeline>
+<codeline><highlight class="normal">into<sp/>this<sp/>folder<sp/>already.<sp/>This<sp/>is<sp/>where<sp/>all<sp/>the<sp/>handy<sp/>documentation<sp/>can<sp/>be</highlight></codeline>
+<codeline><highlight class="normal">found.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`examples`<sp/>-<sp/>This<sp/>contains<sp/>a<sp/>few<sp/>examples<sp/>of<sp/>using<sp/>Unity.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`extras`<sp/>-<sp/>These<sp/>are<sp/>optional<sp/>add<sp/>ons<sp/>to<sp/>Unity<sp/>that<sp/>are<sp/>not<sp/>part<sp/>of<sp/>the<sp/>core</highlight></codeline>
+<codeline><highlight class="normal">project.<sp/>If<sp/>you&apos;ve<sp/>reached<sp/>us<sp/>through<sp/>James<sp/>Grenning&apos;s<sp/>book,<sp/>you&apos;re<sp/>going<sp/>to</highlight></codeline>
+<codeline><highlight class="normal">want<sp/>to<sp/>look<sp/>here.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`test`<sp/>-<sp/>This<sp/>is<sp/>how<sp/>Unity<sp/>and<sp/>its<sp/>scripts<sp/>are<sp/>all<sp/>tested.<sp/>If<sp/>you&apos;re<sp/>just<sp/>using</highlight></codeline>
+<codeline><highlight class="normal">Unity,<sp/>you&apos;ll<sp/>likely<sp/>never<sp/>need<sp/>to<sp/>go<sp/>in<sp/>here.<sp/>If<sp/>you<sp/>are<sp/>the<sp/>lucky<sp/>team<sp/>member</highlight></codeline>
+<codeline><highlight class="normal">who<sp/>gets<sp/>to<sp/>port<sp/>Unity<sp/>to<sp/>a<sp/>new<sp/>toolchain,<sp/>this<sp/>is<sp/>a<sp/>good<sp/>place<sp/>to<sp/>verify</highlight></codeline>
+<codeline><highlight class="normal">everything<sp/>is<sp/>configured<sp/>properly.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`auto`<sp/>-<sp/>Here<sp/>you<sp/>will<sp/>find<sp/>helpful<sp/>Ruby<sp/>scripts<sp/>for<sp/>simplifying<sp/>your<sp/>test</highlight></codeline>
+<codeline><highlight class="normal">workflow.<sp/>They<sp/>are<sp/>purely<sp/>optional<sp/>and<sp/>are<sp/>not<sp/>required<sp/>to<sp/>make<sp/>use<sp/>of<sp/>Unity.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>How<sp/>to<sp/>Create<sp/>A<sp/>Test<sp/>File</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Test<sp/>files<sp/>are<sp/>C<sp/>files.<sp/>Most<sp/>often<sp/>you<sp/>will<sp/>create<sp/>a<sp/>single<sp/>test<sp/>file<sp/>for<sp/>each<sp/>C</highlight></codeline>
+<codeline><highlight class="normal">module<sp/>that<sp/>you<sp/>want<sp/>to<sp/>test.<sp/>The<sp/>test<sp/>file<sp/>should<sp/>include<sp/>unity.h<sp/>and<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">header<sp/>for<sp/>your<sp/>C<sp/>module<sp/>to<sp/>be<sp/>tested.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Next,<sp/>a<sp/>test<sp/>file<sp/>will<sp/>include<sp/>a<sp/>`setUp()`<sp/>and<sp/>`tearDown()`<sp/>function.<sp/>The<sp/>setUp</highlight></codeline>
+<codeline><highlight class="normal">function<sp/>can<sp/>contain<sp/>anything<sp/>you<sp/>would<sp/>like<sp/>to<sp/>run<sp/>before<sp/>each<sp/>test.<sp/>The</highlight></codeline>
+<codeline><highlight class="normal">tearDown<sp/>function<sp/>can<sp/>contain<sp/>anything<sp/>you<sp/>would<sp/>like<sp/>to<sp/>run<sp/>after<sp/>each<sp/>test.</highlight></codeline>
+<codeline><highlight class="normal">Both<sp/>functions<sp/>accept<sp/>no<sp/>arguments<sp/>and<sp/>return<sp/>nothing.<sp/>You<sp/>may<sp/>leave<sp/>either<sp/>or</highlight></codeline>
+<codeline><highlight class="normal">both<sp/>of<sp/>these<sp/>blank<sp/>if<sp/>you<sp/>have<sp/>no<sp/>need<sp/>for<sp/>them.<sp/>If<sp/>you&apos;re<sp/>using<sp/>a<sp/>compiler</highlight></codeline>
+<codeline><highlight class="normal">that<sp/>is<sp/>configured<sp/>to<sp/>make<sp/>these<sp/>functions<sp/>optional,<sp/>you<sp/>may<sp/>leave<sp/>them<sp/>off</highlight></codeline>
+<codeline><highlight class="normal">completely.<sp/>Not<sp/>sure?<sp/>Give<sp/>it<sp/>a<sp/>try.<sp/>If<sp/>you<sp/>compiler<sp/>complains<sp/>that<sp/>it<sp/>can&apos;t</highlight></codeline>
+<codeline><highlight class="normal">find<sp/>setUp<sp/>or<sp/>tearDown<sp/>when<sp/>it<sp/>links,<sp/>you&apos;ll<sp/>know<sp/>you<sp/>need<sp/>to<sp/>at<sp/>least<sp/>include</highlight></codeline>
+<codeline><highlight class="normal">an<sp/>empty<sp/>function<sp/>for<sp/>these.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>majority<sp/>of<sp/>the<sp/>file<sp/>will<sp/>be<sp/>a<sp/>series<sp/>of<sp/>test<sp/>functions.<sp/>Test<sp/>functions</highlight></codeline>
+<codeline><highlight class="normal">follow<sp/>the<sp/>convention<sp/>of<sp/>starting<sp/>with<sp/>the<sp/>word<sp/>&quot;test_&quot;<sp/>or<sp/>&quot;spec_&quot;.<sp/>You<sp/>don&apos;t<sp/>HAVE</highlight></codeline>
+<codeline><highlight class="normal">to<sp/>name<sp/>them<sp/>this<sp/>way,<sp/>but<sp/>it<sp/>makes<sp/>it<sp/>clear<sp/>what<sp/>functions<sp/>are<sp/>tests<sp/>for<sp/>other</highlight></codeline>
+<codeline><highlight class="normal">developers.<sp/><sp/>Also,<sp/>the<sp/>automated<sp/>scripts<sp/>that<sp/>come<sp/>with<sp/>Unity<sp/>or<sp/>Ceedling<sp/>will<sp/>default</highlight></codeline>
+<codeline><highlight class="normal">to<sp/>looking<sp/>for<sp/>test<sp/>functions<sp/>to<sp/>be<sp/>prefixed<sp/>this<sp/>way.<sp/>Test<sp/>functions<sp/>take<sp/>no<sp/>arguments<sp/></highlight></codeline>
+<codeline><highlight class="normal">and<sp/>return<sp/>nothing.<sp/>All<sp/>test<sp/>accounting<sp/>is<sp/>handled<sp/>internally<sp/>in<sp/>Unity.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Finally,<sp/>at<sp/>the<sp/>bottom<sp/>of<sp/>your<sp/>test<sp/>file,<sp/>you<sp/>will<sp/>write<sp/>a<sp/>`main()`<sp/>function.</highlight></codeline>
+<codeline><highlight class="normal">This<sp/>function<sp/>will<sp/>call<sp/>`UNITY_BEGIN()`,<sp/>then<sp/>`RUN_TEST`<sp/>for<sp/>each<sp/>test,<sp/>and</highlight></codeline>
+<codeline><highlight class="normal">finally<sp/>`UNITY_END()`.This<sp/>is<sp/>what<sp/>will<sp/>actually<sp/>trigger<sp/>each<sp/>of<sp/>those<sp/>test</highlight></codeline>
+<codeline><highlight class="normal">functions<sp/>to<sp/>run,<sp/>so<sp/>it<sp/>is<sp/>important<sp/>that<sp/>each<sp/>function<sp/>gets<sp/>its<sp/>own<sp/>`RUN_TEST`</highlight></codeline>
+<codeline><highlight class="normal">call.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Remembering<sp/>to<sp/>add<sp/>each<sp/>test<sp/>to<sp/>the<sp/>main<sp/>function<sp/>can<sp/>get<sp/>to<sp/>be<sp/>tedious.<sp/>If<sp/>you</highlight></codeline>
+<codeline><highlight class="normal">enjoy<sp/>using<sp/>helper<sp/>scripts<sp/>in<sp/>your<sp/>build<sp/>process,<sp/>you<sp/>might<sp/>consider<sp/>making<sp/>use</highlight></codeline>
+<codeline><highlight class="normal">of<sp/>our<sp/>handy<sp/>generate_test_runner.rb<sp/>script.<sp/>This<sp/>will<sp/>create<sp/>the<sp/>main<sp/>function</highlight></codeline>
+<codeline><highlight class="normal">and<sp/>all<sp/>the<sp/>calls<sp/>for<sp/>you,<sp/>assuming<sp/>that<sp/>you<sp/>have<sp/>followed<sp/>the<sp/>suggested<sp/>naming</highlight></codeline>
+<codeline><highlight class="normal">conventions.<sp/>In<sp/>this<sp/>case,<sp/>there<sp/>is<sp/>no<sp/>need<sp/>for<sp/>you<sp/>to<sp/>include<sp/>the<sp/>main<sp/>function</highlight></codeline>
+<codeline><highlight class="normal">in<sp/>your<sp/>test<sp/>file<sp/>at<sp/>all.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">When<sp/>you&apos;re<sp/>done,<sp/>your<sp/>test<sp/>file<sp/>will<sp/>look<sp/>something<sp/>like<sp/>this:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```C</highlight></codeline>
+<codeline><highlight class="normal">#include<sp/>&quot;unity.h&quot;</highlight></codeline>
+<codeline><highlight class="normal">#include<sp/>&quot;file_to_test.h&quot;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">void<sp/>setUp(void)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>set<sp/>stuff<sp/>up<sp/>here</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">void<sp/>tearDown(void)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>clean<sp/>stuff<sp/>up<sp/>here</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">void<sp/>test_function_should_doBlahAndBlah(void)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//test<sp/>stuff</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">void<sp/>test_function_should_doAlsoDoBlah(void)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//more<sp/>test<sp/>stuff</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">int<sp/>main(void)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>UNITY_BEGIN();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>RUN_TEST(test_function_should_doBlahAndBlah);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>RUN_TEST(test_function_should_doAlsoDoBlah);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>return<sp/>UNITY_END();</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">It&apos;s<sp/>possible<sp/>that<sp/>you<sp/>will<sp/>need<sp/>more<sp/>customization<sp/>than<sp/>this,<sp/>eventually.</highlight></codeline>
+<codeline><highlight class="normal">For<sp/>that<sp/>sort<sp/>of<sp/>thing,<sp/>you&apos;re<sp/>going<sp/>to<sp/>want<sp/>to<sp/>look<sp/>at<sp/>the<sp/>configuration<sp/>guide.</highlight></codeline>
+<codeline><highlight class="normal">This<sp/>should<sp/>be<sp/>enough<sp/>to<sp/>get<sp/>you<sp/>going,<sp/>though.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>How<sp/>to<sp/>Build<sp/>and<sp/>Run<sp/>A<sp/>Test<sp/>File</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">This<sp/>is<sp/>the<sp/>single<sp/>biggest<sp/>challenge<sp/>to<sp/>picking<sp/>up<sp/>a<sp/>new<sp/>unit<sp/>testing<sp/>framework,</highlight></codeline>
+<codeline><highlight class="normal">at<sp/>least<sp/>in<sp/>a<sp/>language<sp/>like<sp/>C<sp/>or<sp/>C++.<sp/>These<sp/>languages<sp/>are<sp/>REALLY<sp/>good<sp/>at<sp/>getting</highlight></codeline>
+<codeline><highlight class="normal">you<sp/>&quot;close<sp/>to<sp/>the<sp/>metal&quot;<sp/>(why<sp/>is<sp/>the<sp/>phrase<sp/>metal?<sp/>Wouldn&apos;t<sp/>it<sp/>be<sp/>more<sp/>accurate</highlight></codeline>
+<codeline><highlight class="normal">to<sp/>say<sp/>&quot;close<sp/>to<sp/>the<sp/>silicon&quot;?).<sp/>While<sp/>this<sp/>feature<sp/>is<sp/>usually<sp/>a<sp/>good<sp/>thing,<sp/>it</highlight></codeline>
+<codeline><highlight class="normal">can<sp/>make<sp/>testing<sp/>more<sp/>challenging.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">You<sp/>have<sp/>two<sp/>really<sp/>good<sp/>options<sp/>for<sp/>toolchains.<sp/>Depending<sp/>on<sp/>where<sp/>you&apos;re</highlight></codeline>
+<codeline><highlight class="normal">coming<sp/>from,<sp/>it<sp/>might<sp/>surprise<sp/>you<sp/>that<sp/>neither<sp/>of<sp/>these<sp/>options<sp/>is<sp/>running<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">unit<sp/>tests<sp/>on<sp/>your<sp/>hardware.</highlight></codeline>
+<codeline><highlight class="normal">There<sp/>are<sp/>many<sp/>reasons<sp/>for<sp/>this,<sp/>but<sp/>here&apos;s<sp/>a<sp/>short<sp/>version:</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>On<sp/>hardware,<sp/>you<sp/>have<sp/>too<sp/>many<sp/>constraints<sp/>(processing<sp/>power,<sp/>memory,<sp/>etc),</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>On<sp/>hardware,<sp/>you<sp/>don&apos;t<sp/>have<sp/>complete<sp/>control<sp/>over<sp/>all<sp/>registers,</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>On<sp/>hardware,<sp/>unit<sp/>testing<sp/>is<sp/>more<sp/>challenging,</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Unit<sp/>testing<sp/>isn&apos;t<sp/>System<sp/>testing.<sp/>Keep<sp/>them<sp/>separate.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Instead<sp/>of<sp/>running<sp/>your<sp/>tests<sp/>on<sp/>your<sp/>actual<sp/>hardware,<sp/>most<sp/>developers<sp/>choose<sp/>to</highlight></codeline>
+<codeline><highlight class="normal">develop<sp/>them<sp/>as<sp/>native<sp/>applications<sp/>(using<sp/>gcc<sp/>or<sp/>MSVC<sp/>for<sp/>example)<sp/>or<sp/>as</highlight></codeline>
+<codeline><highlight class="normal">applications<sp/>running<sp/>on<sp/>a<sp/>simulator.<sp/>Either<sp/>is<sp/>a<sp/>good<sp/>option.<sp/>Native<sp/>apps<sp/>have</highlight></codeline>
+<codeline><highlight class="normal">the<sp/>advantages<sp/>of<sp/>being<sp/>faster<sp/>and<sp/>easier<sp/>to<sp/>set<sp/>up.<sp/>Simulator<sp/>apps<sp/>have<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">advantage<sp/>of<sp/>working<sp/>with<sp/>the<sp/>same<sp/>compiler<sp/>as<sp/>your<sp/>target<sp/>application.<sp/>The</highlight></codeline>
+<codeline><highlight class="normal">options<sp/>for<sp/>configuring<sp/>these<sp/>are<sp/>discussed<sp/>in<sp/>the<sp/>configuration<sp/>guide.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">To<sp/>get<sp/>either<sp/>to<sp/>work,<sp/>you<sp/>might<sp/>need<sp/>to<sp/>make<sp/>a<sp/>few<sp/>changes<sp/>to<sp/>the<sp/>file</highlight></codeline>
+<codeline><highlight class="normal">containing<sp/>your<sp/>register<sp/>set<sp/>(discussed<sp/>later).</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">In<sp/>either<sp/>case,<sp/>a<sp/>test<sp/>is<sp/>built<sp/>by<sp/>linking<sp/>unity,<sp/>the<sp/>test<sp/>file,<sp/>and<sp/>the<sp/>C</highlight></codeline>
+<codeline><highlight class="normal">file(s)<sp/>being<sp/>tested.<sp/>These<sp/>files<sp/>create<sp/>an<sp/>executable<sp/>which<sp/>can<sp/>be<sp/>run<sp/>as<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">test<sp/>set<sp/>for<sp/>that<sp/>module.<sp/>Then,<sp/>this<sp/>process<sp/>is<sp/>repeated<sp/>for<sp/>the<sp/>next<sp/>test<sp/>file.</highlight></codeline>
+<codeline><highlight class="normal">This<sp/>flexibility<sp/>of<sp/>separating<sp/>tests<sp/>into<sp/>individual<sp/>executables<sp/>allows<sp/>us<sp/>to</highlight></codeline>
+<codeline><highlight class="normal">much<sp/>more<sp/>thoroughly<sp/>unit<sp/>test<sp/>our<sp/>system<sp/>and<sp/>it<sp/>keeps<sp/>all<sp/>the<sp/>test<sp/>code<sp/>out<sp/>of</highlight></codeline>
+<codeline><highlight class="normal">our<sp/>final<sp/>release!</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*Find<sp/>The<sp/>Latest<sp/>of<sp/>This<sp/>And<sp/>More<sp/>at<sp/>[ThrowTheSwitch.org](https://throwtheswitch.org)*</highlight></codeline>
+    </programlisting>
+    <location file="UnitTestFramework/vendor/ceedling/docs/UnityGettingStartedGuide.md"/>
+  </compounddef>
+</doxygen>

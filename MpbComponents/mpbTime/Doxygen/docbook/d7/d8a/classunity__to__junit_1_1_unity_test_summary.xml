@@ -1,0 +1,136 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classunity__to__junit_1_1_unity_test_summary" xml:lang="en-US">
+<title>UnityTestSummary Class Reference</title>
+<indexterm><primary>UnityTestSummary</primary></indexterm>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>def <link linkend="_classunity__to__junit_1_1_unity_test_summary_1ae64f0875afe3067b97ba370b354b9213">__init__</link> (self)</para>
+</listitem>
+            <listitem><para>def <link linkend="_classunity__to__junit_1_1_unity_test_summary_1ad22709b2e67308af35f55680d5a026e0">run</link> (self)</para>
+</listitem>
+            <listitem><para>def <link linkend="_classunity__to__junit_1_1_unity_test_summary_1af3f7b9f92d7b39ccf3b07a1587bdfc7a">set_targets</link> (self, target_array)</para>
+</listitem>
+            <listitem><para>def <link linkend="_classunity__to__junit_1_1_unity_test_summary_1a1e8dafe08b35cf63ac0634a3d75c4f08">set_root_path</link> (self, path)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Static Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>def <link linkend="_classunity__to__junit_1_1_unity_test_summary_1a5cc41a81724a4c5f4d76e29aa2b454d1">usage</link> (err_msg=None)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_classunity__to__junit_1_1_unity_test_summary_1a4b7febb5dfb963ed99f5e7870abce71b">report</link></para>
+</listitem>
+            <listitem><para><link linkend="_classunity__to__junit_1_1_unity_test_summary_1a90653bae142aad764571b7e484d34f4e">total_tests</link></para>
+</listitem>
+            <listitem><para><link linkend="_classunity__to__junit_1_1_unity_test_summary_1ad617fd03e0c7ac85dd3111c2acd763b2">failures</link></para>
+</listitem>
+            <listitem><para><link linkend="_classunity__to__junit_1_1_unity_test_summary_1a37cf6b909fd9f164e7a5ebc707fb40a8">ignored</link></para>
+</listitem>
+            <listitem><para><link linkend="_classunity__to__junit_1_1_unity_test_summary_1aca9a7ee02fb8663e9e2971ca4052b0c6">targets</link></para>
+</listitem>
+            <listitem><para><link linkend="_classunity__to__junit_1_1_unity_test_summary_1ab4b8daf4b8ea9d39568719e1e320076f">root</link></para>
+</listitem>
+            <listitem><para><link linkend="_classunity__to__junit_1_1_unity_test_summary_1aafe87a02202f9198457a7ebddbf9e7a6">test_suites</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line 9 of file unity_to_junit.py.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_classunity__to__junit_1_1_unity_test_summary_1ae64f0875afe3067b97ba370b354b9213"/>    <section>
+    <title>__init__()</title>
+<indexterm><primary>__init__</primary><secondary>UnityTestSummary</secondary></indexterm>
+<indexterm><primary>UnityTestSummary</primary><secondary>__init__</secondary></indexterm>
+<para><computeroutput>def __init__ ( self)</computeroutput></para><para>
+Definition at line 10 of file unity_to_junit.py.</para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_classunity__to__junit_1_1_unity_test_summary_1ad22709b2e67308af35f55680d5a026e0"/>    <section>
+    <title>run()</title>
+<indexterm><primary>run</primary><secondary>UnityTestSummary</secondary></indexterm>
+<indexterm><primary>UnityTestSummary</primary><secondary>run</secondary></indexterm>
+<para><computeroutput>def run ( self)</computeroutput></para><para>
+Definition at line 19 of file unity_to_junit.py.</para>
+    </section><anchor xml:id="_classunity__to__junit_1_1_unity_test_summary_1a1e8dafe08b35cf63ac0634a3d75c4f08"/>    <section>
+    <title>set_root_path()</title>
+<indexterm><primary>set_root_path</primary><secondary>UnityTestSummary</secondary></indexterm>
+<indexterm><primary>UnityTestSummary</primary><secondary>set_root_path</secondary></indexterm>
+<para><computeroutput>def set_root_path ( self,  path)</computeroutput></para><para>
+Definition at line 107 of file unity_to_junit.py.</para>
+    </section><anchor xml:id="_classunity__to__junit_1_1_unity_test_summary_1af3f7b9f92d7b39ccf3b07a1587bdfc7a"/>    <section>
+    <title>set_targets()</title>
+<indexterm><primary>set_targets</primary><secondary>UnityTestSummary</secondary></indexterm>
+<indexterm><primary>UnityTestSummary</primary><secondary>set_targets</secondary></indexterm>
+<para><computeroutput>def set_targets ( self,  target_array)</computeroutput></para><para>
+Definition at line 104 of file unity_to_junit.py.</para>
+    </section><anchor xml:id="_classunity__to__junit_1_1_unity_test_summary_1a5cc41a81724a4c5f4d76e29aa2b454d1"/>    <section>
+    <title>usage()</title>
+<indexterm><primary>usage</primary><secondary>UnityTestSummary</secondary></indexterm>
+<indexterm><primary>UnityTestSummary</primary><secondary>usage</secondary></indexterm>
+<para><computeroutput>def usage ( err_msg = <computeroutput>None</computeroutput>
+)<computeroutput>[static]</computeroutput></computeroutput></para><para>
+Definition at line 111 of file unity_to_junit.py.</para>
+</section>
+</section>
+<section>
+<title>Field Documentation</title>
+<anchor xml:id="_classunity__to__junit_1_1_unity_test_summary_1ad617fd03e0c7ac85dd3111c2acd763b2"/>    <section>
+    <title>failures</title>
+<indexterm><primary>failures</primary><secondary>UnityTestSummary</secondary></indexterm>
+<indexterm><primary>UnityTestSummary</primary><secondary>failures</secondary></indexterm>
+<para><computeroutput>failures</computeroutput></para><para>
+Definition at line 13 of file unity_to_junit.py.</para>
+    </section><anchor xml:id="_classunity__to__junit_1_1_unity_test_summary_1a37cf6b909fd9f164e7a5ebc707fb40a8"/>    <section>
+    <title>ignored</title>
+<indexterm><primary>ignored</primary><secondary>UnityTestSummary</secondary></indexterm>
+<indexterm><primary>UnityTestSummary</primary><secondary>ignored</secondary></indexterm>
+<para><computeroutput>ignored</computeroutput></para><para>
+Definition at line 14 of file unity_to_junit.py.</para>
+    </section><anchor xml:id="_classunity__to__junit_1_1_unity_test_summary_1a4b7febb5dfb963ed99f5e7870abce71b"/>    <section>
+    <title>report</title>
+<indexterm><primary>report</primary><secondary>UnityTestSummary</secondary></indexterm>
+<indexterm><primary>UnityTestSummary</primary><secondary>report</secondary></indexterm>
+<para><computeroutput>report</computeroutput></para><para>
+Definition at line 11 of file unity_to_junit.py.</para>
+    </section><anchor xml:id="_classunity__to__junit_1_1_unity_test_summary_1ab4b8daf4b8ea9d39568719e1e320076f"/>    <section>
+    <title>root</title>
+<indexterm><primary>root</primary><secondary>UnityTestSummary</secondary></indexterm>
+<indexterm><primary>UnityTestSummary</primary><secondary>root</secondary></indexterm>
+<para><computeroutput>root</computeroutput></para><para>
+Definition at line 16 of file unity_to_junit.py.</para>
+    </section><anchor xml:id="_classunity__to__junit_1_1_unity_test_summary_1aca9a7ee02fb8663e9e2971ca4052b0c6"/>    <section>
+    <title>targets</title>
+<indexterm><primary>targets</primary><secondary>UnityTestSummary</secondary></indexterm>
+<indexterm><primary>UnityTestSummary</primary><secondary>targets</secondary></indexterm>
+<para><computeroutput>targets</computeroutput></para><para>
+Definition at line 15 of file unity_to_junit.py.</para>
+    </section><anchor xml:id="_classunity__to__junit_1_1_unity_test_summary_1aafe87a02202f9198457a7ebddbf9e7a6"/>    <section>
+    <title>test_suites</title>
+<indexterm><primary>test_suites</primary><secondary>UnityTestSummary</secondary></indexterm>
+<indexterm><primary>UnityTestSummary</primary><secondary>test_suites</secondary></indexterm>
+<para><computeroutput>test_suites</computeroutput></para><para>
+Definition at line 17 of file unity_to_junit.py.</para>
+    </section><anchor xml:id="_classunity__to__junit_1_1_unity_test_summary_1a90653bae142aad764571b7e484d34f4e"/>    <section>
+    <title>total_tests</title>
+<indexterm><primary>total_tests</primary><secondary>UnityTestSummary</secondary></indexterm>
+<indexterm><primary>UnityTestSummary</primary><secondary>total_tests</secondary></indexterm>
+<para><computeroutput>total_tests</computeroutput></para><para>
+Definition at line 12 of file unity_to_junit.py.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+UnitTestFramework/vendor/ceedling/vendor/unity/auto/<link linkend="_unity__to__junit_8py">unity_to_junit.py</link></section>
+</section>

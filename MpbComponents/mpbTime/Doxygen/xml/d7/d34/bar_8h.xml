@@ -1,0 +1,201 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="d7/d34/bar_8h" kind="file" language="C++">
+    <compoundname>bar.h</compoundname>
+    <includes refid="d7/dcd/custom__types_8h" local="yes">custom_types.h</includes>
+    <includedby refid="d2/de9/bar_8c" local="yes">UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/bar.c</includedby>
+    <includedby refid="d0/d87/foo_8c" local="yes">UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/foo.c</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/bar.h</label>
+        <link refid="d7/d34/bar_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>custom_types.h</label>
+        <link refid="d7/dcd/custom__types_8h"/>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/bar.c</label>
+        <link refid="d2/de9/bar_8c"/>
+      </node>
+      <node id="1">
+        <label>UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/bar.h</label>
+        <link refid="d7/d34/bar_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/foo.c</label>
+        <link refid="d0/d87/foo_8c"/>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="d7/d34/bar_8h_1ab3be15eb45c605205a093559c2150429" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void bar_turn_on</definition>
+        <argsstring>(void)</argsstring>
+        <name>bar_turn_on</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/bar.h" line="6" column="6" declfile="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/bar.h" declline="6" declcolumn="6"/>
+        <referencedby refid="d0/d87/foo_8c_1a6db1ba1a48b0fce98eb0773a86e379d1" compoundref="d0/d87/foo_8c" startline="5" endline="8">foo_turn_on</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d7/d34/bar_8h_1a5b4f530c2c48257656651bf8a6a92a37" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void bar_print_message</definition>
+        <argsstring>(const char *message)</argsstring>
+        <name>bar_print_message</name>
+        <param>
+          <type>const char *</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/bar.h" line="7" column="6" declfile="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/bar.h" declline="7" declcolumn="6"/>
+        <referencedby refid="d0/d87/foo_8c_1a11f21c107c4e0bba2850a7b8343b7ef7" compoundref="d0/d87/foo_8c" startline="10" endline="12">foo_print_message</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d7/d34/bar_8h_1a7855f342293ae0f18f3596a2e3aec874" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void bar_print_message_formatted</definition>
+        <argsstring>(const char *format,...)</argsstring>
+        <name>bar_print_message_formatted</name>
+        <param>
+          <type>const char *</type>
+          <declname>format</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/bar.h" line="8" column="6" declfile="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/bar.h" declline="8" declcolumn="6"/>
+        <referencedby refid="d0/d87/foo_8c_1a50473552f0ce06c1a06c1774f9f3501d" compoundref="d0/d87/foo_8c" startline="14" endline="16">foo_print_special_message</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d7/d34/bar_8h_1aacba0cdc5b666a524af9611bc97e5494" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void bar_numbers</definition>
+        <argsstring>(int one, int two, char three)</argsstring>
+        <name>bar_numbers</name>
+        <param>
+          <type>int</type>
+          <declname>one</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>two</declname>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>three</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/bar.h" line="9" column="6" declfile="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/bar.h" declline="9" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="d7/d34/bar_8h_1a2761c874330bfe929ce77d076d243ad3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void bar_const_test</definition>
+        <argsstring>(const char *a, char *const b, const int c)</argsstring>
+        <name>bar_const_test</name>
+        <param>
+          <type>const char *</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>char *const</type>
+          <declname>b</declname>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/bar.h" line="10" column="6" declfile="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/bar.h" declline="10" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="d7/d34/bar_8h_1abe5c8eb4feaeab2efa3f5aaf7cba0ef7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="d7/dcd/custom__types_8h_1a2c8a6ce22d71d2c8e9ad86362eac1a2f" kindref="member">custom_t</ref></type>
+        <definition>custom_t bar_needs_custom_type</definition>
+        <argsstring>(void)</argsstring>
+        <name>bar_needs_custom_type</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/bar.h" line="11" column="10" declfile="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/bar.h" declline="11" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="d7/d34/bar_8h_1ae361d57fde6e108e84e1ecc710331a2b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char* bar_return_const_ptr</definition>
+        <argsstring>(int one)</argsstring>
+        <name>bar_return_const_ptr</name>
+        <param>
+          <type>int</type>
+          <declname>one</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/bar.h" line="12" column="13" declfile="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/bar.h" declline="12" declcolumn="13"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>bar_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>bar_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d7/dcd/custom__types_8h" kindref="compound">custom_types.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6" refid="d7/d34/bar_8h_1ab3be15eb45c605205a093559c2150429" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d7/d34/bar_8h_1ab3be15eb45c605205a093559c2150429" kindref="member">bar_turn_on</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="7" refid="d7/d34/bar_8h_1a5b4f530c2c48257656651bf8a6a92a37" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d7/d34/bar_8h_1a5b4f530c2c48257656651bf8a6a92a37" kindref="member">bar_print_message</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>message);</highlight></codeline>
+<codeline lineno="8" refid="d7/d34/bar_8h_1a7855f342293ae0f18f3596a2e3aec874" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d7/d34/bar_8h_1a7855f342293ae0f18f3596a2e3aec874" kindref="member">bar_print_message_formatted</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>format,<sp/>...);</highlight></codeline>
+<codeline lineno="9" refid="d7/d34/bar_8h_1aacba0cdc5b666a524af9611bc97e5494" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d7/d34/bar_8h_1aacba0cdc5b666a524af9611bc97e5494" kindref="member">bar_numbers</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>one,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>two,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>three);</highlight></codeline>
+<codeline lineno="10" refid="d7/d34/bar_8h_1a2761c874330bfe929ce77d076d243ad3" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d7/d34/bar_8h_1a2761c874330bfe929ce77d076d243ad3" kindref="member">bar_const_test</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>a,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>b,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>c);</highlight></codeline>
+<codeline lineno="11" refid="d7/d34/bar_8h_1abe5c8eb4feaeab2efa3f5aaf7cba0ef7" refkind="member"><highlight class="normal"><ref refid="d7/dcd/custom__types_8h_1a2c8a6ce22d71d2c8e9ad86362eac1a2f" kindref="member">custom_t</ref><sp/><ref refid="d7/d34/bar_8h_1abe5c8eb4feaeab2efa3f5aaf7cba0ef7" kindref="member">bar_needs_custom_type</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="12" refid="d7/d34/bar_8h_1ae361d57fde6e108e84e1ecc710331a2b" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/><ref refid="d7/d34/bar_8h_1ae361d57fde6e108e84e1ecc710331a2b" kindref="member">bar_return_const_ptr</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>one);</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>bar_H</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/bar.h"/>
+  </compounddef>
+</doxygen>

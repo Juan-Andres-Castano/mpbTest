@@ -1,0 +1,443 @@
+﻿###############################################################################
+#
+# IAR ELF Linker V9.10.1.308/W64 for ARM                  20/Jan/2022  16:47:28
+# Copyright 2007-2021 IAR Systems AB.
+#
+#    Output file  =  build/test/out/test_mpbTimeBase.out
+#    Map file     =  build/test/tests.map
+#    Command line =
+#        --vfe --redirect _Printf=_PrintfFull --redirect _Scanf=_ScanfFull
+#        --semihosting --config "C:\Program Files\IAR Systems\Embedded
+#        Workbench 9.0\arm\config\generic_cortex.icf" --map
+#        build/test/tests.map -o build/test/out/test_mpbTimeBase.out
+#        build/test/out/c/test_mpbTimeBase_runner.o
+#        build/test/out/c/test_mpbTimeBase.o build/test/out/c/unity.o
+#        build/test/out/c/mpbTimeBase.o build/test/out/c/cmock.o
+#
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor                   = *
+__Heap_Handler              = Basic
+__SystemLibrary             = DLib
+__dlib_jmp_buf_num_elements = 8
+__dlib_version              = 6
+
+
+*******************************************************************************
+*** HEAP SELECTION
+***
+
+The basic heap was selected because some modules are built with
+size limitations (and not runtime checking), and --advanced_heap
+was not specified.
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A0":  place at address 0x0 { ro section .intvec };
+"P1":  place in [from 0x0 to 0x7'ffff] { ro };
+define block CSTACK with size = 1K, alignment = 8 { };
+define block PROC_STACK with size = 0, alignment = 8 { };
+define block HEAP with size = 2K, alignment = 8 { };
+"P2":  place in [from 0x2000'0000 to 0x2000'ffff] {
+          rw, block CSTACK, block PROC_STACK, block HEAP };
+initialize by copy { rw };
+
+  Section            Kind         Address    Size  Object
+  -------            ----         -------    ----  ------
+"A0":                                        0x40
+  .intvec            ro code          0x0    0x40  vector_table_M.o [4]
+                                   - 0x40    0x40
+
+"P1":                                      0x1ac1
+  .text              ro code         0x40   0x586  test_mpbTimeBase.o [1]
+  .text              ro code        0x5c6    0x9e  mpbTimeBase.o [1]
+  .text              ro code        0x664   0x334  unity.o [1]
+  .text              ro code        0x998     0xc  putchar.o [2]
+  .text              ro code        0x9a4    0x24  setjmp.o [3]
+  .text              ro code        0x9c8    0x56  fputc.o [2]
+  .text              ro code        0xa1e    0xb4  xfwprep.o [2]
+  .text              ro code        0xad2    0x76  lz77_init_single.o [4]
+  .text              ro code        0xb48    0xac  fflush.o [2]
+  .text              ro code        0xbf4   0x13c  heap0.o [2]
+  .text              ro code        0xd30    0x24  fseek.o [2]
+  .text              ro code        0xd54    0x10  write.o [5]
+  .text              ro code        0xd64    0x2c  xgetmemchunk.o [2]
+  .text              ro code        0xd90    0xd8  xfspos.o [2]
+  .text              ro code        0xe68    0x1e  dwrite.o [5]
+  .text              ro code        0xe86     0xc  xfgpos.o [2]
+  .text              ro code        0xe92    0x4e  lseek.o [5]
+  .text              ro code        0xee0    0x20  iarwstd.o [5]
+  .text              ro code        0xf00    0x22  iarwrite.o [5]
+  .text              ro code        0xf22     0x2  vectortrap_M.o [4]
+  .text              ro code        0xf24    0xcc  XShHandles.o [2]
+  .text              ro code        0xff0    0x7c  iarttio.o [5]
+  .text              ro code       0x106c     0x8  XShttio.o [2]
+  .text              ro code       0x1074   0x408  test_mpbTimeBase_runner.o [1]
+  .text              ro code       0x147c    0x9c  xfofind.o [2]
+  .text              ro code       0x1518     0x4  heaptramp0.o [2]
+  .text              ro code       0x151c    0x7e  fclose.o [2]
+  .text              ro code       0x159a    0x18  close.o [5]
+  .text              ro code       0x15b2    0x14  remove.o [5]
+  .text              ro code       0x15c8    0x36  strlen.o [4]
+  .text              ro code       0x1600    0x40  xcloseall.o [2]
+  .rodata            const         0x1640    0x38  test_mpbTimeBase_runner.o [1]
+  .text              ro code       0x1678    0x38  zero_init3.o [4]
+  .rodata            const         0x16b0    0x30  test_mpbTimeBase_runner.o [1]
+  .rodata            const         0x16e0    0x30  test_mpbTimeBase_runner.o [1]
+  .rodata            const         0x1710    0x2c  test_mpbTimeBase_runner.o [1]
+  .rodata            const         0x173c    0x2c  test_mpbTimeBase_runner.o [1]
+  .rodata            const         0x1768    0x2c  test_mpbTimeBase_runner.o [1]
+  .rodata            const         0x1794    0x2c  test_mpbTimeBase_runner.o [1]
+  .rodata            const         0x17c0    0x2c  test_mpbTimeBase_runner.o [1]
+  .rodata            const         0x17ec    0x2c  test_mpbTimeBase_runner.o [1]
+  .rodata            const         0x1818    0x28  test_mpbTimeBase_runner.o [1]
+  .rodata            const         0x1840    0x28  test_mpbTimeBase_runner.o [1]
+  .rodata            const         0x1868    0x28  test_mpbTimeBase_runner.o [1]
+  .rodata            const         0x1890    0x28  test_mpbTimeBase_runner.o [1]
+  .rodata            const         0x18b8    0x28  test_mpbTimeBase_runner.o [1]
+  .text              ro code       0x18e0    0x28  data_init.o [4]
+  .rodata            const         0x1908    0x24  test_mpbTimeBase_runner.o [1]
+  .rodata            const         0x192c    0x24  test_mpbTimeBase_runner.o [1]
+  .iar.init_table    const         0x1950    0x20  - Linker created -
+  .rodata            const         0x1970    0x20  test_mpbTimeBase_runner.o [1]
+  .rodata            const         0x1990    0x20  test_mpbTimeBase_runner.o [1]
+  .text              ro code       0x19b0    0x1e  cmain.o [4]
+  .text              ro code       0x19ce     0x4  low_level_init.o [2]
+  .text              ro code       0x19d2     0x4  exit.o [2]
+  .text              ro code       0x19d8     0xe  cexit.o [4]
+  .text              ro code       0x19e8    0x14  exit.o [5]
+  .text              ro code       0x19fc    0x1c  cstartup_M.o [4]
+  .rodata            const         0x1a18    0x18  unity.o [1]
+  .rodata            const         0x1a30    0x14  test_mpbTimeBase_runner.o [1]
+  .rodata            const         0x1a44     0xc  unity.o [1]
+  .rodata            const         0x1a50     0xc  unity.o [1]
+  .rodata            const         0x1a5c     0xc  unity.o [1]
+  .rodata            const         0x1a68     0xc  unity.o [1]
+  .rodata            const         0x1a74     0xc  unity.o [1]
+  .rodata            const         0x1a80     0x8  unity.o [1]
+  .rodata            const         0x1a88     0x8  unity.o [1]
+  .rodata            const         0x1a90     0x8  unity.o [1]
+  .rodata            const         0x1a98     0x8  unity.o [1]
+  .rodata            const         0x1aa0     0x4  unity.o [1]
+  .rodata            const         0x1aa4     0x4  unity.o [1]
+  .text              ro code       0x1aa8     0x0  cstart_closeall.o [4]
+  .rodata            const         0x1aa8     0x0  zero_init3.o [4]
+  .rodata            const         0x1aa8     0x0  lz77_init_single.o [4]
+  Initializer bytes  const         0x1aa8    0x59  <for P2-1>
+                                 - 0x1b01  0x1ac1
+
+"P2", part 1 of 3:                          0x100
+  P2-1                        0x2000'0000   0x100  <Init block>
+    .data            inited   0x2000'0000    0x48  xfiles.o [2]
+    .data            inited   0x2000'0048    0x48  xfiles.o [2]
+    .data            inited   0x2000'0090    0x48  xfiles.o [2]
+    .data            inited   0x2000'00d8    0x20  xfiles.o [2]
+    .data            inited   0x2000'00f8     0x8  XShttio.o [2]
+                            - 0x2000'0100   0x100
+
+"P2", part 2 of 3:                          0x198
+  .bss               zero     0x2000'0100    0x80  XShHandles.o [2]
+  .bss               zero     0x2000'0180    0x68  unity.o [1]
+  .bss               zero     0x2000'01e8    0x50  xfiles.o [2]
+  .bss               zero     0x2000'0238    0x50  xfiles.o [2]
+  .bss               zero     0x2000'0288     0x8  heap0.o [2]
+  .bss               zero     0x2000'0290     0x4  xgetmemchunk.o [2]
+  .bss               zero     0x2000'0294     0x1  test_mpbTimeBase.o [1]
+                            - 0x2000'0295   0x195
+
+"P2", part 3 of 3:                          0xc00
+  CSTACK                      0x2000'0298   0x400  <Block>
+    CSTACK           uninit   0x2000'0298   0x400  <Block tail>
+  HEAP                        0x2000'0698   0x800  <Block>
+    HEAP             uninit   0x2000'0698   0x800  <Block tail>
+                            - 0x2000'0e98   0xc00
+
+Unused ranges:
+
+         From           To      Size
+         ----           --      ----
+       0x1b01     0x7'ffff  0x7'e4ff
+  0x2000'0e98  0x2000'ffff    0xf168
+
+
+*******************************************************************************
+*** INIT TABLE
+***
+
+          Address      Size
+          -------      ----
+Zero (__iar_zero_init3)
+    1 destination range, total size 0x195:
+          0x2000'0100  0x195
+
+Copy/lz77 (__iar_lz77_init_single3)
+    1 source range, total size 0x59 (34% of destination):
+               0x1aa8   0x59
+    1 destination range, total size 0x100:
+          0x2000'0000  0x100
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module                     ro code  ro data  rw data
+    ------                     -------  -------  -------
+command line/config:
+    ----------------------------------------------------
+    Total:
+
+C:\components\mpbTime\UnitTestFramework\build\test\out\c: [1]
+    mpbTimeBase.o                  158
+    test_mpbTimeBase.o           1'414                 1
+    test_mpbTimeBase_runner.o    1'032      772
+    unity.o                        820      124      104
+    ----------------------------------------------------
+    Total:                       3'424      896      105
+
+dl7M_tlf.a: [2]
+    XShHandles.o                   204               128
+    XShttio.o                        8        3        8
+    exit.o                           4
+    fclose.o                       126
+    fflush.o                       172
+    fputc.o                         86
+    fseek.o                         36
+    heap0.o                        316                 8
+    heaptramp0.o                     4
+    low_level_init.o                 4
+    putchar.o                       12
+    xcloseall.o                     64
+    xfgpos.o                        12
+    xfiles.o                                 86      408
+    xfofind.o                      156
+    xfspos.o                       216
+    xfwprep.o                      180
+    xgetmemchunk.o                  44                 4
+    ----------------------------------------------------
+    Total:                       1'644       89      556
+
+m7M_tl.a: [3]
+    setjmp.o                        36
+    ----------------------------------------------------
+    Total:                          36
+
+rt7M_tl.a: [4]
+    cexit.o                         14
+    cmain.o                         30
+    cstart_closeall.o
+    cstartup_M.o                    28
+    data_init.o                     40
+    lz77_init_single.o             118
+    strlen.o                        54
+    vector_table_M.o                64
+    vectortrap_M.o                   2
+    zero_init3.o                    56
+    ----------------------------------------------------
+    Total:                         406
+
+shb_l.a: [5]
+    close.o                         24
+    dwrite.o                        30
+    exit.o                          20
+    iarttio.o                      124
+    iarwrite.o                      34
+    iarwstd.o                       32
+    lseek.o                         78
+    remove.o                        20
+    write.o                         16
+    ----------------------------------------------------
+    Total:                         378
+
+    Gaps                             8
+    Linker created                           32    3'072
+--------------------------------------------------------
+    Grand Total:                 5'896    1'017    3'733
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                       Address   Size  Type      Object
+-----                       -------   ----  ----      ------
+.iar.init_table$$Base        0x1950          --   Gb  - Linker created -
+.iar.init_table$$Limit       0x1970          --   Gb  - Linker created -
+?main                        0x19b1         Code  Gb  cmain.o [4]
+Aldata                  0x2000'0288    0x8  Data  Lc  heap0.o [2]
+BusFault_Handler              0xf23         Code  Wk  vectortrap_M.o [4]
+CSTACK$$Base            0x2000'0298          --   Gb  - Linker created -
+CSTACK$$Limit           0x2000'0698          --   Gb  - Linker created -
+DebugMon_Handler              0xf23         Code  Wk  vectortrap_M.o [4]
+HEAP$$Base              0x2000'0698          --   Gb  - Linker created -
+HEAP$$Limit             0x2000'0e98          --   Gb  - Linker created -
+HardFault_Handler             0xf23         Code  Wk  vectortrap_M.o [4]
+MemManage_Handler             0xf23         Code  Wk  vectortrap_M.o [4]
+NMI_Handler                   0xf23         Code  Wk  vectortrap_M.o [4]
+PendSV_Handler                0xf23         Code  Wk  vectortrap_M.o [4]
+Region$$Table$$Base          0x1950          --   Gb  - Linker created -
+Region$$Table$$Limit         0x1970          --   Gb  - Linker created -
+SVC_Handler                   0xf23         Code  Wk  vectortrap_M.o [4]
+SysTick_Handler               0xf23         Code  Wk  vectortrap_M.o [4]
+Unity                   0x2000'0180   0x68  Data  Gb  unity.o [1]
+UnityAddMsgIfSpecified        0x823   0x4c  Code  Lc  unity.o [1]
+UnityAssertEqualNumber        0x86f   0x64  Code  Gb  unity.o [1]
+UnityBegin                    0x8f5   0x2a  Code  Gb  unity.o [1]
+UnityConcludeTest             0x7e1   0x42  Code  Gb  unity.o [1]
+UnityEnd                      0x91f   0x5e  Code  Gb  unity.o [1]
+UnityPrint                    0x665   0x5e  Code  Gb  unity.o [1]
+UnityPrintNumber              0x707   0x1a  Code  Gb  unity.o [1]
+UnityPrintNumberByStyle
+                              0x6c3   0x44  Code  Gb  unity.o [1]
+UnityPrintNumberHex           0x757   0x40  Code  Gb  unity.o [1]
+UnityPrintNumberUnsigned
+                              0x721   0x36  Code  Gb  unity.o [1]
+UnityStrBreaker              0x1a18   0x18  Data  Lc  unity.o [1]
+UnityStrDetail1Name          0x1a68    0xc  Data  Lc  unity.o [1]
+UnityStrDetail2Name          0x1a74    0xc  Data  Lc  unity.o [1]
+UnityStrExpected             0x1a44    0xc  Data  Lc  unity.o [1]
+UnityStrFail                 0x1a88    0x8  Data  Lc  unity.o [1]
+UnityStrOk                   0x1aa0    0x4  Data  Lc  unity.o [1]
+UnityStrPass                 0x1a80    0x8  Data  Lc  unity.o [1]
+UnityStrResultsFailures
+                             0x1a50    0xc  Data  Lc  unity.o [1]
+UnityStrResultsIgnored       0x1a5c    0xc  Data  Lc  unity.o [1]
+UnityStrResultsTests         0x1a98    0x8  Data  Lc  unity.o [1]
+UnityStrSpacer               0x1aa4    0x4  Data  Lc  unity.o [1]
+UnityStrWas                  0x1a90    0x8  Data  Lc  unity.o [1]
+UnityTestResultsBegin         0x797   0x2c  Code  Lc  unity.o [1]
+UnityTestResultsFailBegin
+                              0x7c3   0x1e  Code  Lc  unity.o [1]
+UsageFault_Handler            0xf23         Code  Wk  vectortrap_M.o [4]
+_Close_all                   0x1601   0x40  Code  Gb  xcloseall.o [2]
+_Files                  0x2000'00d8   0x20  Data  Gb  xfiles.o [2]
+_Fofree                      0x147d   0x94  Code  Gb  xfofind.o [2]
+_Fspos                        0xd91   0xd8  Code  Gb  xfspos.o [2]
+_Fwprep                       0xa1f   0xb4  Code  Gb  xfwprep.o [2]
+_Nnl                          0xe87    0xc  Code  Gb  xfgpos.o [2]
+__aeabi_JMP_BUF_SIZE {Abs}
+                                0x8          --   Gb  setjmp.o [3]
+__basic_free                  0xca1   0x16  Code  Gb  heap0.o [2]
+__basic_free_intern           0xcb7   0x74  Code  Lc  heap0.o [2]
+__basic_malloc                0xbf5   0x18  Code  Gb  heap0.o [2]
+__basic_malloc_intern         0xc0d   0x94  Code  Lc  heap0.o [2]
+__cexit_closeall             0x19db         Code  Gb  cexit.o [4]
+__close                      0x159b   0x18  Code  Gb  close.o [5]
+__cmain                      0x19b1         Code  Gb  cmain.o [4]
+__cstart_closeall            0x1aa8         Data  Gb  cstart_closeall.o [4]
+__data_GetMemChunk            0xd65   0x2c  Code  Gb  xgetmemchunk.o [2]
+__data_GetMemChunk::start
+                        0x2000'0290    0x4  Data  Lc  xgetmemchunk.o [2]
+__dwrite                      0xe69   0x1e  Code  Gb  dwrite.o [5]
+__exit                       0x19e9   0x14  Code  Gb  exit.o [5]
+__iar_Stderr            0x2000'0090   0x48  Data  Gb  xfiles.o [2]
+__iar_Stdin             0x2000'0000   0x48  Data  Gb  xfiles.o [2]
+__iar_Stdout            0x2000'0048   0x48  Data  Gb  xfiles.o [2]
+__iar_close_ttio              0xff1   0x2c  Code  Gb  iarttio.o [5]
+__iar_data_init3             0x18e1   0x28  Code  Gb  data_init.o [4]
+__iar_get_ttio               0x101d   0x4c  Code  Gb  iarttio.o [5]
+__iar_lookup_ttioh           0x106d    0x8  Code  Gb  XShttio.o [2]
+__iar_lz77_init_single3
+                              0xad3   0x76  Code  Gb  lz77_init_single.o [4]
+__iar_program_start          0x19fd         Code  Gb  cstartup_M.o [4]
+__iar_sh_Discard              0xf25   0x42  Code  Gb  XShHandles.o [2]
+__iar_sh_Move                 0xf67   0x46  Code  Gb  XShHandles.o [2]
+__iar_sh_Pos                  0xfad   0x40  Code  Gb  XShHandles.o [2]
+__iar_sh_stdout               0xee1   0x20  Code  Gb  iarwstd.o [5]
+__iar_sh_write                0xf01   0x22  Code  Gb  iarwrite.o [5]
+__iar_ttio_handles      0x2000'00f8    0x8  Data  Lc  XShttio.o [2]
+__iar_zero_init3             0x1679   0x38  Code  Gb  zero_init3.o [4]
+__low_level_init             0x19cf    0x4  Code  Gb  low_level_init.o [2]
+__lseek                       0xe93   0x4e  Code  Gb  lseek.o [5]
+__vector_table                  0x0         Data  Gb  vector_table_M.o [4]
+__write                       0xd55   0x10  Code  Gb  write.o [5]
+_call_main                   0x19bd         Code  Gb  cmain.o [4]
+_exit                        0x19d9         Code  Gb  cexit.o [4]
+eMpbError               0x2000'0294    0x1  Data  Gb  test_mpbTimeBase.o [1]
+eMpbTimeBaseInit              0x5c7   0x2c  Code  Gb  mpbTimeBase.o [1]
+eMpbTimeBaseIsDelayDone
+                              0x657    0xe  Code  Gb  mpbTimeBase.o [1]
+eMpbTimeBaseTick              0x5f3   0x42  Code  Gb  mpbTimeBase.o [1]
+ebuf                    0x2000'01e8   0x50  Data  Lc  xfiles.o [2]
+exit                         0x19d3    0x4  Code  Gb  exit.o [2]
+fclose                       0x151d   0x7e  Code  Gb  fclose.o [2]
+fflush                        0xbbd   0x34  Code  Gb  fflush.o [2]
+fflushOne                     0xb49   0x74  Code  Lc  fflush.o [2]
+fputc                         0x9c9   0x56  Code  Gb  fputc.o [2]
+free                         0x1519    0x4  Code  Gb  heaptramp0.o [2]
+fseek                         0xd31   0x24  Code  Gb  fseek.o [2]
+longjmp                       0x9b5         Code  Gb  setjmp.o [3]
+main                         0x1079  0x3b4  Code  Gb  test_mpbTimeBase_runner.o [1]
+obuf                    0x2000'0238   0x50  Data  Lc  xfiles.o [2]
+putchar                       0x999    0xc  Code  Gb  putchar.o [2]
+remove                       0x15b3   0x14  Code  Gb  remove.o [5]
+sFileInfo               0x2000'0100   0x80  Data  Lc  XShHandles.o [2]
+setUp                          0x41    0x2  Code  Gb  test_mpbTimeBase.o [1]
+setjmp                        0x9a5         Code  Gb  setjmp.o [3]
+strlen                       0x15c9         Code  Gb  strlen.o [4]
+suite_setup                  0x1075    0x2  Code  Lc  test_mpbTimeBase_runner.o [1]
+suite_teardown               0x1077    0x2  Code  Lc  test_mpbTimeBase_runner.o [1]
+tearDown                       0x43    0x2  Code  Gb  test_mpbTimeBase.o [1]
+test_eMpbTimeBaseInit_InvalidParam_Fail
+                               0x45   0x6a  Code  Gb  test_mpbTimeBase.o [1]
+test_eMpbTimeBaseInit_Success
+                               0xaf   0x98  Code  Gb  test_mpbTimeBase.o [1]
+test_eMpbTimeBaseIsDelayDone_eFalse_OverFlow_Success
+                              0x5a5   0x22  Code  Gb  test_mpbTimeBase.o [1]
+test_eMpbTimeBaseIsDelayDone_eFalse_Success
+                              0x581   0x24  Code  Gb  test_mpbTimeBase.o [1]
+test_eMpbTimeBaseIsDelayDone_eTrue_Success
+                              0x55d   0x24  Code  Gb  test_mpbTimeBase.o [1]
+test_eMpbTimeBaseTick_1Second_Success
+                              0x27d   0x9c  Code  Gb  test_mpbTimeBase.o [1]
+test_eMpbTimeBaseTick_1TickPerMs_Success
+                              0x1f5   0x88  Code  Gb  test_mpbTimeBase.o [1]
+test_eMpbTimeBaseTick_2TickPerMs_Success
+                              0x16b   0x8a  Code  Gb  test_mpbTimeBase.o [1]
+test_eMpbTimeBaseTick_InvalidParam_Fail
+                              0x147   0x24  Code  Gb  test_mpbTimeBase.o [1]
+test_ulMpbTimeBaseGetHour_0Hour_Success
+                              0x47b   0x3c  Code  Gb  test_mpbTimeBase.o [1]
+test_ulMpbTimeBaseGetHour_1Hour_Success
+                              0x4b7   0x4e  Code  Gb  test_mpbTimeBase.o [1]
+test_ulMpbTimeBaseGetHour_MoreThen1Hour_Success
+                              0x505   0x48  Code  Gb  test_mpbTimeBase.o [1]
+test_ulMpbTimeBaseGetMinute_0minute_Success
+                              0x3c9   0x3c  Code  Gb  test_mpbTimeBase.o [1]
+test_ulMpbTimeBaseGetMinute_1minute_Success
+                              0x405   0x3c  Code  Gb  test_mpbTimeBase.o [1]
+test_ulMpbTimeBaseGetMinute_2minutes_Success
+                              0x441   0x3a  Code  Gb  test_mpbTimeBase.o [1]
+test_ulMpbTimeBaseGetMs_Success
+                              0x353   0x3a  Code  Gb  test_mpbTimeBase.o [1]
+test_ulMpbTimeBaseGetSecond_Success
+                              0x38d   0x3c  Code  Gb  test_mpbTimeBase.o [1]
+test_ulMpbTimeBaseGetTick_Success
+                              0x319   0x3a  Code  Gb  test_mpbTimeBase.o [1]
+ulMpbTimeBaseGetHour          0x64b    0xc  Code  Gb  mpbTimeBase.o [1]
+ulMpbTimeBaseGetMinute        0x641    0xa  Code  Gb  mpbTimeBase.o [1]
+ulMpbTimeBaseGetMs            0x639    0x4  Code  Gb  mpbTimeBase.o [1]
+ulMpbTimeBaseGetSecond        0x63d    0x4  Code  Gb  mpbTimeBase.o [1]
+ulMpbTimeBaseGetTick          0x635    0x4  Code  Gb  mpbTimeBase.o [1]
+
+
+[1] = C:\components\mpbTime\UnitTestFramework\build\test\out\c
+[2] = dl7M_tlf.a
+[3] = m7M_tl.a
+[4] = rt7M_tl.a
+[5] = shb_l.a
+
+  5'896 bytes of readonly  code memory
+  1'017 bytes of readonly  data memory
+  3'733 bytes of readwrite data memory
+
+Errors: none
+Warnings: none

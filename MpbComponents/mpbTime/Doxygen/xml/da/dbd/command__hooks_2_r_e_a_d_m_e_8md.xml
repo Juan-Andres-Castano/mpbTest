@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="da/dbd/command__hooks_2_r_e_a_d_m_e_8md" kind="file" language="Markdown">
+    <compoundname>README.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">ceedling-command-hooks</highlight></codeline>
+<codeline><highlight class="normal">======================</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Plugin<sp/>for<sp/>easily<sp/>calling<sp/>command<sp/>line<sp/>tools<sp/>at<sp/>various<sp/>points<sp/>in<sp/>the<sp/>build<sp/>process</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Define<sp/>any<sp/>of<sp/>these<sp/>sections<sp/>in<sp/>:tools:<sp/>to<sp/>provide<sp/>additional<sp/>hooks<sp/>to<sp/>be<sp/>called<sp/>on<sp/>demand:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>:pre_mock_generate</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>:post_mock_generate</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>:pre_runner_generate</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>:post_runner_generate</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>:pre_compile_execute</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>:post_compile_execute</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>:pre_link_execute</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>:post_link_execute</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>:pre_test_fixture_execute</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>:pre_test_fixture_execute</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>:pre_test</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>:post_test</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>:pre_release</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>:post_release</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>:pre_build</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>:post_build</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Each<sp/>of<sp/>these<sp/>tools<sp/>can<sp/>support<sp/>an<sp/>:executable<sp/>string<sp/>and<sp/>an<sp/>:args<sp/>list,<sp/>like<sp/>so:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">:tools:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>:post_link_execute:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>:executable:<sp/>objcopy.exe</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>:args:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>${1}<sp/>#This<sp/>is<sp/>replaced<sp/>with<sp/>the<sp/>executable<sp/>name</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>output.srec</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>--strip-all</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">You<sp/>may<sp/>also<sp/>specify<sp/>an<sp/>array<sp/>of<sp/>executables<sp/>to<sp/>be<sp/>called<sp/>in<sp/>a<sp/>particular<sp/>place,<sp/>like<sp/>so:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">:tools:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>:post_test:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>-<sp/><sp/>:executable:<sp/>echo</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:args:<sp/>&quot;${1}<sp/>was<sp/>glorious!&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>-<sp/><sp/>:executable:<sp/>echo</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:args:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>it<sp/>kinda<sp/>made<sp/>me<sp/>cry<sp/>a<sp/>little.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>you?</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Happy<sp/>Tweaking!</highlight></codeline>
+    </programlisting>
+    <location file="UnitTestFramework/vendor/ceedling/plugins/command_hooks/README.md"/>
+  </compounddef>
+</doxygen>

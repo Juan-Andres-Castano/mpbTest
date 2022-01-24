@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_dfd1759c1a4bdbeb65758f6d9d289e9a" xml:lang="en-US">
+<title>UnitTestFramework/vendor/ceedling/plugins/fake_function_framework Directory Reference</title>
+<indexterm><primary>UnitTestFramework/vendor/ceedling/plugins/fake_function_framework Directory Reference</primary></indexterm>
+Directory dependency graph for fake_function_framework:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="dir_dfd1759c1a4bdbeb65758f6d9d289e9a_dep.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Directories    </title>
+        <itemizedlist>
+            <listitem><para>directory <link linkend="_dir_6bd9a66bb4b4ca3fd7295362af1dd79e">examples</link></para>
+</listitem>
+            <listitem><para>directory <link linkend="_dir_bc0e8a5e45d7403684d68ee37b1655e4">src</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

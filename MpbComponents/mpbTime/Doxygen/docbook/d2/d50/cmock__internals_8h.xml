@@ -1,0 +1,168 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_cmock__internals_8h" xml:lang="en-US">
+<title>UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock_internals.h File Reference</title>
+<indexterm><primary>UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock_internals.h</primary></indexterm>
+This graph shows which files directly or indirectly include this file:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../d4/dee/cmock__internals_8h__dep__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="_cmock__internals_8h_1a38ccf90247120b2526382c260b55d576">CMOCK_MEM_PTR_AS_INT</link>   unsigned long</para>
+</listitem>
+            <listitem><para>#define <link linkend="_cmock__internals_8h_1abfaf78baa4716b7adfb7fa89f566f461">CMOCK_MEM_ALIGN</link>   (2)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_cmock__internals_8h_1a2bf28cc49a4ab9238dc693baf6761d7f">CMOCK_MEM_SIZE</link>   (32768)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_cmock__internals_8h_1aa4c3fd1e195f905d5acd940f1daf9de1">CMOCK_MEM_ALIGN_SIZE</link>   (<link linkend="_cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041">CMOCK_MEM_INDEX_TYPE</link>)(1u &lt;&lt; <link linkend="_cmock__internals_8h_1abfaf78baa4716b7adfb7fa89f566f461">CMOCK_MEM_ALIGN</link>)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_cmock__internals_8h_1a170ba6073741a693e7f4dc21e2db18ef">CMOCK_MEM_ALIGN_MASK</link>   (<link linkend="_cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041">CMOCK_MEM_INDEX_TYPE</link>)(<link linkend="_cmock__internals_8h_1aa4c3fd1e195f905d5acd940f1daf9de1">CMOCK_MEM_ALIGN_SIZE</link> - 1)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_cmock__internals_8h_1ab4f4b5cc6478d39d04888f64be4e335d">CMOCK_MEM_INDEX_SIZE</link>   (<link linkend="_cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041">CMOCK_MEM_INDEX_TYPE</link>)(<link linkend="_cmock__internals_8h_1a38ccf90247120b2526382c260b55d576">CMOCK_MEM_PTR_AS_INT</link>)((sizeof(<link linkend="_cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041">CMOCK_MEM_INDEX_TYPE</link>) &gt; <link linkend="_cmock__internals_8h_1aa4c3fd1e195f905d5acd940f1daf9de1">CMOCK_MEM_ALIGN_SIZE</link>) ? sizeof(<link linkend="_cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041">CMOCK_MEM_INDEX_TYPE</link>) : <link linkend="_cmock__internals_8h_1aa4c3fd1e195f905d5acd940f1daf9de1">CMOCK_MEM_ALIGN_SIZE</link>)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para>const char * <link linkend="_cmock__internals_8h_1ac00a03c1e594c9e1d9ff3ce4873642a0">CMockStringOutOfMemory</link></para>
+</listitem>
+            <listitem><para>const char * <link linkend="_cmock__internals_8h_1a797fd9415cd8d0655c68e007f845d020">CMockStringCalledMore</link></para>
+</listitem>
+            <listitem><para>const char * <link linkend="_cmock__internals_8h_1a6ac9ca0995f1b325857c4bdb5a898102">CMockStringCalledLess</link></para>
+</listitem>
+            <listitem><para>const char * <link linkend="_cmock__internals_8h_1a16b2f46d690a118d6ca14abb35543481">CMockStringCalledEarly</link></para>
+</listitem>
+            <listitem><para>const char * <link linkend="_cmock__internals_8h_1aed2166361988847f5f63d13994f5de40">CMockStringCalledLate</link></para>
+</listitem>
+            <listitem><para>const char * <link linkend="_cmock__internals_8h_1acf9d38dd7d2872139cc1bc1bf1b19e70">CMockStringCallOrder</link></para>
+</listitem>
+            <listitem><para>const char * <link linkend="_cmock__internals_8h_1aa04f7531196fa48793136231a0468971">CMockStringIgnPreExp</link></para>
+</listitem>
+            <listitem><para>const char * <link linkend="_cmock__internals_8h_1a784237bba66acd6aa8f05424ab203e50">CMockStringPtrPreExp</link></para>
+</listitem>
+            <listitem><para>const char * <link linkend="_cmock__internals_8h_1af6f94581b839661ce82bfd01f1c937a1">CMockStringPtrIsNULL</link></para>
+</listitem>
+            <listitem><para>const char * <link linkend="_cmock__internals_8h_1aeda885bf7d07126d0e1638f265d7514c">CMockStringExpNULL</link></para>
+</listitem>
+            <listitem><para>const char * <link linkend="_cmock__internals_8h_1a89c88e09ebf68dff96e71a417b8733a5">CMockStringMismatch</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Macro Definition Documentation</title>
+<anchor xml:id="_cmock__internals_8h_1abfaf78baa4716b7adfb7fa89f566f461"/>    <section>
+    <title>CMOCK_MEM_ALIGN</title>
+<indexterm><primary>CMOCK_MEM_ALIGN</primary><secondary>cmock_internals.h</secondary></indexterm>
+<indexterm><primary>cmock_internals.h</primary><secondary>CMOCK_MEM_ALIGN</secondary></indexterm>
+<para><computeroutput>#define CMOCK_MEM_ALIGN   (2)</computeroutput></para><para>
+Definition at line 74 of file cmock_internals.h.</para>
+    </section><anchor xml:id="_cmock__internals_8h_1a170ba6073741a693e7f4dc21e2db18ef"/>    <section>
+    <title>CMOCK_MEM_ALIGN_MASK</title>
+<indexterm><primary>CMOCK_MEM_ALIGN_MASK</primary><secondary>cmock_internals.h</secondary></indexterm>
+<indexterm><primary>cmock_internals.h</primary><secondary>CMOCK_MEM_ALIGN_MASK</secondary></indexterm>
+<para><computeroutput>#define CMOCK_MEM_ALIGN_MASK   (<link linkend="_cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041">CMOCK_MEM_INDEX_TYPE</link>)(<link linkend="_cmock__internals_8h_1aa4c3fd1e195f905d5acd940f1daf9de1">CMOCK_MEM_ALIGN_SIZE</link> - 1)</computeroutput></para><para>
+Definition at line 85 of file cmock_internals.h.</para>
+    </section><anchor xml:id="_cmock__internals_8h_1aa4c3fd1e195f905d5acd940f1daf9de1"/>    <section>
+    <title>CMOCK_MEM_ALIGN_SIZE</title>
+<indexterm><primary>CMOCK_MEM_ALIGN_SIZE</primary><secondary>cmock_internals.h</secondary></indexterm>
+<indexterm><primary>cmock_internals.h</primary><secondary>CMOCK_MEM_ALIGN_SIZE</secondary></indexterm>
+<para><computeroutput>#define CMOCK_MEM_ALIGN_SIZE   (<link linkend="_cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041">CMOCK_MEM_INDEX_TYPE</link>)(1u &lt;&lt; <link linkend="_cmock__internals_8h_1abfaf78baa4716b7adfb7fa89f566f461">CMOCK_MEM_ALIGN</link>)</computeroutput></para><para>
+Definition at line 84 of file cmock_internals.h.</para>
+    </section><anchor xml:id="_cmock__internals_8h_1ab4f4b5cc6478d39d04888f64be4e335d"/>    <section>
+    <title>CMOCK_MEM_INDEX_SIZE</title>
+<indexterm><primary>CMOCK_MEM_INDEX_SIZE</primary><secondary>cmock_internals.h</secondary></indexterm>
+<indexterm><primary>cmock_internals.h</primary><secondary>CMOCK_MEM_INDEX_SIZE</secondary></indexterm>
+<para><computeroutput>#define CMOCK_MEM_INDEX_SIZE   (<link linkend="_cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041">CMOCK_MEM_INDEX_TYPE</link>)(<link linkend="_cmock__internals_8h_1a38ccf90247120b2526382c260b55d576">CMOCK_MEM_PTR_AS_INT</link>)((sizeof(<link linkend="_cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041">CMOCK_MEM_INDEX_TYPE</link>) &gt; <link linkend="_cmock__internals_8h_1aa4c3fd1e195f905d5acd940f1daf9de1">CMOCK_MEM_ALIGN_SIZE</link>) ? sizeof(<link linkend="_cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041">CMOCK_MEM_INDEX_TYPE</link>) : <link linkend="_cmock__internals_8h_1aa4c3fd1e195f905d5acd940f1daf9de1">CMOCK_MEM_ALIGN_SIZE</link>)</computeroutput></para><para>
+Definition at line 86 of file cmock_internals.h.</para>
+    </section><anchor xml:id="_cmock__internals_8h_1a38ccf90247120b2526382c260b55d576"/>    <section>
+    <title>CMOCK_MEM_PTR_AS_INT</title>
+<indexterm><primary>CMOCK_MEM_PTR_AS_INT</primary><secondary>cmock_internals.h</secondary></indexterm>
+<indexterm><primary>cmock_internals.h</primary><secondary>CMOCK_MEM_PTR_AS_INT</secondary></indexterm>
+<para><computeroutput>#define CMOCK_MEM_PTR_AS_INT   unsigned long</computeroutput></para><para>
+Definition at line 58 of file cmock_internals.h.</para>
+    </section><anchor xml:id="_cmock__internals_8h_1a2bf28cc49a4ab9238dc693baf6761d7f"/>    <section>
+    <title>CMOCK_MEM_SIZE</title>
+<indexterm><primary>CMOCK_MEM_SIZE</primary><secondary>cmock_internals.h</secondary></indexterm>
+<indexterm><primary>cmock_internals.h</primary><secondary>CMOCK_MEM_SIZE</secondary></indexterm>
+<para><computeroutput>#define CMOCK_MEM_SIZE   (32768)</computeroutput></para><para>
+Definition at line 80 of file cmock_internals.h.</para>
+</section>
+</section>
+<section>
+<title>Variable Documentation</title>
+<anchor xml:id="_cmock__internals_8h_1a16b2f46d690a118d6ca14abb35543481"/>    <section>
+    <title>CMockStringCalledEarly</title>
+<indexterm><primary>CMockStringCalledEarly</primary><secondary>cmock_internals.h</secondary></indexterm>
+<indexterm><primary>cmock_internals.h</primary><secondary>CMockStringCalledEarly</secondary></indexterm>
+<para><computeroutput>const char* CMockStringCalledEarly<computeroutput>[extern]</computeroutput></computeroutput></para><para>
+Definition at line 14 of file cmock.c.</para>
+    </section><anchor xml:id="_cmock__internals_8h_1aed2166361988847f5f63d13994f5de40"/>    <section>
+    <title>CMockStringCalledLate</title>
+<indexterm><primary>CMockStringCalledLate</primary><secondary>cmock_internals.h</secondary></indexterm>
+<indexterm><primary>cmock_internals.h</primary><secondary>CMockStringCalledLate</secondary></indexterm>
+<para><computeroutput>const char* CMockStringCalledLate<computeroutput>[extern]</computeroutput></computeroutput></para><para>
+Definition at line 15 of file cmock.c.</para>
+    </section><anchor xml:id="_cmock__internals_8h_1a6ac9ca0995f1b325857c4bdb5a898102"/>    <section>
+    <title>CMockStringCalledLess</title>
+<indexterm><primary>CMockStringCalledLess</primary><secondary>cmock_internals.h</secondary></indexterm>
+<indexterm><primary>cmock_internals.h</primary><secondary>CMockStringCalledLess</secondary></indexterm>
+<para><computeroutput>const char* CMockStringCalledLess<computeroutput>[extern]</computeroutput></computeroutput></para><para>
+Definition at line 13 of file cmock.c.</para>
+    </section><anchor xml:id="_cmock__internals_8h_1a797fd9415cd8d0655c68e007f845d020"/>    <section>
+    <title>CMockStringCalledMore</title>
+<indexterm><primary>CMockStringCalledMore</primary><secondary>cmock_internals.h</secondary></indexterm>
+<indexterm><primary>cmock_internals.h</primary><secondary>CMockStringCalledMore</secondary></indexterm>
+<para><computeroutput>const char* CMockStringCalledMore<computeroutput>[extern]</computeroutput></computeroutput></para><para>
+Definition at line 12 of file cmock.c.</para>
+    </section><anchor xml:id="_cmock__internals_8h_1acf9d38dd7d2872139cc1bc1bf1b19e70"/>    <section>
+    <title>CMockStringCallOrder</title>
+<indexterm><primary>CMockStringCallOrder</primary><secondary>cmock_internals.h</secondary></indexterm>
+<indexterm><primary>cmock_internals.h</primary><secondary>CMockStringCallOrder</secondary></indexterm>
+<para><computeroutput>const char* CMockStringCallOrder<computeroutput>[extern]</computeroutput></computeroutput></para><para>
+Definition at line 16 of file cmock.c.</para>
+    </section><anchor xml:id="_cmock__internals_8h_1aeda885bf7d07126d0e1638f265d7514c"/>    <section>
+    <title>CMockStringExpNULL</title>
+<indexterm><primary>CMockStringExpNULL</primary><secondary>cmock_internals.h</secondary></indexterm>
+<indexterm><primary>cmock_internals.h</primary><secondary>CMockStringExpNULL</secondary></indexterm>
+<para><computeroutput>const char* CMockStringExpNULL<computeroutput>[extern]</computeroutput></computeroutput></para><para>
+Definition at line 20 of file cmock.c.</para>
+    </section><anchor xml:id="_cmock__internals_8h_1aa04f7531196fa48793136231a0468971"/>    <section>
+    <title>CMockStringIgnPreExp</title>
+<indexterm><primary>CMockStringIgnPreExp</primary><secondary>cmock_internals.h</secondary></indexterm>
+<indexterm><primary>cmock_internals.h</primary><secondary>CMockStringIgnPreExp</secondary></indexterm>
+<para><computeroutput>const char* CMockStringIgnPreExp<computeroutput>[extern]</computeroutput></computeroutput></para><para>
+Definition at line 17 of file cmock.c.</para>
+    </section><anchor xml:id="_cmock__internals_8h_1a89c88e09ebf68dff96e71a417b8733a5"/>    <section>
+    <title>CMockStringMismatch</title>
+<indexterm><primary>CMockStringMismatch</primary><secondary>cmock_internals.h</secondary></indexterm>
+<indexterm><primary>cmock_internals.h</primary><secondary>CMockStringMismatch</secondary></indexterm>
+<para><computeroutput>const char* CMockStringMismatch<computeroutput>[extern]</computeroutput></computeroutput></para><para>
+Definition at line 21 of file cmock.c.</para>
+    </section><anchor xml:id="_cmock__internals_8h_1ac00a03c1e594c9e1d9ff3ce4873642a0"/>    <section>
+    <title>CMockStringOutOfMemory</title>
+<indexterm><primary>CMockStringOutOfMemory</primary><secondary>cmock_internals.h</secondary></indexterm>
+<indexterm><primary>cmock_internals.h</primary><secondary>CMockStringOutOfMemory</secondary></indexterm>
+<para><computeroutput>const char* CMockStringOutOfMemory<computeroutput>[extern]</computeroutput></computeroutput></para><para>
+Definition at line 11 of file cmock.c.</para>
+    </section><anchor xml:id="_cmock__internals_8h_1af6f94581b839661ce82bfd01f1c937a1"/>    <section>
+    <title>CMockStringPtrIsNULL</title>
+<indexterm><primary>CMockStringPtrIsNULL</primary><secondary>cmock_internals.h</secondary></indexterm>
+<indexterm><primary>cmock_internals.h</primary><secondary>CMockStringPtrIsNULL</secondary></indexterm>
+<para><computeroutput>const char* CMockStringPtrIsNULL<computeroutput>[extern]</computeroutput></computeroutput></para><para>
+Definition at line 19 of file cmock.c.</para>
+    </section><anchor xml:id="_cmock__internals_8h_1a784237bba66acd6aa8f05424ab203e50"/>    <section>
+    <title>CMockStringPtrPreExp</title>
+<indexterm><primary>CMockStringPtrPreExp</primary><secondary>cmock_internals.h</secondary></indexterm>
+<indexterm><primary>cmock_internals.h</primary><secondary>CMockStringPtrPreExp</secondary></indexterm>
+<para><computeroutput>const char* CMockStringPtrPreExp<computeroutput>[extern]</computeroutput></computeroutput></para><para>
+Definition at line 18 of file cmock.c.</para>
+</section>
+</section>
+</section>

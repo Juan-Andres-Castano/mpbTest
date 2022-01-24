@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_8a1dbb8539f64cb1ca2fe16cfba2b8f9" xml:lang="en-US">
+<title>UnitTestFramework/vendor/ceedling/vendor/unity Directory Reference</title>
+<indexterm><primary>UnitTestFramework/vendor/ceedling/vendor/unity Directory Reference</primary></indexterm>
+<simplesect>
+    <title>Directories    </title>
+        <itemizedlist>
+            <listitem><para>directory <link linkend="_dir_2cfeece2d2f07a1921e1b797415540e2">auto</link></para>
+</listitem>
+            <listitem><para>directory <link linkend="_dir_a0a0de5b33956f8739f634e0894cf11e">src</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<TestRun>
+	<FailedTests/>
+	<SuccessfulTests>
+		<Test id="1">
+			<Name>../Tests/test_mpbTimeBase.c::test_eMpbTimeBaseInit_InvalidParam_Fail</Name>
+		</Test>
+		<Test id="2">
+			<Name>../Tests/test_mpbTimeBase.c::test_eMpbTimeBaseInit_Success</Name>
+		</Test>
+		<Test id="3">
+			<Name>../Tests/test_mpbTimeBase.c::test_eMpbTimeBaseTick_InvalidParam_Fail</Name>
+		</Test>
+		<Test id="4">
+			<Name>../Tests/test_mpbTimeBase.c::test_eMpbTimeBaseTick_2TickPerMs_Success</Name>
+		</Test>
+		<Test id="5">
+			<Name>../Tests/test_mpbTimeBase.c::test_eMpbTimeBaseTick_1TickPerMs_Success</Name>
+		</Test>
+		<Test id="6">
+			<Name>../Tests/test_mpbTimeBase.c::test_eMpbTimeBaseTick_1Second_Success</Name>
+		</Test>
+		<Test id="7">
+			<Name>../Tests/test_mpbTimeBase.c::test_ulMpbTimeBaseGetTick_Success</Name>
+		</Test>
+		<Test id="8">
+			<Name>../Tests/test_mpbTimeBase.c::test_ulMpbTimeBaseGetMs_Success</Name>
+		</Test>
+		<Test id="9">
+			<Name>../Tests/test_mpbTimeBase.c::test_ulMpbTimeBaseGetSecond_Success</Name>
+		</Test>
+		<Test id="10">
+			<Name>../Tests/test_mpbTimeBase.c::test_ulMpbTimeBaseGetMinute_0minute_Success</Name>
+		</Test>
+		<Test id="11">
+			<Name>../Tests/test_mpbTimeBase.c::test_ulMpbTimeBaseGetMinute_1minute_Success</Name>
+		</Test>
+		<Test id="12">
+			<Name>../Tests/test_mpbTimeBase.c::test_ulMpbTimeBaseGetMinute_2minutes_Success</Name>
+		</Test>
+		<Test id="13">
+			<Name>../Tests/test_mpbTimeBase.c::test_ulMpbTimeBaseGetHour_0Hour_Success</Name>
+		</Test>
+		<Test id="14">
+			<Name>../Tests/test_mpbTimeBase.c::test_ulMpbTimeBaseGetHour_1Hour_Success</Name>
+		</Test>
+		<Test id="15">
+			<Name>../Tests/test_mpbTimeBase.c::test_ulMpbTimeBaseGetHour_MoreThen1Hour_Success</Name>
+		</Test>
+		<Test id="16">
+			<Name>../Tests/test_mpbTimeBase.c::test_eMpbTimeBaseIsDelayDone_eTrue_Success</Name>
+		</Test>
+		<Test id="17">
+			<Name>../Tests/test_mpbTimeBase.c::test_eMpbTimeBaseIsDelayDone_eFalse_Success</Name>
+		</Test>
+		<Test id="18">
+			<Name>../Tests/test_mpbTimeBase.c::test_eMpbTimeBaseIsDelayDone_eFalse_OverFlow_Success</Name>
+		</Test>
+	</SuccessfulTests>
+	<IgnoredTests/>
+	<Statistics>
+		<Tests>18</Tests>
+		<Ignores>0</Ignores>
+		<FailuresTotal>0</FailuresTotal>
+		<Errors>0</Errors>
+		<Failures>0</Failures>
+	</Statistics>
+</TestRun>

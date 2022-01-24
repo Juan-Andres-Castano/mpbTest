@@ -1,0 +1,392 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="d3/d91/mpb_time_base_8h" kind="file" language="C++">
+    <compoundname>mpbTimeBase.h</compoundname>
+    <includes refid="d2/dbb/mpblibs_8h" local="yes">mpblibs.h</includes>
+    <includedby refid="de/dd4/mpb_time_base_8c" local="yes">Sources/mpbTimeBase.c</includedby>
+    <incdepgraph>
+      <node id="6">
+        <label>stdarg.h</label>
+      </node>
+      <node id="3">
+        <label>stdint.h</label>
+      </node>
+      <node id="4">
+        <label>stdlib.h</label>
+      </node>
+      <node id="7">
+        <label>stddef.h</label>
+      </node>
+      <node id="1">
+        <label>Includes/mpbTimeBase.h</label>
+        <link refid="d3/d91/mpb_time_base_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>mpblibs.h</label>
+        <link refid="d2/dbb/mpblibs_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>string.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>Sources/mpbTimeBase.c</label>
+        <link refid="de/dd4/mpb_time_base_8c"/>
+      </node>
+      <node id="1">
+        <label>Includes/mpbTimeBase.h</label>
+        <link refid="d3/d91/mpb_time_base_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="dd/d3f/struct____attribute____" prot="public">__attribute__</innerclass>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="d3/d91/mpb_time_base_8h_1abc4f7fb8dcd9e568855485653669221a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="d2/dbb/mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41" kindref="member">eMpbError_t</ref></type>
+        <definition>eMpbError_t eMpbTimeBaseInit</definition>
+        <argsstring>(mpbTimeBase_t *pxTimeBase, uint8_t ucTickPerMs)</argsstring>
+        <name>eMpbTimeBaseInit</name>
+        <param>
+          <type>mpbTimeBase_t *</type>
+          <declname>pxTimeBase</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>ucTickPerMs</declname>
+        </param>
+        <briefdescription>
+<para>Initialize the timebase structure. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">pxTimeBase</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>pointer to the timebase structure </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">ucTickPerMs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the number of tick per miliseconds </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Success or library error message </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Includes/mpbTimeBase.h" line="48" column="13" bodyfile="Sources/mpbTimeBase.c" bodystart="46" bodyend="62" declfile="Includes/mpbTimeBase.h" declline="48" declcolumn="13"/>
+        <references refid="d2/dbb/mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41a3850b8824af139a4e2f0f5bcc536ec16" compoundref="d2/dbb/mpblibs_8h" startline="40">eInvalidParameter</references>
+        <references refid="d2/dbb/mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41a3df453108b088af1ab4d781dcf1d0c15" compoundref="d2/dbb/mpblibs_8h" startline="39">eSuccess</references>
+      </memberdef>
+      <memberdef kind="function" id="d3/d91/mpb_time_base_8h_1a6cc648d8b1c13459689754a7b9a5ee0c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="d2/dbb/mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41" kindref="member">eMpbError_t</ref></type>
+        <definition>eMpbError_t eMpbTimeBaseTick</definition>
+        <argsstring>(mpbTimeBase_t *pxTimeBase)</argsstring>
+        <name>eMpbTimeBaseTick</name>
+        <param>
+          <type>mpbTimeBase_t *</type>
+          <declname>pxTimeBase</declname>
+        </param>
+        <briefdescription>
+<para>Tick of the timebase structure. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">pxTimeBase</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>pointer to the timebase structure </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Success or library error message </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Includes/mpbTimeBase.h" line="55" column="13" bodyfile="Sources/mpbTimeBase.c" bodystart="65" bodyend="91" declfile="Includes/mpbTimeBase.h" declline="55" declcolumn="13"/>
+        <references refid="d2/dbb/mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41a3850b8824af139a4e2f0f5bcc536ec16" compoundref="d2/dbb/mpblibs_8h" startline="40">eInvalidParameter</references>
+        <references refid="d2/dbb/mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41a3df453108b088af1ab4d781dcf1d0c15" compoundref="d2/dbb/mpblibs_8h" startline="39">eSuccess</references>
+      </memberdef>
+      <memberdef kind="function" id="d3/d91/mpb_time_base_8h_1a69948f4a4a22d7d95ecf39af55bfe6dd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t ulMpbTimeBaseGetTick</definition>
+        <argsstring>(mpbTimeBase_t *pxTimeBase)</argsstring>
+        <name>ulMpbTimeBaseGetTick</name>
+        <param>
+          <type>mpbTimeBase_t *</type>
+          <declname>pxTimeBase</declname>
+        </param>
+        <briefdescription>
+<para>Get the number of ticks. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">pxTimeBase</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>pointer to the timebase structure </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The number of tick past since init </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Includes/mpbTimeBase.h" line="62" column="10" bodyfile="Sources/mpbTimeBase.c" bodystart="94" bodyend="97" declfile="Includes/mpbTimeBase.h" declline="62" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="d3/d91/mpb_time_base_8h_1a0a8b5da1e9949559a78ac7cade9f60ba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t ulMpbTimeBaseGetMs</definition>
+        <argsstring>(mpbTimeBase_t *pxTimeBase)</argsstring>
+        <name>ulMpbTimeBaseGetMs</name>
+        <param>
+          <type>mpbTimeBase_t *</type>
+          <declname>pxTimeBase</declname>
+        </param>
+        <briefdescription>
+<para>Get the number of miliseconds. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">pxTimeBase</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>pointer to the timebase structure </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The number of miliseconds past since init </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Includes/mpbTimeBase.h" line="69" column="10" bodyfile="Sources/mpbTimeBase.c" bodystart="100" bodyend="103" declfile="Includes/mpbTimeBase.h" declline="69" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="d3/d91/mpb_time_base_8h_1ad06e7c793bdc9e4608c6501d00756b73" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t ulMpbTimeBaseGetSecond</definition>
+        <argsstring>(mpbTimeBase_t *pxTimeBase)</argsstring>
+        <name>ulMpbTimeBaseGetSecond</name>
+        <param>
+          <type>mpbTimeBase_t *</type>
+          <declname>pxTimeBase</declname>
+        </param>
+        <briefdescription>
+<para>Get the number of seconds. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">pxTimeBase</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>pointer to the timebase structure </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The number of seconds past since init </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Includes/mpbTimeBase.h" line="76" column="10" bodyfile="Sources/mpbTimeBase.c" bodystart="106" bodyend="109" declfile="Includes/mpbTimeBase.h" declline="76" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="d3/d91/mpb_time_base_8h_1abac386caa33523404f7cfdef66e30268" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t ulMpbTimeBaseGetMinute</definition>
+        <argsstring>(mpbTimeBase_t *pxTimeBase)</argsstring>
+        <name>ulMpbTimeBaseGetMinute</name>
+        <param>
+          <type>mpbTimeBase_t *</type>
+          <declname>pxTimeBase</declname>
+        </param>
+        <briefdescription>
+<para>Get the number of minutes. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">pxTimeBase</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>pointer to the timebase structure </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The number of minutes past since init </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Includes/mpbTimeBase.h" line="83" column="10" bodyfile="Sources/mpbTimeBase.c" bodystart="112" bodyend="115" declfile="Includes/mpbTimeBase.h" declline="83" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="d3/d91/mpb_time_base_8h_1a661099fb9f3980c616f9e8c91e9dfb49" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t ulMpbTimeBaseGetHour</definition>
+        <argsstring>(mpbTimeBase_t *pxTimeBase)</argsstring>
+        <name>ulMpbTimeBaseGetHour</name>
+        <param>
+          <type>mpbTimeBase_t *</type>
+          <declname>pxTimeBase</declname>
+        </param>
+        <briefdescription>
+<para>Get the number of hour. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">pxTimeBase</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>pointer to the timebase structure </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The number of hour past since init </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Includes/mpbTimeBase.h" line="90" column="10" bodyfile="Sources/mpbTimeBase.c" bodystart="118" bodyend="121" declfile="Includes/mpbTimeBase.h" declline="90" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="d3/d91/mpb_time_base_8h_1a60da84dfb6398977db7548d0a33101f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="d2/dbb/mpblibs_8h_1a1116febe513ac4a62e1096d1fc2c363a" kindref="member">eBool_t</ref></type>
+        <definition>eBool_t eMpbTimeBaseIsDelayDone</definition>
+        <argsstring>(uint32_t ulCounter, uint32_t ulTimeStamp)</argsstring>
+        <name>eMpbTimeBaseIsDelayDone</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>ulCounter</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>ulTimeStamp</declname>
+        </param>
+        <briefdescription>
+<para>Check if the delay is completed. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">ulCounter</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the value of the timer </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">ulTimeStamp</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the value at which the timer is completed </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>eTrue if the delay is completed, eFalse otherwise </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Includes/mpbTimeBase.h" line="98" column="9" bodyfile="Sources/mpbTimeBase.c" bodystart="124" bodyend="134" declfile="Includes/mpbTimeBase.h" declline="98" declcolumn="9"/>
+        <references refid="d2/dbb/mpblibs_8h_1a1116febe513ac4a62e1096d1fc2c363aa511514f9eb3e5e6e7d2474a98c17bc95" compoundref="d2/dbb/mpblibs_8h" startline="78">eFalse</references>
+        <references refid="d2/dbb/mpblibs_8h_1a1116febe513ac4a62e1096d1fc2c363aa82bcaa7cbf3a5b23fc4fba17f9261272" compoundref="d2/dbb/mpblibs_8h" startline="79">eTrue</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>juan </para>
+</simplesect>
+<simplesect kind="date"><para>Created on 2021-11-17 </para>
+</simplesect>
+<simplesect kind="note"><para></para>
+</simplesect>
+<simplesect kind="copyright"><para>MPB, Montreal, Qc <heading level="2"><center><copy/> COPYRIGHT 2021 MPB, Montreal, Quebec, Canada</center></heading>
+</para>
+</simplesect>
+<heading level="2"><center><copy/> All rights reserved.</center></heading>
+</para>
+<para><linebreak/>
+<linebreak/>
+ <center>This document contains confidential and proprietary information of MPB (subject to a non-disclosure agreement) and shall</center> <center>not be disclosed, distributed, or reproduced in whole or in part, without the prior written authorization of MPB.</center> </para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Header<sp/>guard<sp/>-------------------------------------------------------------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>__MPBTIMEBASE_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>__MPBTIMEBASE_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Includes<sp/>-----------------------------------------------------------------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d2/dbb/mpblibs_8h" kindref="compound">mpblibs.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Define<sp/>-------------------------------------------------------------------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Exported<sp/>macro<sp/>-----------------------------------------------------------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Exported<sp/>enum<sp/>------------------------------------------------------------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Exported<sp/>struct<sp/>----------------------------------------------------------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29" refid="dd/d3f/struct____attribute____" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="31" refid="dd/d3f/struct____attribute_____1a28b9cc899120ec9ffd6e8da7d9f942d7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><ref refid="dd/d3f/struct____attribute_____1a28b9cc899120ec9ffd6e8da7d9f942d7" kindref="member">ulTick</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="32" refid="dd/d3f/struct____attribute_____1a61b238636c68d18bbdefbcb66a471e06" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><ref refid="dd/d3f/struct____attribute_____1a61b238636c68d18bbdefbcb66a471e06" kindref="member">ulMs</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="33" refid="dd/d3f/struct____attribute_____1a3b0dcca8eb83c3e0b988503dad43892d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/><sp/><sp/><ref refid="dd/d3f/struct____attribute_____1a3b0dcca8eb83c3e0b988503dad43892d" kindref="member">ulSecond</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="34" refid="dd/d3f/struct____attribute_____1a1503812b6f48f3ed72640c203ccc6a93" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16_t<sp/><sp/><sp/><sp/><ref refid="dd/d3f/struct____attribute_____1a1503812b6f48f3ed72640c203ccc6a93" kindref="member">usMsCount</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="35" refid="dd/d3f/struct____attribute_____1aeda5671258a37f74b1320aa19d0c11f3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><sp/><sp/><sp/><sp/><ref refid="dd/d3f/struct____attribute_____1aeda5671258a37f74b1320aa19d0c11f3" kindref="member">ucTickCount</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="36" refid="dd/d3f/struct____attribute_____1a9fccf6b9c59b071b6d5e36273a32e3fd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><sp/><sp/><sp/><sp/><ref refid="dd/d3f/struct____attribute_____1a9fccf6b9c59b071b6d5e36273a32e3fd" kindref="member">ucTickReload</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="37"><highlight class="normal">}<ref refid="dd/d3f/struct____attribute____" kindref="compound">__attribute__</ref><sp/>((packed))<sp/>mpbTimeBase_t;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Global<sp/>variables<sp/>---------------------------------------------------------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Exported<sp/>function<sp/>prototypes<sp/>---------------------------------------------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><ref refid="d2/dbb/mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41" kindref="member">eMpbError_t</ref><sp/><ref refid="d3/d91/mpb_time_base_8h_1abc4f7fb8dcd9e568855485653669221a" kindref="member">eMpbTimeBaseInit</ref>(<sp/>mpbTimeBase_t<sp/>*pxTimeBase,<sp/>uint8_t<sp/>ucTickPerMs<sp/>);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><ref refid="d2/dbb/mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41" kindref="member">eMpbError_t</ref><sp/><ref refid="d3/d91/mpb_time_base_8h_1a6cc648d8b1c13459689754a7b9a5ee0c" kindref="member">eMpbTimeBaseTick</ref>(<sp/>mpbTimeBase_t<sp/>*pxTimeBase<sp/>);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal">uint32_t<sp/><ref refid="d3/d91/mpb_time_base_8h_1a69948f4a4a22d7d95ecf39af55bfe6dd" kindref="member">ulMpbTimeBaseGetTick</ref>(<sp/>mpbTimeBase_t<sp/>*pxTimeBase<sp/>);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal">uint32_t<sp/><ref refid="d3/d91/mpb_time_base_8h_1a0a8b5da1e9949559a78ac7cade9f60ba" kindref="member">ulMpbTimeBaseGetMs</ref>(<sp/>mpbTimeBase_t<sp/>*pxTimeBase<sp/>);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal">uint32_t<sp/><ref refid="d3/d91/mpb_time_base_8h_1ad06e7c793bdc9e4608c6501d00756b73" kindref="member">ulMpbTimeBaseGetSecond</ref>(<sp/>mpbTimeBase_t<sp/>*pxTimeBase<sp/>);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal">uint32_t<sp/><ref refid="d3/d91/mpb_time_base_8h_1abac386caa33523404f7cfdef66e30268" kindref="member">ulMpbTimeBaseGetMinute</ref>(<sp/>mpbTimeBase_t<sp/>*pxTimeBase<sp/>);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal">uint32_t<sp/><ref refid="d3/d91/mpb_time_base_8h_1a661099fb9f3980c616f9e8c91e9dfb49" kindref="member">ulMpbTimeBaseGetHour</ref>(<sp/>mpbTimeBase_t<sp/>*pxTimeBase<sp/>);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><ref refid="d2/dbb/mpblibs_8h_1a1116febe513ac4a62e1096d1fc2c363a" kindref="member">eBool_t</ref><sp/><ref refid="d3/d91/mpb_time_base_8h_1a60da84dfb6398977db7548d0a33101f8" kindref="member">eMpbTimeBaseIsDelayDone</ref>(<sp/>uint32_t<sp/>ulCounter,<sp/>uint32_t<sp/>ulTimeStamp<sp/>);</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>__MPBTIMEBASE_H<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+    </programlisting>
+    <location file="Includes/mpbTimeBase.h"/>
+  </compounddef>
+</doxygen>

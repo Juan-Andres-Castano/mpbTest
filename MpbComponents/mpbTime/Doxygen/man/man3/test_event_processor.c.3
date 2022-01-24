@@ -1,0 +1,89 @@
+.TH "UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/test/test_event_processor.c" 3 "Thu Nov 18 2021" "mpbTime" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/test/test_event_processor.c
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'unity\&.h'\fP
+.br
+\fC#include 'event_processor\&.h'\fP
+.br
+\fC#include 'mock_display\&.h'\fP
+.br
+\fC#include <string\&.h>\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBsetUp\fP (void)"
+.br
+.ti -1c
+.RI "void \fBtearDown\fP (void)"
+.br
+.ti -1c
+.RI "void \fBtest_whenTheDeviceIsReset_thenTheStatusLedIsTurnedOff\fP ()"
+.br
+.ti -1c
+.RI "void \fBtest_whenThePowerReadingIsLessThan5_thenTheStatusLedIsNotTurnedOn\fP (void)"
+.br
+.ti -1c
+.RI "void \fBtest_whenTheVolumeKnobIsMaxed_thenVolumeDisplayIsSetTo11\fP (void)"
+.br
+.ti -1c
+.RI "void \fBtest_whenTheModeSelectButtonIsPressed_thenTheDisplayModeIsCycled\fP (void)"
+.br
+.ti -1c
+.RI "void \fBtest_givenTheDisplayHasAnError_whenTheDeviceIsPoweredOn_thenTheDisplayIsPoweredDown\fP (void)"
+.br
+.ti -1c
+.RI "void \fBtest_givenTheUserHasTypedSleep_whenItIsTimeToCheckTheKeyboard_theDisplayIsPoweredDown\fP (void)"
+.br
+.ti -1c
+.RI "void \fBtest_givenNewDataIsAvailable_whenTheDisplayHasUpdated_thenTheEventIsComplete\fP (void)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "void setUp (void)"
+
+.PP
+Definition at line 6 of file test_event_processor\&.c\&.
+.SS "void tearDown (void)"
+
+.PP
+Definition at line 10 of file test_event_processor\&.c\&.
+.SS "void test_givenNewDataIsAvailable_whenTheDisplayHasUpdated_thenTheEventIsComplete (void)"
+
+.PP
+Definition at line 133 of file test_event_processor\&.c\&.
+.SS "void test_givenTheDisplayHasAnError_whenTheDeviceIsPoweredOn_thenTheDisplayIsPoweredDown (void)"
+
+.PP
+Definition at line 85 of file test_event_processor\&.c\&.
+.SS "void test_givenTheUserHasTypedSleep_whenItIsTimeToCheckTheKeyboard_theDisplayIsPoweredDown (void)"
+
+.PP
+Definition at line 107 of file test_event_processor\&.c\&.
+.SS "void test_whenTheDeviceIsReset_thenTheStatusLedIsTurnedOff ()"
+
+.PP
+Definition at line 17 of file test_event_processor\&.c\&.
+.SS "void test_whenTheModeSelectButtonIsPressed_thenTheDisplayModeIsCycled (void)"
+
+.PP
+Definition at line 64 of file test_event_processor\&.c\&.
+.SS "void test_whenThePowerReadingIsLessThan5_thenTheStatusLedIsNotTurnedOn (void)"
+
+.PP
+Definition at line 32 of file test_event_processor\&.c\&.
+.SS "void test_whenTheVolumeKnobIsMaxed_thenVolumeDisplayIsSetTo11 (void)"
+
+.PP
+Definition at line 47 of file test_event_processor\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mpbTime from the source code\&.

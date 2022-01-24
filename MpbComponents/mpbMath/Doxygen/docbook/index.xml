@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<book xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_index" xml:lang="en-US">
+    <info>
+    <title>mpbDebouncing</title>
+    </info>
+<chapter>
+    <title>Data Structure Documentation</title>
+    <xi:include href="d8/d38/struct_mpb_math_debounce__t.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+</chapter>
+<chapter>
+    <title>File Documentation</title>
+    <xi:include href="d8/d59/mpb_math_debounce_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="da/d40/mpb_math_debounce_8c.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+</chapter>
+<index/>
+</book>

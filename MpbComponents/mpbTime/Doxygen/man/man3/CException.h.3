@@ -1,0 +1,166 @@
+.TH "UnitTestFramework/vendor/ceedling/vendor/c_exception/lib/CException.h" 3 "Thu Nov 18 2021" "mpbTime" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+UnitTestFramework/vendor/ceedling/vendor/c_exception/lib/CException.h
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <setjmp\&.h>\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBCEXCEPTION_FRAME_T\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBCEXCEPTION_NONE\fP   (0x5A5A5A5A)"
+.br
+.ti -1c
+.RI "#define \fBCEXCEPTION_NUM_ID\fP   (1)"
+.br
+.ti -1c
+.RI "#define \fBCEXCEPTION_GET_ID\fP   (0)"
+.br
+.ti -1c
+.RI "#define \fBCEXCEPTION_T\fP   unsigned int"
+.br
+.ti -1c
+.RI "#define \fBCEXCEPTION_NO_CATCH_HANDLER\fP(id)"
+.br
+.ti -1c
+.RI "#define \fBCEXCEPTION_HOOK_START_TRY\fP"
+.br
+.ti -1c
+.RI "#define \fBCEXCEPTION_HOOK_HAPPY_TRY\fP"
+.br
+.ti -1c
+.RI "#define \fBCEXCEPTION_HOOK_AFTER_TRY\fP"
+.br
+.ti -1c
+.RI "#define \fBCEXCEPTION_HOOK_START_CATCH\fP"
+.br
+.ti -1c
+.RI "#define \fBTry\fP"
+.br
+.ti -1c
+.RI "#define \fBCatch\fP(e)"
+.br
+.ti -1c
+.RI "#define \fBExitTry\fP()   \fBThrow\fP(\fBCEXCEPTION_NONE\fP)"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBThrow\fP (\fBCEXCEPTION_T\fP ExceptionID)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "volatile \fBCEXCEPTION_FRAME_T\fP \fBCExceptionFrames\fP []"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define Catch(e)"
+\fBValue:\fP
+.PP
+.nf
+            else { }                                                \
+            CExceptionFrames[MY_ID]\&.Exception = CEXCEPTION_NONE;    \
+            CEXCEPTION_HOOK_HAPPY_TRY;                              \
+        }                                                           \
+        else                                                        \
+        {                                                           \
+            e = CExceptionFrames[MY_ID]\&.Exception;                  \
+            (void)e;                                                \
+            CEXCEPTION_HOOK_START_CATCH;                            \
+        }                                                           \
+        CExceptionFrames[MY_ID]\&.pFrame = PrevFrame;                 \
+        CEXCEPTION_HOOK_AFTER_TRY;                                  \
+    }                                                               \
+    if (CExceptionFrames[CEXCEPTION_GET_ID]\&.Exception != CEXCEPTION_NONE)
+.fi
+.PP
+Definition at line 83 of file CException\&.h\&.
+.SS "#define CEXCEPTION_GET_ID   (0)"
+
+.PP
+Definition at line 34 of file CException\&.h\&.
+.SS "#define CEXCEPTION_HOOK_AFTER_TRY"
+
+.PP
+Definition at line 55 of file CException\&.h\&.
+.SS "#define CEXCEPTION_HOOK_HAPPY_TRY"
+
+.PP
+Definition at line 52 of file CException\&.h\&.
+.SS "#define CEXCEPTION_HOOK_START_CATCH"
+
+.PP
+Definition at line 58 of file CException\&.h\&.
+.SS "#define CEXCEPTION_HOOK_START_TRY"
+
+.PP
+Definition at line 49 of file CException\&.h\&.
+.SS "#define CEXCEPTION_NO_CATCH_HANDLER(id)"
+
+.PP
+Definition at line 44 of file CException\&.h\&.
+.SS "#define CEXCEPTION_NONE   (0x5A5A5A5A)"
+
+.PP
+Definition at line 24 of file CException\&.h\&.
+.SS "#define CEXCEPTION_NUM_ID   (1)"
+
+.PP
+Definition at line 29 of file CException\&.h\&.
+.SS "#define CEXCEPTION_T   unsigned int"
+
+.PP
+Definition at line 39 of file CException\&.h\&.
+.SS "#define ExitTry()   \fBThrow\fP(\fBCEXCEPTION_NONE\fP)"
+
+.PP
+Definition at line 103 of file CException\&.h\&.
+.SS "#define Try"
+\fBValue:\fP
+.PP
+.nf
+    {                                                               \
+        jmp_buf *PrevFrame, NewFrame;                               \
+        unsigned int MY_ID = CEXCEPTION_GET_ID;                     \
+        PrevFrame = CExceptionFrames[MY_ID]\&.pFrame;                 \
+        CExceptionFrames[MY_ID]\&.pFrame = (jmp_buf*)(&NewFrame);     \
+        CExceptionFrames[MY_ID]\&.Exception = CEXCEPTION_NONE;        \
+        CEXCEPTION_HOOK_START_TRY;                                  \
+        if (setjmp(NewFrame) == 0) {                                \
+            if (1)
+.fi
+.PP
+Definition at line 71 of file CException\&.h\&.
+.SH "Function Documentation"
+.PP 
+.SS "void Throw (\fBCEXCEPTION_T\fP ExceptionID)"
+
+.PP
+Definition at line 11 of file CException\&.c\&.
+.SH "Variable Documentation"
+.PP 
+.SS "volatile \fBCEXCEPTION_FRAME_T\fP CExceptionFrames[]\fC [extern]\fP"
+
+.PP
+Definition at line 5 of file CException\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mpbTime from the source code\&.

@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_aa846dcd8c7cd77f3011bb183862e6b8" xml:lang="en-US">
+<title>UnitTestFramework/vendor/ceedling/vendor/cmock Directory Reference</title>
+<indexterm><primary>UnitTestFramework/vendor/ceedling/vendor/cmock Directory Reference</primary></indexterm>
+Directory dependency graph for cmock:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="dir_aa846dcd8c7cd77f3011bb183862e6b8_dep.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Directories    </title>
+        <itemizedlist>
+            <listitem><para>directory <link linkend="_dir_57274179d08cb645f2b7a3569af30b2e">src</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

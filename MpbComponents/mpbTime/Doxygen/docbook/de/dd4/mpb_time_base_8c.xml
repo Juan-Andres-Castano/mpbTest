@@ -1,0 +1,456 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_mpb_time_base_8c" xml:lang="en-US">
+<title>Sources/mpbTimeBase.c File Reference</title>
+<indexterm><primary>Sources/mpbTimeBase.c</primary></indexterm>
+<para>
+
+<para>
+<literallayout>&#160;&#xa;</literallayout>
+ This library proveies a management system for the timing of the differents process in the application. Each on of the timers neeeded in a application should be initialized, triggerd inside a timer interruption and read for verify his deadline. </para>
+ 
+</para>
+<programlisting>#include &quot;mpbTimeBase.h&quot;
+</programlisting>Include dependency graph for mpbTimeBase.c:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../de/d57/mpb_time_base_8c__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41">eMpbError_t</link> <link linkend="_mpb_time_base_8c_1abc4f7fb8dcd9e568855485653669221a">eMpbTimeBaseInit</link> (mpbTimeBase_t *pxTimeBase, uint8_t ucTickPerMs)</para>
+
+<para>Initialize the timebase structure. </para>
+</listitem>
+            <listitem><para><link linkend="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41">eMpbError_t</link> <link linkend="_mpb_time_base_8c_1a6cc648d8b1c13459689754a7b9a5ee0c">eMpbTimeBaseTick</link> (mpbTimeBase_t *pxTimeBase)</para>
+
+<para>Tick of the timebase structure. </para>
+</listitem>
+            <listitem><para>uint32_t <link linkend="_mpb_time_base_8c_1a69948f4a4a22d7d95ecf39af55bfe6dd">ulMpbTimeBaseGetTick</link> (mpbTimeBase_t *pxTimeBase)</para>
+
+<para>Get the number of ticks. </para>
+</listitem>
+            <listitem><para>uint32_t <link linkend="_mpb_time_base_8c_1a0a8b5da1e9949559a78ac7cade9f60ba">ulMpbTimeBaseGetMs</link> (mpbTimeBase_t *pxTimeBase)</para>
+
+<para>Get the number of miliseconds. </para>
+</listitem>
+            <listitem><para>uint32_t <link linkend="_mpb_time_base_8c_1ad06e7c793bdc9e4608c6501d00756b73">ulMpbTimeBaseGetSecond</link> (mpbTimeBase_t *pxTimeBase)</para>
+
+<para>Get the number of seconds. </para>
+</listitem>
+            <listitem><para>uint32_t <link linkend="_mpb_time_base_8c_1abac386caa33523404f7cfdef66e30268">ulMpbTimeBaseGetMinute</link> (mpbTimeBase_t *pxTimeBase)</para>
+
+<para>Get the number of minutes. </para>
+</listitem>
+            <listitem><para>uint32_t <link linkend="_mpb_time_base_8c_1a661099fb9f3980c616f9e8c91e9dfb49">ulMpbTimeBaseGetHour</link> (mpbTimeBase_t *pxTimeBase)</para>
+
+<para>Get the number of hour. </para>
+</listitem>
+            <listitem><para><link linkend="_mpblibs_8h_1a1116febe513ac4a62e1096d1fc2c363a">eBool_t</link> <link linkend="_mpb_time_base_8c_1a60da84dfb6398977db7548d0a33101f8">eMpbTimeBaseIsDelayDone</link> (uint32_t ulCounter, uint32_t ulTimeStamp)</para>
+
+<para>Check if the delay is completed. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>
+<literallayout>&#160;&#xa;</literallayout>
+ This library proveies a management system for the timing of the differents process in the application. Each on of the timers neeeded in a application should be initialized, triggerd inside a timer interruption and read for verify his deadline. </para>
+
+<para><formalpara><title>Author</title>
+
+<para>juan andres Castano </para>
+</formalpara>
+<formalpara><title>Date</title>
+
+<para>Created on 2021-11-18 </para>
+</formalpara>
+<note><title>Note</title>
+
+<para></para>
+</note>
+<formalpara><title>Copyright</title>
+
+<para>MPB, Montreal, Qc <formalpara><title><informaltable frame='none'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>&#169; COPYRIGHT 2021 MPB, Montreal, Quebec, Canada</entry></row></tbody></tgroup></informaltable></title></formalpara>
+</para>
+</formalpara>
+<formalpara><title><informaltable frame='none'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>&#169; All rights reserved.</entry></row></tbody></tgroup></informaltable></title></formalpara>
+</para>
+
+<para>
+<literallayout>&#160;&#xa;</literallayout>
+
+<literallayout>&#160;&#xa;</literallayout>
+ <informaltable frame='none'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>This document contains confidential and proprietary information of MPB (subject to a non-disclosure agreement) and shall</entry></row></tbody></tgroup></informaltable> <informaltable frame='none'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>not be disclosed, distributed, or reproduced in whole or in part, without the prior written authorization of MPB.</entry></row></tbody></tgroup></informaltable></para>
+
+<para><literallayout><computeroutput>Usage Example</computeroutput></literallayout> this library allows to instantiate all the timers the application needs. alls are instatiated from the same hardware timer. <literallayout><computeroutput>mpbTimeBase_t&#32;*myTimeBase&#32;=&#32;eMpbTimeBaseInit(&#32;&amp;myTimeBase,&#32;1000&#32;);
+inside&#32;a&#32;timer&#32;interruption:&#32;eMpbTimeBaseTick(&#32;&amp;myTimeBase&#32;)&#32;;&#32;//usually&#32;timer&#32;on&#32;1ms
+uint32_t&#32;timerValue&#32;=&#32;ulMpbTimeBaseGetTick(&#32;&amp;myTimeBase&#32;);
+</computeroutput></literallayout> 
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>mpbTimeBase_t</entry>
+                                <entry>
+<para>datatype for aech timer. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>ticks.</entry>
+                                <entry>
+<para>uint32 valur. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>returns the time counting in several formats or a delay. </para>
+</formalpara>
+<note><title>Note</title>
+
+<para>could be instantiate in everywhere of the application. in that point the timer instantiation should be placed. </para>
+</note>
+<warning><title>Warning</title>
+
+<para>none. </para>
+</warning>
+</para>
+</section>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_mpb_time_base_8c_1abc4f7fb8dcd9e568855485653669221a"/>    <section>
+    <title>eMpbTimeBaseInit()</title>
+<indexterm><primary>eMpbTimeBaseInit</primary><secondary>mpbTimeBase.c</secondary></indexterm>
+<indexterm><primary>mpbTimeBase.c</primary><secondary>eMpbTimeBaseInit</secondary></indexterm>
+<para><computeroutput><link linkend="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41">eMpbError_t</link> eMpbTimeBaseInit (mpbTimeBase_t * pxTimeBase, uint8_t ucTickPerMs)</computeroutput></para><para>
+
+<para>Initialize the timebase structure. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>in                                </entry>                                <entry>pxTimeBase</entry>
+                                <entry>
+<para>pointer to the timebase structure </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>ucTickPerMs</entry>
+                                <entry>
+<para>the number of tick per miliseconds </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>Success or library error message </para>
+</formalpara>
+</para>
+<para>
+Definition at line 46 of file mpbTimeBase.c.</para>
+    </section><anchor xml:id="_mpb_time_base_8c_1a60da84dfb6398977db7548d0a33101f8"/>    <section>
+    <title>eMpbTimeBaseIsDelayDone()</title>
+<indexterm><primary>eMpbTimeBaseIsDelayDone</primary><secondary>mpbTimeBase.c</secondary></indexterm>
+<indexterm><primary>mpbTimeBase.c</primary><secondary>eMpbTimeBaseIsDelayDone</secondary></indexterm>
+<para><computeroutput><link linkend="_mpblibs_8h_1a1116febe513ac4a62e1096d1fc2c363a">eBool_t</link> eMpbTimeBaseIsDelayDone (uint32_t ulCounter, uint32_t ulTimeStamp)</computeroutput></para><para>
+
+<para>Check if the delay is completed. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>in                                </entry>                                <entry>ulCounter</entry>
+                                <entry>
+<para>the value of the timer </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>ulTimeStamp</entry>
+                                <entry>
+<para>the value at which the timer is completed </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>eTrue if the delay is completed, eFalse otherwise </para>
+</formalpara>
+</para>
+<para>
+Definition at line 124 of file mpbTimeBase.c.</para>
+    </section><anchor xml:id="_mpb_time_base_8c_1a6cc648d8b1c13459689754a7b9a5ee0c"/>    <section>
+    <title>eMpbTimeBaseTick()</title>
+<indexterm><primary>eMpbTimeBaseTick</primary><secondary>mpbTimeBase.c</secondary></indexterm>
+<indexterm><primary>mpbTimeBase.c</primary><secondary>eMpbTimeBaseTick</secondary></indexterm>
+<para><computeroutput><link linkend="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41">eMpbError_t</link> eMpbTimeBaseTick (mpbTimeBase_t * pxTimeBase)</computeroutput></para><para>
+
+<para>Tick of the timebase structure. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>in                                </entry>                                <entry>pxTimeBase</entry>
+                                <entry>
+<para>pointer to the timebase structure </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>Success or library error message </para>
+</formalpara>
+</para>
+<para>
+Definition at line 65 of file mpbTimeBase.c.</para>
+    </section><anchor xml:id="_mpb_time_base_8c_1a661099fb9f3980c616f9e8c91e9dfb49"/>    <section>
+    <title>ulMpbTimeBaseGetHour()</title>
+<indexterm><primary>ulMpbTimeBaseGetHour</primary><secondary>mpbTimeBase.c</secondary></indexterm>
+<indexterm><primary>mpbTimeBase.c</primary><secondary>ulMpbTimeBaseGetHour</secondary></indexterm>
+<para><computeroutput>uint32_t ulMpbTimeBaseGetHour (mpbTimeBase_t * pxTimeBase)</computeroutput></para><para>
+
+<para>Get the number of hour. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>in                                </entry>                                <entry>pxTimeBase</entry>
+                                <entry>
+<para>pointer to the timebase structure </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The number of hour past since init </para>
+</formalpara>
+</para>
+<para>
+Definition at line 118 of file mpbTimeBase.c.</para>
+    </section><anchor xml:id="_mpb_time_base_8c_1abac386caa33523404f7cfdef66e30268"/>    <section>
+    <title>ulMpbTimeBaseGetMinute()</title>
+<indexterm><primary>ulMpbTimeBaseGetMinute</primary><secondary>mpbTimeBase.c</secondary></indexterm>
+<indexterm><primary>mpbTimeBase.c</primary><secondary>ulMpbTimeBaseGetMinute</secondary></indexterm>
+<para><computeroutput>uint32_t ulMpbTimeBaseGetMinute (mpbTimeBase_t * pxTimeBase)</computeroutput></para><para>
+
+<para>Get the number of minutes. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>in                                </entry>                                <entry>pxTimeBase</entry>
+                                <entry>
+<para>pointer to the timebase structure </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The number of minutes past since init </para>
+</formalpara>
+</para>
+<para>
+Definition at line 112 of file mpbTimeBase.c.</para>
+    </section><anchor xml:id="_mpb_time_base_8c_1a0a8b5da1e9949559a78ac7cade9f60ba"/>    <section>
+    <title>ulMpbTimeBaseGetMs()</title>
+<indexterm><primary>ulMpbTimeBaseGetMs</primary><secondary>mpbTimeBase.c</secondary></indexterm>
+<indexterm><primary>mpbTimeBase.c</primary><secondary>ulMpbTimeBaseGetMs</secondary></indexterm>
+<para><computeroutput>uint32_t ulMpbTimeBaseGetMs (mpbTimeBase_t * pxTimeBase)</computeroutput></para><para>
+
+<para>Get the number of miliseconds. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>in                                </entry>                                <entry>pxTimeBase</entry>
+                                <entry>
+<para>pointer to the timebase structure </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The number of miliseconds past since init </para>
+</formalpara>
+</para>
+<para>
+Definition at line 100 of file mpbTimeBase.c.</para>
+    </section><anchor xml:id="_mpb_time_base_8c_1ad06e7c793bdc9e4608c6501d00756b73"/>    <section>
+    <title>ulMpbTimeBaseGetSecond()</title>
+<indexterm><primary>ulMpbTimeBaseGetSecond</primary><secondary>mpbTimeBase.c</secondary></indexterm>
+<indexterm><primary>mpbTimeBase.c</primary><secondary>ulMpbTimeBaseGetSecond</secondary></indexterm>
+<para><computeroutput>uint32_t ulMpbTimeBaseGetSecond (mpbTimeBase_t * pxTimeBase)</computeroutput></para><para>
+
+<para>Get the number of seconds. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>in                                </entry>                                <entry>pxTimeBase</entry>
+                                <entry>
+<para>pointer to the timebase structure </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The number of seconds past since init </para>
+</formalpara>
+</para>
+<para>
+Definition at line 106 of file mpbTimeBase.c.</para>
+    </section><anchor xml:id="_mpb_time_base_8c_1a69948f4a4a22d7d95ecf39af55bfe6dd"/>    <section>
+    <title>ulMpbTimeBaseGetTick()</title>
+<indexterm><primary>ulMpbTimeBaseGetTick</primary><secondary>mpbTimeBase.c</secondary></indexterm>
+<indexterm><primary>mpbTimeBase.c</primary><secondary>ulMpbTimeBaseGetTick</secondary></indexterm>
+<para><computeroutput>uint32_t ulMpbTimeBaseGetTick (mpbTimeBase_t * pxTimeBase)</computeroutput></para><para>
+
+<para>Get the number of ticks. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>in                                </entry>                                <entry>pxTimeBase</entry>
+                                <entry>
+<para>pointer to the timebase structure </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>The number of tick past since init </para>
+</formalpara>
+</para>
+<para>
+Definition at line 94 of file mpbTimeBase.c.</para>
+</section>
+</section>
+</section>

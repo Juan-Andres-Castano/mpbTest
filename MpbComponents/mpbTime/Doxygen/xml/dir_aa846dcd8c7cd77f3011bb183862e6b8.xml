@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="dir_aa846dcd8c7cd77f3011bb183862e6b8" kind="dir">
+    <compoundname>UnitTestFramework/vendor/ceedling/vendor/cmock</compoundname>
+    <innerdir refid="dir_57274179d08cb645f2b7a3569af30b2e">UnitTestFramework/vendor/ceedling/vendor/cmock/src</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="UnitTestFramework/vendor/ceedling/vendor/cmock/"/>
+  </compounddef>
+</doxygen>

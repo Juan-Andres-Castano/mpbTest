@@ -1,0 +1,99 @@
+\hypertarget{mpb_math_debounce_8h}{}\doxysection{Includes/mpb\+Math\+Debounce.h File Reference}
+\label{mpb_math_debounce_8h}\index{Includes/mpbMathDebounce.h@{Includes/mpbMathDebounce.h}}
+{\ttfamily \#include \char`\"{}mpblibs.\+h\char`\"{}}\newline
+Include dependency graph for mpb\+Math\+Debounce.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=228pt]{de/df6/mpb_math_debounce_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=228pt]{df/d1e/mpb_math_debounce_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_mpb_math_debounce__t}{Mpb\+Math\+Debounce\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Structure to debounce a AC/\+DC signal. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+e\+Mpb\+Error\+\_\+t \mbox{\hyperlink{mpb_math_debounce_8h_a58a6dae34450c1d974441fdd2f779774}{v\+Mpb\+Math\+Debounce\+Init}} (\mbox{\hyperlink{struct_mpb_math_debounce__t}{Mpb\+Math\+Debounce\+\_\+t}} $\ast$px\+Mpb\+Math\+Debounce, uint32\+\_\+t ul\+On\+Count, uint32\+\_\+t ul\+Off\+Count, e\+Bool\+\_\+t b\+Initial\+State)
+\begin{DoxyCompactList}\small\item\em Initialize the debounce structure. \end{DoxyCompactList}\item 
+e\+Mpb\+Error\+\_\+t \mbox{\hyperlink{mpb_math_debounce_8h_a94957f03bff3a5732fc9741dc88bcbd6}{v\+Mpb\+Math\+Debounce\+Update}} (\mbox{\hyperlink{struct_mpb_math_debounce__t}{Mpb\+Math\+Debounce\+\_\+t}} $\ast$px\+Mpb\+Math\+Debounce, e\+Bool\+\_\+t b\+Actual\+State, e\+Bool\+\_\+t $\ast$pb\+Final\+State)
+\begin{DoxyCompactList}\small\item\em Updates the state of the debounce. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+juan andres 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+Created on 2021-\/11-\/18 
+\end{DoxyDate}
+\begin{DoxyNote}{Note}
+
+\end{DoxyNote}
+\begin{DoxyCopyright}{Copyright}
+MPB, Montreal, Qc \doxysubsubsection*{\begin{center}\copyright{} COPYRIGHT 2021 MPB, Montreal, Quebec, Canada\end{center} }
+\end{DoxyCopyright}
+\doxysubsubsection*{\begin{center}\copyright{} All rights reserved.\end{center} }
+
+~\newline
+~\newline
+ \begin{center}This document contains confidential and proprietary information of MPB (subject to a non-\/disclosure agreement) and shall\end{center}  \begin{center}not be disclosed, distributed, or reproduced in whole or in part, without the prior written authorization of MPB.\end{center}  
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{mpb_math_debounce_8h_a58a6dae34450c1d974441fdd2f779774}\label{mpb_math_debounce_8h_a58a6dae34450c1d974441fdd2f779774}} 
+\index{mpbMathDebounce.h@{mpbMathDebounce.h}!vMpbMathDebounceInit@{vMpbMathDebounceInit}}
+\index{vMpbMathDebounceInit@{vMpbMathDebounceInit}!mpbMathDebounce.h@{mpbMathDebounce.h}}
+\doxysubsubsection{\texorpdfstring{vMpbMathDebounceInit()}{vMpbMathDebounceInit()}}
+{\footnotesize\ttfamily e\+Mpb\+Error\+\_\+t v\+Mpb\+Math\+Debounce\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_mpb_math_debounce__t}{Mpb\+Math\+Debounce\+\_\+t}} $\ast$}]{px\+Mpb\+Math\+Debounce,  }\item[{uint32\+\_\+t}]{ul\+On\+Count,  }\item[{uint32\+\_\+t}]{ul\+Off\+Count,  }\item[{e\+Bool\+\_\+t}]{b\+Initial\+State }\end{DoxyParamCaption})}
+
+
+
+Initialize the debounce structure. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em ul\+On\+Count} & the number of on count desired \\
+\hline
+\mbox{\texttt{ in}}  & {\em ul\+Off\+Count} & the number of off count desired \\
+\hline
+\mbox{\texttt{ in}}  & {\em sl\+Value} & the inital value \\
+\hline
+\mbox{\texttt{ out}}  & {\em px\+Mpb\+Math\+Debounce} & the initialize debounce structure \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 41 of file mpb\+Math\+Debounce.\+c.
+
+\mbox{\Hypertarget{mpb_math_debounce_8h_a94957f03bff3a5732fc9741dc88bcbd6}\label{mpb_math_debounce_8h_a94957f03bff3a5732fc9741dc88bcbd6}} 
+\index{mpbMathDebounce.h@{mpbMathDebounce.h}!vMpbMathDebounceUpdate@{vMpbMathDebounceUpdate}}
+\index{vMpbMathDebounceUpdate@{vMpbMathDebounceUpdate}!mpbMathDebounce.h@{mpbMathDebounce.h}}
+\doxysubsubsection{\texorpdfstring{vMpbMathDebounceUpdate()}{vMpbMathDebounceUpdate()}}
+{\footnotesize\ttfamily e\+Mpb\+Error\+\_\+t v\+Mpb\+Math\+Debounce\+Update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_mpb_math_debounce__t}{Mpb\+Math\+Debounce\+\_\+t}} $\ast$}]{px\+Mpb\+Math\+Debounce,  }\item[{e\+Bool\+\_\+t}]{b\+Actual\+State,  }\item[{e\+Bool\+\_\+t $\ast$}]{pb\+Final\+State }\end{DoxyParamCaption})}
+
+
+
+Updates the state of the debounce. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em px\+Mpb\+Math\+Debounce} & the debounce structure \\
+\hline
+\mbox{\texttt{ in}}  & {\em sl\+Value} & the new value \\
+\hline
+\mbox{\texttt{ out}}  & {\em psl\+State} & the debounce state \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 63 of file mpb\+Math\+Debounce.\+c.
+

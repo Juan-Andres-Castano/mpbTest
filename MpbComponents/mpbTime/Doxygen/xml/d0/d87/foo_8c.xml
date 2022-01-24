@@ -1,0 +1,121 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="d0/d87/foo_8c" kind="file" language="C++">
+    <compoundname>foo.c</compoundname>
+    <includes refid="d2/d2b/foo_8h" local="yes">foo.h</includes>
+    <includes refid="d7/d34/bar_8h" local="yes">bar.h</includes>
+    <includes refid="d8/d0d/zzz_8h" local="yes">subfolder/zzz.h</includes>
+    <incdepgraph>
+      <node id="3">
+        <label>bar.h</label>
+        <link refid="d7/d34/bar_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>custom_types.h</label>
+        <link refid="d7/dcd/custom__types_8h"/>
+      </node>
+      <node id="5">
+        <label>subfolder/zzz.h</label>
+        <link refid="d8/d0d/zzz_8h"/>
+      </node>
+      <node id="1">
+        <label>UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/foo.c</label>
+        <link refid="d0/d87/foo_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>foo.h</label>
+        <link refid="d2/d2b/foo_8h"/>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="d0/d87/foo_8c_1a6db1ba1a48b0fce98eb0773a86e379d1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void foo_turn_on</definition>
+        <argsstring>(void)</argsstring>
+        <name>foo_turn_on</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/foo.c" line="5" column="6" bodyfile="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/foo.c" bodystart="5" bodyend="8"/>
+        <references refid="d7/d34/bar_8h_1ab3be15eb45c605205a093559c2150429">bar_turn_on</references>
+        <references refid="d8/d0d/zzz_8h_1a60434c2f6b957b98a5a3fdd9141ba65e">zzz_sleep</references>
+        <referencedby refid="d6/d36/test__foo_8c_1af1eeda34d0c7ab1f41b5067320a6fff5" compoundref="d6/d36/test__foo_8c" startline="14" endline="23">test_foo</referencedby>
+        <referencedby refid="d6/d36/test__foo_8c_1adc19021f83dcbc0bd7dbf8b55a91b288" compoundref="d6/d36/test__foo_8c" startline="25" endline="32">test_foo_again</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d0/d87/foo_8c_1a11f21c107c4e0bba2850a7b8343b7ef7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void foo_print_message</definition>
+        <argsstring>(const char *message)</argsstring>
+        <name>foo_print_message</name>
+        <param>
+          <type>const char *</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/foo.c" line="10" column="6" bodyfile="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/foo.c" bodystart="10" bodyend="12"/>
+        <references refid="d7/d34/bar_8h_1a5b4f530c2c48257656651bf8a6a92a37">bar_print_message</references>
+        <referencedby refid="d6/d36/test__foo_8c_1a3d3abb13a8cff65e39b51e001038ea12" compoundref="d6/d36/test__foo_8c" startline="34" endline="40">test_foo_mock_with_const</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d0/d87/foo_8c_1a50473552f0ce06c1a06c1774f9f3501d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void foo_print_special_message</definition>
+        <argsstring>(void)</argsstring>
+        <name>foo_print_special_message</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/foo.c" line="14" column="6" bodyfile="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/foo.c" bodystart="14" bodyend="16"/>
+        <references refid="d7/d34/bar_8h_1a7855f342293ae0f18f3596a2e3aec874">bar_print_message_formatted</references>
+        <referencedby refid="d6/d36/test__foo_8c_1afe52506033d3aab4a08b3e3c4efb27f5" compoundref="d6/d36/test__foo_8c" startline="42" endline="47">test_foo_mock_with_variable_args</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d2/d2b/foo_8h" kindref="compound">foo.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d7/d34/bar_8h" kindref="compound">bar.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d8/d0d/zzz_8h" kindref="compound">subfolder/zzz.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5" refid="d0/d87/foo_8c_1a6db1ba1a48b0fce98eb0773a86e379d1" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d0/d87/foo_8c_1a6db1ba1a48b0fce98eb0773a86e379d1" kindref="member">foo_turn_on</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><sp/><sp/><ref refid="d7/d34/bar_8h_1ab3be15eb45c605205a093559c2150429" kindref="member">bar_turn_on</ref>();</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/><ref refid="d8/d0d/zzz_8h_1a60434c2f6b957b98a5a3fdd9141ba65e" kindref="member">zzz_sleep</ref>(1,<sp/></highlight><highlight class="stringliteral">&quot;sleepy&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="8"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10" refid="d0/d87/foo_8c_1a11f21c107c4e0bba2850a7b8343b7ef7" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d0/d87/foo_8c_1a11f21c107c4e0bba2850a7b8343b7ef7" kindref="member">foo_print_message</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>message)<sp/>{</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><ref refid="d7/d34/bar_8h_1a5b4f530c2c48257656651bf8a6a92a37" kindref="member">bar_print_message</ref>(message);</highlight></codeline>
+<codeline lineno="12"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14" refid="d0/d87/foo_8c_1a50473552f0ce06c1a06c1774f9f3501d" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d0/d87/foo_8c_1a50473552f0ce06c1a06c1774f9f3501d" kindref="member">foo_print_special_message</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><ref refid="d7/d34/bar_8h_1a7855f342293ae0f18f3596a2e3aec874" kindref="member">bar_print_message_formatted</ref>(</highlight><highlight class="stringliteral">&quot;The<sp/>numbers<sp/>are<sp/>%d,<sp/>%d<sp/>and<sp/>%d&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>2,<sp/>3);</highlight></codeline>
+<codeline lineno="16"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/foo.c"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,663 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="d0/d6a/cmock_8c" kind="file" language="C++">
+    <compoundname>cmock.c</compoundname>
+    <includes refid="d6/db4/unity_8h" local="yes">unity.h</includes>
+    <includes refid="d8/da1/cmock_8h" local="yes">cmock.h</includes>
+    <incdepgraph>
+      <node id="2">
+        <label>unity.h</label>
+        <link refid="d6/db4/unity_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>stdint.h</label>
+      </node>
+      <node id="4">
+        <label>setjmp.h</label>
+      </node>
+      <node id="1">
+        <label>UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock.c</label>
+        <link refid="d0/d6a/cmock_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>cmock.h</label>
+        <link refid="d8/da1/cmock_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>unity_internals.h</label>
+        <link refid="d8/de3/unity__internals_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>limits.h</label>
+      </node>
+      <node id="8">
+        <label>time.h</label>
+      </node>
+      <node id="5">
+        <label>math.h</label>
+      </node>
+      <node id="11">
+        <label>cmock_internals.h</label>
+        <link refid="d2/d50/cmock__internals_8h"/>
+      </node>
+      <node id="9">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="d0/d6a/cmock_8c_1a10e196958508ba64609382b16c56f5bc" prot="public" static="no">
+        <name>CMock_Guts_Buffer</name>
+        <initializer>((unsigned char*)CMock_Guts_BufferArray)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock.c" line="30" column="9" bodyfile="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock.c" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="d0/d6a/cmock_8c_1ac00a03c1e594c9e1d9ff3ce4873642a0" prot="public" static="no" mutable="no">
+        <type>const char *</type>
+        <definition>const char* CMockStringOutOfMemory</definition>
+        <argsstring></argsstring>
+        <name>CMockStringOutOfMemory</name>
+        <initializer>= &quot;CMock has run out of memory. Please allocate more.&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock.c" line="11" column="12" bodyfile="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock.c" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d0/d6a/cmock_8c_1a797fd9415cd8d0655c68e007f845d020" prot="public" static="no" mutable="no">
+        <type>const char *</type>
+        <definition>const char* CMockStringCalledMore</definition>
+        <argsstring></argsstring>
+        <name>CMockStringCalledMore</name>
+        <initializer>= &quot;Called more times than expected.&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock.c" line="12" column="12" bodyfile="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock.c" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d0/d6a/cmock_8c_1a6ac9ca0995f1b325857c4bdb5a898102" prot="public" static="no" mutable="no">
+        <type>const char *</type>
+        <definition>const char* CMockStringCalledLess</definition>
+        <argsstring></argsstring>
+        <name>CMockStringCalledLess</name>
+        <initializer>= &quot;Called less times than expected.&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock.c" line="13" column="12" bodyfile="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock.c" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d0/d6a/cmock_8c_1a16b2f46d690a118d6ca14abb35543481" prot="public" static="no" mutable="no">
+        <type>const char *</type>
+        <definition>const char* CMockStringCalledEarly</definition>
+        <argsstring></argsstring>
+        <name>CMockStringCalledEarly</name>
+        <initializer>= &quot;Called earlier than expected.&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock.c" line="14" column="12" bodyfile="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock.c" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d0/d6a/cmock_8c_1aed2166361988847f5f63d13994f5de40" prot="public" static="no" mutable="no">
+        <type>const char *</type>
+        <definition>const char* CMockStringCalledLate</definition>
+        <argsstring></argsstring>
+        <name>CMockStringCalledLate</name>
+        <initializer>= &quot;Called later than expected.&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock.c" line="15" column="12" bodyfile="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock.c" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d0/d6a/cmock_8c_1acf9d38dd7d2872139cc1bc1bf1b19e70" prot="public" static="no" mutable="no">
+        <type>const char *</type>
+        <definition>const char* CMockStringCallOrder</definition>
+        <argsstring></argsstring>
+        <name>CMockStringCallOrder</name>
+        <initializer>= &quot;Called out of order.&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock.c" line="16" column="12" bodyfile="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock.c" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d0/d6a/cmock_8c_1aa04f7531196fa48793136231a0468971" prot="public" static="no" mutable="no">
+        <type>const char *</type>
+        <definition>const char* CMockStringIgnPreExp</definition>
+        <argsstring></argsstring>
+        <name>CMockStringIgnPreExp</name>
+        <initializer>= &quot;IgnoreArg called before Expect.&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock.c" line="17" column="12" bodyfile="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock.c" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d0/d6a/cmock_8c_1a784237bba66acd6aa8f05424ab203e50" prot="public" static="no" mutable="no">
+        <type>const char *</type>
+        <definition>const char* CMockStringPtrPreExp</definition>
+        <argsstring></argsstring>
+        <name>CMockStringPtrPreExp</name>
+        <initializer>= &quot;ReturnThruPtr called before Expect.&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock.c" line="18" column="12" bodyfile="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock.c" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d0/d6a/cmock_8c_1af6f94581b839661ce82bfd01f1c937a1" prot="public" static="no" mutable="no">
+        <type>const char *</type>
+        <definition>const char* CMockStringPtrIsNULL</definition>
+        <argsstring></argsstring>
+        <name>CMockStringPtrIsNULL</name>
+        <initializer>= &quot;Pointer is NULL.&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock.c" line="19" column="12" bodyfile="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock.c" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d0/d6a/cmock_8c_1aeda885bf7d07126d0e1638f265d7514c" prot="public" static="no" mutable="no">
+        <type>const char *</type>
+        <definition>const char* CMockStringExpNULL</definition>
+        <argsstring></argsstring>
+        <name>CMockStringExpNULL</name>
+        <initializer>= &quot;Expected NULL.&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock.c" line="20" column="12" bodyfile="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock.c" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d0/d6a/cmock_8c_1a89c88e09ebf68dff96e71a417b8733a5" prot="public" static="no" mutable="no">
+        <type>const char *</type>
+        <definition>const char* CMockStringMismatch</definition>
+        <argsstring></argsstring>
+        <name>CMockStringMismatch</name>
+        <initializer>= &quot;Function called with unexpected argument value.&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock.c" line="21" column="12" bodyfile="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock.c" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d0/d6a/cmock_8c_1aaf3757d5cb636084ba304bb0c830a393" prot="public" static="yes" mutable="no">
+        <type><ref refid="d8/da1/cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041" kindref="member">CMOCK_MEM_INDEX_TYPE</ref></type>
+        <definition>CMOCK_MEM_INDEX_TYPE CMock_Guts_BufferArray[(CMOCK_MEM_SIZE+CMOCK_MEM_INDEX_SIZE - 1)/CMOCK_MEM_INDEX_SIZE]</definition>
+        <argsstring>[(CMOCK_MEM_SIZE+CMOCK_MEM_INDEX_SIZE - 1)/CMOCK_MEM_INDEX_SIZE]</argsstring>
+        <name>CMock_Guts_BufferArray</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock.c" line="29" column="31" bodyfile="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock.c" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d0/d6a/cmock_8c_1a2ea769a752a708f26862be8aea3f7504" prot="public" static="yes" mutable="no">
+        <type><ref refid="d8/da1/cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041" kindref="member">CMOCK_MEM_INDEX_TYPE</ref></type>
+        <definition>CMOCK_MEM_INDEX_TYPE CMock_Guts_BufferSize</definition>
+        <argsstring></argsstring>
+        <name>CMock_Guts_BufferSize</name>
+        <initializer>= <ref refid="d2/d50/cmock__internals_8h_1a2bf28cc49a4ab9238dc693baf6761d7f" kindref="member">CMOCK_MEM_SIZE</ref> + <ref refid="d2/d50/cmock__internals_8h_1aa4c3fd1e195f905d5acd940f1daf9de1" kindref="member">CMOCK_MEM_ALIGN_SIZE</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock.c" line="31" column="31" bodyfile="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock.c" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d0/d6a/cmock_8c_1aeeafd8974fdfd6f4066cdd61093add53" prot="public" static="yes" mutable="no">
+        <type><ref refid="d8/da1/cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041" kindref="member">CMOCK_MEM_INDEX_TYPE</ref></type>
+        <definition>CMOCK_MEM_INDEX_TYPE CMock_Guts_FreePtr</definition>
+        <argsstring></argsstring>
+        <name>CMock_Guts_FreePtr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock.c" line="32" column="31" bodyfile="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock.c" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="d0/d6a/cmock_8c_1a70143d967ec301bbce3efb6b59a90e5e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="d8/da1/cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041" kindref="member">CMOCK_MEM_INDEX_TYPE</ref></type>
+        <definition>CMOCK_MEM_INDEX_TYPE CMock_Guts_MemNew</definition>
+        <argsstring>(CMOCK_MEM_INDEX_TYPE size)</argsstring>
+        <name>CMock_Guts_MemNew</name>
+        <param>
+          <type><ref refid="d8/da1/cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041" kindref="member">CMOCK_MEM_INDEX_TYPE</ref></type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock.c" line="38" column="22" bodyfile="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock.c" bodystart="38" bodyend="71"/>
+        <references refid="d8/da1/cmock_8h_1a69da4d21581a8e97542a164b7d28b30a" compoundref="d8/da1/cmock_8h" startline="17">CMOCK_GUTS_NONE</references>
+        <references refid="d2/d50/cmock__internals_8h_1a170ba6073741a693e7f4dc21e2db18ef" compoundref="d2/d50/cmock__internals_8h" startline="85">CMOCK_MEM_ALIGN_MASK</references>
+        <references refid="d2/d50/cmock__internals_8h_1ab4f4b5cc6478d39d04888f64be4e335d" compoundref="d2/d50/cmock__internals_8h" startline="86">CMOCK_MEM_INDEX_SIZE</references>
+        <references refid="d8/da1/cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041" compoundref="d8/da1/cmock_8h" startline="14">CMOCK_MEM_INDEX_TYPE</references>
+      </memberdef>
+      <memberdef kind="function" id="d0/d6a/cmock_8c_1a15d51ffb4affbacc256f9569f46b7371" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="d8/da1/cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041" kindref="member">CMOCK_MEM_INDEX_TYPE</ref></type>
+        <definition>CMOCK_MEM_INDEX_TYPE CMock_Guts_MemChain</definition>
+        <argsstring>(CMOCK_MEM_INDEX_TYPE root_index, CMOCK_MEM_INDEX_TYPE obj_index)</argsstring>
+        <name>CMock_Guts_MemChain</name>
+        <param>
+          <type><ref refid="d8/da1/cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041" kindref="member">CMOCK_MEM_INDEX_TYPE</ref></type>
+          <declname>root_index</declname>
+        </param>
+        <param>
+          <type><ref refid="d8/da1/cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041" kindref="member">CMOCK_MEM_INDEX_TYPE</ref></type>
+          <declname>obj_index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock.c" line="76" column="22" bodyfile="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock.c" bodystart="76" bodyend="115"/>
+        <references refid="d8/da1/cmock_8h_1a69da4d21581a8e97542a164b7d28b30a" compoundref="d8/da1/cmock_8h" startline="17">CMOCK_GUTS_NONE</references>
+        <references refid="d2/d50/cmock__internals_8h_1aa4c3fd1e195f905d5acd940f1daf9de1" compoundref="d2/d50/cmock__internals_8h" startline="84">CMOCK_MEM_ALIGN_SIZE</references>
+        <references refid="d8/da1/cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041" compoundref="d8/da1/cmock_8h" startline="14">CMOCK_MEM_INDEX_TYPE</references>
+      </memberdef>
+      <memberdef kind="function" id="d0/d6a/cmock_8c_1a24a222978890f2650776c474a757ced9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="d8/da1/cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041" kindref="member">CMOCK_MEM_INDEX_TYPE</ref></type>
+        <definition>CMOCK_MEM_INDEX_TYPE CMock_Guts_MemNext</definition>
+        <argsstring>(CMOCK_MEM_INDEX_TYPE previous_item_index)</argsstring>
+        <name>CMock_Guts_MemNext</name>
+        <param>
+          <type><ref refid="d8/da1/cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041" kindref="member">CMOCK_MEM_INDEX_TYPE</ref></type>
+          <declname>previous_item_index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock.c" line="120" column="22" bodyfile="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock.c" bodystart="120" bodyend="137"/>
+        <references refid="d2/d50/cmock__internals_8h_1aa4c3fd1e195f905d5acd940f1daf9de1" compoundref="d2/d50/cmock__internals_8h" startline="84">CMOCK_MEM_ALIGN_SIZE</references>
+        <references refid="d8/da1/cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041" compoundref="d8/da1/cmock_8h" startline="14">CMOCK_MEM_INDEX_TYPE</references>
+        <referencedby refid="d0/d6a/cmock_8c_1a7a60479d86c12fa24499c516365f5c71" compoundref="d0/d6a/cmock_8c" startline="142" endline="155">CMock_Guts_MemEndOfChain</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d0/d6a/cmock_8c_1a7a60479d86c12fa24499c516365f5c71" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="d8/da1/cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041" kindref="member">CMOCK_MEM_INDEX_TYPE</ref></type>
+        <definition>CMOCK_MEM_INDEX_TYPE CMock_Guts_MemEndOfChain</definition>
+        <argsstring>(CMOCK_MEM_INDEX_TYPE root_index)</argsstring>
+        <name>CMock_Guts_MemEndOfChain</name>
+        <param>
+          <type><ref refid="d8/da1/cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041" kindref="member">CMOCK_MEM_INDEX_TYPE</ref></type>
+          <declname>root_index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock.c" line="142" column="22" bodyfile="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock.c" bodystart="142" bodyend="155"/>
+        <references refid="d0/d6a/cmock_8c_1a24a222978890f2650776c474a757ced9" compoundref="d0/d6a/cmock_8c" startline="120" endline="137">CMock_Guts_MemNext</references>
+        <references refid="d8/da1/cmock_8h_1a69da4d21581a8e97542a164b7d28b30a" compoundref="d8/da1/cmock_8h" startline="17">CMOCK_GUTS_NONE</references>
+        <references refid="d8/da1/cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041" compoundref="d8/da1/cmock_8h" startline="14">CMOCK_MEM_INDEX_TYPE</references>
+      </memberdef>
+      <memberdef kind="function" id="d0/d6a/cmock_8c_1a5dcac496617e39c664d8921903953d64" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void *</type>
+        <definition>void* CMock_Guts_GetAddressFor</definition>
+        <argsstring>(CMOCK_MEM_INDEX_TYPE index)</argsstring>
+        <name>CMock_Guts_GetAddressFor</name>
+        <param>
+          <type><ref refid="d8/da1/cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041" kindref="member">CMOCK_MEM_INDEX_TYPE</ref></type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock.c" line="160" column="6" bodyfile="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock.c" bodystart="160" bodyend="170"/>
+        <references refid="d2/d50/cmock__internals_8h_1aa4c3fd1e195f905d5acd940f1daf9de1" compoundref="d2/d50/cmock__internals_8h" startline="84">CMOCK_MEM_ALIGN_SIZE</references>
+      </memberdef>
+      <memberdef kind="function" id="d0/d6a/cmock_8c_1a6fa3015b0f3c2ffeb3f5063fbef14278" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="d8/da1/cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041" kindref="member">CMOCK_MEM_INDEX_TYPE</ref></type>
+        <definition>CMOCK_MEM_INDEX_TYPE CMock_Guts_MemBytesFree</definition>
+        <argsstring>(void)</argsstring>
+        <name>CMock_Guts_MemBytesFree</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock.c" line="175" column="22" bodyfile="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock.c" bodystart="175" bodyend="178"/>
+      </memberdef>
+      <memberdef kind="function" id="d0/d6a/cmock_8c_1aba717672271fef7bf017b85053c00c58" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="d8/da1/cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041" kindref="member">CMOCK_MEM_INDEX_TYPE</ref></type>
+        <definition>CMOCK_MEM_INDEX_TYPE CMock_Guts_MemBytesUsed</definition>
+        <argsstring>(void)</argsstring>
+        <name>CMock_Guts_MemBytesUsed</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock.c" line="183" column="22" bodyfile="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock.c" bodystart="183" bodyend="186"/>
+      </memberdef>
+      <memberdef kind="function" id="d0/d6a/cmock_8c_1a348bc07d37efc57ac52128cd99ee7c72" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CMock_Guts_MemFreeAll</definition>
+        <argsstring>(void)</argsstring>
+        <name>CMock_Guts_MemFreeAll</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock.c" line="191" column="6" bodyfile="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock.c" bodystart="191" bodyend="194"/>
+      </memberdef>
+      <memberdef kind="function" id="d0/d6a/cmock_8c_1aa8a20fa157f61e9e1379170847287cc9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CMock_Guts_MemFreeFinal</definition>
+        <argsstring>(void)</argsstring>
+        <name>CMock_Guts_MemFreeFinal</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock.c" line="199" column="6" bodyfile="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock.c" bodystart="199" bodyend="209"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*<sp/>==========================================</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/><sp/><sp/><sp/>CMock<sp/>Project<sp/>-<sp/>Automatic<sp/>Mock<sp/>Generation<sp/>for<sp/>C</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/><sp/><sp/><sp/>Copyright<sp/>(c)<sp/>2007<sp/>Mike<sp/>Karlesky,<sp/>Mark<sp/>VanderVoord,<sp/>Greg<sp/>Williams</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/><sp/><sp/><sp/>[Released<sp/>under<sp/>MIT<sp/>License.<sp/>Please<sp/>refer<sp/>to<sp/>license.txt<sp/>for<sp/>details]</highlight></codeline>
+<codeline lineno="5"><highlight class="comment">==========================================<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d6/db4/unity_8h" kindref="compound">unity.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d8/da1/cmock_8h" kindref="compound">cmock.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="comment">//public<sp/>constants<sp/>to<sp/>be<sp/>used<sp/>by<sp/>mocks</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11" refid="d0/d6a/cmock_8c_1ac00a03c1e594c9e1d9ff3ce4873642a0" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="d0/d6a/cmock_8c_1ac00a03c1e594c9e1d9ff3ce4873642a0" kindref="member">CMockStringOutOfMemory</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;CMock<sp/>has<sp/>run<sp/>out<sp/>of<sp/>memory.<sp/>Please<sp/>allocate<sp/>more.&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="12" refid="d0/d6a/cmock_8c_1a797fd9415cd8d0655c68e007f845d020" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="d0/d6a/cmock_8c_1a797fd9415cd8d0655c68e007f845d020" kindref="member">CMockStringCalledMore</ref><sp/><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Called<sp/>more<sp/>times<sp/>than<sp/>expected.&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="13" refid="d0/d6a/cmock_8c_1a6ac9ca0995f1b325857c4bdb5a898102" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="d0/d6a/cmock_8c_1a6ac9ca0995f1b325857c4bdb5a898102" kindref="member">CMockStringCalledLess</ref><sp/><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Called<sp/>less<sp/>times<sp/>than<sp/>expected.&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="14" refid="d0/d6a/cmock_8c_1a16b2f46d690a118d6ca14abb35543481" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="d0/d6a/cmock_8c_1a16b2f46d690a118d6ca14abb35543481" kindref="member">CMockStringCalledEarly</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Called<sp/>earlier<sp/>than<sp/>expected.&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="15" refid="d0/d6a/cmock_8c_1aed2166361988847f5f63d13994f5de40" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="d0/d6a/cmock_8c_1aed2166361988847f5f63d13994f5de40" kindref="member">CMockStringCalledLate</ref><sp/><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Called<sp/>later<sp/>than<sp/>expected.&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="16" refid="d0/d6a/cmock_8c_1acf9d38dd7d2872139cc1bc1bf1b19e70" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="d0/d6a/cmock_8c_1acf9d38dd7d2872139cc1bc1bf1b19e70" kindref="member">CMockStringCallOrder</ref><sp/><sp/><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Called<sp/>out<sp/>of<sp/>order.&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="17" refid="d0/d6a/cmock_8c_1aa04f7531196fa48793136231a0468971" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="d0/d6a/cmock_8c_1aa04f7531196fa48793136231a0468971" kindref="member">CMockStringIgnPreExp</ref><sp/><sp/><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;IgnoreArg<sp/>called<sp/>before<sp/>Expect.&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="18" refid="d0/d6a/cmock_8c_1a784237bba66acd6aa8f05424ab203e50" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="d0/d6a/cmock_8c_1a784237bba66acd6aa8f05424ab203e50" kindref="member">CMockStringPtrPreExp</ref><sp/><sp/><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;ReturnThruPtr<sp/>called<sp/>before<sp/>Expect.&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="19" refid="d0/d6a/cmock_8c_1af6f94581b839661ce82bfd01f1c937a1" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="d0/d6a/cmock_8c_1af6f94581b839661ce82bfd01f1c937a1" kindref="member">CMockStringPtrIsNULL</ref><sp/><sp/><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Pointer<sp/>is<sp/>NULL.&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="20" refid="d0/d6a/cmock_8c_1aeda885bf7d07126d0e1638f265d7514c" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="d0/d6a/cmock_8c_1aeda885bf7d07126d0e1638f265d7514c" kindref="member">CMockStringExpNULL</ref><sp/><sp/><sp/><sp/><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Expected<sp/>NULL.&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="21" refid="d0/d6a/cmock_8c_1a89c88e09ebf68dff96e71a417b8733a5" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="d0/d6a/cmock_8c_1a89c88e09ebf68dff96e71a417b8733a5" kindref="member">CMockStringMismatch</ref><sp/><sp/><sp/><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Function<sp/>called<sp/>with<sp/>unexpected<sp/>argument<sp/>value.&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="comment">//private<sp/>variables</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>CMOCK_MEM_DYNAMIC</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d0/d6a/cmock_8c_1a10e196958508ba64609382b16c56f5bc" kindref="member">CMock_Guts_Buffer</ref><sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="d8/da1/cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041" kindref="member">CMOCK_MEM_INDEX_TYPE</ref><sp/><sp/><sp/>CMock_Guts_BufferSize<sp/>=<sp/><ref refid="d2/d50/cmock__internals_8h_1aa4c3fd1e195f905d5acd940f1daf9de1" kindref="member">CMOCK_MEM_ALIGN_SIZE</ref>;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="d8/da1/cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041" kindref="member">CMOCK_MEM_INDEX_TYPE</ref><sp/><sp/><sp/>CMock_Guts_FreePtr;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="d8/da1/cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041" kindref="member">CMOCK_MEM_INDEX_TYPE</ref><sp/><sp/><sp/>CMock_Guts_BufferArray[(<ref refid="d2/d50/cmock__internals_8h_1a2bf28cc49a4ab9238dc693baf6761d7f" kindref="member">CMOCK_MEM_SIZE</ref><sp/>+<sp/><ref refid="d2/d50/cmock__internals_8h_1ab4f4b5cc6478d39d04888f64be4e335d" kindref="member">CMOCK_MEM_INDEX_SIZE</ref><sp/>-<sp/>1)<sp/>/<sp/><ref refid="d2/d50/cmock__internals_8h_1ab4f4b5cc6478d39d04888f64be4e335d" kindref="member">CMOCK_MEM_INDEX_SIZE</ref>];</highlight></codeline>
+<codeline lineno="30" refid="d0/d6a/cmock_8c_1a10e196958508ba64609382b16c56f5bc" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CMock_Guts_Buffer<sp/>((unsigned<sp/>char*)CMock_Guts_BufferArray)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="d8/da1/cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041" kindref="member">CMOCK_MEM_INDEX_TYPE</ref><sp/><sp/><sp/>CMock_Guts_BufferSize<sp/>=<sp/><ref refid="d2/d50/cmock__internals_8h_1a2bf28cc49a4ab9238dc693baf6761d7f" kindref="member">CMOCK_MEM_SIZE</ref><sp/>+<sp/><ref refid="d2/d50/cmock__internals_8h_1aa4c3fd1e195f905d5acd940f1daf9de1" kindref="member">CMOCK_MEM_ALIGN_SIZE</ref>;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="d8/da1/cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041" kindref="member">CMOCK_MEM_INDEX_TYPE</ref><sp/><sp/><sp/>CMock_Guts_FreePtr;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="comment">//-------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="comment">//<sp/>CMock_Guts_MemNew</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="comment">//-------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38" refid="d0/d6a/cmock_8c_1a70143d967ec301bbce3efb6b59a90e5e" refkind="member"><highlight class="normal"><ref refid="d8/da1/cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041" kindref="member">CMOCK_MEM_INDEX_TYPE</ref><sp/><ref refid="d0/d6a/cmock_8c_1a70143d967ec301bbce3efb6b59a90e5e" kindref="member">CMock_Guts_MemNew</ref>(<ref refid="d8/da1/cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041" kindref="member">CMOCK_MEM_INDEX_TYPE</ref><sp/>size)</highlight></codeline>
+<codeline lineno="39"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><ref refid="d8/da1/cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041" kindref="member">CMOCK_MEM_INDEX_TYPE</ref><sp/>index;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//verify<sp/>arguments<sp/>valid<sp/>(we<sp/>must<sp/>be<sp/>allocating<sp/>space<sp/>for<sp/>at<sp/>least<sp/>1<sp/>byte,<sp/>and<sp/>the<sp/>existing<sp/>chain<sp/>must<sp/>be<sp/>in<sp/>memory<sp/>somewhere)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(size<sp/>&lt;<sp/>1)</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d8/da1/cmock_8h_1a69da4d21581a8e97542a164b7d28b30a" kindref="member">CMOCK_GUTS_NONE</ref>;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//verify<sp/>we<sp/>have<sp/>enough<sp/>room</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/>size<sp/>=<sp/>size<sp/>+<sp/><ref refid="d2/d50/cmock__internals_8h_1ab4f4b5cc6478d39d04888f64be4e335d" kindref="member">CMOCK_MEM_INDEX_SIZE</ref>;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(size<sp/>&amp;<sp/><ref refid="d2/d50/cmock__internals_8h_1a170ba6073741a693e7f4dc21e2db18ef" kindref="member">CMOCK_MEM_ALIGN_MASK</ref>)</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>size<sp/>=<sp/>(size<sp/>+<sp/><ref refid="d2/d50/cmock__internals_8h_1a170ba6073741a693e7f4dc21e2db18ef" kindref="member">CMOCK_MEM_ALIGN_MASK</ref>)<sp/>&amp;<sp/>~<ref refid="d2/d50/cmock__internals_8h_1a170ba6073741a693e7f4dc21e2db18ef" kindref="member">CMOCK_MEM_ALIGN_MASK</ref>;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((CMock_Guts_BufferSize<sp/>-<sp/>CMock_Guts_FreePtr)<sp/>&lt;<sp/>size)</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>CMOCK_MEM_DYNAMIC</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d8/da1/cmock_8h_1a69da4d21581a8e97542a164b7d28b30a" kindref="member">CMOCK_GUTS_NONE</ref>;<sp/></highlight><highlight class="comment">//<sp/>nothing<sp/>we<sp/>can<sp/>do;<sp/>our<sp/>static<sp/>buffer<sp/>is<sp/>out<sp/>of<sp/>memory</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>our<sp/>dynamic<sp/>buffer<sp/>does<sp/>not<sp/>have<sp/>enough<sp/>room;<sp/>request<sp/>more<sp/>via<sp/>realloc()</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d8/da1/cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041" kindref="member">CMOCK_MEM_INDEX_TYPE</ref><sp/>new_buffersize<sp/>=<sp/>CMock_Guts_BufferSize<sp/>+<sp/><ref refid="d2/d50/cmock__internals_8h_1a2bf28cc49a4ab9238dc693baf6761d7f" kindref="member">CMOCK_MEM_SIZE</ref><sp/>+<sp/>size;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>new_buffer<sp/>=<sp/>realloc(<ref refid="d0/d6a/cmock_8c_1a10e196958508ba64609382b16c56f5bc" kindref="member">CMock_Guts_Buffer</ref>,<sp/>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal">)new_buffersize);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(new_buffer<sp/>==<sp/>NULL)</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d8/da1/cmock_8h_1a69da4d21581a8e97542a164b7d28b30a" kindref="member">CMOCK_GUTS_NONE</ref>;<sp/></highlight><highlight class="comment">//<sp/>realloc()<sp/>failed;<sp/>out<sp/>of<sp/>memory</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d0/d6a/cmock_8c_1a10e196958508ba64609382b16c56f5bc" kindref="member">CMock_Guts_Buffer</ref><sp/>=<sp/>new_buffer;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>CMock_Guts_BufferSize<sp/>=<sp/>new_buffersize;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//determine<sp/>where<sp/>we&apos;re<sp/>putting<sp/>this<sp/>new<sp/>block,<sp/>and<sp/>init<sp/>its<sp/>pointer<sp/>to<sp/>be<sp/>the<sp/>end<sp/>of<sp/>the<sp/>line</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/>index<sp/>=<sp/>CMock_Guts_FreePtr<sp/>+<sp/><ref refid="d2/d50/cmock__internals_8h_1ab4f4b5cc6478d39d04888f64be4e335d" kindref="member">CMOCK_MEM_INDEX_SIZE</ref>;</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/>*(<ref refid="d8/da1/cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041" kindref="member">CMOCK_MEM_INDEX_TYPE</ref>*)(&amp;<ref refid="d0/d6a/cmock_8c_1a10e196958508ba64609382b16c56f5bc" kindref="member">CMock_Guts_Buffer</ref>[CMock_Guts_FreePtr])<sp/>=<sp/><ref refid="d8/da1/cmock_8h_1a69da4d21581a8e97542a164b7d28b30a" kindref="member">CMOCK_GUTS_NONE</ref>;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/>CMock_Guts_FreePtr<sp/>+=<sp/>size;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>index;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight><highlight class="comment">//-------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight><highlight class="comment">//<sp/>CMock_Guts_MemChain</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight><highlight class="comment">//-------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76" refid="d0/d6a/cmock_8c_1a15d51ffb4affbacc256f9569f46b7371" refkind="member"><highlight class="normal"><ref refid="d8/da1/cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041" kindref="member">CMOCK_MEM_INDEX_TYPE</ref><sp/><ref refid="d0/d6a/cmock_8c_1a15d51ffb4affbacc256f9569f46b7371" kindref="member">CMock_Guts_MemChain</ref>(<ref refid="d8/da1/cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041" kindref="member">CMOCK_MEM_INDEX_TYPE</ref><sp/>root_index,<sp/><ref refid="d8/da1/cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041" kindref="member">CMOCK_MEM_INDEX_TYPE</ref><sp/>obj_index)</highlight></codeline>
+<codeline lineno="77"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><ref refid="d8/da1/cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041" kindref="member">CMOCK_MEM_INDEX_TYPE</ref><sp/>index;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>root;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>obj;</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>next;</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(root_index<sp/>==<sp/><ref refid="d8/da1/cmock_8h_1a69da4d21581a8e97542a164b7d28b30a" kindref="member">CMOCK_GUTS_NONE</ref>)</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//if<sp/>there<sp/>is<sp/>no<sp/>root<sp/>currently,<sp/>we<sp/>return<sp/>this<sp/>object<sp/>as<sp/>the<sp/>root<sp/>of<sp/>the<sp/>chain</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>obj_index;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//reject<sp/>illegal<sp/>nodes</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((root_index<sp/>&lt;<sp/><ref refid="d2/d50/cmock__internals_8h_1aa4c3fd1e195f905d5acd940f1daf9de1" kindref="member">CMOCK_MEM_ALIGN_SIZE</ref>)<sp/>||<sp/>(root_index<sp/>&gt;=<sp/>CMock_Guts_FreePtr))</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d8/da1/cmock_8h_1a69da4d21581a8e97542a164b7d28b30a" kindref="member">CMOCK_GUTS_NONE</ref>;</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((obj_index<sp/>&lt;<sp/><ref refid="d2/d50/cmock__internals_8h_1aa4c3fd1e195f905d5acd940f1daf9de1" kindref="member">CMOCK_MEM_ALIGN_SIZE</ref>)<sp/>||<sp/>(obj_index<sp/>&gt;=<sp/>CMock_Guts_FreePtr))</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d8/da1/cmock_8h_1a69da4d21581a8e97542a164b7d28b30a" kindref="member">CMOCK_GUTS_NONE</ref>;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>root<sp/>=<sp/>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*)(&amp;<ref refid="d0/d6a/cmock_8c_1a10e196958508ba64609382b16c56f5bc" kindref="member">CMock_Guts_Buffer</ref>[root_index]);</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>obj<sp/><sp/>=<sp/>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*)(&amp;<ref refid="d0/d6a/cmock_8c_1a10e196958508ba64609382b16c56f5bc" kindref="member">CMock_Guts_Buffer</ref>[obj_index]);</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//find<sp/>the<sp/>end<sp/>of<sp/>the<sp/>existing<sp/>chain<sp/>and<sp/>add<sp/>us</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>next<sp/>=<sp/>root;</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">do</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>index<sp/>=<sp/>*(<ref refid="d8/da1/cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041" kindref="member">CMOCK_MEM_INDEX_TYPE</ref>*)((<ref refid="d2/d50/cmock__internals_8h_1a38ccf90247120b2526382c260b55d576" kindref="member">CMOCK_MEM_PTR_AS_INT</ref>)next<sp/>-<sp/><ref refid="d2/d50/cmock__internals_8h_1ab4f4b5cc6478d39d04888f64be4e335d" kindref="member">CMOCK_MEM_INDEX_SIZE</ref>);</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(index<sp/>&gt;=<sp/>CMock_Guts_FreePtr)</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d8/da1/cmock_8h_1a69da4d21581a8e97542a164b7d28b30a" kindref="member">CMOCK_GUTS_NONE</ref>;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(index<sp/>&gt;<sp/>0)</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>next<sp/>=<sp/>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*)(&amp;<ref refid="d0/d6a/cmock_8c_1a10e196958508ba64609382b16c56f5bc" kindref="member">CMock_Guts_Buffer</ref>[index]);</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(index<sp/>&gt;<sp/>0);</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>*(<ref refid="d8/da1/cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041" kindref="member">CMOCK_MEM_INDEX_TYPE</ref>*)((<ref refid="d2/d50/cmock__internals_8h_1a38ccf90247120b2526382c260b55d576" kindref="member">CMOCK_MEM_PTR_AS_INT</ref>)next<sp/>-<sp/><ref refid="d2/d50/cmock__internals_8h_1ab4f4b5cc6478d39d04888f64be4e335d" kindref="member">CMOCK_MEM_INDEX_SIZE</ref>)<sp/>=<sp/>(<ref refid="d8/da1/cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041" kindref="member">CMOCK_MEM_INDEX_TYPE</ref>)((<ref refid="d2/d50/cmock__internals_8h_1a38ccf90247120b2526382c260b55d576" kindref="member">CMOCK_MEM_PTR_AS_INT</ref>)obj<sp/>-<sp/>(<ref refid="d2/d50/cmock__internals_8h_1a38ccf90247120b2526382c260b55d576" kindref="member">CMOCK_MEM_PTR_AS_INT</ref>)<ref refid="d0/d6a/cmock_8c_1a10e196958508ba64609382b16c56f5bc" kindref="member">CMock_Guts_Buffer</ref>);</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>root_index;</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="115"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight><highlight class="comment">//-------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight><highlight class="comment">//<sp/>CMock_Guts_MemNext</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight><highlight class="comment">//-------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="120" refid="d0/d6a/cmock_8c_1a24a222978890f2650776c474a757ced9" refkind="member"><highlight class="normal"><ref refid="d8/da1/cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041" kindref="member">CMOCK_MEM_INDEX_TYPE</ref><sp/><ref refid="d0/d6a/cmock_8c_1a24a222978890f2650776c474a757ced9" kindref="member">CMock_Guts_MemNext</ref>(<ref refid="d8/da1/cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041" kindref="member">CMOCK_MEM_INDEX_TYPE</ref><sp/>previous_item_index)</highlight></codeline>
+<codeline lineno="121"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><ref refid="d8/da1/cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041" kindref="member">CMOCK_MEM_INDEX_TYPE</ref><sp/>index;</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>previous_item;</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//There<sp/>is<sp/>nothing<sp/>&quot;next&quot;<sp/>if<sp/>the<sp/>pointer<sp/>isn&apos;t<sp/>from<sp/>our<sp/>buffer</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((previous_item_index<sp/>&lt;<sp/><ref refid="d2/d50/cmock__internals_8h_1aa4c3fd1e195f905d5acd940f1daf9de1" kindref="member">CMOCK_MEM_ALIGN_SIZE</ref>)<sp/>||<sp/>(previous_item_index<sp/><sp/>&gt;=<sp/>CMock_Guts_FreePtr))</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d8/da1/cmock_8h_1a69da4d21581a8e97542a164b7d28b30a" kindref="member">CMOCK_GUTS_NONE</ref>;</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/>previous_item<sp/>=<sp/>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*)(&amp;<ref refid="d0/d6a/cmock_8c_1a10e196958508ba64609382b16c56f5bc" kindref="member">CMock_Guts_Buffer</ref>[previous_item_index]);</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//if<sp/>the<sp/>pointer<sp/>is<sp/>good,<sp/>then<sp/>use<sp/>it<sp/>to<sp/>look<sp/>up<sp/>the<sp/>next<sp/>index</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//(we<sp/>know<sp/>the<sp/>first<sp/>element<sp/>always<sp/>goes<sp/>in<sp/>zero,<sp/>so<sp/>NEXT<sp/>must<sp/>always<sp/>be<sp/>&gt;<sp/>1)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/>index<sp/>=<sp/>*(<ref refid="d8/da1/cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041" kindref="member">CMOCK_MEM_INDEX_TYPE</ref>*)((<ref refid="d2/d50/cmock__internals_8h_1a38ccf90247120b2526382c260b55d576" kindref="member">CMOCK_MEM_PTR_AS_INT</ref>)previous_item<sp/>-<sp/><ref refid="d2/d50/cmock__internals_8h_1ab4f4b5cc6478d39d04888f64be4e335d" kindref="member">CMOCK_MEM_INDEX_SIZE</ref>);</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((index<sp/>&gt;<sp/>1)<sp/>&amp;&amp;<sp/>(index<sp/>&lt;<sp/>CMock_Guts_FreePtr))</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>index;</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d8/da1/cmock_8h_1a69da4d21581a8e97542a164b7d28b30a" kindref="member">CMOCK_GUTS_NONE</ref>;</highlight></codeline>
+<codeline lineno="137"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight><highlight class="comment">//-------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight><highlight class="comment">//<sp/>CMock_Guts_MemEndOfChain</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight><highlight class="comment">//-------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="142" refid="d0/d6a/cmock_8c_1a7a60479d86c12fa24499c516365f5c71" refkind="member"><highlight class="normal"><ref refid="d8/da1/cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041" kindref="member">CMOCK_MEM_INDEX_TYPE</ref><sp/><ref refid="d0/d6a/cmock_8c_1a7a60479d86c12fa24499c516365f5c71" kindref="member">CMock_Guts_MemEndOfChain</ref>(<ref refid="d8/da1/cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041" kindref="member">CMOCK_MEM_INDEX_TYPE</ref><sp/>root_index)</highlight></codeline>
+<codeline lineno="143"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><ref refid="d8/da1/cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041" kindref="member">CMOCK_MEM_INDEX_TYPE</ref><sp/>index<sp/>=<sp/>root_index;</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><ref refid="d8/da1/cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041" kindref="member">CMOCK_MEM_INDEX_TYPE</ref><sp/>next_index;</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(next_index<sp/>=<sp/>root_index;</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>next_index<sp/>!=<sp/><ref refid="d8/da1/cmock_8h_1a69da4d21581a8e97542a164b7d28b30a" kindref="member">CMOCK_GUTS_NONE</ref>;</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>next_index<sp/>=<sp/><ref refid="d0/d6a/cmock_8c_1a24a222978890f2650776c474a757ced9" kindref="member">CMock_Guts_MemNext</ref>(index))</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/>index<sp/>=<sp/>next_index;</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>index;</highlight></codeline>
+<codeline lineno="155"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight><highlight class="comment">//-------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"></highlight><highlight class="comment">//<sp/>CMock_GetAddressFor</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight><highlight class="comment">//-------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="160" refid="d0/d6a/cmock_8c_1a5dcac496617e39c664d8921903953d64" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/><ref refid="d0/d6a/cmock_8c_1a5dcac496617e39c664d8921903953d64" kindref="member">CMock_Guts_GetAddressFor</ref>(<ref refid="d8/da1/cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041" kindref="member">CMOCK_MEM_INDEX_TYPE</ref><sp/>index)</highlight></codeline>
+<codeline lineno="161"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>((index<sp/>&gt;=<sp/><ref refid="d2/d50/cmock__internals_8h_1aa4c3fd1e195f905d5acd940f1daf9de1" kindref="member">CMOCK_MEM_ALIGN_SIZE</ref>)<sp/>&amp;&amp;<sp/>(index<sp/>&lt;<sp/>CMock_Guts_FreePtr))</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*)(&amp;<ref refid="d0/d6a/cmock_8c_1a10e196958508ba64609382b16c56f5bc" kindref="member">CMock_Guts_Buffer</ref>[index]);</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>NULL;</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="170"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight><highlight class="comment">//-------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"></highlight><highlight class="comment">//<sp/>CMock_Guts_MemBytesFree</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="174"><highlight class="normal"></highlight><highlight class="comment">//-------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="175" refid="d0/d6a/cmock_8c_1a6fa3015b0f3c2ffeb3f5063fbef14278" refkind="member"><highlight class="normal"><ref refid="d8/da1/cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041" kindref="member">CMOCK_MEM_INDEX_TYPE</ref><sp/><ref refid="d0/d6a/cmock_8c_1a6fa3015b0f3c2ffeb3f5063fbef14278" kindref="member">CMock_Guts_MemBytesFree</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="176"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>CMock_Guts_BufferSize<sp/>-<sp/>CMock_Guts_FreePtr;</highlight></codeline>
+<codeline lineno="178"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"></highlight></codeline>
+<codeline lineno="180"><highlight class="normal"></highlight><highlight class="comment">//-------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="181"><highlight class="normal"></highlight><highlight class="comment">//<sp/>CMock_Guts_MemBytesUsed</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="182"><highlight class="normal"></highlight><highlight class="comment">//-------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="183" refid="d0/d6a/cmock_8c_1aba717672271fef7bf017b85053c00c58" refkind="member"><highlight class="normal"><ref refid="d8/da1/cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041" kindref="member">CMOCK_MEM_INDEX_TYPE</ref><sp/><ref refid="d0/d6a/cmock_8c_1aba717672271fef7bf017b85053c00c58" kindref="member">CMock_Guts_MemBytesUsed</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="184"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>CMock_Guts_FreePtr<sp/>-<sp/><ref refid="d2/d50/cmock__internals_8h_1aa4c3fd1e195f905d5acd940f1daf9de1" kindref="member">CMOCK_MEM_ALIGN_SIZE</ref>;</highlight></codeline>
+<codeline lineno="186"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"></highlight></codeline>
+<codeline lineno="188"><highlight class="normal"></highlight><highlight class="comment">//-------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="189"><highlight class="normal"></highlight><highlight class="comment">//<sp/>CMock_Guts_MemFreeAll</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="190"><highlight class="normal"></highlight><highlight class="comment">//-------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="191" refid="d0/d6a/cmock_8c_1a348bc07d37efc57ac52128cd99ee7c72" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d0/d6a/cmock_8c_1a348bc07d37efc57ac52128cd99ee7c72" kindref="member">CMock_Guts_MemFreeAll</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="192"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/>CMock_Guts_FreePtr<sp/>=<sp/><ref refid="d2/d50/cmock__internals_8h_1aa4c3fd1e195f905d5acd940f1daf9de1" kindref="member">CMOCK_MEM_ALIGN_SIZE</ref>;<sp/></highlight><highlight class="comment">//skip<sp/>the<sp/>very<sp/>beginning</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="194"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"></highlight></codeline>
+<codeline lineno="196"><highlight class="normal"></highlight><highlight class="comment">//-------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="197"><highlight class="normal"></highlight><highlight class="comment">//<sp/>CMock_Guts_MemFreeFinal</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="198"><highlight class="normal"></highlight><highlight class="comment">//-------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="199" refid="d0/d6a/cmock_8c_1aa8a20fa157f61e9e1379170847287cc9" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d0/d6a/cmock_8c_1aa8a20fa157f61e9e1379170847287cc9" kindref="member">CMock_Guts_MemFreeFinal</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="200"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/>CMock_Guts_FreePtr<sp/>=<sp/><ref refid="d2/d50/cmock__internals_8h_1aa4c3fd1e195f905d5acd940f1daf9de1" kindref="member">CMOCK_MEM_ALIGN_SIZE</ref>;</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>CMOCK_MEM_DYNAMIC</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="d0/d6a/cmock_8c_1a10e196958508ba64609382b16c56f5bc" kindref="member">CMock_Guts_Buffer</ref>)</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/>free(<ref refid="d0/d6a/cmock_8c_1a10e196958508ba64609382b16c56f5bc" kindref="member">CMock_Guts_Buffer</ref>);</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d0/d6a/cmock_8c_1a10e196958508ba64609382b16c56f5bc" kindref="member">CMock_Guts_Buffer</ref><sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="209"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock.c"/>
+  </compounddef>
+</doxygen>

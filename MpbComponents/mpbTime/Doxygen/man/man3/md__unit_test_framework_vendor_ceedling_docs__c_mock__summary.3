@@ -1,0 +1,515 @@
+.TH "md__unit_test_framework_vendor_ceedling_docs__c_mock__summary" 3 "Thu Nov 18 2021" "mpbTime" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+md__unit_test_framework_vendor_ceedling_docs__c_mock__summary \- CMock: A Summary 
+\fI\fCThrowTheSwitch\&.org\fP\fP
+.PP
+\fIThis documentation is released under a Creative Commons 3\&.0 Attribution Share-Alike License\fP
+.SH "What Exactly Are We Talking About Here?"
+.PP
+CMock is a nice little tool which takes your header files and creates a Mock interface for it so that you can more easily unit test modules that touch other modules\&. For each function prototype in your header, like this one: 
+.PP
+.nf
+int DoesSomething(int a, int b);
+
+.fi
+.PP
+.PP
+\&.\&.\&.you get an automatically generated DoesSomething function that you can link to instead of your real DoesSomething function\&. By using this Mocked version, you can then verify that it receives the data you want, and make it return whatever data you desire, make it throw errors when you want, and more\&.\&.\&. Create these for everything your latest real module touches, and you're suddenly in a position of power: You can control and verify every detail of your latest creation\&.
+.PP
+To make that easier, CMock also gives you a bunch of functions like the ones below, so you can tell that generated DoesSomething function how to behave for each test: 
+.PP
+.nf
+void DoesSomething_ExpectAndReturn(int a, int b, int toReturn);
+void DoesSomething_ExpectAndThrow(int a, int b, EXCEPTION_T error);
+void DoesSomething_StubWithCallback(CMOCK_DoesSomething_CALLBACK YourCallback);
+void DoesSomething_IgnoreAndReturn(int toReturn);
+
+.fi
+.PP
+.PP
+You can pile a bunch of these back to back, and it remembers what you wanted to pass when, like so: 
+.PP
+.nf
+test_CallsDoesSomething_ShouldDoJustThat(void)
+{
+    DoesSomething_ExpectAndReturn(1,2,3);
+    DoesSomething_ExpectAndReturn(4,5,6);
+    DoesSomething_ExpectAndThrow(7,8, STATUS_ERROR_OOPS);
+
+    CallsDoesSomething( );
+}
+
+.fi
+.PP
+.PP
+This test will call CallsDoesSomething, which is the function we are testing\&. We are expecting that function to call DoesSomething three times\&. The first time, we check to make sure it's called as DoesSomething(1, 2) and we'll magically return a 3\&. The second time we check for DoesSomething(4, 5) and we'll return a 6\&. The third time we verify DoesSomething(7, 8) and we'll throw an error instead of returning anything\&. If CallsDoesSomething gets any of this wrong, it fails the test\&. It will fail if you didn't call DoesSomething enough, or too much, or with the wrong arguments, or in the wrong order\&.
+.PP
+CMock is based on Unity, which it uses for all internal testing\&. It uses Ruby to do all the main work (versions 2\&.0\&.0 and above)\&.
+.SH "Installing"
+.PP
+The first thing you need to do to install CMock is to get yourself a copy of Ruby\&. If you're on linux or osx, you probably already have it\&. You can prove it by typing the following: 
+.PP
+.nf
+ruby --version
+
+.fi
+.PP
+.PP
+If it replied in a way that implies ignorance, then you're going to need to install it\&. You can go to \fCruby-lang\fP to get the latest version\&. You're also going to need to do that if it replied with a version that is older than 2\&.0\&.0\&. Go ahead\&. We'll wait\&.
+.PP
+Once you have Ruby, you have three options:
+.PP
+.IP "\(bu" 2
+Clone the latest \fCCMock repo on github\fP
+.IP "\(bu" 2
+Download the latest \fCCMock zip from github\fP
+.IP "\(bu" 2
+Install Ceedling (which has it built in!) through your commandline using \fCgem install ceedling\fP\&.
+.PP
+.SH "Generated Mock Module Summary"
+.PP
+In addition to the mocks themselves, CMock will generate the following functions for use in your tests\&. The expect functions are always generated\&. The other functions are only generated if those plugins are enabled:
+.SS "Expect:"
+Your basic staple Expects which will be used for most of your day to day CMock work\&. By calling this, you are telling CMock that you expect that function to be called during your test\&. It also specifies which arguments you expect it to be called with, and what return value you want returned when that happens\&. You can call this function multiple times back to back in order to queue up multiple calls\&.
+.PP
+.IP "\(bu" 2
+\fCvoid func(void)\fP => \fCvoid func_Expect(void)\fP
+.IP "\(bu" 2
+\fCvoid func(params)\fP => \fCvoid func_Expect(expected_params)\fP
+.IP "\(bu" 2
+\fCretval func(void)\fP => \fCvoid func_ExpectAndReturn(retval_to_return)\fP
+.IP "\(bu" 2
+\fCretval func(params)\fP => \fCvoid func_ExpectAndReturn(expected_params, retval_to_return)\fP
+.PP
+.SS "ExpectAnyArgs:"
+This behaves just like the Expects calls, except that it doesn't really care what the arguments are that the mock gets called with\&. It still counts the number of times the mock is called and it still handles return values if there are some\&.
+.PP
+.IP "\(bu" 2
+\fCvoid func(void)\fP => \fCvoid func_ExpectAnyArgs(void)\fP
+.IP "\(bu" 2
+\fCvoid func(params)\fP => \fCvoid func_ExpectAnyArgs(void)\fP
+.IP "\(bu" 2
+\fCretval func(void)\fP => \fCvoid func_ExpectAnyArgsAndReturn(retval_to_return)\fP
+.IP "\(bu" 2
+\fCretval func(params)\fP => \fCvoid func_ExpectAnyArgsAndReturn(retval_to_return)\fP
+.PP
+.SS "Array:"
+An ExpectWithArray is another variant of Expect\&. Like expect, it cares about the number of times a mock is called, the arguments it is called with, and the values it is to return\&. This variant has another feature, though\&. For anything that resembles a pointer or array, it breaks the argument into TWO arguments\&. The first is the original pointer\&. The second specify the number of elements it is to verify of that array\&. If you specify 1, it'll check one object\&. If 2, it'll assume your pointer is pointing at the first of two elements in an array\&. If you specify zero elements, it will check just the pointer if \fC:smart\fP mode is configured or fail if \fC:compare_data\fP is set\&.
+.PP
+.IP "\(bu" 2
+\fCvoid func(void)\fP => (nothing\&. In fact, an additional function is only generated if the params list contains pointers)
+.IP "\(bu" 2
+\fCvoid func(ptr * param, other)\fP => \fCvoid func_ExpectWithArray(ptr* param, int param_depth, other)\fP
+.IP "\(bu" 2
+\fCretval func(void)\fP => (nothing\&. In fact, an additional function is only generated if the params list contains pointers)
+.IP "\(bu" 2
+\fCretval func(other, ptr* param)\fP => \fCvoid func_ExpectWithArrayAndReturn(other, ptr* param, int param_depth, retval_to_return)\fP
+.PP
+.SS "Ignore:"
+Maybe you don't care about the number of times a particular function is called or the actual arguments it is called with\&. In that case, you want to use Ignore\&. Ignore only needs to be called once per test\&. It will then ignore any further calls to that particular mock\&. The IgnoreAndReturn works similarly, except that it has the added benefit of knowing what to return when that call happens\&. If the mock is called more times than IgnoreAndReturn was called, it will keep returning the last value without complaint\&. If it's called less times, it will also ignore that\&. You SAID you didn't care how many times it was called, right?
+.PP
+.IP "\(bu" 2
+\fCvoid func(void)\fP => \fCvoid func_Ignore(void)\fP
+.IP "\(bu" 2
+\fCvoid func(params)\fP => \fCvoid func_Ignore(void)\fP
+.IP "\(bu" 2
+\fCretval func(void)\fP => \fCvoid func_IgnoreAndReturn(retval_to_return)\fP
+.IP "\(bu" 2
+\fCretval func(params)\fP => \fCvoid func_IgnoreAndReturn(retval_to_return)\fP
+.PP
+.SS "Ignore Arg:"
+Maybe you overall want to use Expect and its similar variations, but you don't care what is passed to a particular argument\&. This is particularly useful when that argument is a pointer to a value that is supposed to be filled in by the function\&. You don't want to use ExpectAnyArgs, because you still care about the other arguments\&. Instead, before any of your Expect calls are made, you can call this function\&. It tells CMock to ignore a particular argument for the rest of this test, for this mock function\&.
+.PP
+.IP "\(bu" 2
+\fCvoid func(params)\fP => \fCvoid func_IgnoreArg_paramName(void)\fP
+.PP
+.SS "ReturnThruPtr:"
+Another option which operates on a particular argument of a function is the ReturnThruPtr plugin\&. For every argument that resembles a pointer or reference, CMock generates an instance of this function\&. Just as the AndReturn functions support injecting one or more return values into a queue, this function lets you specify one or more return values which are queued up and copied into the space being pointed at each time the mock is called\&.
+.PP
+.IP "\(bu" 2
+\fCvoid func(param1)\fP => \fCvoid func_ReturnThruPtr_paramName(val_to_return)\fP
+.IP "\(bu" 2
+=> \fCvoid func_ReturnArrayThruPtr_paramName(cal_to_return, len)\fP
+.IP "\(bu" 2
+=> \fCvoid func_ReturnMemThruPtr_paramName(val_to_return, size)\fP
+.PP
+.SS "Callback:"
+If all those other options don't work, and you really need to do something custom, you still have a choice\&. As soon as you stub a callback in a test, it will call the callback whenever the mock is encountered and return the retval returned from the callback (if any) instead of performing the usual expect checks\&. It can be configured to check the arguments first (like expects) or just jump directly to the callback\&.
+.PP
+.IP "\(bu" 2
+\fCvoid func(void)\fP => \fCvoid func_StubWithCallback(CMOCK_func_CALLBACK callback)\fP where \fCCMOCK_func_CALLBACK\fP looks like: \fCvoid func(int NumCalls)\fP
+.IP "\(bu" 2
+\fCvoid func(params)\fP => \fCvoid func_StubWithCallback(CMOCK_func_CALLBACK callback)\fP where \fCCMOCK_func_CALLBACK\fP looks like: \fCvoid func(params, int NumCalls)\fP
+.IP "\(bu" 2
+\fCretval func(void)\fP => \fCvoid func_StubWithCallback(CMOCK_func_CALLBACK callback)\fP where \fCCMOCK_func_CALLBACK\fP looks like: \fCretval func(int NumCalls)\fP
+.IP "\(bu" 2
+\fCretval func(params)\fP => \fCvoid func_StubWithCallback(CMOCK_func_CALLBACK callback)\fP where \fCCMOCK_func_CALLBACK\fP looks like: \fCretval func(params, int NumCalls)\fP
+.PP
+.SS "Cexception:"
+Finally, if you are using Cexception for error handling, you can use this to throw errors from inside mocks\&. Like Expects, it remembers which call was supposed to throw the error, and it still checks parameters first\&.
+.PP
+.IP "\(bu" 2
+\fCvoid func(void)\fP => \fCvoid func_ExpectAndThrow(value_to_throw)\fP
+.IP "\(bu" 2
+\fCvoid func(params)\fP => \fCvoid func_ExpectAndThrow(expected_params, value_to_throw)\fP
+.IP "\(bu" 2
+\fCretval func(void)\fP => \fCvoid func_ExpectAndThrow(value_to_throw)\fP
+.IP "\(bu" 2
+\fCretval func(params)\fP => \fCvoid func_ExpectAndThrow(expected_params, value_to_throw)\fP
+.PP
+.SH "Running CMock"
+.PP
+CMock is a Ruby script and class\&. You can therefore use it directly from the command line, or include it in your own scripts or rakefiles\&.
+.SS "Mocking from the Command Line"
+After unpacking CMock, you will find cmock\&.rb in the 'lib' directory\&. This is the file that you want to run\&. It takes a list of header files to be mocked, as well as an optional yaml file for a more detailed configuration (see config options below)\&.
+.PP
+For example, this will create three mocks using the configuration specified in MyConfig\&.yml: 
+.PP
+.nf
+ruby cmock.rb -oMyConfig.yml super.h duper.h awesome.h
+
+.fi
+.PP
+ And this will create two mocks using the default configuration: 
+.PP
+.nf
+ruby cmock.rb ../mocking/stuff/is/fun.h ../try/it/yourself.h
+
+.fi
+.PP
+.SS "Mocking From Scripts or Rake"
+CMock can be used directly from your own scripts or from a rakefile\&. Start by including cmock\&.rb, then create an instance of CMock\&. When you create your instance, you may initialize it in one of three ways\&.
+.PP
+You may specify nothing, allowing it to run with default settings: 
+.PP
+.nf
+require 'cmock.rb'
+cmock = CMock.new
+
+.fi
+.PP
+ You may specify a YAML file containing the configuration options you desire: 
+.PP
+.nf
+cmock = CMock.new('../MyConfig.yml')
+
+.fi
+.PP
+ You may specify the options explicitly: 
+.PP
+.nf
+cmock = Cmock.new(:plugins => [:cexception, :ignore], :mock_path => 'my/mocks/')
+
+.fi
+.PP
+.SS "Config Options:"
+The following configuration options can be specified in the yaml file or directly when instantiating\&.
+.PP
+Passed as Ruby, they look like this: 
+.PP
+.nf
+    { :attributes => [“__funky”, “__intrinsic”], :when_ptr => :compare }
+
+.fi
+.PP
+ Defined in the yaml file, they look more like this: 
+.PP
+.nf
+    :cmock:
+      :attributes:
+        - __funky
+        - __intrinsic
+      :when_ptr: :compare
+
+.fi
+.PP
+ In all cases, you can just include the things that you want to override from the defaults\&. We've tried to specify what the defaults are below\&.
+.PP
+.IP "\(bu" 2
+\fC:attributes\fP: These are attributes that CMock should ignore for you for testing purposes\&. Custom compiler extensions and externs are handy things to put here\&. If your compiler is choking on some extended syntax, this is often a good place to look\&.
+.IP "  \(bu" 4
+defaults: ['__ramfunc', '__irq', '__fiq', 'register', 'extern']
+.IP "  \(bu" 4
+\fBnote:\fP this option will reinsert these attributes onto the mock's calls\&. If that isn't what you are looking for, check out :strippables\&.
+.PP
+
+.IP "\(bu" 2
+\fC:c_calling_conventions\fP: Similarly, CMock may need to understand which C calling conventions might show up in your codebase\&. If it encounters something it doesn't recognize, it's not going to mock it\&. We have the most common covered, but there are many compilers out there, and therefore many other options\&.
+.IP "  \(bu" 4
+defaults: ['__stdcall', '__cdecl', '__fastcall']
+.IP "  \(bu" 4
+\fBnote:\fP this option will reinsert these attributes onto the mock's calls\&. If that isn't what you are looking for, check out :strippables\&.
+.PP
+
+.IP "\(bu" 2
+\fC:callback_after_arg_check\fP: Tell \fC:callback\fP plugin to do the normal argument checking \fBbefore\fP it calls the callback function by setting this to true\&. When false, the callback function is called \fBinstead\fP of the argument verification\&.
+.IP "  \(bu" 4
+default: false
+.PP
+
+.IP "\(bu" 2
+\fC:callback_include_count\fP: Tell \fC:callback\fP plugin to include an extra parameter to specify the number of times the callback has been called\&. If set to false, the callback has the same interface as the mocked function\&. This can be handy when you're wanting to use callback as a stub\&.
+.IP "  \(bu" 4
+default: true
+.PP
+
+.IP "\(bu" 2
+\fC:cexception_include\fP: Tell \fC:cexception\fP plugin where to find \fBCException\&.h\fP\&.\&.\&. You only need to define this if it's not in your build path already\&.\&.\&. which it usually will be for the purpose of your builds\&.
+.IP "  \(bu" 4
+default: \fInil\fP
+.PP
+
+.IP "\(bu" 2
+\fC:enforce_strict_ordering\fP: CMock always enforces the order that you call a particular function, so if you expect GrabNabber(int size) to be called three times, it will verify that the sizes are in the order you specified\&. You might \fIalso\fP want to make sure that all different functions are called in a particular order\&. If so, set this to true\&.
+.IP "  \(bu" 4
+default: false
+.PP
+
+.IP "\(bu" 2
+\fC:framework\fP: Currently the only option is \fC:unity\&.\fP Eventually if we support other unity test frameworks (or if you write one for us), they'll get added here\&.
+.PP
+: default: :unity
+.IP "\(bu" 2
+\fC:includes\fP: An array of additional include files which should be added to the mocks\&. Useful for global types and definitions used in your project\&. There are more specific versions if you care WHERE in the mock files the includes get placed\&. You can define any or all of these options\&.
+.IP "  \(bu" 4
+\fC:includes\fP
+.IP "  \(bu" 4
+\fC:includes_h_pre_orig_header\fP
+.IP "  \(bu" 4
+\fC:includes_h_post_orig_header\fP
+.IP "  \(bu" 4
+\fC:includes_c_pre_header\fP
+.IP "  \(bu" 4
+\fC:includes_c_post_header\fP
+.IP "  \(bu" 4
+default: nil #for all 5 options
+.PP
+
+.IP "\(bu" 2
+\fC:memcmp_if_unknown\fP: C developers create a lot of types, either through typedef or preprocessor macros\&. CMock isn't going to automatically know what you were thinking all the time (though it tries its best)\&. If it comes across a type it doesn't recognize, you have a choice on how you want it to handle it\&. It can either perform a raw memory comparison and report any differences, or it can fail with a meaningful message\&. Either way, this feature will only happen after all other mechanisms have failed (The thing encountered isn't a standard type\&. It isn't in the :treat_as list\&. It isn't in a custom unity_helper)\&.
+.IP "  \(bu" 4
+default: true
+.PP
+
+.IP "\(bu" 2
+\fC:mock_path\fP: The directory where you would like the mock files generated to be placed\&.
+.IP "  \(bu" 4
+default: mocks
+.PP
+
+.IP "\(bu" 2
+\fC:mock_prefix\fP: The prefix to prepend to your mock files\&. For example, if it's “Mock”, a file “USART\&.h” will get a mock called “MockUSART\&.c”\&. This CAN be used with a suffix at the same time\&.
+.IP "  \(bu" 4
+default: Mock
+.PP
+
+.IP "\(bu" 2
+\fC:mock_suffix\fP: The suffix to append to your mock files\&. For example, it it's '_Mock', a file 'USART\&.h' will get a mock called 'USART_Mock\&.h'\&. This CAN be used with a prefix at the same time\&.
+.IP "  \(bu" 4
+default: ''
+.PP
+
+.IP "\(bu" 2
+\fC:plugins\fP: An array of which plugins to enable\&. ':expect' is always active\&. Also available currently:
+.IP "  \(bu" 4
+\fC:ignore\fP
+.IP "  \(bu" 4
+\fC:ignore_arg\fP
+.IP "  \(bu" 4
+\fC:expect_any_args\fP
+.IP "  \(bu" 4
+\fC:array\fP
+.IP "  \(bu" 4
+\fC:cexception\fP
+.IP "  \(bu" 4
+\fC:callback\fP
+.IP "  \(bu" 4
+\fC:return_thru_ptr\fP
+.PP
+
+.IP "\(bu" 2
+\fC:strippables\fP: An array containing a list of items to remove from the header before deciding what should be mocked\&. This can be something simple like a compiler extension CMock wouldn't recognize, or could be a regex to reject certain function name patterns\&. This is a great way to get rid of compiler extensions when your test compiler doesn't support them\&. For example, use `:strippables: ['(?:functionName\\s*(+\&.*?)+)']\fC to prevent a function\fPfunctionName` from being mocked\&. By default, it is ignoring all gcc attribute extensions\&.
+.IP "  \(bu" 4
+default: ['(?:\fBattribute\fP\\s*(+\&.*?)+)']
+.PP
+
+.IP "\(bu" 2
+\fC:subdir\fP: This is a relative subdirectory for your mocks\&. Set this to e\&.g\&. 'sys' in order to create a mock for \fCsys/types\&.h\fP in \fC(:mock_path)/sys/\fP\&.
+.IP "  \(bu" 4
+default: ''
+.PP
+
+.IP "\(bu" 2
+\fC:treat_as\fP: The \fC:treat_as\fP list is a shortcut for when you have created typedefs of standard types\&. Why create a custom unity helper for UINT16 when the unity function TEST_ASSERT_EQUAL_HEX16 will work just perfectly? Just add 'UINT16' => 'HEX16' to your list (actually, don't\&. We already did that one for you)\&. Maybe you have a type that is a pointer to an array of unsigned characters? No problem, just add 'UINT8_T*' => 'HEX8*'
+.IP "  \(bu" 4
+NOTE: unlike the other options, your specifications MERGE with the default list\&. Therefore, if you want to override something, you must reassign it to something else (or to \fInil\fP if you don't want it)
+.IP "  \(bu" 4
+default:
+.IP "    \(bu" 6
+'int': 'INT'
+.IP "    \(bu" 6
+'char': 'INT8'
+.IP "    \(bu" 6
+'short': 'INT16'
+.IP "    \(bu" 6
+'long': 'INT'
+.IP "    \(bu" 6
+'int8': 'INT8'
+.IP "    \(bu" 6
+'int16': 'INT16'
+.IP "    \(bu" 6
+'int32': 'INT'
+.IP "    \(bu" 6
+'int8_t': 'INT8'
+.IP "    \(bu" 6
+'int16_t': 'INT16'
+.IP "    \(bu" 6
+'int32_t': 'INT'
+.IP "    \(bu" 6
+'INT8_T': 'INT8'
+.IP "    \(bu" 6
+'INT16_T': 'INT16'
+.IP "    \(bu" 6
+'INT32_T': 'INT'
+.IP "    \(bu" 6
+'bool': 'INT'
+.IP "    \(bu" 6
+'bool_t': 'INT'
+.IP "    \(bu" 6
+'BOOL': 'INT'
+.IP "    \(bu" 6
+'BOOL_T': 'INT'
+.IP "    \(bu" 6
+'unsigned int': 'HEX32'
+.IP "    \(bu" 6
+'unsigned long': 'HEX32'
+.IP "    \(bu" 6
+'uint32': 'HEX32'
+.IP "    \(bu" 6
+'uint32_t': 'HEX32'
+.IP "    \(bu" 6
+'UINT32': 'HEX32'
+.IP "    \(bu" 6
+'UINT32_T': 'HEX32'
+.IP "    \(bu" 6
+'void*': 'HEX8_ARRAY'
+.IP "    \(bu" 6
+'unsigned short': 'HEX16'
+.IP "    \(bu" 6
+'uint16': 'HEX16'
+.IP "    \(bu" 6
+'uint16_t': 'HEX16'
+.IP "    \(bu" 6
+'UINT16': 'HEX16'
+.IP "    \(bu" 6
+'UINT16_T': 'HEX16'
+.IP "    \(bu" 6
+'unsigned char': 'HEX8'
+.IP "    \(bu" 6
+'uint8': 'HEX8'
+.IP "    \(bu" 6
+'uint8_t': 'HEX8'
+.IP "    \(bu" 6
+'UINT8': 'HEX8'
+.IP "    \(bu" 6
+'UINT8_T': 'HEX8'
+.IP "    \(bu" 6
+'char*': 'STRING'
+.IP "    \(bu" 6
+'pCHAR': 'STRING'
+.IP "    \(bu" 6
+'cstring': 'STRING'
+.IP "    \(bu" 6
+'CSTRING': 'STRING'
+.IP "    \(bu" 6
+'float': 'FLOAT'
+.IP "    \(bu" 6
+'double': 'FLOAT'
+.PP
+
+.PP
+
+.IP "\(bu" 2
+\fC:treat_as_void\fP: We've seen 'fun' legacy systems typedef 'void' with a custom type, like MY_VOID\&. Add any instances of those to this list to help CMock understand how to deal with your code\&.
+.IP "  \(bu" 4
+default: []
+.PP
+
+.IP "\(bu" 2
+\fC:treat_externs\fP: This specifies how you want CMock to handle functions that have been marked as extern in the header file\&. Should it mock them?
+.IP "  \(bu" 4
+\fC:include\fP will mock externed functions
+.IP "  \(bu" 4
+\fC:exclude\fP will ignore externed functions (default)\&.
+.PP
+
+.IP "\(bu" 2
+\fC:unity_helper_path\fP: If you have created a header with your own extensions to unity to handle your own types, you can set this argument to that path\&. CMock will then automagically pull in your helpers and use them\&. The only trick is that you make sure you follow the naming convention: \fCUNITY_TEST_ASSERT_EQUAL_YourType\fP\&. If it finds macros of the right shape that match that pattern, it'll use them\&.
+.IP "  \(bu" 4
+default: []
+.PP
+
+.IP "\(bu" 2
+\fC:verbosity\fP: How loud should CMock be?
+.IP "  \(bu" 4
+0 for errors only
+.IP "  \(bu" 4
+1 for errors and warnings
+.IP "  \(bu" 4
+2 for normal (default)
+.IP "  \(bu" 4
+3 for verbose
+.PP
+
+.IP "\(bu" 2
+\fC:weak\fP: When set this to some value, the generated mocks are defined as weak symbols using the configured format\&. This allows them to be overridden in particular tests\&.
+.IP "  \(bu" 4
+Set to '__attribute ((weak))' for weak mocks when using GCC\&.
+.IP "  \(bu" 4
+Set to any non-empty string for weak mocks when using IAR\&.
+.IP "  \(bu" 4
+default: ''
+.PP
+
+.IP "\(bu" 2
+\fC:when_no_prototypes\fP: When you give CMock a header file and ask it to create a mock out of it, it usually contains function prototypes (otherwise what was the point?)\&. You can control what happens when this isn't true\&. You can set this to \fC:warn,\fP \fC:ignore,\fP or \fC:error\fP
+.IP "  \(bu" 4
+default: :warn
+.PP
+
+.IP "\(bu" 2
+\fC:when_ptr\fP: You can customize how CMock deals with pointers (c strings result in string comparisons\&.\&.\&. we're talking about \fBother\fP pointers here)\&. Your options are \fC:compare_ptr\fP to just verify the pointers are the same, \fC:compare_data\fP or \fC:smart\fP to verify that the data is the same\&. \fC:compare_data\fP and \fC:smart\fP behaviors will change slightly based on if you have the array plugin enabled\&. By default, they compare a single element of what is being pointed to\&. So if you have a pointer to a struct called ORGAN_T, it will compare one ORGAN_T (whatever that is)\&.
+.IP "  \(bu" 4
+default: :smart
+.PP
+
+.IP "\(bu" 2
+\fC:fail_on_unexpected_calls\fP: By default, CMock will fail a test if a mock is called without _Expect and _Ignore called first\&. While this forces test writers to be more explicit in their expectations, it can clutter tests with _Expect or _Ignore calls for functions which are not the focus of the test\&. While this is a good indicator that this module should be refactored, some users are not fans of the additional noise\&.
+.PP
+Therefore, :fail_on_unexpected_calls can be set to false to force all mocks to start with the assumption that they are operating as _Ignore unless otherwise specified\&.
+.IP "  \(bu" 4
+default: true
+.IP "  \(bu" 4
+\fBnote:\fP If this option is disabled, the mocked functions will return a default value (0) when called (and only if they have to return something of course)\&.
+.PP
+
+.PP
+.SS "Compiled Options:"
+A number of #defines also exist for customizing the cmock experience\&. Feel free to pass these into your compiler or whatever is most convenient\&. CMock will otherwise do its best to guess what you want based on other settings, particularly Unity's settings\&.
+.PP
+.IP "\(bu" 2
+\fCCMOCK_MEM_STATIC\fP or \fCCMOCK_MEM_DYNAMIC\fP Define one of these to determine if you want to dynamically add memory during tests as required from the heap\&. If static, you can control the total footprint of Cmock\&. If dynamic, you will need to make sure you make some heap space available for Cmock\&.
+.IP "\(bu" 2
+\fCCMOCK_MEM_SIZE\fP In static mode this is the total amount of memory you are allocating to Cmock\&. In Dynamic mode this is the size of each chunk allocated at once (larger numbers grab more memory but require less mallocs)\&.
+.IP "\(bu" 2
+\fCCMOCK_MEM_ALIGN\fP The way to align your data to\&. Not everything is as flexible as a PC, as most embedded designers know\&. This defaults to 2, meaning align to the closest 2^2 -> 4 bytes (32 bits)\&. You can turn off alignment by setting 0, force alignment to the closest uint16 with 1 or even to the closest uint64 with 3\&.
+.IP "\(bu" 2
+\fCCMOCK_MEM_PTR_AS_INT\fP This is used internally to hold pointers\&.\&.\&. it needs to be big enough\&. On most processors a pointer is the same as an unsigned long\&.\&.\&. but maybe that's not true for yours?
+.IP "\(bu" 2
+\fCCMOCK_MEM_INDEX_TYPE\fP This needs to be something big enough to point anywhere in Cmock's memory space\&.\&.\&. usually it's an unsigned int\&.
+.PP
+.SH "Examples"
+.PP
+You can look in the \fCexamples directory\fP for a couple of examples on how you might tool CMock into your build process\&. You may also want to consider using \fCCeedling\fP\&. Please note that these examples are meant to show how the build process works\&. They have failing tests ON PURPOSE to show what that would look like\&. Don't be alarmed\&. ;) 

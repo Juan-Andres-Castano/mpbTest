@@ -1,0 +1,162 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_test__event__processor_8c" xml:lang="en-US">
+<title>UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/test/test_event_processor.c File Reference</title>
+<indexterm><primary>UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/test/test_event_processor.c</primary></indexterm>
+<programlisting>#include &quot;unity.h&quot;
+#include &quot;event_processor.h&quot;
+#include &quot;mock_display.h&quot;
+#include &lt;string.h&gt;
+</programlisting>Include dependency graph for test_event_processor.c:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../d8/d53/test__event__processor_8c__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_test__event__processor_8c_1a95c834d6178047ce9e1bce7cbfea2836">setUp</link> (void)</para>
+</listitem>
+            <listitem><para>void <link linkend="_test__event__processor_8c_1a9909011e5fea0c018842eec4d93d0662">tearDown</link> (void)</para>
+</listitem>
+            <listitem><para>void <link linkend="_test__event__processor_8c_1aff1f691f0911be5857ddbe01e551c0a2">test_whenTheDeviceIsReset_thenTheStatusLedIsTurnedOff</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_test__event__processor_8c_1ae0402ad0b5090fc576a46cd6a37e3098">test_whenThePowerReadingIsLessThan5_thenTheStatusLedIsNotTurnedOn</link> (void)</para>
+</listitem>
+            <listitem><para>void <link linkend="_test__event__processor_8c_1ab3dbd650a187ae78cbc203e26c7da3a5">test_whenTheVolumeKnobIsMaxed_thenVolumeDisplayIsSetTo11</link> (void)</para>
+</listitem>
+            <listitem><para>void <link linkend="_test__event__processor_8c_1ae77b983df3ecc38c9338c8a1c1747199">test_whenTheModeSelectButtonIsPressed_thenTheDisplayModeIsCycled</link> (void)</para>
+</listitem>
+            <listitem><para>void <link linkend="_test__event__processor_8c_1aaade2183eab43ecade551f4ce2710653">test_givenTheDisplayHasAnError_whenTheDeviceIsPoweredOn_thenTheDisplayIsPoweredDown</link> (void)</para>
+</listitem>
+            <listitem><para>void <link linkend="_test__event__processor_8c_1a534f0b7275d9d4a29985cacf3e8342aa">test_givenTheUserHasTypedSleep_whenItIsTimeToCheckTheKeyboard_theDisplayIsPoweredDown</link> (void)</para>
+</listitem>
+            <listitem><para>void <link linkend="_test__event__processor_8c_1a7e135676f8e037e0dbd2a72ef83e409c">test_givenNewDataIsAvailable_whenTheDisplayHasUpdated_thenTheEventIsComplete</link> (void)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_test__event__processor_8c_1a95c834d6178047ce9e1bce7cbfea2836"/>    <section>
+    <title>setUp()</title>
+<indexterm><primary>setUp</primary><secondary>test_event_processor.c</secondary></indexterm>
+<indexterm><primary>test_event_processor.c</primary><secondary>setUp</secondary></indexterm>
+<para><computeroutput>void setUp (void )</computeroutput></para><para>
+Definition at line 6 of file test_event_processor.c.</para>
+    </section><anchor xml:id="_test__event__processor_8c_1a9909011e5fea0c018842eec4d93d0662"/>    <section>
+    <title>tearDown()</title>
+<indexterm><primary>tearDown</primary><secondary>test_event_processor.c</secondary></indexterm>
+<indexterm><primary>test_event_processor.c</primary><secondary>tearDown</secondary></indexterm>
+<para><computeroutput>void tearDown (void )</computeroutput></para><para>
+Definition at line 10 of file test_event_processor.c.</para>
+    </section><anchor xml:id="_test__event__processor_8c_1a7e135676f8e037e0dbd2a72ef83e409c"/>    <section>
+    <title>test_givenNewDataIsAvailable_whenTheDisplayHasUpdated_thenTheEventIsComplete()</title>
+<indexterm><primary>test_givenNewDataIsAvailable_whenTheDisplayHasUpdated_thenTheEventIsComplete</primary><secondary>test_event_processor.c</secondary></indexterm>
+<indexterm><primary>test_event_processor.c</primary><secondary>test_givenNewDataIsAvailable_whenTheDisplayHasUpdated_thenTheEventIsComplete</secondary></indexterm>
+<para><computeroutput>void test_givenNewDataIsAvailable_whenTheDisplayHasUpdated_thenTheEventIsComplete (void )</computeroutput></para><para>
+Definition at line 133 of file test_event_processor.c.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../df/da4/test__event__processor_8c_a7e135676f8e037e0dbd2a72ef83e409c_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_test__event__processor_8c_1aaade2183eab43ecade551f4ce2710653"/>    <section>
+    <title>test_givenTheDisplayHasAnError_whenTheDeviceIsPoweredOn_thenTheDisplayIsPoweredDown()</title>
+<indexterm><primary>test_givenTheDisplayHasAnError_whenTheDeviceIsPoweredOn_thenTheDisplayIsPoweredDown</primary><secondary>test_event_processor.c</secondary></indexterm>
+<indexterm><primary>test_event_processor.c</primary><secondary>test_givenTheDisplayHasAnError_whenTheDeviceIsPoweredOn_thenTheDisplayIsPoweredDown</secondary></indexterm>
+<para><computeroutput>void test_givenTheDisplayHasAnError_whenTheDeviceIsPoweredOn_thenTheDisplayIsPoweredDown (void )</computeroutput></para><para>
+Definition at line 85 of file test_event_processor.c.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../df/da4/test__event__processor_8c_aaade2183eab43ecade551f4ce2710653_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_test__event__processor_8c_1a534f0b7275d9d4a29985cacf3e8342aa"/>    <section>
+    <title>test_givenTheUserHasTypedSleep_whenItIsTimeToCheckTheKeyboard_theDisplayIsPoweredDown()</title>
+<indexterm><primary>test_givenTheUserHasTypedSleep_whenItIsTimeToCheckTheKeyboard_theDisplayIsPoweredDown</primary><secondary>test_event_processor.c</secondary></indexterm>
+<indexterm><primary>test_event_processor.c</primary><secondary>test_givenTheUserHasTypedSleep_whenItIsTimeToCheckTheKeyboard_theDisplayIsPoweredDown</secondary></indexterm>
+<para><computeroutput>void test_givenTheUserHasTypedSleep_whenItIsTimeToCheckTheKeyboard_theDisplayIsPoweredDown (void )</computeroutput></para><para>
+Definition at line 107 of file test_event_processor.c.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../df/da4/test__event__processor_8c_a534f0b7275d9d4a29985cacf3e8342aa_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_test__event__processor_8c_1aff1f691f0911be5857ddbe01e551c0a2"/>    <section>
+    <title>test_whenTheDeviceIsReset_thenTheStatusLedIsTurnedOff()</title>
+<indexterm><primary>test_whenTheDeviceIsReset_thenTheStatusLedIsTurnedOff</primary><secondary>test_event_processor.c</secondary></indexterm>
+<indexterm><primary>test_event_processor.c</primary><secondary>test_whenTheDeviceIsReset_thenTheStatusLedIsTurnedOff</secondary></indexterm>
+<para><computeroutput>void test_whenTheDeviceIsReset_thenTheStatusLedIsTurnedOff ( )</computeroutput></para><para>
+Definition at line 17 of file test_event_processor.c.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../df/da4/test__event__processor_8c_aff1f691f0911be5857ddbe01e551c0a2_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_test__event__processor_8c_1ae77b983df3ecc38c9338c8a1c1747199"/>    <section>
+    <title>test_whenTheModeSelectButtonIsPressed_thenTheDisplayModeIsCycled()</title>
+<indexterm><primary>test_whenTheModeSelectButtonIsPressed_thenTheDisplayModeIsCycled</primary><secondary>test_event_processor.c</secondary></indexterm>
+<indexterm><primary>test_event_processor.c</primary><secondary>test_whenTheModeSelectButtonIsPressed_thenTheDisplayModeIsCycled</secondary></indexterm>
+<para><computeroutput>void test_whenTheModeSelectButtonIsPressed_thenTheDisplayModeIsCycled (void )</computeroutput></para><para>
+Definition at line 64 of file test_event_processor.c.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../df/da4/test__event__processor_8c_ae77b983df3ecc38c9338c8a1c1747199_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_test__event__processor_8c_1ae0402ad0b5090fc576a46cd6a37e3098"/>    <section>
+    <title>test_whenThePowerReadingIsLessThan5_thenTheStatusLedIsNotTurnedOn()</title>
+<indexterm><primary>test_whenThePowerReadingIsLessThan5_thenTheStatusLedIsNotTurnedOn</primary><secondary>test_event_processor.c</secondary></indexterm>
+<indexterm><primary>test_event_processor.c</primary><secondary>test_whenThePowerReadingIsLessThan5_thenTheStatusLedIsNotTurnedOn</secondary></indexterm>
+<para><computeroutput>void test_whenThePowerReadingIsLessThan5_thenTheStatusLedIsNotTurnedOn (void )</computeroutput></para><para>
+Definition at line 32 of file test_event_processor.c.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../df/da4/test__event__processor_8c_ae0402ad0b5090fc576a46cd6a37e3098_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_test__event__processor_8c_1ab3dbd650a187ae78cbc203e26c7da3a5"/>    <section>
+    <title>test_whenTheVolumeKnobIsMaxed_thenVolumeDisplayIsSetTo11()</title>
+<indexterm><primary>test_whenTheVolumeKnobIsMaxed_thenVolumeDisplayIsSetTo11</primary><secondary>test_event_processor.c</secondary></indexterm>
+<indexterm><primary>test_event_processor.c</primary><secondary>test_whenTheVolumeKnobIsMaxed_thenVolumeDisplayIsSetTo11</secondary></indexterm>
+<para><computeroutput>void test_whenTheVolumeKnobIsMaxed_thenVolumeDisplayIsSetTo11 (void )</computeroutput></para><para>
+Definition at line 47 of file test_event_processor.c.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../df/da4/test__event__processor_8c_ab3dbd650a187ae78cbc203e26c7da3a5_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+</section>

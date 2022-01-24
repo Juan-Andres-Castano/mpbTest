@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_91ebe98c49e7ebe08769d398871963c8" xml:lang="en-US">
+<title>UnitTestFramework Directory Reference</title>
+<indexterm><primary>UnitTestFramework Directory Reference</primary></indexterm>
+Directory dependency graph for UnitTestFramework:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="dir_91ebe98c49e7ebe08769d398871963c8_dep.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Directories    </title>
+        <itemizedlist>
+            <listitem><para>directory <link linkend="_dir_55a0501c4657a3a24760ba86a24ade74">build</link></para>
+</listitem>
+            <listitem><para>directory <link linkend="_dir_96938d3dc48065fee0a1eebcec21a0ce">vendor</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

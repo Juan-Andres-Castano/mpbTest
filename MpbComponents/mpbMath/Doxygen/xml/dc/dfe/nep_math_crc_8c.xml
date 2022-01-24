@@ -1,0 +1,315 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="dc/dfe/nep_math_crc_8c" kind="file" language="C++">
+    <compoundname>nepMathCrc.c</compoundname>
+    <includes local="yes">nepMathCrc.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>Sources/nepMathCrc.c</label>
+        <link refid="dc/dfe/nep_math_crc_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>nepMathCrc.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="dc/dfe/nep_math_crc_8c_1af30cbba1d76511ef7db6fd355271f4f0" prot="public" static="no">
+        <name>MASK_32_BITS</name>
+        <initializer>( 0xFFFFFFFF )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Sources/nepMathCrc.c" line="22" column="9" bodyfile="Sources/nepMathCrc.c" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="dc/dfe/nep_math_crc_8c_1aa923c3643ca1e17e2107331fee1f6800" prot="public" static="no">
+        <name>NUMBER_OF_BITS_IN_INTEGER</name>
+        <initializer>( 32 )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Sources/nepMathCrc.c" line="23" column="9" bodyfile="Sources/nepMathCrc.c" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="dc/dfe/nep_math_crc_8c_1a00ac5a8bf8d3f19ad776f0a71fa24467" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>eNepError_t</type>
+        <definition>eNepError_t eNepMathCrcInit</definition>
+        <argsstring>(uint8_t ucWidth, uint32_t ulInitial, uint32_t ulPolynomial, uint32_t ulXorOutput, eBool_t bRefInput, eBool_t bRefOutput, xNepCrc_t *pxNepCrc)</argsstring>
+        <name>eNepMathCrcInit</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>ucWidth</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>ulInitial</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>ulPolynomial</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>ulXorOutput</declname>
+        </param>
+        <param>
+          <type>eBool_t</type>
+          <declname>bRefInput</declname>
+        </param>
+        <param>
+          <type>eBool_t</type>
+          <declname>bRefOutput</declname>
+        </param>
+        <param>
+          <type>xNepCrc_t *</type>
+          <declname>pxNepCrc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Sources/nepMathCrc.c" line="34" column="13" bodyfile="Sources/nepMathCrc.c" bodystart="34" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="dc/dfe/nep_math_crc_8c_1a74b0fc377878a0f2c5150c9565775486" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>eNepError_t</type>
+        <definition>eNepError_t eNepMathCrcValidate</definition>
+        <argsstring>(xNepCrc_t xNepCrc, uint32_t ulCrcRead, uint32_t ulNumberOfBytes, const uint8_t *pucBuffer)</argsstring>
+        <name>eNepMathCrcValidate</name>
+        <param>
+          <type>xNepCrc_t</type>
+          <declname>xNepCrc</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>ulCrcRead</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>ulNumberOfBytes</declname>
+        </param>
+        <param>
+          <type>const uint8_t *</type>
+          <declname>pucBuffer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Sources/nepMathCrc.c" line="51" column="13" bodyfile="Sources/nepMathCrc.c" bodystart="51" bodyend="105"/>
+        <references refid="de/da6/nep_math_crc_util_8c_1a453ad598f464806296587ef558f1428e" compoundref="de/da6/nep_math_crc_util_8c" startline="93" endline="128">vNepMathCrcUtilCalculate</references>
+        <references refid="de/da6/nep_math_crc_util_8c_1a72e193921a8c970fa71e9f65970610b2" compoundref="de/da6/nep_math_crc_util_8c" startline="62" endline="90">vNepMathCrcUtilReflectBytes</references>
+        <references refid="de/da6/nep_math_crc_util_8c_1ab79d86a1ec1457c66f0602f7a617b7f2" compoundref="de/da6/nep_math_crc_util_8c" startline="38" endline="59">vNepMathCrcUtilReflectData</references>
+      </memberdef>
+      <memberdef kind="function" id="dc/dfe/nep_math_crc_8c_1ae4b22b6aa7650934381ae4c626c8d2f3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>eNepError_t</type>
+        <definition>eNepError_t eNepMathCrcCalculate</definition>
+        <argsstring>(xNepCrc_t xNepCrc, uint32_t ulNumberOfBytes, const uint8_t *pucBuffer, uint32_t *pulCrcValue)</argsstring>
+        <name>eNepMathCrcCalculate</name>
+        <param>
+          <type>xNepCrc_t</type>
+          <declname>xNepCrc</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>ulNumberOfBytes</declname>
+        </param>
+        <param>
+          <type>const uint8_t *</type>
+          <declname>pucBuffer</declname>
+        </param>
+        <param>
+          <type>uint32_t *</type>
+          <declname>pulCrcValue</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Sources/nepMathCrc.c" line="108" column="13" bodyfile="Sources/nepMathCrc.c" bodystart="108" bodyend="158"/>
+        <references refid="de/da6/nep_math_crc_util_8c_1a453ad598f464806296587ef558f1428e" compoundref="de/da6/nep_math_crc_util_8c" startline="93" endline="128">vNepMathCrcUtilCalculate</references>
+        <references refid="de/da6/nep_math_crc_util_8c_1a72e193921a8c970fa71e9f65970610b2" compoundref="de/da6/nep_math_crc_util_8c" startline="62" endline="90">vNepMathCrcUtilReflectBytes</references>
+        <references refid="de/da6/nep_math_crc_util_8c_1ab79d86a1ec1457c66f0602f7a617b7f2" compoundref="de/da6/nep_math_crc_util_8c" startline="38" endline="59">vNepMathCrcUtilReflectData</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>nepMathCrc source file. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Philippe.Boulais </para>
+</simplesect>
+<simplesect kind="date"><para>Created on 2019-11-13. </para>
+</simplesect>
+<simplesect kind="copyright"><para>NEP, Montreal, Qc <heading level="2"><center><copy/> COPYRIGHT 2015 NEP, Montreal, Quebec, Canada</center></heading>
+</para>
+</simplesect>
+<heading level="2"><center><copy/> All rights reserved.</center></heading>
+</para>
+<para><linebreak/>
+<linebreak/>
+ <center>This document contains confidential and proprietary information of NEPTRONIC (subject to a non-disclosure agreement) and shall</center> <center>not be disclosed, distributed, or reproduced in whole or in part, without the prior written authorization of NEPTRONIC.</center> </para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Includes<sp/>-----------------------------------------------------------------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;nepMathCrc.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Private<sp/>define<sp/>-----------------------------------------------------------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22" refid="dc/dfe/nep_math_crc_8c_1af30cbba1d76511ef7db6fd355271f4f0" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MASK_32_BITS<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(<sp/>0xFFFFFFFF<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23" refid="dc/dfe/nep_math_crc_8c_1aa923c3643ca1e17e2107331fee1f6800" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NUMBER_OF_BITS_IN_INTEGER<sp/><sp/><sp/>(<sp/>32<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Private<sp/>macro<sp/>------------------------------------------------------------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Private<sp/>enum<sp/>-------------------------------------------------------------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Private<sp/>struct<sp/>-----------------------------------------------------------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Private<sp/>variables<sp/>--------------------------------------------------------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>External<sp/>variables<sp/>-------------------------------------------------------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Private<sp/>function<sp/>prototypes<sp/>----------------------------------------------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Private<sp/>functions<sp/>--------------------------------------------------------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Exported<sp/>functions<sp/>-------------------------------------------------------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34" refid="dc/dfe/nep_math_crc_8c_1a00ac5a8bf8d3f19ad776f0a71fa24467" refkind="member"><highlight class="normal">eNepError_t<sp/><ref refid="dc/dfe/nep_math_crc_8c_1a00ac5a8bf8d3f19ad776f0a71fa24467" kindref="member">eNepMathCrcInit</ref>(<sp/>uint8_t<sp/>ucWidth,<sp/>uint32_t<sp/>ulInitial,<sp/>uint32_t<sp/>ulPolynomial,<sp/>uint32_t<sp/>ulXorOutput,<sp/>eBool_t<sp/>bRefInput,<sp/>eBool_t<sp/>bRefOutput,<sp/>xNepCrc_t<sp/>*pxNepCrc<sp/>)</highlight></codeline>
+<codeline lineno="35"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>(<sp/>ucWidth<sp/>==<sp/>0<sp/>)<sp/>||<sp/>(<sp/>ulPolynomial<sp/>==<sp/>0<sp/>)<sp/>||<sp/>(<sp/>pxNepCrc<sp/>==<sp/>NULL<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>eInvalidParameter;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>pxNepCrc-&gt;ucWidth<sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>ucWidth;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>pxNepCrc-&gt;ulInitial<sp/><sp/><sp/><sp/>=<sp/>ulInitial;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>pxNepCrc-&gt;ulPolynomial<sp/>=<sp/>ulPolynomial;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>pxNepCrc-&gt;ulXorOutput<sp/><sp/>=<sp/>ulXorOutput;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>pxNepCrc-&gt;bRefInput<sp/><sp/><sp/><sp/>=<sp/>bRefInput;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>pxNepCrc-&gt;bRefOutput<sp/><sp/><sp/>=<sp/>bRefOutput;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>eSuccess;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal">}<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51" refid="dc/dfe/nep_math_crc_8c_1a74b0fc377878a0f2c5150c9565775486" refkind="member"><highlight class="normal">eNepError_t<sp/><ref refid="dc/dfe/nep_math_crc_8c_1a74b0fc377878a0f2c5150c9565775486" kindref="member">eNepMathCrcValidate</ref>(<sp/>xNepCrc_t<sp/>xNepCrc,<sp/>uint32_t<sp/>ulCrcRead,<sp/>uint32_t<sp/>ulNumberOfBytes,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t<sp/>*pucBuffer<sp/>)</highlight></codeline>
+<codeline lineno="52"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>eNepError_t<sp/>eNepError;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>ulCrcValue;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>ulPostCrcValue;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>*pucResult<sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>(<sp/>ulNumberOfBytes<sp/>==<sp/>0<sp/>)<sp/>||<sp/>(<sp/>pucBuffer<sp/>==<sp/>NULL<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>eInvalidParameter;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Create<sp/>buffer<sp/>of<sp/>same<sp/>size<sp/>of<sp/>actual<sp/>buffer<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>eNepError<sp/>=<sp/>eNeplibsMalloc(<sp/>(<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">**<sp/>)&amp;pucResult,<sp/>ulNumberOfBytes<sp/>);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>eNepError<sp/>!=<sp/>eSuccess<sp/>)</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>eNepError;</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Reflection<sp/>of<sp/>data<sp/>?<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>xNepCrc.bRefInput<sp/>)</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="de/da6/nep_math_crc_util_8c_1a72e193921a8c970fa71e9f65970610b2" kindref="member">vNepMathCrcUtilReflectBytes</ref>(<sp/>ulNumberOfBytes,<sp/>pucBuffer,<sp/>pucResult<sp/>);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>memcpy(<sp/>pucResult,<sp/>pucBuffer,<sp/>ulNumberOfBytes<sp/>);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Calculate<sp/>CRC*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="de/da6/nep_math_crc_util_8c_1a453ad598f464806296587ef558f1428e" kindref="member">vNepMathCrcUtilCalculate</ref>(<sp/>xNepCrc.ucWidth,</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>xNepCrc.ulInitial,</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>xNepCrc.ulPolynomial,<sp/></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ulNumberOfBytes,<sp/></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pucResult,<sp/></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;ulCrcValue<sp/>);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Reflexion<sp/>of<sp/>CRC<sp/>?<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>xNepCrc.bRefOutput<sp/>)</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="de/da6/nep_math_crc_util_8c_1ab79d86a1ec1457c66f0602f7a617b7f2" kindref="member">vNepMathCrcUtilReflectData</ref>(<sp/>(<sp/>xNepCrc.ucWidth<sp/>),<sp/>ulCrcValue,<sp/>&amp;ulPostCrcValue<sp/>);</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ulPostCrcValue<sp/>=<sp/>ulCrcValue;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Crc<sp/>is<sp/>XOR<sp/>with<sp/>xor<sp/>value<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>ulPostCrcValue<sp/>^=<sp/>(<sp/>xNepCrc.ulXorOutput<sp/>);</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>ulPostCrcValue<sp/>!=<sp/>ulCrcRead<sp/>)</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>vNeplibsFree(<sp/>(<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">**<sp/>)&amp;pucResult<sp/>);</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>eCheckFailed;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/>vNeplibsFree(<sp/>(<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">**<sp/>)&amp;pucResult<sp/>);</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>eSuccess;<sp/></highlight></codeline>
+<codeline lineno="105"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108" refid="dc/dfe/nep_math_crc_8c_1ae4b22b6aa7650934381ae4c626c8d2f3" refkind="member"><highlight class="normal">eNepError_t<sp/><ref refid="dc/dfe/nep_math_crc_8c_1ae4b22b6aa7650934381ae4c626c8d2f3" kindref="member">eNepMathCrcCalculate</ref>(<sp/>xNepCrc_t<sp/>xNepCrc,<sp/>uint32_t<sp/>ulNumberOfBytes,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t*<sp/>pucBuffer,<sp/>uint32_t<sp/>*pulCrcValue<sp/>)</highlight></codeline>
+<codeline lineno="109"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/>eNepError_t<sp/>eNepError;</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>ulCrcValue;</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>ulPostCrcValue;</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>*pucResult<sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>(<sp/>ulNumberOfBytes<sp/>==<sp/>0<sp/>)<sp/>||<sp/>(<sp/>pucBuffer<sp/>==<sp/>NULL<sp/>)<sp/>||<sp/>(<sp/>pulCrcValue<sp/>==<sp/>NULL<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>eInvalidParameter;</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Create<sp/>buffer<sp/>of<sp/>same<sp/>size<sp/>of<sp/>actual<sp/>buffer<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/>eNepError<sp/>=<sp/>eNeplibsMalloc(<sp/>(<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">**<sp/>)&amp;pucResult,<sp/>ulNumberOfBytes<sp/>);</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>eNepError<sp/>!=<sp/>eSuccess<sp/>)</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>eNepError;</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Reflection<sp/>of<sp/>data<sp/>?<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>xNepCrc.bRefInput<sp/>)</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="de/da6/nep_math_crc_util_8c_1a72e193921a8c970fa71e9f65970610b2" kindref="member">vNepMathCrcUtilReflectBytes</ref>(<sp/>ulNumberOfBytes,<sp/>pucBuffer,<sp/>pucResult<sp/>);</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>memcpy(<sp/>pucResult,<sp/>pucBuffer,<sp/>ulNumberOfBytes<sp/>);</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Calculate<sp/>CRC*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="de/da6/nep_math_crc_util_8c_1a453ad598f464806296587ef558f1428e" kindref="member">vNepMathCrcUtilCalculate</ref>(<sp/>xNepCrc.ucWidth,</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>xNepCrc.ulInitial,</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>xNepCrc.ulPolynomial,</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ulNumberOfBytes,<sp/></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pucResult,<sp/></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;ulCrcValue<sp/>);</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Reflexion<sp/>of<sp/>CRC<sp/>?<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>xNepCrc.bRefOutput<sp/>)</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="de/da6/nep_math_crc_util_8c_1ab79d86a1ec1457c66f0602f7a617b7f2" kindref="member">vNepMathCrcUtilReflectData</ref>(<sp/>(<sp/>xNepCrc.ucWidth<sp/>),<sp/>ulCrcValue,<sp/>&amp;ulPostCrcValue<sp/>);</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ulPostCrcValue<sp/>=<sp/>ulCrcValue;</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Crc<sp/>is<sp/>XOR<sp/>with<sp/>xor<sp/>value<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/>ulPostCrcValue<sp/>^=<sp/>(<sp/>xNepCrc.ulXorOutput<sp/>);</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/>*pulCrcValue<sp/>=<sp/>ulPostCrcValue;</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/>vNeplibsFree(<sp/>(<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">**<sp/>)&amp;pucResult<sp/>);</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>eSuccess;<sp/></highlight></codeline>
+<codeline lineno="158"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="Sources/nepMathCrc.c"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,871 @@
+\hypertarget{mpblibs_8h}{}\doxysection{Includes/mpblibs.h File Reference}
+\label{mpblibs_8h}\index{Includes/mpblibs.h@{Includes/mpblibs.h}}
+
+
+This header provides common definitions needed mpb library @description.  
+
+
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdarg.\+h$>$}\newline
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+Include dependency graph for mpblibs.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dd/da7/mpblibs_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=206pt]{d2/de1/mpblibs_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{mpblibs_8h_ac7c4b8d34e6a2bba87b3087c3ed85d33}{USE\+\_\+\+HEAP}}
+\item 
+\#define \mbox{\hyperlink{mpblibs_8h_aaef0f1be1a04bc1e009f58444c78bfd8}{USE\+\_\+\+NEP\+\_\+\+HEAP}}
+\item 
+\#define \mbox{\hyperlink{mpblibs_8h_a2e90499a479278efe715329cf93c04e6}{USE\+\_\+\+MALLOC\+\_\+\+FAILED\+\_\+\+HOOK}}
+\item 
+\#define \mbox{\hyperlink{mpblibs_8h_a5be40d2b5f27bf3acccdc6c8d90171c3}{e\+Mpb\+ATTR\+\_\+\+PACKED}}~\+\_\+\+\_\+packed
+\item 
+\#define \mbox{\hyperlink{mpblibs_8h_a64f83e73cfc447367c9ef8c1cacabe8c}{\+\_\+\+\_\+nop}}()
+\begin{DoxyCompactList}\small\item\em ~\newline
+ \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{mpblibs_8h_a32b8b02632a14416704460518cdedda5}{v\+Mpblibs\+Assert\+Param}}(expr)
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef uint32\+\_\+t \mbox{\hyperlink{mpblibs_8h_aea4188cfb1472f9bb606fd2566133e34}{handle\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em user define handle \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41}{e\+Mpb\+Error\+\_\+t}} \{ \newline
+\mbox{\hyperlink{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41a3df453108b088af1ab4d781dcf1d0c15}{e\+Success}} = 0
+, \mbox{\hyperlink{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41a3850b8824af139a4e2f0f5bcc536ec16}{e\+Invalid\+Parameter}} = -\/1
+, \mbox{\hyperlink{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41a5f9683ba69a8e110f1e9d9185fbf0236}{e\+Access\+Denied}} = -\/2
+, \mbox{\hyperlink{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41a3def441bb594afa0f663b20ed78bc9a8}{e\+Busy}} = -\/3
+, \newline
+\mbox{\hyperlink{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41a599c82586e4b1b1db272307f53b38aa4}{e\+Timeout}} = -\/4
+, \mbox{\hyperlink{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41a430555d8b53bb7285afcc709f5115a25}{e\+Buffer\+Empty}} = -\/5
+, \mbox{\hyperlink{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41a0a3c97f7fb557ed9b295e7af58cd3128}{e\+Buffer\+Full}} = -\/6
+, \mbox{\hyperlink{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41a3610e92d54689c1f61254a55170eddac}{e\+Buffer\+Overflow}} = -\/7
+, \newline
+\mbox{\hyperlink{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41ab41c7d96f3b5a6c9a1056665a2d37851}{e\+Out\+Of\+Memory}} = -\/8
+, \mbox{\hyperlink{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41a9f5feef0f1f1ff204fd87a98c55d4095}{e\+Check\+Failed}} = -\/9
+, \mbox{\hyperlink{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41aa72aef087c5a686ead6c3d7c4fe9af74}{e\+Corrupted}} = -\/10
+, \mbox{\hyperlink{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41ae3501655f30f07acaf1b0003bc6e5e62}{e\+Out\+Of\+Range}} = -\/11
+, \newline
+\mbox{\hyperlink{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41a8ce9ac1d4d3ff6d7603156c8e9db6552}{e\+Not\+Found}} = -\/12
+, \mbox{\hyperlink{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41a2cdfc91caa9a3637ca36317db742a47a}{e\+Invalid\+Object}} = -\/13
+, \mbox{\hyperlink{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41abbb0a5db83a6ea06c8a1c075a0d835c4}{e\+Not\+Discarded}} = -\/14
+, \mbox{\hyperlink{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41afb7dc9bcbc444b967afb095ece4a6fbc}{e\+Not\+Registered}} = -\/15
+, \newline
+\mbox{\hyperlink{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41aa92c7ecd0c521213904721b3e68a65c7}{e\+Property\+Not\+Suported}} = -\/16
+, \mbox{\hyperlink{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41a8dfbd2aec3afb9ccf44633b7175c2d42}{e\+Object\+Type\+Not\+Suported}} = -\/17
+, \mbox{\hyperlink{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41a24dab14c021bd5e4d08ba769c05a2b6a}{e\+Driver\+Error}} = -\/18
+, \mbox{\hyperlink{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41afa17af642e091fa381c0f4b825e59850}{e\+Unknown\+Error}} = -\/19
+, \newline
+\mbox{\hyperlink{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41a4565dfb18b7a56d3a5b875ca488a6b5b}{e\+Internal\+Device\+Error}} = -\/20
+ \}
+\begin{DoxyCompactList}\small\item\em Mpb defined error codes. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{mpblibs_8h_a1baaea34cc49f177f93f0e10145eb352}{e\+Access\+\_\+t}} \{ \mbox{\hyperlink{mpblibs_8h_a1baaea34cc49f177f93f0e10145eb352a9fa9300dac6bd2ee4fe699e1024d94ee}{e\+READ\+\_\+\+ACCESS}} = 0
+, \mbox{\hyperlink{mpblibs_8h_a1baaea34cc49f177f93f0e10145eb352ae428fb1494a19ae3c65640137906988e}{e\+WRITE\+\_\+\+ACCESS}} = 1
+ \}
+\begin{DoxyCompactList}\small\item\em Mpbtronic define access. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{mpblibs_8h_a1116febe513ac4a62e1096d1fc2c363a}{e\+Bool\+\_\+t}} \{ \mbox{\hyperlink{mpblibs_8h_a1116febe513ac4a62e1096d1fc2c363aa511514f9eb3e5e6e7d2474a98c17bc95}{e\+False}} = 0
+, \mbox{\hyperlink{mpblibs_8h_a1116febe513ac4a62e1096d1fc2c363aa82bcaa7cbf3a5b23fc4fba17f9261272}{e\+True}} = !e\+False
+ \}
+\begin{DoxyCompactList}\small\item\em boolean definition \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{mpblibs_8h_aa57acc54a557120db7be004053db1364}{v\+Mpblibs\+Us\+Delay}} (uint32\+\_\+t ul\+Delay)
+\begin{DoxyCompactList}\small\item\em Delay for the specified number of micro seconds. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41}{e\+Mpb\+Error\+\_\+t}} \mbox{\hyperlink{mpblibs_8h_a643ca31d0250ccf8bea980d017e75a58}{e\+Mpblibs\+Open}} (\mbox{\hyperlink{mpblibs_8h_aea4188cfb1472f9bb606fd2566133e34}{handle\+\_\+t}} x\+Stream, const uint32\+\_\+t ul\+Flags)
+\begin{DoxyCompactList}\small\item\em opens, optionally takes control and optionally initializes an peripheral channel \end{DoxyCompactList}\item 
+\mbox{\hyperlink{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41}{e\+Mpb\+Error\+\_\+t}} \mbox{\hyperlink{mpblibs_8h_ab36b1093281a79e89df6bc15c7665638}{e\+Mpblibs\+Close}} (\mbox{\hyperlink{mpblibs_8h_aea4188cfb1472f9bb606fd2566133e34}{handle\+\_\+t}} x\+Stream)
+\begin{DoxyCompactList}\small\item\em closes, optionnaly releases control and optionally deinitializes peripheral channel \end{DoxyCompactList}\item 
+\mbox{\hyperlink{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41}{e\+Mpb\+Error\+\_\+t}} \mbox{\hyperlink{mpblibs_8h_ab33b7250bac578100156ec98be1506d5}{e\+Mpblibs\+Read}} (\mbox{\hyperlink{mpblibs_8h_aea4188cfb1472f9bb606fd2566133e34}{handle\+\_\+t}} x\+Stream, size\+\_\+t x\+Addr\+Cmd\+Size, const void $\ast$pv\+Addr\+Cmd, void $\ast$const pv\+Buffer, const size\+\_\+t x\+Bytes, size\+\_\+t $\ast$px\+Bytes\+Read)
+\begin{DoxyCompactList}\small\item\em ~\newline
+ \end{DoxyCompactList}\item 
+\mbox{\hyperlink{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41}{e\+Mpb\+Error\+\_\+t}} \mbox{\hyperlink{mpblibs_8h_addabdaa25875fd0be83fbebf6d9b9a63}{e\+Mpblibs\+Write}} (\mbox{\hyperlink{mpblibs_8h_aea4188cfb1472f9bb606fd2566133e34}{handle\+\_\+t}} x\+Stream, size\+\_\+t x\+Addr\+Cmd\+Size, const void $\ast$pv\+Addr\+Cmd, const void $\ast$pv\+Buffer, const size\+\_\+t x\+Bytes, size\+\_\+t $\ast$px\+Bytes\+Written)
+\begin{DoxyCompactList}\small\item\em ~\newline
+ \end{DoxyCompactList}\item 
+\mbox{\hyperlink{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41}{e\+Mpb\+Error\+\_\+t}} \mbox{\hyperlink{mpblibs_8h_ae8ab22981886806f6c96eddcf3648b99}{e\+Mpblibs\+Io\+Ctl}} (\mbox{\hyperlink{mpblibs_8h_aea4188cfb1472f9bb606fd2566133e34}{handle\+\_\+t}} x\+Stream, uint32\+\_\+t ul\+Request, void $\ast$pv\+Value)
+\item 
+\mbox{\hyperlink{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41}{e\+Mpb\+Error\+\_\+t}} \mbox{\hyperlink{mpblibs_8h_ae24c87925bec628438823d751ce28945}{e\+Mpblibs\+I2\+CRequest}} (\mbox{\hyperlink{mpblibs_8h_a1baaea34cc49f177f93f0e10145eb352}{e\+Access\+\_\+t}} e\+Access, \mbox{\hyperlink{mpblibs_8h_aea4188cfb1472f9bb606fd2566133e34}{handle\+\_\+t}} x\+I2\+Cx, uint8\+\_\+t uc\+Dev\+Addr, size\+\_\+t x\+Addr\+Cmd\+Size, const void $\ast$pv\+Addr\+Cmd, void $\ast$pv\+Buffer, size\+\_\+t x\+Bytes, size\+\_\+t $\ast$px\+Bytes\+RW)
+\begin{DoxyCompactList}\small\item\em ~\newline
+ \end{DoxyCompactList}\item 
+\mbox{\hyperlink{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41}{e\+Mpb\+Error\+\_\+t}} \mbox{\hyperlink{mpblibs_8h_a57dc81afcaf7f53c3f40fbf94ce543e8}{e\+Mpblibs\+SPIBytes\+Read\+Write}} (\mbox{\hyperlink{mpblibs_8h_aea4188cfb1472f9bb606fd2566133e34}{handle\+\_\+t}} x\+SPIx, void $\ast$const pv\+Bytes\+Out, void $\ast$pv\+Bytes\+In, size\+\_\+t x\+Bytes)
+\item 
+\mbox{\hyperlink{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41}{e\+Mpb\+Error\+\_\+t}} \mbox{\hyperlink{mpblibs_8h_a9c8ed36ba5fc73abc945db36f07093e2}{e\+Mpblibs\+SPIBlock\+Read\+Write}} (\mbox{\hyperlink{mpblibs_8h_a1baaea34cc49f177f93f0e10145eb352}{e\+Access\+\_\+t}} e\+Access, \mbox{\hyperlink{mpblibs_8h_aea4188cfb1472f9bb606fd2566133e34}{handle\+\_\+t}} x\+SPIx, void $\ast$pv\+Buffer, size\+\_\+t x\+Bytes, size\+\_\+t $\ast$px\+Bytes\+RW)
+\item 
+\mbox{\hyperlink{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41}{e\+Mpb\+Error\+\_\+t}} \mbox{\hyperlink{mpblibs_8h_a99671c017e74b8e321883711657d379d}{e\+Mpblibs\+Uart\+Init}} (\mbox{\hyperlink{mpblibs_8h_aea4188cfb1472f9bb606fd2566133e34}{handle\+\_\+t}} x\+UARTx, \mbox{\hyperlink{mpblibs_8h_aea4188cfb1472f9bb606fd2566133e34}{handle\+\_\+t}} x\+GPIOx, uint32\+\_\+t ul\+Pin, uint32\+\_\+t ul\+Baud\+Rate, uint8\+\_\+t uc\+Word\+Length, uint8\+\_\+t uc\+Stop\+Bits, uint8\+\_\+t uc\+Parity, size\+\_\+t x\+Silence\+Bits, size\+\_\+t x\+Frame\+Timeout\+Bits)
+\item 
+\mbox{\hyperlink{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41}{e\+Mpb\+Error\+\_\+t}} \mbox{\hyperlink{mpblibs_8h_a4985f208ca479e6220b1c7ee29272393}{e\+Mpblibs\+Uart\+Read}} (\mbox{\hyperlink{mpblibs_8h_aea4188cfb1472f9bb606fd2566133e34}{handle\+\_\+t}} x\+UARTx, void $\ast$const pv\+Buffer, size\+\_\+t x\+Bytes, size\+\_\+t $\ast$px\+Bytes\+Read, uint32\+\_\+t ul\+Ms\+Timeout)
+\item 
+\mbox{\hyperlink{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41}{e\+Mpb\+Error\+\_\+t}} \mbox{\hyperlink{mpblibs_8h_a9df6d174472789a6686acf8382f477e5}{e\+Mpblibs\+Uart\+Write}} (\mbox{\hyperlink{mpblibs_8h_aea4188cfb1472f9bb606fd2566133e34}{handle\+\_\+t}} x\+UARTx, const void $\ast$pv\+Buffer, size\+\_\+t x\+Bytes, size\+\_\+t $\ast$px\+Bytes\+Written, uint32\+\_\+t ul\+Ms\+Timeout)
+\item 
+\mbox{\hyperlink{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41}{e\+Mpb\+Error\+\_\+t}} \mbox{\hyperlink{mpblibs_8h_abb13ab3139806d22c7bc4bb531005d29}{e\+Mpblibs\+Pwr\+Mon\+Init}} (void)
+\item 
+\mbox{\hyperlink{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41}{e\+Mpb\+Error\+\_\+t}} \mbox{\hyperlink{mpblibs_8h_aabbefd5da0d16e9307544e02b15bc07b}{e\+Mpblibs\+Pwr\+Mon\+Wait\+Pwr\+Up}} (void)
+\item 
+int \mbox{\hyperlink{mpblibs_8h_a97ce594607035faceb813e22acc64030}{s\+Mpblibs\+Pwr\+Mon\+Is\+Low}} (void)
+\item 
+void \mbox{\hyperlink{mpblibs_8h_a6e744a80f67d4b8a6548f8eb7b663470}{v\+Mpblibs\+Power\+Monitor\+Soft\+Reset}} (void)
+\begin{DoxyCompactList}\small\item\em Do a soft reset of the system. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41}{e\+Mpb\+Error\+\_\+t}} \mbox{\hyperlink{mpblibs_8h_a1ef53a0f200b470e6854c1d5c1cca538}{e\+Mpblibs\+Analog\+Read\+Raw}} (\mbox{\hyperlink{mpblibs_8h_aea4188cfb1472f9bb606fd2566133e34}{handle\+\_\+t}} x\+ANALOGx, int32\+\_\+t $\ast$pl\+Reading)
+\item 
+\mbox{\hyperlink{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41}{e\+Mpb\+Error\+\_\+t}} \mbox{\hyperlink{mpblibs_8h_ab2970804a7f6d102a545f0339b432314}{e\+Mpblibs\+Analog\+ReadmV}} (\mbox{\hyperlink{mpblibs_8h_aea4188cfb1472f9bb606fd2566133e34}{handle\+\_\+t}} x\+ANALOGx, int32\+\_\+t $\ast$pl\+Reading)
+\item 
+\mbox{\hyperlink{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41}{e\+Mpb\+Error\+\_\+t}} \mbox{\hyperlink{mpblibs_8h_a794c9ea4ea4b68f2495afa6cccaf4355}{e\+Mpblibs\+Analog\+Read\+Res}} (\mbox{\hyperlink{mpblibs_8h_aea4188cfb1472f9bb606fd2566133e34}{handle\+\_\+t}} x\+ANALOGx, int32\+\_\+t l\+Resolution, int32\+\_\+t $\ast$pl\+Reading)
+\item 
+\mbox{\hyperlink{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41}{e\+Mpb\+Error\+\_\+t}} \mbox{\hyperlink{mpblibs_8h_a967a436257376a53a7f384abea242671}{e\+Mpblibs\+Analog\+Write\+Raw}} (\mbox{\hyperlink{mpblibs_8h_aea4188cfb1472f9bb606fd2566133e34}{handle\+\_\+t}} x\+ANALOGx, int32\+\_\+t l\+Output)
+\item 
+\mbox{\hyperlink{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41}{e\+Mpb\+Error\+\_\+t}} \mbox{\hyperlink{mpblibs_8h_a6d55173401c7ed0bc62ee51c6666a475}{e\+Mpblibs\+Analog\+WritemV}} (\mbox{\hyperlink{mpblibs_8h_aea4188cfb1472f9bb606fd2566133e34}{handle\+\_\+t}} x\+ANALOGx, int32\+\_\+t l\+Output)
+\item 
+\mbox{\hyperlink{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41}{e\+Mpb\+Error\+\_\+t}} \mbox{\hyperlink{mpblibs_8h_a9deebf53f2e0d959103353c0d2a24a51}{e\+Mpblibs\+Analog\+Write\+Res}} (\mbox{\hyperlink{mpblibs_8h_aea4188cfb1472f9bb606fd2566133e34}{handle\+\_\+t}} x\+ANALOGx, int32\+\_\+t l\+Resolution, int32\+\_\+t l\+Output)
+\item 
+\mbox{\hyperlink{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41}{e\+Mpb\+Error\+\_\+t}} \mbox{\hyperlink{mpblibs_8h_af12f280fd24c7935ac12121c97fdf806}{e\+Mpblibs\+Binary\+Read}} (\mbox{\hyperlink{mpblibs_8h_aea4188cfb1472f9bb606fd2566133e34}{handle\+\_\+t}} x\+BINARYx, \mbox{\hyperlink{mpblibs_8h_a1116febe513ac4a62e1096d1fc2c363a}{e\+Bool\+\_\+t}} $\ast$pe\+State)
+\item 
+\mbox{\hyperlink{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41}{e\+Mpb\+Error\+\_\+t}} \mbox{\hyperlink{mpblibs_8h_a3fc5cfd4a4f6078f66e17c010fd6243b}{e\+Mpblibs\+Binary\+Write}} (\mbox{\hyperlink{mpblibs_8h_aea4188cfb1472f9bb606fd2566133e34}{handle\+\_\+t}} x\+BINARYx, \mbox{\hyperlink{mpblibs_8h_a1116febe513ac4a62e1096d1fc2c363a}{e\+Bool\+\_\+t}} e\+State)
+\item 
+\mbox{\hyperlink{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41}{e\+Mpb\+Error\+\_\+t}} \mbox{\hyperlink{mpblibs_8h_a43103ae924d54707ea536cd8bccc330d}{e\+Mpblibs\+Binary\+Toggle}} (\mbox{\hyperlink{mpblibs_8h_aea4188cfb1472f9bb606fd2566133e34}{handle\+\_\+t}} x\+BINARYx)
+\item 
+\mbox{\hyperlink{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41}{e\+Mpb\+Error\+\_\+t}} \mbox{\hyperlink{mpblibs_8h_ad036997433fb1293f106a4bb696943ef}{e\+Mpblibs\+Malloc}} (void $\ast$$\ast$ppv\+Mem\+Block, size\+\_\+t x\+Size)
+\item 
+\mbox{\hyperlink{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41}{e\+Mpb\+Error\+\_\+t}} \mbox{\hyperlink{mpblibs_8h_a6b70ece72c639f88ecdb64e1bff68d52}{e\+Mpblibs\+Realloc}} (void $\ast$$\ast$ppv\+Mem\+Block, size\+\_\+t x\+Size)
+\item 
+void \mbox{\hyperlink{mpblibs_8h_abf9d6756e1c391f627ef82cedfbd3daf}{v\+Mpblibs\+Free}} (void $\ast$$\ast$ppv\+Mem\+Block)
+\item 
+size\+\_\+t \mbox{\hyperlink{mpblibs_8h_adbe40fe763b2ce7c126b0002f104b9af}{x\+Mpblibs\+Get\+Free\+Heap\+Size}} (void)
+\item 
+size\+\_\+t \mbox{\hyperlink{mpblibs_8h_af4a5651f995c3e909071126a6c2efddc}{x\+Mpblibs\+Get\+Min\+Ever\+Free\+Heap\+Size}} (void)
+\item 
+void \mbox{\hyperlink{mpblibs_8h_a35e6a0f02f66b82bdf12c11321b1e008}{v\+Mpblibs\+Malloc\+Failed\+Hook}} (size\+\_\+t x\+Size\+Required)
+\item 
+void \mbox{\hyperlink{mpblibs_8h_a0dbc68dca2eb32f532e33d5cb19010df}{v\+Mpblibs\+Assert\+Failed}} (char const $\ast$func, char const $\ast$file, int line)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This header provides common definitions needed mpb library @description. 
+
+\begin{DoxyAuthor}{Author}
+juan 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+Created on 2021-\/03-\/1 
+\end{DoxyDate}
+\begin{DoxyNote}{Note}
+indent using tab size \+: 4 
+\end{DoxyNote}
+\begin{DoxyCopyright}{Copyright}
+MPB, Montreal, Qc \doxysubsubsection*{\begin{center}\copyright{} COPYRIGHT 2021 Mpb, Montreal, Quebec, Canada\end{center} }
+\end{DoxyCopyright}
+\doxysubsubsection*{\begin{center}\copyright{} All rights reserved.\end{center} }
+
+~\newline
+~\newline
+ \begin{center}This document contains confidential and proprietary information of MPB (subject to a non-\/disclosure agreement) and shall\end{center}  \begin{center}not be disclosed, distributed, or reproduced in whole or in part, without the prior written authorization of NEPTRONIC.\end{center}  
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{mpblibs_8h_a64f83e73cfc447367c9ef8c1cacabe8c}\label{mpblibs_8h_a64f83e73cfc447367c9ef8c1cacabe8c}} 
+\index{mpblibs.h@{mpblibs.h}!\_\_nop@{\_\_nop}}
+\index{\_\_nop@{\_\_nop}!mpblibs.h@{mpblibs.h}}
+\doxysubsubsection{\texorpdfstring{\_\_nop}{\_\_nop}}
+{\footnotesize\ttfamily \#define \+\_\+\+\_\+nop(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+~\newline
+ 
+
+
+
+Definition at line 107 of file mpblibs.\+h.
+
+\mbox{\Hypertarget{mpblibs_8h_a5be40d2b5f27bf3acccdc6c8d90171c3}\label{mpblibs_8h_a5be40d2b5f27bf3acccdc6c8d90171c3}} 
+\index{mpblibs.h@{mpblibs.h}!eMpbATTR\_PACKED@{eMpbATTR\_PACKED}}
+\index{eMpbATTR\_PACKED@{eMpbATTR\_PACKED}!mpblibs.h@{mpblibs.h}}
+\doxysubsubsection{\texorpdfstring{eMpbATTR\_PACKED}{eMpbATTR\_PACKED}}
+{\footnotesize\ttfamily \#define e\+Mpb\+ATTR\+\_\+\+PACKED~\+\_\+\+\_\+packed}
+
+
+
+Definition at line 95 of file mpblibs.\+h.
+
+\mbox{\Hypertarget{mpblibs_8h_ac7c4b8d34e6a2bba87b3087c3ed85d33}\label{mpblibs_8h_ac7c4b8d34e6a2bba87b3087c3ed85d33}} 
+\index{mpblibs.h@{mpblibs.h}!USE\_HEAP@{USE\_HEAP}}
+\index{USE\_HEAP@{USE\_HEAP}!mpblibs.h@{mpblibs.h}}
+\doxysubsubsection{\texorpdfstring{USE\_HEAP}{USE\_HEAP}}
+{\footnotesize\ttfamily \#define USE\+\_\+\+HEAP}
+
+
+
+Definition at line 91 of file mpblibs.\+h.
+
+\mbox{\Hypertarget{mpblibs_8h_a2e90499a479278efe715329cf93c04e6}\label{mpblibs_8h_a2e90499a479278efe715329cf93c04e6}} 
+\index{mpblibs.h@{mpblibs.h}!USE\_MALLOC\_FAILED\_HOOK@{USE\_MALLOC\_FAILED\_HOOK}}
+\index{USE\_MALLOC\_FAILED\_HOOK@{USE\_MALLOC\_FAILED\_HOOK}!mpblibs.h@{mpblibs.h}}
+\doxysubsubsection{\texorpdfstring{USE\_MALLOC\_FAILED\_HOOK}{USE\_MALLOC\_FAILED\_HOOK}}
+{\footnotesize\ttfamily \#define USE\+\_\+\+MALLOC\+\_\+\+FAILED\+\_\+\+HOOK}
+
+
+
+Definition at line 93 of file mpblibs.\+h.
+
+\mbox{\Hypertarget{mpblibs_8h_aaef0f1be1a04bc1e009f58444c78bfd8}\label{mpblibs_8h_aaef0f1be1a04bc1e009f58444c78bfd8}} 
+\index{mpblibs.h@{mpblibs.h}!USE\_NEP\_HEAP@{USE\_NEP\_HEAP}}
+\index{USE\_NEP\_HEAP@{USE\_NEP\_HEAP}!mpblibs.h@{mpblibs.h}}
+\doxysubsubsection{\texorpdfstring{USE\_NEP\_HEAP}{USE\_NEP\_HEAP}}
+{\footnotesize\ttfamily \#define USE\+\_\+\+NEP\+\_\+\+HEAP}
+
+
+
+Definition at line 92 of file mpblibs.\+h.
+
+\mbox{\Hypertarget{mpblibs_8h_a32b8b02632a14416704460518cdedda5}\label{mpblibs_8h_a32b8b02632a14416704460518cdedda5}} 
+\index{mpblibs.h@{mpblibs.h}!vMpblibsAssertParam@{vMpblibsAssertParam}}
+\index{vMpblibsAssertParam@{vMpblibsAssertParam}!mpblibs.h@{mpblibs.h}}
+\doxysubsubsection{\texorpdfstring{vMpblibsAssertParam}{vMpblibsAssertParam}}
+{\footnotesize\ttfamily \#define v\+Mpblibs\+Assert\+Param(\begin{DoxyParamCaption}\item[{}]{expr }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em expr} & expression to be evaluated \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+
+\end{DoxyNote}
+
+
+Definition at line 337 of file mpblibs.\+h.
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{mpblibs_8h_aea4188cfb1472f9bb606fd2566133e34}\label{mpblibs_8h_aea4188cfb1472f9bb606fd2566133e34}} 
+\index{mpblibs.h@{mpblibs.h}!handle\_t@{handle\_t}}
+\index{handle\_t@{handle\_t}!mpblibs.h@{mpblibs.h}}
+\doxysubsubsection{\texorpdfstring{handle\_t}{handle\_t}}
+{\footnotesize\ttfamily typedef uint32\+\_\+t \mbox{\hyperlink{mpblibs_8h_aea4188cfb1472f9bb606fd2566133e34}{handle\+\_\+t}}}
+
+
+
+user define handle 
+
+
+
+Definition at line 86 of file mpblibs.\+h.
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{mpblibs_8h_a1baaea34cc49f177f93f0e10145eb352}\label{mpblibs_8h_a1baaea34cc49f177f93f0e10145eb352}} 
+\index{mpblibs.h@{mpblibs.h}!eAccess\_t@{eAccess\_t}}
+\index{eAccess\_t@{eAccess\_t}!mpblibs.h@{mpblibs.h}}
+\doxysubsubsection{\texorpdfstring{eAccess\_t}{eAccess\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{mpblibs_8h_a1baaea34cc49f177f93f0e10145eb352}{e\+Access\+\_\+t}}}
+
+
+
+Mpbtronic define access. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eREAD\_ACCESS@{eREAD\_ACCESS}!mpblibs.h@{mpblibs.h}}\index{mpblibs.h@{mpblibs.h}!eREAD\_ACCESS@{eREAD\_ACCESS}}}\mbox{\Hypertarget{mpblibs_8h_a1baaea34cc49f177f93f0e10145eb352a9fa9300dac6bd2ee4fe699e1024d94ee}\label{mpblibs_8h_a1baaea34cc49f177f93f0e10145eb352a9fa9300dac6bd2ee4fe699e1024d94ee}} 
+e\+READ\+\_\+\+ACCESS&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eWRITE\_ACCESS@{eWRITE\_ACCESS}!mpblibs.h@{mpblibs.h}}\index{mpblibs.h@{mpblibs.h}!eWRITE\_ACCESS@{eWRITE\_ACCESS}}}\mbox{\Hypertarget{mpblibs_8h_a1baaea34cc49f177f93f0e10145eb352ae428fb1494a19ae3c65640137906988e}\label{mpblibs_8h_a1baaea34cc49f177f93f0e10145eb352ae428fb1494a19ae3c65640137906988e}} 
+e\+WRITE\+\_\+\+ACCESS&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 66 of file mpblibs.\+h.
+
+\mbox{\Hypertarget{mpblibs_8h_a1116febe513ac4a62e1096d1fc2c363a}\label{mpblibs_8h_a1116febe513ac4a62e1096d1fc2c363a}} 
+\index{mpblibs.h@{mpblibs.h}!eBool\_t@{eBool\_t}}
+\index{eBool\_t@{eBool\_t}!mpblibs.h@{mpblibs.h}}
+\doxysubsubsection{\texorpdfstring{eBool\_t}{eBool\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{mpblibs_8h_a1116febe513ac4a62e1096d1fc2c363a}{e\+Bool\+\_\+t}}}
+
+
+
+boolean definition 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eFalse@{eFalse}!mpblibs.h@{mpblibs.h}}\index{mpblibs.h@{mpblibs.h}!eFalse@{eFalse}}}\mbox{\Hypertarget{mpblibs_8h_a1116febe513ac4a62e1096d1fc2c363aa511514f9eb3e5e6e7d2474a98c17bc95}\label{mpblibs_8h_a1116febe513ac4a62e1096d1fc2c363aa511514f9eb3e5e6e7d2474a98c17bc95}} 
+e\+False&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eTrue@{eTrue}!mpblibs.h@{mpblibs.h}}\index{mpblibs.h@{mpblibs.h}!eTrue@{eTrue}}}\mbox{\Hypertarget{mpblibs_8h_a1116febe513ac4a62e1096d1fc2c363aa82bcaa7cbf3a5b23fc4fba17f9261272}\label{mpblibs_8h_a1116febe513ac4a62e1096d1fc2c363aa82bcaa7cbf3a5b23fc4fba17f9261272}} 
+e\+True&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 76 of file mpblibs.\+h.
+
+\mbox{\Hypertarget{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41}\label{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41}} 
+\index{mpblibs.h@{mpblibs.h}!eMpbError\_t@{eMpbError\_t}}
+\index{eMpbError\_t@{eMpbError\_t}!mpblibs.h@{mpblibs.h}}
+\doxysubsubsection{\texorpdfstring{eMpbError\_t}{eMpbError\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41}{e\+Mpb\+Error\+\_\+t}}}
+
+
+
+Mpb defined error codes. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eSuccess@{eSuccess}!mpblibs.h@{mpblibs.h}}\index{mpblibs.h@{mpblibs.h}!eSuccess@{eSuccess}}}\mbox{\Hypertarget{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41a3df453108b088af1ab4d781dcf1d0c15}\label{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41a3df453108b088af1ab4d781dcf1d0c15}} 
+e\+Success&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eInvalidParameter@{eInvalidParameter}!mpblibs.h@{mpblibs.h}}\index{mpblibs.h@{mpblibs.h}!eInvalidParameter@{eInvalidParameter}}}\mbox{\Hypertarget{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41a3850b8824af139a4e2f0f5bcc536ec16}\label{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41a3850b8824af139a4e2f0f5bcc536ec16}} 
+e\+Invalid\+Parameter&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eAccessDenied@{eAccessDenied}!mpblibs.h@{mpblibs.h}}\index{mpblibs.h@{mpblibs.h}!eAccessDenied@{eAccessDenied}}}\mbox{\Hypertarget{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41a5f9683ba69a8e110f1e9d9185fbf0236}\label{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41a5f9683ba69a8e110f1e9d9185fbf0236}} 
+e\+Access\+Denied&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eBusy@{eBusy}!mpblibs.h@{mpblibs.h}}\index{mpblibs.h@{mpblibs.h}!eBusy@{eBusy}}}\mbox{\Hypertarget{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41a3def441bb594afa0f663b20ed78bc9a8}\label{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41a3def441bb594afa0f663b20ed78bc9a8}} 
+e\+Busy&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eTimeout@{eTimeout}!mpblibs.h@{mpblibs.h}}\index{mpblibs.h@{mpblibs.h}!eTimeout@{eTimeout}}}\mbox{\Hypertarget{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41a599c82586e4b1b1db272307f53b38aa4}\label{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41a599c82586e4b1b1db272307f53b38aa4}} 
+e\+Timeout&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eBufferEmpty@{eBufferEmpty}!mpblibs.h@{mpblibs.h}}\index{mpblibs.h@{mpblibs.h}!eBufferEmpty@{eBufferEmpty}}}\mbox{\Hypertarget{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41a430555d8b53bb7285afcc709f5115a25}\label{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41a430555d8b53bb7285afcc709f5115a25}} 
+e\+Buffer\+Empty&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eBufferFull@{eBufferFull}!mpblibs.h@{mpblibs.h}}\index{mpblibs.h@{mpblibs.h}!eBufferFull@{eBufferFull}}}\mbox{\Hypertarget{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41a0a3c97f7fb557ed9b295e7af58cd3128}\label{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41a0a3c97f7fb557ed9b295e7af58cd3128}} 
+e\+Buffer\+Full&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eBufferOverflow@{eBufferOverflow}!mpblibs.h@{mpblibs.h}}\index{mpblibs.h@{mpblibs.h}!eBufferOverflow@{eBufferOverflow}}}\mbox{\Hypertarget{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41a3610e92d54689c1f61254a55170eddac}\label{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41a3610e92d54689c1f61254a55170eddac}} 
+e\+Buffer\+Overflow&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eOutOfMemory@{eOutOfMemory}!mpblibs.h@{mpblibs.h}}\index{mpblibs.h@{mpblibs.h}!eOutOfMemory@{eOutOfMemory}}}\mbox{\Hypertarget{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41ab41c7d96f3b5a6c9a1056665a2d37851}\label{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41ab41c7d96f3b5a6c9a1056665a2d37851}} 
+e\+Out\+Of\+Memory&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eCheckFailed@{eCheckFailed}!mpblibs.h@{mpblibs.h}}\index{mpblibs.h@{mpblibs.h}!eCheckFailed@{eCheckFailed}}}\mbox{\Hypertarget{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41a9f5feef0f1f1ff204fd87a98c55d4095}\label{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41a9f5feef0f1f1ff204fd87a98c55d4095}} 
+e\+Check\+Failed&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eCorrupted@{eCorrupted}!mpblibs.h@{mpblibs.h}}\index{mpblibs.h@{mpblibs.h}!eCorrupted@{eCorrupted}}}\mbox{\Hypertarget{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41aa72aef087c5a686ead6c3d7c4fe9af74}\label{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41aa72aef087c5a686ead6c3d7c4fe9af74}} 
+e\+Corrupted&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eOutOfRange@{eOutOfRange}!mpblibs.h@{mpblibs.h}}\index{mpblibs.h@{mpblibs.h}!eOutOfRange@{eOutOfRange}}}\mbox{\Hypertarget{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41ae3501655f30f07acaf1b0003bc6e5e62}\label{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41ae3501655f30f07acaf1b0003bc6e5e62}} 
+e\+Out\+Of\+Range&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eNotFound@{eNotFound}!mpblibs.h@{mpblibs.h}}\index{mpblibs.h@{mpblibs.h}!eNotFound@{eNotFound}}}\mbox{\Hypertarget{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41a8ce9ac1d4d3ff6d7603156c8e9db6552}\label{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41a8ce9ac1d4d3ff6d7603156c8e9db6552}} 
+e\+Not\+Found&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eInvalidObject@{eInvalidObject}!mpblibs.h@{mpblibs.h}}\index{mpblibs.h@{mpblibs.h}!eInvalidObject@{eInvalidObject}}}\mbox{\Hypertarget{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41a2cdfc91caa9a3637ca36317db742a47a}\label{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41a2cdfc91caa9a3637ca36317db742a47a}} 
+e\+Invalid\+Object&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eNotDiscarded@{eNotDiscarded}!mpblibs.h@{mpblibs.h}}\index{mpblibs.h@{mpblibs.h}!eNotDiscarded@{eNotDiscarded}}}\mbox{\Hypertarget{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41abbb0a5db83a6ea06c8a1c075a0d835c4}\label{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41abbb0a5db83a6ea06c8a1c075a0d835c4}} 
+e\+Not\+Discarded&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eNotRegistered@{eNotRegistered}!mpblibs.h@{mpblibs.h}}\index{mpblibs.h@{mpblibs.h}!eNotRegistered@{eNotRegistered}}}\mbox{\Hypertarget{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41afb7dc9bcbc444b967afb095ece4a6fbc}\label{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41afb7dc9bcbc444b967afb095ece4a6fbc}} 
+e\+Not\+Registered&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ePropertyNotSuported@{ePropertyNotSuported}!mpblibs.h@{mpblibs.h}}\index{mpblibs.h@{mpblibs.h}!ePropertyNotSuported@{ePropertyNotSuported}}}\mbox{\Hypertarget{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41aa92c7ecd0c521213904721b3e68a65c7}\label{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41aa92c7ecd0c521213904721b3e68a65c7}} 
+e\+Property\+Not\+Suported&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eObjectTypeNotSuported@{eObjectTypeNotSuported}!mpblibs.h@{mpblibs.h}}\index{mpblibs.h@{mpblibs.h}!eObjectTypeNotSuported@{eObjectTypeNotSuported}}}\mbox{\Hypertarget{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41a8dfbd2aec3afb9ccf44633b7175c2d42}\label{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41a8dfbd2aec3afb9ccf44633b7175c2d42}} 
+e\+Object\+Type\+Not\+Suported&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eDriverError@{eDriverError}!mpblibs.h@{mpblibs.h}}\index{mpblibs.h@{mpblibs.h}!eDriverError@{eDriverError}}}\mbox{\Hypertarget{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41a24dab14c021bd5e4d08ba769c05a2b6a}\label{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41a24dab14c021bd5e4d08ba769c05a2b6a}} 
+e\+Driver\+Error&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eUnknownError@{eUnknownError}!mpblibs.h@{mpblibs.h}}\index{mpblibs.h@{mpblibs.h}!eUnknownError@{eUnknownError}}}\mbox{\Hypertarget{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41afa17af642e091fa381c0f4b825e59850}\label{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41afa17af642e091fa381c0f4b825e59850}} 
+e\+Unknown\+Error&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{eInternalDeviceError@{eInternalDeviceError}!mpblibs.h@{mpblibs.h}}\index{mpblibs.h@{mpblibs.h}!eInternalDeviceError@{eInternalDeviceError}}}\mbox{\Hypertarget{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41a4565dfb18b7a56d3a5b875ca488a6b5b}\label{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41a4565dfb18b7a56d3a5b875ca488a6b5b}} 
+e\+Internal\+Device\+Error&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 37 of file mpblibs.\+h.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{mpblibs_8h_ab2970804a7f6d102a545f0339b432314}\label{mpblibs_8h_ab2970804a7f6d102a545f0339b432314}} 
+\index{mpblibs.h@{mpblibs.h}!eMpblibsAnalogReadmV@{eMpblibsAnalogReadmV}}
+\index{eMpblibsAnalogReadmV@{eMpblibsAnalogReadmV}!mpblibs.h@{mpblibs.h}}
+\doxysubsubsection{\texorpdfstring{eMpblibsAnalogReadmV()}{eMpblibsAnalogReadmV()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41}{e\+Mpb\+Error\+\_\+t}} e\+Mpblibs\+Analog\+ReadmV (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{mpblibs_8h_aea4188cfb1472f9bb606fd2566133e34}{handle\+\_\+t}}}]{x\+ANALOGx,  }\item[{int32\+\_\+t $\ast$}]{pl\+Reading }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpblibs_8h_a1ef53a0f200b470e6854c1d5c1cca538}\label{mpblibs_8h_a1ef53a0f200b470e6854c1d5c1cca538}} 
+\index{mpblibs.h@{mpblibs.h}!eMpblibsAnalogReadRaw@{eMpblibsAnalogReadRaw}}
+\index{eMpblibsAnalogReadRaw@{eMpblibsAnalogReadRaw}!mpblibs.h@{mpblibs.h}}
+\doxysubsubsection{\texorpdfstring{eMpblibsAnalogReadRaw()}{eMpblibsAnalogReadRaw()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41}{e\+Mpb\+Error\+\_\+t}} e\+Mpblibs\+Analog\+Read\+Raw (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{mpblibs_8h_aea4188cfb1472f9bb606fd2566133e34}{handle\+\_\+t}}}]{x\+ANALOGx,  }\item[{int32\+\_\+t $\ast$}]{pl\+Reading }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em x\+ANALOGx} & Analog peripheral value handle \\
+\hline
+{\em pl\+Reading} & Pointer on variable where to save reading value. \\
+\hline
+{\em l\+Resolution} & resolution or range in which to return reading \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+success or librairie error message 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+
+\end{DoxyNote}
+\mbox{\Hypertarget{mpblibs_8h_a794c9ea4ea4b68f2495afa6cccaf4355}\label{mpblibs_8h_a794c9ea4ea4b68f2495afa6cccaf4355}} 
+\index{mpblibs.h@{mpblibs.h}!eMpblibsAnalogReadRes@{eMpblibsAnalogReadRes}}
+\index{eMpblibsAnalogReadRes@{eMpblibsAnalogReadRes}!mpblibs.h@{mpblibs.h}}
+\doxysubsubsection{\texorpdfstring{eMpblibsAnalogReadRes()}{eMpblibsAnalogReadRes()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41}{e\+Mpb\+Error\+\_\+t}} e\+Mpblibs\+Analog\+Read\+Res (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{mpblibs_8h_aea4188cfb1472f9bb606fd2566133e34}{handle\+\_\+t}}}]{x\+ANALOGx,  }\item[{int32\+\_\+t}]{l\+Resolution,  }\item[{int32\+\_\+t $\ast$}]{pl\+Reading }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpblibs_8h_a6d55173401c7ed0bc62ee51c6666a475}\label{mpblibs_8h_a6d55173401c7ed0bc62ee51c6666a475}} 
+\index{mpblibs.h@{mpblibs.h}!eMpblibsAnalogWritemV@{eMpblibsAnalogWritemV}}
+\index{eMpblibsAnalogWritemV@{eMpblibsAnalogWritemV}!mpblibs.h@{mpblibs.h}}
+\doxysubsubsection{\texorpdfstring{eMpblibsAnalogWritemV()}{eMpblibsAnalogWritemV()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41}{e\+Mpb\+Error\+\_\+t}} e\+Mpblibs\+Analog\+WritemV (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{mpblibs_8h_aea4188cfb1472f9bb606fd2566133e34}{handle\+\_\+t}}}]{x\+ANALOGx,  }\item[{int32\+\_\+t}]{l\+Output }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpblibs_8h_a967a436257376a53a7f384abea242671}\label{mpblibs_8h_a967a436257376a53a7f384abea242671}} 
+\index{mpblibs.h@{mpblibs.h}!eMpblibsAnalogWriteRaw@{eMpblibsAnalogWriteRaw}}
+\index{eMpblibsAnalogWriteRaw@{eMpblibsAnalogWriteRaw}!mpblibs.h@{mpblibs.h}}
+\doxysubsubsection{\texorpdfstring{eMpblibsAnalogWriteRaw()}{eMpblibsAnalogWriteRaw()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41}{e\+Mpb\+Error\+\_\+t}} e\+Mpblibs\+Analog\+Write\+Raw (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{mpblibs_8h_aea4188cfb1472f9bb606fd2566133e34}{handle\+\_\+t}}}]{x\+ANALOGx,  }\item[{int32\+\_\+t}]{l\+Output }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em x\+ANALOGx} & Analog peripheral value handle \\
+\hline
+{\em l\+Output} & value to write to Analog peripheral \\
+\hline
+{\em l\+Resolution} & resolution or range of l\+Output \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+success or librairie error message 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+
+\end{DoxyNote}
+\mbox{\Hypertarget{mpblibs_8h_a9deebf53f2e0d959103353c0d2a24a51}\label{mpblibs_8h_a9deebf53f2e0d959103353c0d2a24a51}} 
+\index{mpblibs.h@{mpblibs.h}!eMpblibsAnalogWriteRes@{eMpblibsAnalogWriteRes}}
+\index{eMpblibsAnalogWriteRes@{eMpblibsAnalogWriteRes}!mpblibs.h@{mpblibs.h}}
+\doxysubsubsection{\texorpdfstring{eMpblibsAnalogWriteRes()}{eMpblibsAnalogWriteRes()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41}{e\+Mpb\+Error\+\_\+t}} e\+Mpblibs\+Analog\+Write\+Res (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{mpblibs_8h_aea4188cfb1472f9bb606fd2566133e34}{handle\+\_\+t}}}]{x\+ANALOGx,  }\item[{int32\+\_\+t}]{l\+Resolution,  }\item[{int32\+\_\+t}]{l\+Output }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpblibs_8h_af12f280fd24c7935ac12121c97fdf806}\label{mpblibs_8h_af12f280fd24c7935ac12121c97fdf806}} 
+\index{mpblibs.h@{mpblibs.h}!eMpblibsBinaryRead@{eMpblibsBinaryRead}}
+\index{eMpblibsBinaryRead@{eMpblibsBinaryRead}!mpblibs.h@{mpblibs.h}}
+\doxysubsubsection{\texorpdfstring{eMpblibsBinaryRead()}{eMpblibsBinaryRead()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41}{e\+Mpb\+Error\+\_\+t}} e\+Mpblibs\+Binary\+Read (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{mpblibs_8h_aea4188cfb1472f9bb606fd2566133e34}{handle\+\_\+t}}}]{x\+BINARYx,  }\item[{\mbox{\hyperlink{mpblibs_8h_a1116febe513ac4a62e1096d1fc2c363a}{e\+Bool\+\_\+t}} $\ast$}]{pe\+State }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em x\+BINARYx} & Binary peripheral value handle \\
+\hline
+{\em pe\+State} & Pointer on variable where to save reading value. \\
+\hline
+{\em e\+State} & value to write to binary peripheral \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+success or librairie error message 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+
+\end{DoxyNote}
+\mbox{\Hypertarget{mpblibs_8h_a43103ae924d54707ea536cd8bccc330d}\label{mpblibs_8h_a43103ae924d54707ea536cd8bccc330d}} 
+\index{mpblibs.h@{mpblibs.h}!eMpblibsBinaryToggle@{eMpblibsBinaryToggle}}
+\index{eMpblibsBinaryToggle@{eMpblibsBinaryToggle}!mpblibs.h@{mpblibs.h}}
+\doxysubsubsection{\texorpdfstring{eMpblibsBinaryToggle()}{eMpblibsBinaryToggle()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41}{e\+Mpb\+Error\+\_\+t}} e\+Mpblibs\+Binary\+Toggle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{mpblibs_8h_aea4188cfb1472f9bb606fd2566133e34}{handle\+\_\+t}}}]{x\+BINARYx }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpblibs_8h_a3fc5cfd4a4f6078f66e17c010fd6243b}\label{mpblibs_8h_a3fc5cfd4a4f6078f66e17c010fd6243b}} 
+\index{mpblibs.h@{mpblibs.h}!eMpblibsBinaryWrite@{eMpblibsBinaryWrite}}
+\index{eMpblibsBinaryWrite@{eMpblibsBinaryWrite}!mpblibs.h@{mpblibs.h}}
+\doxysubsubsection{\texorpdfstring{eMpblibsBinaryWrite()}{eMpblibsBinaryWrite()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41}{e\+Mpb\+Error\+\_\+t}} e\+Mpblibs\+Binary\+Write (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{mpblibs_8h_aea4188cfb1472f9bb606fd2566133e34}{handle\+\_\+t}}}]{x\+BINARYx,  }\item[{\mbox{\hyperlink{mpblibs_8h_a1116febe513ac4a62e1096d1fc2c363a}{e\+Bool\+\_\+t}}}]{e\+State }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpblibs_8h_ab36b1093281a79e89df6bc15c7665638}\label{mpblibs_8h_ab36b1093281a79e89df6bc15c7665638}} 
+\index{mpblibs.h@{mpblibs.h}!eMpblibsClose@{eMpblibsClose}}
+\index{eMpblibsClose@{eMpblibsClose}!mpblibs.h@{mpblibs.h}}
+\doxysubsubsection{\texorpdfstring{eMpblibsClose()}{eMpblibsClose()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41}{e\+Mpb\+Error\+\_\+t}} e\+Mpblibs\+Close (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{mpblibs_8h_aea4188cfb1472f9bb606fd2566133e34}{handle\+\_\+t}}}]{x\+Stream }\end{DoxyParamCaption})}
+
+
+
+closes, optionnaly releases control and optionally deinitializes peripheral channel 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x\+Stream} & Application specific peripheral channel identifier \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+success or librairie error message 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+This is a good place to add RTOS support for mutex. e\+Mpb\+\_\+\+Open should be called for multiple consecutive access algorithm along with e\+Mpb\+\_\+\+Close. 
+\end{DoxyNote}
+\mbox{\Hypertarget{mpblibs_8h_ae24c87925bec628438823d751ce28945}\label{mpblibs_8h_ae24c87925bec628438823d751ce28945}} 
+\index{mpblibs.h@{mpblibs.h}!eMpblibsI2CRequest@{eMpblibsI2CRequest}}
+\index{eMpblibsI2CRequest@{eMpblibsI2CRequest}!mpblibs.h@{mpblibs.h}}
+\doxysubsubsection{\texorpdfstring{eMpblibsI2CRequest()}{eMpblibsI2CRequest()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41}{e\+Mpb\+Error\+\_\+t}} e\+Mpblibs\+I2\+CRequest (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{mpblibs_8h_a1baaea34cc49f177f93f0e10145eb352}{e\+Access\+\_\+t}}}]{e\+Access,  }\item[{\mbox{\hyperlink{mpblibs_8h_aea4188cfb1472f9bb606fd2566133e34}{handle\+\_\+t}}}]{x\+I2\+Cx,  }\item[{uint8\+\_\+t}]{uc\+Dev\+Addr,  }\item[{size\+\_\+t}]{x\+Addr\+Cmd\+Size,  }\item[{const void $\ast$}]{pv\+Addr\+Cmd,  }\item[{void $\ast$}]{pv\+Buffer,  }\item[{size\+\_\+t}]{x\+Bytes,  }\item[{size\+\_\+t $\ast$}]{px\+Bytes\+RW }\end{DoxyParamCaption})}
+
+
+
+~\newline
+ 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e\+Access} & Read / Write access request \\
+\hline
+{\em x\+I2\+Cx} & I2C peripheral handle, HAL dependant. \\
+\hline
+{\em Dev\+Addr} & Application specific external device address \\
+\hline
+{\em x\+Addr\+Cmd\+Size} & Size in bytes of Memory Address or Device Command sent at the beginning of transaction. Can be 0. \\
+\hline
+{\em pv\+Addr\+Cmd} & Pointer to address or command buffer sent. NULL if x\+Addr\+Cmd\+Size = 0, else not NULL. \\
+\hline
+{\em pv\+Buffer} & Pointer on data to be written or where to save read bytes \\
+\hline
+{\em x\+Bytes} & number of bytes to be written or read \\
+\hline
+{\em px\+Bytes\+RW} & Pointer where to save number of bytes written or read. Can be NULL. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+success or librairie error message 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+~\newline
+ 
+\end{DoxyNote}
+\mbox{\Hypertarget{mpblibs_8h_ae8ab22981886806f6c96eddcf3648b99}\label{mpblibs_8h_ae8ab22981886806f6c96eddcf3648b99}} 
+\index{mpblibs.h@{mpblibs.h}!eMpblibsIoCtl@{eMpblibsIoCtl}}
+\index{eMpblibsIoCtl@{eMpblibsIoCtl}!mpblibs.h@{mpblibs.h}}
+\doxysubsubsection{\texorpdfstring{eMpblibsIoCtl()}{eMpblibsIoCtl()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41}{e\+Mpb\+Error\+\_\+t}} e\+Mpblibs\+Io\+Ctl (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{mpblibs_8h_aea4188cfb1472f9bb606fd2566133e34}{handle\+\_\+t}}}]{x\+Stream,  }\item[{uint32\+\_\+t}]{ul\+Request,  }\item[{void $\ast$}]{pv\+Value }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em x\+Stream} & Application specific peripheral channel identifier \\
+\hline
+{\em ul\+Request} & Control Request Identifier. Application Specific. \\
+\hline
+{\em pv\+Value} & pointer on write value or where to save read value. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+success or librairie error message 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+
+\end{DoxyNote}
+\mbox{\Hypertarget{mpblibs_8h_ad036997433fb1293f106a4bb696943ef}\label{mpblibs_8h_ad036997433fb1293f106a4bb696943ef}} 
+\index{mpblibs.h@{mpblibs.h}!eMpblibsMalloc@{eMpblibsMalloc}}
+\index{eMpblibsMalloc@{eMpblibsMalloc}!mpblibs.h@{mpblibs.h}}
+\doxysubsubsection{\texorpdfstring{eMpblibsMalloc()}{eMpblibsMalloc()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41}{e\+Mpb\+Error\+\_\+t}} e\+Mpblibs\+Malloc (\begin{DoxyParamCaption}\item[{void $\ast$$\ast$}]{ppv\+Mem\+Block,  }\item[{size\+\_\+t}]{x\+Size }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em ppv\+Mem\+Block} & pointer to the memory block pointer \\
+\hline
+{\em x\+Size} & size of the memory block to be allocated \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+success or librairie error message 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+
+\end{DoxyNote}
+\mbox{\Hypertarget{mpblibs_8h_a643ca31d0250ccf8bea980d017e75a58}\label{mpblibs_8h_a643ca31d0250ccf8bea980d017e75a58}} 
+\index{mpblibs.h@{mpblibs.h}!eMpblibsOpen@{eMpblibsOpen}}
+\index{eMpblibsOpen@{eMpblibsOpen}!mpblibs.h@{mpblibs.h}}
+\doxysubsubsection{\texorpdfstring{eMpblibsOpen()}{eMpblibsOpen()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41}{e\+Mpb\+Error\+\_\+t}} e\+Mpblibs\+Open (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{mpblibs_8h_aea4188cfb1472f9bb606fd2566133e34}{handle\+\_\+t}}}]{x\+Stream,  }\item[{const uint32\+\_\+t}]{ul\+Flags }\end{DoxyParamCaption})}
+
+
+
+opens, optionally takes control and optionally initializes an peripheral channel 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x\+Stream} & Application specific peripheral channel identifier \\
+\hline
+{\em ul\+Flags} & Application specific flags for stream initialization \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+success or librairie error message 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+A peripheral channel can be define by its communication protocole (Modbus\+\_\+\+COM1, BACnet\+\_\+\+COM1, etc) or by target external device driver (PCA9555\+\_\+1, M24\+C32\+\_\+1, etc) This is a good place to add RTOS support for mutex or initialize low level layer. e\+Mpb\+\_\+\+Open should be called for multiple consecutive access algorithm along with e\+Mpb\+\_\+\+Close. 
+\end{DoxyNote}
+\mbox{\Hypertarget{mpblibs_8h_abb13ab3139806d22c7bc4bb531005d29}\label{mpblibs_8h_abb13ab3139806d22c7bc4bb531005d29}} 
+\index{mpblibs.h@{mpblibs.h}!eMpblibsPwrMonInit@{eMpblibsPwrMonInit}}
+\index{eMpblibsPwrMonInit@{eMpblibsPwrMonInit}!mpblibs.h@{mpblibs.h}}
+\doxysubsubsection{\texorpdfstring{eMpblibsPwrMonInit()}{eMpblibsPwrMonInit()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41}{e\+Mpb\+Error\+\_\+t}} e\+Mpblibs\+Pwr\+Mon\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+success or librairie error message 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+
+\end{DoxyNote}
+\mbox{\Hypertarget{mpblibs_8h_aabbefd5da0d16e9307544e02b15bc07b}\label{mpblibs_8h_aabbefd5da0d16e9307544e02b15bc07b}} 
+\index{mpblibs.h@{mpblibs.h}!eMpblibsPwrMonWaitPwrUp@{eMpblibsPwrMonWaitPwrUp}}
+\index{eMpblibsPwrMonWaitPwrUp@{eMpblibsPwrMonWaitPwrUp}!mpblibs.h@{mpblibs.h}}
+\doxysubsubsection{\texorpdfstring{eMpblibsPwrMonWaitPwrUp()}{eMpblibsPwrMonWaitPwrUp()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41}{e\+Mpb\+Error\+\_\+t}} e\+Mpblibs\+Pwr\+Mon\+Wait\+Pwr\+Up (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+success or librairie error message 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+
+\end{DoxyNote}
+\mbox{\Hypertarget{mpblibs_8h_ab33b7250bac578100156ec98be1506d5}\label{mpblibs_8h_ab33b7250bac578100156ec98be1506d5}} 
+\index{mpblibs.h@{mpblibs.h}!eMpblibsRead@{eMpblibsRead}}
+\index{eMpblibsRead@{eMpblibsRead}!mpblibs.h@{mpblibs.h}}
+\doxysubsubsection{\texorpdfstring{eMpblibsRead()}{eMpblibsRead()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41}{e\+Mpb\+Error\+\_\+t}} e\+Mpblibs\+Read (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{mpblibs_8h_aea4188cfb1472f9bb606fd2566133e34}{handle\+\_\+t}}}]{x\+Stream,  }\item[{size\+\_\+t}]{x\+Addr\+Cmd\+Size,  }\item[{const void $\ast$}]{pv\+Addr\+Cmd,  }\item[{void $\ast$const}]{pv\+Buffer,  }\item[{const size\+\_\+t}]{x\+Bytes,  }\item[{size\+\_\+t $\ast$}]{px\+Bytes\+Read }\end{DoxyParamCaption})}
+
+
+
+~\newline
+ 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x\+Stream} & Application specific peripheral channel identifier \\
+\hline
+{\em x\+Addr\+Cmd\+Size} & Size in bytes of Memory Address or Device Command sent at the beginning of transaction. Can be 0. \\
+\hline
+{\em pv\+Addr\+Cmd} & Pointer to address or command buffer sent. NULL if x\+Addr\+Cmd\+Size = 0, else not NULL. \\
+\hline
+{\em pv\+Buffer} & Pointer where to receive read data \\
+\hline
+{\em x\+Bytes} & Number of bytes to be read \\
+\hline
+{\em px\+Bytes\+Read} & Pointer where to save number of bytes read. Can be NULL. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+success or librairie error message 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+~\newline
+ 
+\end{DoxyNote}
+\mbox{\Hypertarget{mpblibs_8h_a6b70ece72c639f88ecdb64e1bff68d52}\label{mpblibs_8h_a6b70ece72c639f88ecdb64e1bff68d52}} 
+\index{mpblibs.h@{mpblibs.h}!eMpblibsRealloc@{eMpblibsRealloc}}
+\index{eMpblibsRealloc@{eMpblibsRealloc}!mpblibs.h@{mpblibs.h}}
+\doxysubsubsection{\texorpdfstring{eMpblibsRealloc()}{eMpblibsRealloc()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41}{e\+Mpb\+Error\+\_\+t}} e\+Mpblibs\+Realloc (\begin{DoxyParamCaption}\item[{void $\ast$$\ast$}]{ppv\+Mem\+Block,  }\item[{size\+\_\+t}]{x\+Size }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpblibs_8h_a9c8ed36ba5fc73abc945db36f07093e2}\label{mpblibs_8h_a9c8ed36ba5fc73abc945db36f07093e2}} 
+\index{mpblibs.h@{mpblibs.h}!eMpblibsSPIBlockReadWrite@{eMpblibsSPIBlockReadWrite}}
+\index{eMpblibsSPIBlockReadWrite@{eMpblibsSPIBlockReadWrite}!mpblibs.h@{mpblibs.h}}
+\doxysubsubsection{\texorpdfstring{eMpblibsSPIBlockReadWrite()}{eMpblibsSPIBlockReadWrite()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41}{e\+Mpb\+Error\+\_\+t}} e\+Mpblibs\+SPIBlock\+Read\+Write (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{mpblibs_8h_a1baaea34cc49f177f93f0e10145eb352}{e\+Access\+\_\+t}}}]{e\+Access,  }\item[{\mbox{\hyperlink{mpblibs_8h_aea4188cfb1472f9bb606fd2566133e34}{handle\+\_\+t}}}]{x\+SPIx,  }\item[{void $\ast$}]{pv\+Buffer,  }\item[{size\+\_\+t}]{x\+Bytes,  }\item[{size\+\_\+t $\ast$}]{px\+Bytes\+RW }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+success or librairie error message 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+
+\end{DoxyNote}
+\mbox{\Hypertarget{mpblibs_8h_a57dc81afcaf7f53c3f40fbf94ce543e8}\label{mpblibs_8h_a57dc81afcaf7f53c3f40fbf94ce543e8}} 
+\index{mpblibs.h@{mpblibs.h}!eMpblibsSPIBytesReadWrite@{eMpblibsSPIBytesReadWrite}}
+\index{eMpblibsSPIBytesReadWrite@{eMpblibsSPIBytesReadWrite}!mpblibs.h@{mpblibs.h}}
+\doxysubsubsection{\texorpdfstring{eMpblibsSPIBytesReadWrite()}{eMpblibsSPIBytesReadWrite()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41}{e\+Mpb\+Error\+\_\+t}} e\+Mpblibs\+SPIBytes\+Read\+Write (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{mpblibs_8h_aea4188cfb1472f9bb606fd2566133e34}{handle\+\_\+t}}}]{x\+SPIx,  }\item[{void $\ast$const}]{pv\+Bytes\+Out,  }\item[{void $\ast$}]{pv\+Bytes\+In,  }\item[{size\+\_\+t}]{x\+Bytes }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+success or librairie error message 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+
+\end{DoxyNote}
+\mbox{\Hypertarget{mpblibs_8h_a99671c017e74b8e321883711657d379d}\label{mpblibs_8h_a99671c017e74b8e321883711657d379d}} 
+\index{mpblibs.h@{mpblibs.h}!eMpblibsUartInit@{eMpblibsUartInit}}
+\index{eMpblibsUartInit@{eMpblibsUartInit}!mpblibs.h@{mpblibs.h}}
+\doxysubsubsection{\texorpdfstring{eMpblibsUartInit()}{eMpblibsUartInit()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41}{e\+Mpb\+Error\+\_\+t}} e\+Mpblibs\+Uart\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{mpblibs_8h_aea4188cfb1472f9bb606fd2566133e34}{handle\+\_\+t}}}]{x\+UARTx,  }\item[{\mbox{\hyperlink{mpblibs_8h_aea4188cfb1472f9bb606fd2566133e34}{handle\+\_\+t}}}]{x\+GPIOx,  }\item[{uint32\+\_\+t}]{ul\+Pin,  }\item[{uint32\+\_\+t}]{ul\+Baud\+Rate,  }\item[{uint8\+\_\+t}]{uc\+Word\+Length,  }\item[{uint8\+\_\+t}]{uc\+Stop\+Bits,  }\item[{uint8\+\_\+t}]{uc\+Parity,  }\item[{size\+\_\+t}]{x\+Silence\+Bits,  }\item[{size\+\_\+t}]{x\+Frame\+Timeout\+Bits }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+success or librairie error message 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+
+\end{DoxyNote}
+\mbox{\Hypertarget{mpblibs_8h_a4985f208ca479e6220b1c7ee29272393}\label{mpblibs_8h_a4985f208ca479e6220b1c7ee29272393}} 
+\index{mpblibs.h@{mpblibs.h}!eMpblibsUartRead@{eMpblibsUartRead}}
+\index{eMpblibsUartRead@{eMpblibsUartRead}!mpblibs.h@{mpblibs.h}}
+\doxysubsubsection{\texorpdfstring{eMpblibsUartRead()}{eMpblibsUartRead()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41}{e\+Mpb\+Error\+\_\+t}} e\+Mpblibs\+Uart\+Read (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{mpblibs_8h_aea4188cfb1472f9bb606fd2566133e34}{handle\+\_\+t}}}]{x\+UARTx,  }\item[{void $\ast$const}]{pv\+Buffer,  }\item[{size\+\_\+t}]{x\+Bytes,  }\item[{size\+\_\+t $\ast$}]{px\+Bytes\+Read,  }\item[{uint32\+\_\+t}]{ul\+Ms\+Timeout }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+success or librairie error message 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+
+\end{DoxyNote}
+\mbox{\Hypertarget{mpblibs_8h_a9df6d174472789a6686acf8382f477e5}\label{mpblibs_8h_a9df6d174472789a6686acf8382f477e5}} 
+\index{mpblibs.h@{mpblibs.h}!eMpblibsUartWrite@{eMpblibsUartWrite}}
+\index{eMpblibsUartWrite@{eMpblibsUartWrite}!mpblibs.h@{mpblibs.h}}
+\doxysubsubsection{\texorpdfstring{eMpblibsUartWrite()}{eMpblibsUartWrite()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41}{e\+Mpb\+Error\+\_\+t}} e\+Mpblibs\+Uart\+Write (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{mpblibs_8h_aea4188cfb1472f9bb606fd2566133e34}{handle\+\_\+t}}}]{x\+UARTx,  }\item[{const void $\ast$}]{pv\+Buffer,  }\item[{size\+\_\+t}]{x\+Bytes,  }\item[{size\+\_\+t $\ast$}]{px\+Bytes\+Written,  }\item[{uint32\+\_\+t}]{ul\+Ms\+Timeout }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+success or librairie error message 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+
+\end{DoxyNote}
+\mbox{\Hypertarget{mpblibs_8h_addabdaa25875fd0be83fbebf6d9b9a63}\label{mpblibs_8h_addabdaa25875fd0be83fbebf6d9b9a63}} 
+\index{mpblibs.h@{mpblibs.h}!eMpblibsWrite@{eMpblibsWrite}}
+\index{eMpblibsWrite@{eMpblibsWrite}!mpblibs.h@{mpblibs.h}}
+\doxysubsubsection{\texorpdfstring{eMpblibsWrite()}{eMpblibsWrite()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41}{e\+Mpb\+Error\+\_\+t}} e\+Mpblibs\+Write (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{mpblibs_8h_aea4188cfb1472f9bb606fd2566133e34}{handle\+\_\+t}}}]{x\+Stream,  }\item[{size\+\_\+t}]{x\+Addr\+Cmd\+Size,  }\item[{const void $\ast$}]{pv\+Addr\+Cmd,  }\item[{const void $\ast$}]{pv\+Buffer,  }\item[{const size\+\_\+t}]{x\+Bytes,  }\item[{size\+\_\+t $\ast$}]{px\+Bytes\+Written }\end{DoxyParamCaption})}
+
+
+
+~\newline
+ 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x\+Stream} & Application specific peripheral channel identifier \\
+\hline
+{\em x\+Addr\+Cmd\+Size} & Size in bytes of Memory Address or Device Command sent at the beginning of transaction. Can be 0. \\
+\hline
+{\em pv\+Addr\+Cmd} & Pointer to address or command buffer sent. NULL if x\+Addr\+Cmd\+Size = 0, else not NULL. \\
+\hline
+{\em pv\+Buffer} & Pointer on data to be written \\
+\hline
+{\em x\+Bytes} & number of bytes to be written \\
+\hline
+{\em px\+Bytes\+Read} & Pointer where to save number of bytes written. Can be NULL. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+success or librairie error message 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+~\newline
+ 
+\end{DoxyNote}
+\mbox{\Hypertarget{mpblibs_8h_a97ce594607035faceb813e22acc64030}\label{mpblibs_8h_a97ce594607035faceb813e22acc64030}} 
+\index{mpblibs.h@{mpblibs.h}!sMpblibsPwrMonIsLow@{sMpblibsPwrMonIsLow}}
+\index{sMpblibsPwrMonIsLow@{sMpblibsPwrMonIsLow}!mpblibs.h@{mpblibs.h}}
+\doxysubsubsection{\texorpdfstring{sMpblibsPwrMonIsLow()}{sMpblibsPwrMonIsLow()}}
+{\footnotesize\ttfamily int s\+Mpblibs\+Pwr\+Mon\+Is\+Low (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+success or librairie error message 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+
+\end{DoxyNote}
+\mbox{\Hypertarget{mpblibs_8h_a0dbc68dca2eb32f532e33d5cb19010df}\label{mpblibs_8h_a0dbc68dca2eb32f532e33d5cb19010df}} 
+\index{mpblibs.h@{mpblibs.h}!vMpblibsAssertFailed@{vMpblibsAssertFailed}}
+\index{vMpblibsAssertFailed@{vMpblibsAssertFailed}!mpblibs.h@{mpblibs.h}}
+\doxysubsubsection{\texorpdfstring{vMpblibsAssertFailed()}{vMpblibsAssertFailed()}}
+{\footnotesize\ttfamily void v\+Mpblibs\+Assert\+Failed (\begin{DoxyParamCaption}\item[{char const $\ast$}]{func,  }\item[{char const $\ast$}]{file,  }\item[{int}]{line }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpblibs_8h_abf9d6756e1c391f627ef82cedfbd3daf}\label{mpblibs_8h_abf9d6756e1c391f627ef82cedfbd3daf}} 
+\index{mpblibs.h@{mpblibs.h}!vMpblibsFree@{vMpblibsFree}}
+\index{vMpblibsFree@{vMpblibsFree}!mpblibs.h@{mpblibs.h}}
+\doxysubsubsection{\texorpdfstring{vMpblibsFree()}{vMpblibsFree()}}
+{\footnotesize\ttfamily void v\+Mpblibs\+Free (\begin{DoxyParamCaption}\item[{void $\ast$$\ast$}]{ppv\+Mem\+Block }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpblibs_8h_a35e6a0f02f66b82bdf12c11321b1e008}\label{mpblibs_8h_a35e6a0f02f66b82bdf12c11321b1e008}} 
+\index{mpblibs.h@{mpblibs.h}!vMpblibsMallocFailedHook@{vMpblibsMallocFailedHook}}
+\index{vMpblibsMallocFailedHook@{vMpblibsMallocFailedHook}!mpblibs.h@{mpblibs.h}}
+\doxysubsubsection{\texorpdfstring{vMpblibsMallocFailedHook()}{vMpblibsMallocFailedHook()}}
+{\footnotesize\ttfamily void v\+Mpblibs\+Malloc\+Failed\+Hook (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{x\+Size\+Required }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpblibs_8h_a6e744a80f67d4b8a6548f8eb7b663470}\label{mpblibs_8h_a6e744a80f67d4b8a6548f8eb7b663470}} 
+\index{mpblibs.h@{mpblibs.h}!vMpblibsPowerMonitorSoftReset@{vMpblibsPowerMonitorSoftReset}}
+\index{vMpblibsPowerMonitorSoftReset@{vMpblibsPowerMonitorSoftReset}!mpblibs.h@{mpblibs.h}}
+\doxysubsubsection{\texorpdfstring{vMpblibsPowerMonitorSoftReset()}{vMpblibsPowerMonitorSoftReset()}}
+{\footnotesize\ttfamily void v\+Mpblibs\+Power\+Monitor\+Soft\+Reset (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Do a soft reset of the system. 
+
+\mbox{\Hypertarget{mpblibs_8h_aa57acc54a557120db7be004053db1364}\label{mpblibs_8h_aa57acc54a557120db7be004053db1364}} 
+\index{mpblibs.h@{mpblibs.h}!vMpblibsUsDelay@{vMpblibsUsDelay}}
+\index{vMpblibsUsDelay@{vMpblibsUsDelay}!mpblibs.h@{mpblibs.h}}
+\doxysubsubsection{\texorpdfstring{vMpblibsUsDelay()}{vMpblibsUsDelay()}}
+{\footnotesize\ttfamily void v\+Mpblibs\+Us\+Delay (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{ul\+Delay }\end{DoxyParamCaption})}
+
+
+
+Delay for the specified number of micro seconds. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ul\+Delay} & Blocking delay in micro seconds \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Blocking 
+\end{DoxyNote}
+\mbox{\Hypertarget{mpblibs_8h_adbe40fe763b2ce7c126b0002f104b9af}\label{mpblibs_8h_adbe40fe763b2ce7c126b0002f104b9af}} 
+\index{mpblibs.h@{mpblibs.h}!xMpblibsGetFreeHeapSize@{xMpblibsGetFreeHeapSize}}
+\index{xMpblibsGetFreeHeapSize@{xMpblibsGetFreeHeapSize}!mpblibs.h@{mpblibs.h}}
+\doxysubsubsection{\texorpdfstring{xMpblibsGetFreeHeapSize()}{xMpblibsGetFreeHeapSize()}}
+{\footnotesize\ttfamily size\+\_\+t x\+Mpblibs\+Get\+Free\+Heap\+Size (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mpblibs_8h_af4a5651f995c3e909071126a6c2efddc}\label{mpblibs_8h_af4a5651f995c3e909071126a6c2efddc}} 
+\index{mpblibs.h@{mpblibs.h}!xMpblibsGetMinEverFreeHeapSize@{xMpblibsGetMinEverFreeHeapSize}}
+\index{xMpblibsGetMinEverFreeHeapSize@{xMpblibsGetMinEverFreeHeapSize}!mpblibs.h@{mpblibs.h}}
+\doxysubsubsection{\texorpdfstring{xMpblibsGetMinEverFreeHeapSize()}{xMpblibsGetMinEverFreeHeapSize()}}
+{\footnotesize\ttfamily size\+\_\+t x\+Mpblibs\+Get\+Min\+Ever\+Free\+Heap\+Size (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+

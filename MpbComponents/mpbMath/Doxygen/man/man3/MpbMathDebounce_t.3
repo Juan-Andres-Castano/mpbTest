@@ -1,0 +1,61 @@
+.TH "MpbMathDebounce_t" 3 "Tue Nov 23 2021" "mpbDebouncing" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+MpbMathDebounce_t \- Structure to debounce a AC/DC signal\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <mpbMathDebounce\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "uint32_t \fBulOffCount\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBulOnCount\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBulCount\fP"
+.br
+.ti -1c
+.RI "eBool_t \fBbNewProbablyState\fP"
+.br
+.ti -1c
+.RI "eBool_t \fBbActualState\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Structure to debounce a AC/DC signal\&. 
+.PP
+Definition at line 29 of file mpbMathDebounce\&.h\&.
+.SH "Field Documentation"
+.PP 
+.SS "eBool_t bActualState"
+the actual real state 
+.PP
+Definition at line 35 of file mpbMathDebounce\&.h\&.
+.SS "eBool_t bNewProbablyState"
+the new state 
+.PP
+Definition at line 34 of file mpbMathDebounce\&.h\&.
+.SS "uint32_t ulCount"
+the number of consecutive value 
+.PP
+Definition at line 33 of file mpbMathDebounce\&.h\&.
+.SS "uint32_t ulOffCount"
+the number of consecutive value for the state to be considered off 
+.PP
+Definition at line 31 of file mpbMathDebounce\&.h\&.
+.SS "uint32_t ulOnCount"
+the number of consecutive value for the state to be considered on 
+.PP
+Definition at line 32 of file mpbMathDebounce\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mpbDebouncing from the source code\&.

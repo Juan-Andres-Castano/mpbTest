@@ -1,0 +1,68 @@
+.TH "__attribute__" 3 "Thu Nov 18 2021" "mpbTime" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+__attribute__ \- Timebase internal structure\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <mpbTimeBase\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "uint32_t \fBulTick\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBulMs\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBulSecond\fP"
+.br
+.ti -1c
+.RI "uint16_t \fBusMsCount\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBucTickCount\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBucTickReload\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Timebase internal structure\&. 
+.PP
+Definition at line 29 of file mpbTimeBase\&.h\&.
+.SH "Field Documentation"
+.PP 
+.SS "uint8_t ucTickCount"
+the actual tick count 
+.PP
+Definition at line 35 of file mpbTimeBase\&.h\&.
+.SS "uint8_t ucTickReload"
+the initial tick load 
+.PP
+Definition at line 36 of file mpbTimeBase\&.h\&.
+.SS "uint32_t ulMs"
+the actual Ms count 
+.PP
+Definition at line 32 of file mpbTimeBase\&.h\&.
+.SS "uint32_t ulSecond"
+the actual seconds count 
+.PP
+Definition at line 33 of file mpbTimeBase\&.h\&.
+.SS "uint32_t ulTick"
+the actual tick increment 
+.PP
+Definition at line 31 of file mpbTimeBase\&.h\&.
+.SS "uint16_t usMsCount"
+the actual miliseconds count 
+.PP
+Definition at line 34 of file mpbTimeBase\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mpbTime from the source code\&.

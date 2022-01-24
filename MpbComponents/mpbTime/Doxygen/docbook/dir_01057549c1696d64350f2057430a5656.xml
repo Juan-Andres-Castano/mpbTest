@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_01057549c1696d64350f2057430a5656" xml:lang="en-US">
+<title>UnitTestFramework/vendor/ceedling/vendor/c_exception/lib Directory Reference</title>
+<indexterm><primary>UnitTestFramework/vendor/ceedling/vendor/c_exception/lib Directory Reference</primary></indexterm>
+<simplesect>
+    <title>Files    </title>
+        <itemizedlist>
+            <listitem><para>file <link linkend="__c_exception_8c">CException.c</link></para>
+</listitem>
+            <listitem><para>file <link linkend="__c_exception_8h">CException.h</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

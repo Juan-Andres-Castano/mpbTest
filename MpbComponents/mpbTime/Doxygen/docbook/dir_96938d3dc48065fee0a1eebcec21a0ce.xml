@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_96938d3dc48065fee0a1eebcec21a0ce" xml:lang="en-US">
+<title>UnitTestFramework/vendor Directory Reference</title>
+<indexterm><primary>UnitTestFramework/vendor Directory Reference</primary></indexterm>
+Directory dependency graph for vendor:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="dir_96938d3dc48065fee0a1eebcec21a0ce_dep.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Directories    </title>
+        <itemizedlist>
+            <listitem><para>directory <link linkend="_dir_f0984ab69daefa91954353a817311c43">ceedling</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

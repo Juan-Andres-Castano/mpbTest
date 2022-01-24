@@ -1,0 +1,1806 @@
+.TH "UnitTestFramework/vendor/ceedling/vendor/unity/src/unity_internals.h" 3 "Thu Nov 18 2021" "mpbTime" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+UnitTestFramework/vendor/ceedling/vendor/unity/src/unity_internals.h
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <setjmp\&.h>\fP
+.br
+\fC#include <math\&.h>\fP
+.br
+\fC#include <stdint\&.h>\fP
+.br
+\fC#include <limits\&.h>\fP
+.br
+\fC#include <time\&.h>\fP
+.br
+\fC#include <stdio\&.h>\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBUNITY_STORAGE_T\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBUNITY_INT_WIDTH\fP   (32)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_LONG_WIDTH\fP   (32)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_POINTER_WIDTH\fP   \fBUNITY_LONG_WIDTH\fP"
+.br
+.ti -1c
+.RI "#define \fBUNITY_PTR_TO_INT\fP   \fBUNITY_INT32\fP"
+.br
+.ti -1c
+.RI "#define \fBUNITY_DISPLAY_STYLE_POINTER\fP   \fBUNITY_DISPLAY_STYLE_HEX32\fP"
+.br
+.ti -1c
+.RI "#define \fBUNITY_PTR_ATTRIBUTE\fP"
+.br
+.ti -1c
+.RI "#define \fBUNITY_INTERNAL_PTR\fP   \fBUNITY_PTR_ATTRIBUTE\fP const void*"
+.br
+.ti -1c
+.RI "#define \fBUNITY_FLOAT_PRECISION\fP   (0\&.00001\fBf\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_FLOAT_TYPE\fP   float"
+.br
+.ti -1c
+.RI "#define \fBisinf\fP(n)   (\fBisnan\fP((n) \- (n)) && !\fBisnan\fP(n))"
+.br
+.ti -1c
+.RI "#define \fBisnan\fP(n)   ((n != n) ? 1 : 0)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_EXCLUDE_DOUBLE\fP"
+.br
+.ti -1c
+.RI "#define \fBUNITY_DOUBLE_TYPE\fP   double"
+.br
+.ti -1c
+.RI "#define \fBUNITY_OUTPUT_CHAR\fP(a)   (void)putchar(a)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_OUTPUT_FLUSH\fP()"
+.br
+.ti -1c
+.RI "#define \fBUNITY_FLUSH_CALL\fP()   \fBUNITY_OUTPUT_FLUSH\fP()"
+.br
+.ti -1c
+.RI "#define \fBUNITY_PRINT_EOL\fP()   \fBUNITY_OUTPUT_CHAR\fP('\\n')"
+.br
+.ti -1c
+.RI "#define \fBUNITY_OUTPUT_START\fP()"
+.br
+.ti -1c
+.RI "#define \fBUNITY_OUTPUT_COMPLETE\fP()"
+.br
+.ti -1c
+.RI "#define \fBUNITY_EXEC_TIME_RESET\fP()"
+.br
+.ti -1c
+.RI "#define \fBUNITY_EXEC_TIME_START\fP()"
+.br
+.ti -1c
+.RI "#define \fBUNITY_EXEC_TIME_STOP\fP()"
+.br
+.ti -1c
+.RI "#define \fBUNITY_PRINT_EXEC_TIME\fP()"
+.br
+.ti -1c
+.RI "#define \fBUNITY_LINE_TYPE\fP   \fBUNITY_UINT\fP"
+.br
+.ti -1c
+.RI "#define \fBUNITY_COUNTER_TYPE\fP   \fBUNITY_UINT\fP"
+.br
+.ti -1c
+.RI "#define \fBUNITY_DISPLAY_RANGE_INT\fP   (0x10)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_DISPLAY_RANGE_UINT\fP   (0x20)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_DISPLAY_RANGE_HEX\fP   (0x40)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_CLR_DETAILS\fP()   { Unity\&.CurrentDetail1 = 0;   Unity\&.CurrentDetail2 = 0;  }"
+.br
+.ti -1c
+.RI "#define \fBUNITY_SET_DETAIL\fP(d1)   { Unity\&.CurrentDetail1 = (d1);  Unity\&.CurrentDetail2 = 0;  }"
+.br
+.ti -1c
+.RI "#define \fBUNITY_SET_DETAILS\fP(d1,  d2)   { Unity\&.CurrentDetail1 = (d1);  Unity\&.CurrentDetail2 = (d2); }"
+.br
+.ti -1c
+.RI "#define \fBUNITY_DETAIL1_NAME\fP   'Function'"
+.br
+.ti -1c
+.RI "#define \fBUNITY_DETAIL2_NAME\fP   'Argument'"
+.br
+.ti -1c
+.RI "#define \fBTEST_PROTECT\fP()   (setjmp(Unity\&.AbortFrame) == 0)"
+.br
+.ti -1c
+.RI "#define \fBTEST_ABORT\fP()   longjmp(Unity\&.AbortFrame, 1)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_CLOCK_MS\fP()   (\fBUNITY_COUNTER_TYPE\fP)((clock() * 1000) / CLOCKS_PER_SEC)"
+.br
+.ti -1c
+.RI "#define \fBRUN_TEST\fP(func)   \fBUnityDefaultTestRun\fP(func, #func, __LINE__)"
+.br
+.ti -1c
+.RI "#define \fBTEST_LINE_NUM\fP   (Unity\&.CurrentTestLineNumber)"
+.br
+.ti -1c
+.RI "#define \fBTEST_IS_IGNORED\fP   (Unity\&.CurrentTestIgnored)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_NEW_TEST\fP(a)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_BEGIN\fP()   \fBUnityBegin\fP(__FILE__)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_END\fP()   \fBUnityEnd\fP()"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_FAIL\fP(line,  message)   \fBUnityFail\fP(   (message), (\fBUNITY_LINE_TYPE\fP)(line))"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_IGNORE\fP(line,  message)   \fBUnityIgnore\fP( (message), (\fBUNITY_LINE_TYPE\fP)(line))"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT\fP(condition,  line,  message)   if (condition) {} else {\fBUNITY_TEST_FAIL\fP((\fBUNITY_LINE_TYPE\fP)(line), (message));}"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_NULL\fP(pointer,  line,  message)   \fBUNITY_TEST_ASSERT\fP(((pointer) == NULL),  (\fBUNITY_LINE_TYPE\fP)(line), (message))"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_NOT_NULL\fP(pointer,  line,  message)   \fBUNITY_TEST_ASSERT\fP(((pointer) != NULL),  (\fBUNITY_LINE_TYPE\fP)(line), (message))"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_EQUAL_INT\fP(expected,  actual,  line,  message)   \fBUnityAssertEqualNumber\fP((\fBUNITY_INT\fP)(expected), (\fBUNITY_INT\fP)(actual), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_INT\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_EQUAL_INT8\fP(expected,  actual,  line,  message)   \fBUnityAssertEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_INT8\fP )(expected), (\fBUNITY_INT\fP)(\fBUNITY_INT8\fP )(actual), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_INT8\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_EQUAL_INT16\fP(expected,  actual,  line,  message)   \fBUnityAssertEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_INT16\fP)(expected), (\fBUNITY_INT\fP)(\fBUNITY_INT16\fP)(actual), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_INT16\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_EQUAL_INT32\fP(expected,  actual,  line,  message)   \fBUnityAssertEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_INT32\fP)(expected), (\fBUNITY_INT\fP)(\fBUNITY_INT32\fP)(actual), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_INT32\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_EQUAL_UINT\fP(expected,  actual,  line,  message)   \fBUnityAssertEqualNumber\fP((\fBUNITY_INT\fP)(expected), (\fBUNITY_INT\fP)(actual), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_UINT\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_EQUAL_UINT8\fP(expected,  actual,  line,  message)   \fBUnityAssertEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_UINT8\fP )(expected), (\fBUNITY_INT\fP)(\fBUNITY_UINT8\fP )(actual), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_UINT8\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_EQUAL_UINT16\fP(expected,  actual,  line,  message)   \fBUnityAssertEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_UINT16\fP)(expected), (\fBUNITY_INT\fP)(\fBUNITY_UINT16\fP)(actual), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_UINT16\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_EQUAL_UINT32\fP(expected,  actual,  line,  message)   \fBUnityAssertEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_UINT32\fP)(expected), (\fBUNITY_INT\fP)(\fBUNITY_UINT32\fP)(actual), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_UINT32\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_EQUAL_HEX8\fP(expected,  actual,  line,  message)   \fBUnityAssertEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_INT8\fP )(expected), (\fBUNITY_INT\fP)(\fBUNITY_INT8\fP )(actual), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_HEX8\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_EQUAL_HEX16\fP(expected,  actual,  line,  message)   \fBUnityAssertEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_INT16\fP)(expected), (\fBUNITY_INT\fP)(\fBUNITY_INT16\fP)(actual), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_HEX16\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_EQUAL_HEX32\fP(expected,  actual,  line,  message)   \fBUnityAssertEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_INT32\fP)(expected), (\fBUNITY_INT\fP)(\fBUNITY_INT32\fP)(actual), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_HEX32\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_BITS\fP(mask,  expected,  actual,  line,  message)   \fBUnityAssertBits\fP((\fBUNITY_INT\fP)(mask), (\fBUNITY_INT\fP)(expected), (\fBUNITY_INT\fP)(actual), (message), (\fBUNITY_LINE_TYPE\fP)(line))"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_GREATER_THAN_INT\fP(threshold,  actual,  line,  message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(threshold),              (\fBUNITY_INT\fP)(actual),              \fBUNITY_GREATER_THAN\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_INT\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_GREATER_THAN_INT8\fP(threshold,  actual,  line,  message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_INT8\fP )(threshold), (\fBUNITY_INT\fP)(\fBUNITY_INT8\fP )(actual), \fBUNITY_GREATER_THAN\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_INT8\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_GREATER_THAN_INT16\fP(threshold,  actual,  line,  message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_INT16\fP)(threshold), (\fBUNITY_INT\fP)(\fBUNITY_INT16\fP)(actual), \fBUNITY_GREATER_THAN\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_INT16\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_GREATER_THAN_INT32\fP(threshold,  actual,  line,  message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_INT32\fP)(threshold), (\fBUNITY_INT\fP)(\fBUNITY_INT32\fP)(actual), \fBUNITY_GREATER_THAN\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_INT32\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_GREATER_THAN_UINT\fP(threshold,  actual,  line,  message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(threshold),              (\fBUNITY_INT\fP)(actual),              \fBUNITY_GREATER_THAN\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_UINT\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_GREATER_THAN_UINT8\fP(threshold,  actual,  line,  message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_UINT8\fP )(threshold), (\fBUNITY_INT\fP)(\fBUNITY_UINT8\fP )(actual), \fBUNITY_GREATER_THAN\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_UINT8\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_GREATER_THAN_UINT16\fP(threshold,  actual,  line,  message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_UINT16\fP)(threshold), (\fBUNITY_INT\fP)(\fBUNITY_UINT16\fP)(actual), \fBUNITY_GREATER_THAN\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_UINT16\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_GREATER_THAN_UINT32\fP(threshold,  actual,  line,  message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_UINT32\fP)(threshold), (\fBUNITY_INT\fP)(\fBUNITY_UINT32\fP)(actual), \fBUNITY_GREATER_THAN\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_UINT32\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_GREATER_THAN_HEX8\fP(threshold,  actual,  line,  message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_UINT8\fP )(threshold), (\fBUNITY_INT\fP)(\fBUNITY_UINT8\fP )(actual), \fBUNITY_GREATER_THAN\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_HEX8\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_GREATER_THAN_HEX16\fP(threshold,  actual,  line,  message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_UINT16\fP)(threshold), (\fBUNITY_INT\fP)(\fBUNITY_UINT16\fP)(actual), \fBUNITY_GREATER_THAN\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_HEX16\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_GREATER_THAN_HEX32\fP(threshold,  actual,  line,  message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_UINT32\fP)(threshold), (\fBUNITY_INT\fP)(\fBUNITY_UINT32\fP)(actual), \fBUNITY_GREATER_THAN\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_HEX32\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_SMALLER_THAN_INT\fP(threshold,  actual,  line,  message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(threshold),              (\fBUNITY_INT\fP)(actual),              \fBUNITY_SMALLER_THAN\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_INT\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_SMALLER_THAN_INT8\fP(threshold,  actual,  line,  message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_INT8\fP )(threshold), (\fBUNITY_INT\fP)(\fBUNITY_INT8\fP )(actual), \fBUNITY_SMALLER_THAN\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_INT8\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_SMALLER_THAN_INT16\fP(threshold,  actual,  line,  message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_INT16\fP)(threshold), (\fBUNITY_INT\fP)(\fBUNITY_INT16\fP)(actual), \fBUNITY_SMALLER_THAN\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_INT16\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_SMALLER_THAN_INT32\fP(threshold,  actual,  line,  message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_INT32\fP)(threshold), (\fBUNITY_INT\fP)(\fBUNITY_INT32\fP)(actual), \fBUNITY_SMALLER_THAN\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_INT32\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_SMALLER_THAN_UINT\fP(threshold,  actual,  line,  message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(threshold),              (\fBUNITY_INT\fP)(actual),              \fBUNITY_SMALLER_THAN\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_UINT\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_SMALLER_THAN_UINT8\fP(threshold,  actual,  line,  message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_UINT8\fP )(threshold), (\fBUNITY_INT\fP)(\fBUNITY_UINT8\fP )(actual), \fBUNITY_SMALLER_THAN\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_UINT8\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_SMALLER_THAN_UINT16\fP(threshold,  actual,  line,  message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_UINT16\fP)(threshold), (\fBUNITY_INT\fP)(\fBUNITY_UINT16\fP)(actual), \fBUNITY_SMALLER_THAN\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_UINT16\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_SMALLER_THAN_UINT32\fP(threshold,  actual,  line,  message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_UINT32\fP)(threshold), (\fBUNITY_INT\fP)(\fBUNITY_UINT32\fP)(actual), \fBUNITY_SMALLER_THAN\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_UINT32\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_SMALLER_THAN_HEX8\fP(threshold,  actual,  line,  message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_UINT8\fP )(threshold), (\fBUNITY_INT\fP)(\fBUNITY_UINT8\fP )(actual), \fBUNITY_SMALLER_THAN\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_HEX8\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_SMALLER_THAN_HEX16\fP(threshold,  actual,  line,  message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_UINT16\fP)(threshold), (\fBUNITY_INT\fP)(\fBUNITY_UINT16\fP)(actual), \fBUNITY_SMALLER_THAN\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_HEX16\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_SMALLER_THAN_HEX32\fP(threshold,  actual,  line,  message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_UINT32\fP)(threshold), (\fBUNITY_INT\fP)(\fBUNITY_UINT32\fP)(actual), \fBUNITY_SMALLER_THAN\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_HEX32\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_GREATER_OR_EQUAL_INT\fP(threshold,  actual,  line,  message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(threshold),              (\fBUNITY_INT\fP)(actual),              \fBUNITY_GREATER_OR_EQUAL\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_INT\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_GREATER_OR_EQUAL_INT8\fP(threshold,  actual,  line,  message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_INT8\fP )(threshold), (\fBUNITY_INT\fP)(\fBUNITY_INT8\fP )(actual), \fBUNITY_GREATER_OR_EQUAL\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_INT8\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_GREATER_OR_EQUAL_INT16\fP(threshold,  actual,  line,  message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_INT16\fP)(threshold), (\fBUNITY_INT\fP)(\fBUNITY_INT16\fP)(actual), \fBUNITY_GREATER_OR_EQUAL\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_INT16\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_GREATER_OR_EQUAL_INT32\fP(threshold,  actual,  line,  message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_INT32\fP)(threshold), (\fBUNITY_INT\fP)(\fBUNITY_INT32\fP)(actual), \fBUNITY_GREATER_OR_EQUAL\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_INT32\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_GREATER_OR_EQUAL_UINT\fP(threshold,  actual,  line,  message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(threshold),              (\fBUNITY_INT\fP)(actual),              \fBUNITY_GREATER_OR_EQUAL\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_UINT\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_GREATER_OR_EQUAL_UINT8\fP(threshold,  actual,  line,  message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_UINT8\fP )(threshold), (\fBUNITY_INT\fP)(\fBUNITY_UINT8\fP )(actual), \fBUNITY_GREATER_OR_EQUAL\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_UINT8\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_GREATER_OR_EQUAL_UINT16\fP(threshold,  actual,  line,  message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_UINT16\fP)(threshold), (\fBUNITY_INT\fP)(\fBUNITY_UINT16\fP)(actual), \fBUNITY_GREATER_OR_EQUAL\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_UINT16\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_GREATER_OR_EQUAL_UINT32\fP(threshold,  actual,  line,  message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_UINT32\fP)(threshold), (\fBUNITY_INT\fP)(\fBUNITY_UINT32\fP)(actual), \fBUNITY_GREATER_OR_EQUAL\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_UINT32\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_GREATER_OR_EQUAL_HEX8\fP(threshold,  actual,  line,  message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_UINT8\fP )(threshold), (\fBUNITY_INT\fP)(\fBUNITY_UINT8\fP )(actual), \fBUNITY_GREATER_OR_EQUAL\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_HEX8\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_GREATER_OR_EQUAL_HEX16\fP(threshold,  actual,  line,  message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_UINT16\fP)(threshold), (\fBUNITY_INT\fP)(\fBUNITY_UINT16\fP)(actual), \fBUNITY_GREATER_OR_EQUAL\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_HEX16\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_GREATER_OR_EQUAL_HEX32\fP(threshold,  actual,  line,  message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_UINT32\fP)(threshold), (\fBUNITY_INT\fP)(\fBUNITY_UINT32\fP)(actual), \fBUNITY_GREATER_OR_EQUAL\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_HEX32\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_SMALLER_OR_EQUAL_INT\fP(threshold,  actual,  line,  message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(threshold),              (\fBUNITY_INT\fP)(actual),              \fBUNITY_SMALLER_OR_EQUAL\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_INT\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_SMALLER_OR_EQUAL_INT8\fP(threshold,  actual,  line,  message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_INT8\fP )(threshold), (\fBUNITY_INT\fP)(\fBUNITY_INT8\fP )(actual), \fBUNITY_SMALLER_OR_EQUAL\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_INT8\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_SMALLER_OR_EQUAL_INT16\fP(threshold,  actual,  line,  message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_INT16\fP)(threshold), (\fBUNITY_INT\fP)(\fBUNITY_INT16\fP)(actual), \fBUNITY_SMALLER_OR_EQUAL\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_INT16\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_SMALLER_OR_EQUAL_INT32\fP(threshold,  actual,  line,  message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_INT32\fP)(threshold), (\fBUNITY_INT\fP)(\fBUNITY_INT32\fP)(actual), \fBUNITY_SMALLER_OR_EQUAL\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_INT32\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_SMALLER_OR_EQUAL_UINT\fP(threshold,  actual,  line,  message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(threshold),              (\fBUNITY_INT\fP)(actual),              \fBUNITY_SMALLER_OR_EQUAL\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_UINT\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_SMALLER_OR_EQUAL_UINT8\fP(threshold,  actual,  line,  message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_UINT8\fP )(threshold), (\fBUNITY_INT\fP)(\fBUNITY_UINT8\fP )(actual), \fBUNITY_SMALLER_OR_EQUAL\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_UINT8\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_SMALLER_OR_EQUAL_UINT16\fP(threshold,  actual,  line,  message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_UINT16\fP)(threshold), (\fBUNITY_INT\fP)(\fBUNITY_UINT16\fP)(actual), \fBUNITY_SMALLER_OR_EQUAL\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_UINT16\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_SMALLER_OR_EQUAL_UINT32\fP(threshold,  actual,  line,  message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_UINT32\fP)(threshold), (\fBUNITY_INT\fP)(\fBUNITY_UINT32\fP)(actual), \fBUNITY_SMALLER_OR_EQUAL\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_UINT32\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_SMALLER_OR_EQUAL_HEX8\fP(threshold,  actual,  line,  message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_UINT8\fP )(threshold), (\fBUNITY_INT\fP)(\fBUNITY_UINT8\fP )(actual), \fBUNITY_SMALLER_OR_EQUAL\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_HEX8\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_SMALLER_OR_EQUAL_HEX16\fP(threshold,  actual,  line,  message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_UINT16\fP)(threshold), (\fBUNITY_INT\fP)(\fBUNITY_UINT16\fP)(actual), \fBUNITY_SMALLER_OR_EQUAL\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_HEX16\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_SMALLER_OR_EQUAL_HEX32\fP(threshold,  actual,  line,  message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_UINT32\fP)(threshold), (\fBUNITY_INT\fP)(\fBUNITY_UINT32\fP)(actual), \fBUNITY_SMALLER_OR_EQUAL\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_HEX32\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_INT_WITHIN\fP(delta,  expected,  actual,  line,  message)   \fBUnityAssertNumbersWithin\fP((delta), (\fBUNITY_INT\fP)(expected), (\fBUNITY_INT\fP)(actual), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_INT\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_INT8_WITHIN\fP(delta,  expected,  actual,  line,  message)   \fBUnityAssertNumbersWithin\fP((\fBUNITY_UINT8\fP )(delta), (\fBUNITY_INT\fP)(\fBUNITY_INT8\fP )(expected), (\fBUNITY_INT\fP)(\fBUNITY_INT8\fP )(actual), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_INT8\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_INT16_WITHIN\fP(delta,  expected,  actual,  line,  message)   \fBUnityAssertNumbersWithin\fP((\fBUNITY_UINT16\fP)(delta), (\fBUNITY_INT\fP)(\fBUNITY_INT16\fP)(expected), (\fBUNITY_INT\fP)(\fBUNITY_INT16\fP)(actual), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_INT16\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_INT32_WITHIN\fP(delta,  expected,  actual,  line,  message)   \fBUnityAssertNumbersWithin\fP((\fBUNITY_UINT32\fP)(delta), (\fBUNITY_INT\fP)(\fBUNITY_INT32\fP)(expected), (\fBUNITY_INT\fP)(\fBUNITY_INT32\fP)(actual), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_INT32\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_UINT_WITHIN\fP(delta,  expected,  actual,  line,  message)   \fBUnityAssertNumbersWithin\fP((delta), (\fBUNITY_INT\fP)(expected), (\fBUNITY_INT\fP)(actual), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_UINT\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_UINT8_WITHIN\fP(delta,  expected,  actual,  line,  message)   \fBUnityAssertNumbersWithin\fP((\fBUNITY_UINT8\fP )(delta), (\fBUNITY_INT\fP)(\fBUNITY_UINT\fP)(\fBUNITY_UINT8\fP )(expected), (\fBUNITY_INT\fP)(\fBUNITY_UINT\fP)(\fBUNITY_UINT8\fP )(actual), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_UINT8\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_UINT16_WITHIN\fP(delta,  expected,  actual,  line,  message)   \fBUnityAssertNumbersWithin\fP((\fBUNITY_UINT16\fP)(delta), (\fBUNITY_INT\fP)(\fBUNITY_UINT\fP)(\fBUNITY_UINT16\fP)(expected), (\fBUNITY_INT\fP)(\fBUNITY_UINT\fP)(\fBUNITY_UINT16\fP)(actual), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_UINT16\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_UINT32_WITHIN\fP(delta,  expected,  actual,  line,  message)   \fBUnityAssertNumbersWithin\fP((\fBUNITY_UINT32\fP)(delta), (\fBUNITY_INT\fP)(\fBUNITY_UINT\fP)(\fBUNITY_UINT32\fP)(expected), (\fBUNITY_INT\fP)(\fBUNITY_UINT\fP)(\fBUNITY_UINT32\fP)(actual), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_UINT32\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_HEX8_WITHIN\fP(delta,  expected,  actual,  line,  message)   \fBUnityAssertNumbersWithin\fP((\fBUNITY_UINT8\fP )(delta), (\fBUNITY_INT\fP)(\fBUNITY_UINT\fP)(\fBUNITY_UINT8\fP )(expected), (\fBUNITY_INT\fP)(\fBUNITY_UINT\fP)(\fBUNITY_UINT8\fP )(actual), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_HEX8\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_HEX16_WITHIN\fP(delta,  expected,  actual,  line,  message)   \fBUnityAssertNumbersWithin\fP((\fBUNITY_UINT16\fP)(delta), (\fBUNITY_INT\fP)(\fBUNITY_UINT\fP)(\fBUNITY_UINT16\fP)(expected), (\fBUNITY_INT\fP)(\fBUNITY_UINT\fP)(\fBUNITY_UINT16\fP)(actual), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_HEX16\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_HEX32_WITHIN\fP(delta,  expected,  actual,  line,  message)   \fBUnityAssertNumbersWithin\fP((\fBUNITY_UINT32\fP)(delta), (\fBUNITY_INT\fP)(\fBUNITY_UINT\fP)(\fBUNITY_UINT32\fP)(expected), (\fBUNITY_INT\fP)(\fBUNITY_UINT\fP)(\fBUNITY_UINT32\fP)(actual), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_HEX32\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_EQUAL_PTR\fP(expected,  actual,  line,  message)   \fBUnityAssertEqualNumber\fP((\fBUNITY_PTR_TO_INT\fP)(expected), (\fBUNITY_PTR_TO_INT\fP)(actual), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_POINTER\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_EQUAL_STRING\fP(expected,  actual,  line,  message)   \fBUnityAssertEqualString\fP((const char*)(expected), (const char*)(actual), (message), (\fBUNITY_LINE_TYPE\fP)(line))"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_EQUAL_STRING_LEN\fP(expected,  actual,  len,  line,  message)   \fBUnityAssertEqualStringLen\fP((const char*)(expected), (const char*)(actual), (\fBUNITY_UINT32\fP)(len), (message), (\fBUNITY_LINE_TYPE\fP)(line))"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_EQUAL_MEMORY\fP(expected,  actual,  len,  line,  message)   \fBUnityAssertEqualMemory\fP((\fBUNITY_INTERNAL_PTR\fP)(expected), (\fBUNITY_INTERNAL_PTR\fP)(actual), (\fBUNITY_UINT32\fP)(len), 1, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_ARRAY_TO_ARRAY\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_EQUAL_INT_ARRAY\fP(expected,  actual,  num_elements,  line,  message)   \fBUnityAssertEqualIntArray\fP((\fBUNITY_INTERNAL_PTR\fP)(expected), (\fBUNITY_INTERNAL_PTR\fP)(actual), (\fBUNITY_UINT32\fP)(num_elements), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_INT\fP,     \fBUNITY_ARRAY_TO_ARRAY\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_EQUAL_INT8_ARRAY\fP(expected,  actual,  num_elements,  line,  message)   \fBUnityAssertEqualIntArray\fP((\fBUNITY_INTERNAL_PTR\fP)(expected), (\fBUNITY_INTERNAL_PTR\fP)(actual), (\fBUNITY_UINT32\fP)(num_elements), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_INT8\fP,    \fBUNITY_ARRAY_TO_ARRAY\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_EQUAL_INT16_ARRAY\fP(expected,  actual,  num_elements,  line,  message)   \fBUnityAssertEqualIntArray\fP((\fBUNITY_INTERNAL_PTR\fP)(expected), (\fBUNITY_INTERNAL_PTR\fP)(actual), (\fBUNITY_UINT32\fP)(num_elements), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_INT16\fP,   \fBUNITY_ARRAY_TO_ARRAY\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_EQUAL_INT32_ARRAY\fP(expected,  actual,  num_elements,  line,  message)   \fBUnityAssertEqualIntArray\fP((\fBUNITY_INTERNAL_PTR\fP)(expected), (\fBUNITY_INTERNAL_PTR\fP)(actual), (\fBUNITY_UINT32\fP)(num_elements), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_INT32\fP,   \fBUNITY_ARRAY_TO_ARRAY\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_EQUAL_UINT_ARRAY\fP(expected,  actual,  num_elements,  line,  message)   \fBUnityAssertEqualIntArray\fP((\fBUNITY_INTERNAL_PTR\fP)(expected), (\fBUNITY_INTERNAL_PTR\fP)(actual), (\fBUNITY_UINT32\fP)(num_elements), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_UINT\fP,    \fBUNITY_ARRAY_TO_ARRAY\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_EQUAL_UINT8_ARRAY\fP(expected,  actual,  num_elements,  line,  message)   \fBUnityAssertEqualIntArray\fP((\fBUNITY_INTERNAL_PTR\fP)(expected), (\fBUNITY_INTERNAL_PTR\fP)(actual), (\fBUNITY_UINT32\fP)(num_elements), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_UINT8\fP,   \fBUNITY_ARRAY_TO_ARRAY\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_EQUAL_UINT16_ARRAY\fP(expected,  actual,  num_elements,  line,  message)   \fBUnityAssertEqualIntArray\fP((\fBUNITY_INTERNAL_PTR\fP)(expected), (\fBUNITY_INTERNAL_PTR\fP)(actual), (\fBUNITY_UINT32\fP)(num_elements), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_UINT16\fP,  \fBUNITY_ARRAY_TO_ARRAY\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_EQUAL_UINT32_ARRAY\fP(expected,  actual,  num_elements,  line,  message)   \fBUnityAssertEqualIntArray\fP((\fBUNITY_INTERNAL_PTR\fP)(expected), (\fBUNITY_INTERNAL_PTR\fP)(actual), (\fBUNITY_UINT32\fP)(num_elements), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_UINT32\fP,  \fBUNITY_ARRAY_TO_ARRAY\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_EQUAL_HEX8_ARRAY\fP(expected,  actual,  num_elements,  line,  message)   \fBUnityAssertEqualIntArray\fP((\fBUNITY_INTERNAL_PTR\fP)(expected), (\fBUNITY_INTERNAL_PTR\fP)(actual), (\fBUNITY_UINT32\fP)(num_elements), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_HEX8\fP,    \fBUNITY_ARRAY_TO_ARRAY\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_EQUAL_HEX16_ARRAY\fP(expected,  actual,  num_elements,  line,  message)   \fBUnityAssertEqualIntArray\fP((\fBUNITY_INTERNAL_PTR\fP)(expected), (\fBUNITY_INTERNAL_PTR\fP)(actual), (\fBUNITY_UINT32\fP)(num_elements), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_HEX16\fP,   \fBUNITY_ARRAY_TO_ARRAY\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_EQUAL_HEX32_ARRAY\fP(expected,  actual,  num_elements,  line,  message)   \fBUnityAssertEqualIntArray\fP((\fBUNITY_INTERNAL_PTR\fP)(expected), (\fBUNITY_INTERNAL_PTR\fP)(actual), (\fBUNITY_UINT32\fP)(num_elements), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_HEX32\fP,   \fBUNITY_ARRAY_TO_ARRAY\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_EQUAL_PTR_ARRAY\fP(expected,  actual,  num_elements,  line,  message)   \fBUnityAssertEqualIntArray\fP((\fBUNITY_INTERNAL_PTR\fP)(expected), (\fBUNITY_INTERNAL_PTR\fP)(actual), (\fBUNITY_UINT32\fP)(num_elements), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_POINTER\fP, \fBUNITY_ARRAY_TO_ARRAY\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_EQUAL_STRING_ARRAY\fP(expected,  actual,  num_elements,  line,  message)   \fBUnityAssertEqualStringArray\fP((\fBUNITY_INTERNAL_PTR\fP)(expected), (const char**)(actual), (\fBUNITY_UINT32\fP)(num_elements), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_ARRAY_TO_ARRAY\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_EQUAL_MEMORY_ARRAY\fP(expected,  actual,  len,  num_elements,  line,  message)   \fBUnityAssertEqualMemory\fP((\fBUNITY_INTERNAL_PTR\fP)(expected), (\fBUNITY_INTERNAL_PTR\fP)(actual), (\fBUNITY_UINT32\fP)(len), (\fBUNITY_UINT32\fP)(num_elements), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_ARRAY_TO_ARRAY\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_EACH_EQUAL_INT\fP(expected,  actual,  num_elements,  line,  message)   \fBUnityAssertEqualIntArray\fP(\fBUnityNumToPtr\fP((\fBUNITY_INT\fP)              (expected), sizeof(int)),  (\fBUNITY_INTERNAL_PTR\fP)(actual), (\fBUNITY_UINT32\fP)(num_elements), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_INT\fP,     \fBUNITY_ARRAY_TO_VAL\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_EACH_EQUAL_INT8\fP(expected,  actual,  num_elements,  line,  message)   \fBUnityAssertEqualIntArray\fP(\fBUnityNumToPtr\fP((\fBUNITY_INT\fP)(\fBUNITY_INT8\fP  )(expected), 1),            (\fBUNITY_INTERNAL_PTR\fP)(actual), (\fBUNITY_UINT32\fP)(num_elements), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_INT8\fP,    \fBUNITY_ARRAY_TO_VAL\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_EACH_EQUAL_INT16\fP(expected,  actual,  num_elements,  line,  message)   \fBUnityAssertEqualIntArray\fP(\fBUnityNumToPtr\fP((\fBUNITY_INT\fP)(\fBUNITY_INT16\fP )(expected), 2),            (\fBUNITY_INTERNAL_PTR\fP)(actual), (\fBUNITY_UINT32\fP)(num_elements), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_INT16\fP,   \fBUNITY_ARRAY_TO_VAL\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_EACH_EQUAL_INT32\fP(expected,  actual,  num_elements,  line,  message)   \fBUnityAssertEqualIntArray\fP(\fBUnityNumToPtr\fP((\fBUNITY_INT\fP)(\fBUNITY_INT32\fP )(expected), 4),            (\fBUNITY_INTERNAL_PTR\fP)(actual), (\fBUNITY_UINT32\fP)(num_elements), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_INT32\fP,   \fBUNITY_ARRAY_TO_VAL\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_EACH_EQUAL_UINT\fP(expected,  actual,  num_elements,  line,  message)   \fBUnityAssertEqualIntArray\fP(\fBUnityNumToPtr\fP((\fBUNITY_INT\fP)              (expected), sizeof(unsigned int)), (\fBUNITY_INTERNAL_PTR\fP)(actual), (\fBUNITY_UINT32\fP)(num_elements), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_UINT\fP,    \fBUNITY_ARRAY_TO_VAL\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_EACH_EQUAL_UINT8\fP(expected,  actual,  num_elements,  line,  message)   \fBUnityAssertEqualIntArray\fP(\fBUnityNumToPtr\fP((\fBUNITY_INT\fP)(\fBUNITY_UINT8\fP )(expected), 1),            (\fBUNITY_INTERNAL_PTR\fP)(actual), (\fBUNITY_UINT32\fP)(num_elements), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_UINT8\fP,   \fBUNITY_ARRAY_TO_VAL\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_EACH_EQUAL_UINT16\fP(expected,  actual,  num_elements,  line,  message)   \fBUnityAssertEqualIntArray\fP(\fBUnityNumToPtr\fP((\fBUNITY_INT\fP)(\fBUNITY_UINT16\fP)(expected), 2),            (\fBUNITY_INTERNAL_PTR\fP)(actual), (\fBUNITY_UINT32\fP)(num_elements), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_UINT16\fP,  \fBUNITY_ARRAY_TO_VAL\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_EACH_EQUAL_UINT32\fP(expected,  actual,  num_elements,  line,  message)   \fBUnityAssertEqualIntArray\fP(\fBUnityNumToPtr\fP((\fBUNITY_INT\fP)(\fBUNITY_UINT32\fP)(expected), 4),            (\fBUNITY_INTERNAL_PTR\fP)(actual), (\fBUNITY_UINT32\fP)(num_elements), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_UINT32\fP,  \fBUNITY_ARRAY_TO_VAL\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_EACH_EQUAL_HEX8\fP(expected,  actual,  num_elements,  line,  message)   \fBUnityAssertEqualIntArray\fP(\fBUnityNumToPtr\fP((\fBUNITY_INT\fP)(\fBUNITY_INT8\fP  )(expected), 1),            (\fBUNITY_INTERNAL_PTR\fP)(actual), (\fBUNITY_UINT32\fP)(num_elements), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_HEX8\fP,    \fBUNITY_ARRAY_TO_VAL\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_EACH_EQUAL_HEX16\fP(expected,  actual,  num_elements,  line,  message)   \fBUnityAssertEqualIntArray\fP(\fBUnityNumToPtr\fP((\fBUNITY_INT\fP)(\fBUNITY_INT16\fP )(expected), 2),            (\fBUNITY_INTERNAL_PTR\fP)(actual), (\fBUNITY_UINT32\fP)(num_elements), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_HEX16\fP,   \fBUNITY_ARRAY_TO_VAL\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_EACH_EQUAL_HEX32\fP(expected,  actual,  num_elements,  line,  message)   \fBUnityAssertEqualIntArray\fP(\fBUnityNumToPtr\fP((\fBUNITY_INT\fP)(\fBUNITY_INT32\fP )(expected), 4),            (\fBUNITY_INTERNAL_PTR\fP)(actual), (\fBUNITY_UINT32\fP)(num_elements), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_HEX32\fP,   \fBUNITY_ARRAY_TO_VAL\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_EACH_EQUAL_PTR\fP(expected,  actual,  num_elements,  line,  message)   \fBUnityAssertEqualIntArray\fP(\fBUnityNumToPtr\fP((\fBUNITY_PTR_TO_INT\fP)       (expected), sizeof(int*)), (\fBUNITY_INTERNAL_PTR\fP)(actual), (\fBUNITY_UINT32\fP)(num_elements), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_POINTER\fP, \fBUNITY_ARRAY_TO_VAL\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_EACH_EQUAL_STRING\fP(expected,  actual,  num_elements,  line,  message)   \fBUnityAssertEqualStringArray\fP((\fBUNITY_INTERNAL_PTR\fP)(expected), (const char**)(actual), (\fBUNITY_UINT32\fP)(num_elements), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_ARRAY_TO_VAL\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_EACH_EQUAL_MEMORY\fP(expected,  actual,  len,  num_elements,  line,  message)   \fBUnityAssertEqualMemory\fP((\fBUNITY_INTERNAL_PTR\fP)(expected), (\fBUNITY_INTERNAL_PTR\fP)(actual), (\fBUNITY_UINT32\fP)(len), (\fBUNITY_UINT32\fP)(num_elements), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_ARRAY_TO_VAL\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_EQUAL_INT64\fP(expected,  actual,  line,  message)   \fBUNITY_TEST_FAIL\fP((\fBUNITY_LINE_TYPE\fP)(line), \fBUnityStrErr64\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_EQUAL_UINT64\fP(expected,  actual,  line,  message)   \fBUNITY_TEST_FAIL\fP((\fBUNITY_LINE_TYPE\fP)(line), \fBUnityStrErr64\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_EQUAL_HEX64\fP(expected,  actual,  line,  message)   \fBUNITY_TEST_FAIL\fP((\fBUNITY_LINE_TYPE\fP)(line), \fBUnityStrErr64\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_EQUAL_INT64_ARRAY\fP(expected,  actual,  num_elements,  line,  message)   \fBUNITY_TEST_FAIL\fP((\fBUNITY_LINE_TYPE\fP)(line), \fBUnityStrErr64\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_EQUAL_UINT64_ARRAY\fP(expected,  actual,  num_elements,  line,  message)   \fBUNITY_TEST_FAIL\fP((\fBUNITY_LINE_TYPE\fP)(line), \fBUnityStrErr64\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_EQUAL_HEX64_ARRAY\fP(expected,  actual,  num_elements,  line,  message)   \fBUNITY_TEST_FAIL\fP((\fBUNITY_LINE_TYPE\fP)(line), \fBUnityStrErr64\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_INT64_WITHIN\fP(delta,  expected,  actual,  line,  message)   \fBUNITY_TEST_FAIL\fP((\fBUNITY_LINE_TYPE\fP)(line), \fBUnityStrErr64\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_UINT64_WITHIN\fP(delta,  expected,  actual,  line,  message)   \fBUNITY_TEST_FAIL\fP((\fBUNITY_LINE_TYPE\fP)(line), \fBUnityStrErr64\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_HEX64_WITHIN\fP(delta,  expected,  actual,  line,  message)   \fBUNITY_TEST_FAIL\fP((\fBUNITY_LINE_TYPE\fP)(line), \fBUnityStrErr64\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_GREATER_THAN_INT64\fP(threshold,  actual,  line,  message)   \fBUNITY_TEST_FAIL\fP((\fBUNITY_LINE_TYPE\fP)(line), \fBUnityStrErr64\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_GREATER_THAN_UINT64\fP(threshold,  actual,  line,  message)   \fBUNITY_TEST_FAIL\fP((\fBUNITY_LINE_TYPE\fP)(line), \fBUnityStrErr64\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_GREATER_THAN_HEX64\fP(threshold,  actual,  line,  message)   \fBUNITY_TEST_FAIL\fP((\fBUNITY_LINE_TYPE\fP)(line), \fBUnityStrErr64\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_GREATER_OR_EQUAL_INT64\fP(threshold,  actual,  line,  message)   \fBUNITY_TEST_FAIL\fP((\fBUNITY_LINE_TYPE\fP)(line), \fBUnityStrErr64\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_GREATER_OR_EQUAL_UINT64\fP(threshold,  actual,  line,  message)   \fBUNITY_TEST_FAIL\fP((\fBUNITY_LINE_TYPE\fP)(line), \fBUnityStrErr64\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_GREATER_OR_EQUAL_HEX64\fP(threshold,  actual,  line,  message)   \fBUNITY_TEST_FAIL\fP((\fBUNITY_LINE_TYPE\fP)(line), \fBUnityStrErr64\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_SMALLER_THAN_INT64\fP(threshold,  actual,  line,  message)   \fBUNITY_TEST_FAIL\fP((\fBUNITY_LINE_TYPE\fP)(line), \fBUnityStrErr64\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_SMALLER_THAN_UINT64\fP(threshold,  actual,  line,  message)   \fBUNITY_TEST_FAIL\fP((\fBUNITY_LINE_TYPE\fP)(line), \fBUnityStrErr64\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_SMALLER_THAN_HEX64\fP(threshold,  actual,  line,  message)   \fBUNITY_TEST_FAIL\fP((\fBUNITY_LINE_TYPE\fP)(line), \fBUnityStrErr64\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_SMALLER_OR_EQUAL_INT64\fP(threshold,  actual,  line,  message)   \fBUNITY_TEST_FAIL\fP((\fBUNITY_LINE_TYPE\fP)(line), \fBUnityStrErr64\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_SMALLER_OR_EQUAL_UINT64\fP(threshold,  actual,  line,  message)   \fBUNITY_TEST_FAIL\fP((\fBUNITY_LINE_TYPE\fP)(line), \fBUnityStrErr64\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_SMALLER_OR_EQUAL_HEX64\fP(threshold,  actual,  line,  message)   \fBUNITY_TEST_FAIL\fP((\fBUNITY_LINE_TYPE\fP)(line), \fBUnityStrErr64\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_FLOAT_WITHIN\fP(delta,  expected,  actual,  line,  message)   \fBUnityAssertFloatsWithin\fP((\fBUNITY_FLOAT\fP)(delta), (\fBUNITY_FLOAT\fP)(expected), (\fBUNITY_FLOAT\fP)(actual), (message), (\fBUNITY_LINE_TYPE\fP)(line))"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_EQUAL_FLOAT\fP(expected,  actual,  line,  message)   \fBUNITY_TEST_ASSERT_FLOAT_WITHIN\fP((\fBUNITY_FLOAT\fP)(expected) * (\fBUNITY_FLOAT\fP)\fBUNITY_FLOAT_PRECISION\fP, (\fBUNITY_FLOAT\fP)(expected), (\fBUNITY_FLOAT\fP)(actual), (\fBUNITY_LINE_TYPE\fP)(line), (message))"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_EQUAL_FLOAT_ARRAY\fP(expected,  actual,  num_elements,  line,  message)   \fBUnityAssertEqualFloatArray\fP((\fBUNITY_FLOAT\fP*)(expected), (\fBUNITY_FLOAT\fP*)(actual), (\fBUNITY_UINT32\fP)(num_elements), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_ARRAY_TO_ARRAY\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_EACH_EQUAL_FLOAT\fP(expected,  actual,  num_elements,  line,  message)   \fBUnityAssertEqualFloatArray\fP(\fBUnityFloatToPtr\fP(expected), (\fBUNITY_FLOAT\fP*)(actual), (\fBUNITY_UINT32\fP)(num_elements), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_ARRAY_TO_VAL\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_FLOAT_IS_INF\fP(actual,  line,  message)   \fBUnityAssertFloatSpecial\fP((\fBUNITY_FLOAT\fP)(actual), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_FLOAT_IS_INF\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_FLOAT_IS_NEG_INF\fP(actual,  line,  message)   \fBUnityAssertFloatSpecial\fP((\fBUNITY_FLOAT\fP)(actual), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_FLOAT_IS_NEG_INF\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_FLOAT_IS_NAN\fP(actual,  line,  message)   \fBUnityAssertFloatSpecial\fP((\fBUNITY_FLOAT\fP)(actual), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_FLOAT_IS_NAN\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_FLOAT_IS_DETERMINATE\fP(actual,  line,  message)   \fBUnityAssertFloatSpecial\fP((\fBUNITY_FLOAT\fP)(actual), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_FLOAT_IS_DET\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_FLOAT_IS_NOT_INF\fP(actual,  line,  message)   \fBUnityAssertFloatSpecial\fP((\fBUNITY_FLOAT\fP)(actual), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_FLOAT_IS_NOT_INF\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_FLOAT_IS_NOT_NEG_INF\fP(actual,  line,  message)   \fBUnityAssertFloatSpecial\fP((\fBUNITY_FLOAT\fP)(actual), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_FLOAT_IS_NOT_NEG_INF\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_FLOAT_IS_NOT_NAN\fP(actual,  line,  message)   \fBUnityAssertFloatSpecial\fP((\fBUNITY_FLOAT\fP)(actual), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_FLOAT_IS_NOT_NAN\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_FLOAT_IS_NOT_DETERMINATE\fP(actual,  line,  message)   \fBUnityAssertFloatSpecial\fP((\fBUNITY_FLOAT\fP)(actual), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_FLOAT_IS_NOT_DET\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_DOUBLE_WITHIN\fP(delta,  expected,  actual,  line,  message)   \fBUNITY_TEST_FAIL\fP((\fBUNITY_LINE_TYPE\fP)(line), \fBUnityStrErrDouble\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_EQUAL_DOUBLE\fP(expected,  actual,  line,  message)   \fBUNITY_TEST_FAIL\fP((\fBUNITY_LINE_TYPE\fP)(line), \fBUnityStrErrDouble\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_EQUAL_DOUBLE_ARRAY\fP(expected,  actual,  num_elements,  line,  message)   \fBUNITY_TEST_FAIL\fP((\fBUNITY_LINE_TYPE\fP)(line), \fBUnityStrErrDouble\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_EACH_EQUAL_DOUBLE\fP(expected,  actual,  num_elements,  line,  message)   \fBUNITY_TEST_FAIL\fP((\fBUNITY_LINE_TYPE\fP)(line), \fBUnityStrErrDouble\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_DOUBLE_IS_INF\fP(actual,  line,  message)   \fBUNITY_TEST_FAIL\fP((\fBUNITY_LINE_TYPE\fP)(line), \fBUnityStrErrDouble\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_DOUBLE_IS_NEG_INF\fP(actual,  line,  message)   \fBUNITY_TEST_FAIL\fP((\fBUNITY_LINE_TYPE\fP)(line), \fBUnityStrErrDouble\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_DOUBLE_IS_NAN\fP(actual,  line,  message)   \fBUNITY_TEST_FAIL\fP((\fBUNITY_LINE_TYPE\fP)(line), \fBUnityStrErrDouble\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_DOUBLE_IS_DETERMINATE\fP(actual,  line,  message)   \fBUNITY_TEST_FAIL\fP((\fBUNITY_LINE_TYPE\fP)(line), \fBUnityStrErrDouble\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_DOUBLE_IS_NOT_INF\fP(actual,  line,  message)   \fBUNITY_TEST_FAIL\fP((\fBUNITY_LINE_TYPE\fP)(line), \fBUnityStrErrDouble\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_DOUBLE_IS_NOT_NEG_INF\fP(actual,  line,  message)   \fBUNITY_TEST_FAIL\fP((\fBUNITY_LINE_TYPE\fP)(line), \fBUnityStrErrDouble\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_DOUBLE_IS_NOT_NAN\fP(actual,  line,  message)   \fBUNITY_TEST_FAIL\fP((\fBUNITY_LINE_TYPE\fP)(line), \fBUnityStrErrDouble\fP)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_TEST_ASSERT_DOUBLE_IS_NOT_DETERMINATE\fP(actual,  line,  message)   \fBUNITY_TEST_FAIL\fP((\fBUNITY_LINE_TYPE\fP)(line), \fBUnityStrErrDouble\fP)"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef unsigned char \fBUNITY_UINT8\fP"
+.br
+.ti -1c
+.RI "typedef unsigned short \fBUNITY_UINT16\fP"
+.br
+.ti -1c
+.RI "typedef unsigned int \fBUNITY_UINT32\fP"
+.br
+.ti -1c
+.RI "typedef signed char \fBUNITY_INT8\fP"
+.br
+.ti -1c
+.RI "typedef signed short \fBUNITY_INT16\fP"
+.br
+.ti -1c
+.RI "typedef signed int \fBUNITY_INT32\fP"
+.br
+.ti -1c
+.RI "typedef \fBUNITY_UINT32\fP \fBUNITY_UINT\fP"
+.br
+.ti -1c
+.RI "typedef \fBUNITY_INT32\fP \fBUNITY_INT\fP"
+.br
+.ti -1c
+.RI "typedef \fBUNITY_FLOAT_TYPE\fP \fBUNITY_FLOAT\fP"
+.br
+.ti -1c
+.RI "typedef \fBUNITY_FLOAT\fP \fBUNITY_DOUBLE\fP"
+.br
+.ti -1c
+.RI "typedef void(* \fBUnityTestFunction\fP) (void)"
+.br
+.ti -1c
+.RI "typedef enum \fBUNITY_FLOAT_TRAIT\fP \fBUNITY_FLOAT_TRAIT_T\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBUNITY_DISPLAY_STYLE_T\fP { \fBUNITY_DISPLAY_STYLE_INT\fP = sizeof(int)+ UNITY_DISPLAY_RANGE_INT, \fBUNITY_DISPLAY_STYLE_INT8\fP = 1 + UNITY_DISPLAY_RANGE_INT, \fBUNITY_DISPLAY_STYLE_INT16\fP = 2 + UNITY_DISPLAY_RANGE_INT, \fBUNITY_DISPLAY_STYLE_INT32\fP = 4 + UNITY_DISPLAY_RANGE_INT, \fBUNITY_DISPLAY_STYLE_UINT\fP = sizeof(unsigned) + UNITY_DISPLAY_RANGE_UINT, \fBUNITY_DISPLAY_STYLE_UINT8\fP = 1 + UNITY_DISPLAY_RANGE_UINT, \fBUNITY_DISPLAY_STYLE_UINT16\fP = 2 + UNITY_DISPLAY_RANGE_UINT, \fBUNITY_DISPLAY_STYLE_UINT32\fP = 4 + UNITY_DISPLAY_RANGE_UINT, \fBUNITY_DISPLAY_STYLE_HEX8\fP = 1 + UNITY_DISPLAY_RANGE_HEX, \fBUNITY_DISPLAY_STYLE_HEX16\fP = 2 + UNITY_DISPLAY_RANGE_HEX, \fBUNITY_DISPLAY_STYLE_HEX32\fP = 4 + UNITY_DISPLAY_RANGE_HEX, \fBUNITY_DISPLAY_STYLE_UNKNOWN\fP }"
+.br
+.ti -1c
+.RI "enum \fBUNITY_COMPARISON_T\fP { \fBUNITY_EQUAL_TO\fP = 1, \fBUNITY_GREATER_THAN\fP = 2, \fBUNITY_GREATER_OR_EQUAL\fP = 2 + UNITY_EQUAL_TO, \fBUNITY_SMALLER_THAN\fP = 4, \fBUNITY_SMALLER_OR_EQUAL\fP = 4 + UNITY_EQUAL_TO }"
+.br
+.ti -1c
+.RI "enum \fBUNITY_FLOAT_TRAIT\fP { \fBUNITY_FLOAT_IS_NOT_INF\fP = 0, \fBUNITY_FLOAT_IS_INF\fP, \fBUNITY_FLOAT_IS_NOT_NEG_INF\fP, \fBUNITY_FLOAT_IS_NEG_INF\fP, \fBUNITY_FLOAT_IS_NOT_NAN\fP, \fBUNITY_FLOAT_IS_NAN\fP, \fBUNITY_FLOAT_IS_NOT_DET\fP, \fBUNITY_FLOAT_IS_DET\fP, \fBUNITY_FLOAT_INVALID_TRAIT\fP }"
+.br
+.ti -1c
+.RI "enum \fBUNITY_FLAGS_T\fP { \fBUNITY_ARRAY_TO_VAL\fP = 0, \fBUNITY_ARRAY_TO_ARRAY\fP }"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBUnityBegin\fP (const char *filename)"
+.br
+.ti -1c
+.RI "int \fBUnityEnd\fP (void)"
+.br
+.ti -1c
+.RI "void \fBUnityConcludeTest\fP (void)"
+.br
+.ti -1c
+.RI "void \fBUnityDefaultTestRun\fP (\fBUnityTestFunction\fP Func, const char *FuncName, const int FuncLineNum)"
+.br
+.ti -1c
+.RI "void \fBUnityPrint\fP (const char *string)"
+.br
+.ti -1c
+.RI "void \fBUnityPrintLen\fP (const char *string, const \fBUNITY_UINT32\fP length)"
+.br
+.ti -1c
+.RI "void \fBUnityPrintMask\fP (const \fBUNITY_UINT\fP mask, const \fBUNITY_UINT\fP number)"
+.br
+.ti -1c
+.RI "void \fBUnityPrintNumberByStyle\fP (const \fBUNITY_INT\fP number, const \fBUNITY_DISPLAY_STYLE_T\fP style)"
+.br
+.ti -1c
+.RI "void \fBUnityPrintNumber\fP (const \fBUNITY_INT\fP number_to_print)"
+.br
+.ti -1c
+.RI "void \fBUnityPrintNumberUnsigned\fP (const \fBUNITY_UINT\fP number)"
+.br
+.ti -1c
+.RI "void \fBUnityPrintNumberHex\fP (const \fBUNITY_UINT\fP number, const char nibbles_to_print)"
+.br
+.ti -1c
+.RI "void \fBUnityPrintFloat\fP (const \fBUNITY_DOUBLE\fP input_number)"
+.br
+.ti -1c
+.RI "void \fBUnityAssertEqualNumber\fP (const \fBUNITY_INT\fP expected, const \fBUNITY_INT\fP actual, const char *msg, const \fBUNITY_LINE_TYPE\fP lineNumber, const \fBUNITY_DISPLAY_STYLE_T\fP style)"
+.br
+.ti -1c
+.RI "void \fBUnityAssertGreaterOrLessOrEqualNumber\fP (const \fBUNITY_INT\fP threshold, const \fBUNITY_INT\fP actual, const \fBUNITY_COMPARISON_T\fP compare, const char *msg, const \fBUNITY_LINE_TYPE\fP lineNumber, const \fBUNITY_DISPLAY_STYLE_T\fP style)"
+.br
+.ti -1c
+.RI "void \fBUnityAssertEqualIntArray\fP (\fBUNITY_INTERNAL_PTR\fP expected, \fBUNITY_INTERNAL_PTR\fP actual, const \fBUNITY_UINT32\fP num_elements, const char *msg, const \fBUNITY_LINE_TYPE\fP lineNumber, const \fBUNITY_DISPLAY_STYLE_T\fP style, const \fBUNITY_FLAGS_T\fP flags)"
+.br
+.ti -1c
+.RI "void \fBUnityAssertBits\fP (const \fBUNITY_INT\fP mask, const \fBUNITY_INT\fP expected, const \fBUNITY_INT\fP actual, const char *msg, const \fBUNITY_LINE_TYPE\fP lineNumber)"
+.br
+.ti -1c
+.RI "void \fBUnityAssertEqualString\fP (const char *expected, const char *actual, const char *msg, const \fBUNITY_LINE_TYPE\fP lineNumber)"
+.br
+.ti -1c
+.RI "void \fBUnityAssertEqualStringLen\fP (const char *expected, const char *actual, const \fBUNITY_UINT32\fP length, const char *msg, const \fBUNITY_LINE_TYPE\fP lineNumber)"
+.br
+.ti -1c
+.RI "void \fBUnityAssertEqualStringArray\fP (\fBUNITY_INTERNAL_PTR\fP expected, const char **actual, const \fBUNITY_UINT32\fP num_elements, const char *msg, const \fBUNITY_LINE_TYPE\fP lineNumber, const \fBUNITY_FLAGS_T\fP flags)"
+.br
+.ti -1c
+.RI "void \fBUnityAssertEqualMemory\fP (\fBUNITY_INTERNAL_PTR\fP expected, \fBUNITY_INTERNAL_PTR\fP actual, const \fBUNITY_UINT32\fP length, const \fBUNITY_UINT32\fP num_elements, const char *msg, const \fBUNITY_LINE_TYPE\fP lineNumber, const \fBUNITY_FLAGS_T\fP flags)"
+.br
+.ti -1c
+.RI "void \fBUnityAssertNumbersWithin\fP (const \fBUNITY_UINT\fP delta, const \fBUNITY_INT\fP expected, const \fBUNITY_INT\fP actual, const char *msg, const \fBUNITY_LINE_TYPE\fP lineNumber, const \fBUNITY_DISPLAY_STYLE_T\fP style)"
+.br
+.ti -1c
+.RI "void \fBUnityFail\fP (const char *msg, const \fBUNITY_LINE_TYPE\fP line)"
+.br
+.ti -1c
+.RI "void \fBUnityIgnore\fP (const char *msg, const \fBUNITY_LINE_TYPE\fP line)"
+.br
+.ti -1c
+.RI "void \fBUnityAssertFloatsWithin\fP (const \fBUNITY_FLOAT\fP delta, const \fBUNITY_FLOAT\fP expected, const \fBUNITY_FLOAT\fP actual, const char *msg, const \fBUNITY_LINE_TYPE\fP lineNumber)"
+.br
+.ti -1c
+.RI "void \fBUnityAssertEqualFloatArray\fP (\fBUNITY_PTR_ATTRIBUTE\fP const \fBUNITY_FLOAT\fP *expected, \fBUNITY_PTR_ATTRIBUTE\fP const \fBUNITY_FLOAT\fP *actual, const \fBUNITY_UINT32\fP num_elements, const char *msg, const \fBUNITY_LINE_TYPE\fP lineNumber, const \fBUNITY_FLAGS_T\fP flags)"
+.br
+.ti -1c
+.RI "void \fBUnityAssertFloatSpecial\fP (const \fBUNITY_FLOAT\fP actual, const char *msg, const \fBUNITY_LINE_TYPE\fP lineNumber, const \fBUNITY_FLOAT_TRAIT_T\fP style)"
+.br
+.ti -1c
+.RI "\fBUNITY_INTERNAL_PTR\fP \fBUnityNumToPtr\fP (const \fBUNITY_INT\fP num, const \fBUNITY_UINT8\fP size)"
+.br
+.ti -1c
+.RI "\fBUNITY_INTERNAL_PTR\fP \fBUnityFloatToPtr\fP (const float num)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "struct \fBUNITY_STORAGE_T\fP \fBUnity\fP"
+.br
+.ti -1c
+.RI "const char \fBUnityStrErrFloat\fP []"
+.br
+.ti -1c
+.RI "const char \fBUnityStrErrDouble\fP []"
+.br
+.ti -1c
+.RI "const char \fBUnityStrErr64\fP []"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define isinf(n)   (\fBisnan\fP((n) \- (n)) && !\fBisnan\fP(n))"
+
+.PP
+Definition at line 197 of file unity_internals\&.h\&.
+.SS "#define isnan(n)   ((n != n) ? 1 : 0)"
+
+.PP
+Definition at line 203 of file unity_internals\&.h\&.
+.SS "#define RUN_TEST(func)   \fBUnityDefaultTestRun\fP(func, #func, __LINE__)"
+
+.PP
+Definition at line 667 of file unity_internals\&.h\&.
+.SS "#define TEST_ABORT()   longjmp(Unity\&.AbortFrame, 1)"
+
+.PP
+Definition at line 637 of file unity_internals\&.h\&.
+.SS "#define TEST_IS_IGNORED   (Unity\&.CurrentTestIgnored)"
+
+.PP
+Definition at line 672 of file unity_internals\&.h\&.
+.SS "#define TEST_LINE_NUM   (Unity\&.CurrentTestLineNumber)"
+
+.PP
+Definition at line 671 of file unity_internals\&.h\&.
+.SS "#define TEST_PROTECT()   (setjmp(Unity\&.AbortFrame) == 0)"
+
+.PP
+Definition at line 636 of file unity_internals\&.h\&.
+.SS "#define UNITY_BEGIN()   \fBUnityBegin\fP(__FILE__)"
+
+.PP
+Definition at line 679 of file unity_internals\&.h\&.
+.SS "#define UNITY_CLOCK_MS()   (\fBUNITY_COUNTER_TYPE\fP)((clock() * 1000) / CLOCKS_PER_SEC)"
+
+.PP
+Definition at line 644 of file unity_internals\&.h\&.
+.SS "#define UNITY_CLR_DETAILS()   { Unity\&.CurrentDetail1 = 0;   Unity\&.CurrentDetail2 = 0;  }"
+
+.PP
+Definition at line 470 of file unity_internals\&.h\&.
+.SS "#define UNITY_COUNTER_TYPE   \fBUNITY_UINT\fP"
+
+.PP
+Definition at line 339 of file unity_internals\&.h\&.
+.SS "#define UNITY_DETAIL1_NAME   'Function'"
+
+.PP
+Definition at line 475 of file unity_internals\&.h\&.
+.SS "#define UNITY_DETAIL2_NAME   'Argument'"
+
+.PP
+Definition at line 479 of file unity_internals\&.h\&.
+.SS "#define UNITY_DISPLAY_RANGE_HEX   (0x40)"
+
+.PP
+Definition at line 367 of file unity_internals\&.h\&.
+.SS "#define UNITY_DISPLAY_RANGE_INT   (0x10)"
+
+.PP
+Definition at line 365 of file unity_internals\&.h\&.
+.SS "#define UNITY_DISPLAY_RANGE_UINT   (0x20)"
+
+.PP
+Definition at line 366 of file unity_internals\&.h\&.
+.SS "#define UNITY_DISPLAY_STYLE_POINTER   \fBUNITY_DISPLAY_STYLE_HEX32\fP"
+
+.PP
+Definition at line 150 of file unity_internals\&.h\&.
+.SS "#define UNITY_DOUBLE_TYPE   double"
+
+.PP
+Definition at line 224 of file unity_internals\&.h\&.
+.SS "#define UNITY_END()   \fBUnityEnd\fP()"
+
+.PP
+Definition at line 683 of file unity_internals\&.h\&.
+.SS "#define UNITY_EXCLUDE_DOUBLE"
+
+.PP
+Definition at line 217 of file unity_internals\&.h\&.
+.SS "#define UNITY_EXEC_TIME_RESET()"
+
+.PP
+Definition at line 298 of file unity_internals\&.h\&.
+.SS "#define UNITY_EXEC_TIME_START()"
+
+.PP
+Definition at line 306 of file unity_internals\&.h\&.
+.SS "#define UNITY_EXEC_TIME_STOP()"
+
+.PP
+Definition at line 314 of file unity_internals\&.h\&.
+.SS "#define UNITY_FLOAT_PRECISION   (0\&.00001\fBf\fP)"
+
+.PP
+Definition at line 187 of file unity_internals\&.h\&.
+.SS "#define UNITY_FLOAT_TYPE   float"
+
+.PP
+Definition at line 190 of file unity_internals\&.h\&.
+.SS "#define UNITY_FLUSH_CALL()   \fBUNITY_OUTPUT_FLUSH\fP()"
+
+.PP
+Definition at line 277 of file unity_internals\&.h\&.
+.SS "#define UNITY_INT_WIDTH   (32)"
+
+.PP
+Definition at line 57 of file unity_internals\&.h\&.
+.SS "#define UNITY_INTERNAL_PTR   \fBUNITY_PTR_ATTRIBUTE\fP const void*"
+
+.PP
+Definition at line 166 of file unity_internals\&.h\&.
+.SS "#define UNITY_LINE_TYPE   \fBUNITY_UINT\fP"
+
+.PP
+Definition at line 335 of file unity_internals\&.h\&.
+.SS "#define UNITY_LONG_WIDTH   (32)"
+
+.PP
+Definition at line 72 of file unity_internals\&.h\&.
+.SS "#define UNITY_NEW_TEST(a)"
+\fBValue:\fP
+.PP
+.nf
+    Unity\&.CurrentTestName = (a); \
+    Unity\&.CurrentTestLineNumber = (UNITY_LINE_TYPE)(__LINE__); \
+    Unity\&.NumberOfTests++;
+.fi
+.PP
+Definition at line 673 of file unity_internals\&.h\&.
+.SS "#define UNITY_OUTPUT_CHAR(a)   (void)putchar(a)"
+
+.PP
+Definition at line 250 of file unity_internals\&.h\&.
+.SS "#define UNITY_OUTPUT_COMPLETE()"
+
+.PP
+Definition at line 289 of file unity_internals\&.h\&.
+.SS "#define UNITY_OUTPUT_FLUSH()"
+
+.PP
+Definition at line 265 of file unity_internals\&.h\&.
+.SS "#define UNITY_OUTPUT_START()"
+
+.PP
+Definition at line 285 of file unity_internals\&.h\&.
+.SS "#define UNITY_POINTER_WIDTH   \fBUNITY_LONG_WIDTH\fP"
+
+.PP
+Definition at line 87 of file unity_internals\&.h\&.
+.SS "#define UNITY_PRINT_EOL()   \fBUNITY_OUTPUT_CHAR\fP('\\n')"
+
+.PP
+Definition at line 281 of file unity_internals\&.h\&.
+.SS "#define UNITY_PRINT_EXEC_TIME()"
+
+.PP
+Definition at line 326 of file unity_internals\&.h\&.
+.SS "#define UNITY_PTR_ATTRIBUTE"
+
+.PP
+Definition at line 162 of file unity_internals\&.h\&.
+.SS "#define UNITY_PTR_TO_INT   \fBUNITY_INT32\fP"
+
+.PP
+Definition at line 149 of file unity_internals\&.h\&.
+.SS "#define UNITY_SET_DETAIL(d1)   { Unity\&.CurrentDetail1 = (d1);  Unity\&.CurrentDetail2 = 0;  }"
+
+.PP
+Definition at line 471 of file unity_internals\&.h\&.
+.SS "#define UNITY_SET_DETAILS(d1, d2)   { Unity\&.CurrentDetail1 = (d1);  Unity\&.CurrentDetail2 = (d2); }"
+
+.PP
+Definition at line 472 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT(condition, line, message)   if (condition) {} else {\fBUNITY_TEST_FAIL\fP((\fBUNITY_LINE_TYPE\fP)(line), (message));}"
+
+.PP
+Definition at line 706 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_BITS(mask, expected, actual, line, message)   \fBUnityAssertBits\fP((\fBUNITY_INT\fP)(mask), (\fBUNITY_INT\fP)(expected), (\fBUNITY_INT\fP)(actual), (message), (\fBUNITY_LINE_TYPE\fP)(line))"
+
+.PP
+Definition at line 721 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_DOUBLE_IS_DETERMINATE(actual, line, message)   \fBUNITY_TEST_FAIL\fP((\fBUNITY_LINE_TYPE\fP)(line), \fBUnityStrErrDouble\fP)"
+
+.PP
+Definition at line 903 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_DOUBLE_IS_INF(actual, line, message)   \fBUNITY_TEST_FAIL\fP((\fBUNITY_LINE_TYPE\fP)(line), \fBUnityStrErrDouble\fP)"
+
+.PP
+Definition at line 900 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_DOUBLE_IS_NAN(actual, line, message)   \fBUNITY_TEST_FAIL\fP((\fBUNITY_LINE_TYPE\fP)(line), \fBUnityStrErrDouble\fP)"
+
+.PP
+Definition at line 902 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_DOUBLE_IS_NEG_INF(actual, line, message)   \fBUNITY_TEST_FAIL\fP((\fBUNITY_LINE_TYPE\fP)(line), \fBUnityStrErrDouble\fP)"
+
+.PP
+Definition at line 901 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_DOUBLE_IS_NOT_DETERMINATE(actual, line, message)   \fBUNITY_TEST_FAIL\fP((\fBUNITY_LINE_TYPE\fP)(line), \fBUnityStrErrDouble\fP)"
+
+.PP
+Definition at line 907 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_DOUBLE_IS_NOT_INF(actual, line, message)   \fBUNITY_TEST_FAIL\fP((\fBUNITY_LINE_TYPE\fP)(line), \fBUnityStrErrDouble\fP)"
+
+.PP
+Definition at line 904 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_DOUBLE_IS_NOT_NAN(actual, line, message)   \fBUNITY_TEST_FAIL\fP((\fBUNITY_LINE_TYPE\fP)(line), \fBUnityStrErrDouble\fP)"
+
+.PP
+Definition at line 906 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_DOUBLE_IS_NOT_NEG_INF(actual, line, message)   \fBUNITY_TEST_FAIL\fP((\fBUNITY_LINE_TYPE\fP)(line), \fBUnityStrErrDouble\fP)"
+
+.PP
+Definition at line 905 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_DOUBLE_WITHIN(delta, expected, actual, line, message)   \fBUNITY_TEST_FAIL\fP((\fBUNITY_LINE_TYPE\fP)(line), \fBUnityStrErrDouble\fP)"
+
+.PP
+Definition at line 896 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_EACH_EQUAL_DOUBLE(expected, actual, num_elements, line, message)   \fBUNITY_TEST_FAIL\fP((\fBUNITY_LINE_TYPE\fP)(line), \fBUnityStrErrDouble\fP)"
+
+.PP
+Definition at line 899 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_EACH_EQUAL_FLOAT(expected, actual, num_elements, line, message)   \fBUnityAssertEqualFloatArray\fP(\fBUnityFloatToPtr\fP(expected), (\fBUNITY_FLOAT\fP*)(actual), (\fBUNITY_UINT32\fP)(num_elements), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_ARRAY_TO_VAL\fP)"
+
+.PP
+Definition at line 884 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_EACH_EQUAL_HEX16(expected, actual, num_elements, line, message)   \fBUnityAssertEqualIntArray\fP(\fBUnityNumToPtr\fP((\fBUNITY_INT\fP)(\fBUNITY_INT16\fP )(expected), 2),            (\fBUNITY_INTERNAL_PTR\fP)(actual), (\fBUNITY_UINT32\fP)(num_elements), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_HEX16\fP,   \fBUNITY_ARRAY_TO_VAL\fP)"
+
+.PP
+Definition at line 812 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_EACH_EQUAL_HEX32(expected, actual, num_elements, line, message)   \fBUnityAssertEqualIntArray\fP(\fBUnityNumToPtr\fP((\fBUNITY_INT\fP)(\fBUNITY_INT32\fP )(expected), 4),            (\fBUNITY_INTERNAL_PTR\fP)(actual), (\fBUNITY_UINT32\fP)(num_elements), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_HEX32\fP,   \fBUNITY_ARRAY_TO_VAL\fP)"
+
+.PP
+Definition at line 813 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_EACH_EQUAL_HEX8(expected, actual, num_elements, line, message)   \fBUnityAssertEqualIntArray\fP(\fBUnityNumToPtr\fP((\fBUNITY_INT\fP)(\fBUNITY_INT8\fP  )(expected), 1),            (\fBUNITY_INTERNAL_PTR\fP)(actual), (\fBUNITY_UINT32\fP)(num_elements), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_HEX8\fP,    \fBUNITY_ARRAY_TO_VAL\fP)"
+
+.PP
+Definition at line 811 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_EACH_EQUAL_INT(expected, actual, num_elements, line, message)   \fBUnityAssertEqualIntArray\fP(\fBUnityNumToPtr\fP((\fBUNITY_INT\fP)              (expected), sizeof(int)),  (\fBUNITY_INTERNAL_PTR\fP)(actual), (\fBUNITY_UINT32\fP)(num_elements), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_INT\fP,     \fBUNITY_ARRAY_TO_VAL\fP)"
+
+.PP
+Definition at line 803 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_EACH_EQUAL_INT16(expected, actual, num_elements, line, message)   \fBUnityAssertEqualIntArray\fP(\fBUnityNumToPtr\fP((\fBUNITY_INT\fP)(\fBUNITY_INT16\fP )(expected), 2),            (\fBUNITY_INTERNAL_PTR\fP)(actual), (\fBUNITY_UINT32\fP)(num_elements), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_INT16\fP,   \fBUNITY_ARRAY_TO_VAL\fP)"
+
+.PP
+Definition at line 805 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_EACH_EQUAL_INT32(expected, actual, num_elements, line, message)   \fBUnityAssertEqualIntArray\fP(\fBUnityNumToPtr\fP((\fBUNITY_INT\fP)(\fBUNITY_INT32\fP )(expected), 4),            (\fBUNITY_INTERNAL_PTR\fP)(actual), (\fBUNITY_UINT32\fP)(num_elements), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_INT32\fP,   \fBUNITY_ARRAY_TO_VAL\fP)"
+
+.PP
+Definition at line 806 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_EACH_EQUAL_INT8(expected, actual, num_elements, line, message)   \fBUnityAssertEqualIntArray\fP(\fBUnityNumToPtr\fP((\fBUNITY_INT\fP)(\fBUNITY_INT8\fP  )(expected), 1),            (\fBUNITY_INTERNAL_PTR\fP)(actual), (\fBUNITY_UINT32\fP)(num_elements), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_INT8\fP,    \fBUNITY_ARRAY_TO_VAL\fP)"
+
+.PP
+Definition at line 804 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_EACH_EQUAL_MEMORY(expected, actual, len, num_elements, line, message)   \fBUnityAssertEqualMemory\fP((\fBUNITY_INTERNAL_PTR\fP)(expected), (\fBUNITY_INTERNAL_PTR\fP)(actual), (\fBUNITY_UINT32\fP)(len), (\fBUNITY_UINT32\fP)(num_elements), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_ARRAY_TO_VAL\fP)"
+
+.PP
+Definition at line 816 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_EACH_EQUAL_PTR(expected, actual, num_elements, line, message)   \fBUnityAssertEqualIntArray\fP(\fBUnityNumToPtr\fP((\fBUNITY_PTR_TO_INT\fP)       (expected), sizeof(int*)), (\fBUNITY_INTERNAL_PTR\fP)(actual), (\fBUNITY_UINT32\fP)(num_elements), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_POINTER\fP, \fBUNITY_ARRAY_TO_VAL\fP)"
+
+.PP
+Definition at line 814 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_EACH_EQUAL_STRING(expected, actual, num_elements, line, message)   \fBUnityAssertEqualStringArray\fP((\fBUNITY_INTERNAL_PTR\fP)(expected), (const char**)(actual), (\fBUNITY_UINT32\fP)(num_elements), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_ARRAY_TO_VAL\fP)"
+
+.PP
+Definition at line 815 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_EACH_EQUAL_UINT(expected, actual, num_elements, line, message)   \fBUnityAssertEqualIntArray\fP(\fBUnityNumToPtr\fP((\fBUNITY_INT\fP)              (expected), sizeof(unsigned int)), (\fBUNITY_INTERNAL_PTR\fP)(actual), (\fBUNITY_UINT32\fP)(num_elements), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_UINT\fP,    \fBUNITY_ARRAY_TO_VAL\fP)"
+
+.PP
+Definition at line 807 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_EACH_EQUAL_UINT16(expected, actual, num_elements, line, message)   \fBUnityAssertEqualIntArray\fP(\fBUnityNumToPtr\fP((\fBUNITY_INT\fP)(\fBUNITY_UINT16\fP)(expected), 2),            (\fBUNITY_INTERNAL_PTR\fP)(actual), (\fBUNITY_UINT32\fP)(num_elements), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_UINT16\fP,  \fBUNITY_ARRAY_TO_VAL\fP)"
+
+.PP
+Definition at line 809 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_EACH_EQUAL_UINT32(expected, actual, num_elements, line, message)   \fBUnityAssertEqualIntArray\fP(\fBUnityNumToPtr\fP((\fBUNITY_INT\fP)(\fBUNITY_UINT32\fP)(expected), 4),            (\fBUNITY_INTERNAL_PTR\fP)(actual), (\fBUNITY_UINT32\fP)(num_elements), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_UINT32\fP,  \fBUNITY_ARRAY_TO_VAL\fP)"
+
+.PP
+Definition at line 810 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_EACH_EQUAL_UINT8(expected, actual, num_elements, line, message)   \fBUnityAssertEqualIntArray\fP(\fBUnityNumToPtr\fP((\fBUNITY_INT\fP)(\fBUNITY_UINT8\fP )(expected), 1),            (\fBUNITY_INTERNAL_PTR\fP)(actual), (\fBUNITY_UINT32\fP)(num_elements), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_UINT8\fP,   \fBUNITY_ARRAY_TO_VAL\fP)"
+
+.PP
+Definition at line 808 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_EQUAL_DOUBLE(expected, actual, line, message)   \fBUNITY_TEST_FAIL\fP((\fBUNITY_LINE_TYPE\fP)(line), \fBUnityStrErrDouble\fP)"
+
+.PP
+Definition at line 897 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_EQUAL_DOUBLE_ARRAY(expected, actual, num_elements, line, message)   \fBUNITY_TEST_FAIL\fP((\fBUNITY_LINE_TYPE\fP)(line), \fBUnityStrErrDouble\fP)"
+
+.PP
+Definition at line 898 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_EQUAL_FLOAT(expected, actual, line, message)   \fBUNITY_TEST_ASSERT_FLOAT_WITHIN\fP((\fBUNITY_FLOAT\fP)(expected) * (\fBUNITY_FLOAT\fP)\fBUNITY_FLOAT_PRECISION\fP, (\fBUNITY_FLOAT\fP)(expected), (\fBUNITY_FLOAT\fP)(actual), (\fBUNITY_LINE_TYPE\fP)(line), (message))"
+
+.PP
+Definition at line 882 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_EQUAL_FLOAT_ARRAY(expected, actual, num_elements, line, message)   \fBUnityAssertEqualFloatArray\fP((\fBUNITY_FLOAT\fP*)(expected), (\fBUNITY_FLOAT\fP*)(actual), (\fBUNITY_UINT32\fP)(num_elements), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_ARRAY_TO_ARRAY\fP)"
+
+.PP
+Definition at line 883 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_EQUAL_HEX16(expected, actual, line, message)   \fBUnityAssertEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_INT16\fP)(expected), (\fBUNITY_INT\fP)(\fBUNITY_INT16\fP)(actual), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_HEX16\fP)"
+
+.PP
+Definition at line 719 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_EQUAL_HEX16_ARRAY(expected, actual, num_elements, line, message)   \fBUnityAssertEqualIntArray\fP((\fBUNITY_INTERNAL_PTR\fP)(expected), (\fBUNITY_INTERNAL_PTR\fP)(actual), (\fBUNITY_UINT32\fP)(num_elements), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_HEX16\fP,   \fBUNITY_ARRAY_TO_ARRAY\fP)"
+
+.PP
+Definition at line 797 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_EQUAL_HEX32(expected, actual, line, message)   \fBUnityAssertEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_INT32\fP)(expected), (\fBUNITY_INT\fP)(\fBUNITY_INT32\fP)(actual), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_HEX32\fP)"
+
+.PP
+Definition at line 720 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_EQUAL_HEX32_ARRAY(expected, actual, num_elements, line, message)   \fBUnityAssertEqualIntArray\fP((\fBUNITY_INTERNAL_PTR\fP)(expected), (\fBUNITY_INTERNAL_PTR\fP)(actual), (\fBUNITY_UINT32\fP)(num_elements), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_HEX32\fP,   \fBUNITY_ARRAY_TO_ARRAY\fP)"
+
+.PP
+Definition at line 798 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_EQUAL_HEX64(expected, actual, line, message)   \fBUNITY_TEST_FAIL\fP((\fBUNITY_LINE_TYPE\fP)(line), \fBUnityStrErr64\fP)"
+
+.PP
+Definition at line 846 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_EQUAL_HEX64_ARRAY(expected, actual, num_elements, line, message)   \fBUNITY_TEST_FAIL\fP((\fBUNITY_LINE_TYPE\fP)(line), \fBUnityStrErr64\fP)"
+
+.PP
+Definition at line 849 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_EQUAL_HEX8(expected, actual, line, message)   \fBUnityAssertEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_INT8\fP )(expected), (\fBUNITY_INT\fP)(\fBUNITY_INT8\fP )(actual), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_HEX8\fP)"
+
+.PP
+Definition at line 718 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_EQUAL_HEX8_ARRAY(expected, actual, num_elements, line, message)   \fBUnityAssertEqualIntArray\fP((\fBUNITY_INTERNAL_PTR\fP)(expected), (\fBUNITY_INTERNAL_PTR\fP)(actual), (\fBUNITY_UINT32\fP)(num_elements), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_HEX8\fP,    \fBUNITY_ARRAY_TO_ARRAY\fP)"
+
+.PP
+Definition at line 796 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_EQUAL_INT(expected, actual, line, message)   \fBUnityAssertEqualNumber\fP((\fBUNITY_INT\fP)(expected), (\fBUNITY_INT\fP)(actual), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_INT\fP)"
+
+.PP
+Definition at line 710 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_EQUAL_INT16(expected, actual, line, message)   \fBUnityAssertEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_INT16\fP)(expected), (\fBUNITY_INT\fP)(\fBUNITY_INT16\fP)(actual), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_INT16\fP)"
+
+.PP
+Definition at line 712 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_EQUAL_INT16_ARRAY(expected, actual, num_elements, line, message)   \fBUnityAssertEqualIntArray\fP((\fBUNITY_INTERNAL_PTR\fP)(expected), (\fBUNITY_INTERNAL_PTR\fP)(actual), (\fBUNITY_UINT32\fP)(num_elements), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_INT16\fP,   \fBUNITY_ARRAY_TO_ARRAY\fP)"
+
+.PP
+Definition at line 790 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_EQUAL_INT32(expected, actual, line, message)   \fBUnityAssertEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_INT32\fP)(expected), (\fBUNITY_INT\fP)(\fBUNITY_INT32\fP)(actual), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_INT32\fP)"
+
+.PP
+Definition at line 713 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_EQUAL_INT32_ARRAY(expected, actual, num_elements, line, message)   \fBUnityAssertEqualIntArray\fP((\fBUNITY_INTERNAL_PTR\fP)(expected), (\fBUNITY_INTERNAL_PTR\fP)(actual), (\fBUNITY_UINT32\fP)(num_elements), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_INT32\fP,   \fBUNITY_ARRAY_TO_ARRAY\fP)"
+
+.PP
+Definition at line 791 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_EQUAL_INT64(expected, actual, line, message)   \fBUNITY_TEST_FAIL\fP((\fBUNITY_LINE_TYPE\fP)(line), \fBUnityStrErr64\fP)"
+
+.PP
+Definition at line 844 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_EQUAL_INT64_ARRAY(expected, actual, num_elements, line, message)   \fBUNITY_TEST_FAIL\fP((\fBUNITY_LINE_TYPE\fP)(line), \fBUnityStrErr64\fP)"
+
+.PP
+Definition at line 847 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_EQUAL_INT8(expected, actual, line, message)   \fBUnityAssertEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_INT8\fP )(expected), (\fBUNITY_INT\fP)(\fBUNITY_INT8\fP )(actual), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_INT8\fP)"
+
+.PP
+Definition at line 711 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_EQUAL_INT8_ARRAY(expected, actual, num_elements, line, message)   \fBUnityAssertEqualIntArray\fP((\fBUNITY_INTERNAL_PTR\fP)(expected), (\fBUNITY_INTERNAL_PTR\fP)(actual), (\fBUNITY_UINT32\fP)(num_elements), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_INT8\fP,    \fBUNITY_ARRAY_TO_ARRAY\fP)"
+
+.PP
+Definition at line 789 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_EQUAL_INT_ARRAY(expected, actual, num_elements, line, message)   \fBUnityAssertEqualIntArray\fP((\fBUNITY_INTERNAL_PTR\fP)(expected), (\fBUNITY_INTERNAL_PTR\fP)(actual), (\fBUNITY_UINT32\fP)(num_elements), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_INT\fP,     \fBUNITY_ARRAY_TO_ARRAY\fP)"
+
+.PP
+Definition at line 788 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_EQUAL_MEMORY(expected, actual, len, line, message)   \fBUnityAssertEqualMemory\fP((\fBUNITY_INTERNAL_PTR\fP)(expected), (\fBUNITY_INTERNAL_PTR\fP)(actual), (\fBUNITY_UINT32\fP)(len), 1, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_ARRAY_TO_ARRAY\fP)"
+
+.PP
+Definition at line 786 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_EQUAL_MEMORY_ARRAY(expected, actual, len, num_elements, line, message)   \fBUnityAssertEqualMemory\fP((\fBUNITY_INTERNAL_PTR\fP)(expected), (\fBUNITY_INTERNAL_PTR\fP)(actual), (\fBUNITY_UINT32\fP)(len), (\fBUNITY_UINT32\fP)(num_elements), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_ARRAY_TO_ARRAY\fP)"
+
+.PP
+Definition at line 801 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_EQUAL_PTR(expected, actual, line, message)   \fBUnityAssertEqualNumber\fP((\fBUNITY_PTR_TO_INT\fP)(expected), (\fBUNITY_PTR_TO_INT\fP)(actual), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_POINTER\fP)"
+
+.PP
+Definition at line 783 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_EQUAL_PTR_ARRAY(expected, actual, num_elements, line, message)   \fBUnityAssertEqualIntArray\fP((\fBUNITY_INTERNAL_PTR\fP)(expected), (\fBUNITY_INTERNAL_PTR\fP)(actual), (\fBUNITY_UINT32\fP)(num_elements), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_POINTER\fP, \fBUNITY_ARRAY_TO_ARRAY\fP)"
+
+.PP
+Definition at line 799 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_EQUAL_STRING(expected, actual, line, message)   \fBUnityAssertEqualString\fP((const char*)(expected), (const char*)(actual), (message), (\fBUNITY_LINE_TYPE\fP)(line))"
+
+.PP
+Definition at line 784 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_EQUAL_STRING_ARRAY(expected, actual, num_elements, line, message)   \fBUnityAssertEqualStringArray\fP((\fBUNITY_INTERNAL_PTR\fP)(expected), (const char**)(actual), (\fBUNITY_UINT32\fP)(num_elements), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_ARRAY_TO_ARRAY\fP)"
+
+.PP
+Definition at line 800 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_EQUAL_STRING_LEN(expected, actual, len, line, message)   \fBUnityAssertEqualStringLen\fP((const char*)(expected), (const char*)(actual), (\fBUNITY_UINT32\fP)(len), (message), (\fBUNITY_LINE_TYPE\fP)(line))"
+
+.PP
+Definition at line 785 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_EQUAL_UINT(expected, actual, line, message)   \fBUnityAssertEqualNumber\fP((\fBUNITY_INT\fP)(expected), (\fBUNITY_INT\fP)(actual), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_UINT\fP)"
+
+.PP
+Definition at line 714 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_EQUAL_UINT16(expected, actual, line, message)   \fBUnityAssertEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_UINT16\fP)(expected), (\fBUNITY_INT\fP)(\fBUNITY_UINT16\fP)(actual), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_UINT16\fP)"
+
+.PP
+Definition at line 716 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_EQUAL_UINT16_ARRAY(expected, actual, num_elements, line, message)   \fBUnityAssertEqualIntArray\fP((\fBUNITY_INTERNAL_PTR\fP)(expected), (\fBUNITY_INTERNAL_PTR\fP)(actual), (\fBUNITY_UINT32\fP)(num_elements), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_UINT16\fP,  \fBUNITY_ARRAY_TO_ARRAY\fP)"
+
+.PP
+Definition at line 794 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_EQUAL_UINT32(expected, actual, line, message)   \fBUnityAssertEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_UINT32\fP)(expected), (\fBUNITY_INT\fP)(\fBUNITY_UINT32\fP)(actual), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_UINT32\fP)"
+
+.PP
+Definition at line 717 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_EQUAL_UINT32_ARRAY(expected, actual, num_elements, line, message)   \fBUnityAssertEqualIntArray\fP((\fBUNITY_INTERNAL_PTR\fP)(expected), (\fBUNITY_INTERNAL_PTR\fP)(actual), (\fBUNITY_UINT32\fP)(num_elements), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_UINT32\fP,  \fBUNITY_ARRAY_TO_ARRAY\fP)"
+
+.PP
+Definition at line 795 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_EQUAL_UINT64(expected, actual, line, message)   \fBUNITY_TEST_FAIL\fP((\fBUNITY_LINE_TYPE\fP)(line), \fBUnityStrErr64\fP)"
+
+.PP
+Definition at line 845 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_EQUAL_UINT64_ARRAY(expected, actual, num_elements, line, message)   \fBUNITY_TEST_FAIL\fP((\fBUNITY_LINE_TYPE\fP)(line), \fBUnityStrErr64\fP)"
+
+.PP
+Definition at line 848 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_EQUAL_UINT8(expected, actual, line, message)   \fBUnityAssertEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_UINT8\fP )(expected), (\fBUNITY_INT\fP)(\fBUNITY_UINT8\fP )(actual), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_UINT8\fP)"
+
+.PP
+Definition at line 715 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_EQUAL_UINT8_ARRAY(expected, actual, num_elements, line, message)   \fBUnityAssertEqualIntArray\fP((\fBUNITY_INTERNAL_PTR\fP)(expected), (\fBUNITY_INTERNAL_PTR\fP)(actual), (\fBUNITY_UINT32\fP)(num_elements), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_UINT8\fP,   \fBUNITY_ARRAY_TO_ARRAY\fP)"
+
+.PP
+Definition at line 793 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_EQUAL_UINT_ARRAY(expected, actual, num_elements, line, message)   \fBUnityAssertEqualIntArray\fP((\fBUNITY_INTERNAL_PTR\fP)(expected), (\fBUNITY_INTERNAL_PTR\fP)(actual), (\fBUNITY_UINT32\fP)(num_elements), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_UINT\fP,    \fBUNITY_ARRAY_TO_ARRAY\fP)"
+
+.PP
+Definition at line 792 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_FLOAT_IS_DETERMINATE(actual, line, message)   \fBUnityAssertFloatSpecial\fP((\fBUNITY_FLOAT\fP)(actual), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_FLOAT_IS_DET\fP)"
+
+.PP
+Definition at line 888 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_FLOAT_IS_INF(actual, line, message)   \fBUnityAssertFloatSpecial\fP((\fBUNITY_FLOAT\fP)(actual), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_FLOAT_IS_INF\fP)"
+
+.PP
+Definition at line 885 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_FLOAT_IS_NAN(actual, line, message)   \fBUnityAssertFloatSpecial\fP((\fBUNITY_FLOAT\fP)(actual), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_FLOAT_IS_NAN\fP)"
+
+.PP
+Definition at line 887 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_FLOAT_IS_NEG_INF(actual, line, message)   \fBUnityAssertFloatSpecial\fP((\fBUNITY_FLOAT\fP)(actual), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_FLOAT_IS_NEG_INF\fP)"
+
+.PP
+Definition at line 886 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_FLOAT_IS_NOT_DETERMINATE(actual, line, message)   \fBUnityAssertFloatSpecial\fP((\fBUNITY_FLOAT\fP)(actual), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_FLOAT_IS_NOT_DET\fP)"
+
+.PP
+Definition at line 892 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_FLOAT_IS_NOT_INF(actual, line, message)   \fBUnityAssertFloatSpecial\fP((\fBUNITY_FLOAT\fP)(actual), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_FLOAT_IS_NOT_INF\fP)"
+
+.PP
+Definition at line 889 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_FLOAT_IS_NOT_NAN(actual, line, message)   \fBUnityAssertFloatSpecial\fP((\fBUNITY_FLOAT\fP)(actual), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_FLOAT_IS_NOT_NAN\fP)"
+
+.PP
+Definition at line 891 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_FLOAT_IS_NOT_NEG_INF(actual, line, message)   \fBUnityAssertFloatSpecial\fP((\fBUNITY_FLOAT\fP)(actual), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_FLOAT_IS_NOT_NEG_INF\fP)"
+
+.PP
+Definition at line 890 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_FLOAT_WITHIN(delta, expected, actual, line, message)   \fBUnityAssertFloatsWithin\fP((\fBUNITY_FLOAT\fP)(delta), (\fBUNITY_FLOAT\fP)(expected), (\fBUNITY_FLOAT\fP)(actual), (message), (\fBUNITY_LINE_TYPE\fP)(line))"
+
+.PP
+Definition at line 881 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_GREATER_OR_EQUAL_HEX16(threshold, actual, line, message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_UINT16\fP)(threshold), (\fBUNITY_INT\fP)(\fBUNITY_UINT16\fP)(actual), \fBUNITY_GREATER_OR_EQUAL\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_HEX16\fP)"
+
+.PP
+Definition at line 756 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_GREATER_OR_EQUAL_HEX32(threshold, actual, line, message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_UINT32\fP)(threshold), (\fBUNITY_INT\fP)(\fBUNITY_UINT32\fP)(actual), \fBUNITY_GREATER_OR_EQUAL\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_HEX32\fP)"
+
+.PP
+Definition at line 757 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_GREATER_OR_EQUAL_HEX64(threshold, actual, line, message)   \fBUNITY_TEST_FAIL\fP((\fBUNITY_LINE_TYPE\fP)(line), \fBUnityStrErr64\fP)"
+
+.PP
+Definition at line 858 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_GREATER_OR_EQUAL_HEX8(threshold, actual, line, message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_UINT8\fP )(threshold), (\fBUNITY_INT\fP)(\fBUNITY_UINT8\fP )(actual), \fBUNITY_GREATER_OR_EQUAL\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_HEX8\fP)"
+
+.PP
+Definition at line 755 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_GREATER_OR_EQUAL_INT(threshold, actual, line, message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(threshold),              (\fBUNITY_INT\fP)(actual),              \fBUNITY_GREATER_OR_EQUAL\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_INT\fP)"
+
+.PP
+Definition at line 747 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_GREATER_OR_EQUAL_INT16(threshold, actual, line, message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_INT16\fP)(threshold), (\fBUNITY_INT\fP)(\fBUNITY_INT16\fP)(actual), \fBUNITY_GREATER_OR_EQUAL\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_INT16\fP)"
+
+.PP
+Definition at line 749 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_GREATER_OR_EQUAL_INT32(threshold, actual, line, message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_INT32\fP)(threshold), (\fBUNITY_INT\fP)(\fBUNITY_INT32\fP)(actual), \fBUNITY_GREATER_OR_EQUAL\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_INT32\fP)"
+
+.PP
+Definition at line 750 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_GREATER_OR_EQUAL_INT64(threshold, actual, line, message)   \fBUNITY_TEST_FAIL\fP((\fBUNITY_LINE_TYPE\fP)(line), \fBUnityStrErr64\fP)"
+
+.PP
+Definition at line 856 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_GREATER_OR_EQUAL_INT8(threshold, actual, line, message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_INT8\fP )(threshold), (\fBUNITY_INT\fP)(\fBUNITY_INT8\fP )(actual), \fBUNITY_GREATER_OR_EQUAL\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_INT8\fP)"
+
+.PP
+Definition at line 748 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_GREATER_OR_EQUAL_UINT(threshold, actual, line, message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(threshold),              (\fBUNITY_INT\fP)(actual),              \fBUNITY_GREATER_OR_EQUAL\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_UINT\fP)"
+
+.PP
+Definition at line 751 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_GREATER_OR_EQUAL_UINT16(threshold, actual, line, message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_UINT16\fP)(threshold), (\fBUNITY_INT\fP)(\fBUNITY_UINT16\fP)(actual), \fBUNITY_GREATER_OR_EQUAL\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_UINT16\fP)"
+
+.PP
+Definition at line 753 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_GREATER_OR_EQUAL_UINT32(threshold, actual, line, message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_UINT32\fP)(threshold), (\fBUNITY_INT\fP)(\fBUNITY_UINT32\fP)(actual), \fBUNITY_GREATER_OR_EQUAL\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_UINT32\fP)"
+
+.PP
+Definition at line 754 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_GREATER_OR_EQUAL_UINT64(threshold, actual, line, message)   \fBUNITY_TEST_FAIL\fP((\fBUNITY_LINE_TYPE\fP)(line), \fBUnityStrErr64\fP)"
+
+.PP
+Definition at line 857 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_GREATER_OR_EQUAL_UINT8(threshold, actual, line, message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_UINT8\fP )(threshold), (\fBUNITY_INT\fP)(\fBUNITY_UINT8\fP )(actual), \fBUNITY_GREATER_OR_EQUAL\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_UINT8\fP)"
+
+.PP
+Definition at line 752 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_GREATER_THAN_HEX16(threshold, actual, line, message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_UINT16\fP)(threshold), (\fBUNITY_INT\fP)(\fBUNITY_UINT16\fP)(actual), \fBUNITY_GREATER_THAN\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_HEX16\fP)"
+
+.PP
+Definition at line 732 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_GREATER_THAN_HEX32(threshold, actual, line, message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_UINT32\fP)(threshold), (\fBUNITY_INT\fP)(\fBUNITY_UINT32\fP)(actual), \fBUNITY_GREATER_THAN\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_HEX32\fP)"
+
+.PP
+Definition at line 733 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_GREATER_THAN_HEX64(threshold, actual, line, message)   \fBUNITY_TEST_FAIL\fP((\fBUNITY_LINE_TYPE\fP)(line), \fBUnityStrErr64\fP)"
+
+.PP
+Definition at line 855 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_GREATER_THAN_HEX8(threshold, actual, line, message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_UINT8\fP )(threshold), (\fBUNITY_INT\fP)(\fBUNITY_UINT8\fP )(actual), \fBUNITY_GREATER_THAN\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_HEX8\fP)"
+
+.PP
+Definition at line 731 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_GREATER_THAN_INT(threshold, actual, line, message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(threshold),              (\fBUNITY_INT\fP)(actual),              \fBUNITY_GREATER_THAN\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_INT\fP)"
+
+.PP
+Definition at line 723 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_GREATER_THAN_INT16(threshold, actual, line, message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_INT16\fP)(threshold), (\fBUNITY_INT\fP)(\fBUNITY_INT16\fP)(actual), \fBUNITY_GREATER_THAN\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_INT16\fP)"
+
+.PP
+Definition at line 725 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_GREATER_THAN_INT32(threshold, actual, line, message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_INT32\fP)(threshold), (\fBUNITY_INT\fP)(\fBUNITY_INT32\fP)(actual), \fBUNITY_GREATER_THAN\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_INT32\fP)"
+
+.PP
+Definition at line 726 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_GREATER_THAN_INT64(threshold, actual, line, message)   \fBUNITY_TEST_FAIL\fP((\fBUNITY_LINE_TYPE\fP)(line), \fBUnityStrErr64\fP)"
+
+.PP
+Definition at line 853 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_GREATER_THAN_INT8(threshold, actual, line, message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_INT8\fP )(threshold), (\fBUNITY_INT\fP)(\fBUNITY_INT8\fP )(actual), \fBUNITY_GREATER_THAN\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_INT8\fP)"
+
+.PP
+Definition at line 724 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_GREATER_THAN_UINT(threshold, actual, line, message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(threshold),              (\fBUNITY_INT\fP)(actual),              \fBUNITY_GREATER_THAN\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_UINT\fP)"
+
+.PP
+Definition at line 727 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_GREATER_THAN_UINT16(threshold, actual, line, message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_UINT16\fP)(threshold), (\fBUNITY_INT\fP)(\fBUNITY_UINT16\fP)(actual), \fBUNITY_GREATER_THAN\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_UINT16\fP)"
+
+.PP
+Definition at line 729 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_GREATER_THAN_UINT32(threshold, actual, line, message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_UINT32\fP)(threshold), (\fBUNITY_INT\fP)(\fBUNITY_UINT32\fP)(actual), \fBUNITY_GREATER_THAN\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_UINT32\fP)"
+
+.PP
+Definition at line 730 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_GREATER_THAN_UINT64(threshold, actual, line, message)   \fBUNITY_TEST_FAIL\fP((\fBUNITY_LINE_TYPE\fP)(line), \fBUnityStrErr64\fP)"
+
+.PP
+Definition at line 854 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_GREATER_THAN_UINT8(threshold, actual, line, message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_UINT8\fP )(threshold), (\fBUNITY_INT\fP)(\fBUNITY_UINT8\fP )(actual), \fBUNITY_GREATER_THAN\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_UINT8\fP)"
+
+.PP
+Definition at line 728 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_HEX16_WITHIN(delta, expected, actual, line, message)   \fBUnityAssertNumbersWithin\fP((\fBUNITY_UINT16\fP)(delta), (\fBUNITY_INT\fP)(\fBUNITY_UINT\fP)(\fBUNITY_UINT16\fP)(expected), (\fBUNITY_INT\fP)(\fBUNITY_UINT\fP)(\fBUNITY_UINT16\fP)(actual), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_HEX16\fP)"
+
+.PP
+Definition at line 780 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_HEX32_WITHIN(delta, expected, actual, line, message)   \fBUnityAssertNumbersWithin\fP((\fBUNITY_UINT32\fP)(delta), (\fBUNITY_INT\fP)(\fBUNITY_UINT\fP)(\fBUNITY_UINT32\fP)(expected), (\fBUNITY_INT\fP)(\fBUNITY_UINT\fP)(\fBUNITY_UINT32\fP)(actual), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_HEX32\fP)"
+
+.PP
+Definition at line 781 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_HEX64_WITHIN(delta, expected, actual, line, message)   \fBUNITY_TEST_FAIL\fP((\fBUNITY_LINE_TYPE\fP)(line), \fBUnityStrErr64\fP)"
+
+.PP
+Definition at line 852 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_HEX8_WITHIN(delta, expected, actual, line, message)   \fBUnityAssertNumbersWithin\fP((\fBUNITY_UINT8\fP )(delta), (\fBUNITY_INT\fP)(\fBUNITY_UINT\fP)(\fBUNITY_UINT8\fP )(expected), (\fBUNITY_INT\fP)(\fBUNITY_UINT\fP)(\fBUNITY_UINT8\fP )(actual), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_HEX8\fP)"
+
+.PP
+Definition at line 779 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_INT16_WITHIN(delta, expected, actual, line, message)   \fBUnityAssertNumbersWithin\fP((\fBUNITY_UINT16\fP)(delta), (\fBUNITY_INT\fP)(\fBUNITY_INT16\fP)(expected), (\fBUNITY_INT\fP)(\fBUNITY_INT16\fP)(actual), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_INT16\fP)"
+
+.PP
+Definition at line 773 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_INT32_WITHIN(delta, expected, actual, line, message)   \fBUnityAssertNumbersWithin\fP((\fBUNITY_UINT32\fP)(delta), (\fBUNITY_INT\fP)(\fBUNITY_INT32\fP)(expected), (\fBUNITY_INT\fP)(\fBUNITY_INT32\fP)(actual), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_INT32\fP)"
+
+.PP
+Definition at line 774 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_INT64_WITHIN(delta, expected, actual, line, message)   \fBUNITY_TEST_FAIL\fP((\fBUNITY_LINE_TYPE\fP)(line), \fBUnityStrErr64\fP)"
+
+.PP
+Definition at line 850 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_INT8_WITHIN(delta, expected, actual, line, message)   \fBUnityAssertNumbersWithin\fP((\fBUNITY_UINT8\fP )(delta), (\fBUNITY_INT\fP)(\fBUNITY_INT8\fP )(expected), (\fBUNITY_INT\fP)(\fBUNITY_INT8\fP )(actual), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_INT8\fP)"
+
+.PP
+Definition at line 772 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_INT_WITHIN(delta, expected, actual, line, message)   \fBUnityAssertNumbersWithin\fP((delta), (\fBUNITY_INT\fP)(expected), (\fBUNITY_INT\fP)(actual), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_INT\fP)"
+
+.PP
+Definition at line 771 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_NOT_NULL(pointer, line, message)   \fBUNITY_TEST_ASSERT\fP(((pointer) != NULL),  (\fBUNITY_LINE_TYPE\fP)(line), (message))"
+
+.PP
+Definition at line 708 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_NULL(pointer, line, message)   \fBUNITY_TEST_ASSERT\fP(((pointer) == NULL),  (\fBUNITY_LINE_TYPE\fP)(line), (message))"
+
+.PP
+Definition at line 707 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_SMALLER_OR_EQUAL_HEX16(threshold, actual, line, message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_UINT16\fP)(threshold), (\fBUNITY_INT\fP)(\fBUNITY_UINT16\fP)(actual), \fBUNITY_SMALLER_OR_EQUAL\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_HEX16\fP)"
+
+.PP
+Definition at line 768 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_SMALLER_OR_EQUAL_HEX32(threshold, actual, line, message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_UINT32\fP)(threshold), (\fBUNITY_INT\fP)(\fBUNITY_UINT32\fP)(actual), \fBUNITY_SMALLER_OR_EQUAL\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_HEX32\fP)"
+
+.PP
+Definition at line 769 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_SMALLER_OR_EQUAL_HEX64(threshold, actual, line, message)   \fBUNITY_TEST_FAIL\fP((\fBUNITY_LINE_TYPE\fP)(line), \fBUnityStrErr64\fP)"
+
+.PP
+Definition at line 864 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_SMALLER_OR_EQUAL_HEX8(threshold, actual, line, message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_UINT8\fP )(threshold), (\fBUNITY_INT\fP)(\fBUNITY_UINT8\fP )(actual), \fBUNITY_SMALLER_OR_EQUAL\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_HEX8\fP)"
+
+.PP
+Definition at line 767 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_SMALLER_OR_EQUAL_INT(threshold, actual, line, message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(threshold),              (\fBUNITY_INT\fP)(actual),              \fBUNITY_SMALLER_OR_EQUAL\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_INT\fP)"
+
+.PP
+Definition at line 759 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_SMALLER_OR_EQUAL_INT16(threshold, actual, line, message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_INT16\fP)(threshold), (\fBUNITY_INT\fP)(\fBUNITY_INT16\fP)(actual), \fBUNITY_SMALLER_OR_EQUAL\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_INT16\fP)"
+
+.PP
+Definition at line 761 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_SMALLER_OR_EQUAL_INT32(threshold, actual, line, message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_INT32\fP)(threshold), (\fBUNITY_INT\fP)(\fBUNITY_INT32\fP)(actual), \fBUNITY_SMALLER_OR_EQUAL\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_INT32\fP)"
+
+.PP
+Definition at line 762 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_SMALLER_OR_EQUAL_INT64(threshold, actual, line, message)   \fBUNITY_TEST_FAIL\fP((\fBUNITY_LINE_TYPE\fP)(line), \fBUnityStrErr64\fP)"
+
+.PP
+Definition at line 862 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_SMALLER_OR_EQUAL_INT8(threshold, actual, line, message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_INT8\fP )(threshold), (\fBUNITY_INT\fP)(\fBUNITY_INT8\fP )(actual), \fBUNITY_SMALLER_OR_EQUAL\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_INT8\fP)"
+
+.PP
+Definition at line 760 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_SMALLER_OR_EQUAL_UINT(threshold, actual, line, message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(threshold),              (\fBUNITY_INT\fP)(actual),              \fBUNITY_SMALLER_OR_EQUAL\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_UINT\fP)"
+
+.PP
+Definition at line 763 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_SMALLER_OR_EQUAL_UINT16(threshold, actual, line, message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_UINT16\fP)(threshold), (\fBUNITY_INT\fP)(\fBUNITY_UINT16\fP)(actual), \fBUNITY_SMALLER_OR_EQUAL\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_UINT16\fP)"
+
+.PP
+Definition at line 765 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_SMALLER_OR_EQUAL_UINT32(threshold, actual, line, message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_UINT32\fP)(threshold), (\fBUNITY_INT\fP)(\fBUNITY_UINT32\fP)(actual), \fBUNITY_SMALLER_OR_EQUAL\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_UINT32\fP)"
+
+.PP
+Definition at line 766 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_SMALLER_OR_EQUAL_UINT64(threshold, actual, line, message)   \fBUNITY_TEST_FAIL\fP((\fBUNITY_LINE_TYPE\fP)(line), \fBUnityStrErr64\fP)"
+
+.PP
+Definition at line 863 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_SMALLER_OR_EQUAL_UINT8(threshold, actual, line, message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_UINT8\fP )(threshold), (\fBUNITY_INT\fP)(\fBUNITY_UINT8\fP )(actual), \fBUNITY_SMALLER_OR_EQUAL\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_UINT8\fP)"
+
+.PP
+Definition at line 764 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_SMALLER_THAN_HEX16(threshold, actual, line, message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_UINT16\fP)(threshold), (\fBUNITY_INT\fP)(\fBUNITY_UINT16\fP)(actual), \fBUNITY_SMALLER_THAN\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_HEX16\fP)"
+
+.PP
+Definition at line 744 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_SMALLER_THAN_HEX32(threshold, actual, line, message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_UINT32\fP)(threshold), (\fBUNITY_INT\fP)(\fBUNITY_UINT32\fP)(actual), \fBUNITY_SMALLER_THAN\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_HEX32\fP)"
+
+.PP
+Definition at line 745 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_SMALLER_THAN_HEX64(threshold, actual, line, message)   \fBUNITY_TEST_FAIL\fP((\fBUNITY_LINE_TYPE\fP)(line), \fBUnityStrErr64\fP)"
+
+.PP
+Definition at line 861 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_SMALLER_THAN_HEX8(threshold, actual, line, message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_UINT8\fP )(threshold), (\fBUNITY_INT\fP)(\fBUNITY_UINT8\fP )(actual), \fBUNITY_SMALLER_THAN\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_HEX8\fP)"
+
+.PP
+Definition at line 743 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_SMALLER_THAN_INT(threshold, actual, line, message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(threshold),              (\fBUNITY_INT\fP)(actual),              \fBUNITY_SMALLER_THAN\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_INT\fP)"
+
+.PP
+Definition at line 735 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_SMALLER_THAN_INT16(threshold, actual, line, message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_INT16\fP)(threshold), (\fBUNITY_INT\fP)(\fBUNITY_INT16\fP)(actual), \fBUNITY_SMALLER_THAN\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_INT16\fP)"
+
+.PP
+Definition at line 737 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_SMALLER_THAN_INT32(threshold, actual, line, message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_INT32\fP)(threshold), (\fBUNITY_INT\fP)(\fBUNITY_INT32\fP)(actual), \fBUNITY_SMALLER_THAN\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_INT32\fP)"
+
+.PP
+Definition at line 738 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_SMALLER_THAN_INT64(threshold, actual, line, message)   \fBUNITY_TEST_FAIL\fP((\fBUNITY_LINE_TYPE\fP)(line), \fBUnityStrErr64\fP)"
+
+.PP
+Definition at line 859 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_SMALLER_THAN_INT8(threshold, actual, line, message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_INT8\fP )(threshold), (\fBUNITY_INT\fP)(\fBUNITY_INT8\fP )(actual), \fBUNITY_SMALLER_THAN\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_INT8\fP)"
+
+.PP
+Definition at line 736 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_SMALLER_THAN_UINT(threshold, actual, line, message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(threshold),              (\fBUNITY_INT\fP)(actual),              \fBUNITY_SMALLER_THAN\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_UINT\fP)"
+
+.PP
+Definition at line 739 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_SMALLER_THAN_UINT16(threshold, actual, line, message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_UINT16\fP)(threshold), (\fBUNITY_INT\fP)(\fBUNITY_UINT16\fP)(actual), \fBUNITY_SMALLER_THAN\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_UINT16\fP)"
+
+.PP
+Definition at line 741 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_SMALLER_THAN_UINT32(threshold, actual, line, message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_UINT32\fP)(threshold), (\fBUNITY_INT\fP)(\fBUNITY_UINT32\fP)(actual), \fBUNITY_SMALLER_THAN\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_UINT32\fP)"
+
+.PP
+Definition at line 742 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_SMALLER_THAN_UINT64(threshold, actual, line, message)   \fBUNITY_TEST_FAIL\fP((\fBUNITY_LINE_TYPE\fP)(line), \fBUnityStrErr64\fP)"
+
+.PP
+Definition at line 860 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_SMALLER_THAN_UINT8(threshold, actual, line, message)   \fBUnityAssertGreaterOrLessOrEqualNumber\fP((\fBUNITY_INT\fP)(\fBUNITY_UINT8\fP )(threshold), (\fBUNITY_INT\fP)(\fBUNITY_UINT8\fP )(actual), \fBUNITY_SMALLER_THAN\fP, (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_UINT8\fP)"
+
+.PP
+Definition at line 740 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_UINT16_WITHIN(delta, expected, actual, line, message)   \fBUnityAssertNumbersWithin\fP((\fBUNITY_UINT16\fP)(delta), (\fBUNITY_INT\fP)(\fBUNITY_UINT\fP)(\fBUNITY_UINT16\fP)(expected), (\fBUNITY_INT\fP)(\fBUNITY_UINT\fP)(\fBUNITY_UINT16\fP)(actual), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_UINT16\fP)"
+
+.PP
+Definition at line 777 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_UINT32_WITHIN(delta, expected, actual, line, message)   \fBUnityAssertNumbersWithin\fP((\fBUNITY_UINT32\fP)(delta), (\fBUNITY_INT\fP)(\fBUNITY_UINT\fP)(\fBUNITY_UINT32\fP)(expected), (\fBUNITY_INT\fP)(\fBUNITY_UINT\fP)(\fBUNITY_UINT32\fP)(actual), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_UINT32\fP)"
+
+.PP
+Definition at line 778 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_UINT64_WITHIN(delta, expected, actual, line, message)   \fBUNITY_TEST_FAIL\fP((\fBUNITY_LINE_TYPE\fP)(line), \fBUnityStrErr64\fP)"
+
+.PP
+Definition at line 851 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_UINT8_WITHIN(delta, expected, actual, line, message)   \fBUnityAssertNumbersWithin\fP((\fBUNITY_UINT8\fP )(delta), (\fBUNITY_INT\fP)(\fBUNITY_UINT\fP)(\fBUNITY_UINT8\fP )(expected), (\fBUNITY_INT\fP)(\fBUNITY_UINT\fP)(\fBUNITY_UINT8\fP )(actual), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_UINT8\fP)"
+
+.PP
+Definition at line 776 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_ASSERT_UINT_WITHIN(delta, expected, actual, line, message)   \fBUnityAssertNumbersWithin\fP((delta), (\fBUNITY_INT\fP)(expected), (\fBUNITY_INT\fP)(actual), (message), (\fBUNITY_LINE_TYPE\fP)(line), \fBUNITY_DISPLAY_STYLE_UINT\fP)"
+
+.PP
+Definition at line 775 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_FAIL(line, message)   \fBUnityFail\fP(   (message), (\fBUNITY_LINE_TYPE\fP)(line))"
+
+.PP
+Definition at line 699 of file unity_internals\&.h\&.
+.SS "#define UNITY_TEST_IGNORE(line, message)   \fBUnityIgnore\fP( (message), (\fBUNITY_LINE_TYPE\fP)(line))"
+
+.PP
+Definition at line 700 of file unity_internals\&.h\&.
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef \fBUNITY_FLOAT\fP \fBUNITY_DOUBLE\fP"
+
+.PP
+Definition at line 226 of file unity_internals\&.h\&.
+.SS "typedef \fBUNITY_FLOAT_TYPE\fP \fBUNITY_FLOAT\fP"
+
+.PP
+Definition at line 192 of file unity_internals\&.h\&.
+.SS "typedef enum \fBUNITY_FLOAT_TRAIT\fP \fBUNITY_FLOAT_TRAIT_T\fP"
+
+.SS "typedef \fBUNITY_INT32\fP \fBUNITY_INT\fP"
+
+.PP
+Definition at line 126 of file unity_internals\&.h\&.
+.SS "typedef signed short \fBUNITY_INT16\fP"
+
+.PP
+Definition at line 100 of file unity_internals\&.h\&.
+.SS "typedef signed int \fBUNITY_INT32\fP"
+
+.PP
+Definition at line 101 of file unity_internals\&.h\&.
+.SS "typedef signed char \fBUNITY_INT8\fP"
+
+.PP
+Definition at line 99 of file unity_internals\&.h\&.
+.SS "typedef \fBUNITY_UINT32\fP \fBUNITY_UINT\fP"
+
+.PP
+Definition at line 125 of file unity_internals\&.h\&.
+.SS "typedef unsigned short \fBUNITY_UINT16\fP"
+
+.PP
+Definition at line 97 of file unity_internals\&.h\&.
+.SS "typedef unsigned int \fBUNITY_UINT32\fP"
+
+.PP
+Definition at line 98 of file unity_internals\&.h\&.
+.SS "typedef unsigned char \fBUNITY_UINT8\fP"
+
+.PP
+Definition at line 96 of file unity_internals\&.h\&.
+.SS "typedef void(* UnityTestFunction) (void)"
+
+.PP
+Definition at line 363 of file unity_internals\&.h\&.
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBUNITY_COMPARISON_T\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIUNITY_EQUAL_TO \fP\fP
+.TP
+\fB\fIUNITY_GREATER_THAN \fP\fP
+.TP
+\fB\fIUNITY_GREATER_OR_EQUAL \fP\fP
+.TP
+\fB\fIUNITY_SMALLER_THAN \fP\fP
+.TP
+\fB\fIUNITY_SMALLER_OR_EQUAL \fP\fP
+.PP
+Definition at line 397 of file unity_internals\&.h\&.
+.SS "enum \fBUNITY_DISPLAY_STYLE_T\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIUNITY_DISPLAY_STYLE_INT \fP\fP
+.TP
+\fB\fIUNITY_DISPLAY_STYLE_INT8 \fP\fP
+.TP
+\fB\fIUNITY_DISPLAY_STYLE_INT16 \fP\fP
+.TP
+\fB\fIUNITY_DISPLAY_STYLE_INT32 \fP\fP
+.TP
+\fB\fIUNITY_DISPLAY_STYLE_UINT \fP\fP
+.TP
+\fB\fIUNITY_DISPLAY_STYLE_UINT8 \fP\fP
+.TP
+\fB\fIUNITY_DISPLAY_STYLE_UINT16 \fP\fP
+.TP
+\fB\fIUNITY_DISPLAY_STYLE_UINT32 \fP\fP
+.TP
+\fB\fIUNITY_DISPLAY_STYLE_HEX8 \fP\fP
+.TP
+\fB\fIUNITY_DISPLAY_STYLE_HEX16 \fP\fP
+.TP
+\fB\fIUNITY_DISPLAY_STYLE_HEX32 \fP\fP
+.TP
+\fB\fIUNITY_DISPLAY_STYLE_UNKNOWN \fP\fP
+.PP
+Definition at line 369 of file unity_internals\&.h\&.
+.SS "enum \fBUNITY_FLAGS_T\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIUNITY_ARRAY_TO_VAL \fP\fP
+.TP
+\fB\fIUNITY_ARRAY_TO_ARRAY \fP\fP
+.PP
+Definition at line 421 of file unity_internals\&.h\&.
+.SS "enum \fBUNITY_FLOAT_TRAIT\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIUNITY_FLOAT_IS_NOT_INF \fP\fP
+.TP
+\fB\fIUNITY_FLOAT_IS_INF \fP\fP
+.TP
+\fB\fIUNITY_FLOAT_IS_NOT_NEG_INF \fP\fP
+.TP
+\fB\fIUNITY_FLOAT_IS_NEG_INF \fP\fP
+.TP
+\fB\fIUNITY_FLOAT_IS_NOT_NAN \fP\fP
+.TP
+\fB\fIUNITY_FLOAT_IS_NAN \fP\fP
+.TP
+\fB\fIUNITY_FLOAT_IS_NOT_DET \fP\fP
+.TP
+\fB\fIUNITY_FLOAT_IS_DET \fP\fP
+.TP
+\fB\fIUNITY_FLOAT_INVALID_TRAIT \fP\fP
+.PP
+Definition at line 407 of file unity_internals\&.h\&.
+.SH "Function Documentation"
+.PP 
+.SS "void UnityAssertBits (const \fBUNITY_INT\fP mask, const \fBUNITY_INT\fP expected, const \fBUNITY_INT\fP actual, const char * msg, const \fBUNITY_LINE_TYPE\fP lineNumber)"
+
+.PP
+Definition at line 514 of file unity\&.c\&.
+.SS "void UnityAssertEqualFloatArray (\fBUNITY_PTR_ATTRIBUTE\fP const \fBUNITY_FLOAT\fP * expected, \fBUNITY_PTR_ATTRIBUTE\fP const \fBUNITY_FLOAT\fP * actual, const \fBUNITY_UINT32\fP num_elements, const char * msg, const \fBUNITY_LINE_TYPE\fP lineNumber, const \fBUNITY_FLAGS_T\fP flags)"
+
+.PP
+Definition at line 713 of file unity\&.c\&.
+.SS "void UnityAssertEqualIntArray (\fBUNITY_INTERNAL_PTR\fP expected, \fBUNITY_INTERNAL_PTR\fP actual, const \fBUNITY_UINT32\fP num_elements, const char * msg, const \fBUNITY_LINE_TYPE\fP lineNumber, const \fBUNITY_DISPLAY_STYLE_T\fP style, const \fBUNITY_FLAGS_T\fP flags)"
+
+.PP
+Definition at line 602 of file unity\&.c\&.
+.SS "void UnityAssertEqualMemory (\fBUNITY_INTERNAL_PTR\fP expected, \fBUNITY_INTERNAL_PTR\fP actual, const \fBUNITY_UINT32\fP length, const \fBUNITY_UINT32\fP num_elements, const char * msg, const \fBUNITY_LINE_TYPE\fP lineNumber, const \fBUNITY_FLAGS_T\fP flags)"
+
+.PP
+Definition at line 1163 of file unity\&.c\&.
+.SS "void UnityAssertEqualNumber (const \fBUNITY_INT\fP expected, const \fBUNITY_INT\fP actual, const char * msg, const \fBUNITY_LINE_TYPE\fP lineNumber, const \fBUNITY_DISPLAY_STYLE_T\fP style)"
+
+.PP
+Definition at line 535 of file unity\&.c\&.
+.SS "void UnityAssertEqualString (const char * expected, const char * actual, const char * msg, const \fBUNITY_LINE_TYPE\fP lineNumber)"
+
+.PP
+Definition at line 1005 of file unity\&.c\&.
+.SS "void UnityAssertEqualStringArray (\fBUNITY_INTERNAL_PTR\fP expected, const char ** actual, const \fBUNITY_UINT32\fP num_elements, const char * msg, const \fBUNITY_LINE_TYPE\fP lineNumber, const \fBUNITY_FLAGS_T\fP flags)"
+
+.PP
+Definition at line 1084 of file unity\&.c\&.
+.SS "void UnityAssertEqualStringLen (const char * expected, const char * actual, const \fBUNITY_UINT32\fP length, const char * msg, const \fBUNITY_LINE_TYPE\fP lineNumber)"
+
+.PP
+Definition at line 1044 of file unity\&.c\&.
+.SS "void UnityAssertFloatSpecial (const \fBUNITY_FLOAT\fP actual, const char * msg, const \fBUNITY_LINE_TYPE\fP lineNumber, const \fBUNITY_FLOAT_TRAIT_T\fP style)"
+
+.PP
+Definition at line 774 of file unity\&.c\&.
+.SS "void UnityAssertFloatsWithin (const \fBUNITY_FLOAT\fP delta, const \fBUNITY_FLOAT\fP expected, const \fBUNITY_FLOAT\fP actual, const char * msg, const \fBUNITY_LINE_TYPE\fP lineNumber)"
+
+.PP
+Definition at line 755 of file unity\&.c\&.
+.SS "void UnityAssertGreaterOrLessOrEqualNumber (const \fBUNITY_INT\fP threshold, const \fBUNITY_INT\fP actual, const \fBUNITY_COMPARISON_T\fP compare, const char * msg, const \fBUNITY_LINE_TYPE\fP lineNumber, const \fBUNITY_DISPLAY_STYLE_T\fP style)"
+
+.PP
+Definition at line 556 of file unity\&.c\&.
+.SS "void UnityAssertNumbersWithin (const \fBUNITY_UINT\fP delta, const \fBUNITY_INT\fP expected, const \fBUNITY_INT\fP actual, const char * msg, const \fBUNITY_LINE_TYPE\fP lineNumber, const \fBUNITY_DISPLAY_STYLE_T\fP style)"
+
+.PP
+Definition at line 966 of file unity\&.c\&.
+.SS "void UnityBegin (const char * filename)"
+
+.PP
+Definition at line 1350 of file unity\&.c\&.
+.SS "void UnityConcludeTest (void)"
+
+.PP
+Definition at line 376 of file unity\&.c\&.
+.SS "void UnityDefaultTestRun (\fBUnityTestFunction\fP Func, const char * FuncName, const int FuncLineNum)"
+
+.PP
+Definition at line 1331 of file unity\&.c\&.
+.SS "int UnityEnd (void)"
+
+.PP
+Definition at line 1367 of file unity\&.c\&.
+.SS "void UnityFail (const char * msg, const \fBUNITY_LINE_TYPE\fP line)"
+
+.PP
+Definition at line 1281 of file unity\&.c\&.
+.SS "\fBUNITY_INTERNAL_PTR\fP UnityFloatToPtr (const float num)"
+
+.PP
+Definition at line 1262 of file unity\&.c\&.
+.SS "void UnityIgnore (const char * msg, const \fBUNITY_LINE_TYPE\fP line)"
+
+.PP
+Definition at line 1315 of file unity\&.c\&.
+.SS "\fBUNITY_INTERNAL_PTR\fP UnityNumToPtr (const \fBUNITY_INT\fP num, const \fBUNITY_UINT8\fP size)"
+
+.PP
+Definition at line 1238 of file unity\&.c\&.
+.SS "void UnityPrint (const char * string)"
+
+.PP
+Definition at line 70 of file unity\&.c\&.
+.SS "void UnityPrintFloat (const \fBUNITY_DOUBLE\fP input_number)"
+
+.PP
+Definition at line 266 of file unity\&.c\&.
+.SS "void UnityPrintLen (const char * string, const \fBUNITY_UINT32\fP length)"
+
+.PP
+Definition at line 119 of file unity\&.c\&.
+.SS "void UnityPrintMask (const \fBUNITY_UINT\fP mask, const \fBUNITY_UINT\fP number)"
+
+.PP
+Definition at line 233 of file unity\&.c\&.
+.SS "void UnityPrintNumber (const \fBUNITY_INT\fP number_to_print)"
+
+.PP
+Definition at line 176 of file unity\&.c\&.
+.SS "void UnityPrintNumberByStyle (const \fBUNITY_INT\fP number, const \fBUNITY_DISPLAY_STYLE_T\fP style)"
+
+.PP
+Definition at line 157 of file unity\&.c\&.
+.SS "void UnityPrintNumberHex (const \fBUNITY_UINT\fP number, const char nibbles_to_print)"
+
+.PP
+Definition at line 210 of file unity\&.c\&.
+.SS "void UnityPrintNumberUnsigned (const \fBUNITY_UINT\fP number)"
+
+.PP
+Definition at line 191 of file unity\&.c\&.
+.SH "Variable Documentation"
+.PP 
+.SS "struct \fBUNITY_STORAGE_T\fP Unity\fC [extern]\fP"
+
+.PP
+Definition at line 1 of file unity\&.c\&.
+.SS "const char UnityStrErr64[]\fC [extern]\fP"
+
+.PP
+Definition at line 58 of file unity\&.c\&.
+.SS "const char UnityStrErrDouble[]\fC [extern]\fP"
+
+.PP
+Definition at line 57 of file unity\&.c\&.
+.SS "const char UnityStrErrFloat[]\fC [extern]\fP"
+
+.PP
+Definition at line 56 of file unity\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mpbTime from the source code\&.

@@ -1,0 +1,176 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_display_8h" xml:lang="en-US">
+<title>UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/display.h File Reference</title>
+<indexterm><primary>UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/display.h</primary></indexterm>
+<programlisting>#include &lt;stdbool.h&gt;
+</programlisting>Include dependency graph for display.h:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../d8/d1e/display_8h__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+This graph shows which files directly or indirectly include this file:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../d6/db6/display_8h__dep__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_display_8h_1ace29b0b5f6128f04d1800a81a37ad248">display_turnOffStatusLed</link> (void)</para>
+</listitem>
+            <listitem><para>void <link linkend="_display_8h_1afe3765474613174779452f7453b51bca">display_turnOnStatusLed</link> (void)</para>
+</listitem>
+            <listitem><para>void <link linkend="_display_8h_1a2a83d6ee1f6b970cadaf80d069d6cb78">display_setVolume</link> (int level)</para>
+</listitem>
+            <listitem><para>void <link linkend="_display_8h_1a4f4309083204c27565cd4943c558bf35">display_setModeToMinimum</link> (void)</para>
+</listitem>
+            <listitem><para>void <link linkend="_display_8h_1a3ecd07af6041cf61b0c60150b5866c84">display_setModeToMaximum</link> (void)</para>
+</listitem>
+            <listitem><para>void <link linkend="_display_8h_1a80fe0f40254a3d87f017e7d4a3a75de4">display_setModeToAverage</link> (void)</para>
+</listitem>
+            <listitem><para>bool <link linkend="_display_8h_1a5e53a692fe6fb0e657002a703dab5ade">display_isError</link> (void)</para>
+</listitem>
+            <listitem><para>void <link linkend="_display_8h_1a33e97a1d26f45f9f14f3428a9cad2ff8">display_powerDown</link> (void)</para>
+</listitem>
+            <listitem><para>void <link linkend="_display_8h_1a0aa9daa96db07abd80cd2a8e6d0afc44">display_updateData</link> (int data, void(*updateCompleteCallback)(void))</para>
+</listitem>
+            <listitem><para>void <link linkend="_display_8h_1ad3acc697e3c1f49d46c5fe833a68c8e4">display_getKeyboardEntry</link> (char *entry, int length)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_display_8h_1ad3acc697e3c1f49d46c5fe833a68c8e4"/>    <section>
+    <title>display_getKeyboardEntry()</title>
+<indexterm><primary>display_getKeyboardEntry</primary><secondary>display.h</secondary></indexterm>
+<indexterm><primary>display.h</primary><secondary>display_getKeyboardEntry</secondary></indexterm>
+<para><computeroutput>void display_getKeyboardEntry (char * entry, int length)</computeroutput></para>Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../d4/d68/display_8h_ad3acc697e3c1f49d46c5fe833a68c8e4_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_display_8h_1a5e53a692fe6fb0e657002a703dab5ade"/>    <section>
+    <title>display_isError()</title>
+<indexterm><primary>display_isError</primary><secondary>display.h</secondary></indexterm>
+<indexterm><primary>display.h</primary><secondary>display_isError</secondary></indexterm>
+<para><computeroutput>bool display_isError (void )</computeroutput></para>Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../d4/d68/display_8h_a5e53a692fe6fb0e657002a703dab5ade_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_display_8h_1a33e97a1d26f45f9f14f3428a9cad2ff8"/>    <section>
+    <title>display_powerDown()</title>
+<indexterm><primary>display_powerDown</primary><secondary>display.h</secondary></indexterm>
+<indexterm><primary>display.h</primary><secondary>display_powerDown</secondary></indexterm>
+<para><computeroutput>void display_powerDown (void )</computeroutput></para>Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../d4/d68/display_8h_a33e97a1d26f45f9f14f3428a9cad2ff8_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_display_8h_1a80fe0f40254a3d87f017e7d4a3a75de4"/>    <section>
+    <title>display_setModeToAverage()</title>
+<indexterm><primary>display_setModeToAverage</primary><secondary>display.h</secondary></indexterm>
+<indexterm><primary>display.h</primary><secondary>display_setModeToAverage</secondary></indexterm>
+<para><computeroutput>void display_setModeToAverage (void )</computeroutput></para>Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../d4/d68/display_8h_a80fe0f40254a3d87f017e7d4a3a75de4_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_display_8h_1a3ecd07af6041cf61b0c60150b5866c84"/>    <section>
+    <title>display_setModeToMaximum()</title>
+<indexterm><primary>display_setModeToMaximum</primary><secondary>display.h</secondary></indexterm>
+<indexterm><primary>display.h</primary><secondary>display_setModeToMaximum</secondary></indexterm>
+<para><computeroutput>void display_setModeToMaximum (void )</computeroutput></para>Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../d4/d68/display_8h_a3ecd07af6041cf61b0c60150b5866c84_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_display_8h_1a4f4309083204c27565cd4943c558bf35"/>    <section>
+    <title>display_setModeToMinimum()</title>
+<indexterm><primary>display_setModeToMinimum</primary><secondary>display.h</secondary></indexterm>
+<indexterm><primary>display.h</primary><secondary>display_setModeToMinimum</secondary></indexterm>
+<para><computeroutput>void display_setModeToMinimum (void )</computeroutput></para>Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../d4/d68/display_8h_a4f4309083204c27565cd4943c558bf35_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_display_8h_1a2a83d6ee1f6b970cadaf80d069d6cb78"/>    <section>
+    <title>display_setVolume()</title>
+<indexterm><primary>display_setVolume</primary><secondary>display.h</secondary></indexterm>
+<indexterm><primary>display.h</primary><secondary>display_setVolume</secondary></indexterm>
+<para><computeroutput>void display_setVolume (int level)</computeroutput></para>Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../d4/d68/display_8h_a2a83d6ee1f6b970cadaf80d069d6cb78_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_display_8h_1ace29b0b5f6128f04d1800a81a37ad248"/>    <section>
+    <title>display_turnOffStatusLed()</title>
+<indexterm><primary>display_turnOffStatusLed</primary><secondary>display.h</secondary></indexterm>
+<indexterm><primary>display.h</primary><secondary>display_turnOffStatusLed</secondary></indexterm>
+<para><computeroutput>void display_turnOffStatusLed (void )</computeroutput></para><para>
+Definition at line 4 of file display.c.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../d4/d68/display_8h_ace29b0b5f6128f04d1800a81a37ad248_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_display_8h_1afe3765474613174779452f7453b51bca"/>    <section>
+    <title>display_turnOnStatusLed()</title>
+<indexterm><primary>display_turnOnStatusLed</primary><secondary>display.h</secondary></indexterm>
+<indexterm><primary>display.h</primary><secondary>display_turnOnStatusLed</secondary></indexterm>
+<para><computeroutput>void display_turnOnStatusLed (void )</computeroutput></para>Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../d4/d68/display_8h_afe3765474613174779452f7453b51bca_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_display_8h_1a0aa9daa96db07abd80cd2a8e6d0afc44"/>    <section>
+    <title>display_updateData()</title>
+<indexterm><primary>display_updateData</primary><secondary>display.h</secondary></indexterm>
+<indexterm><primary>display.h</primary><secondary>display_updateData</secondary></indexterm>
+<para><computeroutput>void display_updateData (int data, void(*)(void) updateCompleteCallback)</computeroutput></para></section>
+</section>
+</section>

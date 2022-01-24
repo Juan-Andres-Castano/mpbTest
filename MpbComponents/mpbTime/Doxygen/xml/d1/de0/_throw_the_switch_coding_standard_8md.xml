@@ -1,0 +1,219 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="d1/de0/_throw_the_switch_coding_standard_8md" kind="file" language="Markdown">
+    <compoundname>ThrowTheSwitchCodingStandard.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">#<sp/>ThrowTheSwitch.org<sp/>Coding<sp/>Standard</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Hi.<sp/>Welcome<sp/>to<sp/>the<sp/>coding<sp/>standard<sp/>for<sp/>ThrowTheSwitch.org.<sp/>For<sp/>the<sp/>most<sp/>part,</highlight></codeline>
+<codeline><highlight class="normal">we<sp/>try<sp/>to<sp/>follow<sp/>these<sp/>standards<sp/>to<sp/>unify<sp/>our<sp/>contributors&apos;<sp/>code<sp/>into<sp/>a<sp/>cohesive</highlight></codeline>
+<codeline><highlight class="normal">unit<sp/>(puns<sp/>intended).<sp/>You<sp/>might<sp/>find<sp/>places<sp/>where<sp/>these<sp/>standards<sp/>aren&apos;t</highlight></codeline>
+<codeline><highlight class="normal">followed.<sp/>We&apos;re<sp/>not<sp/>perfect.<sp/>Please<sp/>be<sp/>polite<sp/>where<sp/>you<sp/>notice<sp/>these<sp/>discrepancies</highlight></codeline>
+<codeline><highlight class="normal">and<sp/>we&apos;ll<sp/>try<sp/>to<sp/>be<sp/>polite<sp/>when<sp/>we<sp/>notice<sp/>yours.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">;)</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Why<sp/>Have<sp/>A<sp/>Coding<sp/>Standard?</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Being<sp/>consistent<sp/>makes<sp/>code<sp/>easier<sp/>to<sp/>understand.<sp/>We&apos;ve<sp/>tried<sp/>to<sp/>keep</highlight></codeline>
+<codeline><highlight class="normal">our<sp/>standard<sp/>simple<sp/>because<sp/>we<sp/>also<sp/>believe<sp/>that<sp/>we<sp/>can<sp/>only<sp/>expect<sp/>someone<sp/>to</highlight></codeline>
+<codeline><highlight class="normal">follow<sp/>something<sp/>that<sp/>is<sp/>understandable.<sp/>Please<sp/>do<sp/>your<sp/>best.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Our<sp/>Philosophy</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Before<sp/>we<sp/>get<sp/>into<sp/>details<sp/>on<sp/>syntax,<sp/>let&apos;s<sp/>take<sp/>a<sp/>moment<sp/>to<sp/>talk<sp/>about<sp/>our</highlight></codeline>
+<codeline><highlight class="normal">vision<sp/>for<sp/>these<sp/>tools.<sp/>We&apos;re<sp/>C<sp/>developers<sp/>and<sp/>embedded<sp/>software<sp/>developers.</highlight></codeline>
+<codeline><highlight class="normal">These<sp/>tools<sp/>are<sp/>great<sp/>to<sp/>test<sp/>any<sp/>C<sp/>code,<sp/>but<sp/>catering<sp/>to<sp/>embedded<sp/>software<sp/>has</highlight></codeline>
+<codeline><highlight class="normal">made<sp/>us<sp/>more<sp/>tolerant<sp/>of<sp/>compiler<sp/>quirks.<sp/>There<sp/>are<sp/>a<sp/>LOT<sp/>of<sp/>quirky<sp/>compilers</highlight></codeline>
+<codeline><highlight class="normal">out<sp/>there.<sp/>By<sp/>quirky<sp/>I<sp/>mean<sp/>&quot;doesn&apos;t<sp/>follow<sp/>standards<sp/>because<sp/>they<sp/>feel<sp/>like</highlight></codeline>
+<codeline><highlight class="normal">they<sp/>have<sp/>a<sp/>license<sp/>to<sp/>do<sp/>as<sp/>they<sp/>wish.&quot;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Our<sp/>philosophy<sp/>is<sp/>&quot;support<sp/>every<sp/>compiler<sp/>we<sp/>can&quot;.<sp/>Most<sp/>often,<sp/>this<sp/>means<sp/>that</highlight></codeline>
+<codeline><highlight class="normal">we<sp/>aim<sp/>for<sp/>writing<sp/>C<sp/>code<sp/>that<sp/>is<sp/>standards<sp/>compliant<sp/>(often<sp/>C89...<sp/>that<sp/>seems</highlight></codeline>
+<codeline><highlight class="normal">to<sp/>be<sp/>a<sp/>sweet<sp/>spot<sp/>that<sp/>is<sp/>almost<sp/>always<sp/>compatible).<sp/>But<sp/>it<sp/>also<sp/>means<sp/>these</highlight></codeline>
+<codeline><highlight class="normal">tools<sp/>are<sp/>tolerant<sp/>of<sp/>things<sp/>that<sp/>aren&apos;t<sp/>common.<sp/>Some<sp/>that<sp/>aren&apos;t<sp/>even</highlight></codeline>
+<codeline><highlight class="normal">compliant.<sp/>There<sp/>are<sp/>configuration<sp/>options<sp/>to<sp/>override<sp/>the<sp/>size<sp/>of<sp/>standard</highlight></codeline>
+<codeline><highlight class="normal">types.<sp/>There<sp/>are<sp/>configuration<sp/>options<sp/>to<sp/>force<sp/>Unity<sp/>to<sp/>not<sp/>use<sp/>certain</highlight></codeline>
+<codeline><highlight class="normal">standard<sp/>library<sp/>functions.<sp/>A<sp/>lot<sp/>of<sp/>Unity<sp/>is<sp/>configurable<sp/>and<sp/>we<sp/>have<sp/>worked</highlight></codeline>
+<codeline><highlight class="normal">hard<sp/>to<sp/>make<sp/>it<sp/>not<sp/>TOO<sp/>ugly<sp/>in<sp/>the<sp/>process.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Similarly,<sp/>our<sp/>tools<sp/>that<sp/>parse<sp/>C<sp/>do<sp/>their<sp/>best.<sp/>They<sp/>aren&apos;t<sp/>full<sp/>C<sp/>parsers</highlight></codeline>
+<codeline><highlight class="normal">(yet)<sp/>and,<sp/>even<sp/>if<sp/>they<sp/>were,<sp/>they<sp/>would<sp/>still<sp/>have<sp/>to<sp/>accept<sp/>non-standard</highlight></codeline>
+<codeline><highlight class="normal">additions<sp/>like<sp/>gcc<sp/>extensions<sp/>or<sp/>specifying<sp/>`@0x1000`<sp/>to<sp/>force<sp/>a<sp/>variable<sp/>to</highlight></codeline>
+<codeline><highlight class="normal">compile<sp/>to<sp/>a<sp/>particular<sp/>location.<sp/>It&apos;s<sp/>just<sp/>what<sp/>we<sp/>do,<sp/>because<sp/>we<sp/>like</highlight></codeline>
+<codeline><highlight class="normal">everything<sp/>to<sp/>Just<sp/>Work™.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Speaking<sp/>of<sp/>having<sp/>things<sp/>Just<sp/>Work™,<sp/>that&apos;s<sp/>our<sp/>second<sp/>philosophy.<sp/>By<sp/>that,<sp/>we</highlight></codeline>
+<codeline><highlight class="normal">mean<sp/>that<sp/>we<sp/>do<sp/>our<sp/>best<sp/>to<sp/>have<sp/>EVERY<sp/>configuration<sp/>option<sp/>have<sp/>a<sp/>logical</highlight></codeline>
+<codeline><highlight class="normal">default.<sp/>We<sp/>believe<sp/>that<sp/>if<sp/>you&apos;re<sp/>working<sp/>with<sp/>a<sp/>simple<sp/>compiler<sp/>and<sp/>target,</highlight></codeline>
+<codeline><highlight class="normal">you<sp/>shouldn&apos;t<sp/>need<sp/>to<sp/>configure<sp/>very<sp/>much...<sp/>we<sp/>try<sp/>to<sp/>make<sp/>the<sp/>tools<sp/>guess<sp/>as</highlight></codeline>
+<codeline><highlight class="normal">much<sp/>as<sp/>they<sp/>can,<sp/>but<sp/>give<sp/>the<sp/>user<sp/>the<sp/>power<sp/>to<sp/>override<sp/>it<sp/>when<sp/>it&apos;s<sp/>wrong.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Naming<sp/>Things</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Let&apos;s<sp/>talk<sp/>about<sp/>naming<sp/>things.<sp/>Programming<sp/>is<sp/>all<sp/>about<sp/>naming<sp/>things.<sp/>We<sp/>name</highlight></codeline>
+<codeline><highlight class="normal">files,<sp/>functions,<sp/>variables,<sp/>and<sp/>so<sp/>much<sp/>more.<sp/>While<sp/>we&apos;re<sp/>not<sp/>always<sp/>going<sp/>to</highlight></codeline>
+<codeline><highlight class="normal">find<sp/>the<sp/>best<sp/>name<sp/>for<sp/>something,<sp/>we<sp/>actually<sp/>put<sp/>a<sp/>bit<sp/>of<sp/>effort<sp/>into</highlight></codeline>
+<codeline><highlight class="normal">finding<sp/>*What<sp/>Something<sp/>WANTS<sp/>to<sp/>be<sp/>Called*™.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">When<sp/>naming<sp/>things,<sp/>we<sp/>follow<sp/>this<sp/>hierarchy,<sp/>the<sp/>first<sp/>being<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">most<sp/>important<sp/>to<sp/>us<sp/>(but<sp/>we<sp/>do<sp/>all<sp/>four<sp/>when<sp/>possible):</highlight></codeline>
+<codeline><highlight class="normal">1.<sp/>Readable</highlight></codeline>
+<codeline><highlight class="normal">2.<sp/>Descriptive</highlight></codeline>
+<codeline><highlight class="normal">3.<sp/>Consistent</highlight></codeline>
+<codeline><highlight class="normal">4.<sp/>Memorable</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Readable</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">We<sp/>want<sp/>to<sp/>read<sp/>our<sp/>code.<sp/>This<sp/>means<sp/>we<sp/>like<sp/>names<sp/>and<sp/>flow<sp/>that<sp/>are<sp/>more</highlight></codeline>
+<codeline><highlight class="normal">naturally<sp/>read.<sp/>We<sp/>try<sp/>to<sp/>avoid<sp/>double<sp/>negatives.<sp/>We<sp/>try<sp/>to<sp/>avoid<sp/>cryptic</highlight></codeline>
+<codeline><highlight class="normal">abbreviations<sp/>(sticking<sp/>to<sp/>ones<sp/>we<sp/>feel<sp/>are<sp/>common).</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Descriptive</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">We<sp/>like<sp/>descriptive<sp/>names<sp/>for<sp/>things,<sp/>especially<sp/>functions<sp/>and<sp/>variables.</highlight></codeline>
+<codeline><highlight class="normal">Finding<sp/>the<sp/>right<sp/>name<sp/>for<sp/>something<sp/>is<sp/>an<sp/>important<sp/>endeavor.<sp/>You<sp/>might<sp/>notice</highlight></codeline>
+<codeline><highlight class="normal">from<sp/>poking<sp/>around<sp/>our<sp/>code<sp/>that<sp/>this<sp/>often<sp/>results<sp/>in<sp/>names<sp/>that<sp/>are<sp/>a<sp/>little</highlight></codeline>
+<codeline><highlight class="normal">longer<sp/>than<sp/>the<sp/>average.<sp/>Guilty.<sp/>We&apos;re<sp/>okay<sp/>with<sp/>a<sp/>bit<sp/>more<sp/>typing<sp/>if<sp/>it</highlight></codeline>
+<codeline><highlight class="normal">means<sp/>our<sp/>code<sp/>is<sp/>easier<sp/>to<sp/>understand.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">There<sp/>are<sp/>two<sp/>exceptions<sp/>to<sp/>this<sp/>rule<sp/>that<sp/>we<sp/>also<sp/>stick<sp/>to<sp/>as<sp/>religiously<sp/>as</highlight></codeline>
+<codeline><highlight class="normal">possible:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">First,<sp/>while<sp/>we<sp/>realize<sp/>hungarian<sp/>notation<sp/>(and<sp/>similar<sp/>systems<sp/>for<sp/>encoding</highlight></codeline>
+<codeline><highlight class="normal">type<sp/>information<sp/>into<sp/>variable<sp/>names)<sp/>is<sp/>providing<sp/>a<sp/>more<sp/>descriptive<sp/>name,<sp/>we</highlight></codeline>
+<codeline><highlight class="normal">feel<sp/>that<sp/>(for<sp/>the<sp/>average<sp/>developer)<sp/>it<sp/>takes<sp/>away<sp/>from<sp/>readability<sp/>and<sp/>is<sp/>to<sp/>be<sp/>avoided.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Second,<sp/>loop<sp/>counters<sp/>and<sp/>other<sp/>local<sp/>throw-away<sp/>variables<sp/>often<sp/>have<sp/>a<sp/>purpose</highlight></codeline>
+<codeline><highlight class="normal">which<sp/>is<sp/>obvious.<sp/>There&apos;s<sp/>no<sp/>need,<sp/>therefore,<sp/>to<sp/>get<sp/>carried<sp/>away<sp/>with<sp/>complex</highlight></codeline>
+<codeline><highlight class="normal">naming.<sp/>We<sp/>find<sp/>i,<sp/>j,<sp/>and<sp/>k<sp/>are<sp/>better<sp/>loop<sp/>counters<sp/>than<sp/>loopCounterVar<sp/>or</highlight></codeline>
+<codeline><highlight class="normal">whatnot.<sp/>We<sp/>only<sp/>break<sp/>this<sp/>rule<sp/>when<sp/>we<sp/>see<sp/>that<sp/>more<sp/>description<sp/>could<sp/>improve</highlight></codeline>
+<codeline><highlight class="normal">understanding<sp/>of<sp/>an<sp/>algorithm.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Consistent</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">We<sp/>like<sp/>consistency,<sp/>but<sp/>we&apos;re<sp/>not<sp/>really<sp/>obsessed<sp/>with<sp/>it.<sp/>We<sp/>try<sp/>to<sp/>name<sp/>our</highlight></codeline>
+<codeline><highlight class="normal">configuration<sp/>macros<sp/>in<sp/>a<sp/>consistent<sp/>fashion...<sp/>you&apos;ll<sp/>notice<sp/>a<sp/>repeated<sp/>use<sp/>of</highlight></codeline>
+<codeline><highlight class="normal">UNITY_EXCLUDE_BLAH<sp/>or<sp/>UNITY_USES_BLAH<sp/>macros.<sp/>This<sp/>helps<sp/>users<sp/>avoid<sp/>having<sp/>to</highlight></codeline>
+<codeline><highlight class="normal">remember<sp/>each<sp/>macro&apos;s<sp/>details.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Memorable</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Where<sp/>ever<sp/>it<sp/>doesn&apos;t<sp/>violate<sp/>the<sp/>above<sp/>principles,<sp/>we<sp/>try<sp/>to<sp/>apply<sp/>memorable</highlight></codeline>
+<codeline><highlight class="normal">names.<sp/>Sometimes<sp/>this<sp/>means<sp/>using<sp/>something<sp/>that<sp/>is<sp/>simply<sp/>descriptive,<sp/>but</highlight></codeline>
+<codeline><highlight class="normal">often<sp/>we<sp/>strive<sp/>for<sp/>descriptive<sp/>AND<sp/>unique...<sp/>we<sp/>like<sp/>quirky<sp/>names<sp/>that<sp/>stand</highlight></codeline>
+<codeline><highlight class="normal">out<sp/>in<sp/>our<sp/>memory<sp/>and<sp/>are<sp/>easier<sp/>to<sp/>search<sp/>for.<sp/>Take<sp/>a<sp/>look<sp/>through<sp/>the<sp/>file</highlight></codeline>
+<codeline><highlight class="normal">names<sp/>in<sp/>Ceedling<sp/>and<sp/>you&apos;ll<sp/>get<sp/>a<sp/>good<sp/>idea<sp/>of<sp/>what<sp/>we<sp/>are<sp/>talking<sp/>about<sp/>here.</highlight></codeline>
+<codeline><highlight class="normal">Why<sp/>use<sp/>preprocess<sp/>when<sp/>you<sp/>can<sp/>use<sp/>preprocessinator?<sp/>Or<sp/>what<sp/>better<sp/>describes<sp/>a</highlight></codeline>
+<codeline><highlight class="normal">module<sp/>in<sp/>charge<sp/>of<sp/>invoking<sp/>tasks<sp/>during<sp/>releases<sp/>than<sp/>release_invoker?<sp/>Don&apos;t</highlight></codeline>
+<codeline><highlight class="normal">get<sp/>carried<sp/>away.<sp/>The<sp/>names<sp/>are<sp/>still<sp/>descriptive<sp/>and<sp/>fulfill<sp/>the<sp/>above</highlight></codeline>
+<codeline><highlight class="normal">requirements,<sp/>but<sp/>they<sp/>don&apos;t<sp/>feel<sp/>stale.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>C<sp/>and<sp/>C++<sp/>Details</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">We<sp/>don&apos;t<sp/>really<sp/>want<sp/>to<sp/>add<sp/>to<sp/>the<sp/>style<sp/>battles<sp/>out<sp/>there.<sp/>Tabs<sp/>or<sp/>spaces?</highlight></codeline>
+<codeline><highlight class="normal">How<sp/>many<sp/>spaces?<sp/>Where<sp/>do<sp/>the<sp/>braces<sp/>go?<sp/>These<sp/>are<sp/>age-old<sp/>questions<sp/>that<sp/>will</highlight></codeline>
+<codeline><highlight class="normal">never<sp/>be<sp/>answered...<sp/>or<sp/>at<sp/>least<sp/>not<sp/>answered<sp/>in<sp/>a<sp/>way<sp/>that<sp/>will<sp/>make<sp/>everyone</highlight></codeline>
+<codeline><highlight class="normal">happy.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">We&apos;ve<sp/>decided<sp/>on<sp/>our<sp/>own<sp/>style<sp/>preferences.<sp/>If<sp/>you&apos;d<sp/>like<sp/>to<sp/>contribute<sp/>to<sp/>these</highlight></codeline>
+<codeline><highlight class="normal">projects<sp/>(and<sp/>we<sp/>hope<sp/>that<sp/>you<sp/>do),<sp/>then<sp/>we<sp/>ask<sp/>if<sp/>you<sp/>do<sp/>your<sp/>best<sp/>to<sp/>follow</highlight></codeline>
+<codeline><highlight class="normal">the<sp/>same.<sp/>It<sp/>will<sp/>only<sp/>hurt<sp/>a<sp/>little.<sp/>We<sp/>promise.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Whitespace</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Our<sp/>C-style<sp/>is<sp/>to<sp/>use<sp/>spaces<sp/>and<sp/>to<sp/>use<sp/>4<sp/>of<sp/>them<sp/>per<sp/>indent<sp/>level.<sp/>It&apos;s<sp/>a<sp/>nice</highlight></codeline>
+<codeline><highlight class="normal">power-of-2<sp/>number<sp/>that<sp/>looks<sp/>decent<sp/>on<sp/>a<sp/>wide-screen.<sp/>We<sp/>have<sp/>no<sp/>more<sp/>reason</highlight></codeline>
+<codeline><highlight class="normal">than<sp/>that.<sp/>We<sp/>break<sp/>that<sp/>rule<sp/>when<sp/>we<sp/>have<sp/>lines<sp/>that<sp/>wrap<sp/>(macros<sp/>or<sp/>function</highlight></codeline>
+<codeline><highlight class="normal">arguments<sp/>or<sp/>whatnot).<sp/>When<sp/>that<sp/>happens,<sp/>we<sp/>like<sp/>to<sp/>indent<sp/>further<sp/>to<sp/>line</highlight></codeline>
+<codeline><highlight class="normal">things<sp/>up<sp/>in<sp/>nice<sp/>tidy<sp/>columns.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```C</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>if<sp/>(stuff_happened)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>do_something();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Case</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Files<sp/>-<sp/>all<sp/>lower<sp/>case<sp/>with<sp/>underscores.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Variables<sp/>-<sp/>all<sp/>lower<sp/>case<sp/>with<sp/>underscores</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Macros<sp/>-<sp/>all<sp/>caps<sp/>with<sp/>underscores.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Typedefs<sp/>-<sp/>all<sp/>caps<sp/>with<sp/>underscores.<sp/>(also<sp/>ends<sp/>with<sp/>_T).</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Functions<sp/>-<sp/>camel<sp/>cased.<sp/>Usually<sp/>named<sp/>ModuleName_FuncName</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Constants<sp/>and<sp/>Globals<sp/>-<sp/>camel<sp/>cased.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Braces</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>left<sp/>brace<sp/>is<sp/>on<sp/>the<sp/>next<sp/>line<sp/>after<sp/>the<sp/>declaration.<sp/>The<sp/>right<sp/>brace<sp/>is</highlight></codeline>
+<codeline><highlight class="normal">directly<sp/>below<sp/>that.<sp/>Everything<sp/>in<sp/>between<sp/>in<sp/>indented<sp/>one<sp/>level.<sp/>If<sp/>you&apos;re</highlight></codeline>
+<codeline><highlight class="normal">catching<sp/>an<sp/>error<sp/>and<sp/>you<sp/>have<sp/>a<sp/>one-line,<sp/>go<sp/>ahead<sp/>and<sp/>to<sp/>it<sp/>on<sp/>the<sp/>same<sp/>line.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```C</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>while<sp/>(blah)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//Like<sp/>so.<sp/>Even<sp/>if<sp/>only<sp/>one<sp/>line,<sp/>we<sp/>use<sp/>braces.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Comments</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Do<sp/>you<sp/>know<sp/>what<sp/>we<sp/>hate?<sp/>Old-school<sp/>C<sp/>block<sp/>comments.<sp/>BUT,<sp/>we&apos;re<sp/>using<sp/>them</highlight></codeline>
+<codeline><highlight class="normal">anyway.<sp/>As<sp/>we<sp/>mentioned,<sp/>our<sp/>goal<sp/>is<sp/>to<sp/>support<sp/>every<sp/>compiler<sp/>we<sp/>can,</highlight></codeline>
+<codeline><highlight class="normal">especially<sp/>embedded<sp/>compilers.<sp/>There<sp/>are<sp/>STILL<sp/>C<sp/>compilers<sp/>out<sp/>there<sp/>that<sp/>only</highlight></codeline>
+<codeline><highlight class="normal">support<sp/>old-school<sp/>block<sp/>comments.<sp/>So<sp/>that<sp/>is<sp/>what<sp/>we&apos;re<sp/>using.<sp/>We<sp/>apologize.<sp/>We</highlight></codeline>
+<codeline><highlight class="normal">think<sp/>they<sp/>are<sp/>ugly<sp/>too.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Ruby<sp/>Details</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Is<sp/>there<sp/>really<sp/>such<sp/>thing<sp/>as<sp/>a<sp/>Ruby<sp/>coding<sp/>standard?<sp/>Ruby<sp/>is<sp/>such<sp/>a<sp/>free<sp/>form</highlight></codeline>
+<codeline><highlight class="normal">language,<sp/>it<sp/>seems<sp/>almost<sp/>sacrilegious<sp/>to<sp/>suggest<sp/>that<sp/>people<sp/>should<sp/>comply<sp/>to</highlight></codeline>
+<codeline><highlight class="normal">one<sp/>method!<sp/>We&apos;ll<sp/>keep<sp/>it<sp/>really<sp/>brief!</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Whitespace</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Our<sp/>Ruby<sp/>style<sp/>is<sp/>to<sp/>use<sp/>spaces<sp/>and<sp/>to<sp/>use<sp/>2<sp/>of<sp/>them<sp/>per<sp/>indent<sp/>level.<sp/>It&apos;s<sp/>a</highlight></codeline>
+<codeline><highlight class="normal">nice<sp/>power-of-2<sp/>number<sp/>that<sp/>really<sp/>grooves<sp/>with<sp/>Ruby&apos;s<sp/>compact<sp/>style.<sp/>We<sp/>have<sp/>no</highlight></codeline>
+<codeline><highlight class="normal">more<sp/>reason<sp/>than<sp/>that.<sp/>We<sp/>break<sp/>that<sp/>rule<sp/>when<sp/>we<sp/>have<sp/>lines<sp/>that<sp/>wrap.<sp/>When</highlight></codeline>
+<codeline><highlight class="normal">that<sp/>happens,<sp/>we<sp/>like<sp/>to<sp/>indent<sp/>further<sp/>to<sp/>line<sp/>things<sp/>up<sp/>in<sp/>nice<sp/>tidy<sp/>columns.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Case</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Files<sp/>-<sp/>all<sp/>lower<sp/>case<sp/>with<sp/>underscores.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Variables<sp/>-<sp/>all<sp/>lower<sp/>case<sp/>with<sp/>underscores</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Classes,<sp/>Modules,<sp/>etc<sp/>-<sp/>Camel<sp/>cased.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Functions<sp/>-<sp/>all<sp/>lower<sp/>case<sp/>with<sp/>underscores</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Constants<sp/>-<sp/>all<sp/>upper<sp/>case<sp/>with<sp/>underscores</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Documentation</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Egad.<sp/>Really?<sp/>We<sp/>use<sp/>mark<sp/>down<sp/>and<sp/>we<sp/>like<sp/>pdf<sp/>files<sp/>because<sp/>they<sp/>can<sp/>be<sp/>made<sp/>to</highlight></codeline>
+<codeline><highlight class="normal">look<sp/>nice<sp/>while<sp/>still<sp/>being<sp/>portable.<sp/>Good<sp/>enough?</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*Find<sp/>The<sp/>Latest<sp/>of<sp/>This<sp/>And<sp/>More<sp/>at<sp/>[ThrowTheSwitch.org](https://throwtheswitch.org)*</highlight></codeline>
+    </programlisting>
+    <location file="UnitTestFramework/vendor/ceedling/docs/ThrowTheSwitchCodingStandard.md"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,760 @@
+.TH "Includes/mpblibs.h" 3 "Thu Nov 18 2021" "mpbTime" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Includes/mpblibs.h \- This header provides common definitions needed mpb library @description\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdint\&.h>\fP
+.br
+\fC#include <stdlib\&.h>\fP
+.br
+\fC#include <string\&.h>\fP
+.br
+\fC#include <stdarg\&.h>\fP
+.br
+\fC#include <stddef\&.h>\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBUSE_HEAP\fP"
+.br
+.ti -1c
+.RI "#define \fBUSE_NEP_HEAP\fP"
+.br
+.ti -1c
+.RI "#define \fBUSE_MALLOC_FAILED_HOOK\fP"
+.br
+.ti -1c
+.RI "#define \fBeMpbATTR_PACKED\fP   __packed"
+.br
+.ti -1c
+.RI "#define \fB__nop\fP()"
+.br
+.RI "
+.br
+ "
+.ti -1c
+.RI "#define \fBvMpblibsAssertParam\fP(expr)"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef uint32_t \fBhandle_t\fP"
+.br
+.RI "user define handle "
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBeMpbError_t\fP { \fBeSuccess\fP = 0, \fBeInvalidParameter\fP = -1, \fBeAccessDenied\fP = -2, \fBeBusy\fP = -3, \fBeTimeout\fP = -4, \fBeBufferEmpty\fP = -5, \fBeBufferFull\fP = -6, \fBeBufferOverflow\fP = -7, \fBeOutOfMemory\fP = -8, \fBeCheckFailed\fP = -9, \fBeCorrupted\fP = -10, \fBeOutOfRange\fP = -11, \fBeNotFound\fP = -12, \fBeInvalidObject\fP = -13, \fBeNotDiscarded\fP = -14, \fBeNotRegistered\fP = -15, \fBePropertyNotSuported\fP = -16, \fBeObjectTypeNotSuported\fP = -17, \fBeDriverError\fP = -18, \fBeUnknownError\fP = -19, \fBeInternalDeviceError\fP = -20 }"
+.br
+.RI "Mpb defined error codes\&. "
+.ti -1c
+.RI "enum \fBeAccess_t\fP { \fBeREAD_ACCESS\fP = 0, \fBeWRITE_ACCESS\fP = 1 }"
+.br
+.RI "Mpbtronic define access\&. "
+.ti -1c
+.RI "enum \fBeBool_t\fP { \fBeFalse\fP = 0, \fBeTrue\fP = !eFalse }"
+.br
+.RI "boolean definition "
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBvMpblibsUsDelay\fP (uint32_t ulDelay)"
+.br
+.RI "Delay for the specified number of micro seconds\&. "
+.ti -1c
+.RI "\fBeMpbError_t\fP \fBeMpblibsOpen\fP (\fBhandle_t\fP xStream, const uint32_t ulFlags)"
+.br
+.RI "opens, optionally takes control and optionally initializes an peripheral channel "
+.ti -1c
+.RI "\fBeMpbError_t\fP \fBeMpblibsClose\fP (\fBhandle_t\fP xStream)"
+.br
+.RI "closes, optionnaly releases control and optionally deinitializes peripheral channel "
+.ti -1c
+.RI "\fBeMpbError_t\fP \fBeMpblibsRead\fP (\fBhandle_t\fP xStream, size_t xAddrCmdSize, const void *pvAddrCmd, void *const pvBuffer, const size_t xBytes, size_t *pxBytesRead)"
+.br
+.RI "
+.br
+ "
+.ti -1c
+.RI "\fBeMpbError_t\fP \fBeMpblibsWrite\fP (\fBhandle_t\fP xStream, size_t xAddrCmdSize, const void *pvAddrCmd, const void *pvBuffer, const size_t xBytes, size_t *pxBytesWritten)"
+.br
+.RI "
+.br
+ "
+.ti -1c
+.RI "\fBeMpbError_t\fP \fBeMpblibsIoCtl\fP (\fBhandle_t\fP xStream, uint32_t ulRequest, void *pvValue)"
+.br
+.ti -1c
+.RI "\fBeMpbError_t\fP \fBeMpblibsI2CRequest\fP (\fBeAccess_t\fP eAccess, \fBhandle_t\fP xI2Cx, uint8_t ucDevAddr, size_t xAddrCmdSize, const void *pvAddrCmd, void *pvBuffer, size_t xBytes, size_t *pxBytesRW)"
+.br
+.RI "
+.br
+ "
+.ti -1c
+.RI "\fBeMpbError_t\fP \fBeMpblibsSPIBytesReadWrite\fP (\fBhandle_t\fP xSPIx, void *const pvBytesOut, void *pvBytesIn, size_t xBytes)"
+.br
+.ti -1c
+.RI "\fBeMpbError_t\fP \fBeMpblibsSPIBlockReadWrite\fP (\fBeAccess_t\fP eAccess, \fBhandle_t\fP xSPIx, void *pvBuffer, size_t xBytes, size_t *pxBytesRW)"
+.br
+.ti -1c
+.RI "\fBeMpbError_t\fP \fBeMpblibsUartInit\fP (\fBhandle_t\fP xUARTx, \fBhandle_t\fP xGPIOx, uint32_t ulPin, uint32_t ulBaudRate, uint8_t ucWordLength, uint8_t ucStopBits, uint8_t ucParity, size_t xSilenceBits, size_t xFrameTimeoutBits)"
+.br
+.ti -1c
+.RI "\fBeMpbError_t\fP \fBeMpblibsUartRead\fP (\fBhandle_t\fP xUARTx, void *const pvBuffer, size_t xBytes, size_t *pxBytesRead, uint32_t ulMsTimeout)"
+.br
+.ti -1c
+.RI "\fBeMpbError_t\fP \fBeMpblibsUartWrite\fP (\fBhandle_t\fP xUARTx, const void *pvBuffer, size_t xBytes, size_t *pxBytesWritten, uint32_t ulMsTimeout)"
+.br
+.ti -1c
+.RI "\fBeMpbError_t\fP \fBeMpblibsPwrMonInit\fP (void)"
+.br
+.ti -1c
+.RI "\fBeMpbError_t\fP \fBeMpblibsPwrMonWaitPwrUp\fP (void)"
+.br
+.ti -1c
+.RI "int \fBsMpblibsPwrMonIsLow\fP (void)"
+.br
+.ti -1c
+.RI "void \fBvMpblibsPowerMonitorSoftReset\fP (void)"
+.br
+.RI "Do a soft reset of the system\&. "
+.ti -1c
+.RI "\fBeMpbError_t\fP \fBeMpblibsAnalogReadRaw\fP (\fBhandle_t\fP xANALOGx, int32_t *plReading)"
+.br
+.ti -1c
+.RI "\fBeMpbError_t\fP \fBeMpblibsAnalogReadmV\fP (\fBhandle_t\fP xANALOGx, int32_t *plReading)"
+.br
+.ti -1c
+.RI "\fBeMpbError_t\fP \fBeMpblibsAnalogReadRes\fP (\fBhandle_t\fP xANALOGx, int32_t lResolution, int32_t *plReading)"
+.br
+.ti -1c
+.RI "\fBeMpbError_t\fP \fBeMpblibsAnalogWriteRaw\fP (\fBhandle_t\fP xANALOGx, int32_t lOutput)"
+.br
+.ti -1c
+.RI "\fBeMpbError_t\fP \fBeMpblibsAnalogWritemV\fP (\fBhandle_t\fP xANALOGx, int32_t lOutput)"
+.br
+.ti -1c
+.RI "\fBeMpbError_t\fP \fBeMpblibsAnalogWriteRes\fP (\fBhandle_t\fP xANALOGx, int32_t lResolution, int32_t lOutput)"
+.br
+.ti -1c
+.RI "\fBeMpbError_t\fP \fBeMpblibsBinaryRead\fP (\fBhandle_t\fP xBINARYx, \fBeBool_t\fP *peState)"
+.br
+.ti -1c
+.RI "\fBeMpbError_t\fP \fBeMpblibsBinaryWrite\fP (\fBhandle_t\fP xBINARYx, \fBeBool_t\fP eState)"
+.br
+.ti -1c
+.RI "\fBeMpbError_t\fP \fBeMpblibsBinaryToggle\fP (\fBhandle_t\fP xBINARYx)"
+.br
+.ti -1c
+.RI "\fBeMpbError_t\fP \fBeMpblibsMalloc\fP (void **ppvMemBlock, size_t xSize)"
+.br
+.ti -1c
+.RI "\fBeMpbError_t\fP \fBeMpblibsRealloc\fP (void **ppvMemBlock, size_t xSize)"
+.br
+.ti -1c
+.RI "void \fBvMpblibsFree\fP (void **ppvMemBlock)"
+.br
+.ti -1c
+.RI "size_t \fBxMpblibsGetFreeHeapSize\fP (void)"
+.br
+.ti -1c
+.RI "size_t \fBxMpblibsGetMinEverFreeHeapSize\fP (void)"
+.br
+.ti -1c
+.RI "void \fBvMpblibsMallocFailedHook\fP (size_t xSizeRequired)"
+.br
+.ti -1c
+.RI "void \fBvMpblibsAssertFailed\fP (char const *func, char const *file, int line)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+This header provides common definitions needed mpb library @description\&. 
+
+
+.PP
+\fBAuthor\fP
+.RS 4
+juan 
+.RE
+.PP
+\fBDate\fP
+.RS 4
+Created on 2021-03-1 
+.RE
+.PP
+\fBNote\fP
+.RS 4
+indent using tab size : 4 
+.RE
+.PP
+\fBCopyright\fP
+.RS 4
+MPB, Montreal, Qc 
+.SS "(C) COPYRIGHT 2021 Mpb, Montreal, Quebec, Canada"
+.RE
+.PP
+.SS "(C) All rights reserved\&."
+.PP
+
+.br
+
+.br
+ This document contains confidential and proprietary information of MPB (subject to a non-disclosure agreement) and shall not be disclosed, distributed, or reproduced in whole or in part, without the prior written authorization of NEPTRONIC\&. 
+.PP
+Definition in file \fBmpblibs\&.h\fP\&.
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define __nop()"
+
+.PP
+
+.br
+ 
+.PP
+Definition at line 107 of file mpblibs\&.h\&.
+.SS "#define eMpbATTR_PACKED   __packed"
+
+.PP
+Definition at line 95 of file mpblibs\&.h\&.
+.SS "#define USE_HEAP"
+
+.PP
+Definition at line 91 of file mpblibs\&.h\&.
+.SS "#define USE_MALLOC_FAILED_HOOK"
+
+.PP
+Definition at line 93 of file mpblibs\&.h\&.
+.SS "#define USE_NEP_HEAP"
+
+.PP
+Definition at line 92 of file mpblibs\&.h\&.
+.SS "#define vMpblibsAssertParam(expr)"
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIexpr\fP expression to be evaluated 
+.RE
+.PP
+\fBNote\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 337 of file mpblibs\&.h\&.
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef uint32_t \fBhandle_t\fP"
+
+.PP
+user define handle 
+.PP
+Definition at line 86 of file mpblibs\&.h\&.
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBeAccess_t\fP"
+
+.PP
+Mpbtronic define access\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIeREAD_ACCESS \fP\fP
+.TP
+\fB\fIeWRITE_ACCESS \fP\fP
+.PP
+Definition at line 66 of file mpblibs\&.h\&.
+.SS "enum \fBeBool_t\fP"
+
+.PP
+boolean definition 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIeFalse \fP\fP
+.TP
+\fB\fIeTrue \fP\fP
+.PP
+Definition at line 76 of file mpblibs\&.h\&.
+.SS "enum \fBeMpbError_t\fP"
+
+.PP
+Mpb defined error codes\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIeSuccess \fP\fP
+.TP
+\fB\fIeInvalidParameter \fP\fP
+.TP
+\fB\fIeAccessDenied \fP\fP
+.TP
+\fB\fIeBusy \fP\fP
+.TP
+\fB\fIeTimeout \fP\fP
+.TP
+\fB\fIeBufferEmpty \fP\fP
+.TP
+\fB\fIeBufferFull \fP\fP
+.TP
+\fB\fIeBufferOverflow \fP\fP
+.TP
+\fB\fIeOutOfMemory \fP\fP
+.TP
+\fB\fIeCheckFailed \fP\fP
+.TP
+\fB\fIeCorrupted \fP\fP
+.TP
+\fB\fIeOutOfRange \fP\fP
+.TP
+\fB\fIeNotFound \fP\fP
+.TP
+\fB\fIeInvalidObject \fP\fP
+.TP
+\fB\fIeNotDiscarded \fP\fP
+.TP
+\fB\fIeNotRegistered \fP\fP
+.TP
+\fB\fIePropertyNotSuported \fP\fP
+.TP
+\fB\fIeObjectTypeNotSuported \fP\fP
+.TP
+\fB\fIeDriverError \fP\fP
+.TP
+\fB\fIeUnknownError \fP\fP
+.TP
+\fB\fIeInternalDeviceError \fP\fP
+.PP
+Definition at line 37 of file mpblibs\&.h\&.
+.SH "Function Documentation"
+.PP 
+.SS "\fBeMpbError_t\fP eMpblibsAnalogReadmV (\fBhandle_t\fP xANALOGx, int32_t * plReading)"
+
+.SS "\fBeMpbError_t\fP eMpblibsAnalogReadRaw (\fBhandle_t\fP xANALOGx, int32_t * plReading)"
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIxANALOGx\fP Analog peripheral value handle 
+.br
+\fIplReading\fP Pointer on variable where to save reading value\&. 
+.br
+\fIlResolution\fP resolution or range in which to return reading 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+success or librairie error message 
+.RE
+.PP
+\fBNote\fP
+.RS 4
+.RE
+.PP
+
+.SS "\fBeMpbError_t\fP eMpblibsAnalogReadRes (\fBhandle_t\fP xANALOGx, int32_t lResolution, int32_t * plReading)"
+
+.SS "\fBeMpbError_t\fP eMpblibsAnalogWritemV (\fBhandle_t\fP xANALOGx, int32_t lOutput)"
+
+.SS "\fBeMpbError_t\fP eMpblibsAnalogWriteRaw (\fBhandle_t\fP xANALOGx, int32_t lOutput)"
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIxANALOGx\fP Analog peripheral value handle 
+.br
+\fIlOutput\fP value to write to Analog peripheral 
+.br
+\fIlResolution\fP resolution or range of lOutput 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+success or librairie error message 
+.RE
+.PP
+\fBNote\fP
+.RS 4
+.RE
+.PP
+
+.SS "\fBeMpbError_t\fP eMpblibsAnalogWriteRes (\fBhandle_t\fP xANALOGx, int32_t lResolution, int32_t lOutput)"
+
+.SS "\fBeMpbError_t\fP eMpblibsBinaryRead (\fBhandle_t\fP xBINARYx, \fBeBool_t\fP * peState)"
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIxBINARYx\fP Binary peripheral value handle 
+.br
+\fIpeState\fP Pointer on variable where to save reading value\&. 
+.br
+\fIeState\fP value to write to binary peripheral 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+success or librairie error message 
+.RE
+.PP
+\fBNote\fP
+.RS 4
+.RE
+.PP
+
+.SS "\fBeMpbError_t\fP eMpblibsBinaryToggle (\fBhandle_t\fP xBINARYx)"
+
+.SS "\fBeMpbError_t\fP eMpblibsBinaryWrite (\fBhandle_t\fP xBINARYx, \fBeBool_t\fP eState)"
+
+.SS "\fBeMpbError_t\fP eMpblibsClose (\fBhandle_t\fP xStream)"
+
+.PP
+closes, optionnaly releases control and optionally deinitializes peripheral channel 
+.PP
+\fBParameters\fP
+.RS 4
+\fIxStream\fP Application specific peripheral channel identifier 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+success or librairie error message 
+.RE
+.PP
+\fBNote\fP
+.RS 4
+This is a good place to add RTOS support for mutex\&. eMpb_Open should be called for multiple consecutive access algorithm along with eMpb_Close\&. 
+.RE
+.PP
+
+.SS "\fBeMpbError_t\fP eMpblibsI2CRequest (\fBeAccess_t\fP eAccess, \fBhandle_t\fP xI2Cx, uint8_t ucDevAddr, size_t xAddrCmdSize, const void * pvAddrCmd, void * pvBuffer, size_t xBytes, size_t * pxBytesRW)"
+
+.PP
+
+.br
+ 
+.PP
+\fBParameters\fP
+.RS 4
+\fIeAccess\fP Read / Write access request 
+.br
+\fIxI2Cx\fP I2C peripheral handle, HAL dependant\&. 
+.br
+\fIDevAddr\fP Application specific external device address 
+.br
+\fIxAddrCmdSize\fP Size in bytes of Memory Address or Device Command sent at the beginning of transaction\&. Can be 0\&. 
+.br
+\fIpvAddrCmd\fP Pointer to address or command buffer sent\&. NULL if xAddrCmdSize = 0, else not NULL\&. 
+.br
+\fIpvBuffer\fP Pointer on data to be written or where to save read bytes 
+.br
+\fIxBytes\fP number of bytes to be written or read 
+.br
+\fIpxBytesRW\fP Pointer where to save number of bytes written or read\&. Can be NULL\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+success or librairie error message 
+.RE
+.PP
+\fBNote\fP
+.RS 4
+
+.br
+ 
+.RE
+.PP
+
+.SS "\fBeMpbError_t\fP eMpblibsIoCtl (\fBhandle_t\fP xStream, uint32_t ulRequest, void * pvValue)"
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIxStream\fP Application specific peripheral channel identifier 
+.br
+\fIulRequest\fP Control Request Identifier\&. Application Specific\&. 
+.br
+\fIpvValue\fP pointer on write value or where to save read value\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+success or librairie error message 
+.RE
+.PP
+\fBNote\fP
+.RS 4
+.RE
+.PP
+
+.SS "\fBeMpbError_t\fP eMpblibsMalloc (void ** ppvMemBlock, size_t xSize)"
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIppvMemBlock\fP pointer to the memory block pointer 
+.br
+\fIxSize\fP size of the memory block to be allocated 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+success or librairie error message 
+.RE
+.PP
+\fBNote\fP
+.RS 4
+.RE
+.PP
+
+.SS "\fBeMpbError_t\fP eMpblibsOpen (\fBhandle_t\fP xStream, const uint32_t ulFlags)"
+
+.PP
+opens, optionally takes control and optionally initializes an peripheral channel 
+.PP
+\fBParameters\fP
+.RS 4
+\fIxStream\fP Application specific peripheral channel identifier 
+.br
+\fIulFlags\fP Application specific flags for stream initialization 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+success or librairie error message 
+.RE
+.PP
+\fBNote\fP
+.RS 4
+A peripheral channel can be define by its communication protocole (Modbus_COM1, BACnet_COM1, etc) or by target external device driver (PCA9555_1, M24C32_1, etc) This is a good place to add RTOS support for mutex or initialize low level layer\&. eMpb_Open should be called for multiple consecutive access algorithm along with eMpb_Close\&. 
+.RE
+.PP
+
+.SS "\fBeMpbError_t\fP eMpblibsPwrMonInit (void)"
+
+.PP
+\fBReturns\fP
+.RS 4
+success or librairie error message 
+.RE
+.PP
+\fBNote\fP
+.RS 4
+.RE
+.PP
+
+.SS "\fBeMpbError_t\fP eMpblibsPwrMonWaitPwrUp (void)"
+
+.PP
+\fBReturns\fP
+.RS 4
+success or librairie error message 
+.RE
+.PP
+\fBNote\fP
+.RS 4
+.RE
+.PP
+
+.SS "\fBeMpbError_t\fP eMpblibsRead (\fBhandle_t\fP xStream, size_t xAddrCmdSize, const void * pvAddrCmd, void *const pvBuffer, const size_t xBytes, size_t * pxBytesRead)"
+
+.PP
+
+.br
+ 
+.PP
+\fBParameters\fP
+.RS 4
+\fIxStream\fP Application specific peripheral channel identifier 
+.br
+\fIxAddrCmdSize\fP Size in bytes of Memory Address or Device Command sent at the beginning of transaction\&. Can be 0\&. 
+.br
+\fIpvAddrCmd\fP Pointer to address or command buffer sent\&. NULL if xAddrCmdSize = 0, else not NULL\&. 
+.br
+\fIpvBuffer\fP Pointer where to receive read data 
+.br
+\fIxBytes\fP Number of bytes to be read 
+.br
+\fIpxBytesRead\fP Pointer where to save number of bytes read\&. Can be NULL\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+success or librairie error message 
+.RE
+.PP
+\fBNote\fP
+.RS 4
+
+.br
+ 
+.RE
+.PP
+
+.SS "\fBeMpbError_t\fP eMpblibsRealloc (void ** ppvMemBlock, size_t xSize)"
+
+.SS "\fBeMpbError_t\fP eMpblibsSPIBlockReadWrite (\fBeAccess_t\fP eAccess, \fBhandle_t\fP xSPIx, void * pvBuffer, size_t xBytes, size_t * pxBytesRW)"
+
+.PP
+\fBReturns\fP
+.RS 4
+success or librairie error message 
+.RE
+.PP
+\fBNote\fP
+.RS 4
+.RE
+.PP
+
+.SS "\fBeMpbError_t\fP eMpblibsSPIBytesReadWrite (\fBhandle_t\fP xSPIx, void *const pvBytesOut, void * pvBytesIn, size_t xBytes)"
+
+.PP
+\fBReturns\fP
+.RS 4
+success or librairie error message 
+.RE
+.PP
+\fBNote\fP
+.RS 4
+.RE
+.PP
+
+.SS "\fBeMpbError_t\fP eMpblibsUartInit (\fBhandle_t\fP xUARTx, \fBhandle_t\fP xGPIOx, uint32_t ulPin, uint32_t ulBaudRate, uint8_t ucWordLength, uint8_t ucStopBits, uint8_t ucParity, size_t xSilenceBits, size_t xFrameTimeoutBits)"
+
+.PP
+\fBReturns\fP
+.RS 4
+success or librairie error message 
+.RE
+.PP
+\fBNote\fP
+.RS 4
+.RE
+.PP
+
+.SS "\fBeMpbError_t\fP eMpblibsUartRead (\fBhandle_t\fP xUARTx, void *const pvBuffer, size_t xBytes, size_t * pxBytesRead, uint32_t ulMsTimeout)"
+
+.PP
+\fBReturns\fP
+.RS 4
+success or librairie error message 
+.RE
+.PP
+\fBNote\fP
+.RS 4
+.RE
+.PP
+
+.SS "\fBeMpbError_t\fP eMpblibsUartWrite (\fBhandle_t\fP xUARTx, const void * pvBuffer, size_t xBytes, size_t * pxBytesWritten, uint32_t ulMsTimeout)"
+
+.PP
+\fBReturns\fP
+.RS 4
+success or librairie error message 
+.RE
+.PP
+\fBNote\fP
+.RS 4
+.RE
+.PP
+
+.SS "\fBeMpbError_t\fP eMpblibsWrite (\fBhandle_t\fP xStream, size_t xAddrCmdSize, const void * pvAddrCmd, const void * pvBuffer, const size_t xBytes, size_t * pxBytesWritten)"
+
+.PP
+
+.br
+ 
+.PP
+\fBParameters\fP
+.RS 4
+\fIxStream\fP Application specific peripheral channel identifier 
+.br
+\fIxAddrCmdSize\fP Size in bytes of Memory Address or Device Command sent at the beginning of transaction\&. Can be 0\&. 
+.br
+\fIpvAddrCmd\fP Pointer to address or command buffer sent\&. NULL if xAddrCmdSize = 0, else not NULL\&. 
+.br
+\fIpvBuffer\fP Pointer on data to be written 
+.br
+\fIxBytes\fP number of bytes to be written 
+.br
+\fIpxBytesRead\fP Pointer where to save number of bytes written\&. Can be NULL\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+success or librairie error message 
+.RE
+.PP
+\fBNote\fP
+.RS 4
+
+.br
+ 
+.RE
+.PP
+
+.SS "int sMpblibsPwrMonIsLow (void)"
+
+.PP
+\fBReturns\fP
+.RS 4
+success or librairie error message 
+.RE
+.PP
+\fBNote\fP
+.RS 4
+.RE
+.PP
+
+.SS "void vMpblibsAssertFailed (char const * func, char const * file, int line)"
+
+.SS "void vMpblibsFree (void ** ppvMemBlock)"
+
+.SS "void vMpblibsMallocFailedHook (size_t xSizeRequired)"
+
+.SS "void vMpblibsPowerMonitorSoftReset (void)"
+
+.PP
+Do a soft reset of the system\&. 
+.SS "void vMpblibsUsDelay (uint32_t ulDelay)"
+
+.PP
+Delay for the specified number of micro seconds\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIulDelay\fP Blocking delay in micro seconds 
+.RE
+.PP
+\fBNote\fP
+.RS 4
+Blocking 
+.RE
+.PP
+
+.SS "size_t xMpblibsGetFreeHeapSize (void)"
+
+.SS "size_t xMpblibsGetMinEverFreeHeapSize (void)"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mpbTime from the source code\&.

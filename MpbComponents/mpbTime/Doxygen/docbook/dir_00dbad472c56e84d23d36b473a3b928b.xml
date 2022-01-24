@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_00dbad472c56e84d23d36b473a3b928b" xml:lang="en-US">
+<title>UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src Directory Reference</title>
+<indexterm><primary>UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src Directory Reference</primary></indexterm>
+Directory dependency graph for src:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="dir_00dbad472c56e84d23d36b473a3b928b_dep.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Directories    </title>
+        <itemizedlist>
+            <listitem><para>directory <link linkend="_dir_1f6c8f11fff984c2b6d3d62932fc2cc5">subfolder</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Files    </title>
+        <itemizedlist>
+            <listitem><para>file <link linkend="_bar_8c">bar.c</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_bar_8h">bar.h</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_custom__types_8h">custom_types.h</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_display_8c">display.c</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_display_8h">display.h</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_event__processor_8c">event_processor.c</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_event__processor_8h">event_processor.h</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_foo_8c">foo.c</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_foo_8h">foo.h</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

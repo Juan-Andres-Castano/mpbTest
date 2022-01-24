@@ -1,0 +1,8 @@
+UnitTestFramework/build/
+HTML/
+syntax: glob
+Exe\*.*
+List\*.*
+Obj\*.*
+settings\*.*
+*.dep

@@ -1,0 +1,116 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_nep_math_fifo_8c" xml:lang="en-US">
+<title>Sources/nepMathFifo.c File Reference</title>
+<indexterm><primary>Sources/nepMathFifo.c</primary></indexterm>
+<para>
+
+<para>Provides functions to interface with a FIFO. </para>
+ 
+</para>
+<programlisting>#include &quot;nepMathFifo.h&quot;
+</programlisting>Include dependency graph for nepMathFifo.c:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../d5/d33/nep_math_fifo_8c__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>eNepError_t <link linkend="_nep_math_fifo_8c_1ac3f8e66bbdecc61a41280c527009bca6">eNepMathFifoInit</link> (xNepMathFifo_t *pxFifo, uint16_t usSize, void *pvBuf)</para>
+</listitem>
+            <listitem><para>eNepError_t <link linkend="_nep_math_fifo_8c_1a8f4d6f21aa6405591eddcf700b81d3ea">eNepMathFifoReset</link> (xNepMathFifo_t *pxFifo)</para>
+</listitem>
+            <listitem><para>eNepError_t <link linkend="_nep_math_fifo_8c_1ae5a38b271e8fa7525508454f35ab56d9">eNepMathFifoPush</link> (xNepMathFifo_t *pxFifo, const void *pvData, uint16_t usLen, eBool_t eOverwrite)</para>
+</listitem>
+            <listitem><para>eNepError_t <link linkend="_nep_math_fifo_8c_1acb1c9138ba4577cfb6939e879ad5ecb5">eNepMathFifoPop</link> (xNepMathFifo_t *pxFifo, void *pvData, uint16_t usLen)</para>
+</listitem>
+            <listitem><para>eNepError_t <link linkend="_nep_math_fifo_8c_1a84bd5c96fa08284eda5f265abd3f1d49">eNepMathFifoPeak</link> (xNepMathFifo_t *pxFifo, void *pvData, uint16_t usLen, uint32_t *pulBytesRead)</para>
+</listitem>
+            <listitem><para>eNepError_t <link linkend="_nep_math_fifo_8c_1a06dbf5eefea242e10021b770eb554258">eNepMathFifoIsFull</link> (xNepMathFifo_t *pxFifo, eBool_t *peFifoIsFull)</para>
+</listitem>
+            <listitem><para>eNepError_t <link linkend="_nep_math_fifo_8c_1a37c7b2d0833f30ea336bf6b3e07ce976">eNepMathFifoIsEmpty</link> (xNepMathFifo_t *pxFifo, eBool_t *peFifoIsEmpty)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Provides functions to interface with a FIFO. </para>
+
+<para><formalpara><title>Author</title>
+
+<para>Felix Brousseau-Vaillancourt </para>
+</formalpara>
+<formalpara><title>Date</title>
+
+<para>Created on 2019-04-26 </para>
+</formalpara>
+<note><title>Note</title>
+
+<para></para>
+</note>
+<formalpara><title>Copyright</title>
+
+<para>NEP, Montreal, Qc <formalpara><title><informaltable frame='none'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>&#169; COPYRIGHT 2015 NEP, Montreal, Quebec, Canada</entry></row></tbody></tgroup></informaltable></title></formalpara>
+</para>
+</formalpara>
+<formalpara><title><informaltable frame='none'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>&#169; All rights reserved.</entry></row></tbody></tgroup></informaltable></title></formalpara>
+</para>
+
+<para>
+<literallayout>&#160;&#xa;</literallayout>
+
+<literallayout>&#160;&#xa;</literallayout>
+ <informaltable frame='none'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>This document contains confidential and proprietary information of NEPTRONIC (subject to a non-disclosure agreement) and shall</entry></row></tbody></tgroup></informaltable> <informaltable frame='none'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>not be disclosed, distributed, or reproduced in whole or in part, without the prior written authorization of NEPTRONIC.</entry></row></tbody></tgroup></informaltable> </para>
+</section>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_nep_math_fifo_8c_1ac3f8e66bbdecc61a41280c527009bca6"/>    <section>
+    <title>eNepMathFifoInit()</title>
+<indexterm><primary>eNepMathFifoInit</primary><secondary>nepMathFifo.c</secondary></indexterm>
+<indexterm><primary>nepMathFifo.c</primary><secondary>eNepMathFifoInit</secondary></indexterm>
+<para><computeroutput>eNepError_t eNepMathFifoInit (xNepMathFifo_t * pxFifo, uint16_t usSize, void * pvBuf)</computeroutput></para><para>
+Definition at line 29 of file nepMathFifo.c.</para>
+    </section><anchor xml:id="_nep_math_fifo_8c_1a37c7b2d0833f30ea336bf6b3e07ce976"/>    <section>
+    <title>eNepMathFifoIsEmpty()</title>
+<indexterm><primary>eNepMathFifoIsEmpty</primary><secondary>nepMathFifo.c</secondary></indexterm>
+<indexterm><primary>nepMathFifo.c</primary><secondary>eNepMathFifoIsEmpty</secondary></indexterm>
+<para><computeroutput>eNepError_t eNepMathFifoIsEmpty (xNepMathFifo_t * pxFifo, eBool_t * peFifoIsEmpty)</computeroutput></para><para>
+Definition at line 218 of file nepMathFifo.c.</para>
+    </section><anchor xml:id="_nep_math_fifo_8c_1a06dbf5eefea242e10021b770eb554258"/>    <section>
+    <title>eNepMathFifoIsFull()</title>
+<indexterm><primary>eNepMathFifoIsFull</primary><secondary>nepMathFifo.c</secondary></indexterm>
+<indexterm><primary>nepMathFifo.c</primary><secondary>eNepMathFifoIsFull</secondary></indexterm>
+<para><computeroutput>eNepError_t eNepMathFifoIsFull (xNepMathFifo_t * pxFifo, eBool_t * peFifoIsFull)</computeroutput></para><para>
+Definition at line 206 of file nepMathFifo.c.</para>
+    </section><anchor xml:id="_nep_math_fifo_8c_1a84bd5c96fa08284eda5f265abd3f1d49"/>    <section>
+    <title>eNepMathFifoPeak()</title>
+<indexterm><primary>eNepMathFifoPeak</primary><secondary>nepMathFifo.c</secondary></indexterm>
+<indexterm><primary>nepMathFifo.c</primary><secondary>eNepMathFifoPeak</secondary></indexterm>
+<para><computeroutput>eNepError_t eNepMathFifoPeak (xNepMathFifo_t * pxFifo, void * pvData, uint16_t usLen, uint32_t * pulBytesRead)</computeroutput></para><para>
+Definition at line 160 of file nepMathFifo.c.</para>
+    </section><anchor xml:id="_nep_math_fifo_8c_1acb1c9138ba4577cfb6939e879ad5ecb5"/>    <section>
+    <title>eNepMathFifoPop()</title>
+<indexterm><primary>eNepMathFifoPop</primary><secondary>nepMathFifo.c</secondary></indexterm>
+<indexterm><primary>nepMathFifo.c</primary><secondary>eNepMathFifoPop</secondary></indexterm>
+<para><computeroutput>eNepError_t eNepMathFifoPop (xNepMathFifo_t * pxFifo, void * pvData, uint16_t usLen)</computeroutput></para><para>
+Definition at line 115 of file nepMathFifo.c.</para>
+    </section><anchor xml:id="_nep_math_fifo_8c_1ae5a38b271e8fa7525508454f35ab56d9"/>    <section>
+    <title>eNepMathFifoPush()</title>
+<indexterm><primary>eNepMathFifoPush</primary><secondary>nepMathFifo.c</secondary></indexterm>
+<indexterm><primary>nepMathFifo.c</primary><secondary>eNepMathFifoPush</secondary></indexterm>
+<para><computeroutput>eNepError_t eNepMathFifoPush (xNepMathFifo_t * pxFifo, const void * pvData, uint16_t usLen, eBool_t eOverwrite)</computeroutput></para><para>
+Definition at line 61 of file nepMathFifo.c.</para>
+    </section><anchor xml:id="_nep_math_fifo_8c_1a8f4d6f21aa6405591eddcf700b81d3ea"/>    <section>
+    <title>eNepMathFifoReset()</title>
+<indexterm><primary>eNepMathFifoReset</primary><secondary>nepMathFifo.c</secondary></indexterm>
+<indexterm><primary>nepMathFifo.c</primary><secondary>eNepMathFifoReset</secondary></indexterm>
+<para><computeroutput>eNepError_t eNepMathFifoReset (xNepMathFifo_t * pxFifo)</computeroutput></para><para>
+Definition at line 46 of file nepMathFifo.c.</para>
+</section>
+</section>
+</section>

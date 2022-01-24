@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="d8/d38/struct_mpb_math_debounce__t" kind="struct" language="C++" prot="public">
+    <compoundname>MpbMathDebounce_t</compoundname>
+    <includes refid="d8/d59/mpb_math_debounce_8h" local="no">mpbMathDebounce.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="d8/d38/struct_mpb_math_debounce__t_1a9f4a39506f550cff2e04187eee990ba4" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t ulOffCount</definition>
+        <argsstring></argsstring>
+        <name>ulOffCount</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>the number of consecutive value for the state to be considered off </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Includes/mpbMathDebounce.h" line="31" column="9" bodyfile="Includes/mpbMathDebounce.h" bodystart="31" bodyend="-1"/>
+        <referencedby refid="d8/d59/mpb_math_debounce_8h_1a58a6dae34450c1d974441fdd2f779774" compoundref="da/d40/mpb_math_debounce_8c" startline="41" endline="60">vMpbMathDebounceInit</referencedby>
+        <referencedby refid="d8/d59/mpb_math_debounce_8h_1a94957f03bff3a5732fc9741dc88bcbd6" compoundref="da/d40/mpb_math_debounce_8c" startline="63" endline="94">vMpbMathDebounceUpdate</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d8/d38/struct_mpb_math_debounce__t_1a1efe957574b7a82c8d332db044e595c0" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t ulOnCount</definition>
+        <argsstring></argsstring>
+        <name>ulOnCount</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>the number of consecutive value for the state to be considered on </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Includes/mpbMathDebounce.h" line="32" column="9" bodyfile="Includes/mpbMathDebounce.h" bodystart="32" bodyend="-1"/>
+        <referencedby refid="d8/d59/mpb_math_debounce_8h_1a58a6dae34450c1d974441fdd2f779774" compoundref="da/d40/mpb_math_debounce_8c" startline="41" endline="60">vMpbMathDebounceInit</referencedby>
+        <referencedby refid="d8/d59/mpb_math_debounce_8h_1a94957f03bff3a5732fc9741dc88bcbd6" compoundref="da/d40/mpb_math_debounce_8c" startline="63" endline="94">vMpbMathDebounceUpdate</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d8/d38/struct_mpb_math_debounce__t_1a48b0292c9e5fb70c01d50317b2c72cd9" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t ulCount</definition>
+        <argsstring></argsstring>
+        <name>ulCount</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>the number of consecutive value </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Includes/mpbMathDebounce.h" line="33" column="9" bodyfile="Includes/mpbMathDebounce.h" bodystart="33" bodyend="-1"/>
+        <referencedby refid="d8/d59/mpb_math_debounce_8h_1a58a6dae34450c1d974441fdd2f779774" compoundref="da/d40/mpb_math_debounce_8c" startline="41" endline="60">vMpbMathDebounceInit</referencedby>
+        <referencedby refid="d8/d59/mpb_math_debounce_8h_1a94957f03bff3a5732fc9741dc88bcbd6" compoundref="da/d40/mpb_math_debounce_8c" startline="63" endline="94">vMpbMathDebounceUpdate</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d8/d38/struct_mpb_math_debounce__t_1ae03c2434821fa0b74a7fffe6b52f5b92" prot="public" static="no" mutable="no">
+        <type>eBool_t</type>
+        <definition>eBool_t bNewProbablyState</definition>
+        <argsstring></argsstring>
+        <name>bNewProbablyState</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>the new state </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Includes/mpbMathDebounce.h" line="34" column="8" bodyfile="Includes/mpbMathDebounce.h" bodystart="34" bodyend="-1"/>
+        <referencedby refid="d8/d59/mpb_math_debounce_8h_1a58a6dae34450c1d974441fdd2f779774" compoundref="da/d40/mpb_math_debounce_8c" startline="41" endline="60">vMpbMathDebounceInit</referencedby>
+        <referencedby refid="d8/d59/mpb_math_debounce_8h_1a94957f03bff3a5732fc9741dc88bcbd6" compoundref="da/d40/mpb_math_debounce_8c" startline="63" endline="94">vMpbMathDebounceUpdate</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d8/d38/struct_mpb_math_debounce__t_1a9dfd44a0d75d471716ec021b15d5725a" prot="public" static="no" mutable="no">
+        <type>eBool_t</type>
+        <definition>eBool_t bActualState</definition>
+        <argsstring></argsstring>
+        <name>bActualState</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>the actual real state </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Includes/mpbMathDebounce.h" line="35" column="8" bodyfile="Includes/mpbMathDebounce.h" bodystart="35" bodyend="-1"/>
+        <referencedby refid="d8/d59/mpb_math_debounce_8h_1a58a6dae34450c1d974441fdd2f779774" compoundref="da/d40/mpb_math_debounce_8c" startline="41" endline="60">vMpbMathDebounceInit</referencedby>
+        <referencedby refid="d8/d59/mpb_math_debounce_8h_1a94957f03bff3a5732fc9741dc88bcbd6" compoundref="da/d40/mpb_math_debounce_8c" startline="63" endline="94">vMpbMathDebounceUpdate</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Structure to debounce a AC/DC signal. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Includes/mpbMathDebounce.h" line="29" column="1" bodyfile="Includes/mpbMathDebounce.h" bodystart="30" bodyend="36"/>
+    <listofallmembers>
+      <member refid="d8/d38/struct_mpb_math_debounce__t_1a9dfd44a0d75d471716ec021b15d5725a" prot="public" virt="non-virtual"><scope>MpbMathDebounce_t</scope><name>bActualState</name></member>
+      <member refid="d8/d38/struct_mpb_math_debounce__t_1ae03c2434821fa0b74a7fffe6b52f5b92" prot="public" virt="non-virtual"><scope>MpbMathDebounce_t</scope><name>bNewProbablyState</name></member>
+      <member refid="d8/d38/struct_mpb_math_debounce__t_1a48b0292c9e5fb70c01d50317b2c72cd9" prot="public" virt="non-virtual"><scope>MpbMathDebounce_t</scope><name>ulCount</name></member>
+      <member refid="d8/d38/struct_mpb_math_debounce__t_1a9f4a39506f550cff2e04187eee990ba4" prot="public" virt="non-virtual"><scope>MpbMathDebounce_t</scope><name>ulOffCount</name></member>
+      <member refid="d8/d38/struct_mpb_math_debounce__t_1a1efe957574b7a82c8d332db044e595c0" prot="public" virt="non-virtual"><scope>MpbMathDebounce_t</scope><name>ulOnCount</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

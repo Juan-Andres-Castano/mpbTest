@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_55a0501c4657a3a24760ba86a24ade74" xml:lang="en-US">
+<title>UnitTestFramework/build Directory Reference</title>
+<indexterm><primary>UnitTestFramework/build Directory Reference</primary></indexterm>
+Directory dependency graph for build:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="dir_55a0501c4657a3a24760ba86a24ade74_dep.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Directories    </title>
+        <itemizedlist>
+            <listitem><para>directory <link linkend="_dir_92a7b2e67972f4dcba294ff047e32e3b">test</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

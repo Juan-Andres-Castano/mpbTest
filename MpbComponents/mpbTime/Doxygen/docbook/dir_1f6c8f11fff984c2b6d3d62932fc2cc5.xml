@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_1f6c8f11fff984c2b6d3d62932fc2cc5" xml:lang="en-US">
+<title>UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/subfolder Directory Reference</title>
+<indexterm><primary>UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/subfolder Directory Reference</primary></indexterm>
+<simplesect>
+    <title>Files    </title>
+        <itemizedlist>
+            <listitem><para>file <link linkend="_zzz_8c">zzz.c</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_zzz_8h">zzz.h</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

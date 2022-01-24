@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_5038cffc520512455c394c8da4fd704d" xml:lang="en-US">
+<title>UnitTestFramework/vendor/ceedling/plugins Directory Reference</title>
+<indexterm><primary>UnitTestFramework/vendor/ceedling/plugins Directory Reference</primary></indexterm>
+Directory dependency graph for plugins:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="dir_5038cffc520512455c394c8da4fd704d_dep.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Directories    </title>
+        <itemizedlist>
+            <listitem><para>directory <link linkend="_dir_636dff26abb563d7c92f0d684de45b04">beep</link></para>
+</listitem>
+            <listitem><para>directory <link linkend="_dir_7f2d042ac0dc124dfe41c3089d6dda6b">command_hooks</link></para>
+</listitem>
+            <listitem><para>directory <link linkend="_dir_dfd1759c1a4bdbeb65758f6d9d289e9a">fake_function_framework</link></para>
+</listitem>
+            <listitem><para>directory <link linkend="_dir_9207ac77005087f75f28f06b6fc6ca36">gcov</link></para>
+</listitem>
+            <listitem><para>directory <link linkend="_dir_ce66d33f7d2be5b21c5157f8b55799fe">subprojects</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

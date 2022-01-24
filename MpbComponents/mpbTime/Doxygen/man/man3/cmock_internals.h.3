@@ -1,0 +1,142 @@
+.TH "UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock_internals.h" 3 "Thu Nov 18 2021" "mpbTime" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock_internals.h
+.SH SYNOPSIS
+.br
+.PP
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBCMOCK_MEM_PTR_AS_INT\fP   unsigned long"
+.br
+.ti -1c
+.RI "#define \fBCMOCK_MEM_ALIGN\fP   (2)"
+.br
+.ti -1c
+.RI "#define \fBCMOCK_MEM_SIZE\fP   (32768)"
+.br
+.ti -1c
+.RI "#define \fBCMOCK_MEM_ALIGN_SIZE\fP   (\fBCMOCK_MEM_INDEX_TYPE\fP)(1u << \fBCMOCK_MEM_ALIGN\fP)"
+.br
+.ti -1c
+.RI "#define \fBCMOCK_MEM_ALIGN_MASK\fP   (\fBCMOCK_MEM_INDEX_TYPE\fP)(\fBCMOCK_MEM_ALIGN_SIZE\fP \- 1)"
+.br
+.ti -1c
+.RI "#define \fBCMOCK_MEM_INDEX_SIZE\fP   (\fBCMOCK_MEM_INDEX_TYPE\fP)(\fBCMOCK_MEM_PTR_AS_INT\fP)((sizeof(\fBCMOCK_MEM_INDEX_TYPE\fP) > \fBCMOCK_MEM_ALIGN_SIZE\fP) ? sizeof(\fBCMOCK_MEM_INDEX_TYPE\fP) : \fBCMOCK_MEM_ALIGN_SIZE\fP)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "const char * \fBCMockStringOutOfMemory\fP"
+.br
+.ti -1c
+.RI "const char * \fBCMockStringCalledMore\fP"
+.br
+.ti -1c
+.RI "const char * \fBCMockStringCalledLess\fP"
+.br
+.ti -1c
+.RI "const char * \fBCMockStringCalledEarly\fP"
+.br
+.ti -1c
+.RI "const char * \fBCMockStringCalledLate\fP"
+.br
+.ti -1c
+.RI "const char * \fBCMockStringCallOrder\fP"
+.br
+.ti -1c
+.RI "const char * \fBCMockStringIgnPreExp\fP"
+.br
+.ti -1c
+.RI "const char * \fBCMockStringPtrPreExp\fP"
+.br
+.ti -1c
+.RI "const char * \fBCMockStringPtrIsNULL\fP"
+.br
+.ti -1c
+.RI "const char * \fBCMockStringExpNULL\fP"
+.br
+.ti -1c
+.RI "const char * \fBCMockStringMismatch\fP"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define CMOCK_MEM_ALIGN   (2)"
+
+.PP
+Definition at line 74 of file cmock_internals\&.h\&.
+.SS "#define CMOCK_MEM_ALIGN_MASK   (\fBCMOCK_MEM_INDEX_TYPE\fP)(\fBCMOCK_MEM_ALIGN_SIZE\fP \- 1)"
+
+.PP
+Definition at line 85 of file cmock_internals\&.h\&.
+.SS "#define CMOCK_MEM_ALIGN_SIZE   (\fBCMOCK_MEM_INDEX_TYPE\fP)(1u << \fBCMOCK_MEM_ALIGN\fP)"
+
+.PP
+Definition at line 84 of file cmock_internals\&.h\&.
+.SS "#define CMOCK_MEM_INDEX_SIZE   (\fBCMOCK_MEM_INDEX_TYPE\fP)(\fBCMOCK_MEM_PTR_AS_INT\fP)((sizeof(\fBCMOCK_MEM_INDEX_TYPE\fP) > \fBCMOCK_MEM_ALIGN_SIZE\fP) ? sizeof(\fBCMOCK_MEM_INDEX_TYPE\fP) : \fBCMOCK_MEM_ALIGN_SIZE\fP)"
+
+.PP
+Definition at line 86 of file cmock_internals\&.h\&.
+.SS "#define CMOCK_MEM_PTR_AS_INT   unsigned long"
+
+.PP
+Definition at line 58 of file cmock_internals\&.h\&.
+.SS "#define CMOCK_MEM_SIZE   (32768)"
+
+.PP
+Definition at line 80 of file cmock_internals\&.h\&.
+.SH "Variable Documentation"
+.PP 
+.SS "const char* CMockStringCalledEarly\fC [extern]\fP"
+
+.PP
+Definition at line 14 of file cmock\&.c\&.
+.SS "const char* CMockStringCalledLate\fC [extern]\fP"
+
+.PP
+Definition at line 15 of file cmock\&.c\&.
+.SS "const char* CMockStringCalledLess\fC [extern]\fP"
+
+.PP
+Definition at line 13 of file cmock\&.c\&.
+.SS "const char* CMockStringCalledMore\fC [extern]\fP"
+
+.PP
+Definition at line 12 of file cmock\&.c\&.
+.SS "const char* CMockStringCallOrder\fC [extern]\fP"
+
+.PP
+Definition at line 16 of file cmock\&.c\&.
+.SS "const char* CMockStringExpNULL\fC [extern]\fP"
+
+.PP
+Definition at line 20 of file cmock\&.c\&.
+.SS "const char* CMockStringIgnPreExp\fC [extern]\fP"
+
+.PP
+Definition at line 17 of file cmock\&.c\&.
+.SS "const char* CMockStringMismatch\fC [extern]\fP"
+
+.PP
+Definition at line 21 of file cmock\&.c\&.
+.SS "const char* CMockStringOutOfMemory\fC [extern]\fP"
+
+.PP
+Definition at line 11 of file cmock\&.c\&.
+.SS "const char* CMockStringPtrIsNULL\fC [extern]\fP"
+
+.PP
+Definition at line 19 of file cmock\&.c\&.
+.SS "const char* CMockStringPtrPreExp\fC [extern]\fP"
+
+.PP
+Definition at line 18 of file cmock\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mpbTime from the source code\&.

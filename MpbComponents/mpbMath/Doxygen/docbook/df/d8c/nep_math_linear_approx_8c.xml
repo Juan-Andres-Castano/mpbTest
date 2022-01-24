@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_nep_math_linear_approx_8c" xml:lang="en-US">
+<title>Sources/nepMathLinearApprox.c File Reference</title>
+<indexterm><primary>Sources/nepMathLinearApprox.c</primary></indexterm>
+<para>
+
+<para>Library to calculate linear approximation. </para>
+ 
+</para>
+<programlisting>#include &quot;nepMathLinearApprox.h&quot;
+#include &quot;nepMathDivision.h&quot;
+</programlisting>Include dependency graph for nepMathLinearApprox.c:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../d1/d8c/nep_math_linear_approx_8c__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>eNepError_t <link linkend="_nep_math_linear_approx_8c_1a59d17cb403e325a3de3a212429cfae0e">eNepMathLinearApproxFloat</link> (float xCoordinate1X, float xCoordinate1Y, float xCoordinate2X, float xCoordinate2Y, float xApproxCoordinateX, eNepCoerce_t eCoerce, float *pxApproxCoordinateY)</para>
+
+<para><emphasis>-------------------------------------------------------------------------&#8212;</emphasis>&#8205;/ </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Library to calculate linear approximation. </para>
+
+<para><formalpara><title>Author</title>
+
+<para>Mikael Plouffe </para>
+</formalpara>
+<formalpara><title>Date</title>
+
+<para>Created on 2019-04-25 </para>
+</formalpara>
+<note><title>Note</title>
+
+<para></para>
+</note>
+<formalpara><title>Copyright</title>
+
+<para>NEP, Montreal, Qc <formalpara><title><informaltable frame='none'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>&#169; COPYRIGHT 2015 NEP, Montreal, Quebec, Canada</entry></row></tbody></tgroup></informaltable></title></formalpara>
+</para>
+</formalpara>
+<formalpara><title><informaltable frame='none'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>&#169; All rights reserved.</entry></row></tbody></tgroup></informaltable></title></formalpara>
+</para>
+
+<para>
+<literallayout>&#160;&#xa;</literallayout>
+
+<literallayout>&#160;&#xa;</literallayout>
+ <informaltable frame='none'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>This document contains confidential and proprietary information of NEPTRONIC (subject to a non-disclosure agreement) and shall</entry></row></tbody></tgroup></informaltable> <informaltable frame='none'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>not be disclosed, distributed, or reproduced in whole or in part, without the prior written authorization of NEPTRONIC.</entry></row></tbody></tgroup></informaltable> </para>
+</section>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_nep_math_linear_approx_8c_1a59d17cb403e325a3de3a212429cfae0e"/>    <section>
+    <title>eNepMathLinearApproxFloat()</title>
+<indexterm><primary>eNepMathLinearApproxFloat</primary><secondary>nepMathLinearApprox.c</secondary></indexterm>
+<indexterm><primary>nepMathLinearApprox.c</primary><secondary>eNepMathLinearApproxFloat</secondary></indexterm>
+<para><computeroutput>eNepError_t eNepMathLinearApproxFloat (float xCoordinate1X, float xCoordinate1Y, float xCoordinate2X, float xCoordinate2Y, float xApproxCoordinateX, eNepCoerce_t eCoerce, float * pxApproxCoordinateY)</computeroutput></para><para>
+
+<para><emphasis>-------------------------------------------------------------------------&#8212;</emphasis>&#8205;/ </para>
+</para>
+<para>
+Definition at line 168 of file nepMathLinearApprox.c.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../df/d8c/nep_math_linear_approx_8c_a59d17cb403e325a3de3a212429cfae0e_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+</section>

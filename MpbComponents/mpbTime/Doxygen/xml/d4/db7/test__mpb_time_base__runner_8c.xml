@@ -1,0 +1,352 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="d4/db7/test__mpb_time_base__runner_8c" kind="file" language="C++">
+    <compoundname>test_mpbTimeBase_runner.c</compoundname>
+    <includes refid="d6/db4/unity_8h" local="yes">unity.h</includes>
+    <includes local="no">setjmp.h</includes>
+    <includes local="no">stdio.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>UnitTestFramework/build/test/runners/test_mpbTimeBase_runner.c</label>
+        <link refid="d4/db7/test__mpb_time_base__runner_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>unity.h</label>
+        <link refid="d6/db4/unity_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>stdint.h</label>
+      </node>
+      <node id="4">
+        <label>setjmp.h</label>
+      </node>
+      <node id="3">
+        <label>unity_internals.h</label>
+        <link refid="d8/de3/unity__internals_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>limits.h</label>
+      </node>
+      <node id="8">
+        <label>time.h</label>
+      </node>
+      <node id="5">
+        <label>math.h</label>
+      </node>
+      <node id="9">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="d4/db7/test__mpb_time_base__runner_8c_1af3a9b37ea192d5f498c7d699d65ad530" prot="public" static="no">
+        <name>RUN_TEST</name>
+        <param><defname>TestFunc</defname></param>
+        <param><defname>TestLineNum</defname></param>
+        <initializer>{ \
+  Unity.CurrentTestName = #TestFunc; \
+  Unity.CurrentTestLineNumber = TestLineNum; \
+  Unity.NumberOfTests++; \
+  if (<ref refid="d8/de3/unity__internals_8h_1a61d21043921ebc1c2ee49543fc100f9a" kindref="member">TEST_PROTECT</ref>()) \
+  { \
+      <ref refid="d6/db4/unity_8h_1a95c834d6178047ce9e1bce7cbfea2836" kindref="member">setUp</ref>(); \
+      TestFunc(); \
+  } \
+  if (<ref refid="d8/de3/unity__internals_8h_1a61d21043921ebc1c2ee49543fc100f9a" kindref="member">TEST_PROTECT</ref>()) \
+  { \
+    <ref refid="d6/db4/unity_8h_1a9909011e5fea0c018842eec4d93d0662" kindref="member">tearDown</ref>(); \
+  } \
+  <ref refid="d8/de3/unity__internals_8h_1a44f03f0124e59f6996da61946cc2a58e" kindref="member">UnityConcludeTest</ref>(); \
+}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/build/test/runners/test_mpbTimeBase_runner.c" line="4" column="9" bodyfile="UnitTestFramework/build/test/runners/test_mpbTimeBase_runner.c" bodystart="4" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="d4/db7/test__mpb_time_base__runner_8c_1a719a4fcf367d1f23c73ec881194d299b" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int GlobalExpectCount</definition>
+        <argsstring></argsstring>
+        <name>GlobalExpectCount</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/build/test/runners/test_mpbTimeBase_runner.c" line="31" column="5" bodyfile="UnitTestFramework/build/test/runners/test_mpbTimeBase_runner.c" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d4/db7/test__mpb_time_base__runner_8c_1ac2b7788e16200424c9d7090905c05330" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int GlobalVerifyOrder</definition>
+        <argsstring></argsstring>
+        <name>GlobalVerifyOrder</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/build/test/runners/test_mpbTimeBase_runner.c" line="32" column="5" bodyfile="UnitTestFramework/build/test/runners/test_mpbTimeBase_runner.c" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d4/db7/test__mpb_time_base__runner_8c_1a94d3e1da2ccba5f79767ec94774db1cf" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* GlobalOrderError</definition>
+        <argsstring></argsstring>
+        <name>GlobalOrderError</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/build/test/runners/test_mpbTimeBase_runner.c" line="33" column="6" bodyfile="UnitTestFramework/build/test/runners/test_mpbTimeBase_runner.c" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="d4/db7/test__mpb_time_base__runner_8c_1a95c834d6178047ce9e1bce7cbfea2836" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setUp</definition>
+        <argsstring>(void)</argsstring>
+        <name>setUp</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/build/test/runners/test_mpbTimeBase_runner.c" line="36" column="13" bodyfile="Tests/test_mpbTimeBase.c" bodystart="31" bodyend="34" declfile="UnitTestFramework/build/test/runners/test_mpbTimeBase_runner.c" declline="36" declcolumn="13"/>
+        <referencedby refid="d4/db7/test__mpb_time_base__runner_8c_1afb3a9b98e779c4f69e72aca5aa9fa1d7" compoundref="d4/db7/test__mpb_time_base__runner_8c" startline="62" endline="66">resetTest</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d4/db7/test__mpb_time_base__runner_8c_1a9909011e5fea0c018842eec4d93d0662" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void tearDown</definition>
+        <argsstring>(void)</argsstring>
+        <name>tearDown</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/build/test/runners/test_mpbTimeBase_runner.c" line="37" column="13" bodyfile="Tests/test_mpbTimeBase.c" bodystart="36" bodyend="39" declfile="UnitTestFramework/build/test/runners/test_mpbTimeBase_runner.c" declline="37" declcolumn="13"/>
+        <referencedby refid="d4/db7/test__mpb_time_base__runner_8c_1afb3a9b98e779c4f69e72aca5aa9fa1d7" compoundref="d4/db7/test__mpb_time_base__runner_8c" startline="62" endline="66">resetTest</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d4/db7/test__mpb_time_base__runner_8c_1ae8f6f34c3dbcccce54023f33bcdd7994" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void test_eMpbTimeBaseInit_InvalidParam_Fail</definition>
+        <argsstring>()</argsstring>
+        <name>test_eMpbTimeBaseInit_InvalidParam_Fail</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/build/test/runners/test_mpbTimeBase_runner.c" line="38" column="13" bodyfile="Tests/test_mpbTimeBase.c" bodystart="45" bodyend="58" declfile="UnitTestFramework/build/test/runners/test_mpbTimeBase_runner.c" declline="38" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="d4/db7/test__mpb_time_base__runner_8c_1a95f3a453af78cd84a83985d8ad6d6858" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void test_eMpbTimeBaseInit_Success</definition>
+        <argsstring>()</argsstring>
+        <name>test_eMpbTimeBaseInit_Success</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/build/test/runners/test_mpbTimeBase_runner.c" line="39" column="13" bodyfile="Tests/test_mpbTimeBase.c" bodystart="61" bodyend="75" declfile="UnitTestFramework/build/test/runners/test_mpbTimeBase_runner.c" declline="39" declcolumn="13"/>
+        <references refid="d5/d39/test__mpb_time_base_8c_1a7e45006d3ac5dcd53da5667245cff877" compoundref="d5/d39/test__mpb_time_base_8c" startline="25">eMpbError</references>
+        <references refid="d3/d91/mpb_time_base_8h_1abc4f7fb8dcd9e568855485653669221a" compoundref="de/dd4/mpb_time_base_8c" startline="49" endline="65">eMpbTimeBaseInit</references>
+        <references refid="d2/dbb/mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41a3df453108b088af1ab4d781dcf1d0c15" compoundref="d2/dbb/mpblibs_8h" startline="39">eSuccess</references>
+        <references refid="d6/db4/unity_8h_1af9e5695d6c7cf634206ea6d062cb54c9" compoundref="d6/db4/unity_8h" startline="133">TEST_ASSERT_EQUAL</references>
+        <references refid="d6/db4/unity_8h_1a512d845c79aa29b47e1bcac1be7a800b" compoundref="d6/db4/unity_8h" startline="137">TEST_ASSERT_EQUAL_UINT16</references>
+        <references refid="d6/db4/unity_8h_1a91619799eeed1bc1d534d46921b54bd4" compoundref="d6/db4/unity_8h" startline="138">TEST_ASSERT_EQUAL_UINT32</references>
+        <references refid="d6/db4/unity_8h_1a2c6e320e9ab4b461e3396bc543f71f16" compoundref="d6/db4/unity_8h" startline="136">TEST_ASSERT_EQUAL_UINT8</references>
+      </memberdef>
+      <memberdef kind="function" id="d4/db7/test__mpb_time_base__runner_8c_1abdc6d5cdc46df90bd32cbafdcbd5e2b9" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void suite_setup</definition>
+        <argsstring>(void)</argsstring>
+        <name>suite_setup</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/build/test/runners/test_mpbTimeBase_runner.c" line="43" column="13" bodyfile="UnitTestFramework/build/test/runners/test_mpbTimeBase_runner.c" bodystart="43" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="d4/db7/test__mpb_time_base__runner_8c_1a4e57b2dca19fd1f4446d6d9ffb71de61" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>static int suite_teardown</definition>
+        <argsstring>(int num_failures)</argsstring>
+        <name>suite_teardown</name>
+        <param>
+          <type>int</type>
+          <declname>num_failures</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/build/test/runners/test_mpbTimeBase_runner.c" line="51" column="12" bodyfile="UnitTestFramework/build/test/runners/test_mpbTimeBase_runner.c" bodystart="51" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="d4/db7/test__mpb_time_base__runner_8c_1afb3a9b98e779c4f69e72aca5aa9fa1d7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void resetTest</definition>
+        <argsstring>(void)</argsstring>
+        <name>resetTest</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/build/test/runners/test_mpbTimeBase_runner.c" line="62" column="6" bodyfile="UnitTestFramework/build/test/runners/test_mpbTimeBase_runner.c" bodystart="62" bodyend="66" declfile="UnitTestFramework/build/test/runners/test_mpbTimeBase_runner.c" declline="61" declcolumn="6"/>
+        <references refid="d4/db7/test__mpb_time_base__runner_8c_1a95c834d6178047ce9e1bce7cbfea2836" compoundref="d5/d39/test__mpb_time_base_8c" startline="31" endline="34">setUp</references>
+        <references refid="d4/db7/test__mpb_time_base__runner_8c_1a9909011e5fea0c018842eec4d93d0662" compoundref="d5/d39/test__mpb_time_base_8c" startline="36" endline="39">tearDown</references>
+      </memberdef>
+      <memberdef kind="function" id="d4/db7/test__mpb_time_base__runner_8c_1a840291bc02cba5474a4cb46a9b9566fe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int main</definition>
+        <argsstring>(void)</argsstring>
+        <name>main</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/build/test/runners/test_mpbTimeBase_runner.c" line="70" column="5" bodyfile="UnitTestFramework/build/test/runners/test_mpbTimeBase_runner.c" bodystart="70" bodyend="78"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*<sp/>AUTOGENERATED<sp/>FILE.<sp/>DO<sp/>NOT<sp/>EDIT.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">/*=======Test<sp/>Runner<sp/>Used<sp/>To<sp/>Run<sp/>Each<sp/>Test<sp/>Below=====*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4" refid="d4/db7/test__mpb_time_base__runner_8c_1af3a9b37ea192d5f498c7d699d65ad530" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>RUN_TEST(TestFunc,<sp/>TestLineNum)<sp/>\</highlight></codeline>
+<codeline lineno="5"><highlight class="preprocessor">{<sp/>\</highlight></codeline>
+<codeline lineno="6"><highlight class="preprocessor"><sp/><sp/>Unity.CurrentTestName<sp/>=<sp/>#TestFunc;<sp/>\</highlight></codeline>
+<codeline lineno="7"><highlight class="preprocessor"><sp/><sp/>Unity.CurrentTestLineNumber<sp/>=<sp/>TestLineNum;<sp/>\</highlight></codeline>
+<codeline lineno="8"><highlight class="preprocessor"><sp/><sp/>Unity.NumberOfTests++;<sp/>\</highlight></codeline>
+<codeline lineno="9"><highlight class="preprocessor"><sp/><sp/>if<sp/>(TEST_PROTECT())<sp/>\</highlight></codeline>
+<codeline lineno="10"><highlight class="preprocessor"><sp/><sp/>{<sp/>\</highlight></codeline>
+<codeline lineno="11"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/>setUp();<sp/>\</highlight></codeline>
+<codeline lineno="12"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/>TestFunc();<sp/>\</highlight></codeline>
+<codeline lineno="13"><highlight class="preprocessor"><sp/><sp/>}<sp/>\</highlight></codeline>
+<codeline lineno="14"><highlight class="preprocessor"><sp/><sp/>if<sp/>(TEST_PROTECT())<sp/>\</highlight></codeline>
+<codeline lineno="15"><highlight class="preprocessor"><sp/><sp/>{<sp/>\</highlight></codeline>
+<codeline lineno="16"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>tearDown();<sp/>\</highlight></codeline>
+<codeline lineno="17"><highlight class="preprocessor"><sp/><sp/>}<sp/>\</highlight></codeline>
+<codeline lineno="18"><highlight class="preprocessor"><sp/><sp/>UnityConcludeTest();<sp/>\</highlight></codeline>
+<codeline lineno="19"><highlight class="preprocessor">}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="comment">/*=======Automagically<sp/>Detected<sp/>Files<sp/>To<sp/>Include=====*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__WIN32__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>UNITY_INCLUDE_SETUP_STUBS</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d6/db4/unity_8h" kindref="compound">unity.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>UNITY_EXCLUDE_SETJMP_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;setjmp.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31" refid="d4/db7/test__mpb_time_base__runner_8c_1a719a4fcf367d1f23c73ec881194d299b" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="d4/db7/test__mpb_time_base__runner_8c_1a719a4fcf367d1f23c73ec881194d299b" kindref="member">GlobalExpectCount</ref>;</highlight></codeline>
+<codeline lineno="32" refid="d4/db7/test__mpb_time_base__runner_8c_1ac2b7788e16200424c9d7090905c05330" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="d4/db7/test__mpb_time_base__runner_8c_1ac2b7788e16200424c9d7090905c05330" kindref="member">GlobalVerifyOrder</ref>;</highlight></codeline>
+<codeline lineno="33" refid="d4/db7/test__mpb_time_base__runner_8c_1a94d3e1da2ccba5f79767ec94774db1cf" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="d4/db7/test__mpb_time_base__runner_8c_1a94d3e1da2ccba5f79767ec94774db1cf" kindref="member">GlobalOrderError</ref>;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="comment">/*=======External<sp/>Functions<sp/>This<sp/>Runner<sp/>Calls=====*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d4/db7/test__mpb_time_base__runner_8c_1a95c834d6178047ce9e1bce7cbfea2836" kindref="member">setUp</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d4/db7/test__mpb_time_base__runner_8c_1a9909011e5fea0c018842eec4d93d0662" kindref="member">tearDown</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d4/db7/test__mpb_time_base__runner_8c_1ae8f6f34c3dbcccce54023f33bcdd7994" kindref="member">test_eMpbTimeBaseInit_InvalidParam_Fail</ref>();</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d4/db7/test__mpb_time_base__runner_8c_1a95f3a453af78cd84a83985d8ad6d6858" kindref="member">test_eMpbTimeBaseInit_Success</ref>();</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="comment">/*=======Suite<sp/>Setup=====*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>suite_setup(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="44"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(UNITY_WEAK_ATTRIBUTE)<sp/>||<sp/>defined(UNITY_WEAK_PRAGMA)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><ref refid="d6/db4/unity_8h_1a0f08bc53b5978d3892a36f98df005b37" kindref="member">suiteSetUp</ref>();</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="comment">/*=======Suite<sp/>Teardown=====*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>suite_teardown(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>num_failures)</highlight></codeline>
+<codeline lineno="52"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(UNITY_WEAK_ATTRIBUTE)<sp/>||<sp/>defined(UNITY_WEAK_PRAGMA)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d6/db4/unity_8h_1a3eac1f0f22f9093d82efeed457a1b1d3" kindref="member">suiteTearDown</ref>(num_failures);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>num_failures;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight><highlight class="comment">/*=======Test<sp/>Reset<sp/>Option=====*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d4/db7/test__mpb_time_base__runner_8c_1afb3a9b98e779c4f69e72aca5aa9fa1d7" kindref="member">resetTest</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="62" refid="d4/db7/test__mpb_time_base__runner_8c_1afb3a9b98e779c4f69e72aca5aa9fa1d7" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d4/db7/test__mpb_time_base__runner_8c_1afb3a9b98e779c4f69e72aca5aa9fa1d7" kindref="member">resetTest</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="63"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><ref refid="d4/db7/test__mpb_time_base__runner_8c_1a9909011e5fea0c018842eec4d93d0662" kindref="member">tearDown</ref>();</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><ref refid="d4/db7/test__mpb_time_base__runner_8c_1a95c834d6178047ce9e1bce7cbfea2836" kindref="member">setUp</ref>();</highlight></codeline>
+<codeline lineno="66"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight><highlight class="comment">/*=======MAIN=====*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70" refid="d4/db7/test__mpb_time_base__runner_8c_1a840291bc02cba5474a4cb46a9b9566fe" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="d4/db7/test__mpb_time_base__runner_8c_1a840291bc02cba5474a4cb46a9b9566fe" kindref="member">main</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="71"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/>suite_setup();</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><ref refid="d5/ddd/unity_8c_1aed50601fbdaea8fc0fef0c61cf877809" kindref="member">UnityBegin</ref>(</highlight><highlight class="stringliteral">&quot;test_mpbTimeBase.c&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><ref refid="d4/db7/test__mpb_time_base__runner_8c_1af3a9b37ea192d5f498c7d699d65ad530" kindref="member">RUN_TEST</ref>(<ref refid="d4/db7/test__mpb_time_base__runner_8c_1ae8f6f34c3dbcccce54023f33bcdd7994" kindref="member">test_eMpbTimeBaseInit_InvalidParam_Fail</ref>,<sp/>45);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><ref refid="d4/db7/test__mpb_time_base__runner_8c_1af3a9b37ea192d5f498c7d699d65ad530" kindref="member">RUN_TEST</ref>(<ref refid="d4/db7/test__mpb_time_base__runner_8c_1a95f3a453af78cd84a83985d8ad6d6858" kindref="member">test_eMpbTimeBaseInit_Success</ref>,<sp/>61);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>suite_teardown(<ref refid="d5/ddd/unity_8c_1a4820ba04ff5e9a474fe38ab6633d30a0" kindref="member">UnityEnd</ref>());</highlight></codeline>
+<codeline lineno="78"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="UnitTestFramework/build/test/runners/test_mpbTimeBase_runner.c"/>
+  </compounddef>
+</doxygen>

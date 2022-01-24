@@ -1,0 +1,792 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="d2/dc8/_unity_assertions_reference_8md" kind="file" language="Markdown">
+    <compoundname>UnityAssertionsReference.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">#<sp/>Unity<sp/>Assertions<sp/>Reference</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Background<sp/>and<sp/>Overview</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Super<sp/>Condensed<sp/>Version</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>An<sp/>assertion<sp/>establishes<sp/>truth<sp/>(i.e.<sp/>boolean<sp/>True)<sp/>for<sp/>a<sp/>single<sp/>condition.</highlight></codeline>
+<codeline><highlight class="normal">Upon<sp/>boolean<sp/>False,<sp/>an<sp/>assertion<sp/>stops<sp/>execution<sp/>and<sp/>reports<sp/>the<sp/>failure.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Unity<sp/>is<sp/>mainly<sp/>a<sp/>rich<sp/>collection<sp/>of<sp/>assertions<sp/>and<sp/>the<sp/>support<sp/>to<sp/>gather<sp/>up</highlight></codeline>
+<codeline><highlight class="normal">and<sp/>easily<sp/>execute<sp/>those<sp/>assertions.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>The<sp/>structure<sp/>of<sp/>Unity<sp/>allows<sp/>you<sp/>to<sp/>easily<sp/>separate<sp/>test<sp/>assertions<sp/>from</highlight></codeline>
+<codeline><highlight class="normal">source<sp/>code<sp/>in,<sp/>well,<sp/>test<sp/>code.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Unity&apos;s<sp/>assertions:</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Come<sp/>in<sp/>many,<sp/>many<sp/>flavors<sp/>to<sp/>handle<sp/>different<sp/>C<sp/>types<sp/>and<sp/>assertion<sp/>cases.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Use<sp/>context<sp/>to<sp/>provide<sp/>detailed<sp/>and<sp/>helpful<sp/>failure<sp/>messages.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Document<sp/>types,<sp/>expected<sp/>values,<sp/>and<sp/>basic<sp/>behavior<sp/>in<sp/>your<sp/>source<sp/>code<sp/>for</highlight></codeline>
+<codeline><highlight class="normal">free.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Unity<sp/>Is<sp/>Several<sp/>Things<sp/>But<sp/>Mainly<sp/>It&apos;s<sp/>Assertions</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">One<sp/>way<sp/>to<sp/>think<sp/>of<sp/>Unity<sp/>is<sp/>simply<sp/>as<sp/>a<sp/>rich<sp/>collection<sp/>of<sp/>assertions<sp/>you<sp/>can</highlight></codeline>
+<codeline><highlight class="normal">use<sp/>to<sp/>establish<sp/>whether<sp/>your<sp/>source<sp/>code<sp/>behaves<sp/>the<sp/>way<sp/>you<sp/>think<sp/>it<sp/>does.</highlight></codeline>
+<codeline><highlight class="normal">Unity<sp/>provides<sp/>a<sp/>framework<sp/>to<sp/>easily<sp/>organize<sp/>and<sp/>execute<sp/>those<sp/>assertions<sp/>in</highlight></codeline>
+<codeline><highlight class="normal">test<sp/>code<sp/>separate<sp/>from<sp/>your<sp/>source<sp/>code.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>What&apos;s<sp/>an<sp/>Assertion?</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">At<sp/>their<sp/>core,<sp/>assertions<sp/>are<sp/>an<sp/>establishment<sp/>of<sp/>truth<sp/>-<sp/>boolean<sp/>truth.<sp/>Was<sp/>this</highlight></codeline>
+<codeline><highlight class="normal">thing<sp/>equal<sp/>to<sp/>that<sp/>thing?<sp/>Does<sp/>that<sp/>code<sp/>doohickey<sp/>have<sp/>such-and-such<sp/>property</highlight></codeline>
+<codeline><highlight class="normal">or<sp/>not?<sp/>You<sp/>get<sp/>the<sp/>idea.<sp/>Assertions<sp/>are<sp/>executable<sp/>code<sp/>(to<sp/>appreciate<sp/>the<sp/>big</highlight></codeline>
+<codeline><highlight class="normal">picture<sp/>on<sp/>this<sp/>read<sp/>up<sp/>on<sp/>the<sp/>difference<sp/>between</highlight></codeline>
+<codeline><highlight class="normal">[link:Dynamic<sp/>Verification<sp/>and<sp/>Static<sp/>Analysis]).<sp/>A<sp/>failing<sp/>assertion<sp/>stops</highlight></codeline>
+<codeline><highlight class="normal">execution<sp/>and<sp/>reports<sp/>an<sp/>error<sp/>through<sp/>some<sp/>appropriate<sp/>I/O<sp/>channel<sp/>(e.g.</highlight></codeline>
+<codeline><highlight class="normal">stdout,<sp/>GUI,<sp/>file,<sp/>blinky<sp/>light).</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Fundamentally,<sp/>for<sp/>dynamic<sp/>verification<sp/>all<sp/>you<sp/>need<sp/>is<sp/>a<sp/>single<sp/>assertion</highlight></codeline>
+<codeline><highlight class="normal">mechanism.<sp/>In<sp/>fact,<sp/>that&apos;s<sp/>what<sp/>the<sp/>[assert()<sp/>macro<sp/>in<sp/>C&apos;s<sp/>standard<sp/>library](http://en.wikipedia.org/en/wiki/Assert.h)</highlight></codeline>
+<codeline><highlight class="normal">is<sp/>for.<sp/>So<sp/>why<sp/>not<sp/>just<sp/>use<sp/>it?<sp/>Well,<sp/>we<sp/>can<sp/>do<sp/>far<sp/>better<sp/>in<sp/>the<sp/>reporting</highlight></codeline>
+<codeline><highlight class="normal">department.<sp/>C&apos;s<sp/>`assert()`<sp/>is<sp/>pretty<sp/>dumb<sp/>as-is<sp/>and<sp/>is<sp/>particularly<sp/>poor<sp/>for</highlight></codeline>
+<codeline><highlight class="normal">handling<sp/>common<sp/>data<sp/>types<sp/>like<sp/>arrays,<sp/>structs,<sp/>etc.<sp/>And,<sp/>without<sp/>some<sp/>other</highlight></codeline>
+<codeline><highlight class="normal">support,<sp/>it&apos;s<sp/>far<sp/>too<sp/>tempting<sp/>to<sp/>litter<sp/>source<sp/>code<sp/>with<sp/>C&apos;s<sp/>`assert()`&apos;s.<sp/>It&apos;s</highlight></codeline>
+<codeline><highlight class="normal">generally<sp/>much<sp/>cleaner,<sp/>manageable,<sp/>and<sp/>more<sp/>useful<sp/>to<sp/>separate<sp/>test<sp/>and<sp/>source</highlight></codeline>
+<codeline><highlight class="normal">code<sp/>in<sp/>the<sp/>way<sp/>Unity<sp/>facilitates.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Unity&apos;s<sp/>Assertions:<sp/>Helpful<sp/>Messages<sp/>_and_<sp/>Free<sp/>Source<sp/>Code<sp/>Documentation</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Asserting<sp/>a<sp/>simple<sp/>truth<sp/>condition<sp/>is<sp/>valuable,<sp/>but<sp/>using<sp/>the<sp/>context<sp/>of<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">assertion<sp/>is<sp/>even<sp/>more<sp/>valuable.<sp/>For<sp/>instance,<sp/>if<sp/>you<sp/>know<sp/>you&apos;re<sp/>comparing<sp/>bit</highlight></codeline>
+<codeline><highlight class="normal">flags<sp/>and<sp/>not<sp/>just<sp/>integers,<sp/>then<sp/>why<sp/>not<sp/>use<sp/>that<sp/>context<sp/>to<sp/>give<sp/>explicit,</highlight></codeline>
+<codeline><highlight class="normal">readable,<sp/>bit-level<sp/>feedback<sp/>when<sp/>an<sp/>assertion<sp/>fails?</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">That&apos;s<sp/>what<sp/>Unity&apos;s<sp/>collection<sp/>of<sp/>assertions<sp/>do<sp/>-<sp/>capture<sp/>context<sp/>to<sp/>give<sp/>you</highlight></codeline>
+<codeline><highlight class="normal">helpful,<sp/>meaningful<sp/>assertion<sp/>failure<sp/>messages.<sp/>In<sp/>fact,<sp/>the<sp/>assertions</highlight></codeline>
+<codeline><highlight class="normal">themselves<sp/>also<sp/>serve<sp/>as<sp/>executable<sp/>documentation<sp/>about<sp/>types<sp/>and<sp/>values<sp/>in<sp/>your</highlight></codeline>
+<codeline><highlight class="normal">source<sp/>code.<sp/>So<sp/>long<sp/>as<sp/>your<sp/>tests<sp/>remain<sp/>current<sp/>with<sp/>your<sp/>source<sp/>and<sp/>all<sp/>those</highlight></codeline>
+<codeline><highlight class="normal">tests<sp/>pass,<sp/>you<sp/>have<sp/>a<sp/>detailed,<sp/>up-to-date<sp/>view<sp/>of<sp/>the<sp/>intent<sp/>and<sp/>mechanisms<sp/>in</highlight></codeline>
+<codeline><highlight class="normal">your<sp/>source<sp/>code.<sp/>And<sp/>due<sp/>to<sp/>a<sp/>wondrous<sp/>mystery,<sp/>well-tested<sp/>code<sp/>usually<sp/>tends</highlight></codeline>
+<codeline><highlight class="normal">to<sp/>be<sp/>well<sp/>designed<sp/>code.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Assertion<sp/>Conventions<sp/>and<sp/>Configurations</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Naming<sp/>and<sp/>Parameter<sp/>Conventions</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>convention<sp/>of<sp/>assertion<sp/>parameters<sp/>generally<sp/>follows<sp/>this<sp/>order:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_X(<sp/>{modifiers},<sp/>{expected},<sp/>actual,<sp/>{size/count}<sp/>)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>very<sp/>simplest<sp/>assertion<sp/>possible<sp/>uses<sp/>only<sp/>a<sp/>single<sp/>&quot;actual&quot;<sp/>parameter<sp/>(e.g.</highlight></codeline>
+<codeline><highlight class="normal">a<sp/>simple<sp/>null<sp/>check).</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">&quot;Actual&quot;<sp/>is<sp/>the<sp/>value<sp/>being<sp/>tested<sp/>and<sp/>unlike<sp/>the<sp/>other<sp/>parameters<sp/>in<sp/>an</highlight></codeline>
+<codeline><highlight class="normal">assertion<sp/>construction<sp/>is<sp/>the<sp/>only<sp/>parameter<sp/>present<sp/>in<sp/>all<sp/>assertion<sp/>variants.</highlight></codeline>
+<codeline><highlight class="normal">&quot;Modifiers&quot;<sp/>are<sp/>masks,<sp/>ranges,<sp/>bit<sp/>flag<sp/>specifiers,<sp/>floating<sp/>point<sp/>deltas.</highlight></codeline>
+<codeline><highlight class="normal">&quot;Expected&quot;<sp/>is<sp/>your<sp/>expected<sp/>value<sp/>(duh)<sp/>to<sp/>compare<sp/>to<sp/>an<sp/>&quot;actual&quot;<sp/>value;<sp/>it&apos;s</highlight></codeline>
+<codeline><highlight class="normal">marked<sp/>as<sp/>an<sp/>optional<sp/>parameter<sp/>because<sp/>some<sp/>assertions<sp/>only<sp/>need<sp/>a<sp/>single</highlight></codeline>
+<codeline><highlight class="normal">&quot;actual&quot;<sp/>parameter<sp/>(e.g.<sp/>null<sp/>check).</highlight></codeline>
+<codeline><highlight class="normal">&quot;Size/count&quot;<sp/>refers<sp/>to<sp/>string<sp/>lengths,<sp/>number<sp/>of<sp/>array<sp/>elements,<sp/>etc.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Many<sp/>of<sp/>Unity&apos;s<sp/>assertions<sp/>are<sp/>clear<sp/>duplications<sp/>in<sp/>that<sp/>the<sp/>same<sp/>data<sp/>type</highlight></codeline>
+<codeline><highlight class="normal">is<sp/>handled<sp/>by<sp/>several<sp/>assertions.<sp/>The<sp/>differences<sp/>among<sp/>these<sp/>are<sp/>in<sp/>how<sp/>failure</highlight></codeline>
+<codeline><highlight class="normal">messages<sp/>are<sp/>presented.<sp/>For<sp/>instance,<sp/>a<sp/>`_HEX`<sp/>variant<sp/>of<sp/>an<sp/>assertion<sp/>prints</highlight></codeline>
+<codeline><highlight class="normal">the<sp/>expected<sp/>and<sp/>actual<sp/>values<sp/>of<sp/>that<sp/>assertion<sp/>formatted<sp/>as<sp/>hexadecimal.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>TEST_ASSERT_X_MESSAGE<sp/>Variants</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">_All_<sp/>assertions<sp/>are<sp/>complemented<sp/>with<sp/>a<sp/>variant<sp/>that<sp/>includes<sp/>a<sp/>simple<sp/>string</highlight></codeline>
+<codeline><highlight class="normal">message<sp/>as<sp/>a<sp/>final<sp/>parameter.<sp/>The<sp/>string<sp/>you<sp/>specify<sp/>is<sp/>appended<sp/>to<sp/>an<sp/>assertion</highlight></codeline>
+<codeline><highlight class="normal">failure<sp/>message<sp/>in<sp/>Unity<sp/>output.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">For<sp/>brevity,<sp/>the<sp/>assertion<sp/>variants<sp/>with<sp/>a<sp/>message<sp/>parameter<sp/>are<sp/>not<sp/>listed</highlight></codeline>
+<codeline><highlight class="normal">below.<sp/>Just<sp/>tack<sp/>on<sp/>`_MESSAGE`<sp/>as<sp/>the<sp/>final<sp/>component<sp/>to<sp/>any<sp/>assertion<sp/>name<sp/>in</highlight></codeline>
+<codeline><highlight class="normal">the<sp/>reference<sp/>list<sp/>below<sp/>and<sp/>add<sp/>a<sp/>string<sp/>as<sp/>the<sp/>final<sp/>parameter.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">_Example:_</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_X(<sp/>{modifiers},<sp/>{expected},<sp/>actual,<sp/>{size/count}<sp/>)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">becomes<sp/>messageified<sp/>like<sp/>thus...</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_X_MESSAGE(<sp/>{modifiers},<sp/>{expected},<sp/>actual,<sp/>{size/count},<sp/>message<sp/>)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Notes:</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>The<sp/>`_MESSAGE`<sp/>variants<sp/>intentionally<sp/>do<sp/>not<sp/>support<sp/>`printf`<sp/>style<sp/>formatting<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>since<sp/>many<sp/>embedded<sp/>projects<sp/>don&apos;t<sp/>support<sp/>or<sp/>avoid<sp/>`printf`<sp/>for<sp/>various<sp/>reasons.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>It<sp/>is<sp/>possible<sp/>to<sp/>use<sp/>`sprintf`<sp/>before<sp/>the<sp/>assertion<sp/>to<sp/>assemble<sp/>a<sp/>complex<sp/>fail</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>message,<sp/>if<sp/>necessary.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>If<sp/>you<sp/>want<sp/>to<sp/>output<sp/>a<sp/>counter<sp/>value<sp/>within<sp/>an<sp/>assertion<sp/>fail<sp/>message<sp/>(e.g.<sp/>from<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>a<sp/>loop)<sp/>,<sp/>building<sp/>up<sp/>an<sp/>array<sp/>of<sp/>results<sp/>and<sp/>then<sp/>using<sp/>one<sp/>of<sp/>the<sp/>`_ARRAY`<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>assertions<sp/>(see<sp/>below)<sp/>might<sp/>be<sp/>a<sp/>handy<sp/>alternative<sp/>to<sp/>`sprintf`.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>TEST_ASSERT_X_ARRAY<sp/>Variants</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Unity<sp/>provides<sp/>a<sp/>collection<sp/>of<sp/>assertions<sp/>for<sp/>arrays<sp/>containing<sp/>a<sp/>variety<sp/>of</highlight></codeline>
+<codeline><highlight class="normal">types.<sp/>These<sp/>are<sp/>documented<sp/>in<sp/>the<sp/>Array<sp/>section<sp/>below.<sp/>These<sp/>are<sp/>almost<sp/>on<sp/>par</highlight></codeline>
+<codeline><highlight class="normal">with<sp/>the<sp/>`_MESSAGE`variants<sp/>of<sp/>Unity&apos;s<sp/>Asserts<sp/>in<sp/>that<sp/>for<sp/>pretty<sp/>much<sp/>any<sp/>Unity</highlight></codeline>
+<codeline><highlight class="normal">type<sp/>assertion<sp/>you<sp/>can<sp/>tack<sp/>on<sp/>`_ARRAY`<sp/>and<sp/>run<sp/>assertions<sp/>on<sp/>an<sp/>entire<sp/>block<sp/>of</highlight></codeline>
+<codeline><highlight class="normal">memory.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_EQUAL_TYPEX_ARRAY(<sp/>expected,<sp/>actual,<sp/>{size/count}<sp/>)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">&quot;Expected&quot;<sp/>is<sp/>an<sp/>array<sp/>itself.</highlight></codeline>
+<codeline><highlight class="normal">&quot;Size/count&quot;<sp/>is<sp/>one<sp/>or<sp/>two<sp/>parameters<sp/>necessary<sp/>to<sp/>establish<sp/>the<sp/>number<sp/>of<sp/>array</highlight></codeline>
+<codeline><highlight class="normal">elements<sp/>and<sp/>perhaps<sp/>the<sp/>length<sp/>of<sp/>elements<sp/>within<sp/>the<sp/>array.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Notes:</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>The<sp/>`_MESSAGE`<sp/>variant<sp/>convention<sp/>still<sp/>applies<sp/>here<sp/>to<sp/>array<sp/>assertions.<sp/>The</highlight></codeline>
+<codeline><highlight class="normal">`_MESSAGE`<sp/>variants<sp/>of<sp/>the<sp/>`_ARRAY`<sp/>assertions<sp/>have<sp/>names<sp/>ending<sp/>with</highlight></codeline>
+<codeline><highlight class="normal">`_ARRAY_MESSAGE`.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Assertions<sp/>for<sp/>handling<sp/>arrays<sp/>of<sp/>floating<sp/>point<sp/>values<sp/>are<sp/>grouped<sp/>with<sp/>float</highlight></codeline>
+<codeline><highlight class="normal">and<sp/>double<sp/>assertions<sp/>(see<sp/>immediately<sp/>following<sp/>section).</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>TEST_ASSERT_EACH_EQUAL_X<sp/>Variants</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Unity<sp/>provides<sp/>a<sp/>collection<sp/>of<sp/>assertions<sp/>for<sp/>arrays<sp/>containing<sp/>a<sp/>variety<sp/>of</highlight></codeline>
+<codeline><highlight class="normal">types<sp/>which<sp/>can<sp/>be<sp/>compared<sp/>to<sp/>a<sp/>single<sp/>value<sp/>as<sp/>well.<sp/>These<sp/>are<sp/>documented<sp/>in</highlight></codeline>
+<codeline><highlight class="normal">the<sp/>Each<sp/>Equal<sp/>section<sp/>below.<sp/>these<sp/>are<sp/>almost<sp/>on<sp/>par<sp/>with<sp/>the<sp/>`_MESSAGE`</highlight></codeline>
+<codeline><highlight class="normal">variants<sp/>of<sp/>Unity&apos;s<sp/>Asserts<sp/>in<sp/>that<sp/>for<sp/>pretty<sp/>much<sp/>any<sp/>Unity<sp/>type<sp/>assertion<sp/>you</highlight></codeline>
+<codeline><highlight class="normal">can<sp/>inject<sp/>_EACH_EQUAL<sp/>and<sp/>run<sp/>assertions<sp/>on<sp/>an<sp/>entire<sp/>block<sp/>of<sp/>memory.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_EACH_EQUAL_TYPEX(<sp/>expected,<sp/>actual,<sp/>{size/count}<sp/>)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">&quot;Expected&quot;<sp/>is<sp/>a<sp/>single<sp/>value<sp/>to<sp/>compare<sp/>to.</highlight></codeline>
+<codeline><highlight class="normal">&quot;Actual&quot;<sp/>is<sp/>an<sp/>array<sp/>where<sp/>each<sp/>element<sp/>will<sp/>be<sp/>compared<sp/>to<sp/>the<sp/>expected<sp/>value.</highlight></codeline>
+<codeline><highlight class="normal">&quot;Size/count&quot;<sp/>is<sp/>one<sp/>of<sp/>two<sp/>parameters<sp/>necessary<sp/>to<sp/>establish<sp/>the<sp/>number<sp/>of<sp/>array</highlight></codeline>
+<codeline><highlight class="normal">elements<sp/>and<sp/>perhaps<sp/>the<sp/>length<sp/>of<sp/>elements<sp/>within<sp/>the<sp/>array.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Notes:</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>The<sp/>`_MESSAGE`<sp/>variant<sp/>convention<sp/>still<sp/>applies<sp/>here<sp/>to<sp/>Each<sp/>Equal<sp/>assertions.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Assertions<sp/>for<sp/>handling<sp/>Each<sp/>Equal<sp/>of<sp/>floating<sp/>point<sp/>values<sp/>are<sp/>grouped<sp/>with</highlight></codeline>
+<codeline><highlight class="normal">float<sp/>and<sp/>double<sp/>assertions<sp/>(see<sp/>immediately<sp/>following<sp/>section).</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Configuration</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Floating<sp/>Point<sp/>Support<sp/>Is<sp/>Optional</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Support<sp/>for<sp/>floating<sp/>point<sp/>types<sp/>is<sp/>configurable.<sp/>That<sp/>is,<sp/>by<sp/>defining<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">appropriate<sp/>preprocessor<sp/>symbols,<sp/>floats<sp/>and<sp/>doubles<sp/>can<sp/>be<sp/>individually<sp/>enabled</highlight></codeline>
+<codeline><highlight class="normal">or<sp/>disabled<sp/>in<sp/>Unity<sp/>code.<sp/>This<sp/>is<sp/>useful<sp/>for<sp/>embedded<sp/>targets<sp/>with<sp/>no<sp/>floating</highlight></codeline>
+<codeline><highlight class="normal">point<sp/>math<sp/>support<sp/>(i.e.<sp/>Unity<sp/>compiles<sp/>free<sp/>of<sp/>errors<sp/>for<sp/>fixed<sp/>point<sp/>only</highlight></codeline>
+<codeline><highlight class="normal">platforms).<sp/>See<sp/>Unity<sp/>documentation<sp/>for<sp/>specifics.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Maximum<sp/>Data<sp/>Type<sp/>Width<sp/>Is<sp/>Configurable</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Not<sp/>all<sp/>targets<sp/>support<sp/>64<sp/>bit<sp/>wide<sp/>types<sp/>or<sp/>even<sp/>32<sp/>bit<sp/>wide<sp/>types.<sp/>Define<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">appropriate<sp/>preprocessor<sp/>symbols<sp/>and<sp/>Unity<sp/>will<sp/>omit<sp/>all<sp/>operations<sp/>from</highlight></codeline>
+<codeline><highlight class="normal">compilation<sp/>that<sp/>exceed<sp/>the<sp/>maximum<sp/>width<sp/>of<sp/>your<sp/>target.<sp/>See<sp/>Unity</highlight></codeline>
+<codeline><highlight class="normal">documentation<sp/>for<sp/>specifics.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>The<sp/>Assertions<sp/>in<sp/>All<sp/>Their<sp/>Blessed<sp/>Glory</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Basic<sp/>Fail<sp/>and<sp/>Ignore</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_FAIL()`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">This<sp/>fella<sp/>is<sp/>most<sp/>often<sp/>used<sp/>in<sp/>special<sp/>conditions<sp/>where<sp/>your<sp/>test<sp/>code<sp/>is</highlight></codeline>
+<codeline><highlight class="normal">performing<sp/>logic<sp/>beyond<sp/>a<sp/>simple<sp/>assertion.<sp/>That<sp/>is,<sp/>in<sp/>practice,<sp/>`TEST_FAIL()`</highlight></codeline>
+<codeline><highlight class="normal">will<sp/>always<sp/>be<sp/>found<sp/>inside<sp/>a<sp/>conditional<sp/>code<sp/>block.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">_Examples:_</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Executing<sp/>a<sp/>state<sp/>machine<sp/>multiple<sp/>times<sp/>that<sp/>increments<sp/>a<sp/>counter<sp/>your<sp/>test</highlight></codeline>
+<codeline><highlight class="normal">code<sp/>then<sp/>verifies<sp/>as<sp/>a<sp/>final<sp/>step.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Triggering<sp/>an<sp/>exception<sp/>and<sp/>verifying<sp/>it<sp/>(as<sp/>in<sp/>Try<sp/>/<sp/>Catch<sp/>/<sp/>Throw<sp/>-<sp/>see<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">[CException](https://github.com/ThrowTheSwitch/CException)<sp/>project).</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_IGNORE()`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Marks<sp/>a<sp/>test<sp/>case<sp/>(i.e.<sp/>function<sp/>meant<sp/>to<sp/>contain<sp/>test<sp/>assertions)<sp/>as<sp/>ignored.</highlight></codeline>
+<codeline><highlight class="normal">Usually<sp/>this<sp/>is<sp/>employed<sp/>as<sp/>a<sp/>breadcrumb<sp/>to<sp/>come<sp/>back<sp/>and<sp/>implement<sp/>a<sp/>test<sp/>case.</highlight></codeline>
+<codeline><highlight class="normal">An<sp/>ignored<sp/>test<sp/>case<sp/>has<sp/>effects<sp/>if<sp/>other<sp/>assertions<sp/>are<sp/>in<sp/>the<sp/>enclosing<sp/>test</highlight></codeline>
+<codeline><highlight class="normal">case<sp/>(see<sp/>Unity<sp/>documentation<sp/>for<sp/>more).</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Boolean</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT<sp/>(condition)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_TRUE<sp/>(condition)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_FALSE<sp/>(condition)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_UNLESS<sp/>(condition)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">A<sp/>simple<sp/>wording<sp/>variation<sp/>on<sp/>`TEST_ASSERT_FALSE`.The<sp/>semantics<sp/>of</highlight></codeline>
+<codeline><highlight class="normal">`TEST_ASSERT_UNLESS`<sp/>aid<sp/>readability<sp/>in<sp/>certain<sp/>test<sp/>constructions<sp/>or</highlight></codeline>
+<codeline><highlight class="normal">conditional<sp/>statements.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_NULL<sp/>(pointer)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_NOT_NULL<sp/>(pointer)`</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Signed<sp/>and<sp/>Unsigned<sp/>Integers<sp/>(of<sp/>all<sp/>sizes)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Large<sp/>integer<sp/>sizes<sp/>can<sp/>be<sp/>disabled<sp/>for<sp/>build<sp/>targets<sp/>that<sp/>do<sp/>not<sp/>support<sp/>them.</highlight></codeline>
+<codeline><highlight class="normal">For<sp/>example,<sp/>if<sp/>your<sp/>target<sp/>only<sp/>supports<sp/>up<sp/>to<sp/>16<sp/>bit<sp/>types,<sp/>by<sp/>defining<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">appropriate<sp/>symbols<sp/>Unity<sp/>can<sp/>be<sp/>configured<sp/>to<sp/>omit<sp/>32<sp/>and<sp/>64<sp/>bit<sp/>operations</highlight></codeline>
+<codeline><highlight class="normal">that<sp/>would<sp/>break<sp/>compilation<sp/>(see<sp/>Unity<sp/>documentation<sp/>for<sp/>more).<sp/>Refer<sp/>to</highlight></codeline>
+<codeline><highlight class="normal">Advanced<sp/>Asserting<sp/>later<sp/>in<sp/>this<sp/>document<sp/>for<sp/>advice<sp/>on<sp/>dealing<sp/>with<sp/>other<sp/>word</highlight></codeline>
+<codeline><highlight class="normal">sizes.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_EQUAL_INT<sp/>(expected,<sp/>actual)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_EQUAL_INT8<sp/>(expected,<sp/>actual)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_EQUAL_INT16<sp/>(expected,<sp/>actual)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_EQUAL_INT32<sp/>(expected,<sp/>actual)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_EQUAL_INT64<sp/>(expected,<sp/>actual)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_EQUAL<sp/>(expected,<sp/>actual)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_NOT_EQUAL<sp/>(expected,<sp/>actual)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_EQUAL_UINT<sp/>(expected,<sp/>actual)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_EQUAL_UINT8<sp/>(expected,<sp/>actual)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_EQUAL_UINT16<sp/>(expected,<sp/>actual)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_EQUAL_UINT32<sp/>(expected,<sp/>actual)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_EQUAL_UINT64<sp/>(expected,<sp/>actual)`</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Unsigned<sp/>Integers<sp/>(of<sp/>all<sp/>sizes)<sp/>in<sp/>Hexadecimal</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">All<sp/>`_HEX`<sp/>assertions<sp/>are<sp/>identical<sp/>in<sp/>function<sp/>to<sp/>unsigned<sp/>integer<sp/>assertions</highlight></codeline>
+<codeline><highlight class="normal">but<sp/>produce<sp/>failure<sp/>messages<sp/>with<sp/>the<sp/>`expected`<sp/>and<sp/>`actual`<sp/>values<sp/>formatted</highlight></codeline>
+<codeline><highlight class="normal">in<sp/>hexadecimal.<sp/>Unity<sp/>output<sp/>is<sp/>big<sp/>endian.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_EQUAL_HEX<sp/>(expected,<sp/>actual)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_EQUAL_HEX8<sp/>(expected,<sp/>actual)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_EQUAL_HEX16<sp/>(expected,<sp/>actual)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_EQUAL_HEX32<sp/>(expected,<sp/>actual)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_EQUAL_HEX64<sp/>(expected,<sp/>actual)`</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Masked<sp/>and<sp/>Bit-level<sp/>Assertions</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Masked<sp/>and<sp/>bit-level<sp/>assertions<sp/>produce<sp/>output<sp/>formatted<sp/>in<sp/>hexadecimal.<sp/>Unity</highlight></codeline>
+<codeline><highlight class="normal">output<sp/>is<sp/>big<sp/>endian.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_BITS<sp/>(mask,<sp/>expected,<sp/>actual)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Only<sp/>compares<sp/>the<sp/>masked<sp/>(i.e.<sp/>high)<sp/>bits<sp/>of<sp/>`expected`<sp/>and<sp/>`actual`<sp/>parameters.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_BITS_HIGH<sp/>(mask,<sp/>actual)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Asserts<sp/>the<sp/>masked<sp/>bits<sp/>of<sp/>the<sp/>`actual`<sp/>parameter<sp/>are<sp/>high.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_BITS_LOW<sp/>(mask,<sp/>actual)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Asserts<sp/>the<sp/>masked<sp/>bits<sp/>of<sp/>the<sp/>`actual`<sp/>parameter<sp/>are<sp/>low.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_BIT_HIGH<sp/>(bit,<sp/>actual)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Asserts<sp/>the<sp/>specified<sp/>bit<sp/>of<sp/>the<sp/>`actual`<sp/>parameter<sp/>is<sp/>high.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_BIT_LOW<sp/>(bit,<sp/>actual)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Asserts<sp/>the<sp/>specified<sp/>bit<sp/>of<sp/>the<sp/>`actual`<sp/>parameter<sp/>is<sp/>low.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Integer<sp/>Less<sp/>Than<sp/>/<sp/>Greater<sp/>Than</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">These<sp/>assertions<sp/>verify<sp/>that<sp/>the<sp/>`actual`<sp/>parameter<sp/>is<sp/>less<sp/>than<sp/>or<sp/>greater</highlight></codeline>
+<codeline><highlight class="normal">than<sp/>`threshold`<sp/>(exclusive).<sp/>For<sp/>example,<sp/>if<sp/>the<sp/>threshold<sp/>value<sp/>is<sp/>0<sp/>for<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">greater<sp/>than<sp/>assertion<sp/>will<sp/>fail<sp/>if<sp/>it<sp/>is<sp/>0<sp/>or<sp/>less.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_GREATER_THAN<sp/>(threshold,<sp/>actual)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_GREATER_THAN_INT<sp/>(threshold,<sp/>actual)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_GREATER_THAN_INT8<sp/>(threshold,<sp/>actual)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_GREATER_THAN_INT16<sp/>(threshold,<sp/>actual)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_GREATER_THAN_INT32<sp/>(threshold,<sp/>actual)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_GREATER_THAN_UINT<sp/>(threshold,<sp/>actual)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_GREATER_THAN_UINT8<sp/>(threshold,<sp/>actual)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_GREATER_THAN_UINT16<sp/>(threshold,<sp/>actual)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_GREATER_THAN_UINT32<sp/>(threshold,<sp/>actual)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_GREATER_THAN_HEX8<sp/>(threshold,<sp/>actual)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_GREATER_THAN_HEX16<sp/>(threshold,<sp/>actual)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_GREATER_THAN_HEX32<sp/>(threshold,<sp/>actual)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_LESS_THAN<sp/>(threshold,<sp/>actual)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_LESS_THAN_INT<sp/>(threshold,<sp/>actual)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_LESS_THAN_INT8<sp/>(threshold,<sp/>actual)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_LESS_THAN_INT16<sp/>(threshold,<sp/>actual)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_LESS_THAN_INT32<sp/>(threshold,<sp/>actual)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_LESS_THAN_UINT<sp/>(threshold,<sp/>actual)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_LESS_THAN_UINT8<sp/>(threshold,<sp/>actual)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_LESS_THAN_UINT16<sp/>(threshold,<sp/>actual)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_LESS_THAN_UINT32<sp/>(threshold,<sp/>actual)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_LESS_THAN_HEX8<sp/>(threshold,<sp/>actual)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_LESS_THAN_HEX16<sp/>(threshold,<sp/>actual)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_LESS_THAN_HEX32<sp/>(threshold,<sp/>actual)`</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Integer<sp/>Ranges<sp/>(of<sp/>all<sp/>sizes)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">These<sp/>assertions<sp/>verify<sp/>that<sp/>the<sp/>`expected`<sp/>parameter<sp/>is<sp/>within<sp/>+/-<sp/>`delta`</highlight></codeline>
+<codeline><highlight class="normal">(inclusive)<sp/>of<sp/>the<sp/>`actual`<sp/>parameter.<sp/>For<sp/>example,<sp/>if<sp/>the<sp/>expected<sp/>value<sp/>is<sp/>10</highlight></codeline>
+<codeline><highlight class="normal">and<sp/>the<sp/>delta<sp/>is<sp/>3<sp/>then<sp/>the<sp/>assertion<sp/>will<sp/>fail<sp/>for<sp/>any<sp/>value<sp/>outside<sp/>the<sp/>range</highlight></codeline>
+<codeline><highlight class="normal">of<sp/>7<sp/>-<sp/>13.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_INT_WITHIN<sp/>(delta,<sp/>expected,<sp/>actual)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_INT8_WITHIN<sp/>(delta,<sp/>expected,<sp/>actual)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_INT16_WITHIN<sp/>(delta,<sp/>expected,<sp/>actual)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_INT32_WITHIN<sp/>(delta,<sp/>expected,<sp/>actual)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_INT64_WITHIN<sp/>(delta,<sp/>expected,<sp/>actual)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_UINT_WITHIN<sp/>(delta,<sp/>expected,<sp/>actual)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_UINT8_WITHIN<sp/>(delta,<sp/>expected,<sp/>actual)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_UINT16_WITHIN<sp/>(delta,<sp/>expected,<sp/>actual)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_UINT32_WITHIN<sp/>(delta,<sp/>expected,<sp/>actual)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_UINT64_WITHIN<sp/>(delta,<sp/>expected,<sp/>actual)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_HEX_WITHIN<sp/>(delta,<sp/>expected,<sp/>actual)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_HEX8_WITHIN<sp/>(delta,<sp/>expected,<sp/>actual)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_HEX16_WITHIN<sp/>(delta,<sp/>expected,<sp/>actual)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_HEX32_WITHIN<sp/>(delta,<sp/>expected,<sp/>actual)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_HEX64_WITHIN<sp/>(delta,<sp/>expected,<sp/>actual)`</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Structs<sp/>and<sp/>Strings</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_EQUAL_PTR<sp/>(expected,<sp/>actual)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Asserts<sp/>that<sp/>the<sp/>pointers<sp/>point<sp/>to<sp/>the<sp/>same<sp/>memory<sp/>location.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_EQUAL_STRING<sp/>(expected,<sp/>actual)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Asserts<sp/>that<sp/>the<sp/>null<sp/>terminated<sp/>(`&apos;\0&apos;`)strings<sp/>are<sp/>identical.<sp/>If<sp/>strings<sp/>are</highlight></codeline>
+<codeline><highlight class="normal">of<sp/>different<sp/>lengths<sp/>or<sp/>any<sp/>portion<sp/>of<sp/>the<sp/>strings<sp/>before<sp/>their<sp/>terminators</highlight></codeline>
+<codeline><highlight class="normal">differ,<sp/>the<sp/>assertion<sp/>fails.<sp/>Two<sp/>NULL<sp/>strings<sp/>(i.e.<sp/>zero<sp/>length)<sp/>are<sp/>considered</highlight></codeline>
+<codeline><highlight class="normal">equivalent.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_EQUAL_MEMORY<sp/>(expected,<sp/>actual,<sp/>len)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Asserts<sp/>that<sp/>the<sp/>contents<sp/>of<sp/>the<sp/>memory<sp/>specified<sp/>by<sp/>the<sp/>`expected`<sp/>and<sp/>`actual`</highlight></codeline>
+<codeline><highlight class="normal">pointers<sp/>is<sp/>identical.<sp/>The<sp/>size<sp/>of<sp/>the<sp/>memory<sp/>blocks<sp/>in<sp/>bytes<sp/>is<sp/>specified<sp/>by</highlight></codeline>
+<codeline><highlight class="normal">the<sp/>`len`<sp/>parameter.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Arrays</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">`expected`<sp/>and<sp/>`actual`<sp/>parameters<sp/>are<sp/>both<sp/>arrays.<sp/>`num_elements`<sp/>specifies<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">number<sp/>of<sp/>elements<sp/>in<sp/>the<sp/>arrays<sp/>to<sp/>compare.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">`_HEX`<sp/>assertions<sp/>produce<sp/>failure<sp/>messages<sp/>with<sp/>expected<sp/>and<sp/>actual<sp/>array</highlight></codeline>
+<codeline><highlight class="normal">contents<sp/>formatted<sp/>in<sp/>hexadecimal.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">For<sp/>array<sp/>of<sp/>strings<sp/>comparison<sp/>behavior,<sp/>see<sp/>comments<sp/>for</highlight></codeline>
+<codeline><highlight class="normal">`TEST_ASSERT_EQUAL_STRING`<sp/>in<sp/>the<sp/>preceding<sp/>section.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Assertions<sp/>fail<sp/>upon<sp/>the<sp/>first<sp/>element<sp/>in<sp/>the<sp/>compared<sp/>arrays<sp/>found<sp/>not<sp/>to</highlight></codeline>
+<codeline><highlight class="normal">match.<sp/>Failure<sp/>messages<sp/>specify<sp/>the<sp/>array<sp/>index<sp/>of<sp/>the<sp/>failed<sp/>comparison.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_EQUAL_INT_ARRAY<sp/>(expected,<sp/>actual,<sp/>num_elements)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_EQUAL_INT8_ARRAY<sp/>(expected,<sp/>actual,<sp/>num_elements)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_EQUAL_INT16_ARRAY<sp/>(expected,<sp/>actual,<sp/>num_elements)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_EQUAL_INT32_ARRAY<sp/>(expected,<sp/>actual,<sp/>num_elements)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_EQUAL_INT64_ARRAY<sp/>(expected,<sp/>actual,<sp/>num_elements)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_EQUAL_UINT_ARRAY<sp/>(expected,<sp/>actual,<sp/>num_elements)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_EQUAL_UINT8_ARRAY<sp/>(expected,<sp/>actual,<sp/>num_elements)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_EQUAL_UINT16_ARRAY<sp/>(expected,<sp/>actual,<sp/>num_elements)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_EQUAL_UINT32_ARRAY<sp/>(expected,<sp/>actual,<sp/>num_elements)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_EQUAL_UINT64_ARRAY<sp/>(expected,<sp/>actual,<sp/>num_elements)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_EQUAL_HEX_ARRAY<sp/>(expected,<sp/>actual,<sp/>num_elements)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_EQUAL_HEX8_ARRAY<sp/>(expected,<sp/>actual,<sp/>num_elements)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_EQUAL_HEX16_ARRAY<sp/>(expected,<sp/>actual,<sp/>num_elements)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_EQUAL_HEX32_ARRAY<sp/>(expected,<sp/>actual,<sp/>num_elements)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_EQUAL_HEX64_ARRAY<sp/>(expected,<sp/>actual,<sp/>num_elements)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_EQUAL_PTR_ARRAY<sp/>(expected,<sp/>actual,<sp/>num_elements)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_EQUAL_STRING_ARRAY<sp/>(expected,<sp/>actual,<sp/>num_elements)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_EQUAL_MEMORY_ARRAY<sp/>(expected,<sp/>actual,<sp/>len,<sp/>num_elements)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">`len`<sp/>is<sp/>the<sp/>memory<sp/>in<sp/>bytes<sp/>to<sp/>be<sp/>compared<sp/>at<sp/>each<sp/>array<sp/>element.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Each<sp/>Equal<sp/>(Arrays<sp/>to<sp/>Single<sp/>Value)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">`expected`<sp/>are<sp/>single<sp/>values<sp/>and<sp/>`actual`<sp/>are<sp/>arrays.<sp/>`num_elements`<sp/>specifies</highlight></codeline>
+<codeline><highlight class="normal">the<sp/>number<sp/>of<sp/>elements<sp/>in<sp/>the<sp/>arrays<sp/>to<sp/>compare.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">`_HEX`<sp/>assertions<sp/>produce<sp/>failure<sp/>messages<sp/>with<sp/>expected<sp/>and<sp/>actual<sp/>array</highlight></codeline>
+<codeline><highlight class="normal">contents<sp/>formatted<sp/>in<sp/>hexadecimal.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Assertions<sp/>fail<sp/>upon<sp/>the<sp/>first<sp/>element<sp/>in<sp/>the<sp/>compared<sp/>arrays<sp/>found<sp/>not<sp/>to</highlight></codeline>
+<codeline><highlight class="normal">match.<sp/>Failure<sp/>messages<sp/>specify<sp/>the<sp/>array<sp/>index<sp/>of<sp/>the<sp/>failed<sp/>comparison.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`TEST_ASSERT_EACH_EQUAL_INT<sp/>(expected,<sp/>actual,<sp/>num_elements)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`TEST_ASSERT_EACH_EQUAL_INT8<sp/>(expected,<sp/>actual,<sp/>num_elements)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`TEST_ASSERT_EACH_EQUAL_INT16<sp/>(expected,<sp/>actual,<sp/>num_elements)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`TEST_ASSERT_EACH_EQUAL_INT32<sp/>(expected,<sp/>actual,<sp/>num_elements)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`TEST_ASSERT_EACH_EQUAL_INT64<sp/>(expected,<sp/>actual,<sp/>num_elements)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`TEST_ASSERT_EACH_EQUAL_UINT<sp/>(expected,<sp/>actual,<sp/>num_elements)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`TEST_ASSERT_EACH_EQUAL_UINT8<sp/>(expected,<sp/>actual,<sp/>num_elements)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`TEST_ASSERT_EACH_EQUAL_UINT16<sp/>(expected,<sp/>actual,<sp/>num_elements)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`TEST_ASSERT_EACH_EQUAL_UINT32<sp/>(expected,<sp/>actual,<sp/>num_elements)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`TEST_ASSERT_EACH_EQUAL_UINT64<sp/>(expected,<sp/>actual,<sp/>num_elements)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`TEST_ASSERT_EACH_EQUAL_HEX<sp/>(expected,<sp/>actual,<sp/>num_elements)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`TEST_ASSERT_EACH_EQUAL_HEX8<sp/>(expected,<sp/>actual,<sp/>num_elements)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`TEST_ASSERT_EACH_EQUAL_HEX16<sp/>(expected,<sp/>actual,<sp/>num_elements)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`TEST_ASSERT_EACH_EQUAL_HEX32<sp/>(expected,<sp/>actual,<sp/>num_elements)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`TEST_ASSERT_EACH_EQUAL_HEX64<sp/>(expected,<sp/>actual,<sp/>num_elements)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`TEST_ASSERT_EACH_EQUAL_PTR<sp/>(expected,<sp/>actual,<sp/>num_elements)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`TEST_ASSERT_EACH_EQUAL_STRING<sp/>(expected,<sp/>actual,<sp/>num_elements)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`TEST_ASSERT_EACH_EQUAL_MEMORY<sp/>(expected,<sp/>actual,<sp/>len,<sp/>num_elements)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">`len`<sp/>is<sp/>the<sp/>memory<sp/>in<sp/>bytes<sp/>to<sp/>be<sp/>compared<sp/>at<sp/>each<sp/>array<sp/>element.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Floating<sp/>Point<sp/>(If<sp/>enabled)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_FLOAT_WITHIN<sp/>(delta,<sp/>expected,<sp/>actual)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Asserts<sp/>that<sp/>the<sp/>`actual`<sp/>value<sp/>is<sp/>within<sp/>+/-<sp/>`delta`<sp/>of<sp/>the<sp/>`expected`<sp/>value.</highlight></codeline>
+<codeline><highlight class="normal">The<sp/>nature<sp/>of<sp/>floating<sp/>point<sp/>representation<sp/>is<sp/>such<sp/>that<sp/>exact<sp/>evaluations<sp/>of</highlight></codeline>
+<codeline><highlight class="normal">equality<sp/>are<sp/>not<sp/>guaranteed.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_EQUAL_FLOAT<sp/>(expected,<sp/>actual)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Asserts<sp/>that<sp/>the<sp/>?actual?value<sp/>is<sp/>&quot;close<sp/>enough<sp/>to<sp/>be<sp/>considered<sp/>equal&quot;<sp/>to<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">`expected`<sp/>value.<sp/>If<sp/>you<sp/>are<sp/>curious<sp/>about<sp/>the<sp/>details,<sp/>refer<sp/>to<sp/>the<sp/>Advanced</highlight></codeline>
+<codeline><highlight class="normal">Asserting<sp/>section<sp/>for<sp/>more<sp/>details<sp/>on<sp/>this.<sp/>Omitting<sp/>a<sp/>user-specified<sp/>delta<sp/>in<sp/>a</highlight></codeline>
+<codeline><highlight class="normal">floating<sp/>point<sp/>assertion<sp/>is<sp/>both<sp/>a<sp/>shorthand<sp/>convenience<sp/>and<sp/>a<sp/>requirement<sp/>of</highlight></codeline>
+<codeline><highlight class="normal">code<sp/>generation<sp/>conventions<sp/>for<sp/>CMock.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_EQUAL_FLOAT_ARRAY<sp/>(expected,<sp/>actual,<sp/>num_elements)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">See<sp/>Array<sp/>assertion<sp/>section<sp/>for<sp/>details.<sp/>Note<sp/>that<sp/>individual<sp/>array<sp/>element</highlight></codeline>
+<codeline><highlight class="normal">float<sp/>comparisons<sp/>are<sp/>executed<sp/>using<sp/>T?EST_ASSERT_EQUAL_FLOAT?.That<sp/>is,<sp/>user</highlight></codeline>
+<codeline><highlight class="normal">specified<sp/>delta<sp/>comparison<sp/>values<sp/>requires<sp/>a<sp/>custom-implemented<sp/>floating<sp/>point</highlight></codeline>
+<codeline><highlight class="normal">array<sp/>assertion.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_FLOAT_IS_INF<sp/>(actual)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Asserts<sp/>that<sp/>`actual`<sp/>parameter<sp/>is<sp/>equivalent<sp/>to<sp/>positive<sp/>infinity<sp/>floating</highlight></codeline>
+<codeline><highlight class="normal">point<sp/>representation.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_FLOAT_IS_NEG_INF<sp/>(actual)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Asserts<sp/>that<sp/>`actual`<sp/>parameter<sp/>is<sp/>equivalent<sp/>to<sp/>negative<sp/>infinity<sp/>floating</highlight></codeline>
+<codeline><highlight class="normal">point<sp/>representation.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_FLOAT_IS_NAN<sp/>(actual)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Asserts<sp/>that<sp/>`actual`<sp/>parameter<sp/>is<sp/>a<sp/>Not<sp/>A<sp/>Number<sp/>floating<sp/>point<sp/>representation.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_FLOAT_IS_DETERMINATE<sp/>(actual)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Asserts<sp/>that<sp/>?actual?parameter<sp/>is<sp/>a<sp/>floating<sp/>point<sp/>representation<sp/>usable<sp/>for</highlight></codeline>
+<codeline><highlight class="normal">mathematical<sp/>operations.<sp/>That<sp/>is,<sp/>the<sp/>`actual`<sp/>parameter<sp/>is<sp/>neither<sp/>positive</highlight></codeline>
+<codeline><highlight class="normal">infinity<sp/>nor<sp/>negative<sp/>infinity<sp/>nor<sp/>Not<sp/>A<sp/>Number<sp/>floating<sp/>point<sp/>representations.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_FLOAT_IS_NOT_INF<sp/>(actual)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Asserts<sp/>that<sp/>`actual`<sp/>parameter<sp/>is<sp/>a<sp/>value<sp/>other<sp/>than<sp/>positive<sp/>infinity<sp/>floating</highlight></codeline>
+<codeline><highlight class="normal">point<sp/>representation.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_FLOAT_IS_NOT_NEG_INF<sp/>(actual)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Asserts<sp/>that<sp/>`actual`<sp/>parameter<sp/>is<sp/>a<sp/>value<sp/>other<sp/>than<sp/>negative<sp/>infinity<sp/>floating</highlight></codeline>
+<codeline><highlight class="normal">point<sp/>representation.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_FLOAT_IS_NOT_NAN<sp/>(actual)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Asserts<sp/>that<sp/>`actual`<sp/>parameter<sp/>is<sp/>a<sp/>value<sp/>other<sp/>than<sp/>Not<sp/>A<sp/>Number<sp/>floating</highlight></codeline>
+<codeline><highlight class="normal">point<sp/>representation.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_FLOAT_IS_NOT_DETERMINATE<sp/>(actual)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Asserts<sp/>that<sp/>`actual`<sp/>parameter<sp/>is<sp/>not<sp/>usable<sp/>for<sp/>mathematical<sp/>operations.<sp/>That</highlight></codeline>
+<codeline><highlight class="normal">is,<sp/>the<sp/>`actual`<sp/>parameter<sp/>is<sp/>either<sp/>positive<sp/>infinity<sp/>or<sp/>negative<sp/>infinity<sp/>or</highlight></codeline>
+<codeline><highlight class="normal">Not<sp/>A<sp/>Number<sp/>floating<sp/>point<sp/>representations.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Double<sp/>(If<sp/>enabled)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_DOUBLE_WITHIN<sp/>(delta,<sp/>expected,<sp/>actual)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Asserts<sp/>that<sp/>the<sp/>`actual`<sp/>value<sp/>is<sp/>within<sp/>+/-<sp/>`delta`<sp/>of<sp/>the<sp/>`expected`<sp/>value.</highlight></codeline>
+<codeline><highlight class="normal">The<sp/>nature<sp/>of<sp/>floating<sp/>point<sp/>representation<sp/>is<sp/>such<sp/>that<sp/>exact<sp/>evaluations<sp/>of</highlight></codeline>
+<codeline><highlight class="normal">equality<sp/>are<sp/>not<sp/>guaranteed.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_EQUAL_DOUBLE<sp/>(expected,<sp/>actual)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Asserts<sp/>that<sp/>the<sp/>`actual`<sp/>value<sp/>is<sp/>&quot;close<sp/>enough<sp/>to<sp/>be<sp/>considered<sp/>equal&quot;<sp/>to<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">`expected`<sp/>value.<sp/>If<sp/>you<sp/>are<sp/>curious<sp/>about<sp/>the<sp/>details,<sp/>refer<sp/>to<sp/>the<sp/>Advanced</highlight></codeline>
+<codeline><highlight class="normal">Asserting<sp/>section<sp/>for<sp/>more<sp/>details.<sp/>Omitting<sp/>a<sp/>user-specified<sp/>delta<sp/>in<sp/>a</highlight></codeline>
+<codeline><highlight class="normal">floating<sp/>point<sp/>assertion<sp/>is<sp/>both<sp/>a<sp/>shorthand<sp/>convenience<sp/>and<sp/>a<sp/>requirement<sp/>of</highlight></codeline>
+<codeline><highlight class="normal">code<sp/>generation<sp/>conventions<sp/>for<sp/>CMock.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_EQUAL_DOUBLE_ARRAY<sp/>(expected,<sp/>actual,<sp/>num_elements)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">See<sp/>Array<sp/>assertion<sp/>section<sp/>for<sp/>details.<sp/>Note<sp/>that<sp/>individual<sp/>array<sp/>element</highlight></codeline>
+<codeline><highlight class="normal">double<sp/>comparisons<sp/>are<sp/>executed<sp/>using<sp/>`TEST_ASSERT_EQUAL_DOUBLE`.That<sp/>is,<sp/>user</highlight></codeline>
+<codeline><highlight class="normal">specified<sp/>delta<sp/>comparison<sp/>values<sp/>requires<sp/>a<sp/>custom<sp/>implemented<sp/>double<sp/>array</highlight></codeline>
+<codeline><highlight class="normal">assertion.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_DOUBLE_IS_INF<sp/>(actual)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Asserts<sp/>that<sp/>`actual`<sp/>parameter<sp/>is<sp/>equivalent<sp/>to<sp/>positive<sp/>infinity<sp/>floating</highlight></codeline>
+<codeline><highlight class="normal">point<sp/>representation.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_DOUBLE_IS_NEG_INF<sp/>(actual)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Asserts<sp/>that<sp/>`actual`<sp/>parameter<sp/>is<sp/>equivalent<sp/>to<sp/>negative<sp/>infinity<sp/>floating<sp/>point</highlight></codeline>
+<codeline><highlight class="normal">representation.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_DOUBLE_IS_NAN<sp/>(actual)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Asserts<sp/>that<sp/>`actual`<sp/>parameter<sp/>is<sp/>a<sp/>Not<sp/>A<sp/>Number<sp/>floating<sp/>point<sp/>representation.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_DOUBLE_IS_DETERMINATE<sp/>(actual)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Asserts<sp/>that<sp/>`actual`<sp/>parameter<sp/>is<sp/>a<sp/>floating<sp/>point<sp/>representation<sp/>usable<sp/>for</highlight></codeline>
+<codeline><highlight class="normal">mathematical<sp/>operations.<sp/>That<sp/>is,<sp/>the<sp/>?actual?parameter<sp/>is<sp/>neither<sp/>positive</highlight></codeline>
+<codeline><highlight class="normal">infinity<sp/>nor<sp/>negative<sp/>infinity<sp/>nor<sp/>Not<sp/>A<sp/>Number<sp/>floating<sp/>point<sp/>representations.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_DOUBLE_IS_NOT_INF<sp/>(actual)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Asserts<sp/>that<sp/>`actual`<sp/>parameter<sp/>is<sp/>a<sp/>value<sp/>other<sp/>than<sp/>positive<sp/>infinity<sp/>floating</highlight></codeline>
+<codeline><highlight class="normal">point<sp/>representation.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_DOUBLE_IS_NOT_NEG_INF<sp/>(actual)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Asserts<sp/>that<sp/>`actual`<sp/>parameter<sp/>is<sp/>a<sp/>value<sp/>other<sp/>than<sp/>negative<sp/>infinity<sp/>floating</highlight></codeline>
+<codeline><highlight class="normal">point<sp/>representation.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_DOUBLE_IS_NOT_NAN<sp/>(actual)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Asserts<sp/>that<sp/>`actual`<sp/>parameter<sp/>is<sp/>a<sp/>value<sp/>other<sp/>than<sp/>Not<sp/>A<sp/>Number<sp/>floating</highlight></codeline>
+<codeline><highlight class="normal">point<sp/>representation.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`TEST_ASSERT_DOUBLE_IS_NOT_DETERMINATE<sp/>(actual)`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Asserts<sp/>that<sp/>`actual`<sp/>parameter<sp/>is<sp/>not<sp/>usable<sp/>for<sp/>mathematical<sp/>operations.<sp/>That</highlight></codeline>
+<codeline><highlight class="normal">is,<sp/>the<sp/>`actual`<sp/>parameter<sp/>is<sp/>either<sp/>positive<sp/>infinity<sp/>or<sp/>negative<sp/>infinity<sp/>or</highlight></codeline>
+<codeline><highlight class="normal">Not<sp/>A<sp/>Number<sp/>floating<sp/>point<sp/>representations.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Advanced<sp/>Asserting:<sp/>Details<sp/>On<sp/>Tricky<sp/>Assertions</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">This<sp/>section<sp/>helps<sp/>you<sp/>understand<sp/>how<sp/>to<sp/>deal<sp/>with<sp/>some<sp/>of<sp/>the<sp/>trickier</highlight></codeline>
+<codeline><highlight class="normal">assertion<sp/>situations<sp/>you<sp/>may<sp/>run<sp/>into.<sp/>It<sp/>will<sp/>give<sp/>you<sp/>a<sp/>glimpse<sp/>into<sp/>some<sp/>of</highlight></codeline>
+<codeline><highlight class="normal">the<sp/>under-the-hood<sp/>details<sp/>of<sp/>Unity&apos;s<sp/>assertion<sp/>mechanisms.<sp/>If<sp/>you&apos;re<sp/>one<sp/>of</highlight></codeline>
+<codeline><highlight class="normal">those<sp/>people<sp/>who<sp/>likes<sp/>to<sp/>know<sp/>what<sp/>is<sp/>going<sp/>on<sp/>in<sp/>the<sp/>background,<sp/>read<sp/>on.<sp/>If</highlight></codeline>
+<codeline><highlight class="normal">not,<sp/>feel<sp/>free<sp/>to<sp/>ignore<sp/>the<sp/>rest<sp/>of<sp/>this<sp/>document<sp/>until<sp/>you<sp/>need<sp/>it.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>How<sp/>do<sp/>the<sp/>EQUAL<sp/>assertions<sp/>work<sp/>for<sp/>FLOAT<sp/>and<sp/>DOUBLE?</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">As<sp/>you<sp/>may<sp/>know,<sp/>directly<sp/>checking<sp/>for<sp/>equality<sp/>between<sp/>a<sp/>pair<sp/>of<sp/>floats<sp/>or<sp/>a</highlight></codeline>
+<codeline><highlight class="normal">pair<sp/>of<sp/>doubles<sp/>is<sp/>sloppy<sp/>at<sp/>best<sp/>and<sp/>an<sp/>outright<sp/>no-no<sp/>at<sp/>worst.<sp/>Floating<sp/>point</highlight></codeline>
+<codeline><highlight class="normal">values<sp/>can<sp/>often<sp/>be<sp/>represented<sp/>in<sp/>multiple<sp/>ways,<sp/>particularly<sp/>after<sp/>a<sp/>series<sp/>of</highlight></codeline>
+<codeline><highlight class="normal">operations<sp/>on<sp/>a<sp/>value.<sp/>Initializing<sp/>a<sp/>variable<sp/>to<sp/>the<sp/>value<sp/>of<sp/>2.0<sp/>is<sp/>likely<sp/>to</highlight></codeline>
+<codeline><highlight class="normal">result<sp/>in<sp/>a<sp/>floating<sp/>point<sp/>representation<sp/>of<sp/>2<sp/>x<sp/>20,but<sp/>a<sp/>series<sp/>of</highlight></codeline>
+<codeline><highlight class="normal">mathematical<sp/>operations<sp/>might<sp/>result<sp/>in<sp/>a<sp/>representation<sp/>of<sp/>8<sp/>x<sp/>2-2</highlight></codeline>
+<codeline><highlight class="normal">that<sp/>also<sp/>evaluates<sp/>to<sp/>a<sp/>value<sp/>of<sp/>2.<sp/>At<sp/>some<sp/>point<sp/>repeated<sp/>operations<sp/>cause</highlight></codeline>
+<codeline><highlight class="normal">equality<sp/>checks<sp/>to<sp/>fail.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">So<sp/>Unity<sp/>doesn&apos;t<sp/>do<sp/>direct<sp/>floating<sp/>point<sp/>comparisons<sp/>for<sp/>equality.<sp/>Instead,<sp/>it</highlight></codeline>
+<codeline><highlight class="normal">checks<sp/>if<sp/>two<sp/>floating<sp/>point<sp/>values<sp/>are<sp/>&quot;really<sp/>close.&quot;<sp/>If<sp/>you<sp/>leave<sp/>Unity</highlight></codeline>
+<codeline><highlight class="normal">running<sp/>with<sp/>defaults,<sp/>&quot;really<sp/>close&quot;<sp/>means<sp/>&quot;within<sp/>a<sp/>significant<sp/>bit<sp/>or<sp/>two.&quot;</highlight></codeline>
+<codeline><highlight class="normal">Under<sp/>the<sp/>hood,<sp/>`TEST_ASSERT_EQUAL_FLOAT`<sp/>is<sp/>really<sp/>`TEST_ASSERT_FLOAT_WITHIN`</highlight></codeline>
+<codeline><highlight class="normal">with<sp/>the<sp/>`delta`<sp/>parameter<sp/>calculated<sp/>on<sp/>the<sp/>fly.<sp/>For<sp/>single<sp/>precision,<sp/>delta<sp/>is</highlight></codeline>
+<codeline><highlight class="normal">the<sp/>expected<sp/>value<sp/>multiplied<sp/>by<sp/>0.00001,<sp/>producing<sp/>a<sp/>very<sp/>small<sp/>proportional</highlight></codeline>
+<codeline><highlight class="normal">range<sp/>around<sp/>the<sp/>expected<sp/>value.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">If<sp/>you<sp/>are<sp/>expecting<sp/>a<sp/>value<sp/>of<sp/>20,000.0<sp/>the<sp/>delta<sp/>is<sp/>calculated<sp/>to<sp/>be<sp/>0.2.<sp/>So</highlight></codeline>
+<codeline><highlight class="normal">any<sp/>value<sp/>between<sp/>19,999.8<sp/>and<sp/>20,000.2<sp/>will<sp/>satisfy<sp/>the<sp/>equality<sp/>check.<sp/>This</highlight></codeline>
+<codeline><highlight class="normal">works<sp/>out<sp/>to<sp/>be<sp/>roughly<sp/>a<sp/>single<sp/>bit<sp/>of<sp/>range<sp/>for<sp/>a<sp/>single-precision<sp/>number,<sp/>and</highlight></codeline>
+<codeline><highlight class="normal">that&apos;s<sp/>just<sp/>about<sp/>as<sp/>tight<sp/>a<sp/>tolerance<sp/>as<sp/>you<sp/>can<sp/>reasonably<sp/>get<sp/>from<sp/>a<sp/>floating</highlight></codeline>
+<codeline><highlight class="normal">point<sp/>value.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">So<sp/>what<sp/>happens<sp/>when<sp/>it&apos;s<sp/>zero?<sp/>Zero<sp/>-<sp/>even<sp/>more<sp/>than<sp/>other<sp/>floating<sp/>point</highlight></codeline>
+<codeline><highlight class="normal">values<sp/>-<sp/>can<sp/>be<sp/>represented<sp/>many<sp/>different<sp/>ways.<sp/>It<sp/>doesn&apos;t<sp/>matter<sp/>if<sp/>you<sp/>have</highlight></codeline>
+<codeline><highlight class="normal">0<sp/>x<sp/>20<sp/>or<sp/>0<sp/>x<sp/>263.It&apos;s<sp/>still<sp/>zero,<sp/>right?<sp/>Luckily,<sp/>if<sp/>you</highlight></codeline>
+<codeline><highlight class="normal">subtract<sp/>these<sp/>values<sp/>from<sp/>each<sp/>other,<sp/>they<sp/>will<sp/>always<sp/>produce<sp/>a<sp/>difference<sp/>of</highlight></codeline>
+<codeline><highlight class="normal">zero,<sp/>which<sp/>will<sp/>still<sp/>fall<sp/>between<sp/>0<sp/>plus<sp/>or<sp/>minus<sp/>a<sp/>delta<sp/>of<sp/>0.<sp/>So<sp/>it<sp/>still</highlight></codeline>
+<codeline><highlight class="normal">works!</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Double<sp/>precision<sp/>floating<sp/>point<sp/>numbers<sp/>use<sp/>a<sp/>much<sp/>smaller<sp/>multiplier,<sp/>again</highlight></codeline>
+<codeline><highlight class="normal">approximating<sp/>a<sp/>single<sp/>bit<sp/>of<sp/>error.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">If<sp/>you<sp/>don&apos;t<sp/>like<sp/>these<sp/>ranges<sp/>and<sp/>you<sp/>want<sp/>to<sp/>make<sp/>your<sp/>floating<sp/>point<sp/>equality</highlight></codeline>
+<codeline><highlight class="normal">assertions<sp/>less<sp/>strict,<sp/>you<sp/>can<sp/>change<sp/>these<sp/>multipliers<sp/>to<sp/>whatever<sp/>you<sp/>like<sp/>by</highlight></codeline>
+<codeline><highlight class="normal">defining<sp/>UNITY_FLOAT_PRECISION<sp/>and<sp/>UNITY_DOUBLE_PRECISION.<sp/>See<sp/>Unity</highlight></codeline>
+<codeline><highlight class="normal">documentation<sp/>for<sp/>more.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>How<sp/>do<sp/>we<sp/>deal<sp/>with<sp/>targets<sp/>with<sp/>non-standard<sp/>int<sp/>sizes?</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">It&apos;s<sp/>&quot;fun&quot;<sp/>that<sp/>C<sp/>is<sp/>a<sp/>standard<sp/>where<sp/>something<sp/>as<sp/>fundamental<sp/>as<sp/>an<sp/>integer</highlight></codeline>
+<codeline><highlight class="normal">varies<sp/>by<sp/>target.<sp/>According<sp/>to<sp/>the<sp/>C<sp/>standard,<sp/>an<sp/>`int`<sp/>is<sp/>to<sp/>be<sp/>the<sp/>target&apos;s</highlight></codeline>
+<codeline><highlight class="normal">natural<sp/>register<sp/>size,<sp/>and<sp/>it<sp/>should<sp/>be<sp/>at<sp/>least<sp/>16-bits<sp/>and<sp/>a<sp/>multiple<sp/>of<sp/>a</highlight></codeline>
+<codeline><highlight class="normal">byte.<sp/>It<sp/>also<sp/>guarantees<sp/>an<sp/>order<sp/>of<sp/>sizes:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```C</highlight></codeline>
+<codeline><highlight class="normal">char<sp/>&lt;=<sp/>short<sp/>&lt;=<sp/>int<sp/>&lt;=<sp/>long<sp/>&lt;=<sp/>long<sp/>long</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Most<sp/>often,<sp/>`int`<sp/>is<sp/>32-bits.<sp/>In<sp/>many<sp/>cases<sp/>in<sp/>the<sp/>embedded<sp/>world,<sp/>`int`<sp/>is</highlight></codeline>
+<codeline><highlight class="normal">16-bits.<sp/>There<sp/>are<sp/>rare<sp/>microcontrollers<sp/>out<sp/>there<sp/>that<sp/>have<sp/>24-bit<sp/>integers,</highlight></codeline>
+<codeline><highlight class="normal">and<sp/>this<sp/>remains<sp/>perfectly<sp/>standard<sp/>C.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">To<sp/>make<sp/>things<sp/>even<sp/>more<sp/>interesting,<sp/>there<sp/>are<sp/>compilers<sp/>and<sp/>targets<sp/>out<sp/>there</highlight></codeline>
+<codeline><highlight class="normal">that<sp/>have<sp/>a<sp/>hard<sp/>choice<sp/>to<sp/>make.<sp/>What<sp/>if<sp/>their<sp/>natural<sp/>register<sp/>size<sp/>is<sp/>10-bits</highlight></codeline>
+<codeline><highlight class="normal">or<sp/>12-bits?<sp/>Clearly<sp/>they<sp/>can&apos;t<sp/>fulfill<sp/>_both_<sp/>the<sp/>requirement<sp/>to<sp/>be<sp/>at<sp/>least</highlight></codeline>
+<codeline><highlight class="normal">16-bits<sp/>AND<sp/>the<sp/>requirement<sp/>to<sp/>match<sp/>the<sp/>natural<sp/>register<sp/>size.<sp/>In<sp/>these</highlight></codeline>
+<codeline><highlight class="normal">situations,<sp/>they<sp/>often<sp/>choose<sp/>the<sp/>natural<sp/>register<sp/>size,<sp/>leaving<sp/>us<sp/>with</highlight></codeline>
+<codeline><highlight class="normal">something<sp/>like<sp/>this:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```C</highlight></codeline>
+<codeline><highlight class="normal">char<sp/>(8<sp/>bit)<sp/>&lt;=<sp/>short<sp/>(12<sp/>bit)<sp/>&lt;=<sp/>int<sp/>(12<sp/>bit)<sp/>&lt;=<sp/>long<sp/>(16<sp/>bit)</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Um...<sp/>yikes.<sp/>It&apos;s<sp/>obviously<sp/>breaking<sp/>a<sp/>rule<sp/>or<sp/>two...<sp/>but<sp/>they<sp/>had<sp/>to<sp/>break<sp/>SOME</highlight></codeline>
+<codeline><highlight class="normal">rules,<sp/>so<sp/>they<sp/>made<sp/>a<sp/>choice.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">When<sp/>the<sp/>C99<sp/>standard<sp/>rolled<sp/>around,<sp/>it<sp/>introduced<sp/>alternate<sp/>standard-size<sp/>types.</highlight></codeline>
+<codeline><highlight class="normal">It<sp/>also<sp/>introduced<sp/>macros<sp/>for<sp/>pulling<sp/>in<sp/>MIN/MAX<sp/>values<sp/>for<sp/>your<sp/>integer<sp/>types.</highlight></codeline>
+<codeline><highlight class="normal">It&apos;s<sp/>glorious!<sp/>Unfortunately,<sp/>many<sp/>embedded<sp/>compilers<sp/>can&apos;t<sp/>be<sp/>relied<sp/>upon<sp/>to</highlight></codeline>
+<codeline><highlight class="normal">use<sp/>the<sp/>C99<sp/>types<sp/>(Sometimes<sp/>because<sp/>they<sp/>have<sp/>weird<sp/>register<sp/>sizes<sp/>as<sp/>described</highlight></codeline>
+<codeline><highlight class="normal">above.<sp/>Sometimes<sp/>because<sp/>they<sp/>don&apos;t<sp/>feel<sp/>like<sp/>it?).</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">A<sp/>goal<sp/>of<sp/>Unity<sp/>from<sp/>the<sp/>beginning<sp/>was<sp/>to<sp/>support<sp/>every<sp/>combination<sp/>of</highlight></codeline>
+<codeline><highlight class="normal">microcontroller<sp/>or<sp/>microprocessor<sp/>and<sp/>C<sp/>compiler.<sp/>Over<sp/>time,<sp/>we&apos;ve<sp/>gotten<sp/>really</highlight></codeline>
+<codeline><highlight class="normal">close<sp/>to<sp/>this.<sp/>There<sp/>are<sp/>a<sp/>few<sp/>tricks<sp/>that<sp/>you<sp/>should<sp/>be<sp/>aware<sp/>of,<sp/>though,<sp/>if</highlight></codeline>
+<codeline><highlight class="normal">you&apos;re<sp/>going<sp/>to<sp/>do<sp/>this<sp/>effectively<sp/>on<sp/>some<sp/>of<sp/>these<sp/>more<sp/>idiosyncratic<sp/>targets.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">First,<sp/>when<sp/>setting<sp/>up<sp/>Unity<sp/>for<sp/>a<sp/>new<sp/>target,<sp/>you&apos;re<sp/>going<sp/>to<sp/>want<sp/>to<sp/>pay</highlight></codeline>
+<codeline><highlight class="normal">special<sp/>attention<sp/>to<sp/>the<sp/>macros<sp/>for<sp/>automatically<sp/>detecting<sp/>types</highlight></codeline>
+<codeline><highlight class="normal">(where<sp/>available)<sp/>or<sp/>manually<sp/>configuring<sp/>them<sp/>yourself.<sp/>You<sp/>can<sp/>get<sp/>information</highlight></codeline>
+<codeline><highlight class="normal">on<sp/>both<sp/>of<sp/>these<sp/>in<sp/>Unity&apos;s<sp/>documentation.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">What<sp/>about<sp/>the<sp/>times<sp/>where<sp/>you<sp/>suddenly<sp/>need<sp/>to<sp/>deal<sp/>with<sp/>something<sp/>odd,<sp/>like<sp/>a</highlight></codeline>
+<codeline><highlight class="normal">24-bit<sp/>`int`?<sp/>The<sp/>simplest<sp/>solution<sp/>is<sp/>to<sp/>use<sp/>the<sp/>next<sp/>size<sp/>up.<sp/>If<sp/>you<sp/>have<sp/>a</highlight></codeline>
+<codeline><highlight class="normal">24-bit<sp/>`int`,<sp/>configure<sp/>Unity<sp/>to<sp/>use<sp/>32-bit<sp/>integers.<sp/>If<sp/>you<sp/>have<sp/>a<sp/>12-bit</highlight></codeline>
+<codeline><highlight class="normal">`int`,<sp/>configure<sp/>Unity<sp/>to<sp/>use<sp/>16<sp/>bits.<sp/>There<sp/>are<sp/>two<sp/>ways<sp/>this<sp/>is<sp/>going<sp/>to</highlight></codeline>
+<codeline><highlight class="normal">affect<sp/>you:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">1.<sp/>When<sp/>Unity<sp/>displays<sp/>errors<sp/>for<sp/>you,<sp/>it&apos;s<sp/>going<sp/>to<sp/>pad<sp/>the<sp/>upper<sp/>unused<sp/>bits</highlight></codeline>
+<codeline><highlight class="normal">with<sp/>zeros.</highlight></codeline>
+<codeline><highlight class="normal">2.<sp/>You&apos;re<sp/>going<sp/>to<sp/>have<sp/>to<sp/>be<sp/>careful<sp/>of<sp/>assertions<sp/>that<sp/>perform<sp/>signed</highlight></codeline>
+<codeline><highlight class="normal">operations,<sp/>particularly<sp/>`TEST_ASSERT_INT_WITHIN`.Such<sp/>assertions<sp/>might<sp/>wrap</highlight></codeline>
+<codeline><highlight class="normal">your<sp/>`int`<sp/>in<sp/>the<sp/>wrong<sp/>place,<sp/>and<sp/>you<sp/>could<sp/>experience<sp/>false<sp/>failures.<sp/>You<sp/>can</highlight></codeline>
+<codeline><highlight class="normal">always<sp/>back<sp/>down<sp/>to<sp/>a<sp/>simple<sp/>`TEST_ASSERT`<sp/>and<sp/>do<sp/>the<sp/>operations<sp/>yourself.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*Find<sp/>The<sp/>Latest<sp/>of<sp/>This<sp/>And<sp/>More<sp/>at<sp/>[ThrowTheSwitch.org](https://throwtheswitch.org)*</highlight></codeline>
+    </programlisting>
+    <location file="UnitTestFramework/vendor/ceedling/docs/UnityAssertionsReference.md"/>
+  </compounddef>
+</doxygen>

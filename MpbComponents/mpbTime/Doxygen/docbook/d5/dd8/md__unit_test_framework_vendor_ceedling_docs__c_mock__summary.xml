@@ -1,0 +1,522 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md__unit_test_framework_vendor_ceedling_docs__c_mock__summary" xml:lang="en-US">
+
+<para><emphasis><link xlink:href="http://throwtheswitch.org">ThrowTheSwitch.org</link></emphasis></para>
+
+<para><emphasis>This documentation is released under a Creative Commons 3.0 Attribution Share-Alike License</emphasis></para>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__c_mock__summary_1autotoc_md36">
+<title>What Exactly Are We Talking About Here?</title>
+
+<para>CMock is a nice little tool which takes your header files and creates a Mock interface for it so that you can more easily unit test modules that touch other modules. For each function prototype in your header, like this one: <literallayout><computeroutput>int DoesSomething(int a, int b);
+</computeroutput></literallayout></para>
+
+<para>...you get an automatically generated DoesSomething function that you can link to instead of your real DoesSomething function. By using this Mocked version, you can then verify that it receives the data you want, and make it return whatever data you desire, make it throw errors when you want, and more... Create these for everything your latest real module touches, and you&apos;re suddenly in a position of power: You can control and verify every detail of your latest creation.</para>
+
+<para>To make that easier, CMock also gives you a bunch of functions like the ones below, so you can tell that generated DoesSomething function how to behave for each test: <literallayout><computeroutput>void DoesSomething_ExpectAndReturn(int a, int b, int toReturn);
+void DoesSomething_ExpectAndThrow(int a, int b, EXCEPTION_T error);
+void DoesSomething_StubWithCallback(CMOCK_DoesSomething_CALLBACK YourCallback);
+void DoesSomething_IgnoreAndReturn(int toReturn);
+</computeroutput></literallayout></para>
+
+<para>You can pile a bunch of these back to back, and it remembers what you wanted to pass when, like so: <literallayout><computeroutput>test_CallsDoesSomething_ShouldDoJustThat(void)
+{
+    DoesSomething_ExpectAndReturn(1,2,3);
+    DoesSomething_ExpectAndReturn(4,5,6);
+    DoesSomething_ExpectAndThrow(7,8, STATUS_ERROR_OOPS);
+
+    CallsDoesSomething( );
+}
+</computeroutput></literallayout></para>
+
+<para>This test will call CallsDoesSomething, which is the function we are testing. We are expecting that function to call DoesSomething three times. The first time, we check to make sure it&apos;s called as DoesSomething(1, 2) and we&apos;ll magically return a 3. The second time we check for DoesSomething(4, 5) and we&apos;ll return a 6. The third time we verify DoesSomething(7, 8) and we&apos;ll throw an error instead of returning anything. If CallsDoesSomething gets any of this wrong, it fails the test. It will fail if you didn&apos;t call DoesSomething enough, or too much, or with the wrong arguments, or in the wrong order.</para>
+
+<para>CMock is based on Unity, which it uses for all internal testing. It uses Ruby to do all the main work (versions 2.0.0 and above).</para>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__c_mock__summary_1autotoc_md37">
+<title>Installing</title>
+
+<para>The first thing you need to do to install CMock is to get yourself a copy of Ruby. If you&apos;re on linux or osx, you probably already have it. You can prove it by typing the following: <literallayout><computeroutput>ruby --version
+</computeroutput></literallayout></para>
+
+<para>If it replied in a way that implies ignorance, then you&apos;re going to need to install it. You can go to <link xlink:href="https://ruby-lang.org">ruby-lang</link> to get the latest version. You&apos;re also going to need to do that if it replied with a version that is older than 2.0.0. Go ahead. We&apos;ll wait.</para>
+
+<para>Once you have Ruby, you have three options:</para>
+
+<para><itemizedlist>
+<listitem>
+<para>Clone the latest <link xlink:href="https://github.com/ThrowTheSwitch/CMock/">CMock repo on github</link></para>
+</listitem><listitem>
+<para>Download the latest <link xlink:href="https://github.com/ThrowTheSwitch/CMock/">CMock zip from github</link></para>
+</listitem><listitem>
+<para>Install Ceedling (which has it built in!) through your commandline using <computeroutput>gem install ceedling</computeroutput>.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__c_mock__summary_1autotoc_md38">
+<title>Generated Mock Module Summary</title>
+
+<para>In addition to the mocks themselves, CMock will generate the following functions for use in your tests. The expect functions are always generated. The other functions are only generated if those plugins are enabled:</para>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__c_mock__summary_1autotoc_md39">
+<title>Expect:</title>
+
+<para>Your basic staple Expects which will be used for most of your day to day CMock work. By calling this, you are telling CMock that you expect that function to be called during your test. It also specifies which arguments you expect it to be called with, and what return value you want returned when that happens. You can call this function multiple times back to back in order to queue up multiple calls.</para>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput>void func(void)</computeroutput> =&gt; <computeroutput>void func_Expect(void)</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>void func(params)</computeroutput> =&gt; <computeroutput>void func_Expect(expected_params)</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>retval func(void)</computeroutput> =&gt; <computeroutput>void func_ExpectAndReturn(retval_to_return)</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>retval func(params)</computeroutput> =&gt; <computeroutput>void func_ExpectAndReturn(expected_params, retval_to_return)</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__c_mock__summary_1autotoc_md40">
+<title>ExpectAnyArgs:</title>
+
+<para>This behaves just like the Expects calls, except that it doesn&apos;t really care what the arguments are that the mock gets called with. It still counts the number of times the mock is called and it still handles return values if there are some.</para>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput>void func(void)</computeroutput> =&gt; <computeroutput>void func_ExpectAnyArgs(void)</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>void func(params)</computeroutput> =&gt; <computeroutput>void func_ExpectAnyArgs(void)</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>retval func(void)</computeroutput> =&gt; <computeroutput>void func_ExpectAnyArgsAndReturn(retval_to_return)</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>retval func(params)</computeroutput> =&gt; <computeroutput>void func_ExpectAnyArgsAndReturn(retval_to_return)</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__c_mock__summary_1autotoc_md41">
+<title>Array:</title>
+
+<para>An ExpectWithArray is another variant of Expect. Like expect, it cares about the number of times a mock is called, the arguments it is called with, and the values it is to return. This variant has another feature, though. For anything that resembles a pointer or array, it breaks the argument into TWO arguments. The first is the original pointer. The second specify the number of elements it is to verify of that array. If you specify 1, it&apos;ll check one object. If 2, it&apos;ll assume your pointer is pointing at the first of two elements in an array. If you specify zero elements, it will check just the pointer if <computeroutput>:smart</computeroutput> mode is configured or fail if <computeroutput>:compare_data</computeroutput> is set.</para>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput>void func(void)</computeroutput> =&gt; (nothing. In fact, an additional function is only generated if the params list contains pointers)</para>
+</listitem><listitem>
+<para><computeroutput>void func(ptr * param, other)</computeroutput> =&gt; <computeroutput>void func_ExpectWithArray(ptr* param, int param_depth, other)</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>retval func(void)</computeroutput> =&gt; (nothing. In fact, an additional function is only generated if the params list contains pointers)</para>
+</listitem><listitem>
+<para><computeroutput>retval func(other, ptr* param)</computeroutput> =&gt; <computeroutput>void func_ExpectWithArrayAndReturn(other, ptr* param, int param_depth, retval_to_return)</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__c_mock__summary_1autotoc_md42">
+<title>Ignore:</title>
+
+<para>Maybe you don&apos;t care about the number of times a particular function is called or the actual arguments it is called with. In that case, you want to use Ignore. Ignore only needs to be called once per test. It will then ignore any further calls to that particular mock. The IgnoreAndReturn works similarly, except that it has the added benefit of knowing what to return when that call happens. If the mock is called more times than IgnoreAndReturn was called, it will keep returning the last value without complaint. If it&apos;s called less times, it will also ignore that. You SAID you didn&apos;t care how many times it was called, right?</para>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput>void func(void)</computeroutput> =&gt; <computeroutput>void func_Ignore(void)</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>void func(params)</computeroutput> =&gt; <computeroutput>void func_Ignore(void)</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>retval func(void)</computeroutput> =&gt; <computeroutput>void func_IgnoreAndReturn(retval_to_return)</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>retval func(params)</computeroutput> =&gt; <computeroutput>void func_IgnoreAndReturn(retval_to_return)</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__c_mock__summary_1autotoc_md43">
+<title>Ignore Arg:</title>
+
+<para>Maybe you overall want to use Expect and its similar variations, but you don&apos;t care what is passed to a particular argument. This is particularly useful when that argument is a pointer to a value that is supposed to be filled in by the function. You don&apos;t want to use ExpectAnyArgs, because you still care about the other arguments. Instead, before any of your Expect calls are made, you can call this function. It tells CMock to ignore a particular argument for the rest of this test, for this mock function.</para>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput>void func(params)</computeroutput> =&gt; <computeroutput>void func_IgnoreArg_paramName(void)</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__c_mock__summary_1autotoc_md44">
+<title>ReturnThruPtr:</title>
+
+<para>Another option which operates on a particular argument of a function is the ReturnThruPtr plugin. For every argument that resembles a pointer or reference, CMock generates an instance of this function. Just as the AndReturn functions support injecting one or more return values into a queue, this function lets you specify one or more return values which are queued up and copied into the space being pointed at each time the mock is called.</para>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput>void func(param1)</computeroutput> =&gt; <computeroutput>void func_ReturnThruPtr_paramName(val_to_return)</computeroutput></para>
+</listitem><listitem>
+<para>=&gt; <computeroutput>void func_ReturnArrayThruPtr_paramName(cal_to_return, len)</computeroutput></para>
+</listitem><listitem>
+<para>=&gt; <computeroutput>void func_ReturnMemThruPtr_paramName(val_to_return, size)</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__c_mock__summary_1autotoc_md45">
+<title>Callback:</title>
+
+<para>If all those other options don&apos;t work, and you really need to do something custom, you still have a choice. As soon as you stub a callback in a test, it will call the callback whenever the mock is encountered and return the retval returned from the callback (if any) instead of performing the usual expect checks. It can be configured to check the arguments first (like expects) or just jump directly to the callback.</para>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput>void func(void)</computeroutput> =&gt; <computeroutput>void func_StubWithCallback(CMOCK_func_CALLBACK callback)</computeroutput> where <computeroutput>CMOCK_func_CALLBACK</computeroutput> looks like: <computeroutput>void func(int NumCalls)</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>void func(params)</computeroutput> =&gt; <computeroutput>void func_StubWithCallback(CMOCK_func_CALLBACK callback)</computeroutput> where <computeroutput>CMOCK_func_CALLBACK</computeroutput> looks like: <computeroutput>void func(params, int NumCalls)</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>retval func(void)</computeroutput> =&gt; <computeroutput>void func_StubWithCallback(CMOCK_func_CALLBACK callback)</computeroutput> where <computeroutput>CMOCK_func_CALLBACK</computeroutput> looks like: <computeroutput>retval func(int NumCalls)</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>retval func(params)</computeroutput> =&gt; <computeroutput>void func_StubWithCallback(CMOCK_func_CALLBACK callback)</computeroutput> where <computeroutput>CMOCK_func_CALLBACK</computeroutput> looks like: <computeroutput>retval func(params, int NumCalls)</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__c_mock__summary_1autotoc_md46">
+<title>Cexception:</title>
+
+<para>Finally, if you are using Cexception for error handling, you can use this to throw errors from inside mocks. Like Expects, it remembers which call was supposed to throw the error, and it still checks parameters first.</para>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput>void func(void)</computeroutput> =&gt; <computeroutput>void func_ExpectAndThrow(value_to_throw)</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>void func(params)</computeroutput> =&gt; <computeroutput>void func_ExpectAndThrow(expected_params, value_to_throw)</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>retval func(void)</computeroutput> =&gt; <computeroutput>void func_ExpectAndThrow(value_to_throw)</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>retval func(params)</computeroutput> =&gt; <computeroutput>void func_ExpectAndThrow(expected_params, value_to_throw)</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</section>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__c_mock__summary_1autotoc_md47">
+<title>Running CMock</title>
+
+<para>CMock is a Ruby script and class. You can therefore use it directly from the command line, or include it in your own scripts or rakefiles.</para>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__c_mock__summary_1autotoc_md48">
+<title>Mocking from the Command Line</title>
+
+<para>After unpacking CMock, you will find cmock.rb in the &apos;lib&apos; directory. This is the file that you want to run. It takes a list of header files to be mocked, as well as an optional yaml file for a more detailed configuration (see config options below).</para>
+
+<para>For example, this will create three mocks using the configuration specified in MyConfig.yml: <literallayout><computeroutput>ruby cmock.rb -oMyConfig.yml super.h duper.h awesome.h
+</computeroutput></literallayout> And this will create two mocks using the default configuration: <literallayout><computeroutput>ruby cmock.rb ../mocking/stuff/is/fun.h ../try/it/yourself.h
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__c_mock__summary_1autotoc_md49">
+<title>Mocking From Scripts or Rake</title>
+
+<para>CMock can be used directly from your own scripts or from a rakefile. Start by including cmock.rb, then create an instance of CMock. When you create your instance, you may initialize it in one of three ways.</para>
+
+<para>You may specify nothing, allowing it to run with default settings: <literallayout><computeroutput>require &apos;cmock.rb&apos;
+cmock = CMock.new
+</computeroutput></literallayout> You may specify a YAML file containing the configuration options you desire: <literallayout><computeroutput>cmock = CMock.new(&apos;../MyConfig.yml&apos;)
+</computeroutput></literallayout> You may specify the options explicitly: <literallayout><computeroutput>cmock = Cmock.new(:plugins =&gt; [:cexception, :ignore], :mock_path =&gt; &apos;my/mocks/&apos;)
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__c_mock__summary_1autotoc_md50">
+<title>Config Options:</title>
+
+<para>The following configuration options can be specified in the yaml file or directly when instantiating.</para>
+
+<para>Passed as Ruby, they look like this: <literallayout><computeroutput>    { :attributes =&gt; [“__funky”, “__intrinsic”], :when_ptr =&gt; :compare }
+</computeroutput></literallayout> Defined in the yaml file, they look more like this: <literallayout><computeroutput>    :cmock:
+      :attributes:
+        - __funky
+        - __intrinsic
+      :when_ptr: :compare
+</computeroutput></literallayout> In all cases, you can just include the things that you want to override from the defaults. We&apos;ve tried to specify what the defaults are below.</para>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput>:attributes</computeroutput>: These are attributes that CMock should ignore for you for testing purposes. Custom compiler extensions and externs are handy things to put here. If your compiler is choking on some extended syntax, this is often a good place to look.<itemizedlist>
+<listitem>
+<para>defaults: [&apos;__ramfunc&apos;, &apos;__irq&apos;, &apos;__fiq&apos;, &apos;register&apos;, &apos;extern&apos;]</para>
+</listitem><listitem>
+<para><emphasis role="bold">note:</emphasis> this option will reinsert these attributes onto the mock&apos;s calls. If that isn&apos;t what you are looking for, check out :strippables.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><computeroutput>:c_calling_conventions</computeroutput>: Similarly, CMock may need to understand which C calling conventions might show up in your codebase. If it encounters something it doesn&apos;t recognize, it&apos;s not going to mock it. We have the most common covered, but there are many compilers out there, and therefore many other options.<itemizedlist>
+<listitem>
+<para>defaults: [&apos;__stdcall&apos;, &apos;__cdecl&apos;, &apos;__fastcall&apos;]</para>
+</listitem><listitem>
+<para><emphasis role="bold">note:</emphasis> this option will reinsert these attributes onto the mock&apos;s calls. If that isn&apos;t what you are looking for, check out :strippables.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><computeroutput>:callback_after_arg_check</computeroutput>: Tell <computeroutput>:callback</computeroutput> plugin to do the normal argument checking <emphasis role="bold">before</emphasis> it calls the callback function by setting this to true. When false, the callback function is called <emphasis role="bold">instead</emphasis> of the argument verification.<itemizedlist>
+<listitem>
+<para>default: false</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><computeroutput>:callback_include_count</computeroutput>: Tell <computeroutput>:callback</computeroutput> plugin to include an extra parameter to specify the number of times the callback has been called. If set to false, the callback has the same interface as the mocked function. This can be handy when you&apos;re wanting to use callback as a stub.<itemizedlist>
+<listitem>
+<para>default: true</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><computeroutput>:cexception_include</computeroutput>: Tell <computeroutput>:cexception</computeroutput> plugin where to find <link linkend="__c_exception_8h">CException.h</link>... You only need to define this if it&apos;s not in your build path already... which it usually will be for the purpose of your builds.<itemizedlist>
+<listitem>
+<para>default: <emphasis>nil</emphasis></para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><computeroutput>:enforce_strict_ordering</computeroutput>: CMock always enforces the order that you call a particular function, so if you expect GrabNabber(int size) to be called three times, it will verify that the sizes are in the order you specified. You might <emphasis>also</emphasis> want to make sure that all different functions are called in a particular order. If so, set this to true.<itemizedlist>
+<listitem>
+<para>default: false</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><computeroutput>:framework</computeroutput>: Currently the only option is <computeroutput>:unity.</computeroutput> Eventually if we support other unity test frameworks (or if you write one for us), they&apos;ll get added here.</para>
+
+<para>: default: :unity</para>
+</listitem><listitem>
+<para><computeroutput>:includes</computeroutput>: An array of additional include files which should be added to the mocks. Useful for global types and definitions used in your project. There are more specific versions if you care WHERE in the mock files the includes get placed. You can define any or all of these options.<itemizedlist>
+<listitem>
+<para><computeroutput>:includes</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>:includes_h_pre_orig_header</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>:includes_h_post_orig_header</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>:includes_c_pre_header</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>:includes_c_post_header</computeroutput></para>
+</listitem><listitem>
+<para>default: nil #for all 5 options</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><computeroutput>:memcmp_if_unknown</computeroutput>: C developers create a lot of types, either through typedef or preprocessor macros. CMock isn&apos;t going to automatically know what you were thinking all the time (though it tries its best). If it comes across a type it doesn&apos;t recognize, you have a choice on how you want it to handle it. It can either perform a raw memory comparison and report any differences, or it can fail with a meaningful message. Either way, this feature will only happen after all other mechanisms have failed (The thing encountered isn&apos;t a standard type. It isn&apos;t in the :treat_as list. It isn&apos;t in a custom unity_helper).<itemizedlist>
+<listitem>
+<para>default: true</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><computeroutput>:mock_path</computeroutput>: The directory where you would like the mock files generated to be placed.<itemizedlist>
+<listitem>
+<para>default: mocks</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><computeroutput>:mock_prefix</computeroutput>: The prefix to prepend to your mock files. For example, if it&apos;s “Mock”, a file “USART.h” will get a mock called “MockUSART.c”. This CAN be used with a suffix at the same time.<itemizedlist>
+<listitem>
+<para>default: Mock</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><computeroutput>:mock_suffix</computeroutput>: The suffix to append to your mock files. For example, it it&apos;s &quot;_Mock&quot;, a file &quot;USART.h&quot; will get a mock called &quot;USART_Mock.h&quot;. This CAN be used with a prefix at the same time.<itemizedlist>
+<listitem>
+<para>default: &quot;&quot;</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><computeroutput>:plugins</computeroutput>: An array of which plugins to enable. &apos;:expect&apos; is always active. Also available currently:<itemizedlist>
+<listitem>
+<para><computeroutput>:ignore</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>:ignore_arg</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>:expect_any_args</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>:array</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>:cexception</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>:callback</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>:return_thru_ptr</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><computeroutput>:strippables</computeroutput>: An array containing a list of items to remove from the header before deciding what should be mocked. This can be something simple like a compiler extension CMock wouldn&apos;t recognize, or could be a regex to reject certain function name patterns. This is a great way to get rid of compiler extensions when your test compiler doesn&apos;t support them. For example, use &#8216;:strippables: [&#8217;(?:functionName\s*(+.*?)+)&apos;]<computeroutput> to prevent a function</computeroutput>functionName` from being mocked. By default, it is ignoring all gcc attribute extensions.<itemizedlist>
+<listitem>
+<para>default: [&apos;(?:<emphasis role="bold">attribute</emphasis>\s*(+.*?)+)&apos;]</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><computeroutput>:subdir</computeroutput>: This is a relative subdirectory for your mocks. Set this to e.g. &quot;sys&quot; in order to create a mock for <computeroutput>sys/types.h</computeroutput> in <computeroutput>(:mock_path)/sys/</computeroutput>.<itemizedlist>
+<listitem>
+<para>default: &quot;&quot;</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><computeroutput>:treat_as</computeroutput>: The <computeroutput>:treat_as</computeroutput> list is a shortcut for when you have created typedefs of standard types. Why create a custom unity helper for UINT16 when the unity function TEST_ASSERT_EQUAL_HEX16 will work just perfectly? Just add &apos;UINT16&apos; =&gt; &apos;HEX16&apos; to your list (actually, don&apos;t. We already did that one for you). Maybe you have a type that is a pointer to an array of unsigned characters? No problem, just add &apos;UINT8_T*&apos; =&gt; &apos;HEX8*&apos;<itemizedlist>
+<listitem>
+<para>NOTE: unlike the other options, your specifications MERGE with the default list. Therefore, if you want to override something, you must reassign it to something else (or to <emphasis>nil</emphasis> if you don&apos;t want it)</para>
+</listitem><listitem>
+<para>default:<itemizedlist>
+<listitem>
+<para>&apos;int&apos;: &apos;INT&apos;</para>
+</listitem><listitem>
+<para>&apos;char&apos;: &apos;INT8&apos;</para>
+</listitem><listitem>
+<para>&apos;short&apos;: &apos;INT16&apos;</para>
+</listitem><listitem>
+<para>&apos;long&apos;: &apos;INT&apos;</para>
+</listitem><listitem>
+<para>&apos;int8&apos;: &apos;INT8&apos;</para>
+</listitem><listitem>
+<para>&apos;int16&apos;: &apos;INT16&apos;</para>
+</listitem><listitem>
+<para>&apos;int32&apos;: &apos;INT&apos;</para>
+</listitem><listitem>
+<para>&apos;int8_t&apos;: &apos;INT8&apos;</para>
+</listitem><listitem>
+<para>&apos;int16_t&apos;: &apos;INT16&apos;</para>
+</listitem><listitem>
+<para>&apos;int32_t&apos;: &apos;INT&apos;</para>
+</listitem><listitem>
+<para>&apos;INT8_T&apos;: &apos;INT8&apos;</para>
+</listitem><listitem>
+<para>&apos;INT16_T&apos;: &apos;INT16&apos;</para>
+</listitem><listitem>
+<para>&apos;INT32_T&apos;: &apos;INT&apos;</para>
+</listitem><listitem>
+<para>&apos;bool&apos;: &apos;INT&apos;</para>
+</listitem><listitem>
+<para>&apos;bool_t&apos;: &apos;INT&apos;</para>
+</listitem><listitem>
+<para>&apos;BOOL&apos;: &apos;INT&apos;</para>
+</listitem><listitem>
+<para>&apos;BOOL_T&apos;: &apos;INT&apos;</para>
+</listitem><listitem>
+<para>&apos;unsigned int&apos;: &apos;HEX32&apos;</para>
+</listitem><listitem>
+<para>&apos;unsigned long&apos;: &apos;HEX32&apos;</para>
+</listitem><listitem>
+<para>&apos;uint32&apos;: &apos;HEX32&apos;</para>
+</listitem><listitem>
+<para>&apos;uint32_t&apos;: &apos;HEX32&apos;</para>
+</listitem><listitem>
+<para>&apos;UINT32&apos;: &apos;HEX32&apos;</para>
+</listitem><listitem>
+<para>&apos;UINT32_T&apos;: &apos;HEX32&apos;</para>
+</listitem><listitem>
+<para>&apos;void*&apos;: &apos;HEX8_ARRAY&apos;</para>
+</listitem><listitem>
+<para>&apos;unsigned short&apos;: &apos;HEX16&apos;</para>
+</listitem><listitem>
+<para>&apos;uint16&apos;: &apos;HEX16&apos;</para>
+</listitem><listitem>
+<para>&apos;uint16_t&apos;: &apos;HEX16&apos;</para>
+</listitem><listitem>
+<para>&apos;UINT16&apos;: &apos;HEX16&apos;</para>
+</listitem><listitem>
+<para>&apos;UINT16_T&apos;: &apos;HEX16&apos;</para>
+</listitem><listitem>
+<para>&apos;unsigned char&apos;: &apos;HEX8&apos;</para>
+</listitem><listitem>
+<para>&apos;uint8&apos;: &apos;HEX8&apos;</para>
+</listitem><listitem>
+<para>&apos;uint8_t&apos;: &apos;HEX8&apos;</para>
+</listitem><listitem>
+<para>&apos;UINT8&apos;: &apos;HEX8&apos;</para>
+</listitem><listitem>
+<para>&apos;UINT8_T&apos;: &apos;HEX8&apos;</para>
+</listitem><listitem>
+<para>&apos;char*&apos;: &apos;STRING&apos;</para>
+</listitem><listitem>
+<para>&apos;pCHAR&apos;: &apos;STRING&apos;</para>
+</listitem><listitem>
+<para>&apos;cstring&apos;: &apos;STRING&apos;</para>
+</listitem><listitem>
+<para>&apos;CSTRING&apos;: &apos;STRING&apos;</para>
+</listitem><listitem>
+<para>&apos;float&apos;: &apos;FLOAT&apos;</para>
+</listitem><listitem>
+<para>&apos;double&apos;: &apos;FLOAT&apos;</para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><computeroutput>:treat_as_void</computeroutput>: We&apos;ve seen &quot;fun&quot; legacy systems typedef &apos;void&apos; with a custom type, like MY_VOID. Add any instances of those to this list to help CMock understand how to deal with your code.<itemizedlist>
+<listitem>
+<para>default: []</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><computeroutput>:treat_externs</computeroutput>: This specifies how you want CMock to handle functions that have been marked as extern in the header file. Should it mock them?<itemizedlist>
+<listitem>
+<para><computeroutput>:include</computeroutput> will mock externed functions</para>
+</listitem><listitem>
+<para><computeroutput>:exclude</computeroutput> will ignore externed functions (default).</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><computeroutput>:unity_helper_path</computeroutput>: If you have created a header with your own extensions to unity to handle your own types, you can set this argument to that path. CMock will then automagically pull in your helpers and use them. The only trick is that you make sure you follow the naming convention: <computeroutput>UNITY_TEST_ASSERT_EQUAL_YourType</computeroutput>. If it finds macros of the right shape that match that pattern, it&apos;ll use them.<itemizedlist>
+<listitem>
+<para>default: []</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><computeroutput>:verbosity</computeroutput>: How loud should CMock be?<itemizedlist>
+<listitem>
+<para>0 for errors only</para>
+</listitem><listitem>
+<para>1 for errors and warnings</para>
+</listitem><listitem>
+<para>2 for normal (default)</para>
+</listitem><listitem>
+<para>3 for verbose</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><computeroutput>:weak</computeroutput>: When set this to some value, the generated mocks are defined as weak symbols using the configured format. This allows them to be overridden in particular tests.<itemizedlist>
+<listitem>
+<para>Set to &apos;__attribute ((weak))&apos; for weak mocks when using GCC.</para>
+</listitem><listitem>
+<para>Set to any non-empty string for weak mocks when using IAR.</para>
+</listitem><listitem>
+<para>default: &quot;&quot;</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><computeroutput>:when_no_prototypes</computeroutput>: When you give CMock a header file and ask it to create a mock out of it, it usually contains function prototypes (otherwise what was the point?). You can control what happens when this isn&apos;t true. You can set this to <computeroutput>:warn,</computeroutput> <computeroutput>:ignore,</computeroutput> or <computeroutput>:error</computeroutput><itemizedlist>
+<listitem>
+<para>default: :warn</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><computeroutput>:when_ptr</computeroutput>: You can customize how CMock deals with pointers (c strings result in string comparisons... we&apos;re talking about <emphasis role="bold">other</emphasis> pointers here). Your options are <computeroutput>:compare_ptr</computeroutput> to just verify the pointers are the same, <computeroutput>:compare_data</computeroutput> or <computeroutput>:smart</computeroutput> to verify that the data is the same. <computeroutput>:compare_data</computeroutput> and <computeroutput>:smart</computeroutput> behaviors will change slightly based on if you have the array plugin enabled. By default, they compare a single element of what is being pointed to. So if you have a pointer to a struct called ORGAN_T, it will compare one ORGAN_T (whatever that is).<itemizedlist>
+<listitem>
+<para>default: :smart</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><computeroutput>:fail_on_unexpected_calls</computeroutput>: By default, CMock will fail a test if a mock is called without _Expect and _Ignore called first. While this forces test writers to be more explicit in their expectations, it can clutter tests with _Expect or _Ignore calls for functions which are not the focus of the test. While this is a good indicator that this module should be refactored, some users are not fans of the additional noise.</para>
+
+<para>Therefore, :fail_on_unexpected_calls can be set to false to force all mocks to start with the assumption that they are operating as _Ignore unless otherwise specified.<itemizedlist>
+<listitem>
+<para>default: true</para>
+</listitem><listitem>
+<para><emphasis role="bold">note:</emphasis> If this option is disabled, the mocked functions will return a default value (0) when called (and only if they have to return something of course).</para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__c_mock__summary_1autotoc_md51">
+<title>Compiled Options:</title>
+
+<para>A number of #defines also exist for customizing the cmock experience. Feel free to pass these into your compiler or whatever is most convenient. CMock will otherwise do its best to guess what you want based on other settings, particularly Unity&apos;s settings.</para>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput>CMOCK_MEM_STATIC</computeroutput> or <computeroutput>CMOCK_MEM_DYNAMIC</computeroutput> Define one of these to determine if you want to dynamically add memory during tests as required from the heap. If static, you can control the total footprint of Cmock. If dynamic, you will need to make sure you make some heap space available for Cmock.</para>
+</listitem><listitem>
+<para><computeroutput>CMOCK_MEM_SIZE</computeroutput> In static mode this is the total amount of memory you are allocating to Cmock. In Dynamic mode this is the size of each chunk allocated at once (larger numbers grab more memory but require less mallocs).</para>
+</listitem><listitem>
+<para><computeroutput>CMOCK_MEM_ALIGN</computeroutput> The way to align your data to. Not everything is as flexible as a PC, as most embedded designers know. This defaults to 2, meaning align to the closest 2^2 -&gt; 4 bytes (32 bits). You can turn off alignment by setting 0, force alignment to the closest uint16 with 1 or even to the closest uint64 with 3.</para>
+</listitem><listitem>
+<para><computeroutput>CMOCK_MEM_PTR_AS_INT</computeroutput> This is used internally to hold pointers... it needs to be big enough. On most processors a pointer is the same as an unsigned long... but maybe that&apos;s not true for yours?</para>
+</listitem><listitem>
+<para><computeroutput>CMOCK_MEM_INDEX_TYPE</computeroutput> This needs to be something big enough to point anywhere in Cmock&apos;s memory space... usually it&apos;s an unsigned int.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__c_mock__summary_1autotoc_md52">
+<title>Examples</title>
+
+<para>You can look in the <link xlink:href="/examples/">examples directory</link> for a couple of examples on how you might tool CMock into your build process. You may also want to consider using <link xlink:href="https://throwtheswitch.org/ceedling">Ceedling</link>. Please note that these examples are meant to show how the build process works. They have failing tests ON PURPOSE to show what that would look like. Don&apos;t be alarmed. ;) </para>
+</section>
+</section>

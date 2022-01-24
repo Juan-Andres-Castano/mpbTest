@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_nep_math_parity_8c" xml:lang="en-US">
+<title>Sources/nepMathParity.c File Reference</title>
+<indexterm><primary>Sources/nepMathParity.c</primary></indexterm>
+<programlisting>#include &quot;nepMathParity.h&quot;
+</programlisting>Include dependency graph for nepMathParity.c:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../db/d87/nep_math_parity_8c__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="_nep_math_parity_8c_1a5623379477dccedf389b6870f1d22505">NUMBER_OF_BITS_IN_A_BYTE</link>   ( 8 )</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>eNepError_t <link linkend="_nep_math_parity_8c_1afd984a7ef09780a71968be9462077324">eNepMathParityCalcul</link> (uint8_t *pucBinaryNumber, uint32_t ulNumberOfBytes, eParityType_t eParityType, eBool_t *pbResponse)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para><formalpara><title>Author</title>
+
+<para>Philippe Boulais </para>
+</formalpara>
+<formalpara><title>Date</title>
+
+<para>Created on 2019-06-07 </para>
+</formalpara>
+<formalpara><title>Copyright</title>
+
+<para>NEP, Montreal, Qc <formalpara><title><informaltable frame='none'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>&#169; COPYRIGHT 2015 NEP, Montreal, Quebec, Canada</entry></row></tbody></tgroup></informaltable></title></formalpara>
+</para>
+</formalpara>
+<formalpara><title><informaltable frame='none'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>&#169; All rights reserved.</entry></row></tbody></tgroup></informaltable></title></formalpara>
+</para>
+
+<para>
+<literallayout>&#160;&#xa;</literallayout>
+
+<literallayout>&#160;&#xa;</literallayout>
+ <informaltable frame='none'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>This document contains confidential and proprietary information of NEPTRONIC (subject to a non-disclosure agreement) and shall</entry></row></tbody></tgroup></informaltable> <informaltable frame='none'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>not be disclosed, distributed, or reproduced in whole or in part, without the prior written authorization of NEPTRONIC.</entry></row></tbody></tgroup></informaltable> </para>
+</section>
+<section>
+<title>Macro Definition Documentation</title>
+<anchor xml:id="_nep_math_parity_8c_1a5623379477dccedf389b6870f1d22505"/>    <section>
+    <title>NUMBER_OF_BITS_IN_A_BYTE</title>
+<indexterm><primary>NUMBER_OF_BITS_IN_A_BYTE</primary><secondary>nepMathParity.c</secondary></indexterm>
+<indexterm><primary>nepMathParity.c</primary><secondary>NUMBER_OF_BITS_IN_A_BYTE</secondary></indexterm>
+<para><computeroutput>#define NUMBER_OF_BITS_IN_A_BYTE   ( 8 )</computeroutput></para><para>
+Definition at line 17 of file nepMathParity.c.</para>
+</section>
+</section>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_nep_math_parity_8c_1afd984a7ef09780a71968be9462077324"/>    <section>
+    <title>eNepMathParityCalcul()</title>
+<indexterm><primary>eNepMathParityCalcul</primary><secondary>nepMathParity.c</secondary></indexterm>
+<indexterm><primary>nepMathParity.c</primary><secondary>eNepMathParityCalcul</secondary></indexterm>
+<para><computeroutput>eNepError_t eNepMathParityCalcul (uint8_t * pucBinaryNumber, uint32_t ulNumberOfBytes, eParityType_t eParityType, eBool_t * pbResponse)</computeroutput></para><para>
+Definition at line 27 of file nepMathParity.c.</para>
+</section>
+</section>
+</section>

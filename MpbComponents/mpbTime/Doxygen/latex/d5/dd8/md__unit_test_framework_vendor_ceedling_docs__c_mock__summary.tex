@@ -1,0 +1,317 @@
+{\itshape \href{http://throwtheswitch.org}{\texttt{ Throw\+The\+Switch.\+org}}}
+
+{\itshape This documentation is released under a Creative Commons 3.\+0 Attribution Share-\/\+Alike License}\hypertarget{md__unit_test_framework_vendor_ceedling_docs__c_mock__summary_autotoc_md36}{}\doxysection{What Exactly Are We Talking About Here?}\label{md__unit_test_framework_vendor_ceedling_docs__c_mock__summary_autotoc_md36}
+CMock is a nice little tool which takes your header files and creates a Mock interface for it so that you can more easily unit test modules that touch other modules. For each function prototype in your header, like this one\+: \begin{DoxyVerb}int DoesSomething(int a, int b);
+\end{DoxyVerb}
+
+
+...you get an automatically generated Does\+Something function that you can link to instead of your real Does\+Something function. By using this Mocked version, you can then verify that it receives the data you want, and make it return whatever data you desire, make it throw errors when you want, and more... Create these for everything your latest real module touches, and you\textquotesingle{}re suddenly in a position of power\+: You can control and verify every detail of your latest creation.
+
+To make that easier, CMock also gives you a bunch of functions like the ones below, so you can tell that generated Does\+Something function how to behave for each test\+: \begin{DoxyVerb}void DoesSomething_ExpectAndReturn(int a, int b, int toReturn);
+void DoesSomething_ExpectAndThrow(int a, int b, EXCEPTION_T error);
+void DoesSomething_StubWithCallback(CMOCK_DoesSomething_CALLBACK YourCallback);
+void DoesSomething_IgnoreAndReturn(int toReturn);
+\end{DoxyVerb}
+
+
+You can pile a bunch of these back to back, and it remembers what you wanted to pass when, like so\+: \begin{DoxyVerb}test_CallsDoesSomething_ShouldDoJustThat(void)
+{
+    DoesSomething_ExpectAndReturn(1,2,3);
+    DoesSomething_ExpectAndReturn(4,5,6);
+    DoesSomething_ExpectAndThrow(7,8, STATUS_ERROR_OOPS);
+
+    CallsDoesSomething( );
+}
+\end{DoxyVerb}
+
+
+This test will call Calls\+Does\+Something, which is the function we are testing. We are expecting that function to call Does\+Something three times. The first time, we check to make sure it\textquotesingle{}s called as Does\+Something(1, 2) and we\textquotesingle{}ll magically return a 3. The second time we check for Does\+Something(4, 5) and we\textquotesingle{}ll return a 6. The third time we verify Does\+Something(7, 8) and we\textquotesingle{}ll throw an error instead of returning anything. If Calls\+Does\+Something gets any of this wrong, it fails the test. It will fail if you didn\textquotesingle{}t call Does\+Something enough, or too much, or with the wrong arguments, or in the wrong order.
+
+CMock is based on Unity, which it uses for all internal testing. It uses Ruby to do all the main work (versions 2.\+0.\+0 and above).\hypertarget{md__unit_test_framework_vendor_ceedling_docs__c_mock__summary_autotoc_md37}{}\doxysection{Installing}\label{md__unit_test_framework_vendor_ceedling_docs__c_mock__summary_autotoc_md37}
+The first thing you need to do to install CMock is to get yourself a copy of Ruby. If you\textquotesingle{}re on linux or osx, you probably already have it. You can prove it by typing the following\+: \begin{DoxyVerb}ruby --version
+\end{DoxyVerb}
+
+
+If it replied in a way that implies ignorance, then you\textquotesingle{}re going to need to install it. You can go to \href{https://ruby-lang.org}{\texttt{ ruby-\/lang}} to get the latest version. You\textquotesingle{}re also going to need to do that if it replied with a version that is older than 2.\+0.\+0. Go ahead. We\textquotesingle{}ll wait.
+
+Once you have Ruby, you have three options\+:
+
+
+\begin{DoxyItemize}
+\item Clone the latest \href{https://github.com/ThrowTheSwitch/CMock/}{\texttt{ CMock repo on github}}
+\item Download the latest \href{https://github.com/ThrowTheSwitch/CMock/}{\texttt{ CMock zip from github}}
+\item Install Ceedling (which has it built in!) through your commandline using {\ttfamily gem install ceedling}.
+\end{DoxyItemize}\hypertarget{md__unit_test_framework_vendor_ceedling_docs__c_mock__summary_autotoc_md38}{}\doxysection{Generated Mock Module Summary}\label{md__unit_test_framework_vendor_ceedling_docs__c_mock__summary_autotoc_md38}
+In addition to the mocks themselves, CMock will generate the following functions for use in your tests. The expect functions are always generated. The other functions are only generated if those plugins are enabled\+:\hypertarget{md__unit_test_framework_vendor_ceedling_docs__c_mock__summary_autotoc_md39}{}\doxysubsection{Expect\+:}\label{md__unit_test_framework_vendor_ceedling_docs__c_mock__summary_autotoc_md39}
+Your basic staple Expects which will be used for most of your day to day CMock work. By calling this, you are telling CMock that you expect that function to be called during your test. It also specifies which arguments you expect it to be called with, and what return value you want returned when that happens. You can call this function multiple times back to back in order to queue up multiple calls.
+
+
+\begin{DoxyItemize}
+\item {\ttfamily void func(void)} =$>$ {\ttfamily void func\+\_\+\+Expect(void)}
+\item {\ttfamily void func(params)} =$>$ {\ttfamily void func\+\_\+\+Expect(expected\+\_\+params)}
+\item {\ttfamily retval func(void)} =$>$ {\ttfamily void func\+\_\+\+Expect\+And\+Return(retval\+\_\+to\+\_\+return)}
+\item {\ttfamily retval func(params)} =$>$ {\ttfamily void func\+\_\+\+Expect\+And\+Return(expected\+\_\+params, retval\+\_\+to\+\_\+return)}
+\end{DoxyItemize}\hypertarget{md__unit_test_framework_vendor_ceedling_docs__c_mock__summary_autotoc_md40}{}\doxysubsection{Expect\+Any\+Args\+:}\label{md__unit_test_framework_vendor_ceedling_docs__c_mock__summary_autotoc_md40}
+This behaves just like the Expects calls, except that it doesn\textquotesingle{}t really care what the arguments are that the mock gets called with. It still counts the number of times the mock is called and it still handles return values if there are some.
+
+
+\begin{DoxyItemize}
+\item {\ttfamily void func(void)} =$>$ {\ttfamily void func\+\_\+\+Expect\+Any\+Args(void)}
+\item {\ttfamily void func(params)} =$>$ {\ttfamily void func\+\_\+\+Expect\+Any\+Args(void)}
+\item {\ttfamily retval func(void)} =$>$ {\ttfamily void func\+\_\+\+Expect\+Any\+Args\+And\+Return(retval\+\_\+to\+\_\+return)}
+\item {\ttfamily retval func(params)} =$>$ {\ttfamily void func\+\_\+\+Expect\+Any\+Args\+And\+Return(retval\+\_\+to\+\_\+return)}
+\end{DoxyItemize}\hypertarget{md__unit_test_framework_vendor_ceedling_docs__c_mock__summary_autotoc_md41}{}\doxysubsection{Array\+:}\label{md__unit_test_framework_vendor_ceedling_docs__c_mock__summary_autotoc_md41}
+An Expect\+With\+Array is another variant of Expect. Like expect, it cares about the number of times a mock is called, the arguments it is called with, and the values it is to return. This variant has another feature, though. For anything that resembles a pointer or array, it breaks the argument into TWO arguments. The first is the original pointer. The second specify the number of elements it is to verify of that array. If you specify 1, it\textquotesingle{}ll check one object. If 2, it\textquotesingle{}ll assume your pointer is pointing at the first of two elements in an array. If you specify zero elements, it will check just the pointer if {\ttfamily \+:smart} mode is configured or fail if {\ttfamily \+:compare\+\_\+data} is set.
+
+
+\begin{DoxyItemize}
+\item {\ttfamily void func(void)} =$>$ (nothing. In fact, an additional function is only generated if the params list contains pointers)
+\item {\ttfamily void func(ptr $\ast$ param, other)} =$>$ {\ttfamily void func\+\_\+\+Expect\+With\+Array(ptr$\ast$ param, int param\+\_\+depth, other)}
+\item {\ttfamily retval func(void)} =$>$ (nothing. In fact, an additional function is only generated if the params list contains pointers)
+\item {\ttfamily retval func(other, ptr$\ast$ param)} =$>$ {\ttfamily void func\+\_\+\+Expect\+With\+Array\+And\+Return(other, ptr$\ast$ param, int param\+\_\+depth, retval\+\_\+to\+\_\+return)}
+\end{DoxyItemize}\hypertarget{md__unit_test_framework_vendor_ceedling_docs__c_mock__summary_autotoc_md42}{}\doxysubsection{Ignore\+:}\label{md__unit_test_framework_vendor_ceedling_docs__c_mock__summary_autotoc_md42}
+Maybe you don\textquotesingle{}t care about the number of times a particular function is called or the actual arguments it is called with. In that case, you want to use Ignore. Ignore only needs to be called once per test. It will then ignore any further calls to that particular mock. The Ignore\+And\+Return works similarly, except that it has the added benefit of knowing what to return when that call happens. If the mock is called more times than Ignore\+And\+Return was called, it will keep returning the last value without complaint. If it\textquotesingle{}s called less times, it will also ignore that. You SAID you didn\textquotesingle{}t care how many times it was called, right?
+
+
+\begin{DoxyItemize}
+\item {\ttfamily void func(void)} =$>$ {\ttfamily void func\+\_\+\+Ignore(void)}
+\item {\ttfamily void func(params)} =$>$ {\ttfamily void func\+\_\+\+Ignore(void)}
+\item {\ttfamily retval func(void)} =$>$ {\ttfamily void func\+\_\+\+Ignore\+And\+Return(retval\+\_\+to\+\_\+return)}
+\item {\ttfamily retval func(params)} =$>$ {\ttfamily void func\+\_\+\+Ignore\+And\+Return(retval\+\_\+to\+\_\+return)}
+\end{DoxyItemize}\hypertarget{md__unit_test_framework_vendor_ceedling_docs__c_mock__summary_autotoc_md43}{}\doxysubsection{Ignore Arg\+:}\label{md__unit_test_framework_vendor_ceedling_docs__c_mock__summary_autotoc_md43}
+Maybe you overall want to use Expect and its similar variations, but you don\textquotesingle{}t care what is passed to a particular argument. This is particularly useful when that argument is a pointer to a value that is supposed to be filled in by the function. You don\textquotesingle{}t want to use Expect\+Any\+Args, because you still care about the other arguments. Instead, before any of your Expect calls are made, you can call this function. It tells CMock to ignore a particular argument for the rest of this test, for this mock function.
+
+
+\begin{DoxyItemize}
+\item {\ttfamily void func(params)} =$>$ {\ttfamily void func\+\_\+\+Ignore\+Arg\+\_\+param\+Name(void)}
+\end{DoxyItemize}\hypertarget{md__unit_test_framework_vendor_ceedling_docs__c_mock__summary_autotoc_md44}{}\doxysubsection{Return\+Thru\+Ptr\+:}\label{md__unit_test_framework_vendor_ceedling_docs__c_mock__summary_autotoc_md44}
+Another option which operates on a particular argument of a function is the Return\+Thru\+Ptr plugin. For every argument that resembles a pointer or reference, CMock generates an instance of this function. Just as the And\+Return functions support injecting one or more return values into a queue, this function lets you specify one or more return values which are queued up and copied into the space being pointed at each time the mock is called.
+
+
+\begin{DoxyItemize}
+\item {\ttfamily void func(param1)} =$>$ {\ttfamily void func\+\_\+\+Return\+Thru\+Ptr\+\_\+param\+Name(val\+\_\+to\+\_\+return)}
+\item =$>$ {\ttfamily void func\+\_\+\+Return\+Array\+Thru\+Ptr\+\_\+param\+Name(cal\+\_\+to\+\_\+return, len)}
+\item =$>$ {\ttfamily void func\+\_\+\+Return\+Mem\+Thru\+Ptr\+\_\+param\+Name(val\+\_\+to\+\_\+return, size)}
+\end{DoxyItemize}\hypertarget{md__unit_test_framework_vendor_ceedling_docs__c_mock__summary_autotoc_md45}{}\doxysubsection{Callback\+:}\label{md__unit_test_framework_vendor_ceedling_docs__c_mock__summary_autotoc_md45}
+If all those other options don\textquotesingle{}t work, and you really need to do something custom, you still have a choice. As soon as you stub a callback in a test, it will call the callback whenever the mock is encountered and return the retval returned from the callback (if any) instead of performing the usual expect checks. It can be configured to check the arguments first (like expects) or just jump directly to the callback.
+
+
+\begin{DoxyItemize}
+\item {\ttfamily void func(void)} =$>$ {\ttfamily void func\+\_\+\+Stub\+With\+Callback(\+CMOCK\+\_\+func\+\_\+\+CALLBACK callback)} where {\ttfamily CMOCK\+\_\+func\+\_\+\+CALLBACK} looks like\+: {\ttfamily void func(int Num\+Calls)}
+\item {\ttfamily void func(params)} =$>$ {\ttfamily void func\+\_\+\+Stub\+With\+Callback(\+CMOCK\+\_\+func\+\_\+\+CALLBACK callback)} where {\ttfamily CMOCK\+\_\+func\+\_\+\+CALLBACK} looks like\+: {\ttfamily void func(params, int Num\+Calls)}
+\item {\ttfamily retval func(void)} =$>$ {\ttfamily void func\+\_\+\+Stub\+With\+Callback(\+CMOCK\+\_\+func\+\_\+\+CALLBACK callback)} where {\ttfamily CMOCK\+\_\+func\+\_\+\+CALLBACK} looks like\+: {\ttfamily retval func(int Num\+Calls)}
+\item {\ttfamily retval func(params)} =$>$ {\ttfamily void func\+\_\+\+Stub\+With\+Callback(\+CMOCK\+\_\+func\+\_\+\+CALLBACK callback)} where {\ttfamily CMOCK\+\_\+func\+\_\+\+CALLBACK} looks like\+: {\ttfamily retval func(params, int Num\+Calls)}
+\end{DoxyItemize}\hypertarget{md__unit_test_framework_vendor_ceedling_docs__c_mock__summary_autotoc_md46}{}\doxysubsection{Cexception\+:}\label{md__unit_test_framework_vendor_ceedling_docs__c_mock__summary_autotoc_md46}
+Finally, if you are using Cexception for error handling, you can use this to throw errors from inside mocks. Like Expects, it remembers which call was supposed to throw the error, and it still checks parameters first.
+
+
+\begin{DoxyItemize}
+\item {\ttfamily void func(void)} =$>$ {\ttfamily void func\+\_\+\+Expect\+And\+Throw(value\+\_\+to\+\_\+throw)}
+\item {\ttfamily void func(params)} =$>$ {\ttfamily void func\+\_\+\+Expect\+And\+Throw(expected\+\_\+params, value\+\_\+to\+\_\+throw)}
+\item {\ttfamily retval func(void)} =$>$ {\ttfamily void func\+\_\+\+Expect\+And\+Throw(value\+\_\+to\+\_\+throw)}
+\item {\ttfamily retval func(params)} =$>$ {\ttfamily void func\+\_\+\+Expect\+And\+Throw(expected\+\_\+params, value\+\_\+to\+\_\+throw)}
+\end{DoxyItemize}\hypertarget{md__unit_test_framework_vendor_ceedling_docs__c_mock__summary_autotoc_md47}{}\doxysection{Running CMock}\label{md__unit_test_framework_vendor_ceedling_docs__c_mock__summary_autotoc_md47}
+CMock is a Ruby script and class. You can therefore use it directly from the command line, or include it in your own scripts or rakefiles.\hypertarget{md__unit_test_framework_vendor_ceedling_docs__c_mock__summary_autotoc_md48}{}\doxysubsection{Mocking from the Command Line}\label{md__unit_test_framework_vendor_ceedling_docs__c_mock__summary_autotoc_md48}
+After unpacking CMock, you will find cmock.\+rb in the \textquotesingle{}lib\textquotesingle{} directory. This is the file that you want to run. It takes a list of header files to be mocked, as well as an optional yaml file for a more detailed configuration (see config options below).
+
+For example, this will create three mocks using the configuration specified in My\+Config.\+yml\+: \begin{DoxyVerb}ruby cmock.rb -oMyConfig.yml super.h duper.h awesome.h
+\end{DoxyVerb}
+ And this will create two mocks using the default configuration\+: \begin{DoxyVerb}ruby cmock.rb ../mocking/stuff/is/fun.h ../try/it/yourself.h
+\end{DoxyVerb}
+\hypertarget{md__unit_test_framework_vendor_ceedling_docs__c_mock__summary_autotoc_md49}{}\doxysubsection{Mocking From Scripts or Rake}\label{md__unit_test_framework_vendor_ceedling_docs__c_mock__summary_autotoc_md49}
+CMock can be used directly from your own scripts or from a rakefile. Start by including cmock.\+rb, then create an instance of CMock. When you create your instance, you may initialize it in one of three ways.
+
+You may specify nothing, allowing it to run with default settings\+: \begin{DoxyVerb}require 'cmock.rb'
+cmock = CMock.new
+\end{DoxyVerb}
+ You may specify a YAML file containing the configuration options you desire\+: \begin{DoxyVerb}cmock = CMock.new('../MyConfig.yml')
+\end{DoxyVerb}
+ You may specify the options explicitly\+: \begin{DoxyVerb}cmock = Cmock.new(:plugins => [:cexception, :ignore], :mock_path => 'my/mocks/')
+\end{DoxyVerb}
+\hypertarget{md__unit_test_framework_vendor_ceedling_docs__c_mock__summary_autotoc_md50}{}\doxysubsection{Config Options\+:}\label{md__unit_test_framework_vendor_ceedling_docs__c_mock__summary_autotoc_md50}
+The following configuration options can be specified in the yaml file or directly when instantiating.
+
+Passed as Ruby, they look like this\+: \begin{DoxyVerb}    { :attributes => [“__funky”, “__intrinsic”], :when_ptr => :compare }
+\end{DoxyVerb}
+ Defined in the yaml file, they look more like this\+: \begin{DoxyVerb}    :cmock:
+      :attributes:
+        - __funky
+        - __intrinsic
+      :when_ptr: :compare
+\end{DoxyVerb}
+ In all cases, you can just include the things that you want to override from the defaults. We\textquotesingle{}ve tried to specify what the defaults are below.
+
+
+\begin{DoxyItemize}
+\item {\ttfamily \+:attributes}\+: These are attributes that CMock should ignore for you for testing purposes. Custom compiler extensions and externs are handy things to put here. If your compiler is choking on some extended syntax, this is often a good place to look.
+\begin{DoxyItemize}
+\item defaults\+: \mbox{[}\textquotesingle{}\+\_\+\+\_\+ramfunc\textquotesingle{}, \textquotesingle{}\+\_\+\+\_\+irq\textquotesingle{}, \textquotesingle{}\+\_\+\+\_\+fiq\textquotesingle{}, \textquotesingle{}register\textquotesingle{}, \textquotesingle{}extern\textquotesingle{}\mbox{]}
+\item {\bfseries{note\+:}} this option will reinsert these attributes onto the mock\textquotesingle{}s calls. If that isn\textquotesingle{}t what you are looking for, check out \+:strippables.
+\end{DoxyItemize}
+\item {\ttfamily \+:c\+\_\+calling\+\_\+conventions}\+: Similarly, CMock may need to understand which C calling conventions might show up in your codebase. If it encounters something it doesn\textquotesingle{}t recognize, it\textquotesingle{}s not going to mock it. We have the most common covered, but there are many compilers out there, and therefore many other options.
+\begin{DoxyItemize}
+\item defaults\+: \mbox{[}\textquotesingle{}\+\_\+\+\_\+stdcall\textquotesingle{}, \textquotesingle{}\+\_\+\+\_\+cdecl\textquotesingle{}, \textquotesingle{}\+\_\+\+\_\+fastcall\textquotesingle{}\mbox{]}
+\item {\bfseries{note\+:}} this option will reinsert these attributes onto the mock\textquotesingle{}s calls. If that isn\textquotesingle{}t what you are looking for, check out \+:strippables.
+\end{DoxyItemize}
+\item {\ttfamily \+:callback\+\_\+after\+\_\+arg\+\_\+check}\+: Tell {\ttfamily \+:callback} plugin to do the normal argument checking {\bfseries{before}} it calls the callback function by setting this to true. When false, the callback function is called {\bfseries{instead}} of the argument verification.
+\begin{DoxyItemize}
+\item default\+: false
+\end{DoxyItemize}
+\item {\ttfamily \+:callback\+\_\+include\+\_\+count}\+: Tell {\ttfamily \+:callback} plugin to include an extra parameter to specify the number of times the callback has been called. If set to false, the callback has the same interface as the mocked function. This can be handy when you\textquotesingle{}re wanting to use callback as a stub.
+\begin{DoxyItemize}
+\item default\+: true
+\end{DoxyItemize}
+\item {\ttfamily \+:cexception\+\_\+include}\+: Tell {\ttfamily \+:cexception} plugin where to find \mbox{\hyperlink{_c_exception_8h}{CException.\+h}}... You only need to define this if it\textquotesingle{}s not in your build path already... which it usually will be for the purpose of your builds.
+\begin{DoxyItemize}
+\item default\+: {\itshape nil}
+\end{DoxyItemize}
+\item {\ttfamily \+:enforce\+\_\+strict\+\_\+ordering}\+: CMock always enforces the order that you call a particular function, so if you expect Grab\+Nabber(int size) to be called three times, it will verify that the sizes are in the order you specified. You might {\itshape also} want to make sure that all different functions are called in a particular order. If so, set this to true.
+\begin{DoxyItemize}
+\item default\+: false
+\end{DoxyItemize}
+\item {\ttfamily \+:framework}\+: Currently the only option is {\ttfamily \+:unity.} Eventually if we support other unity test frameworks (or if you write one for us), they\textquotesingle{}ll get added here.
+
+\+: default\+: \+:unity
+\item {\ttfamily \+:includes}\+: An array of additional include files which should be added to the mocks. Useful for global types and definitions used in your project. There are more specific versions if you care WHERE in the mock files the includes get placed. You can define any or all of these options.
+\begin{DoxyItemize}
+\item {\ttfamily \+:includes}
+\item {\ttfamily \+:includes\+\_\+h\+\_\+pre\+\_\+orig\+\_\+header}
+\item {\ttfamily \+:includes\+\_\+h\+\_\+post\+\_\+orig\+\_\+header}
+\item {\ttfamily \+:includes\+\_\+c\+\_\+pre\+\_\+header}
+\item {\ttfamily \+:includes\+\_\+c\+\_\+post\+\_\+header}
+\item default\+: nil \#for all 5 options
+\end{DoxyItemize}
+\item {\ttfamily \+:memcmp\+\_\+if\+\_\+unknown}\+: C developers create a lot of types, either through typedef or preprocessor macros. CMock isn\textquotesingle{}t going to automatically know what you were thinking all the time (though it tries its best). If it comes across a type it doesn\textquotesingle{}t recognize, you have a choice on how you want it to handle it. It can either perform a raw memory comparison and report any differences, or it can fail with a meaningful message. Either way, this feature will only happen after all other mechanisms have failed (The thing encountered isn\textquotesingle{}t a standard type. It isn\textquotesingle{}t in the \+:treat\+\_\+as list. It isn\textquotesingle{}t in a custom unity\+\_\+helper).
+\begin{DoxyItemize}
+\item default\+: true
+\end{DoxyItemize}
+\item {\ttfamily \+:mock\+\_\+path}\+: The directory where you would like the mock files generated to be placed.
+\begin{DoxyItemize}
+\item default\+: mocks
+\end{DoxyItemize}
+\item {\ttfamily \+:mock\+\_\+prefix}\+: The prefix to prepend to your mock files. For example, if it\textquotesingle{}s “\+Mock”, a file “\+USART.\+h” will get a mock called “\+Mock\+USART.\+c”. This CAN be used with a suffix at the same time.
+\begin{DoxyItemize}
+\item default\+: Mock
+\end{DoxyItemize}
+\item {\ttfamily \+:mock\+\_\+suffix}\+: The suffix to append to your mock files. For example, it it\textquotesingle{}s \char`\"{}\+\_\+\+Mock\char`\"{}, a file \char`\"{}\+USART.\+h\char`\"{} will get a mock called \char`\"{}\+USART\+\_\+\+Mock.\+h\char`\"{}. This CAN be used with a prefix at the same time.
+\begin{DoxyItemize}
+\item default\+: \char`\"{}\char`\"{}
+\end{DoxyItemize}
+\item {\ttfamily \+:plugins}\+: An array of which plugins to enable. \textquotesingle{}\+:expect\textquotesingle{} is always active. Also available currently\+:
+\begin{DoxyItemize}
+\item {\ttfamily \+:ignore}
+\item {\ttfamily \+:ignore\+\_\+arg}
+\item {\ttfamily \+:expect\+\_\+any\+\_\+args}
+\item {\ttfamily \+:array}
+\item {\ttfamily \+:cexception}
+\item {\ttfamily \+:callback}
+\item {\ttfamily \+:return\+\_\+thru\+\_\+ptr}
+\end{DoxyItemize}
+\item {\ttfamily \+:strippables}\+: An array containing a list of items to remove from the header before deciding what should be mocked. This can be something simple like a compiler extension CMock wouldn\textquotesingle{}t recognize, or could be a regex to reject certain function name patterns. This is a great way to get rid of compiler extensions when your test compiler doesn\textquotesingle{}t support them. For example, use `\+:strippables\+: \mbox{[}'(?\+:function\+Name\textbackslash{}s$\ast$(+.$\ast$?)+)\textquotesingle{}\mbox{]}{\ttfamily  to prevent a function}function\+Name\`{} from being mocked. By default, it is ignoring all gcc attribute extensions.
+\begin{DoxyItemize}
+\item default\+: \mbox{[}\textquotesingle{}(?\+:{\bfseries{attribute}}\textbackslash{}s$\ast$(+.$\ast$?)+)\textquotesingle{}\mbox{]}
+\end{DoxyItemize}
+\item {\ttfamily \+:subdir}\+: This is a relative subdirectory for your mocks. Set this to e.\+g. \char`\"{}sys\char`\"{} in order to create a mock for {\ttfamily sys/types.\+h} in {\ttfamily (\+:mock\+\_\+path)/sys/}.
+\begin{DoxyItemize}
+\item default\+: \char`\"{}\char`\"{}
+\end{DoxyItemize}
+\item {\ttfamily \+:treat\+\_\+as}\+: The {\ttfamily \+:treat\+\_\+as} list is a shortcut for when you have created typedefs of standard types. Why create a custom unity helper for UINT16 when the unity function TEST\+\_\+\+ASSERT\+\_\+\+EQUAL\+\_\+\+HEX16 will work just perfectly? Just add \textquotesingle{}UINT16\textquotesingle{} =$>$ \textquotesingle{}HEX16\textquotesingle{} to your list (actually, don\textquotesingle{}t. We already did that one for you). Maybe you have a type that is a pointer to an array of unsigned characters? No problem, just add \textquotesingle{}UINT8\+\_\+\+T$\ast$\textquotesingle{} =$>$ \textquotesingle{}HEX8$\ast$\textquotesingle{}
+\begin{DoxyItemize}
+\item NOTE\+: unlike the other options, your specifications MERGE with the default list. Therefore, if you want to override something, you must reassign it to something else (or to {\itshape nil} if you don\textquotesingle{}t want it)
+\item default\+:
+\begin{DoxyItemize}
+\item \textquotesingle{}int\textquotesingle{}\+: \textquotesingle{}INT\textquotesingle{}
+\item \textquotesingle{}char\textquotesingle{}\+: \textquotesingle{}INT8\textquotesingle{}
+\item \textquotesingle{}short\textquotesingle{}\+: \textquotesingle{}INT16\textquotesingle{}
+\item \textquotesingle{}long\textquotesingle{}\+: \textquotesingle{}INT\textquotesingle{}
+\item \textquotesingle{}int8\textquotesingle{}\+: \textquotesingle{}INT8\textquotesingle{}
+\item \textquotesingle{}int16\textquotesingle{}\+: \textquotesingle{}INT16\textquotesingle{}
+\item \textquotesingle{}int32\textquotesingle{}\+: \textquotesingle{}INT\textquotesingle{}
+\item \textquotesingle{}int8\+\_\+t\textquotesingle{}\+: \textquotesingle{}INT8\textquotesingle{}
+\item \textquotesingle{}int16\+\_\+t\textquotesingle{}\+: \textquotesingle{}INT16\textquotesingle{}
+\item \textquotesingle{}int32\+\_\+t\textquotesingle{}\+: \textquotesingle{}INT\textquotesingle{}
+\item \textquotesingle{}INT8\+\_\+T\textquotesingle{}\+: \textquotesingle{}INT8\textquotesingle{}
+\item \textquotesingle{}INT16\+\_\+T\textquotesingle{}\+: \textquotesingle{}INT16\textquotesingle{}
+\item \textquotesingle{}INT32\+\_\+T\textquotesingle{}\+: \textquotesingle{}INT\textquotesingle{}
+\item \textquotesingle{}bool\textquotesingle{}\+: \textquotesingle{}INT\textquotesingle{}
+\item \textquotesingle{}bool\+\_\+t\textquotesingle{}\+: \textquotesingle{}INT\textquotesingle{}
+\item \textquotesingle{}BOOL\textquotesingle{}\+: \textquotesingle{}INT\textquotesingle{}
+\item \textquotesingle{}BOOL\+\_\+T\textquotesingle{}\+: \textquotesingle{}INT\textquotesingle{}
+\item \textquotesingle{}unsigned int\textquotesingle{}\+: \textquotesingle{}HEX32\textquotesingle{}
+\item \textquotesingle{}unsigned long\textquotesingle{}\+: \textquotesingle{}HEX32\textquotesingle{}
+\item \textquotesingle{}uint32\textquotesingle{}\+: \textquotesingle{}HEX32\textquotesingle{}
+\item \textquotesingle{}uint32\+\_\+t\textquotesingle{}\+: \textquotesingle{}HEX32\textquotesingle{}
+\item \textquotesingle{}UINT32\textquotesingle{}\+: \textquotesingle{}HEX32\textquotesingle{}
+\item \textquotesingle{}UINT32\+\_\+T\textquotesingle{}\+: \textquotesingle{}HEX32\textquotesingle{}
+\item \textquotesingle{}void$\ast$\textquotesingle{}\+: \textquotesingle{}HEX8\+\_\+\+ARRAY\textquotesingle{}
+\item \textquotesingle{}unsigned short\textquotesingle{}\+: \textquotesingle{}HEX16\textquotesingle{}
+\item \textquotesingle{}uint16\textquotesingle{}\+: \textquotesingle{}HEX16\textquotesingle{}
+\item \textquotesingle{}uint16\+\_\+t\textquotesingle{}\+: \textquotesingle{}HEX16\textquotesingle{}
+\item \textquotesingle{}UINT16\textquotesingle{}\+: \textquotesingle{}HEX16\textquotesingle{}
+\item \textquotesingle{}UINT16\+\_\+T\textquotesingle{}\+: \textquotesingle{}HEX16\textquotesingle{}
+\item \textquotesingle{}unsigned char\textquotesingle{}\+: \textquotesingle{}HEX8\textquotesingle{}
+\item \textquotesingle{}uint8\textquotesingle{}\+: \textquotesingle{}HEX8\textquotesingle{}
+\item \textquotesingle{}uint8\+\_\+t\textquotesingle{}\+: \textquotesingle{}HEX8\textquotesingle{}
+\item \textquotesingle{}UINT8\textquotesingle{}\+: \textquotesingle{}HEX8\textquotesingle{}
+\item \textquotesingle{}UINT8\+\_\+T\textquotesingle{}\+: \textquotesingle{}HEX8\textquotesingle{}
+\item \textquotesingle{}char$\ast$\textquotesingle{}\+: \textquotesingle{}STRING\textquotesingle{}
+\item \textquotesingle{}p\+CHAR\textquotesingle{}\+: \textquotesingle{}STRING\textquotesingle{}
+\item \textquotesingle{}cstring\textquotesingle{}\+: \textquotesingle{}STRING\textquotesingle{}
+\item \textquotesingle{}CSTRING\textquotesingle{}\+: \textquotesingle{}STRING\textquotesingle{}
+\item \textquotesingle{}float\textquotesingle{}\+: \textquotesingle{}FLOAT\textquotesingle{}
+\item \textquotesingle{}double\textquotesingle{}\+: \textquotesingle{}FLOAT\textquotesingle{}
+\end{DoxyItemize}
+\end{DoxyItemize}
+\item {\ttfamily \+:treat\+\_\+as\+\_\+void}\+: We\textquotesingle{}ve seen \char`\"{}fun\char`\"{} legacy systems typedef \textquotesingle{}void\textquotesingle{} with a custom type, like MY\+\_\+\+VOID. Add any instances of those to this list to help CMock understand how to deal with your code.
+\begin{DoxyItemize}
+\item default\+: \mbox{[}\mbox{]}
+\end{DoxyItemize}
+\item {\ttfamily \+:treat\+\_\+externs}\+: This specifies how you want CMock to handle functions that have been marked as extern in the header file. Should it mock them?
+\begin{DoxyItemize}
+\item {\ttfamily \+:include} will mock externed functions
+\item {\ttfamily \+:exclude} will ignore externed functions (default).
+\end{DoxyItemize}
+\item {\ttfamily \+:unity\+\_\+helper\+\_\+path}\+: If you have created a header with your own extensions to unity to handle your own types, you can set this argument to that path. CMock will then automagically pull in your helpers and use them. The only trick is that you make sure you follow the naming convention\+: {\ttfamily UNITY\+\_\+\+TEST\+\_\+\+ASSERT\+\_\+\+EQUAL\+\_\+\+Your\+Type}. If it finds macros of the right shape that match that pattern, it\textquotesingle{}ll use them.
+\begin{DoxyItemize}
+\item default\+: \mbox{[}\mbox{]}
+\end{DoxyItemize}
+\item {\ttfamily \+:verbosity}\+: How loud should CMock be?
+\begin{DoxyItemize}
+\item 0 for errors only
+\item 1 for errors and warnings
+\item 2 for normal (default)
+\item 3 for verbose
+\end{DoxyItemize}
+\item {\ttfamily \+:weak}\+: When set this to some value, the generated mocks are defined as weak symbols using the configured format. This allows them to be overridden in particular tests.
+\begin{DoxyItemize}
+\item Set to \textquotesingle{}\+\_\+\+\_\+attribute ((weak))\textquotesingle{} for weak mocks when using GCC.
+\item Set to any non-\/empty string for weak mocks when using IAR.
+\item default\+: \char`\"{}\char`\"{}
+\end{DoxyItemize}
+\item {\ttfamily \+:when\+\_\+no\+\_\+prototypes}\+: When you give CMock a header file and ask it to create a mock out of it, it usually contains function prototypes (otherwise what was the point?). You can control what happens when this isn\textquotesingle{}t true. You can set this to {\ttfamily \+:warn,} {\ttfamily \+:ignore,} or {\ttfamily \+:error}
+\begin{DoxyItemize}
+\item default\+: \+:warn
+\end{DoxyItemize}
+\item {\ttfamily \+:when\+\_\+ptr}\+: You can customize how CMock deals with pointers (c strings result in string comparisons... we\textquotesingle{}re talking about {\bfseries{other}} pointers here). Your options are {\ttfamily \+:compare\+\_\+ptr} to just verify the pointers are the same, {\ttfamily \+:compare\+\_\+data} or {\ttfamily \+:smart} to verify that the data is the same. {\ttfamily \+:compare\+\_\+data} and {\ttfamily \+:smart} behaviors will change slightly based on if you have the array plugin enabled. By default, they compare a single element of what is being pointed to. So if you have a pointer to a struct called ORGAN\+\_\+T, it will compare one ORGAN\+\_\+T (whatever that is).
+\begin{DoxyItemize}
+\item default\+: \+:smart
+\end{DoxyItemize}
+\item {\ttfamily \+:fail\+\_\+on\+\_\+unexpected\+\_\+calls}\+: By default, CMock will fail a test if a mock is called without \+\_\+\+Expect and \+\_\+\+Ignore called first. While this forces test writers to be more explicit in their expectations, it can clutter tests with \+\_\+\+Expect or \+\_\+\+Ignore calls for functions which are not the focus of the test. While this is a good indicator that this module should be refactored, some users are not fans of the additional noise.
+
+Therefore, \+:fail\+\_\+on\+\_\+unexpected\+\_\+calls can be set to false to force all mocks to start with the assumption that they are operating as \+\_\+\+Ignore unless otherwise specified.
+\begin{DoxyItemize}
+\item default\+: true
+\item {\bfseries{note\+:}} If this option is disabled, the mocked functions will return a default value (0) when called (and only if they have to return something of course).
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{md__unit_test_framework_vendor_ceedling_docs__c_mock__summary_autotoc_md51}{}\doxysubsection{Compiled Options\+:}\label{md__unit_test_framework_vendor_ceedling_docs__c_mock__summary_autotoc_md51}
+A number of \#defines also exist for customizing the cmock experience. Feel free to pass these into your compiler or whatever is most convenient. CMock will otherwise do its best to guess what you want based on other settings, particularly Unity\textquotesingle{}s settings.
+
+
+\begin{DoxyItemize}
+\item {\ttfamily CMOCK\+\_\+\+MEM\+\_\+\+STATIC} or {\ttfamily CMOCK\+\_\+\+MEM\+\_\+\+DYNAMIC} Define one of these to determine if you want to dynamically add memory during tests as required from the heap. If static, you can control the total footprint of Cmock. If dynamic, you will need to make sure you make some heap space available for Cmock.
+\item {\ttfamily CMOCK\+\_\+\+MEM\+\_\+\+SIZE} In static mode this is the total amount of memory you are allocating to Cmock. In Dynamic mode this is the size of each chunk allocated at once (larger numbers grab more memory but require less mallocs).
+\item {\ttfamily CMOCK\+\_\+\+MEM\+\_\+\+ALIGN} The way to align your data to. Not everything is as flexible as a PC, as most embedded designers know. This defaults to 2, meaning align to the closest 2$^\wedge$2 -\/$>$ 4 bytes (32 bits). You can turn off alignment by setting 0, force alignment to the closest uint16 with 1 or even to the closest uint64 with 3.
+\item {\ttfamily CMOCK\+\_\+\+MEM\+\_\+\+PTR\+\_\+\+AS\+\_\+\+INT} This is used internally to hold pointers... it needs to be big enough. On most processors a pointer is the same as an unsigned long... but maybe that\textquotesingle{}s not true for yours?
+\item {\ttfamily CMOCK\+\_\+\+MEM\+\_\+\+INDEX\+\_\+\+TYPE} This needs to be something big enough to point anywhere in Cmock\textquotesingle{}s memory space... usually it\textquotesingle{}s an unsigned int.
+\end{DoxyItemize}\hypertarget{md__unit_test_framework_vendor_ceedling_docs__c_mock__summary_autotoc_md52}{}\doxysection{Examples}\label{md__unit_test_framework_vendor_ceedling_docs__c_mock__summary_autotoc_md52}
+You can look in the \href{/examples/}{\texttt{ examples directory}} for a couple of examples on how you might tool CMock into your build process. You may also want to consider using \href{https://throwtheswitch.org/ceedling}{\texttt{ Ceedling}}. Please note that these examples are meant to show how the build process works. They have failing tests ON PURPOSE to show what that would look like. Don\textquotesingle{}t be alarmed. ;) 

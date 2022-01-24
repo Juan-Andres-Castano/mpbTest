@@ -1,0 +1,270 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="db/de2/classunity__test__summary_1_1_unity_test_summary" kind="class" language="Python" prot="public">
+    <compoundname>unity_test_summary::UnityTestSummary</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="db/de2/classunity__test__summary_1_1_unity_test_summary_1a4b7febb5dfb963ed99f5e7870abce71b" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>report</definition>
+        <argsstring></argsstring>
+        <name>report</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/vendor/unity/auto/unity_test_summary.py" line="15" column="1" bodyfile="UnitTestFramework/vendor/ceedling/vendor/unity/auto/unity_test_summary.py" bodystart="15" bodyend="-1"/>
+        <referencedby refid="db/de2/classunity__test__summary_1_1_unity_test_summary_1ad22709b2e67308af35f55680d5a026e0" compoundref="d5/d47/unity__test__summary_8py" startline="20" endline="67">UnityTestSummary.run</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="db/de2/classunity__test__summary_1_1_unity_test_summary_1a90653bae142aad764571b7e484d34f4e" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>total_tests</definition>
+        <argsstring></argsstring>
+        <name>total_tests</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/vendor/unity/auto/unity_test_summary.py" line="16" column="1" bodyfile="UnitTestFramework/vendor/ceedling/vendor/unity/auto/unity_test_summary.py" bodystart="16" bodyend="-1"/>
+        <referencedby refid="db/de2/classunity__test__summary_1_1_unity_test_summary_1ad22709b2e67308af35f55680d5a026e0" compoundref="d5/d47/unity__test__summary_8py" startline="20" endline="67">UnityTestSummary.run</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="db/de2/classunity__test__summary_1_1_unity_test_summary_1ad617fd03e0c7ac85dd3111c2acd763b2" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>failures</definition>
+        <argsstring></argsstring>
+        <name>failures</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/vendor/unity/auto/unity_test_summary.py" line="17" column="1" bodyfile="UnitTestFramework/vendor/ceedling/vendor/unity/auto/unity_test_summary.py" bodystart="17" bodyend="-1"/>
+        <referencedby refid="db/de2/classunity__test__summary_1_1_unity_test_summary_1ad22709b2e67308af35f55680d5a026e0" compoundref="d5/d47/unity__test__summary_8py" startline="20" endline="67">UnityTestSummary.run</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="db/de2/classunity__test__summary_1_1_unity_test_summary_1a37cf6b909fd9f164e7a5ebc707fb40a8" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>ignored</definition>
+        <argsstring></argsstring>
+        <name>ignored</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/vendor/unity/auto/unity_test_summary.py" line="18" column="1" bodyfile="UnitTestFramework/vendor/ceedling/vendor/unity/auto/unity_test_summary.py" bodystart="18" bodyend="-1"/>
+        <referencedby refid="db/de2/classunity__test__summary_1_1_unity_test_summary_1ad22709b2e67308af35f55680d5a026e0" compoundref="d5/d47/unity__test__summary_8py" startline="20" endline="67">UnityTestSummary.run</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="db/de2/classunity__test__summary_1_1_unity_test_summary_1aca9a7ee02fb8663e9e2971ca4052b0c6" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>targets</definition>
+        <argsstring></argsstring>
+        <name>targets</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/vendor/unity/auto/unity_test_summary.py" line="69" column="1" bodyfile="UnitTestFramework/vendor/ceedling/vendor/unity/auto/unity_test_summary.py" bodystart="69" bodyend="-1"/>
+        <referencedby refid="db/de2/classunity__test__summary_1_1_unity_test_summary_1ad22709b2e67308af35f55680d5a026e0" compoundref="d5/d47/unity__test__summary_8py" startline="20" endline="67">UnityTestSummary.run</referencedby>
+        <referencedby refid="d7/d8a/classunity__to__junit_1_1_unity_test_summary_1af3f7b9f92d7b39ccf3b07a1587bdfc7a" compoundref="d3/de3/unity__to__junit_8py" startline="104" endline="106">UnityTestSummary.set_targets</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="db/de2/classunity__test__summary_1_1_unity_test_summary_1ab4b8daf4b8ea9d39568719e1e320076f" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>root</definition>
+        <argsstring></argsstring>
+        <name>root</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/vendor/unity/auto/unity_test_summary.py" line="72" column="1" bodyfile="UnitTestFramework/vendor/ceedling/vendor/unity/auto/unity_test_summary.py" bodystart="72" bodyend="-1"/>
+        <referencedby refid="db/de2/classunity__test__summary_1_1_unity_test_summary_1a8c72b61d684c3be1d991dc6b1a21ab26" compoundref="d5/d47/unity__test__summary_8py" startline="85" endline="107">UnityTestSummary.get_details</referencedby>
+        <referencedby refid="d7/d8a/classunity__to__junit_1_1_unity_test_summary_1a1e8dafe08b35cf63ac0634a3d75c4f08" compoundref="d3/de3/unity__to__junit_8py" startline="107" endline="109">UnityTestSummary.set_root_path</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="db/de2/classunity__test__summary_1_1_unity_test_summary_1ae64f0875afe3067b97ba370b354b9213" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def __init__</definition>
+        <argsstring>(self)</argsstring>
+        <name>__init__</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/vendor/unity/auto/unity_test_summary.py" line="14" column="1" bodyfile="UnitTestFramework/vendor/ceedling/vendor/unity/auto/unity_test_summary.py" bodystart="14" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="function" id="db/de2/classunity__test__summary_1_1_unity_test_summary_1ad22709b2e67308af35f55680d5a026e0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def run</definition>
+        <argsstring>(self)</argsstring>
+        <name>run</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/vendor/unity/auto/unity_test_summary.py" line="20" column="1" bodyfile="UnitTestFramework/vendor/ceedling/vendor/unity/auto/unity_test_summary.py" bodystart="20" bodyend="67"/>
+        <references refid="db/de2/classunity__test__summary_1_1_unity_test_summary_1ad617fd03e0c7ac85dd3111c2acd763b2" compoundref="d5/d47/unity__test__summary_8py" startline="17">UnityTestSummary.failures</references>
+        <references refid="db/de2/classunity__test__summary_1_1_unity_test_summary_1a8c72b61d684c3be1d991dc6b1a21ab26" compoundref="d5/d47/unity__test__summary_8py" startline="85" endline="107">UnityTestSummary.get_details</references>
+        <references refid="db/de2/classunity__test__summary_1_1_unity_test_summary_1a37cf6b909fd9f164e7a5ebc707fb40a8" compoundref="d5/d47/unity__test__summary_8py" startline="18">UnityTestSummary.ignored</references>
+        <references refid="db/de2/classunity__test__summary_1_1_unity_test_summary_1a59108e8467c4fb4824bc80b083e1211c" compoundref="d5/d47/unity__test__summary_8py" startline="108" endline="115">UnityTestSummary.parse_test_summary</references>
+        <references refid="db/de2/classunity__test__summary_1_1_unity_test_summary_1a4b7febb5dfb963ed99f5e7870abce71b" compoundref="d5/d47/unity__test__summary_8py" startline="15">UnityTestSummary.report</references>
+        <references refid="db/de2/classunity__test__summary_1_1_unity_test_summary_1aca9a7ee02fb8663e9e2971ca4052b0c6" compoundref="d5/d47/unity__test__summary_8py" startline="69">UnityTestSummary.targets</references>
+        <references refid="db/de2/classunity__test__summary_1_1_unity_test_summary_1a90653bae142aad764571b7e484d34f4e" compoundref="d5/d47/unity__test__summary_8py" startline="16">UnityTestSummary.total_tests</references>
+      </memberdef>
+      <memberdef kind="function" id="db/de2/classunity__test__summary_1_1_unity_test_summary_1af3f7b9f92d7b39ccf3b07a1587bdfc7a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def set_targets</definition>
+        <argsstring>(self, target_array)</argsstring>
+        <name>set_targets</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>target_array</type>
+          <defname>target_array</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/vendor/unity/auto/unity_test_summary.py" line="68" column="1" bodyfile="UnitTestFramework/vendor/ceedling/vendor/unity/auto/unity_test_summary.py" bodystart="68" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="db/de2/classunity__test__summary_1_1_unity_test_summary_1a1e8dafe08b35cf63ac0634a3d75c4f08" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def set_root_path</definition>
+        <argsstring>(self, path)</argsstring>
+        <name>set_root_path</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>path</type>
+          <defname>path</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/vendor/unity/auto/unity_test_summary.py" line="71" column="1" bodyfile="UnitTestFramework/vendor/ceedling/vendor/unity/auto/unity_test_summary.py" bodystart="71" bodyend="73"/>
+      </memberdef>
+      <memberdef kind="function" id="db/de2/classunity__test__summary_1_1_unity_test_summary_1a4d9e93a5e1fe8aafe04297b28a589f22" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def usage</definition>
+        <argsstring>(self, err_msg=None)</argsstring>
+        <name>usage</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>err_msg</type>
+          <defname>err_msg</defname>
+          <defval>None</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/vendor/unity/auto/unity_test_summary.py" line="74" column="1" bodyfile="UnitTestFramework/vendor/ceedling/vendor/unity/auto/unity_test_summary.py" bodystart="74" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="function" id="db/de2/classunity__test__summary_1_1_unity_test_summary_1a8c72b61d684c3be1d991dc6b1a21ab26" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def get_details</definition>
+        <argsstring>(self, result_file, lines)</argsstring>
+        <name>get_details</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>result_file</type>
+          <defname>result_file</defname>
+        </param>
+        <param>
+          <type>lines</type>
+          <defname>lines</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/vendor/unity/auto/unity_test_summary.py" line="85" column="1" bodyfile="UnitTestFramework/vendor/ceedling/vendor/unity/auto/unity_test_summary.py" bodystart="85" bodyend="107"/>
+        <references refid="db/de2/classunity__test__summary_1_1_unity_test_summary_1ab4b8daf4b8ea9d39568719e1e320076f" compoundref="d5/d47/unity__test__summary_8py" startline="72">UnityTestSummary.root</references>
+        <referencedby refid="db/de2/classunity__test__summary_1_1_unity_test_summary_1ad22709b2e67308af35f55680d5a026e0" compoundref="d5/d47/unity__test__summary_8py" startline="20" endline="67">UnityTestSummary.run</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="db/de2/classunity__test__summary_1_1_unity_test_summary_1a59108e8467c4fb4824bc80b083e1211c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def parse_test_summary</definition>
+        <argsstring>(self, summary)</argsstring>
+        <name>parse_test_summary</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>summary</type>
+          <defname>summary</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/vendor/unity/auto/unity_test_summary.py" line="108" column="1" bodyfile="UnitTestFramework/vendor/ceedling/vendor/unity/auto/unity_test_summary.py" bodystart="108" bodyend="115"/>
+        <referencedby refid="db/de2/classunity__test__summary_1_1_unity_test_summary_1ad22709b2e67308af35f55680d5a026e0" compoundref="d5/d47/unity__test__summary_8py" startline="20" endline="67">UnityTestSummary.run</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="UnitTestFramework/vendor/ceedling/vendor/unity/auto/unity_test_summary.py" line="13" column="1" bodyfile="UnitTestFramework/vendor/ceedling/vendor/unity/auto/unity_test_summary.py" bodystart="13" bodyend="116"/>
+    <listofallmembers>
+      <member refid="db/de2/classunity__test__summary_1_1_unity_test_summary_1ae64f0875afe3067b97ba370b354b9213" prot="public" virt="non-virtual"><scope>unity_test_summary::UnityTestSummary</scope><name>__init__</name></member>
+      <member refid="db/de2/classunity__test__summary_1_1_unity_test_summary_1ad617fd03e0c7ac85dd3111c2acd763b2" prot="public" virt="non-virtual"><scope>unity_test_summary::UnityTestSummary</scope><name>failures</name></member>
+      <member refid="db/de2/classunity__test__summary_1_1_unity_test_summary_1a8c72b61d684c3be1d991dc6b1a21ab26" prot="public" virt="non-virtual"><scope>unity_test_summary::UnityTestSummary</scope><name>get_details</name></member>
+      <member refid="db/de2/classunity__test__summary_1_1_unity_test_summary_1a37cf6b909fd9f164e7a5ebc707fb40a8" prot="public" virt="non-virtual"><scope>unity_test_summary::UnityTestSummary</scope><name>ignored</name></member>
+      <member refid="db/de2/classunity__test__summary_1_1_unity_test_summary_1a59108e8467c4fb4824bc80b083e1211c" prot="public" virt="non-virtual"><scope>unity_test_summary::UnityTestSummary</scope><name>parse_test_summary</name></member>
+      <member refid="db/de2/classunity__test__summary_1_1_unity_test_summary_1a4b7febb5dfb963ed99f5e7870abce71b" prot="public" virt="non-virtual"><scope>unity_test_summary::UnityTestSummary</scope><name>report</name></member>
+      <member refid="db/de2/classunity__test__summary_1_1_unity_test_summary_1ab4b8daf4b8ea9d39568719e1e320076f" prot="public" virt="non-virtual"><scope>unity_test_summary::UnityTestSummary</scope><name>root</name></member>
+      <member refid="db/de2/classunity__test__summary_1_1_unity_test_summary_1ad22709b2e67308af35f55680d5a026e0" prot="public" virt="non-virtual"><scope>unity_test_summary::UnityTestSummary</scope><name>run</name></member>
+      <member refid="db/de2/classunity__test__summary_1_1_unity_test_summary_1a1e8dafe08b35cf63ac0634a3d75c4f08" prot="public" virt="non-virtual"><scope>unity_test_summary::UnityTestSummary</scope><name>set_root_path</name></member>
+      <member refid="db/de2/classunity__test__summary_1_1_unity_test_summary_1af3f7b9f92d7b39ccf3b07a1587bdfc7a" prot="public" virt="non-virtual"><scope>unity_test_summary::UnityTestSummary</scope><name>set_targets</name></member>
+      <member refid="db/de2/classunity__test__summary_1_1_unity_test_summary_1aca9a7ee02fb8663e9e2971ca4052b0c6" prot="public" virt="non-virtual"><scope>unity_test_summary::UnityTestSummary</scope><name>targets</name></member>
+      <member refid="db/de2/classunity__test__summary_1_1_unity_test_summary_1a90653bae142aad764571b7e484d34f4e" prot="public" virt="non-virtual"><scope>unity_test_summary::UnityTestSummary</scope><name>total_tests</name></member>
+      <member refid="db/de2/classunity__test__summary_1_1_unity_test_summary_1a4d9e93a5e1fe8aafe04297b28a589f22" prot="public" virt="non-virtual"><scope>unity_test_summary::UnityTestSummary</scope><name>usage</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,273 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="da/d5e/_unity_helper_scripts_guide_8md" kind="file" language="Markdown">
+    <compoundname>UnityHelperScriptsGuide.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">#<sp/>Unity<sp/>Helper<sp/>Scripts</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>With<sp/>a<sp/>Little<sp/>Help<sp/>From<sp/>Our<sp/>Friends</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Sometimes<sp/>what<sp/>it<sp/>takes<sp/>to<sp/>be<sp/>a<sp/>really<sp/>efficient<sp/>C<sp/>programmer<sp/>is<sp/>a<sp/>little<sp/>non-C.</highlight></codeline>
+<codeline><highlight class="normal">The<sp/>Unity<sp/>project<sp/>includes<sp/>a<sp/>couple<sp/>of<sp/>Ruby<sp/>scripts<sp/>for<sp/>making<sp/>your<sp/>life<sp/>just<sp/>a<sp/>tad</highlight></codeline>
+<codeline><highlight class="normal">easier.<sp/>They<sp/>are<sp/>completely<sp/>optional.<sp/>If<sp/>you<sp/>choose<sp/>to<sp/>use<sp/>them,<sp/>you&apos;ll<sp/>need<sp/>a</highlight></codeline>
+<codeline><highlight class="normal">copy<sp/>of<sp/>Ruby,<sp/>of<sp/>course.<sp/>Just<sp/>install<sp/>whatever<sp/>the<sp/>latest<sp/>version<sp/>is,<sp/>and<sp/>it<sp/>is</highlight></codeline>
+<codeline><highlight class="normal">likely<sp/>to<sp/>work.<sp/>You<sp/>can<sp/>find<sp/>Ruby<sp/>at<sp/>[ruby-lang.org](https://ruby-labg.org/).</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>`generate_test_runner.rb`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Are<sp/>you<sp/>tired<sp/>of<sp/>creating<sp/>your<sp/>own<sp/>`main`<sp/>function<sp/>in<sp/>your<sp/>test<sp/>file?<sp/>Do<sp/>you</highlight></codeline>
+<codeline><highlight class="normal">keep<sp/>forgetting<sp/>to<sp/>add<sp/>a<sp/>`RUN_TEST`<sp/>call<sp/>when<sp/>you<sp/>add<sp/>a<sp/>new<sp/>test<sp/>case<sp/>to<sp/>your</highlight></codeline>
+<codeline><highlight class="normal">suite?<sp/>Do<sp/>you<sp/>want<sp/>to<sp/>use<sp/>CMock<sp/>or<sp/>other<sp/>fancy<sp/>add-ons<sp/>but<sp/>don&apos;t<sp/>want<sp/>to<sp/>figure</highlight></codeline>
+<codeline><highlight class="normal">out<sp/>how<sp/>to<sp/>create<sp/>your<sp/>own<sp/>`RUN_TEST`<sp/>macro?</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Well<sp/>then<sp/>we<sp/>have<sp/>the<sp/>perfect<sp/>script<sp/>for<sp/>you!</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>`generate_test_runner`<sp/>script<sp/>processes<sp/>a<sp/>given<sp/>test<sp/>file<sp/>and<sp/>automatically</highlight></codeline>
+<codeline><highlight class="normal">creates<sp/>a<sp/>separate<sp/>test<sp/>runner<sp/>file<sp/>that<sp/>includes<sp/>?main?to<sp/>execute<sp/>the<sp/>test</highlight></codeline>
+<codeline><highlight class="normal">cases<sp/>within<sp/>the<sp/>scanned<sp/>test<sp/>file.<sp/>All<sp/>you<sp/>do<sp/>then<sp/>is<sp/>add<sp/>the<sp/>generated<sp/>runner</highlight></codeline>
+<codeline><highlight class="normal">to<sp/>your<sp/>list<sp/>of<sp/>files<sp/>to<sp/>be<sp/>compiled<sp/>and<sp/>linked,<sp/>and<sp/>presto<sp/>you&apos;re<sp/>done!</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">This<sp/>script<sp/>searches<sp/>your<sp/>test<sp/>file<sp/>for<sp/>void<sp/>function<sp/>signatures<sp/>having<sp/>a</highlight></codeline>
+<codeline><highlight class="normal">function<sp/>name<sp/>beginning<sp/>with<sp/>&quot;test&quot;<sp/>or<sp/>&quot;spec&quot;.<sp/>It<sp/>treats<sp/>each<sp/>of<sp/>these</highlight></codeline>
+<codeline><highlight class="normal">functions<sp/>as<sp/>a<sp/>test<sp/>case<sp/>and<sp/>builds<sp/>up<sp/>a<sp/>test<sp/>suite<sp/>of<sp/>them.<sp/>For<sp/>example,<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">following<sp/>includes<sp/>three<sp/>test<sp/>cases:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```C</highlight></codeline>
+<codeline><highlight class="normal">void<sp/>testVerifyThatUnityIsAwesomeAndWillMakeYourLifeEasier(void)</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>ASSERT_TRUE(1);</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal">void<sp/>test_FunctionName_should_WorkProperlyAndReturn8(void)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>ASSERT_EQUAL_INT(8,<sp/>FunctionName());</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal">void<sp/>spec_Function_should_DoWhatItIsSupposedToDo(void)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>ASSERT_NOT_NULL(Function(5));</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">You<sp/>can<sp/>run<sp/>this<sp/>script<sp/>a<sp/>couple<sp/>of<sp/>ways.<sp/>The<sp/>first<sp/>is<sp/>from<sp/>the<sp/>command<sp/>line:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```Shell</highlight></codeline>
+<codeline><highlight class="normal">ruby<sp/>generate_test_runner.rb<sp/>TestFile.c<sp/>NameOfRunner.c</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Alternatively,<sp/>if<sp/>you<sp/>include<sp/>only<sp/>the<sp/>test<sp/>file<sp/>parameter,<sp/>the<sp/>script<sp/>will<sp/>copy</highlight></codeline>
+<codeline><highlight class="normal">the<sp/>name<sp/>of<sp/>the<sp/>test<sp/>file<sp/>and<sp/>automatically<sp/>append<sp/>&quot;_Runner&quot;<sp/>to<sp/>the<sp/>name<sp/>of<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">generated<sp/>file.<sp/>The<sp/>example<sp/>immediately<sp/>below<sp/>will<sp/>create<sp/>TestFile_Runner.c.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```Shell</highlight></codeline>
+<codeline><highlight class="normal">ruby<sp/>generate_test_runner.rb<sp/>TestFile.c</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">You<sp/>can<sp/>also<sp/>add<sp/>a<sp/>[YAML](http://www.yaml.org/)<sp/>file<sp/>to<sp/>configure<sp/>extra<sp/>options.</highlight></codeline>
+<codeline><highlight class="normal">Conveniently,<sp/>this<sp/>YAML<sp/>file<sp/>is<sp/>of<sp/>the<sp/>same<sp/>format<sp/>as<sp/>that<sp/>used<sp/>by<sp/>Unity<sp/>and</highlight></codeline>
+<codeline><highlight class="normal">CMock.<sp/>So<sp/>if<sp/>you<sp/>are<sp/>using<sp/>YAML<sp/>files<sp/>already,<sp/>you<sp/>can<sp/>simply<sp/>pass<sp/>the<sp/>very<sp/>same</highlight></codeline>
+<codeline><highlight class="normal">file<sp/>into<sp/>the<sp/>generator<sp/>script.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```Shell</highlight></codeline>
+<codeline><highlight class="normal">ruby<sp/>generate_test_runner.rb<sp/>TestFile.c<sp/>my_config.yml</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>contents<sp/>of<sp/>the<sp/>YAML<sp/>file<sp/>`my_config.yml`<sp/>could<sp/>look<sp/>something<sp/>like<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">example<sp/>below.<sp/>If<sp/>you&apos;re<sp/>wondering<sp/>what<sp/>some<sp/>of<sp/>these<sp/>options<sp/>do,<sp/>you&apos;re<sp/>going</highlight></codeline>
+<codeline><highlight class="normal">to<sp/>love<sp/>the<sp/>next<sp/>section<sp/>of<sp/>this<sp/>document.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```YAML</highlight></codeline>
+<codeline><highlight class="normal">:unity:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>:includes:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>-<sp/>stdio.h</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>-<sp/>microdefs.h</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>:cexception:<sp/>1</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>:suit_setup:<sp/>&quot;blah<sp/>=<sp/>malloc(1024);&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>:suite_teardown:<sp/>&quot;free(blah);&quot;</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">If<sp/>you<sp/>would<sp/>like<sp/>to<sp/>force<sp/>your<sp/>generated<sp/>test<sp/>runner<sp/>to<sp/>include<sp/>one<sp/>or<sp/>more</highlight></codeline>
+<codeline><highlight class="normal">header<sp/>files,<sp/>you<sp/>can<sp/>just<sp/>include<sp/>those<sp/>at<sp/>the<sp/>command<sp/>line<sp/>too.<sp/>Just<sp/>make<sp/>sure</highlight></codeline>
+<codeline><highlight class="normal">these<sp/>are<sp/>_after_<sp/>the<sp/>YAML<sp/>file,<sp/>if<sp/>you<sp/>are<sp/>using<sp/>one:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```Shell</highlight></codeline>
+<codeline><highlight class="normal">ruby<sp/>generate_test_runner.rb<sp/>TestFile.c<sp/>my_config.yml<sp/>extras.h</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Another<sp/>option,<sp/>particularly<sp/>if<sp/>you<sp/>are<sp/>already<sp/>using<sp/>Ruby<sp/>to<sp/>orchestrate<sp/>your</highlight></codeline>
+<codeline><highlight class="normal">builds<sp/>-<sp/>or<sp/>more<sp/>likely<sp/>the<sp/>Ruby-based<sp/>build<sp/>tool<sp/>Rake<sp/>-<sp/>is<sp/>requiring<sp/>this</highlight></codeline>
+<codeline><highlight class="normal">script<sp/>directly.<sp/>Anything<sp/>that<sp/>you<sp/>would<sp/>have<sp/>specified<sp/>in<sp/>a<sp/>YAML<sp/>file<sp/>can<sp/>be</highlight></codeline>
+<codeline><highlight class="normal">passed<sp/>to<sp/>the<sp/>script<sp/>as<sp/>part<sp/>of<sp/>a<sp/>hash.<sp/>Let&apos;s<sp/>push<sp/>the<sp/>exact<sp/>same<sp/>requirement</highlight></codeline>
+<codeline><highlight class="normal">set<sp/>as<sp/>we<sp/>did<sp/>above<sp/>but<sp/>this<sp/>time<sp/>through<sp/>Ruby<sp/>code<sp/>directly:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```Ruby</highlight></codeline>
+<codeline><highlight class="normal">require<sp/>&quot;generate_test_runner.rb&quot;</highlight></codeline>
+<codeline><highlight class="normal">options<sp/>=<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>:includes<sp/>=&gt;<sp/>[&quot;stdio.h&quot;,<sp/>&quot;microdefs.h&quot;],</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>:cexception<sp/>=&gt;<sp/>1,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>:suite_setup<sp/>=&gt;<sp/>&quot;blah<sp/>=<sp/>malloc(1024);&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>:suite_teardown<sp/>=&gt;<sp/>&quot;free(blah);&quot;</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal">UnityTestRunnerGenerator.new.run(testfile,<sp/>runner_name,<sp/>options)</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">If<sp/>you<sp/>have<sp/>multiple<sp/>files<sp/>to<sp/>generate<sp/>in<sp/>a<sp/>build<sp/>script<sp/>(such<sp/>as<sp/>a<sp/>Rakefile),</highlight></codeline>
+<codeline><highlight class="normal">you<sp/>might<sp/>want<sp/>to<sp/>instantiate<sp/>a<sp/>generator<sp/>object<sp/>with<sp/>your<sp/>options<sp/>and<sp/>call<sp/>it</highlight></codeline>
+<codeline><highlight class="normal">to<sp/>generate<sp/>each<sp/>runner<sp/>afterwards.<sp/>Like<sp/>thus:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```Ruby</highlight></codeline>
+<codeline><highlight class="normal">gen<sp/>=<sp/>UnityTestRunnerGenerator.new(options)</highlight></codeline>
+<codeline><highlight class="normal">test_files.each<sp/>do<sp/>|f|</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>gen.run(f,<sp/>File.basename(f,&apos;.c&apos;)+&quot;Runner.c&quot;</highlight></codeline>
+<codeline><highlight class="normal">end</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Options<sp/>accepted<sp/>by<sp/>generate_test_runner.rb:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>following<sp/>options<sp/>are<sp/>available<sp/>when<sp/>executing<sp/>`generate_test_runner`.<sp/>You</highlight></codeline>
+<codeline><highlight class="normal">may<sp/>pass<sp/>these<sp/>as<sp/>a<sp/>Ruby<sp/>hash<sp/>directly<sp/>or<sp/>specify<sp/>them<sp/>in<sp/>a<sp/>YAML<sp/>file,<sp/>both<sp/>of</highlight></codeline>
+<codeline><highlight class="normal">which<sp/>are<sp/>described<sp/>above.<sp/>In<sp/>the<sp/>`examples`<sp/>directory,<sp/>Example<sp/>3&apos;s<sp/>Rakefile</highlight></codeline>
+<codeline><highlight class="normal">demonstrates<sp/>using<sp/>a<sp/>Ruby<sp/>hash.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`:includes`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">This<sp/>option<sp/>specifies<sp/>an<sp/>array<sp/>of<sp/>file<sp/>names<sp/>to<sp/>be<sp/>`#include`&apos;d<sp/>at<sp/>the<sp/>top<sp/>of</highlight></codeline>
+<codeline><highlight class="normal">your<sp/>runner<sp/>C<sp/>file.<sp/>You<sp/>might<sp/>use<sp/>it<sp/>to<sp/>reference<sp/>custom<sp/>types<sp/>or<sp/>anything<sp/>else</highlight></codeline>
+<codeline><highlight class="normal">universally<sp/>needed<sp/>in<sp/>your<sp/>generated<sp/>runners.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`:suite_setup`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Define<sp/>this<sp/>option<sp/>with<sp/>C<sp/>code<sp/>to<sp/>be<sp/>executed<sp/>_before<sp/>any_<sp/>test<sp/>cases<sp/>are<sp/>run.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Alternatively,<sp/>if<sp/>your<sp/>C<sp/>compiler<sp/>supports<sp/>weak<sp/>symbols,<sp/>you<sp/>can<sp/>leave<sp/>this</highlight></codeline>
+<codeline><highlight class="normal">option<sp/>unset<sp/>and<sp/>instead<sp/>provide<sp/>a<sp/>`void<sp/>suiteSetUp(void)`<sp/>function<sp/>in<sp/>your<sp/>test</highlight></codeline>
+<codeline><highlight class="normal">suite.<sp/><sp/>The<sp/>linker<sp/>will<sp/>look<sp/>for<sp/>this<sp/>symbol<sp/>and<sp/>fall<sp/>back<sp/>to<sp/>a<sp/>Unity-provided</highlight></codeline>
+<codeline><highlight class="normal">stub<sp/>if<sp/>it<sp/>is<sp/>not<sp/>found.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`:suite_teardown`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Define<sp/>this<sp/>option<sp/>with<sp/>C<sp/>code<sp/>to<sp/>be<sp/>executed<sp/>_after<sp/>all_<sp/>test<sp/>cases<sp/>have</highlight></codeline>
+<codeline><highlight class="normal">finished.<sp/><sp/>An<sp/>integer<sp/>variable<sp/>`num_failures`<sp/>is<sp/>available<sp/>for<sp/>diagnostics.</highlight></codeline>
+<codeline><highlight class="normal">The<sp/>code<sp/>should<sp/>end<sp/>with<sp/>a<sp/>`return`<sp/>statement;<sp/>the<sp/>value<sp/>returned<sp/>will<sp/>become</highlight></codeline>
+<codeline><highlight class="normal">the<sp/>exit<sp/>code<sp/>of<sp/>`main`.<sp/><sp/>You<sp/>can<sp/>normally<sp/>just<sp/>return<sp/>`num_failures`.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Alternatively,<sp/>if<sp/>your<sp/>C<sp/>compiler<sp/>supports<sp/>weak<sp/>symbols,<sp/>you<sp/>can<sp/>leave<sp/>this</highlight></codeline>
+<codeline><highlight class="normal">option<sp/>unset<sp/>and<sp/>instead<sp/>provide<sp/>a<sp/>`int<sp/>suiteTearDown(int<sp/>num_failures)`</highlight></codeline>
+<codeline><highlight class="normal">function<sp/>in<sp/>your<sp/>test<sp/>suite.<sp/><sp/>The<sp/>linker<sp/>will<sp/>look<sp/>for<sp/>this<sp/>symbol<sp/>and<sp/>fall</highlight></codeline>
+<codeline><highlight class="normal">back<sp/>to<sp/>a<sp/>Unity-provided<sp/>stub<sp/>if<sp/>it<sp/>is<sp/>not<sp/>found.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`:enforce_strict_ordering`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">This<sp/>option<sp/>should<sp/>be<sp/>defined<sp/>if<sp/>you<sp/>have<sp/>the<sp/>strict<sp/>order<sp/>feature<sp/>enabled<sp/>in</highlight></codeline>
+<codeline><highlight class="normal">CMock<sp/>(see<sp/>CMock<sp/>documentation).<sp/>This<sp/>generates<sp/>extra<sp/>variables<sp/>required<sp/>for</highlight></codeline>
+<codeline><highlight class="normal">everything<sp/>to<sp/>run<sp/>smoothly.<sp/>If<sp/>you<sp/>provide<sp/>the<sp/>same<sp/>YAML<sp/>to<sp/>the<sp/>generator<sp/>as</highlight></codeline>
+<codeline><highlight class="normal">used<sp/>in<sp/>CMock&apos;s<sp/>configuration,<sp/>you&apos;ve<sp/>already<sp/>configured<sp/>the<sp/>generator<sp/>properly.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`:mock_prefix`<sp/>and<sp/>`:mock_suffix`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Unity<sp/>automatically<sp/>generates<sp/>calls<sp/>to<sp/>Init,<sp/>Verify<sp/>and<sp/>Destroy<sp/>for<sp/>every<sp/>file</highlight></codeline>
+<codeline><highlight class="normal">included<sp/>in<sp/>the<sp/>main<sp/>test<sp/>file<sp/>that<sp/>starts<sp/>with<sp/>the<sp/>given<sp/>mock<sp/>prefix<sp/>and<sp/>ends</highlight></codeline>
+<codeline><highlight class="normal">with<sp/>the<sp/>given<sp/>mock<sp/>suffix,<sp/>file<sp/>extension<sp/>not<sp/>included.<sp/>By<sp/>default,<sp/>Unity</highlight></codeline>
+<codeline><highlight class="normal">assumes<sp/>a<sp/>`Mock`<sp/>prefix<sp/>and<sp/>no<sp/>suffix.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>`:plugins`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">This<sp/>option<sp/>specifies<sp/>an<sp/>array<sp/>of<sp/>plugins<sp/>to<sp/>be<sp/>used<sp/>(of<sp/>course,<sp/>the<sp/>array<sp/>can</highlight></codeline>
+<codeline><highlight class="normal">contain<sp/>only<sp/>a<sp/>single<sp/>plugin).<sp/>This<sp/>is<sp/>your<sp/>opportunity<sp/>to<sp/>enable<sp/>support<sp/>for</highlight></codeline>
+<codeline><highlight class="normal">CException<sp/>support,<sp/>which<sp/>will<sp/>add<sp/>a<sp/>check<sp/>for<sp/>unhandled<sp/>exceptions<sp/>in<sp/>each</highlight></codeline>
+<codeline><highlight class="normal">test,<sp/>reporting<sp/>a<sp/>failure<sp/>if<sp/>one<sp/>is<sp/>detected.<sp/>To<sp/>enable<sp/>this<sp/>feature<sp/>using<sp/>Ruby:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```Ruby</highlight></codeline>
+<codeline><highlight class="normal">:plugins<sp/>=&gt;<sp/>[<sp/>:cexception<sp/>]</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Or<sp/>as<sp/>a<sp/>yaml<sp/>file:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```YAML</highlight></codeline>
+<codeline><highlight class="normal">:plugins:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>-:cexception</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">If<sp/>you<sp/>are<sp/>using<sp/>CMock,<sp/>it<sp/>is<sp/>very<sp/>likely<sp/>that<sp/>you<sp/>are<sp/>already<sp/>passing<sp/>an<sp/>array</highlight></codeline>
+<codeline><highlight class="normal">of<sp/>plugins<sp/>to<sp/>CMock.<sp/>You<sp/>can<sp/>just<sp/>use<sp/>the<sp/>same<sp/>array<sp/>here.<sp/>This<sp/>script<sp/>will<sp/>just</highlight></codeline>
+<codeline><highlight class="normal">ignore<sp/>the<sp/>plugins<sp/>that<sp/>don&apos;t<sp/>require<sp/>additional<sp/>support.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>`unity_test_summary.rb`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">A<sp/>Unity<sp/>test<sp/>file<sp/>contains<sp/>one<sp/>or<sp/>more<sp/>test<sp/>case<sp/>functions.<sp/>Each<sp/>test<sp/>case<sp/>can</highlight></codeline>
+<codeline><highlight class="normal">pass,<sp/>fail,<sp/>or<sp/>be<sp/>ignored.<sp/>Each<sp/>test<sp/>file<sp/>is<sp/>run<sp/>individually<sp/>producing<sp/>results</highlight></codeline>
+<codeline><highlight class="normal">for<sp/>its<sp/>collection<sp/>of<sp/>test<sp/>cases.<sp/>A<sp/>given<sp/>project<sp/>will<sp/>almost<sp/>certainly<sp/>be</highlight></codeline>
+<codeline><highlight class="normal">composed<sp/>of<sp/>multiple<sp/>test<sp/>files.<sp/>Therefore,<sp/>the<sp/>suite<sp/>of<sp/>tests<sp/>is<sp/>comprised<sp/>of</highlight></codeline>
+<codeline><highlight class="normal">one<sp/>or<sp/>more<sp/>test<sp/>cases<sp/>spread<sp/>across<sp/>one<sp/>or<sp/>more<sp/>test<sp/>files.<sp/>This<sp/>script</highlight></codeline>
+<codeline><highlight class="normal">aggregates<sp/>individual<sp/>test<sp/>file<sp/>results<sp/>to<sp/>generate<sp/>a<sp/>summary<sp/>of<sp/>all<sp/>executed</highlight></codeline>
+<codeline><highlight class="normal">test<sp/>cases.<sp/>The<sp/>output<sp/>includes<sp/>how<sp/>many<sp/>tests<sp/>were<sp/>run,<sp/>how<sp/>many<sp/>were<sp/>ignored,</highlight></codeline>
+<codeline><highlight class="normal">and<sp/>how<sp/>many<sp/>failed.<sp/>In<sp/>addition,<sp/>the<sp/>output<sp/>includes<sp/>a<sp/>listing<sp/>of<sp/>which</highlight></codeline>
+<codeline><highlight class="normal">specific<sp/>tests<sp/>were<sp/>ignored<sp/>and<sp/>failed.<sp/>A<sp/>good<sp/>example<sp/>of<sp/>the<sp/>breadth<sp/>and</highlight></codeline>
+<codeline><highlight class="normal">details<sp/>of<sp/>these<sp/>results<sp/>can<sp/>be<sp/>found<sp/>in<sp/>the<sp/>`examples`<sp/>directory.<sp/>Intentionally</highlight></codeline>
+<codeline><highlight class="normal">ignored<sp/>and<sp/>failing<sp/>tests<sp/>in<sp/>this<sp/>project<sp/>generate<sp/>corresponding<sp/>entries<sp/>in<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">summary<sp/>report.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">If<sp/>you&apos;re<sp/>interested<sp/>in<sp/>other<sp/>(prettier?)<sp/>output<sp/>formats,<sp/>check<sp/>into<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">Ceedling<sp/>build<sp/>tool<sp/>project<sp/>(ceedling.sourceforge.net)<sp/>that<sp/>works<sp/>with<sp/>Unity<sp/>and</highlight></codeline>
+<codeline><highlight class="normal">CMock<sp/>and<sp/>supports<sp/>xunit-style<sp/>xml<sp/>as<sp/>well<sp/>as<sp/>other<sp/>goodies.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">This<sp/>script<sp/>assumes<sp/>the<sp/>existence<sp/>of<sp/>files<sp/>ending<sp/>with<sp/>the<sp/>extensions</highlight></codeline>
+<codeline><highlight class="normal">`.testpass`<sp/>and<sp/>`.testfail`.The<sp/>contents<sp/>of<sp/>these<sp/>files<sp/>includes<sp/>the<sp/>test</highlight></codeline>
+<codeline><highlight class="normal">results<sp/>summary<sp/>corresponding<sp/>to<sp/>each<sp/>test<sp/>file<sp/>executed<sp/>with<sp/>the<sp/>extension<sp/>set</highlight></codeline>
+<codeline><highlight class="normal">according<sp/>to<sp/>the<sp/>presence<sp/>or<sp/>absence<sp/>of<sp/>failures<sp/>for<sp/>that<sp/>test<sp/>file.<sp/>The<sp/>script</highlight></codeline>
+<codeline><highlight class="normal">searches<sp/>a<sp/>specified<sp/>path<sp/>for<sp/>these<sp/>files,<sp/>opens<sp/>each<sp/>one<sp/>it<sp/>finds,<sp/>parses<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">results,<sp/>and<sp/>aggregates<sp/>and<sp/>prints<sp/>a<sp/>summary.<sp/>Calling<sp/>it<sp/>from<sp/>the<sp/>command<sp/>line</highlight></codeline>
+<codeline><highlight class="normal">looks<sp/>like<sp/>this:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```Shell</highlight></codeline>
+<codeline><highlight class="normal">ruby<sp/>unity_test_summary.rb<sp/>build/test/</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">You<sp/>can<sp/>optionally<sp/>specify<sp/>a<sp/>root<sp/>path<sp/>as<sp/>well.<sp/>This<sp/>is<sp/>really<sp/>helpful<sp/>when<sp/>you</highlight></codeline>
+<codeline><highlight class="normal">are<sp/>using<sp/>relative<sp/>paths<sp/>in<sp/>your<sp/>tools&apos;<sp/>setup,<sp/>but<sp/>you<sp/>want<sp/>to<sp/>pull<sp/>the<sp/>summary</highlight></codeline>
+<codeline><highlight class="normal">into<sp/>an<sp/>IDE<sp/>like<sp/>Eclipse<sp/>for<sp/>clickable<sp/>shortcuts.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```Shell</highlight></codeline>
+<codeline><highlight class="normal">ruby<sp/>unity_test_summary.rb<sp/>build/test/<sp/>~/projects/myproject/</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Or,<sp/>if<sp/>you&apos;re<sp/>more<sp/>of<sp/>a<sp/>Windows<sp/>sort<sp/>of<sp/>person:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```Shell</highlight></codeline>
+<codeline><highlight class="normal">ruby<sp/>unity_test_summary.rb<sp/>build\teat\<sp/>C:\projects\myproject\</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">When<sp/>configured<sp/>correctly,<sp/>you&apos;ll<sp/>see<sp/>a<sp/>final<sp/>summary,<sp/>like<sp/>so:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```Shell</highlight></codeline>
+<codeline><highlight class="normal">--------------------------</highlight></codeline>
+<codeline><highlight class="normal">UNITY<sp/>IGNORED<sp/>TEST<sp/>SUMMARY</highlight></codeline>
+<codeline><highlight class="normal">--------------------------</highlight></codeline>
+<codeline><highlight class="normal">blah.c:22:test_sandwiches_should_HaveBreadOnTwoSides:IGNORE</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-------------------------</highlight></codeline>
+<codeline><highlight class="normal">UNITY<sp/>FAILED<sp/>TEST<sp/>SUMMARY</highlight></codeline>
+<codeline><highlight class="normal">-------------------------</highlight></codeline>
+<codeline><highlight class="normal">blah.c:87:test_sandwiches_should_HaveCondiments:FAIL:Expected<sp/>1<sp/>was<sp/>0</highlight></codeline>
+<codeline><highlight class="normal">meh.c:38:test_soda_should_BeCalledPop:FAIL:Expected<sp/>&quot;pop&quot;<sp/>was<sp/>&quot;coke&quot;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">--------------------------</highlight></codeline>
+<codeline><highlight class="normal">OVERALL<sp/>UNITY<sp/>TEST<sp/>SUMMARY</highlight></codeline>
+<codeline><highlight class="normal">--------------------------</highlight></codeline>
+<codeline><highlight class="normal">45<sp/>TOTAL<sp/>TESTS<sp/>2<sp/>TOTAL<sp/>FAILURES<sp/>1<sp/>IGNORED</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">How<sp/>convenient<sp/>is<sp/>that?</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*Find<sp/>The<sp/>Latest<sp/>of<sp/>This<sp/>And<sp/>More<sp/>at<sp/>[ThrowTheSwitch.org](https://throwtheswitch.org)*</highlight></codeline>
+    </programlisting>
+    <location file="UnitTestFramework/vendor/ceedling/docs/UnityHelperScriptsGuide.md"/>
+  </compounddef>
+</doxygen>

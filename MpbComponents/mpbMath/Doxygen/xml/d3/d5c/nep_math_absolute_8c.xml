@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="d3/d5c/nep_math_absolute_8c" kind="file" language="C++">
+    <compoundname>nepMathAbsolute.c</compoundname>
+    <includes local="yes">nepMathAbsolute.h</includes>
+    <incdepgraph>
+      <node id="2">
+        <label>nepMathAbsolute.h</label>
+      </node>
+      <node id="1">
+        <label>Sources/nepMathAbsolute.c</label>
+        <link refid="d3/d5c/nep_math_absolute_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="d3/d5c/nep_math_absolute_8c_1a11ac8cced1203ed5d82b0ac9015488a4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>eNepError_t</type>
+        <definition>eNepError_t eNepMathAbsoluteSubstractionFloat</definition>
+        <argsstring>(float fValue1, float fValue2, float *pfAbsoluteDiffrence)</argsstring>
+        <name>eNepMathAbsoluteSubstractionFloat</name>
+        <param>
+          <type>float</type>
+          <declname>fValue1</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>fValue2</declname>
+        </param>
+        <param>
+          <type>float *</type>
+          <declname>pfAbsoluteDiffrence</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Sources/nepMathAbsolute.c" line="28" column="13" bodyfile="Sources/nepMathAbsolute.c" bodystart="28" bodyend="47"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para><linebreak/>
+ </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>vincent </para>
+</simplesect>
+<simplesect kind="date"><para>Created on 2019-10-23 </para>
+</simplesect>
+<simplesect kind="note"><para></para>
+</simplesect>
+<simplesect kind="copyright"><para>NEP, Montreal, Qc <heading level="2"><center><copy/> COPYRIGHT 2015 NEP, Montreal, Quebec, Canada</center></heading>
+</para>
+</simplesect>
+<heading level="2"><center><copy/> All rights reserved.</center></heading>
+</para>
+<para><linebreak/>
+<linebreak/>
+ <center>This document contains confidential and proprietary information of NEPTRONIC (subject to a non-disclosure agreement) and shall</center> <center>not be disclosed, distributed, or reproduced in whole or in part, without the prior written authorization of NEPTRONIC.</center> </para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Includes<sp/>-----------------------------------------------------------------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;nepMathAbsolute.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Private<sp/>define<sp/>-----------------------------------------------------------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Private<sp/>macro<sp/>------------------------------------------------------------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Private<sp/>enum<sp/>-------------------------------------------------------------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Private<sp/>struct<sp/>-----------------------------------------------------------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Private<sp/>variables<sp/>--------------------------------------------------------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>External<sp/>variables<sp/>-------------------------------------------------------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Private<sp/>function<sp/>prototypes<sp/>----------------------------------------------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Private<sp/>functions<sp/>--------------------------------------------------------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Exported<sp/>functions<sp/>-------------------------------------------------------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28" refid="d3/d5c/nep_math_absolute_8c_1a11ac8cced1203ed5d82b0ac9015488a4" refkind="member"><highlight class="normal">eNepError_t<sp/><ref refid="d3/d5c/nep_math_absolute_8c_1a11ac8cced1203ed5d82b0ac9015488a4" kindref="member">eNepMathAbsoluteSubstractionFloat</ref>(<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>fValue1,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>fValue2,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>*pfAbsoluteDiffrence<sp/>)</highlight></codeline>
+<codeline lineno="29"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Validate<sp/>entry<sp/>parameter<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>pfAbsoluteDiffrence<sp/>==<sp/>NULL<sp/>)</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>eInvalidParameter;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Do<sp/>diffrence<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>fValue1<sp/>&gt;=<sp/>fValue2<sp/>)</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*pfAbsoluteDiffrence<sp/>=<sp/>(<sp/>fValue1<sp/>-<sp/>fValue2<sp/>);<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*pfAbsoluteDiffrence<sp/>=<sp/>(<sp/>fValue2<sp/>-<sp/>fValue1<sp/>);<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>eSuccess;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="Sources/nepMathAbsolute.c"/>
+  </compounddef>
+</doxygen>

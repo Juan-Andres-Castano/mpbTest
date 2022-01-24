@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md__unit_test_framework_vendor_ceedling_plugins_subprojects__r_e_a_d_m_e" xml:lang="en-US">
+
+<para>Plugin for supporting subprojects that are built as static libraries. It continues to support 
+<literallayout>&#160;&#xa;</literallayout>
+ dependency tracking, without getting confused between your main project files and your 
+<literallayout>&#160;&#xa;</literallayout>
+ subproject files. It accepts different compiler flags and linker flags, allowing you to 
+<literallayout>&#160;&#xa;</literallayout>
+ optimize for your situation.</para>
+
+<para>First, you&apos;re going to want to add the extension to your list of known extensions:</para>
+
+<para><literallayout><computeroutput>:extension:
+&#32;&#32;:subprojects:&#32;&apos;.a&apos;
+</computeroutput></literallayout></para>
+
+<para>Define a new section called :subprojects. There, you can list as many subprojects 
+<literallayout>&#160;&#xa;</literallayout>
+ as you may need under the :paths key. For each, you specify a unique place to build 
+<literallayout>&#160;&#xa;</literallayout>
+ and a unique name.</para>
+
+<para><literallayout><computeroutput>:subprojects:&#32;&#32;
+&#32;&#32;:paths:
+&#32;&#32;&#32;-&#32;:name:&#32;libprojectA
+&#32;&#32;&#32;&#32;&#32;:source:
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;-&#32;./subprojectA/first/dir
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;-&#32;./subprojectA/second/dir
+&#32;&#32;&#32;&#32;&#32;:include:
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;-&#32;./subprojectA/include/dir
+&#32;&#32;&#32;&#32;&#32;:build_root:&#32;./subprojectA/build/dir
+&#32;&#32;&#32;&#32;&#32;:defines:&#32;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;-&#32;DEFINE_JUST_FOR_THIS_FILE
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;-&#32;AND_ANOTHER
+&#32;&#32;&#32;-&#32;:name:&#32;libprojectB
+&#32;&#32;&#32;&#32;&#32;:source:
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;-&#32;./subprojectB/only/dir
+&#32;&#32;&#32;&#32;&#32;:include:
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;-&#32;./subprojectB/first/include/dir
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;-&#32;./subprojectB/second/include/dir
+&#32;&#32;&#32;&#32;&#32;:build_root:&#32;./subprojectB/build/dir
+&#32;&#32;&#32;&#32;&#32;:defines:&#32;[]&#32;#none&#32;for&#32;this&#32;one
+</computeroutput></literallayout></para>
+
+<para>You can specify the compiler and linker, just as you would a release build:</para>
+
+<para><literallayout><computeroutput>:tools:
+&#32;&#32;:subprojects_compiler:
+&#32;&#32;&#32;&#32;:executable:&#32;gcc
+&#32;&#32;&#32;&#32;:arguments:
+&#32;&#32;&#32;&#32;&#32;&#32;-&#32;-g
+&#32;&#32;&#32;&#32;&#32;&#32;-&#32;-I&quot;$&quot;:&#32;COLLECTION_PATHS_SUBPROJECTS
+&#32;&#32;&#32;&#32;&#32;&#32;-&#32;-D$:&#32;COLLECTION_DEFINES_SUBPROJECTS
+&#32;&#32;&#32;&#32;&#32;&#32;-&#32;-c&#32;&quot;${1}&quot;
+&#32;&#32;&#32;&#32;&#32;&#32;-&#32;-o&#32;&quot;${2}&quot;
+&#32;&#32;:subprojects_linker:
+&#32;&#32;&#32;&#32;:executable:&#32;ar
+&#32;&#32;&#32;&#32;:arguments:
+&#32;&#32;&#32;&#32;&#32;&#32;-&#32;rcs
+&#32;&#32;&#32;&#32;&#32;&#32;-&#32;${2}
+&#32;&#32;&#32;&#32;&#32;&#32;-&#32;${1}
+</computeroutput></literallayout></para>
+
+<para>That&apos;s all there is to it! Happy Hacking! </para>
+</section>

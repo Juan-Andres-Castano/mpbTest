@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<testsuites tests="6" failures="1" skipped="0" time="1.255486">
+  <testsuite name="test_mpbMathDebounce" tests="6" failures="1" skipped="0" time="1.255486">
+    <testcase name="test_vMpbMathDebounceInit_Shall_fail_if_no_valid_pointer_is_allocated_for_Debouncing_fail" />
+    <testcase name="test_vMpbMathDebounceInit_Shall_set_Values_GreaterThan_0_Success" />
+    <testcase name="test_vMpbMathDebounceInit_Shall_run_with_initial_value_EqualTo_0_Success" />
+    <testcase name="test_vMpbMathDebounceUpdate_Shall_fill_the_ADT_with_correct_values_Success" />
+    <testcase name="test_vMpbMathDebounceUpdate_OverCount_Success" />
+    <testcase name="test_vMpbMathDebounceUpdate_Shall_Debounce_the_OFF_state_At_X_OFF_repetitions_Success">
+      <failure message="Expected 0 Was 1" />
+    </testcase>
+  </testsuite>
+</testsuites>

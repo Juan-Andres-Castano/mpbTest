@@ -1,0 +1,128 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_mpb_time_base_8c" xml:lang="en-US">
+<title>Sources/mpbTimeBase.c File Reference</title>
+<indexterm><primary>Sources/mpbTimeBase.c</primary></indexterm>
+<para>
+
+<para>
+<literallayout>&#160;&#xa;</literallayout>
+ </para>
+ 
+</para>
+<programlisting>#include &quot;mpbTimeBase.h&quot;
+</programlisting>Include dependency graph for mpbTimeBase.c:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="mpb_time_base_8c__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>eMpbError_t <link linkend="_mpb_time_base_8c_1abc4f7fb8dcd9e568855485653669221a">eMpbTimeBaseInit</link> (mpbTimeBase_t *pxTimeBase, uint8_t ucTickPerMs)</para>
+</listitem>
+            <listitem><para>eMpbError_t <link linkend="_mpb_time_base_8c_1a6cc648d8b1c13459689754a7b9a5ee0c">eMpbTimeBaseTick</link> (mpbTimeBase_t *pxTimeBase)</para>
+</listitem>
+            <listitem><para>uint32_t <link linkend="_mpb_time_base_8c_1a69948f4a4a22d7d95ecf39af55bfe6dd">ulMpbTimeBaseGetTick</link> (mpbTimeBase_t *pxTimeBase)</para>
+</listitem>
+            <listitem><para>uint32_t <link linkend="_mpb_time_base_8c_1a0a8b5da1e9949559a78ac7cade9f60ba">ulMpbTimeBaseGetMs</link> (mpbTimeBase_t *pxTimeBase)</para>
+</listitem>
+            <listitem><para>uint32_t <link linkend="_mpb_time_base_8c_1ad06e7c793bdc9e4608c6501d00756b73">ulMpbTimeBaseGetSecond</link> (mpbTimeBase_t *pxTimeBase)</para>
+</listitem>
+            <listitem><para>uint32_t <link linkend="_mpb_time_base_8c_1abac386caa33523404f7cfdef66e30268">ulMpbTimeBaseGetMinute</link> (mpbTimeBase_t *pxTimeBase)</para>
+</listitem>
+            <listitem><para>uint32_t <link linkend="_mpb_time_base_8c_1a661099fb9f3980c616f9e8c91e9dfb49">ulMpbTimeBaseGetHour</link> (mpbTimeBase_t *pxTimeBase)</para>
+</listitem>
+            <listitem><para>eBool_t <link linkend="_mpb_time_base_8c_1a60da84dfb6398977db7548d0a33101f8">eMpbTimeBaseIsDelayDone</link> (uint32_t ulCounter, uint32_t ulTimeStamp)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>
+<literallayout>&#160;&#xa;</literallayout>
+ </para>
+
+<para><formalpara><title>Author</title>
+
+<para>juan </para>
+</formalpara>
+<formalpara><title>Date</title>
+
+<para>Created on 2021-03-1 </para>
+</formalpara>
+<note><title>Note</title>
+
+<para></para>
+</note>
+<formalpara><title>Copyright</title>
+
+<para>MPB, Montreal, Qc <formalpara><title><informaltable frame='none'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>&#169; COPYRIGHT 2021 MPB, Montreal, Quebec, Canada</entry></row></tbody></tgroup></informaltable></title></formalpara>
+</para>
+</formalpara>
+<formalpara><title><informaltable frame='none'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>&#169; All rights reserved.</entry></row></tbody></tgroup></informaltable></title></formalpara>
+</para>
+
+<para>
+<literallayout>&#160;&#xa;</literallayout>
+
+<literallayout>&#160;&#xa;</literallayout>
+ <informaltable frame='none'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>This document contains confidential and proprietary information of MPB (subject to a non-disclosure agreement) and shall</entry></row></tbody></tgroup></informaltable> <informaltable frame='none'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>not be disclosed, distributed, or reproduced in whole or in part, without the prior written authorization of MPB.</entry></row></tbody></tgroup></informaltable> </para>
+</section>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_mpb_time_base_8c_1abc4f7fb8dcd9e568855485653669221a"/>    <section>
+    <title>eMpbTimeBaseInit()</title>
+<indexterm><primary>eMpbTimeBaseInit</primary><secondary>mpbTimeBase.c</secondary></indexterm>
+<indexterm><primary>mpbTimeBase.c</primary><secondary>eMpbTimeBaseInit</secondary></indexterm>
+<para><computeroutput>eMpbError_t eMpbTimeBaseInit (mpbTimeBase_t * pxTimeBase, uint8_t ucTickPerMs)</computeroutput></para><para>
+Definition at line 28 of file mpbTimeBase.c.</para>
+    </section><anchor xml:id="_mpb_time_base_8c_1a60da84dfb6398977db7548d0a33101f8"/>    <section>
+    <title>eMpbTimeBaseIsDelayDone()</title>
+<indexterm><primary>eMpbTimeBaseIsDelayDone</primary><secondary>mpbTimeBase.c</secondary></indexterm>
+<indexterm><primary>mpbTimeBase.c</primary><secondary>eMpbTimeBaseIsDelayDone</secondary></indexterm>
+<para><computeroutput>eBool_t eMpbTimeBaseIsDelayDone (uint32_t ulCounter, uint32_t ulTimeStamp)</computeroutput></para><para>
+Definition at line 106 of file mpbTimeBase.c.</para>
+    </section><anchor xml:id="_mpb_time_base_8c_1a6cc648d8b1c13459689754a7b9a5ee0c"/>    <section>
+    <title>eMpbTimeBaseTick()</title>
+<indexterm><primary>eMpbTimeBaseTick</primary><secondary>mpbTimeBase.c</secondary></indexterm>
+<indexterm><primary>mpbTimeBase.c</primary><secondary>eMpbTimeBaseTick</secondary></indexterm>
+<para><computeroutput>eMpbError_t eMpbTimeBaseTick (mpbTimeBase_t * pxTimeBase)</computeroutput></para><para>
+Definition at line 47 of file mpbTimeBase.c.</para>
+    </section><anchor xml:id="_mpb_time_base_8c_1a661099fb9f3980c616f9e8c91e9dfb49"/>    <section>
+    <title>ulMpbTimeBaseGetHour()</title>
+<indexterm><primary>ulMpbTimeBaseGetHour</primary><secondary>mpbTimeBase.c</secondary></indexterm>
+<indexterm><primary>mpbTimeBase.c</primary><secondary>ulMpbTimeBaseGetHour</secondary></indexterm>
+<para><computeroutput>uint32_t ulMpbTimeBaseGetHour (mpbTimeBase_t * pxTimeBase)</computeroutput></para><para>
+Definition at line 100 of file mpbTimeBase.c.</para>
+    </section><anchor xml:id="_mpb_time_base_8c_1abac386caa33523404f7cfdef66e30268"/>    <section>
+    <title>ulMpbTimeBaseGetMinute()</title>
+<indexterm><primary>ulMpbTimeBaseGetMinute</primary><secondary>mpbTimeBase.c</secondary></indexterm>
+<indexterm><primary>mpbTimeBase.c</primary><secondary>ulMpbTimeBaseGetMinute</secondary></indexterm>
+<para><computeroutput>uint32_t ulMpbTimeBaseGetMinute (mpbTimeBase_t * pxTimeBase)</computeroutput></para><para>
+Definition at line 94 of file mpbTimeBase.c.</para>
+    </section><anchor xml:id="_mpb_time_base_8c_1a0a8b5da1e9949559a78ac7cade9f60ba"/>    <section>
+    <title>ulMpbTimeBaseGetMs()</title>
+<indexterm><primary>ulMpbTimeBaseGetMs</primary><secondary>mpbTimeBase.c</secondary></indexterm>
+<indexterm><primary>mpbTimeBase.c</primary><secondary>ulMpbTimeBaseGetMs</secondary></indexterm>
+<para><computeroutput>uint32_t ulMpbTimeBaseGetMs (mpbTimeBase_t * pxTimeBase)</computeroutput></para><para>
+Definition at line 82 of file mpbTimeBase.c.</para>
+    </section><anchor xml:id="_mpb_time_base_8c_1ad06e7c793bdc9e4608c6501d00756b73"/>    <section>
+    <title>ulMpbTimeBaseGetSecond()</title>
+<indexterm><primary>ulMpbTimeBaseGetSecond</primary><secondary>mpbTimeBase.c</secondary></indexterm>
+<indexterm><primary>mpbTimeBase.c</primary><secondary>ulMpbTimeBaseGetSecond</secondary></indexterm>
+<para><computeroutput>uint32_t ulMpbTimeBaseGetSecond (mpbTimeBase_t * pxTimeBase)</computeroutput></para><para>
+Definition at line 88 of file mpbTimeBase.c.</para>
+    </section><anchor xml:id="_mpb_time_base_8c_1a69948f4a4a22d7d95ecf39af55bfe6dd"/>    <section>
+    <title>ulMpbTimeBaseGetTick()</title>
+<indexterm><primary>ulMpbTimeBaseGetTick</primary><secondary>mpbTimeBase.c</secondary></indexterm>
+<indexterm><primary>mpbTimeBase.c</primary><secondary>ulMpbTimeBaseGetTick</secondary></indexterm>
+<para><computeroutput>uint32_t ulMpbTimeBaseGetTick (mpbTimeBase_t * pxTimeBase)</computeroutput></para><para>
+Definition at line 76 of file mpbTimeBase.c.</para>
+</section>
+</section>
+</section>

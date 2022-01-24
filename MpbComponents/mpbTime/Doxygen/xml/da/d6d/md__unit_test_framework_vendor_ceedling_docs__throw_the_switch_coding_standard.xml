@@ -1,0 +1,119 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="da/d6d/md__unit_test_framework_vendor_ceedling_docs__throw_the_switch_coding_standard" kind="page">
+    <compoundname>md_UnitTestFramework_vendor_ceedling_docs_ThrowTheSwitchCodingStandard</compoundname>
+    <title>ThrowTheSwitch.org Coding Standard</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Hi. Welcome to the coding standard for ThrowTheSwitch.org. For the most part, we try to follow these standards to unify our contributors&apos; code into a cohesive unit (puns intended). You might find places where these standards aren&apos;t followed. We&apos;re not perfect. Please be polite where you notice these discrepancies and we&apos;ll try to be polite when we notice yours.</para>
+<para>;)</para>
+<sect1 id="da/d6d/md__unit_test_framework_vendor_ceedling_docs__throw_the_switch_coding_standard_1autotoc_md54">
+<title>Why Have A Coding Standard?</title>
+<para>Being consistent makes code easier to understand. We&apos;ve tried to keep our standard simple because we also believe that we can only expect someone to follow something that is understandable. Please do your best.</para>
+</sect1>
+<sect1 id="da/d6d/md__unit_test_framework_vendor_ceedling_docs__throw_the_switch_coding_standard_1autotoc_md55">
+<title>Our Philosophy</title>
+<para>Before we get into details on syntax, let&apos;s take a moment to talk about our vision for these tools. We&apos;re C developers and embedded software developers. These tools are great to test any C code, but catering to embedded software has made us more tolerant of compiler quirks. There are a LOT of quirky compilers out there. By quirky I mean &quot;doesn&apos;t follow standards because they feel like
+they have a license to do as they wish.&quot;</para>
+<para>Our philosophy is &quot;support every compiler we can&quot;. Most often, this means that we aim for writing C code that is standards compliant (often C89... that seems to be a sweet spot that is almost always compatible). But it also means these tools are tolerant of things that aren&apos;t common. Some that aren&apos;t even compliant. There are configuration options to override the size of standard types. There are configuration options to force Unity to not use certain standard library functions. A lot of Unity is configurable and we have worked hard to make it not TOO ugly in the process.</para>
+<para>Similarly, our tools that parse C do their best. They aren&apos;t full C parsers (yet) and, even if they were, they would still have to accept non-standard additions like gcc extensions or specifying <computeroutput>@0x1000</computeroutput> to force a variable to compile to a particular location. It&apos;s just what we do, because we like everything to Just Work™.</para>
+<para>Speaking of having things Just Work™, that&apos;s our second philosophy. By that, we mean that we do our best to have EVERY configuration option have a logical default. We believe that if you&apos;re working with a simple compiler and target, you shouldn&apos;t need to configure very much... we try to make the tools guess as much as they can, but give the user the power to override it when it&apos;s wrong.</para>
+</sect1>
+<sect1 id="da/d6d/md__unit_test_framework_vendor_ceedling_docs__throw_the_switch_coding_standard_1autotoc_md56">
+<title>Naming Things</title>
+<para>Let&apos;s talk about naming things. Programming is all about naming things. We name files, functions, variables, and so much more. While we&apos;re not always going to find the best name for something, we actually put a bit of effort into finding *What Something WANTS to be Called*™.</para>
+<para>When naming things, we follow this hierarchy, the first being the most important to us (but we do all four when possible):<orderedlist>
+<listitem><para>Readable</para>
+</listitem><listitem><para>Descriptive</para>
+</listitem><listitem><para>Consistent</para>
+</listitem><listitem><para>Memorable</para>
+</listitem></orderedlist>
+</para>
+<sect3 id="da/d6d/md__unit_test_framework_vendor_ceedling_docs__throw_the_switch_coding_standard_1autotoc_md57">
+<title>Readable</title>
+<para>We want to read our code. This means we like names and flow that are more naturally read. We try to avoid double negatives. We try to avoid cryptic abbreviations (sticking to ones we feel are common).</para>
+</sect3>
+<sect3 id="da/d6d/md__unit_test_framework_vendor_ceedling_docs__throw_the_switch_coding_standard_1autotoc_md58">
+<title>Descriptive</title>
+<para>We like descriptive names for things, especially functions and variables. Finding the right name for something is an important endeavor. You might notice from poking around our code that this often results in names that are a little longer than the average. Guilty. We&apos;re okay with a bit more typing if it means our code is easier to understand.</para>
+<para>There are two exceptions to this rule that we also stick to as religiously as possible:</para>
+<para>First, while we realize hungarian notation (and similar systems for encoding type information into variable names) is providing a more descriptive name, we feel that (for the average developer) it takes away from readability and is to be avoided.</para>
+<para>Second, loop counters and other local throw-away variables often have a purpose which is obvious. There&apos;s no need, therefore, to get carried away with complex naming. We find i, j, and k are better loop counters than loopCounterVar or whatnot. We only break this rule when we see that more description could improve understanding of an algorithm.</para>
+</sect3>
+<sect3 id="da/d6d/md__unit_test_framework_vendor_ceedling_docs__throw_the_switch_coding_standard_1autotoc_md59">
+<title>Consistent</title>
+<para>We like consistency, but we&apos;re not really obsessed with it. We try to name our configuration macros in a consistent fashion... you&apos;ll notice a repeated use of UNITY_EXCLUDE_BLAH or UNITY_USES_BLAH macros. This helps users avoid having to remember each macro&apos;s details.</para>
+</sect3>
+<sect3 id="da/d6d/md__unit_test_framework_vendor_ceedling_docs__throw_the_switch_coding_standard_1autotoc_md60">
+<title>Memorable</title>
+<para>Where ever it doesn&apos;t violate the above principles, we try to apply memorable names. Sometimes this means using something that is simply descriptive, but often we strive for descriptive AND unique... we like quirky names that stand out in our memory and are easier to search for. Take a look through the file names in Ceedling and you&apos;ll get a good idea of what we are talking about here. Why use preprocess when you can use preprocessinator? Or what better describes a module in charge of invoking tasks during releases than release_invoker? Don&apos;t get carried away. The names are still descriptive and fulfill the above requirements, but they don&apos;t feel stale.</para>
+</sect3>
+</sect1>
+<sect1 id="da/d6d/md__unit_test_framework_vendor_ceedling_docs__throw_the_switch_coding_standard_1autotoc_md61">
+<title>C and C++ Details</title>
+<para>We don&apos;t really want to add to the style battles out there. Tabs or spaces? How many spaces? Where do the braces go? These are age-old questions that will never be answered... or at least not answered in a way that will make everyone happy.</para>
+<para>We&apos;ve decided on our own style preferences. If you&apos;d like to contribute to these projects (and we hope that you do), then we ask if you do your best to follow the same. It will only hurt a little. We promise.</para>
+<sect3 id="da/d6d/md__unit_test_framework_vendor_ceedling_docs__throw_the_switch_coding_standard_1autotoc_md62">
+<title>Whitespace</title>
+<para>Our C-style is to use spaces and to use 4 of them per indent level. It&apos;s a nice power-of-2 number that looks decent on a wide-screen. We have no more reason than that. We break that rule when we have lines that wrap (macros or function arguments or whatnot). When that happens, we like to indent further to line things up in nice tidy columns.</para>
+<para><programlisting filename=".C"><codeline><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(stuff_happened)</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>do_something();</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting></para>
+</sect3>
+<sect3 id="da/d6d/md__unit_test_framework_vendor_ceedling_docs__throw_the_switch_coding_standard_1autotoc_md63">
+<title>Case</title>
+<para><itemizedlist>
+<listitem><para>Files - all lower case with underscores.</para>
+</listitem><listitem><para>Variables - all lower case with underscores</para>
+</listitem><listitem><para>Macros - all caps with underscores.</para>
+</listitem><listitem><para>Typedefs - all caps with underscores. (also ends with _T).</para>
+</listitem><listitem><para>Functions - camel cased. Usually named ModuleName_FuncName</para>
+</listitem><listitem><para>Constants and Globals - camel cased.</para>
+</listitem></itemizedlist>
+</para>
+</sect3>
+<sect3 id="da/d6d/md__unit_test_framework_vendor_ceedling_docs__throw_the_switch_coding_standard_1autotoc_md64">
+<title>Braces</title>
+<para>The left brace is on the next line after the declaration. The right brace is directly below that. Everything in between in indented one level. If you&apos;re catching an error and you have a one-line, go ahead and to it on the same line.</para>
+<para><programlisting filename=".C"><codeline><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(blah)</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Like<sp/>so.<sp/>Even<sp/>if<sp/>only<sp/>one<sp/>line,<sp/>we<sp/>use<sp/>braces.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting></para>
+</sect3>
+<sect3 id="da/d6d/md__unit_test_framework_vendor_ceedling_docs__throw_the_switch_coding_standard_1autotoc_md65">
+<title>Comments</title>
+<para>Do you know what we hate? Old-school C block comments. BUT, we&apos;re using them anyway. As we mentioned, our goal is to support every compiler we can, especially embedded compilers. There are STILL C compilers out there that only support old-school block comments. So that is what we&apos;re using. We apologize. We think they are ugly too.</para>
+</sect3>
+</sect1>
+<sect1 id="da/d6d/md__unit_test_framework_vendor_ceedling_docs__throw_the_switch_coding_standard_1autotoc_md66">
+<title>Ruby Details</title>
+<para>Is there really such thing as a Ruby coding standard? Ruby is such a free form language, it seems almost sacrilegious to suggest that people should comply to one method! We&apos;ll keep it really brief!</para>
+<sect3 id="da/d6d/md__unit_test_framework_vendor_ceedling_docs__throw_the_switch_coding_standard_1autotoc_md67">
+<title>Whitespace</title>
+<para>Our Ruby style is to use spaces and to use 2 of them per indent level. It&apos;s a nice power-of-2 number that really grooves with Ruby&apos;s compact style. We have no more reason than that. We break that rule when we have lines that wrap. When that happens, we like to indent further to line things up in nice tidy columns.</para>
+</sect3>
+<sect3 id="da/d6d/md__unit_test_framework_vendor_ceedling_docs__throw_the_switch_coding_standard_1autotoc_md68">
+<title>Case</title>
+<para><itemizedlist>
+<listitem><para>Files - all lower case with underscores.</para>
+</listitem><listitem><para>Variables - all lower case with underscores</para>
+</listitem><listitem><para>Classes, Modules, etc - Camel cased.</para>
+</listitem><listitem><para>Functions - all lower case with underscores</para>
+</listitem><listitem><para>Constants - all upper case with underscores</para>
+</listitem></itemizedlist>
+</para>
+</sect3>
+</sect1>
+<sect1 id="da/d6d/md__unit_test_framework_vendor_ceedling_docs__throw_the_switch_coding_standard_1autotoc_md69">
+<title>Documentation</title>
+<para>Egad. Really? We use mark down and we like pdf files because they can be made to look nice while still being portable. Good enough?</para>
+<para><emphasis>Find The Latest of This And More at <ulink url="https://throwtheswitch.org">ThrowTheSwitch.org</ulink></emphasis> </para>
+</sect1>
+    </detaileddescription>
+    <location file="UnitTestFramework/vendor/ceedling/docs/ThrowTheSwitchCodingStandard.md"/>
+  </compounddef>
+</doxygen>

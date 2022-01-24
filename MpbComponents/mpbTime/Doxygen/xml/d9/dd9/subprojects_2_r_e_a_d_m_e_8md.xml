@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="d9/dd9/subprojects_2_r_e_a_d_m_e_8md" kind="file" language="Markdown">
+    <compoundname>README.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">ceedling-subprojects</highlight></codeline>
+<codeline><highlight class="normal">====================</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Plugin<sp/>for<sp/>supporting<sp/>subprojects<sp/>that<sp/>are<sp/>built<sp/>as<sp/>static<sp/>libraries.<sp/>It<sp/>continues<sp/>to<sp/>support<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal">dependency<sp/>tracking,<sp/>without<sp/>getting<sp/>confused<sp/>between<sp/>your<sp/>main<sp/>project<sp/>files<sp/>and<sp/>your<sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal">subproject<sp/>files.<sp/>It<sp/>accepts<sp/>different<sp/>compiler<sp/>flags<sp/>and<sp/>linker<sp/>flags,<sp/>allowing<sp/>you<sp/>to<sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal">optimize<sp/>for<sp/>your<sp/>situation.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">First,<sp/>you&apos;re<sp/>going<sp/>to<sp/>want<sp/>to<sp/>add<sp/>the<sp/>extension<sp/>to<sp/>your<sp/>list<sp/>of<sp/>known<sp/>extensions:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">:extension:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>:subprojects:<sp/>&apos;.a&apos;</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Define<sp/>a<sp/>new<sp/>section<sp/>called<sp/>:subprojects.<sp/>There,<sp/>you<sp/>can<sp/>list<sp/>as<sp/>many<sp/>subprojects<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal">as<sp/>you<sp/>may<sp/>need<sp/>under<sp/>the<sp/>:paths<sp/>key.<sp/>For<sp/>each,<sp/>you<sp/>specify<sp/>a<sp/>unique<sp/>place<sp/>to<sp/>build<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal">and<sp/>a<sp/>unique<sp/>name.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">:subprojects:<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>:paths:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>-<sp/>:name:<sp/>libprojectA</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>:source:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>./subprojectA/first/dir</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>./subprojectA/second/dir</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>:include:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>./subprojectA/include/dir</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>:build_root:<sp/>./subprojectA/build/dir</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>:defines:<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>DEFINE_JUST_FOR_THIS_FILE</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>AND_ANOTHER</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>-<sp/>:name:<sp/>libprojectB</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>:source:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>./subprojectB/only/dir</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>:include:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>./subprojectB/first/include/dir</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>./subprojectB/second/include/dir</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>:build_root:<sp/>./subprojectB/build/dir</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>:defines:<sp/>[]<sp/>#none<sp/>for<sp/>this<sp/>one</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">You<sp/>can<sp/>specify<sp/>the<sp/>compiler<sp/>and<sp/>linker,<sp/>just<sp/>as<sp/>you<sp/>would<sp/>a<sp/>release<sp/>build:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">:tools:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>:subprojects_compiler:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>:executable:<sp/>gcc</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>:arguments:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>-g</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>-I&quot;$&quot;:<sp/>COLLECTION_PATHS_SUBPROJECTS</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>-D$:<sp/>COLLECTION_DEFINES_SUBPROJECTS</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>-c<sp/>&quot;${1}&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>-o<sp/>&quot;${2}&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>:subprojects_linker:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>:executable:<sp/>ar</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>:arguments:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>rcs</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>${2}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>${1}</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">That&apos;s<sp/>all<sp/>there<sp/>is<sp/>to<sp/>it!<sp/>Happy<sp/>Hacking!</highlight></codeline>
+    </programlisting>
+    <location file="UnitTestFramework/vendor/ceedling/plugins/subprojects/README.md"/>
+  </compounddef>
+</doxygen>

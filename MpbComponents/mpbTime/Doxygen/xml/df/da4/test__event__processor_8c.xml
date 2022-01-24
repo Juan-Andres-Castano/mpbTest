@@ -1,0 +1,413 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="df/da4/test__event__processor_8c" kind="file" language="C++">
+    <compoundname>test_event_processor.c</compoundname>
+    <includes refid="d6/db4/unity_8h" local="yes">unity.h</includes>
+    <includes refid="d9/d06/event__processor_8h" local="yes">event_processor.h</includes>
+    <includes local="yes">mock_display.h</includes>
+    <includes local="no">string.h</includes>
+    <incdepgraph>
+      <node id="11">
+        <label>stdbool.h</label>
+      </node>
+      <node id="2">
+        <label>unity.h</label>
+        <link refid="d6/db4/unity_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>stdint.h</label>
+      </node>
+      <node id="4">
+        <label>setjmp.h</label>
+      </node>
+      <node id="1">
+        <label>UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/test/test_event_processor.c</label>
+        <link refid="df/da4/test__event__processor_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>unity_internals.h</label>
+        <link refid="d8/de3/unity__internals_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>limits.h</label>
+      </node>
+      <node id="10">
+        <label>event_processor.h</label>
+        <link refid="d9/d06/event__processor_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>string.h</label>
+      </node>
+      <node id="12">
+        <label>mock_display.h</label>
+      </node>
+      <node id="8">
+        <label>time.h</label>
+      </node>
+      <node id="5">
+        <label>math.h</label>
+      </node>
+      <node id="9">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="df/da4/test__event__processor_8c_1a95c834d6178047ce9e1bce7cbfea2836" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setUp</definition>
+        <argsstring>(void)</argsstring>
+        <name>setUp</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/test/test_event_processor.c" line="6" column="6" bodyfile="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/test/test_event_processor.c" bodystart="6" bodyend="8"/>
+      </memberdef>
+      <memberdef kind="function" id="df/da4/test__event__processor_8c_1a9909011e5fea0c018842eec4d93d0662" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void tearDown</definition>
+        <argsstring>(void)</argsstring>
+        <name>tearDown</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/test/test_event_processor.c" line="10" column="6" bodyfile="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/test/test_event_processor.c" bodystart="10" bodyend="12"/>
+      </memberdef>
+      <memberdef kind="function" id="df/da4/test__event__processor_8c_1aff1f691f0911be5857ddbe01e551c0a2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void test_whenTheDeviceIsReset_thenTheStatusLedIsTurnedOff</definition>
+        <argsstring>()</argsstring>
+        <name>test_whenTheDeviceIsReset_thenTheStatusLedIsTurnedOff</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/test/test_event_processor.c" line="17" column="1" bodyfile="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/test/test_event_processor.c" bodystart="17" bodyend="26"/>
+        <references refid="db/d85/display_8c_1ace29b0b5f6128f04d1800a81a37ad248" compoundref="db/d85/display_8c" startline="4" endline="7">display_turnOffStatusLed</references>
+        <references refid="d5/db3/event__processor_8c_1ae1d8acf4a49fc2dd494f7838a3d290c9" compoundref="d5/db3/event__processor_8c" startline="12" endline="16">event_deviceReset</references>
+        <references refid="dc/d1c/fff__unity__helper_8h_1a700b2bf57333b08698a494792c335bd1" compoundref="dc/d1c/fff__unity__helper_8h" startline="18">TEST_ASSERT_CALLED</references>
+        <references refid="d6/db4/unity_8h_1af9e5695d6c7cf634206ea6d062cb54c9" compoundref="d6/db4/unity_8h" startline="133">TEST_ASSERT_EQUAL</references>
+      </memberdef>
+      <memberdef kind="function" id="df/da4/test__event__processor_8c_1ae0402ad0b5090fc576a46cd6a37e3098" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void test_whenThePowerReadingIsLessThan5_thenTheStatusLedIsNotTurnedOn</definition>
+        <argsstring>(void)</argsstring>
+        <name>test_whenThePowerReadingIsLessThan5_thenTheStatusLedIsNotTurnedOn</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/test/test_event_processor.c" line="32" column="1" bodyfile="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/test/test_event_processor.c" bodystart="32" bodyend="41"/>
+        <references refid="db/d85/display_8c_1ace29b0b5f6128f04d1800a81a37ad248" compoundref="db/d85/display_8c" startline="4" endline="7">display_turnOffStatusLed</references>
+        <references refid="d5/db3/event__processor_8c_1ab67dfe66cdf6520c6a2fe56416ec49ee" compoundref="d5/db3/event__processor_8c" startline="23" endline="29">event_powerReadingUpdate</references>
+        <references refid="d6/db4/unity_8h_1af9e5695d6c7cf634206ea6d062cb54c9" compoundref="d6/db4/unity_8h" startline="133">TEST_ASSERT_EQUAL</references>
+        <references refid="dc/d1c/fff__unity__helper_8h_1affc90aa528332c5c767fd7bd7542d525" compoundref="dc/d1c/fff__unity__helper_8h" startline="23">TEST_ASSERT_NOT_CALLED</references>
+      </memberdef>
+      <memberdef kind="function" id="df/da4/test__event__processor_8c_1ab3dbd650a187ae78cbc203e26c7da3a5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void test_whenTheVolumeKnobIsMaxed_thenVolumeDisplayIsSetTo11</definition>
+        <argsstring>(void)</argsstring>
+        <name>test_whenTheVolumeKnobIsMaxed_thenVolumeDisplayIsSetTo11</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/test/test_event_processor.c" line="47" column="1" bodyfile="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/test/test_event_processor.c" bodystart="47" bodyend="57"/>
+        <references refid="d4/d68/display_8h_1a2a83d6ee1f6b970cadaf80d069d6cb78">display_setVolume</references>
+        <references refid="d5/db3/event__processor_8c_1af0c058d318f845e4ad837756121715d9" compoundref="d5/db3/event__processor_8c" startline="18" endline="21">event_volumeKnobMaxed</references>
+        <references refid="dc/d1c/fff__unity__helper_8h_1a700b2bf57333b08698a494792c335bd1" compoundref="dc/d1c/fff__unity__helper_8h" startline="18">TEST_ASSERT_CALLED</references>
+        <references refid="d6/db4/unity_8h_1af9e5695d6c7cf634206ea6d062cb54c9" compoundref="d6/db4/unity_8h" startline="133">TEST_ASSERT_EQUAL</references>
+      </memberdef>
+      <memberdef kind="function" id="df/da4/test__event__processor_8c_1ae77b983df3ecc38c9338c8a1c1747199" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void test_whenTheModeSelectButtonIsPressed_thenTheDisplayModeIsCycled</definition>
+        <argsstring>(void)</argsstring>
+        <name>test_whenTheModeSelectButtonIsPressed_thenTheDisplayModeIsCycled</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/test/test_event_processor.c" line="64" column="1" bodyfile="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/test/test_event_processor.c" bodystart="64" bodyend="79"/>
+        <references refid="d4/d68/display_8h_1a80fe0f40254a3d87f017e7d4a3a75de4">display_setModeToAverage</references>
+        <references refid="d4/d68/display_8h_1a3ecd07af6041cf61b0c60150b5866c84">display_setModeToMaximum</references>
+        <references refid="d4/d68/display_8h_1a4f4309083204c27565cd4943c558bf35">display_setModeToMinimum</references>
+        <references refid="d5/db3/event__processor_8c_1aea6c21cc8520a67d644f5eee64e266a9" compoundref="d5/db3/event__processor_8c" startline="31" endline="54">event_modeSelectButtonPressed</references>
+        <references refid="dc/d1c/fff__unity__helper_8h_1af21f27d62b55519b5f72bb32724df80d" compoundref="dc/d1c/fff__unity__helper_8h" startline="28">TEST_ASSERT_CALLED_IN_ORDER</references>
+        <references refid="d6/db4/unity_8h_1a765240c346d79b58ef22d81982aced18" compoundref="d6/db4/unity_8h" startline="234">TEST_ASSERT_EQUAL_PTR</references>
+      </memberdef>
+      <memberdef kind="function" id="df/da4/test__event__processor_8c_1aaade2183eab43ecade551f4ce2710653" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void test_givenTheDisplayHasAnError_whenTheDeviceIsPoweredOn_thenTheDisplayIsPoweredDown</definition>
+        <argsstring>(void)</argsstring>
+        <name>test_givenTheDisplayHasAnError_whenTheDeviceIsPoweredOn_thenTheDisplayIsPoweredDown</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/test/test_event_processor.c" line="85" column="1" bodyfile="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/test/test_event_processor.c" bodystart="85" bodyend="97"/>
+        <references refid="d4/d68/display_8h_1a33e97a1d26f45f9f14f3428a9cad2ff8">display_powerDown</references>
+        <references refid="d5/db3/event__processor_8c_1a07ad329255bf724d42e83d7288b20905" compoundref="d5/db3/event__processor_8c" startline="56" endline="62">event_devicePoweredOn</references>
+        <references refid="dc/d1c/fff__unity__helper_8h_1a700b2bf57333b08698a494792c335bd1" compoundref="dc/d1c/fff__unity__helper_8h" startline="18">TEST_ASSERT_CALLED</references>
+        <references refid="d6/db4/unity_8h_1af9e5695d6c7cf634206ea6d062cb54c9" compoundref="d6/db4/unity_8h" startline="133">TEST_ASSERT_EQUAL</references>
+      </memberdef>
+      <memberdef kind="function" id="df/da4/test__event__processor_8c_1a534f0b7275d9d4a29985cacf3e8342aa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void test_givenTheUserHasTypedSleep_whenItIsTimeToCheckTheKeyboard_theDisplayIsPoweredDown</definition>
+        <argsstring>(void)</argsstring>
+        <name>test_givenTheUserHasTypedSleep_whenItIsTimeToCheckTheKeyboard_theDisplayIsPoweredDown</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/test/test_event_processor.c" line="107" column="1" bodyfile="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/test/test_event_processor.c" bodystart="107" bodyend="127"/>
+        <references refid="d4/d68/display_8h_1a33e97a1d26f45f9f14f3428a9cad2ff8">display_powerDown</references>
+        <references refid="d5/db3/event__processor_8c_1a215d1e5ccd386376a8f2f7ca5de2d6fa" compoundref="d5/db3/event__processor_8c" startline="64" endline="74">event_keyboardCheckTimerExpired</references>
+        <references refid="dc/d1c/fff__unity__helper_8h_1a700b2bf57333b08698a494792c335bd1" compoundref="dc/d1c/fff__unity__helper_8h" startline="18">TEST_ASSERT_CALLED</references>
+        <references refid="d6/db4/unity_8h_1af9e5695d6c7cf634206ea6d062cb54c9" compoundref="d6/db4/unity_8h" startline="133">TEST_ASSERT_EQUAL</references>
+      </memberdef>
+      <memberdef kind="function" id="df/da4/test__event__processor_8c_1a7e135676f8e037e0dbd2a72ef83e409c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void test_givenNewDataIsAvailable_whenTheDisplayHasUpdated_thenTheEventIsComplete</definition>
+        <argsstring>(void)</argsstring>
+        <name>test_givenNewDataIsAvailable_whenTheDisplayHasUpdated_thenTheEventIsComplete</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/test/test_event_processor.c" line="133" column="1" bodyfile="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/test/test_event_processor.c" bodystart="133" bodyend="155"/>
+        <references refid="d5/db3/event__processor_8c_1ab6d73895a0010faeaf7ddf0eee24a974" compoundref="d5/db3/event__processor_8c" startline="84" endline="88">event_newDataAvailable</references>
+        <references refid="d5/db3/event__processor_8c_1ae764507cd003774bd368b2785bb8566b" compoundref="d5/db3/event__processor_8c" startline="90" endline="93">eventProcessor_isLastEventComplete</references>
+        <references refid="d6/db4/unity_8h_1af9e5695d6c7cf634206ea6d062cb54c9" compoundref="d6/db4/unity_8h" startline="133">TEST_ASSERT_EQUAL</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d6/db4/unity_8h" kindref="compound">unity.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d9/d06/event__processor_8h" kindref="compound">event_processor.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;mock_display.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6" refid="df/da4/test__event__processor_8c_1a95c834d6178047ce9e1bce7cbfea2836" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="df/da4/test__event__processor_8c_1a95c834d6178047ce9e1bce7cbfea2836" kindref="member">setUp</ref><sp/>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="7"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="8"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10" refid="df/da4/test__event__processor_8c_1a9909011e5fea0c018842eec4d93d0662" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="df/da4/test__event__processor_8c_1a9909011e5fea0c018842eec4d93d0662" kindref="member">tearDown</ref><sp/>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="11"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="12"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/><sp/><sp/><sp/>Test<sp/>that<sp/>a<sp/>single<sp/>function<sp/>was<sp/>called.</highlight></codeline>
+<codeline lineno="15"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17" refid="df/da4/test__event__processor_8c_1aff1f691f0911be5857ddbe01e551c0a2" refkind="member"><highlight class="normal"><ref refid="df/da4/test__event__processor_8c_1aff1f691f0911be5857ddbe01e551c0a2" kindref="member">test_whenTheDeviceIsReset_thenTheStatusLedIsTurnedOff</ref>()</highlight></codeline>
+<codeline lineno="18"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>When</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d5/db3/event__processor_8c_1ae1d8acf4a49fc2dd494f7838a3d290c9" kindref="member">event_deviceReset</ref>();</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Then</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d6/db4/unity_8h_1af9e5695d6c7cf634206ea6d062cb54c9" kindref="member">TEST_ASSERT_EQUAL</ref>(1,<sp/>display_turnOffStatusLed_fake.call_count);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>or<sp/>use<sp/>the<sp/>helper<sp/>macro...</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="dc/d1c/fff__unity__helper_8h_1a700b2bf57333b08698a494792c335bd1" kindref="member">TEST_ASSERT_CALLED</ref>(<ref refid="db/d85/display_8c_1ace29b0b5f6128f04d1800a81a37ad248" kindref="member">display_turnOffStatusLed</ref>);</highlight></codeline>
+<codeline lineno="26"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/><sp/><sp/><sp/>Test<sp/>that<sp/>a<sp/>single<sp/>function<sp/>is<sp/>NOT<sp/>called.</highlight></codeline>
+<codeline lineno="30"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32" refid="df/da4/test__event__processor_8c_1ae0402ad0b5090fc576a46cd6a37e3098" refkind="member"><highlight class="normal"><ref refid="df/da4/test__event__processor_8c_1ae0402ad0b5090fc576a46cd6a37e3098" kindref="member">test_whenThePowerReadingIsLessThan5_thenTheStatusLedIsNotTurnedOn</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="33"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>When</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d5/db3/event__processor_8c_1ab67dfe66cdf6520c6a2fe56416ec49ee" kindref="member">event_powerReadingUpdate</ref>(4);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Then</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d6/db4/unity_8h_1af9e5695d6c7cf634206ea6d062cb54c9" kindref="member">TEST_ASSERT_EQUAL</ref>(0,<sp/>display_turnOnStatusLed_fake.call_count);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>or<sp/>use<sp/>the<sp/>helper<sp/>macro...</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="dc/d1c/fff__unity__helper_8h_1affc90aa528332c5c767fd7bd7542d525" kindref="member">TEST_ASSERT_NOT_CALLED</ref>(<ref refid="db/d85/display_8c_1ace29b0b5f6128f04d1800a81a37ad248" kindref="member">display_turnOffStatusLed</ref>);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="44"><highlight class="comment"><sp/><sp/><sp/><sp/>Test<sp/>that<sp/>a<sp/>single<sp/>function<sp/>was<sp/>called<sp/>with<sp/>the<sp/>correct<sp/>arugment.</highlight></codeline>
+<codeline lineno="45"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47" refid="df/da4/test__event__processor_8c_1ab3dbd650a187ae78cbc203e26c7da3a5" refkind="member"><highlight class="normal"><ref refid="df/da4/test__event__processor_8c_1ab3dbd650a187ae78cbc203e26c7da3a5" kindref="member">test_whenTheVolumeKnobIsMaxed_thenVolumeDisplayIsSetTo11</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="48"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>When</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d5/db3/event__processor_8c_1af0c058d318f845e4ad837756121715d9" kindref="member">event_volumeKnobMaxed</ref>();</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Then</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d6/db4/unity_8h_1af9e5695d6c7cf634206ea6d062cb54c9" kindref="member">TEST_ASSERT_EQUAL</ref>(1,<sp/>display_setVolume_fake.call_count);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>or<sp/>use<sp/>the<sp/>helper<sp/>macro...</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="dc/d1c/fff__unity__helper_8h_1a700b2bf57333b08698a494792c335bd1" kindref="member">TEST_ASSERT_CALLED</ref>(<ref refid="d4/d68/display_8h_1a2a83d6ee1f6b970cadaf80d069d6cb78" kindref="member">display_setVolume</ref>);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d6/db4/unity_8h_1af9e5695d6c7cf634206ea6d062cb54c9" kindref="member">TEST_ASSERT_EQUAL</ref>(11,<sp/>display_setVolume_fake.arg0_val);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="60"><highlight class="comment"><sp/><sp/><sp/><sp/>Test<sp/>a<sp/>sequence<sp/>of<sp/>calls.</highlight></codeline>
+<codeline lineno="61"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64" refid="df/da4/test__event__processor_8c_1ae77b983df3ecc38c9338c8a1c1747199" refkind="member"><highlight class="normal"><ref refid="df/da4/test__event__processor_8c_1ae77b983df3ecc38c9338c8a1c1747199" kindref="member">test_whenTheModeSelectButtonIsPressed_thenTheDisplayModeIsCycled</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="65"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>When</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d5/db3/event__processor_8c_1aea6c21cc8520a67d644f5eee64e266a9" kindref="member">event_modeSelectButtonPressed</ref>();</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d5/db3/event__processor_8c_1aea6c21cc8520a67d644f5eee64e266a9" kindref="member">event_modeSelectButtonPressed</ref>();</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d5/db3/event__processor_8c_1aea6c21cc8520a67d644f5eee64e266a9" kindref="member">event_modeSelectButtonPressed</ref>();</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Then</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d6/db4/unity_8h_1a765240c346d79b58ef22d81982aced18" kindref="member">TEST_ASSERT_EQUAL_PTR</ref>((</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*)<ref refid="d4/d68/display_8h_1a4f4309083204c27565cd4943c558bf35" kindref="member">display_setModeToMinimum</ref>,<sp/>fff.call_history[0]);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d6/db4/unity_8h_1a765240c346d79b58ef22d81982aced18" kindref="member">TEST_ASSERT_EQUAL_PTR</ref>((</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*)<ref refid="d4/d68/display_8h_1a3ecd07af6041cf61b0c60150b5866c84" kindref="member">display_setModeToMaximum</ref>,<sp/>fff.call_history[1]);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d6/db4/unity_8h_1a765240c346d79b58ef22d81982aced18" kindref="member">TEST_ASSERT_EQUAL_PTR</ref>((</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*)<ref refid="d4/d68/display_8h_1a80fe0f40254a3d87f017e7d4a3a75de4" kindref="member">display_setModeToAverage</ref>,<sp/>fff.call_history[2]);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>or<sp/>use<sp/>the<sp/>helper<sp/>macros...</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="dc/d1c/fff__unity__helper_8h_1af21f27d62b55519b5f72bb32724df80d" kindref="member">TEST_ASSERT_CALLED_IN_ORDER</ref>(0,<sp/><ref refid="d4/d68/display_8h_1a4f4309083204c27565cd4943c558bf35" kindref="member">display_setModeToMinimum</ref>);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="dc/d1c/fff__unity__helper_8h_1af21f27d62b55519b5f72bb32724df80d" kindref="member">TEST_ASSERT_CALLED_IN_ORDER</ref>(1,<sp/><ref refid="d4/d68/display_8h_1a3ecd07af6041cf61b0c60150b5866c84" kindref="member">display_setModeToMaximum</ref>);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="dc/d1c/fff__unity__helper_8h_1af21f27d62b55519b5f72bb32724df80d" kindref="member">TEST_ASSERT_CALLED_IN_ORDER</ref>(2,<sp/><ref refid="d4/d68/display_8h_1a80fe0f40254a3d87f017e7d4a3a75de4" kindref="member">display_setModeToAverage</ref>);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="82"><highlight class="comment"><sp/><sp/><sp/><sp/>Mock<sp/>a<sp/>return<sp/>value<sp/>from<sp/>a<sp/>function.</highlight></codeline>
+<codeline lineno="83"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="85" refid="df/da4/test__event__processor_8c_1aaade2183eab43ecade551f4ce2710653" refkind="member"><highlight class="normal"><ref refid="df/da4/test__event__processor_8c_1aaade2183eab43ecade551f4ce2710653" kindref="member">test_givenTheDisplayHasAnError_whenTheDeviceIsPoweredOn_thenTheDisplayIsPoweredDown</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="86"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Given</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>display_isError_fake.return_val<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>When</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d5/db3/event__processor_8c_1a07ad329255bf724d42e83d7288b20905" kindref="member">event_devicePoweredOn</ref>();</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Then</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d6/db4/unity_8h_1af9e5695d6c7cf634206ea6d062cb54c9" kindref="member">TEST_ASSERT_EQUAL</ref>(1,<sp/>display_powerDown_fake.call_count);</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>or<sp/>use<sp/>the<sp/>helper<sp/>macro...</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="dc/d1c/fff__unity__helper_8h_1a700b2bf57333b08698a494792c335bd1" kindref="member">TEST_ASSERT_CALLED</ref>(<ref refid="d4/d68/display_8h_1a33e97a1d26f45f9f14f3428a9cad2ff8" kindref="member">display_powerDown</ref>);</highlight></codeline>
+<codeline lineno="97"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="100"><highlight class="comment"><sp/><sp/><sp/><sp/>Mock<sp/>a<sp/>sequence<sp/>of<sp/>calls<sp/>with<sp/>return<sp/>values.</highlight></codeline>
+<codeline lineno="101"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="104"><highlight class="comment"><sp/><sp/><sp/><sp/>Mocking<sp/>a<sp/>function<sp/>with<sp/>a<sp/>value<sp/>returned<sp/>by<sp/>reference.</highlight></codeline>
+<codeline lineno="105"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="107" refid="df/da4/test__event__processor_8c_1a534f0b7275d9d4a29985cacf3e8342aa" refkind="member"><highlight class="normal"><ref refid="df/da4/test__event__processor_8c_1a534f0b7275d9d4a29985cacf3e8342aa" kindref="member">test_givenTheUserHasTypedSleep_whenItIsTimeToCheckTheKeyboard_theDisplayIsPoweredDown</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="108"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Given</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>mockedEntry[]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;sleep&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>return_mock_value(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>entry,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>length)</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(length<sp/>&gt;<sp/>strlen(mockedEntry))</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>strncpy(entry,<sp/>mockedEntry,<sp/>length);</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/>display_getKeyboardEntry_fake.custom_fake<sp/>=<sp/>return_mock_value;</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>When</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d5/db3/event__processor_8c_1a215d1e5ccd386376a8f2f7ca5de2d6fa" kindref="member">event_keyboardCheckTimerExpired</ref>();</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Then</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d6/db4/unity_8h_1af9e5695d6c7cf634206ea6d062cb54c9" kindref="member">TEST_ASSERT_EQUAL</ref>(1,<sp/>display_powerDown_fake.call_count);</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>or<sp/>use<sp/>the<sp/>helper<sp/>macro...</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="dc/d1c/fff__unity__helper_8h_1a700b2bf57333b08698a494792c335bd1" kindref="member">TEST_ASSERT_CALLED</ref>(<ref refid="d4/d68/display_8h_1a33e97a1d26f45f9f14f3428a9cad2ff8" kindref="member">display_powerDown</ref>);</highlight></codeline>
+<codeline lineno="127"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="130"><highlight class="comment"><sp/><sp/><sp/><sp/>Mock<sp/>a<sp/>function<sp/>with<sp/>a<sp/>function<sp/>pointer<sp/>parameter.</highlight></codeline>
+<codeline lineno="131"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="133" refid="df/da4/test__event__processor_8c_1a7e135676f8e037e0dbd2a72ef83e409c" refkind="member"><highlight class="normal"><ref refid="df/da4/test__event__processor_8c_1a7e135676f8e037e0dbd2a72ef83e409c" kindref="member">test_givenNewDataIsAvailable_whenTheDisplayHasUpdated_thenTheEventIsComplete</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="134"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>A<sp/>mock<sp/>function<sp/>for<sp/>capturing<sp/>the<sp/>callback<sp/>handler<sp/>function<sp/>pointer.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/>void(*registeredCallback)(void)<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>mock_display_updateData(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>data,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">(*callback)(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">))</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Save<sp/>the<sp/>callback<sp/>function.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>registeredCallback<sp/>=<sp/>callback;</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/>display_updateData_fake.custom_fake<sp/>=<sp/>mock_display_updateData;</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Given</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d5/db3/event__processor_8c_1ab6d73895a0010faeaf7ddf0eee24a974" kindref="member">event_newDataAvailable</ref>(10);</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>When</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(registeredCallback<sp/>!=<sp/>0)</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>registeredCallback();</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Then</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d6/db4/unity_8h_1af9e5695d6c7cf634206ea6d062cb54c9" kindref="member">TEST_ASSERT_EQUAL</ref>(</highlight><highlight class="keyword">true</highlight><highlight class="normal">,<sp/><ref refid="d5/db3/event__processor_8c_1ae764507cd003774bd368b2785bb8566b" kindref="member">eventProcessor_isLastEventComplete</ref>());</highlight></codeline>
+<codeline lineno="155"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/test/test_event_processor.c"/>
+  </compounddef>
+</doxygen>

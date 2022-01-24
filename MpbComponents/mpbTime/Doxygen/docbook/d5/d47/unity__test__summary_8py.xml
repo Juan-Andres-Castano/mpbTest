@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_unity__test__summary_8py" xml:lang="en-US">
+<title>UnitTestFramework/vendor/ceedling/vendor/unity/auto/unity_test_summary.py File Reference</title>
+<indexterm><primary>UnitTestFramework/vendor/ceedling/vendor/unity/auto/unity_test_summary.py</primary></indexterm>
+<simplesect>
+    <title>Data Structures    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_classunity__test__summary_1_1_unity_test_summary">UnityTestSummary</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Namespaces    </title>
+        <itemizedlist>
+            <listitem><para> <link linkend="_namespaceunity__test__summary">unity_test_summary</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_namespaceunity__test__summary_1a0344bc35e417f905ee690ec56ca4cfd9">uts</link> = UnityTestSummary()</para>
+</listitem>
+            <listitem><para><link linkend="_namespaceunity__test__summary_1a2b4c6e9ac9427c5d76712b14dd3817cd">targets_dir</link> = sys.argv[1]</para>
+</listitem>
+            <listitem><para><link linkend="_namespaceunity__test__summary_1aca9a7ee02fb8663e9e2971ca4052b0c6">targets</link> = list(map(lambda x: x.replace(&apos;\\&apos;, &apos;/&apos;), glob(targets_dir + &apos;*.test*&apos;)))</para>
+</listitem>
+            <listitem><para><link linkend="_namespaceunity__test__summary_1ab33cf7205359ee0f91488c87df1577a0">root_path</link> = sys.argv[2]</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

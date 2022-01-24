@@ -1,0 +1,45 @@
+.TH "md__unit_test_framework_vendor_ceedling_plugins_gcov__r_e_a_d_m_e" 3 "Thu Nov 18 2021" "mpbTime" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+md__unit_test_framework_vendor_ceedling_plugins_gcov__r_e_a_d_m_e \- ceedling-gcov 
+Plugin for integrating GNU GCov code coverage tool into Ceedling projects\&. Currently only designed for the gcov command (like LCOV for example)\&. In the future we could configure this to work with other code coverage tools\&.
+.PP
+This plugin currently uses \fCgcovr\fP to generate HTML reports as a utility\&. The normal gcov plugin \fImust\fP be run first for this report to generate\&.
+.PP
+Gcovr can be installed via pip like so:
+.PP
+.PP
+.nf
+pip install gcovr
+.fi
+.PP
+.PP
+There are two types of gcovr HTML reports that can be configured in your \fCproject\&.yml\fP\&. To create a basic HTML report with only the overall file information use the following config\&.
+.PP
+.PP
+.nf
+:gcov:
+  :html_report_type: basic
+.fi
+.PP
+ To create a detailed HTML report with line by line breakdown of the coverage use the following config\&.
+.PP
+.PP
+.nf
+:gcov:
+  :html_report_type: detailed
+.fi
+.PP
+.PP
+These reports will be found in \fCbuild/artifacts/gcov\fP\&.
+.SH "To-Do list"
+.PP
+.IP "\(bu" 2
+Generate overall report (combined statistics from all files with coverage)
+.IP "\(bu" 2
+Generate coverage output files
+.IP "\(bu" 2
+Easier option override for better customisation 
+.PP
+

@@ -1,0 +1,271 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="da/d40/mpb_math_debounce_8c" kind="file" language="C++">
+    <compoundname>mpbMathDebounce.c</compoundname>
+    <includes refid="d8/d59/mpb_math_debounce_8h" local="yes">mpbMathDebounce.h</includes>
+    <incdepgraph>
+      <node id="3">
+        <label>mpblibs.h</label>
+      </node>
+      <node id="1">
+        <label>Sources/mpbMathDebounce.c</label>
+        <link refid="da/d40/mpb_math_debounce_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>mpbMathDebounce.h</label>
+        <link refid="d8/d59/mpb_math_debounce_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="da/d40/mpb_math_debounce_8c_1a58a6dae34450c1d974441fdd2f779774" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>eMpbError_t</type>
+        <definition>eMpbError_t vMpbMathDebounceInit</definition>
+        <argsstring>(MpbMathDebounce_t *pxMpbMathDebounce, uint32_t ulOnCount, uint32_t ulOffCount, eBool_t bInitialState)</argsstring>
+        <name>vMpbMathDebounceInit</name>
+        <param>
+          <type><ref refid="d8/d38/struct_mpb_math_debounce__t" kindref="compound">MpbMathDebounce_t</ref> *</type>
+          <declname>pxMpbMathDebounce</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>ulOnCount</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>ulOffCount</declname>
+        </param>
+        <param>
+          <type>eBool_t</type>
+          <declname>bInitialState</declname>
+        </param>
+        <briefdescription>
+<para>Initialize the debounce structure. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">ulOnCount</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the number of on count desired </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">ulOffCount</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the number of off count desired </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">slValue</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the inital value </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">pxMpbMathDebounce</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the initialize debounce structure </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Sources/mpbMathDebounce.c" line="41" column="13" bodyfile="Sources/mpbMathDebounce.c" bodystart="41" bodyend="60"/>
+        <references refid="d8/d38/struct_mpb_math_debounce__t_1a9dfd44a0d75d471716ec021b15d5725a" compoundref="d8/d59/mpb_math_debounce_8h" startline="35">MpbMathDebounce_t::bActualState</references>
+        <references refid="d8/d38/struct_mpb_math_debounce__t_1ae03c2434821fa0b74a7fffe6b52f5b92" compoundref="d8/d59/mpb_math_debounce_8h" startline="34">MpbMathDebounce_t::bNewProbablyState</references>
+        <references refid="d8/d38/struct_mpb_math_debounce__t_1a48b0292c9e5fb70c01d50317b2c72cd9" compoundref="d8/d59/mpb_math_debounce_8h" startline="33">MpbMathDebounce_t::ulCount</references>
+        <references refid="d8/d38/struct_mpb_math_debounce__t_1a9f4a39506f550cff2e04187eee990ba4" compoundref="d8/d59/mpb_math_debounce_8h" startline="31">MpbMathDebounce_t::ulOffCount</references>
+        <references refid="d8/d38/struct_mpb_math_debounce__t_1a1efe957574b7a82c8d332db044e595c0" compoundref="d8/d59/mpb_math_debounce_8h" startline="32">MpbMathDebounce_t::ulOnCount</references>
+      </memberdef>
+      <memberdef kind="function" id="da/d40/mpb_math_debounce_8c_1a94957f03bff3a5732fc9741dc88bcbd6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>eMpbError_t</type>
+        <definition>eMpbError_t vMpbMathDebounceUpdate</definition>
+        <argsstring>(MpbMathDebounce_t *pxMpbMathDebounce, eBool_t bActualState, eBool_t *pbFinalState)</argsstring>
+        <name>vMpbMathDebounceUpdate</name>
+        <param>
+          <type><ref refid="d8/d38/struct_mpb_math_debounce__t" kindref="compound">MpbMathDebounce_t</ref> *</type>
+          <declname>pxMpbMathDebounce</declname>
+        </param>
+        <param>
+          <type>eBool_t</type>
+          <declname>bActualState</declname>
+        </param>
+        <param>
+          <type>eBool_t *</type>
+          <declname>pbFinalState</declname>
+        </param>
+        <briefdescription>
+<para>Updates the state of the debounce. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">pxMpbMathDebounce</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the debounce structure </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">slValue</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the new value </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">pslState</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the debounce state </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Sources/mpbMathDebounce.c" line="63" column="13" bodyfile="Sources/mpbMathDebounce.c" bodystart="63" bodyend="94"/>
+        <references refid="d8/d38/struct_mpb_math_debounce__t_1a9dfd44a0d75d471716ec021b15d5725a" compoundref="d8/d59/mpb_math_debounce_8h" startline="35">MpbMathDebounce_t::bActualState</references>
+        <references refid="d8/d38/struct_mpb_math_debounce__t_1ae03c2434821fa0b74a7fffe6b52f5b92" compoundref="d8/d59/mpb_math_debounce_8h" startline="34">MpbMathDebounce_t::bNewProbablyState</references>
+        <references refid="d8/d38/struct_mpb_math_debounce__t_1a48b0292c9e5fb70c01d50317b2c72cd9" compoundref="d8/d59/mpb_math_debounce_8h" startline="33">MpbMathDebounce_t::ulCount</references>
+        <references refid="d8/d38/struct_mpb_math_debounce__t_1a9f4a39506f550cff2e04187eee990ba4" compoundref="d8/d59/mpb_math_debounce_8h" startline="31">MpbMathDebounce_t::ulOffCount</references>
+        <references refid="d8/d38/struct_mpb_math_debounce__t_1a1efe957574b7a82c8d332db044e595c0" compoundref="d8/d59/mpb_math_debounce_8h" startline="32">MpbMathDebounce_t::ulOnCount</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para><linebreak/>
+ This library provides a management system for the debouncing of digital inputs. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>juan </para>
+</simplesect>
+<simplesect kind="date"><para>Created on 2021-11-18 </para>
+</simplesect>
+<simplesect kind="note"><para></para>
+</simplesect>
+<simplesect kind="copyright"><para>MPB, Montreal, Qc <heading level="2"><center><copy/> COPYRIGHT 2021 MPB, Montreal, Quebec, Canada</center></heading>
+</para>
+</simplesect>
+<heading level="2"><center><copy/> All rights reserved.</center></heading>
+</para>
+<para><linebreak/>
+<linebreak/>
+ <center>This document contains confidential and proprietary information of MPB (subject to a non-disclosure agreement) and shall</center> <center>not be disclosed, distributed, or reproduced in whole or in part, without the prior written authorization of MPB.</center></para>
+<para><verbatim>Usage Example</verbatim> this library allows to debounbce all the inputs AC/DC the application needs. <programlisting><codeline><highlight class="normal">vMpbMathDebounceInit(<sp/>&amp;MyMpbMathDebounce,<sp/><sp/>ulOnCount,<sp/>ullOffCount,<sp/>slValue<sp/>);</highlight></codeline>
+<codeline><highlight class="normal">eMpbError<sp/>=<sp/>vMpbMathDebounceUpdate(<sp/>&amp;MyMpbMathDebounce,<sp/>slValue,<sp/>&amp;pslState<sp/>);</highlight></codeline>
+<codeline><highlight class="normal">plState<sp/>will<sp/>give<sp/>you<sp/>the<sp/>filtered<sp/>input</highlight></codeline>
+</programlisting> <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername><ref refid="d8/d38/struct_mpb_math_debounce__t" kindref="compound">MpbMathDebounce_t</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>datatype for the debouncing. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ulOnCount</parametername>
+<parametername>ullOffCount.</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>config. of the debouncer. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>pslState. final read. </para>
+</simplesect>
+<simplesect kind="note"><para>could be instantiate in everywhere of the application. in that point the timer instantiation should be placed. </para>
+</simplesect>
+<simplesect kind="warning"><para>none. </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Includes<sp/>-----------------------------------------------------------------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d8/d59/mpb_math_debounce_8h" kindref="compound">mpbMathDebounce.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Private<sp/>define<sp/>-----------------------------------------------------------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Private<sp/>macro<sp/>------------------------------------------------------------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Private<sp/>enum<sp/>-------------------------------------------------------------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Private<sp/>struct<sp/>-----------------------------------------------------------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Private<sp/>variables<sp/>--------------------------------------------------------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>External<sp/>variables<sp/>-------------------------------------------------------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Private<sp/>function<sp/>prototypes<sp/>----------------------------------------------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Private<sp/>functions<sp/>--------------------------------------------------------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Exported<sp/>functions<sp/>-------------------------------------------------------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41" refid="d8/d59/mpb_math_debounce_8h_1a58a6dae34450c1d974441fdd2f779774" refkind="member"><highlight class="normal">eMpbError_t<sp/><ref refid="da/d40/mpb_math_debounce_8c_1a58a6dae34450c1d974441fdd2f779774" kindref="member">vMpbMathDebounceInit</ref>(<sp/><ref refid="d8/d38/struct_mpb_math_debounce__t" kindref="compound">MpbMathDebounce_t</ref><sp/>*pxMpbMathDebounce,<sp/>uint32_t<sp/>ulOnCount,<sp/>uint32_t<sp/>ulOffCount,<sp/><sp/>eBool_t<sp/>bInitialState<sp/>)</highlight></codeline>
+<codeline lineno="42"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>eMpbError_t<sp/>eMpbError<sp/>=<sp/>eSuccess;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>pxMpbMathDebounce<sp/>==<sp/>NULL<sp/>)</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eMpbError<sp/>=<sp/>eInvalidParameter;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pxMpbMathDebounce-&gt;<ref refid="d8/d38/struct_mpb_math_debounce__t_1a9f4a39506f550cff2e04187eee990ba4" kindref="member">ulOffCount</ref><sp/>=<sp/>ulOffCount;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pxMpbMathDebounce-&gt;<ref refid="d8/d38/struct_mpb_math_debounce__t_1a1efe957574b7a82c8d332db044e595c0" kindref="member">ulOnCount</ref><sp/>=<sp/>ulOnCount;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pxMpbMathDebounce-&gt;<ref refid="d8/d38/struct_mpb_math_debounce__t_1ae03c2434821fa0b74a7fffe6b52f5b92" kindref="member">bNewProbablyState</ref><sp/>=<sp/>bInitialState;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pxMpbMathDebounce-&gt;<ref refid="d8/d38/struct_mpb_math_debounce__t_1a9dfd44a0d75d471716ec021b15d5725a" kindref="member">bActualState</ref><sp/>=<sp/>bInitialState;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pxMpbMathDebounce-&gt;<ref refid="d8/d38/struct_mpb_math_debounce__t_1a48b0292c9e5fb70c01d50317b2c72cd9" kindref="member">ulCount</ref><sp/>=<sp/>(<sp/>bInitialState<sp/>==<sp/>eFalse<sp/>)<sp/>?<sp/>ulOffCount<sp/>:<sp/>ulOnCount;<sp/></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>eMpbError;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63" refid="d8/d59/mpb_math_debounce_8h_1a94957f03bff3a5732fc9741dc88bcbd6" refkind="member"><highlight class="normal">eMpbError_t<sp/><ref refid="da/d40/mpb_math_debounce_8c_1a94957f03bff3a5732fc9741dc88bcbd6" kindref="member">vMpbMathDebounceUpdate</ref>(<sp/><ref refid="d8/d38/struct_mpb_math_debounce__t" kindref="compound">MpbMathDebounce_t</ref><sp/>*pxMpbMathDebounce,<sp/>eBool_t<sp/>bActualState,<sp/>eBool_t<sp/>*pbFinalState<sp/>)</highlight></codeline>
+<codeline lineno="64"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>eMpbError_t<sp/>eMpbError<sp/>=<sp/>eSuccess;</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>(<sp/>pbFinalState<sp/>==<sp/>NULL<sp/>)<sp/>||<sp/>(<sp/>pxMpbMathDebounce<sp/>==<sp/>NULL<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eMpbError<sp/>=<sp/>eInvalidParameter;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>{<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>pxMpbMathDebounce-&gt;<ref refid="d8/d38/struct_mpb_math_debounce__t_1ae03c2434821fa0b74a7fffe6b52f5b92" kindref="member">bNewProbablyState</ref><sp/>==<sp/>bActualState<sp/>)</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>pxMpbMathDebounce-&gt;<ref refid="d8/d38/struct_mpb_math_debounce__t_1a48b0292c9e5fb70c01d50317b2c72cd9" kindref="member">ulCount</ref><sp/>&gt;<sp/>0<sp/>)</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pxMpbMathDebounce-&gt;<ref refid="d8/d38/struct_mpb_math_debounce__t_1a48b0292c9e5fb70c01d50317b2c72cd9" kindref="member">ulCount</ref>--;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>pxMpbMathDebounce-&gt;<ref refid="d8/d38/struct_mpb_math_debounce__t_1a48b0292c9e5fb70c01d50317b2c72cd9" kindref="member">ulCount</ref><sp/>==<sp/>0<sp/>)</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pxMpbMathDebounce-&gt;<ref refid="d8/d38/struct_mpb_math_debounce__t_1a9dfd44a0d75d471716ec021b15d5725a" kindref="member">bActualState</ref><sp/>=<sp/>pxMpbMathDebounce-&gt;<ref refid="d8/d38/struct_mpb_math_debounce__t_1ae03c2434821fa0b74a7fffe6b52f5b92" kindref="member">bNewProbablyState</ref>;</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pxMpbMathDebounce-&gt;<ref refid="d8/d38/struct_mpb_math_debounce__t_1ae03c2434821fa0b74a7fffe6b52f5b92" kindref="member">bNewProbablyState</ref><sp/>=<sp/>bActualState;</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pxMpbMathDebounce-&gt;<ref refid="d8/d38/struct_mpb_math_debounce__t_1a48b0292c9e5fb70c01d50317b2c72cd9" kindref="member">ulCount</ref><sp/>=<sp/>(<sp/>bActualState<sp/>==<sp/>eFalse<sp/>)<sp/>?<sp/>pxMpbMathDebounce-&gt;<ref refid="d8/d38/struct_mpb_math_debounce__t_1a9f4a39506f550cff2e04187eee990ba4" kindref="member">ulOffCount</ref><sp/>:<sp/>pxMpbMathDebounce-&gt;<ref refid="d8/d38/struct_mpb_math_debounce__t_1a1efe957574b7a82c8d332db044e595c0" kindref="member">ulOnCount</ref>;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*pbFinalState<sp/>=<sp/>pxMpbMathDebounce-&gt;<ref refid="d8/d38/struct_mpb_math_debounce__t_1a9dfd44a0d75d471716ec021b15d5725a" kindref="member">bActualState</ref>;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>eMpbError;</highlight></codeline>
+<codeline lineno="94"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="Sources/mpbMathDebounce.c"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,229 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_cmock_8c" xml:lang="en-US">
+<title>UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock.c File Reference</title>
+<indexterm><primary>UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock.c</primary></indexterm>
+<programlisting>#include &quot;unity.h&quot;
+#include &quot;cmock.h&quot;
+</programlisting>Include dependency graph for cmock.c:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../df/d3a/cmock_8c__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="_cmock_8c_1a10e196958508ba64609382b16c56f5bc">CMock_Guts_Buffer</link>   ((unsigned char*)CMock_Guts_BufferArray)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041">CMOCK_MEM_INDEX_TYPE</link> <link linkend="_cmock_8c_1a70143d967ec301bbce3efb6b59a90e5e">CMock_Guts_MemNew</link> (<link linkend="_cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041">CMOCK_MEM_INDEX_TYPE</link> size)</para>
+</listitem>
+            <listitem><para><link linkend="_cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041">CMOCK_MEM_INDEX_TYPE</link> <link linkend="_cmock_8c_1a15d51ffb4affbacc256f9569f46b7371">CMock_Guts_MemChain</link> (<link linkend="_cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041">CMOCK_MEM_INDEX_TYPE</link> root_index, <link linkend="_cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041">CMOCK_MEM_INDEX_TYPE</link> obj_index)</para>
+</listitem>
+            <listitem><para><link linkend="_cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041">CMOCK_MEM_INDEX_TYPE</link> <link linkend="_cmock_8c_1a24a222978890f2650776c474a757ced9">CMock_Guts_MemNext</link> (<link linkend="_cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041">CMOCK_MEM_INDEX_TYPE</link> previous_item_index)</para>
+</listitem>
+            <listitem><para><link linkend="_cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041">CMOCK_MEM_INDEX_TYPE</link> <link linkend="_cmock_8c_1a7a60479d86c12fa24499c516365f5c71">CMock_Guts_MemEndOfChain</link> (<link linkend="_cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041">CMOCK_MEM_INDEX_TYPE</link> root_index)</para>
+</listitem>
+            <listitem><para>void * <link linkend="_cmock_8c_1a5dcac496617e39c664d8921903953d64">CMock_Guts_GetAddressFor</link> (<link linkend="_cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041">CMOCK_MEM_INDEX_TYPE</link> index)</para>
+</listitem>
+            <listitem><para><link linkend="_cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041">CMOCK_MEM_INDEX_TYPE</link> <link linkend="_cmock_8c_1a6fa3015b0f3c2ffeb3f5063fbef14278">CMock_Guts_MemBytesFree</link> (void)</para>
+</listitem>
+            <listitem><para><link linkend="_cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041">CMOCK_MEM_INDEX_TYPE</link> <link linkend="_cmock_8c_1aba717672271fef7bf017b85053c00c58">CMock_Guts_MemBytesUsed</link> (void)</para>
+</listitem>
+            <listitem><para>void <link linkend="_cmock_8c_1a348bc07d37efc57ac52128cd99ee7c72">CMock_Guts_MemFreeAll</link> (void)</para>
+</listitem>
+            <listitem><para>void <link linkend="_cmock_8c_1aa8a20fa157f61e9e1379170847287cc9">CMock_Guts_MemFreeFinal</link> (void)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para>const char * <link linkend="_cmock_8c_1ac00a03c1e594c9e1d9ff3ce4873642a0">CMockStringOutOfMemory</link> = &quot;CMock has run out of memory. Please allocate more.&quot;</para>
+</listitem>
+            <listitem><para>const char * <link linkend="_cmock_8c_1a797fd9415cd8d0655c68e007f845d020">CMockStringCalledMore</link> = &quot;Called more times than expected.&quot;</para>
+</listitem>
+            <listitem><para>const char * <link linkend="_cmock_8c_1a6ac9ca0995f1b325857c4bdb5a898102">CMockStringCalledLess</link> = &quot;Called less times than expected.&quot;</para>
+</listitem>
+            <listitem><para>const char * <link linkend="_cmock_8c_1a16b2f46d690a118d6ca14abb35543481">CMockStringCalledEarly</link> = &quot;Called earlier than expected.&quot;</para>
+</listitem>
+            <listitem><para>const char * <link linkend="_cmock_8c_1aed2166361988847f5f63d13994f5de40">CMockStringCalledLate</link> = &quot;Called later than expected.&quot;</para>
+</listitem>
+            <listitem><para>const char * <link linkend="_cmock_8c_1acf9d38dd7d2872139cc1bc1bf1b19e70">CMockStringCallOrder</link> = &quot;Called out of order.&quot;</para>
+</listitem>
+            <listitem><para>const char * <link linkend="_cmock_8c_1aa04f7531196fa48793136231a0468971">CMockStringIgnPreExp</link> = &quot;IgnoreArg called before Expect.&quot;</para>
+</listitem>
+            <listitem><para>const char * <link linkend="_cmock_8c_1a784237bba66acd6aa8f05424ab203e50">CMockStringPtrPreExp</link> = &quot;ReturnThruPtr called before Expect.&quot;</para>
+</listitem>
+            <listitem><para>const char * <link linkend="_cmock_8c_1af6f94581b839661ce82bfd01f1c937a1">CMockStringPtrIsNULL</link> = &quot;Pointer is NULL.&quot;</para>
+</listitem>
+            <listitem><para>const char * <link linkend="_cmock_8c_1aeda885bf7d07126d0e1638f265d7514c">CMockStringExpNULL</link> = &quot;Expected NULL.&quot;</para>
+</listitem>
+            <listitem><para>const char * <link linkend="_cmock_8c_1a89c88e09ebf68dff96e71a417b8733a5">CMockStringMismatch</link> = &quot;Function called with unexpected argument value.&quot;</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Macro Definition Documentation</title>
+<anchor xml:id="_cmock_8c_1a10e196958508ba64609382b16c56f5bc"/>    <section>
+    <title>CMock_Guts_Buffer</title>
+<indexterm><primary>CMock_Guts_Buffer</primary><secondary>cmock.c</secondary></indexterm>
+<indexterm><primary>cmock.c</primary><secondary>CMock_Guts_Buffer</secondary></indexterm>
+<para><computeroutput>#define CMock_Guts_Buffer   ((unsigned char*)CMock_Guts_BufferArray)</computeroutput></para><para>
+Definition at line 30 of file cmock.c.</para>
+</section>
+</section>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_cmock_8c_1a5dcac496617e39c664d8921903953d64"/>    <section>
+    <title>CMock_Guts_GetAddressFor()</title>
+<indexterm><primary>CMock_Guts_GetAddressFor</primary><secondary>cmock.c</secondary></indexterm>
+<indexterm><primary>cmock.c</primary><secondary>CMock_Guts_GetAddressFor</secondary></indexterm>
+<para><computeroutput>void* CMock_Guts_GetAddressFor (<link linkend="_cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041">CMOCK_MEM_INDEX_TYPE</link> index)</computeroutput></para><para>
+Definition at line 160 of file cmock.c.</para>
+    </section><anchor xml:id="_cmock_8c_1a6fa3015b0f3c2ffeb3f5063fbef14278"/>    <section>
+    <title>CMock_Guts_MemBytesFree()</title>
+<indexterm><primary>CMock_Guts_MemBytesFree</primary><secondary>cmock.c</secondary></indexterm>
+<indexterm><primary>cmock.c</primary><secondary>CMock_Guts_MemBytesFree</secondary></indexterm>
+<para><computeroutput><link linkend="_cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041">CMOCK_MEM_INDEX_TYPE</link> CMock_Guts_MemBytesFree (void )</computeroutput></para><para>
+Definition at line 175 of file cmock.c.</para>
+    </section><anchor xml:id="_cmock_8c_1aba717672271fef7bf017b85053c00c58"/>    <section>
+    <title>CMock_Guts_MemBytesUsed()</title>
+<indexterm><primary>CMock_Guts_MemBytesUsed</primary><secondary>cmock.c</secondary></indexterm>
+<indexterm><primary>cmock.c</primary><secondary>CMock_Guts_MemBytesUsed</secondary></indexterm>
+<para><computeroutput><link linkend="_cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041">CMOCK_MEM_INDEX_TYPE</link> CMock_Guts_MemBytesUsed (void )</computeroutput></para><para>
+Definition at line 183 of file cmock.c.</para>
+    </section><anchor xml:id="_cmock_8c_1a15d51ffb4affbacc256f9569f46b7371"/>    <section>
+    <title>CMock_Guts_MemChain()</title>
+<indexterm><primary>CMock_Guts_MemChain</primary><secondary>cmock.c</secondary></indexterm>
+<indexterm><primary>cmock.c</primary><secondary>CMock_Guts_MemChain</secondary></indexterm>
+<para><computeroutput><link linkend="_cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041">CMOCK_MEM_INDEX_TYPE</link> CMock_Guts_MemChain (<link linkend="_cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041">CMOCK_MEM_INDEX_TYPE</link> root_index, <link linkend="_cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041">CMOCK_MEM_INDEX_TYPE</link> obj_index)</computeroutput></para><para>
+Definition at line 76 of file cmock.c.</para>
+    </section><anchor xml:id="_cmock_8c_1a7a60479d86c12fa24499c516365f5c71"/>    <section>
+    <title>CMock_Guts_MemEndOfChain()</title>
+<indexterm><primary>CMock_Guts_MemEndOfChain</primary><secondary>cmock.c</secondary></indexterm>
+<indexterm><primary>cmock.c</primary><secondary>CMock_Guts_MemEndOfChain</secondary></indexterm>
+<para><computeroutput><link linkend="_cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041">CMOCK_MEM_INDEX_TYPE</link> CMock_Guts_MemEndOfChain (<link linkend="_cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041">CMOCK_MEM_INDEX_TYPE</link> root_index)</computeroutput></para><para>
+Definition at line 142 of file cmock.c.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../d0/d6a/cmock_8c_a7a60479d86c12fa24499c516365f5c71_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_cmock_8c_1a348bc07d37efc57ac52128cd99ee7c72"/>    <section>
+    <title>CMock_Guts_MemFreeAll()</title>
+<indexterm><primary>CMock_Guts_MemFreeAll</primary><secondary>cmock.c</secondary></indexterm>
+<indexterm><primary>cmock.c</primary><secondary>CMock_Guts_MemFreeAll</secondary></indexterm>
+<para><computeroutput>void CMock_Guts_MemFreeAll (void )</computeroutput></para><para>
+Definition at line 191 of file cmock.c.</para>
+    </section><anchor xml:id="_cmock_8c_1aa8a20fa157f61e9e1379170847287cc9"/>    <section>
+    <title>CMock_Guts_MemFreeFinal()</title>
+<indexterm><primary>CMock_Guts_MemFreeFinal</primary><secondary>cmock.c</secondary></indexterm>
+<indexterm><primary>cmock.c</primary><secondary>CMock_Guts_MemFreeFinal</secondary></indexterm>
+<para><computeroutput>void CMock_Guts_MemFreeFinal (void )</computeroutput></para><para>
+Definition at line 199 of file cmock.c.</para>
+    </section><anchor xml:id="_cmock_8c_1a70143d967ec301bbce3efb6b59a90e5e"/>    <section>
+    <title>CMock_Guts_MemNew()</title>
+<indexterm><primary>CMock_Guts_MemNew</primary><secondary>cmock.c</secondary></indexterm>
+<indexterm><primary>cmock.c</primary><secondary>CMock_Guts_MemNew</secondary></indexterm>
+<para><computeroutput><link linkend="_cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041">CMOCK_MEM_INDEX_TYPE</link> CMock_Guts_MemNew (<link linkend="_cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041">CMOCK_MEM_INDEX_TYPE</link> size)</computeroutput></para><para>
+Definition at line 38 of file cmock.c.</para>
+    </section><anchor xml:id="_cmock_8c_1a24a222978890f2650776c474a757ced9"/>    <section>
+    <title>CMock_Guts_MemNext()</title>
+<indexterm><primary>CMock_Guts_MemNext</primary><secondary>cmock.c</secondary></indexterm>
+<indexterm><primary>cmock.c</primary><secondary>CMock_Guts_MemNext</secondary></indexterm>
+<para><computeroutput><link linkend="_cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041">CMOCK_MEM_INDEX_TYPE</link> CMock_Guts_MemNext (<link linkend="_cmock_8h_1aaf866fd7ef9bf9fe6f36d2d4e6abe041">CMOCK_MEM_INDEX_TYPE</link> previous_item_index)</computeroutput></para><para>
+Definition at line 120 of file cmock.c.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../d0/d6a/cmock_8c_a24a222978890f2650776c474a757ced9_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+<section>
+<title>Variable Documentation</title>
+<anchor xml:id="_cmock_8c_1a16b2f46d690a118d6ca14abb35543481"/>    <section>
+    <title>CMockStringCalledEarly</title>
+<indexterm><primary>CMockStringCalledEarly</primary><secondary>cmock.c</secondary></indexterm>
+<indexterm><primary>cmock.c</primary><secondary>CMockStringCalledEarly</secondary></indexterm>
+<para><computeroutput>const char* CMockStringCalledEarly = &quot;Called earlier than expected.&quot;</computeroutput></para><para>
+Definition at line 14 of file cmock.c.</para>
+    </section><anchor xml:id="_cmock_8c_1aed2166361988847f5f63d13994f5de40"/>    <section>
+    <title>CMockStringCalledLate</title>
+<indexterm><primary>CMockStringCalledLate</primary><secondary>cmock.c</secondary></indexterm>
+<indexterm><primary>cmock.c</primary><secondary>CMockStringCalledLate</secondary></indexterm>
+<para><computeroutput>const char* CMockStringCalledLate = &quot;Called later than expected.&quot;</computeroutput></para><para>
+Definition at line 15 of file cmock.c.</para>
+    </section><anchor xml:id="_cmock_8c_1a6ac9ca0995f1b325857c4bdb5a898102"/>    <section>
+    <title>CMockStringCalledLess</title>
+<indexterm><primary>CMockStringCalledLess</primary><secondary>cmock.c</secondary></indexterm>
+<indexterm><primary>cmock.c</primary><secondary>CMockStringCalledLess</secondary></indexterm>
+<para><computeroutput>const char* CMockStringCalledLess = &quot;Called less times than expected.&quot;</computeroutput></para><para>
+Definition at line 13 of file cmock.c.</para>
+    </section><anchor xml:id="_cmock_8c_1a797fd9415cd8d0655c68e007f845d020"/>    <section>
+    <title>CMockStringCalledMore</title>
+<indexterm><primary>CMockStringCalledMore</primary><secondary>cmock.c</secondary></indexterm>
+<indexterm><primary>cmock.c</primary><secondary>CMockStringCalledMore</secondary></indexterm>
+<para><computeroutput>const char* CMockStringCalledMore = &quot;Called more times than expected.&quot;</computeroutput></para><para>
+Definition at line 12 of file cmock.c.</para>
+    </section><anchor xml:id="_cmock_8c_1acf9d38dd7d2872139cc1bc1bf1b19e70"/>    <section>
+    <title>CMockStringCallOrder</title>
+<indexterm><primary>CMockStringCallOrder</primary><secondary>cmock.c</secondary></indexterm>
+<indexterm><primary>cmock.c</primary><secondary>CMockStringCallOrder</secondary></indexterm>
+<para><computeroutput>const char* CMockStringCallOrder = &quot;Called out of order.&quot;</computeroutput></para><para>
+Definition at line 16 of file cmock.c.</para>
+    </section><anchor xml:id="_cmock_8c_1aeda885bf7d07126d0e1638f265d7514c"/>    <section>
+    <title>CMockStringExpNULL</title>
+<indexterm><primary>CMockStringExpNULL</primary><secondary>cmock.c</secondary></indexterm>
+<indexterm><primary>cmock.c</primary><secondary>CMockStringExpNULL</secondary></indexterm>
+<para><computeroutput>const char* CMockStringExpNULL = &quot;Expected NULL.&quot;</computeroutput></para><para>
+Definition at line 20 of file cmock.c.</para>
+    </section><anchor xml:id="_cmock_8c_1aa04f7531196fa48793136231a0468971"/>    <section>
+    <title>CMockStringIgnPreExp</title>
+<indexterm><primary>CMockStringIgnPreExp</primary><secondary>cmock.c</secondary></indexterm>
+<indexterm><primary>cmock.c</primary><secondary>CMockStringIgnPreExp</secondary></indexterm>
+<para><computeroutput>const char* CMockStringIgnPreExp = &quot;IgnoreArg called before Expect.&quot;</computeroutput></para><para>
+Definition at line 17 of file cmock.c.</para>
+    </section><anchor xml:id="_cmock_8c_1a89c88e09ebf68dff96e71a417b8733a5"/>    <section>
+    <title>CMockStringMismatch</title>
+<indexterm><primary>CMockStringMismatch</primary><secondary>cmock.c</secondary></indexterm>
+<indexterm><primary>cmock.c</primary><secondary>CMockStringMismatch</secondary></indexterm>
+<para><computeroutput>const char* CMockStringMismatch = &quot;Function called with unexpected argument value.&quot;</computeroutput></para><para>
+Definition at line 21 of file cmock.c.</para>
+    </section><anchor xml:id="_cmock_8c_1ac00a03c1e594c9e1d9ff3ce4873642a0"/>    <section>
+    <title>CMockStringOutOfMemory</title>
+<indexterm><primary>CMockStringOutOfMemory</primary><secondary>cmock.c</secondary></indexterm>
+<indexterm><primary>cmock.c</primary><secondary>CMockStringOutOfMemory</secondary></indexterm>
+<para><computeroutput>const char* CMockStringOutOfMemory = &quot;CMock has run out of memory. Please allocate more.&quot;</computeroutput></para><para>
+Definition at line 11 of file cmock.c.</para>
+    </section><anchor xml:id="_cmock_8c_1af6f94581b839661ce82bfd01f1c937a1"/>    <section>
+    <title>CMockStringPtrIsNULL</title>
+<indexterm><primary>CMockStringPtrIsNULL</primary><secondary>cmock.c</secondary></indexterm>
+<indexterm><primary>cmock.c</primary><secondary>CMockStringPtrIsNULL</secondary></indexterm>
+<para><computeroutput>const char* CMockStringPtrIsNULL = &quot;Pointer is NULL.&quot;</computeroutput></para><para>
+Definition at line 19 of file cmock.c.</para>
+    </section><anchor xml:id="_cmock_8c_1a784237bba66acd6aa8f05424ab203e50"/>    <section>
+    <title>CMockStringPtrPreExp</title>
+<indexterm><primary>CMockStringPtrPreExp</primary><secondary>cmock.c</secondary></indexterm>
+<indexterm><primary>cmock.c</primary><secondary>CMockStringPtrPreExp</secondary></indexterm>
+<para><computeroutput>const char* CMockStringPtrPreExp = &quot;ReturnThruPtr called before Expect.&quot;</computeroutput></para><para>
+Definition at line 18 of file cmock.c.</para>
+</section>
+</section>
+</section>

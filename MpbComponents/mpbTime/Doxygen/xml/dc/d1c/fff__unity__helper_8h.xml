@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="dc/d1c/fff__unity__helper_8h" kind="file" language="C++">
+    <compoundname>fff_unity_helper.h</compoundname>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="dc/d1c/fff__unity__helper_8h_1a77e70db5c9f2a7482308e7dae59f9182" prot="public" static="no">
+        <name>TEST_ASSERT_CALLED_TIMES</name>
+        <param><defname>times_</defname></param>
+        <param><defname>function_</defname></param>
+        <initializer>    <ref refid="d6/db4/unity_8h_1a967e59fb3e825d8341c41cb954e890c5" kindref="member">TEST_ASSERT_EQUAL_MESSAGE</ref>(times_,                                       \
+        function_ ## _fake.call_count,                                      \
+        &quot;Function &quot; #function_ &quot; called the incorrect number of times.&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/src/fff_unity_helper.h" line="11" column="9" bodyfile="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/src/fff_unity_helper.h" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="dc/d1c/fff__unity__helper_8h_1a700b2bf57333b08698a494792c335bd1" prot="public" static="no">
+        <name>TEST_ASSERT_CALLED</name>
+        <param><defname>function_</defname></param>
+        <initializer><ref refid="dc/d1c/fff__unity__helper_8h_1a77e70db5c9f2a7482308e7dae59f9182" kindref="member">TEST_ASSERT_CALLED_TIMES</ref>(1, function_)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/src/fff_unity_helper.h" line="18" column="9" bodyfile="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/src/fff_unity_helper.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="dc/d1c/fff__unity__helper_8h_1affc90aa528332c5c767fd7bd7542d525" prot="public" static="no">
+        <name>TEST_ASSERT_NOT_CALLED</name>
+        <param><defname>function_</defname></param>
+        <initializer><ref refid="dc/d1c/fff__unity__helper_8h_1a77e70db5c9f2a7482308e7dae59f9182" kindref="member">TEST_ASSERT_CALLED_TIMES</ref>(0, function_)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/src/fff_unity_helper.h" line="23" column="9" bodyfile="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/src/fff_unity_helper.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="dc/d1c/fff__unity__helper_8h_1af21f27d62b55519b5f72bb32724df80d" prot="public" static="no">
+        <name>TEST_ASSERT_CALLED_IN_ORDER</name>
+        <param><defname>order_</defname></param>
+        <param><defname>function_</defname></param>
+        <initializer>    <ref refid="d6/db4/unity_8h_1aca40116d00f8dfa406b26a51079f679c" kindref="member">TEST_ASSERT_EQUAL_PTR_MESSAGE</ref>((void *) function_,                       \
+        fff.call_history[order_],                                           \
+        &quot;Function &quot; #function_ &quot; not called in order &quot; #order_ )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/src/fff_unity_helper.h" line="28" column="9" bodyfile="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/src/fff_unity_helper.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>fff_unity_helper_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>fff_unity_helper_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/><sp/><sp/><sp/>FFF<sp/>helper<sp/>macros<sp/>for<sp/>Unity.</highlight></codeline>
+<codeline lineno="6"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/><sp/><sp/><sp/>Fail<sp/>if<sp/>the<sp/>function<sp/>was<sp/>not<sp/>called<sp/>the<sp/>expected<sp/>number<sp/>of<sp/>times.</highlight></codeline>
+<codeline lineno="10"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11" refid="dc/d1c/fff__unity__helper_8h_1a77e70db5c9f2a7482308e7dae59f9182" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TEST_ASSERT_CALLED_TIMES(times_,<sp/>function_)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="12"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>TEST_ASSERT_EQUAL_MESSAGE(times_,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="13"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>function_<sp/>##<sp/>_fake.call_count,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="14"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;Function<sp/>&quot;</highlight><highlight class="normal"><sp/>#function_<sp/>&quot;<sp/>called<sp/>the<sp/>incorrect<sp/>number<sp/>of<sp/>times.&quot;)</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/><sp/><sp/><sp/>Fail<sp/>if<sp/>the<sp/>function<sp/>was<sp/>not<sp/>called<sp/>exactly<sp/>once.</highlight></codeline>
+<codeline lineno="17"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18" refid="dc/d1c/fff__unity__helper_8h_1a700b2bf57333b08698a494792c335bd1" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TEST_ASSERT_CALLED(function_)<sp/>TEST_ASSERT_CALLED_TIMES(1,<sp/>function_)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/><sp/><sp/><sp/>Fail<sp/>if<sp/>the<sp/>function<sp/>was<sp/>called<sp/>1<sp/>or<sp/>more<sp/>times.</highlight></codeline>
+<codeline lineno="22"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23" refid="dc/d1c/fff__unity__helper_8h_1affc90aa528332c5c767fd7bd7542d525" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TEST_ASSERT_NOT_CALLED(function_)<sp/>TEST_ASSERT_CALLED_TIMES(0,<sp/>function_)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/><sp/><sp/><sp/>Fail<sp/>if<sp/>the<sp/>function<sp/>was<sp/>not<sp/>called<sp/>in<sp/>this<sp/>particular<sp/>order.</highlight></codeline>
+<codeline lineno="27"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28" refid="dc/d1c/fff__unity__helper_8h_1af21f27d62b55519b5f72bb32724df80d" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TEST_ASSERT_CALLED_IN_ORDER(order_,<sp/>function_)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="29"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>TEST_ASSERT_EQUAL_PTR_MESSAGE((void<sp/>*)<sp/>function_,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="30"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fff.call_history[order_],<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="31"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;Function<sp/>&quot;</highlight><highlight class="normal"><sp/>#function_<sp/>&quot;<sp/>not<sp/>called<sp/>in<sp/>order<sp/>&quot;<sp/>#order_<sp/>)</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/src/fff_unity_helper.h"/>
+  </compounddef>
+</doxygen>

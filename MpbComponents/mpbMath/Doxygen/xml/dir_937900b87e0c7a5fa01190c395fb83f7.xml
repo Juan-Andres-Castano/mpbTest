@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="dir_937900b87e0c7a5fa01190c395fb83f7" kind="dir">
+    <compoundname>Sources</compoundname>
+    <innerfile refid="da/d40/mpb_math_debounce_8c">mpbMathDebounce.c</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Sources/"/>
+  </compounddef>
+</doxygen>

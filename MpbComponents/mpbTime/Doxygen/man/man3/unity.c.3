@@ -1,0 +1,355 @@
+.TH "UnitTestFramework/vendor/ceedling/vendor/unity/src/unity.c" 3 "Thu Nov 18 2021" "mpbTime" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+UnitTestFramework/vendor/ceedling/vendor/unity/src/unity.c
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'unity\&.h'\fP
+.br
+\fC#include <stddef\&.h>\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBUNITY_INCLUDE_SETUP_STUBS\fP"
+.br
+.ti -1c
+.RI "#define \fBUNITY_FAIL_AND_BAIL\fP   { Unity\&.CurrentTestFailed  = 1; \fBUNITY_OUTPUT_FLUSH\fP(); \fBTEST_ABORT\fP(); }"
+.br
+.ti -1c
+.RI "#define \fBUNITY_IGNORE_AND_BAIL\fP   { Unity\&.CurrentTestIgnored = 1; \fBUNITY_OUTPUT_FLUSH\fP(); \fBTEST_ABORT\fP(); }"
+.br
+.ti -1c
+.RI "#define \fBRETURN_IF_FAIL_OR_IGNORE\fP   if (Unity\&.CurrentTestFailed || Unity\&.CurrentTestIgnored) return"
+.br
+.ti -1c
+.RI "#define \fBUnityPrintPointlessAndBail\fP()"
+.br
+.ti -1c
+.RI "#define \fBUNITY_FLOAT_OR_DOUBLE_WITHIN\fP(delta,  expected,  actual,  diff)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_NAN_CHECK\fP   \fBisnan\fP(expected) && \fBisnan\fP(actual)"
+.br
+.ti -1c
+.RI "#define \fBUNITY_PRINT_EXPECTED_AND_ACTUAL_FLOAT\fP(expected,  actual)"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBUnityPrint\fP (const char *string)"
+.br
+.ti -1c
+.RI "void \fBUnityPrintLen\fP (const char *string, const \fBUNITY_UINT32\fP length)"
+.br
+.ti -1c
+.RI "void \fBUnityPrintNumberByStyle\fP (const \fBUNITY_INT\fP number, const \fBUNITY_DISPLAY_STYLE_T\fP style)"
+.br
+.ti -1c
+.RI "void \fBUnityPrintNumber\fP (const \fBUNITY_INT\fP number_to_print)"
+.br
+.ti -1c
+.RI "void \fBUnityPrintNumberUnsigned\fP (const \fBUNITY_UINT\fP number)"
+.br
+.ti -1c
+.RI "void \fBUnityPrintNumberHex\fP (const \fBUNITY_UINT\fP number, const char nibbles_to_print)"
+.br
+.ti -1c
+.RI "void \fBUnityPrintMask\fP (const \fBUNITY_UINT\fP mask, const \fBUNITY_UINT\fP number)"
+.br
+.ti -1c
+.RI "void \fBUnityPrintFloat\fP (const \fBUNITY_DOUBLE\fP input_number)"
+.br
+.ti -1c
+.RI "void \fBUnityConcludeTest\fP (void)"
+.br
+.ti -1c
+.RI "void \fBUnityAssertBits\fP (const \fBUNITY_INT\fP mask, const \fBUNITY_INT\fP expected, const \fBUNITY_INT\fP actual, const char *msg, const \fBUNITY_LINE_TYPE\fP lineNumber)"
+.br
+.ti -1c
+.RI "void \fBUnityAssertEqualNumber\fP (const \fBUNITY_INT\fP expected, const \fBUNITY_INT\fP actual, const char *msg, const \fBUNITY_LINE_TYPE\fP lineNumber, const \fBUNITY_DISPLAY_STYLE_T\fP style)"
+.br
+.ti -1c
+.RI "void \fBUnityAssertGreaterOrLessOrEqualNumber\fP (const \fBUNITY_INT\fP threshold, const \fBUNITY_INT\fP actual, const \fBUNITY_COMPARISON_T\fP compare, const char *msg, const \fBUNITY_LINE_TYPE\fP lineNumber, const \fBUNITY_DISPLAY_STYLE_T\fP style)"
+.br
+.ti -1c
+.RI "void \fBUnityAssertEqualIntArray\fP (\fBUNITY_INTERNAL_PTR\fP expected, \fBUNITY_INTERNAL_PTR\fP actual, const \fBUNITY_UINT32\fP num_elements, const char *msg, const \fBUNITY_LINE_TYPE\fP lineNumber, const \fBUNITY_DISPLAY_STYLE_T\fP style, const \fBUNITY_FLAGS_T\fP flags)"
+.br
+.ti -1c
+.RI "void \fBUnityAssertEqualFloatArray\fP (\fBUNITY_PTR_ATTRIBUTE\fP const \fBUNITY_FLOAT\fP *expected, \fBUNITY_PTR_ATTRIBUTE\fP const \fBUNITY_FLOAT\fP *actual, const \fBUNITY_UINT32\fP num_elements, const char *msg, const \fBUNITY_LINE_TYPE\fP lineNumber, const \fBUNITY_FLAGS_T\fP flags)"
+.br
+.ti -1c
+.RI "void \fBUnityAssertFloatsWithin\fP (const \fBUNITY_FLOAT\fP delta, const \fBUNITY_FLOAT\fP expected, const \fBUNITY_FLOAT\fP actual, const char *msg, const \fBUNITY_LINE_TYPE\fP lineNumber)"
+.br
+.ti -1c
+.RI "void \fBUnityAssertFloatSpecial\fP (const \fBUNITY_FLOAT\fP actual, const char *msg, const \fBUNITY_LINE_TYPE\fP lineNumber, const \fBUNITY_FLOAT_TRAIT_T\fP style)"
+.br
+.ti -1c
+.RI "void \fBUnityAssertNumbersWithin\fP (const \fBUNITY_UINT\fP delta, const \fBUNITY_INT\fP expected, const \fBUNITY_INT\fP actual, const char *msg, const \fBUNITY_LINE_TYPE\fP lineNumber, const \fBUNITY_DISPLAY_STYLE_T\fP style)"
+.br
+.ti -1c
+.RI "void \fBUnityAssertEqualString\fP (const char *expected, const char *actual, const char *msg, const \fBUNITY_LINE_TYPE\fP lineNumber)"
+.br
+.ti -1c
+.RI "void \fBUnityAssertEqualStringLen\fP (const char *expected, const char *actual, const \fBUNITY_UINT32\fP length, const char *msg, const \fBUNITY_LINE_TYPE\fP lineNumber)"
+.br
+.ti -1c
+.RI "void \fBUnityAssertEqualStringArray\fP (\fBUNITY_INTERNAL_PTR\fP expected, const char **actual, const \fBUNITY_UINT32\fP num_elements, const char *msg, const \fBUNITY_LINE_TYPE\fP lineNumber, const \fBUNITY_FLAGS_T\fP flags)"
+.br
+.ti -1c
+.RI "void \fBUnityAssertEqualMemory\fP (\fBUNITY_INTERNAL_PTR\fP expected, \fBUNITY_INTERNAL_PTR\fP actual, const \fBUNITY_UINT32\fP length, const \fBUNITY_UINT32\fP num_elements, const char *msg, const \fBUNITY_LINE_TYPE\fP lineNumber, const \fBUNITY_FLAGS_T\fP flags)"
+.br
+.ti -1c
+.RI "\fBUNITY_INTERNAL_PTR\fP \fBUnityNumToPtr\fP (const \fBUNITY_INT\fP num, const \fBUNITY_UINT8\fP size)"
+.br
+.ti -1c
+.RI "\fBUNITY_INTERNAL_PTR\fP \fBUnityFloatToPtr\fP (const float num)"
+.br
+.ti -1c
+.RI "void \fBUnityFail\fP (const char *msg, const \fBUNITY_LINE_TYPE\fP line)"
+.br
+.ti -1c
+.RI "void \fBUnityIgnore\fP (const char *msg, const \fBUNITY_LINE_TYPE\fP line)"
+.br
+.ti -1c
+.RI "void \fBUnityDefaultTestRun\fP (\fBUnityTestFunction\fP Func, const char *FuncName, const int FuncLineNum)"
+.br
+.ti -1c
+.RI "void \fBUnityBegin\fP (const char *filename)"
+.br
+.ti -1c
+.RI "int \fBUnityEnd\fP (void)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "struct \fBUNITY_STORAGE_T\fP \fBUnity\fP"
+.br
+.ti -1c
+.RI "const char \fBUnityStrErrFloat\fP [] = 'Unity Floating Point Disabled'"
+.br
+.ti -1c
+.RI "const char \fBUnityStrErrDouble\fP [] = 'Unity Double Precision Disabled'"
+.br
+.ti -1c
+.RI "const char \fBUnityStrErr64\fP [] = 'Unity 64\-bit Support Disabled'"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define RETURN_IF_FAIL_OR_IGNORE   if (Unity\&.CurrentTestFailed || Unity\&.CurrentTestIgnored) return"
+
+.PP
+Definition at line 19 of file unity\&.c\&.
+.SS "#define UNITY_FAIL_AND_BAIL   { Unity\&.CurrentTestFailed  = 1; \fBUNITY_OUTPUT_FLUSH\fP(); \fBTEST_ABORT\fP(); }"
+
+.PP
+Definition at line 17 of file unity\&.c\&.
+.SS "#define UNITY_FLOAT_OR_DOUBLE_WITHIN(delta, expected, actual, diff)"
+\fBValue:\fP
+.PP
+.nf
+    if (isinf(expected) && isinf(actual) && (((expected) < 0) == ((actual) < 0))) return 1;   \
+    if (UNITY_NAN_CHECK) return 1;                                                            \
+    (diff) = (actual) - (expected);                                                           \
+    if ((diff) < 0) (diff) = -(diff);                                                         \
+    if ((delta) < 0) (delta) = -(delta);                                                      \
+    return !(isnan(diff) || isinf(diff) || ((diff) > (delta)))
+.fi
+.PP
+Definition at line 681 of file unity\&.c\&.
+.SS "#define UNITY_IGNORE_AND_BAIL   { Unity\&.CurrentTestIgnored = 1; \fBUNITY_OUTPUT_FLUSH\fP(); \fBTEST_ABORT\fP(); }"
+
+.PP
+Definition at line 18 of file unity\&.c\&.
+.SS "#define UNITY_INCLUDE_SETUP_STUBS"
+
+.PP
+Definition at line 7 of file unity\&.c\&.
+.SS "#define UNITY_NAN_CHECK   \fBisnan\fP(expected) && \fBisnan\fP(actual)"
+
+.PP
+Definition at line 690 of file unity\&.c\&.
+.SS "#define UNITY_PRINT_EXPECTED_AND_ACTUAL_FLOAT(expected, actual)"
+\fBValue:\fP
+.PP
+.nf
+  {                                                               \
+    UnityPrint(UnityStrExpected);                                 \
+    UnityPrintFloat(expected);                                    \
+    UnityPrint(UnityStrWas);                                      \
+    UnityPrintFloat(actual); }
+.fi
+.PP
+Definition at line 696 of file unity\&.c\&.
+.SS "#define UnityPrintPointlessAndBail()"
+\fBValue:\fP
+.PP
+.nf
+{                                          \
+    UnityTestResultsFailBegin(lineNumber); \
+    UnityPrint(UnityStrPointless);         \
+    UnityAddMsgIfSpecified(msg);           \
+    UNITY_FAIL_AND_BAIL; }
+.fi
+.PP
+Definition at line 594 of file unity\&.c\&.
+.SH "Function Documentation"
+.PP 
+.SS "void UnityAssertBits (const \fBUNITY_INT\fP mask, const \fBUNITY_INT\fP expected, const \fBUNITY_INT\fP actual, const char * msg, const \fBUNITY_LINE_TYPE\fP lineNumber)"
+
+.PP
+Definition at line 514 of file unity\&.c\&.
+.SS "void UnityAssertEqualFloatArray (\fBUNITY_PTR_ATTRIBUTE\fP const \fBUNITY_FLOAT\fP * expected, \fBUNITY_PTR_ATTRIBUTE\fP const \fBUNITY_FLOAT\fP * actual, const \fBUNITY_UINT32\fP num_elements, const char * msg, const \fBUNITY_LINE_TYPE\fP lineNumber, const \fBUNITY_FLAGS_T\fP flags)"
+
+.PP
+Definition at line 713 of file unity\&.c\&.
+.SS "void UnityAssertEqualIntArray (\fBUNITY_INTERNAL_PTR\fP expected, \fBUNITY_INTERNAL_PTR\fP actual, const \fBUNITY_UINT32\fP num_elements, const char * msg, const \fBUNITY_LINE_TYPE\fP lineNumber, const \fBUNITY_DISPLAY_STYLE_T\fP style, const \fBUNITY_FLAGS_T\fP flags)"
+
+.PP
+Definition at line 602 of file unity\&.c\&.
+.SS "void UnityAssertEqualMemory (\fBUNITY_INTERNAL_PTR\fP expected, \fBUNITY_INTERNAL_PTR\fP actual, const \fBUNITY_UINT32\fP length, const \fBUNITY_UINT32\fP num_elements, const char * msg, const \fBUNITY_LINE_TYPE\fP lineNumber, const \fBUNITY_FLAGS_T\fP flags)"
+
+.PP
+Definition at line 1163 of file unity\&.c\&.
+.SS "void UnityAssertEqualNumber (const \fBUNITY_INT\fP expected, const \fBUNITY_INT\fP actual, const char * msg, const \fBUNITY_LINE_TYPE\fP lineNumber, const \fBUNITY_DISPLAY_STYLE_T\fP style)"
+
+.PP
+Definition at line 535 of file unity\&.c\&.
+.SS "void UnityAssertEqualString (const char * expected, const char * actual, const char * msg, const \fBUNITY_LINE_TYPE\fP lineNumber)"
+
+.PP
+Definition at line 1005 of file unity\&.c\&.
+.SS "void UnityAssertEqualStringArray (\fBUNITY_INTERNAL_PTR\fP expected, const char ** actual, const \fBUNITY_UINT32\fP num_elements, const char * msg, const \fBUNITY_LINE_TYPE\fP lineNumber, const \fBUNITY_FLAGS_T\fP flags)"
+
+.PP
+Definition at line 1084 of file unity\&.c\&.
+.SS "void UnityAssertEqualStringLen (const char * expected, const char * actual, const \fBUNITY_UINT32\fP length, const char * msg, const \fBUNITY_LINE_TYPE\fP lineNumber)"
+
+.PP
+Definition at line 1044 of file unity\&.c\&.
+.SS "void UnityAssertFloatSpecial (const \fBUNITY_FLOAT\fP actual, const char * msg, const \fBUNITY_LINE_TYPE\fP lineNumber, const \fBUNITY_FLOAT_TRAIT_T\fP style)"
+
+.PP
+Definition at line 774 of file unity\&.c\&.
+.SS "void UnityAssertFloatsWithin (const \fBUNITY_FLOAT\fP delta, const \fBUNITY_FLOAT\fP expected, const \fBUNITY_FLOAT\fP actual, const char * msg, const \fBUNITY_LINE_TYPE\fP lineNumber)"
+
+.PP
+Definition at line 755 of file unity\&.c\&.
+.SS "void UnityAssertGreaterOrLessOrEqualNumber (const \fBUNITY_INT\fP threshold, const \fBUNITY_INT\fP actual, const \fBUNITY_COMPARISON_T\fP compare, const char * msg, const \fBUNITY_LINE_TYPE\fP lineNumber, const \fBUNITY_DISPLAY_STYLE_T\fP style)"
+
+.PP
+Definition at line 556 of file unity\&.c\&.
+.SS "void UnityAssertNumbersWithin (const \fBUNITY_UINT\fP delta, const \fBUNITY_INT\fP expected, const \fBUNITY_INT\fP actual, const char * msg, const \fBUNITY_LINE_TYPE\fP lineNumber, const \fBUNITY_DISPLAY_STYLE_T\fP style)"
+
+.PP
+Definition at line 966 of file unity\&.c\&.
+.SS "void UnityBegin (const char * filename)"
+
+.PP
+Definition at line 1350 of file unity\&.c\&.
+.SS "void UnityConcludeTest (void)"
+
+.PP
+Definition at line 376 of file unity\&.c\&.
+.SS "void UnityDefaultTestRun (\fBUnityTestFunction\fP Func, const char * FuncName, const int FuncLineNum)"
+
+.PP
+Definition at line 1331 of file unity\&.c\&.
+.SS "int UnityEnd (void)"
+
+.PP
+Definition at line 1367 of file unity\&.c\&.
+.SS "void UnityFail (const char * msg, const \fBUNITY_LINE_TYPE\fP line)"
+
+.PP
+Definition at line 1281 of file unity\&.c\&.
+.SS "\fBUNITY_INTERNAL_PTR\fP UnityFloatToPtr (const float num)"
+
+.PP
+Definition at line 1262 of file unity\&.c\&.
+.SS "void UnityIgnore (const char * msg, const \fBUNITY_LINE_TYPE\fP line)"
+
+.PP
+Definition at line 1315 of file unity\&.c\&.
+.SS "\fBUNITY_INTERNAL_PTR\fP UnityNumToPtr (const \fBUNITY_INT\fP num, const \fBUNITY_UINT8\fP size)"
+
+.PP
+Definition at line 1238 of file unity\&.c\&.
+.SS "void UnityPrint (const char * string)"
+
+.PP
+Definition at line 70 of file unity\&.c\&.
+.SS "void UnityPrintFloat (const \fBUNITY_DOUBLE\fP input_number)"
+
+.PP
+Definition at line 266 of file unity\&.c\&.
+.SS "void UnityPrintLen (const char * string, const \fBUNITY_UINT32\fP length)"
+
+.PP
+Definition at line 119 of file unity\&.c\&.
+.SS "void UnityPrintMask (const \fBUNITY_UINT\fP mask, const \fBUNITY_UINT\fP number)"
+
+.PP
+Definition at line 233 of file unity\&.c\&.
+.SS "void UnityPrintNumber (const \fBUNITY_INT\fP number_to_print)"
+
+.PP
+Definition at line 176 of file unity\&.c\&.
+.SS "void UnityPrintNumberByStyle (const \fBUNITY_INT\fP number, const \fBUNITY_DISPLAY_STYLE_T\fP style)"
+
+.PP
+Definition at line 157 of file unity\&.c\&.
+.SS "void UnityPrintNumberHex (const \fBUNITY_UINT\fP number, const char nibbles_to_print)"
+
+.PP
+Definition at line 210 of file unity\&.c\&.
+.SS "void UnityPrintNumberUnsigned (const \fBUNITY_UINT\fP number)"
+
+.PP
+Definition at line 191 of file unity\&.c\&.
+.SH "Variable Documentation"
+.PP 
+.SS "float f"
+
+.PP
+Definition at line 1231 of file unity\&.c\&.
+.SS "\fBUNITY_INT16\fP i16"
+
+.PP
+Definition at line 1225 of file unity\&.c\&.
+.SS "\fBUNITY_INT32\fP i32"
+
+.PP
+Definition at line 1226 of file unity\&.c\&.
+.SS "\fBUNITY_INT8\fP i8"
+
+.PP
+Definition at line 1224 of file unity\&.c\&.
+.SS "struct \fBUNITY_STORAGE_T\fP Unity"
+
+.PP
+Definition at line 1 of file unity\&.c\&.
+.SS "const char UnityStrErr64[] = 'Unity 64\-bit Support Disabled'"
+
+.PP
+Definition at line 58 of file unity\&.c\&.
+.SS "const char UnityStrErrDouble[] = 'Unity Double Precision Disabled'"
+
+.PP
+Definition at line 57 of file unity\&.c\&.
+.SS "const char UnityStrErrFloat[] = 'Unity Floating Point Disabled'"
+
+.PP
+Definition at line 56 of file unity\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mpbTime from the source code\&.

@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_struct_c_e_x_c_e_p_t_i_o_n___f_r_a_m_e___t" xml:lang="en-US">
+<title>CEXCEPTION_FRAME_T Struct Reference</title>
+<indexterm><primary>CEXCEPTION_FRAME_T</primary></indexterm>
+<para>
+<computeroutput>#include &lt;CException.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para>jmp_buf * <link linkend="_struct_c_e_x_c_e_p_t_i_o_n___f_r_a_m_e___t_1adc84d64557dcd23d94b8f246862037b1">pFrame</link></para>
+</listitem>
+            <listitem><para><link linkend="__c_exception_8h_1a22368ec67c1c48cc2348245f47a02aef">CEXCEPTION_T</link> volatile <link linkend="_struct_c_e_x_c_e_p_t_i_o_n___f_r_a_m_e___t_1abeb797ff7f3b1485681f20e07553ea2c">Exception</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line 62 of file CException.h.</para>
+</section>
+<section>
+<title>Field Documentation</title>
+<anchor xml:id="_struct_c_e_x_c_e_p_t_i_o_n___f_r_a_m_e___t_1abeb797ff7f3b1485681f20e07553ea2c"/>    <section>
+    <title>Exception</title>
+<indexterm><primary>Exception</primary><secondary>CEXCEPTION_FRAME_T</secondary></indexterm>
+<indexterm><primary>CEXCEPTION_FRAME_T</primary><secondary>Exception</secondary></indexterm>
+<para><computeroutput><link linkend="__c_exception_8h_1a22368ec67c1c48cc2348245f47a02aef">CEXCEPTION_T</link> volatile Exception</computeroutput></para><para>
+Definition at line 64 of file CException.h.</para>
+    </section><anchor xml:id="_struct_c_e_x_c_e_p_t_i_o_n___f_r_a_m_e___t_1adc84d64557dcd23d94b8f246862037b1"/>    <section>
+    <title>pFrame</title>
+<indexterm><primary>pFrame</primary><secondary>CEXCEPTION_FRAME_T</secondary></indexterm>
+<indexterm><primary>CEXCEPTION_FRAME_T</primary><secondary>pFrame</secondary></indexterm>
+<para><computeroutput>jmp_buf* pFrame</computeroutput></para><para>
+Definition at line 63 of file CException.h.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+UnitTestFramework/vendor/ceedling/vendor/c_exception/lib/<link linkend="__c_exception_8h">CException.h</link></section>
+</section>

@@ -1,0 +1,511 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_unity_8c" xml:lang="en-US">
+<title>UnitTestFramework/vendor/ceedling/vendor/unity/src/unity.c File Reference</title>
+<indexterm><primary>UnitTestFramework/vendor/ceedling/vendor/unity/src/unity.c</primary></indexterm>
+<programlisting>#include &quot;unity.h&quot;
+#include &lt;stddef.h&gt;
+</programlisting>Include dependency graph for unity.c:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../db/d51/unity_8c__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="_unity_8c_1a9f11f285a74cf837a5281ec56a21c86b">UNITY_INCLUDE_SETUP_STUBS</link></para>
+</listitem>
+            <listitem><para>#define <link linkend="_unity_8c_1aed0078c0e6e904f5d0071cacef3d519d">UNITY_FAIL_AND_BAIL</link>   { Unity.CurrentTestFailed  = 1; <link linkend="_unity__internals_8h_1a458886b9a590fda474d4467fa40a2367">UNITY_OUTPUT_FLUSH</link>(); <link linkend="_unity__internals_8h_1a35ff53d9ad3c4ec9d611fdf04319a23b">TEST_ABORT</link>(); }</para>
+</listitem>
+            <listitem><para>#define <link linkend="_unity_8c_1a8e7615065c9272a62eede0f1e725a774">UNITY_IGNORE_AND_BAIL</link>   { Unity.CurrentTestIgnored = 1; <link linkend="_unity__internals_8h_1a458886b9a590fda474d4467fa40a2367">UNITY_OUTPUT_FLUSH</link>(); <link linkend="_unity__internals_8h_1a35ff53d9ad3c4ec9d611fdf04319a23b">TEST_ABORT</link>(); }</para>
+</listitem>
+            <listitem><para>#define <link linkend="_unity_8c_1abf9f99b384602e58874744dda3492aaa">RETURN_IF_FAIL_OR_IGNORE</link>   if (Unity.CurrentTestFailed || Unity.CurrentTestIgnored) return</para>
+</listitem>
+            <listitem><para>#define <link linkend="_unity_8c_1a3ace6280351b3aa4aa6cfca244ac5193">UnityPrintPointlessAndBail</link>()</para>
+</listitem>
+            <listitem><para>#define <link linkend="_unity_8c_1a02810feed4a9aca0b2f997854b94a01c">UNITY_FLOAT_OR_DOUBLE_WITHIN</link>(delta,  expected,  actual,  diff)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_unity_8c_1a8943c89baca5ddc88a0f88a389ef13c7">UNITY_NAN_CHECK</link>   <link linkend="_unity__internals_8h_1a57f9c20a91520ba43d7942d03bb7a314">isnan</link>(expected) &amp;&amp; <link linkend="_unity__internals_8h_1a57f9c20a91520ba43d7942d03bb7a314">isnan</link>(actual)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_unity_8c_1a8432f7429c7fcc0952eeae3658707be9">UNITY_PRINT_EXPECTED_AND_ACTUAL_FLOAT</link>(expected,  actual)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_unity_8c_1accff2eb4cfd0273e8ad62c37639d3e3c">UnityPrint</link> (const char *string)</para>
+</listitem>
+            <listitem><para>void <link linkend="_unity_8c_1a780817a15f2437360bd593c8fa7a1481">UnityPrintLen</link> (const char *string, const <link linkend="_unity__internals_8h_1a711b62bcec9cafcd46479a4832adfa55">UNITY_UINT32</link> length)</para>
+</listitem>
+            <listitem><para>void <link linkend="_unity_8c_1a83c7c7072b2f0e3cce93e56960da46e7">UnityPrintNumberByStyle</link> (const <link linkend="_unity__internals_8h_1ab304e341ff16e7076e9d06cc9c64c2a7">UNITY_INT</link> number, const <link linkend="_unity__internals_8h_1a828517387e75bc0b3ee6a99d2e0722a4">UNITY_DISPLAY_STYLE_T</link> style)</para>
+</listitem>
+            <listitem><para>void <link linkend="_unity_8c_1a644211a214ab000dcabd5582c52e0313">UnityPrintNumber</link> (const <link linkend="_unity__internals_8h_1ab304e341ff16e7076e9d06cc9c64c2a7">UNITY_INT</link> number_to_print)</para>
+</listitem>
+            <listitem><para>void <link linkend="_unity_8c_1a3ef388786e9a8e769d13af2601b592dc">UnityPrintNumberUnsigned</link> (const <link linkend="_unity__internals_8h_1abb5d2d06855829696244db2ff89290bd">UNITY_UINT</link> number)</para>
+</listitem>
+            <listitem><para>void <link linkend="_unity_8c_1ab5636c2c3e2d5ff0d89461e2323aa469">UnityPrintNumberHex</link> (const <link linkend="_unity__internals_8h_1abb5d2d06855829696244db2ff89290bd">UNITY_UINT</link> number, const char nibbles_to_print)</para>
+</listitem>
+            <listitem><para>void <link linkend="_unity_8c_1a207d5b3e2bfe8042b0505066ccd07c9b">UnityPrintMask</link> (const <link linkend="_unity__internals_8h_1abb5d2d06855829696244db2ff89290bd">UNITY_UINT</link> mask, const <link linkend="_unity__internals_8h_1abb5d2d06855829696244db2ff89290bd">UNITY_UINT</link> number)</para>
+</listitem>
+            <listitem><para>void <link linkend="_unity_8c_1ac3d39bc0740a28949a2ba689588491c2">UnityPrintFloat</link> (const <link linkend="_unity__internals_8h_1ac3bdb18f38e23a4343af34a7f4e0d4a0">UNITY_DOUBLE</link> input_number)</para>
+</listitem>
+            <listitem><para>void <link linkend="_unity_8c_1a44f03f0124e59f6996da61946cc2a58e">UnityConcludeTest</link> (void)</para>
+</listitem>
+            <listitem><para>void <link linkend="_unity_8c_1a8d96fe471e0c327cbf5fd4682ee24d9f">UnityAssertBits</link> (const <link linkend="_unity__internals_8h_1ab304e341ff16e7076e9d06cc9c64c2a7">UNITY_INT</link> mask, const <link linkend="_unity__internals_8h_1ab304e341ff16e7076e9d06cc9c64c2a7">UNITY_INT</link> expected, const <link linkend="_unity__internals_8h_1ab304e341ff16e7076e9d06cc9c64c2a7">UNITY_INT</link> actual, const char *msg, const <link linkend="_unity__internals_8h_1a5c76dbcaafb6db2a52336cf5d4835290">UNITY_LINE_TYPE</link> lineNumber)</para>
+</listitem>
+            <listitem><para>void <link linkend="_unity_8c_1a3f437686c9739ec3ed42d9fb640b4d1c">UnityAssertEqualNumber</link> (const <link linkend="_unity__internals_8h_1ab304e341ff16e7076e9d06cc9c64c2a7">UNITY_INT</link> expected, const <link linkend="_unity__internals_8h_1ab304e341ff16e7076e9d06cc9c64c2a7">UNITY_INT</link> actual, const char *msg, const <link linkend="_unity__internals_8h_1a5c76dbcaafb6db2a52336cf5d4835290">UNITY_LINE_TYPE</link> lineNumber, const <link linkend="_unity__internals_8h_1a828517387e75bc0b3ee6a99d2e0722a4">UNITY_DISPLAY_STYLE_T</link> style)</para>
+</listitem>
+            <listitem><para>void <link linkend="_unity_8c_1a8a4659ab2a526ca3c93b7faf22bbf4b7">UnityAssertGreaterOrLessOrEqualNumber</link> (const <link linkend="_unity__internals_8h_1ab304e341ff16e7076e9d06cc9c64c2a7">UNITY_INT</link> threshold, const <link linkend="_unity__internals_8h_1ab304e341ff16e7076e9d06cc9c64c2a7">UNITY_INT</link> actual, const <link linkend="_unity__internals_8h_1af032691a9e32795aa06770185ac14a48">UNITY_COMPARISON_T</link> compare, const char *msg, const <link linkend="_unity__internals_8h_1a5c76dbcaafb6db2a52336cf5d4835290">UNITY_LINE_TYPE</link> lineNumber, const <link linkend="_unity__internals_8h_1a828517387e75bc0b3ee6a99d2e0722a4">UNITY_DISPLAY_STYLE_T</link> style)</para>
+</listitem>
+            <listitem><para>void <link linkend="_unity_8c_1a5d36ae0ba6becafccda94364caf61adf">UnityAssertEqualIntArray</link> (<link linkend="_unity__internals_8h_1a5db8f91b73d20fd7b6f1d9bfd28a2dc0">UNITY_INTERNAL_PTR</link> expected, <link linkend="_unity__internals_8h_1a5db8f91b73d20fd7b6f1d9bfd28a2dc0">UNITY_INTERNAL_PTR</link> actual, const <link linkend="_unity__internals_8h_1a711b62bcec9cafcd46479a4832adfa55">UNITY_UINT32</link> num_elements, const char *msg, const <link linkend="_unity__internals_8h_1a5c76dbcaafb6db2a52336cf5d4835290">UNITY_LINE_TYPE</link> lineNumber, const <link linkend="_unity__internals_8h_1a828517387e75bc0b3ee6a99d2e0722a4">UNITY_DISPLAY_STYLE_T</link> style, const <link linkend="_unity__internals_8h_1a229eb7ffd452e7c158f1fe19005a817c">UNITY_FLAGS_T</link> flags)</para>
+</listitem>
+            <listitem><para>void <link linkend="_unity_8c_1ac8b9306c24d6dcc3ffb129d29014f819">UnityAssertEqualFloatArray</link> (<link linkend="_unity__internals_8h_1a825b752e1c62ede9bee4bf22fb258a7d">UNITY_PTR_ATTRIBUTE</link> const <link linkend="_unity__internals_8h_1ac4a36d11e8a7b250f2413ebb22e3092c">UNITY_FLOAT</link> *expected, <link linkend="_unity__internals_8h_1a825b752e1c62ede9bee4bf22fb258a7d">UNITY_PTR_ATTRIBUTE</link> const <link linkend="_unity__internals_8h_1ac4a36d11e8a7b250f2413ebb22e3092c">UNITY_FLOAT</link> *actual, const <link linkend="_unity__internals_8h_1a711b62bcec9cafcd46479a4832adfa55">UNITY_UINT32</link> num_elements, const char *msg, const <link linkend="_unity__internals_8h_1a5c76dbcaafb6db2a52336cf5d4835290">UNITY_LINE_TYPE</link> lineNumber, const <link linkend="_unity__internals_8h_1a229eb7ffd452e7c158f1fe19005a817c">UNITY_FLAGS_T</link> flags)</para>
+</listitem>
+            <listitem><para>void <link linkend="_unity_8c_1adc1934cb22540eed0b2b86e1f6aeb697">UnityAssertFloatsWithin</link> (const <link linkend="_unity__internals_8h_1ac4a36d11e8a7b250f2413ebb22e3092c">UNITY_FLOAT</link> delta, const <link linkend="_unity__internals_8h_1ac4a36d11e8a7b250f2413ebb22e3092c">UNITY_FLOAT</link> expected, const <link linkend="_unity__internals_8h_1ac4a36d11e8a7b250f2413ebb22e3092c">UNITY_FLOAT</link> actual, const char *msg, const <link linkend="_unity__internals_8h_1a5c76dbcaafb6db2a52336cf5d4835290">UNITY_LINE_TYPE</link> lineNumber)</para>
+</listitem>
+            <listitem><para>void <link linkend="_unity_8c_1aa7909741e6f90c6af19e07b91c88ad4c">UnityAssertFloatSpecial</link> (const <link linkend="_unity__internals_8h_1ac4a36d11e8a7b250f2413ebb22e3092c">UNITY_FLOAT</link> actual, const char *msg, const <link linkend="_unity__internals_8h_1a5c76dbcaafb6db2a52336cf5d4835290">UNITY_LINE_TYPE</link> lineNumber, const <link linkend="_unity__internals_8h_1a1b89a0178ea753186faf9f3dc271e2ba">UNITY_FLOAT_TRAIT_T</link> style)</para>
+</listitem>
+            <listitem><para>void <link linkend="_unity_8c_1a1edf5167aa7021aba92c523328e8fa61">UnityAssertNumbersWithin</link> (const <link linkend="_unity__internals_8h_1abb5d2d06855829696244db2ff89290bd">UNITY_UINT</link> delta, const <link linkend="_unity__internals_8h_1ab304e341ff16e7076e9d06cc9c64c2a7">UNITY_INT</link> expected, const <link linkend="_unity__internals_8h_1ab304e341ff16e7076e9d06cc9c64c2a7">UNITY_INT</link> actual, const char *msg, const <link linkend="_unity__internals_8h_1a5c76dbcaafb6db2a52336cf5d4835290">UNITY_LINE_TYPE</link> lineNumber, const <link linkend="_unity__internals_8h_1a828517387e75bc0b3ee6a99d2e0722a4">UNITY_DISPLAY_STYLE_T</link> style)</para>
+</listitem>
+            <listitem><para>void <link linkend="_unity_8c_1aea8fd35ccdacbbac33ca4395c6b9562b">UnityAssertEqualString</link> (const char *expected, const char *actual, const char *msg, const <link linkend="_unity__internals_8h_1a5c76dbcaafb6db2a52336cf5d4835290">UNITY_LINE_TYPE</link> lineNumber)</para>
+</listitem>
+            <listitem><para>void <link linkend="_unity_8c_1aafaf01a6294c0dc2fbe6fd0baab58f0b">UnityAssertEqualStringLen</link> (const char *expected, const char *actual, const <link linkend="_unity__internals_8h_1a711b62bcec9cafcd46479a4832adfa55">UNITY_UINT32</link> length, const char *msg, const <link linkend="_unity__internals_8h_1a5c76dbcaafb6db2a52336cf5d4835290">UNITY_LINE_TYPE</link> lineNumber)</para>
+</listitem>
+            <listitem><para>void <link linkend="_unity_8c_1a38bca7a2b1d2b1d89f9e93e34e99df1f">UnityAssertEqualStringArray</link> (<link linkend="_unity__internals_8h_1a5db8f91b73d20fd7b6f1d9bfd28a2dc0">UNITY_INTERNAL_PTR</link> expected, const char **actual, const <link linkend="_unity__internals_8h_1a711b62bcec9cafcd46479a4832adfa55">UNITY_UINT32</link> num_elements, const char *msg, const <link linkend="_unity__internals_8h_1a5c76dbcaafb6db2a52336cf5d4835290">UNITY_LINE_TYPE</link> lineNumber, const <link linkend="_unity__internals_8h_1a229eb7ffd452e7c158f1fe19005a817c">UNITY_FLAGS_T</link> flags)</para>
+</listitem>
+            <listitem><para>void <link linkend="_unity_8c_1a18b674bf204871eb5ab27f86405983f3">UnityAssertEqualMemory</link> (<link linkend="_unity__internals_8h_1a5db8f91b73d20fd7b6f1d9bfd28a2dc0">UNITY_INTERNAL_PTR</link> expected, <link linkend="_unity__internals_8h_1a5db8f91b73d20fd7b6f1d9bfd28a2dc0">UNITY_INTERNAL_PTR</link> actual, const <link linkend="_unity__internals_8h_1a711b62bcec9cafcd46479a4832adfa55">UNITY_UINT32</link> length, const <link linkend="_unity__internals_8h_1a711b62bcec9cafcd46479a4832adfa55">UNITY_UINT32</link> num_elements, const char *msg, const <link linkend="_unity__internals_8h_1a5c76dbcaafb6db2a52336cf5d4835290">UNITY_LINE_TYPE</link> lineNumber, const <link linkend="_unity__internals_8h_1a229eb7ffd452e7c158f1fe19005a817c">UNITY_FLAGS_T</link> flags)</para>
+</listitem>
+            <listitem><para><link linkend="_unity__internals_8h_1a5db8f91b73d20fd7b6f1d9bfd28a2dc0">UNITY_INTERNAL_PTR</link> <link linkend="_unity_8c_1aed32d6a240e25d9493f6492882f7d3d5">UnityNumToPtr</link> (const <link linkend="_unity__internals_8h_1ab304e341ff16e7076e9d06cc9c64c2a7">UNITY_INT</link> num, const <link linkend="_unity__internals_8h_1ae9c38948acf740d92635783d49f7437c">UNITY_UINT8</link> size)</para>
+</listitem>
+            <listitem><para><link linkend="_unity__internals_8h_1a5db8f91b73d20fd7b6f1d9bfd28a2dc0">UNITY_INTERNAL_PTR</link> <link linkend="_unity_8c_1a01b1539781210d836d875fa9c6957982">UnityFloatToPtr</link> (const float num)</para>
+</listitem>
+            <listitem><para>void <link linkend="_unity_8c_1a0daba95a4950d8a5a06b6b2c843742b8">UnityFail</link> (const char *msg, const <link linkend="_unity__internals_8h_1a5c76dbcaafb6db2a52336cf5d4835290">UNITY_LINE_TYPE</link> line)</para>
+</listitem>
+            <listitem><para>void <link linkend="_unity_8c_1a017e8c6a617d00312fd6688b73483284">UnityIgnore</link> (const char *msg, const <link linkend="_unity__internals_8h_1a5c76dbcaafb6db2a52336cf5d4835290">UNITY_LINE_TYPE</link> line)</para>
+</listitem>
+            <listitem><para>void <link linkend="_unity_8c_1ae3c8272eef0f0b6228ca47b9dd1aa2af">UnityDefaultTestRun</link> (<link linkend="_unity__internals_8h_1a750c0436a18789b916e55d70aae12985">UnityTestFunction</link> Func, const char *FuncName, const int FuncLineNum)</para>
+</listitem>
+            <listitem><para>void <link linkend="_unity_8c_1aed50601fbdaea8fc0fef0c61cf877809">UnityBegin</link> (const char *filename)</para>
+</listitem>
+            <listitem><para>int <link linkend="_unity_8c_1a4820ba04ff5e9a474fe38ab6633d30a0">UnityEnd</link> (void)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para>struct <link linkend="_struct_u_n_i_t_y___s_t_o_r_a_g_e___t">UNITY_STORAGE_T</link> <link linkend="_unity_8c_1aad738f665f16eb2336b8bc33f432d0da">Unity</link></para>
+</listitem>
+            <listitem><para>const char <link linkend="_unity_8c_1ab644636442c612d56dfadc6970d2af67">UnityStrErrFloat</link> [] = &quot;Unity Floating Point Disabled&quot;</para>
+</listitem>
+            <listitem><para>const char <link linkend="_unity_8c_1ac8d03220554dfa13081f6a057ced349e">UnityStrErrDouble</link> [] = &quot;Unity Double Precision Disabled&quot;</para>
+</listitem>
+            <listitem><para>const char <link linkend="_unity_8c_1af5c213ecde93420aed908a92a5b32c66">UnityStrErr64</link> [] = &quot;Unity 64-bit Support Disabled&quot;</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Macro Definition Documentation</title>
+<anchor xml:id="_unity_8c_1abf9f99b384602e58874744dda3492aaa"/>    <section>
+    <title>RETURN_IF_FAIL_OR_IGNORE</title>
+<indexterm><primary>RETURN_IF_FAIL_OR_IGNORE</primary><secondary>unity.c</secondary></indexterm>
+<indexterm><primary>unity.c</primary><secondary>RETURN_IF_FAIL_OR_IGNORE</secondary></indexterm>
+<para><computeroutput>#define RETURN_IF_FAIL_OR_IGNORE   if (Unity.CurrentTestFailed || Unity.CurrentTestIgnored) return</computeroutput></para><para>
+Definition at line 19 of file unity.c.</para>
+    </section><anchor xml:id="_unity_8c_1aed0078c0e6e904f5d0071cacef3d519d"/>    <section>
+    <title>UNITY_FAIL_AND_BAIL</title>
+<indexterm><primary>UNITY_FAIL_AND_BAIL</primary><secondary>unity.c</secondary></indexterm>
+<indexterm><primary>unity.c</primary><secondary>UNITY_FAIL_AND_BAIL</secondary></indexterm>
+<para><computeroutput>#define UNITY_FAIL_AND_BAIL   { Unity.CurrentTestFailed  = 1; <link linkend="_unity__internals_8h_1a458886b9a590fda474d4467fa40a2367">UNITY_OUTPUT_FLUSH</link>(); <link linkend="_unity__internals_8h_1a35ff53d9ad3c4ec9d611fdf04319a23b">TEST_ABORT</link>(); }</computeroutput></para><para>
+Definition at line 17 of file unity.c.</para>
+    </section><anchor xml:id="_unity_8c_1a02810feed4a9aca0b2f997854b94a01c"/>    <section>
+    <title>UNITY_FLOAT_OR_DOUBLE_WITHIN</title>
+<indexterm><primary>UNITY_FLOAT_OR_DOUBLE_WITHIN</primary><secondary>unity.c</secondary></indexterm>
+<indexterm><primary>unity.c</primary><secondary>UNITY_FLOAT_OR_DOUBLE_WITHIN</secondary></indexterm>
+<para><computeroutput>#define UNITY_FLOAT_OR_DOUBLE_WITHIN( delta,  expected,  actual,  diff)</computeroutput></para><emphasis role="strong">Value:</emphasis><programlisting>&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_unity__internals_8h_1a851063e6624621d373e8f4da8973d27b">isinf</link>(expected)&#32;&amp;&amp;&#32;<link linkend="_unity__internals_8h_1a851063e6624621d373e8f4da8973d27b">isinf</link>(actual)&#32;&amp;&amp;&#32;(((expected)&#32;&lt;&#32;0)&#32;==&#32;((actual)&#32;&lt;&#32;0)))&#32;<emphasis role="keywordflow">return</emphasis>&#32;1;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;if&#32;(<link linkend="_unity_8c_1a8943c89baca5ddc88a0f88a389ef13c7">UNITY_NAN_CHECK</link>)&#32;<emphasis role="keywordflow">return</emphasis>&#32;1;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;(diff)&#32;=&#32;(actual)&#32;-&#32;(expected);&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;if&#32;((diff)&#32;&lt;&#32;0)&#32;(diff)&#32;=&#32;-(diff);&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;if&#32;((delta)&#32;&lt;&#32;0)&#32;(delta)&#32;=&#32;-(delta);&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;return&#32;!(<link linkend="_unity__internals_8h_1a57f9c20a91520ba43d7942d03bb7a314">isnan</link>(diff)&#32;||&#32;<link linkend="_unity__internals_8h_1a851063e6624621d373e8f4da8973d27b">isinf</link>(diff)&#32;||&#32;((diff)&#32;&gt;&#32;(delta)))
+</programlisting><para>
+Definition at line 681 of file unity.c.</para>
+    </section><anchor xml:id="_unity_8c_1a8e7615065c9272a62eede0f1e725a774"/>    <section>
+    <title>UNITY_IGNORE_AND_BAIL</title>
+<indexterm><primary>UNITY_IGNORE_AND_BAIL</primary><secondary>unity.c</secondary></indexterm>
+<indexterm><primary>unity.c</primary><secondary>UNITY_IGNORE_AND_BAIL</secondary></indexterm>
+<para><computeroutput>#define UNITY_IGNORE_AND_BAIL   { Unity.CurrentTestIgnored = 1; <link linkend="_unity__internals_8h_1a458886b9a590fda474d4467fa40a2367">UNITY_OUTPUT_FLUSH</link>(); <link linkend="_unity__internals_8h_1a35ff53d9ad3c4ec9d611fdf04319a23b">TEST_ABORT</link>(); }</computeroutput></para><para>
+Definition at line 18 of file unity.c.</para>
+    </section><anchor xml:id="_unity_8c_1a9f11f285a74cf837a5281ec56a21c86b"/>    <section>
+    <title>UNITY_INCLUDE_SETUP_STUBS</title>
+<indexterm><primary>UNITY_INCLUDE_SETUP_STUBS</primary><secondary>unity.c</secondary></indexterm>
+<indexterm><primary>unity.c</primary><secondary>UNITY_INCLUDE_SETUP_STUBS</secondary></indexterm>
+<para><computeroutput>#define UNITY_INCLUDE_SETUP_STUBS</computeroutput></para><para>
+Definition at line 7 of file unity.c.</para>
+    </section><anchor xml:id="_unity_8c_1a8943c89baca5ddc88a0f88a389ef13c7"/>    <section>
+    <title>UNITY_NAN_CHECK</title>
+<indexterm><primary>UNITY_NAN_CHECK</primary><secondary>unity.c</secondary></indexterm>
+<indexterm><primary>unity.c</primary><secondary>UNITY_NAN_CHECK</secondary></indexterm>
+<para><computeroutput>#define UNITY_NAN_CHECK   <link linkend="_unity__internals_8h_1a57f9c20a91520ba43d7942d03bb7a314">isnan</link>(expected) &amp;&amp; <link linkend="_unity__internals_8h_1a57f9c20a91520ba43d7942d03bb7a314">isnan</link>(actual)</computeroutput></para><para>
+Definition at line 690 of file unity.c.</para>
+    </section><anchor xml:id="_unity_8c_1a8432f7429c7fcc0952eeae3658707be9"/>    <section>
+    <title>UNITY_PRINT_EXPECTED_AND_ACTUAL_FLOAT</title>
+<indexterm><primary>UNITY_PRINT_EXPECTED_AND_ACTUAL_FLOAT</primary><secondary>unity.c</secondary></indexterm>
+<indexterm><primary>unity.c</primary><secondary>UNITY_PRINT_EXPECTED_AND_ACTUAL_FLOAT</secondary></indexterm>
+<para><computeroutput>#define UNITY_PRINT_EXPECTED_AND_ACTUAL_FLOAT( expected,  actual)</computeroutput></para><emphasis role="strong">Value:</emphasis><programlisting>&#32;&#32;{&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;UnityPrint(UnityStrExpected);&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;UnityPrintFloat(expected);&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;UnityPrint(UnityStrWas);&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;UnityPrintFloat(actual);&#32;}
+</programlisting><para>
+Definition at line 696 of file unity.c.</para>
+    </section><anchor xml:id="_unity_8c_1a3ace6280351b3aa4aa6cfca244ac5193"/>    <section>
+    <title>UnityPrintPointlessAndBail</title>
+<indexterm><primary>UnityPrintPointlessAndBail</primary><secondary>unity.c</secondary></indexterm>
+<indexterm><primary>unity.c</primary><secondary>UnityPrintPointlessAndBail</secondary></indexterm>
+<para><computeroutput>#define UnityPrintPointlessAndBail( )</computeroutput></para><emphasis role="strong">Value:</emphasis><programlisting>{&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;UnityTestResultsFailBegin(lineNumber);&#32;\
+&#32;&#32;&#32;&#32;UnityPrint(UnityStrPointless);&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;UnityAddMsgIfSpecified(msg);&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;UNITY_FAIL_AND_BAIL;&#32;}
+</programlisting><para>
+Definition at line 594 of file unity.c.</para>
+</section>
+</section>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_unity_8c_1a8d96fe471e0c327cbf5fd4682ee24d9f"/>    <section>
+    <title>UnityAssertBits()</title>
+<indexterm><primary>UnityAssertBits</primary><secondary>unity.c</secondary></indexterm>
+<indexterm><primary>unity.c</primary><secondary>UnityAssertBits</secondary></indexterm>
+<para><computeroutput>void UnityAssertBits (const <link linkend="_unity__internals_8h_1ab304e341ff16e7076e9d06cc9c64c2a7">UNITY_INT</link> mask, const <link linkend="_unity__internals_8h_1ab304e341ff16e7076e9d06cc9c64c2a7">UNITY_INT</link> expected, const <link linkend="_unity__internals_8h_1ab304e341ff16e7076e9d06cc9c64c2a7">UNITY_INT</link> actual, const char * msg, const <link linkend="_unity__internals_8h_1a5c76dbcaafb6db2a52336cf5d4835290">UNITY_LINE_TYPE</link> lineNumber)</computeroutput></para><para>
+Definition at line 514 of file unity.c.</para>
+    </section><anchor xml:id="_unity_8c_1ac8b9306c24d6dcc3ffb129d29014f819"/>    <section>
+    <title>UnityAssertEqualFloatArray()</title>
+<indexterm><primary>UnityAssertEqualFloatArray</primary><secondary>unity.c</secondary></indexterm>
+<indexterm><primary>unity.c</primary><secondary>UnityAssertEqualFloatArray</secondary></indexterm>
+<para><computeroutput>void UnityAssertEqualFloatArray (<link linkend="_unity__internals_8h_1a825b752e1c62ede9bee4bf22fb258a7d">UNITY_PTR_ATTRIBUTE</link> const <link linkend="_unity__internals_8h_1ac4a36d11e8a7b250f2413ebb22e3092c">UNITY_FLOAT</link> * expected, <link linkend="_unity__internals_8h_1a825b752e1c62ede9bee4bf22fb258a7d">UNITY_PTR_ATTRIBUTE</link> const <link linkend="_unity__internals_8h_1ac4a36d11e8a7b250f2413ebb22e3092c">UNITY_FLOAT</link> * actual, const <link linkend="_unity__internals_8h_1a711b62bcec9cafcd46479a4832adfa55">UNITY_UINT32</link> num_elements, const char * msg, const <link linkend="_unity__internals_8h_1a5c76dbcaafb6db2a52336cf5d4835290">UNITY_LINE_TYPE</link> lineNumber, const <link linkend="_unity__internals_8h_1a229eb7ffd452e7c158f1fe19005a817c">UNITY_FLAGS_T</link> flags)</computeroutput></para><para>
+Definition at line 713 of file unity.c.</para>
+    </section><anchor xml:id="_unity_8c_1a5d36ae0ba6becafccda94364caf61adf"/>    <section>
+    <title>UnityAssertEqualIntArray()</title>
+<indexterm><primary>UnityAssertEqualIntArray</primary><secondary>unity.c</secondary></indexterm>
+<indexterm><primary>unity.c</primary><secondary>UnityAssertEqualIntArray</secondary></indexterm>
+<para><computeroutput>void UnityAssertEqualIntArray (<link linkend="_unity__internals_8h_1a5db8f91b73d20fd7b6f1d9bfd28a2dc0">UNITY_INTERNAL_PTR</link> expected, <link linkend="_unity__internals_8h_1a5db8f91b73d20fd7b6f1d9bfd28a2dc0">UNITY_INTERNAL_PTR</link> actual, const <link linkend="_unity__internals_8h_1a711b62bcec9cafcd46479a4832adfa55">UNITY_UINT32</link> num_elements, const char * msg, const <link linkend="_unity__internals_8h_1a5c76dbcaafb6db2a52336cf5d4835290">UNITY_LINE_TYPE</link> lineNumber, const <link linkend="_unity__internals_8h_1a828517387e75bc0b3ee6a99d2e0722a4">UNITY_DISPLAY_STYLE_T</link> style, const <link linkend="_unity__internals_8h_1a229eb7ffd452e7c158f1fe19005a817c">UNITY_FLAGS_T</link> flags)</computeroutput></para><para>
+Definition at line 602 of file unity.c.</para>
+    </section><anchor xml:id="_unity_8c_1a18b674bf204871eb5ab27f86405983f3"/>    <section>
+    <title>UnityAssertEqualMemory()</title>
+<indexterm><primary>UnityAssertEqualMemory</primary><secondary>unity.c</secondary></indexterm>
+<indexterm><primary>unity.c</primary><secondary>UnityAssertEqualMemory</secondary></indexterm>
+<para><computeroutput>void UnityAssertEqualMemory (<link linkend="_unity__internals_8h_1a5db8f91b73d20fd7b6f1d9bfd28a2dc0">UNITY_INTERNAL_PTR</link> expected, <link linkend="_unity__internals_8h_1a5db8f91b73d20fd7b6f1d9bfd28a2dc0">UNITY_INTERNAL_PTR</link> actual, const <link linkend="_unity__internals_8h_1a711b62bcec9cafcd46479a4832adfa55">UNITY_UINT32</link> length, const <link linkend="_unity__internals_8h_1a711b62bcec9cafcd46479a4832adfa55">UNITY_UINT32</link> num_elements, const char * msg, const <link linkend="_unity__internals_8h_1a5c76dbcaafb6db2a52336cf5d4835290">UNITY_LINE_TYPE</link> lineNumber, const <link linkend="_unity__internals_8h_1a229eb7ffd452e7c158f1fe19005a817c">UNITY_FLAGS_T</link> flags)</computeroutput></para><para>
+Definition at line 1163 of file unity.c.</para>
+    </section><anchor xml:id="_unity_8c_1a3f437686c9739ec3ed42d9fb640b4d1c"/>    <section>
+    <title>UnityAssertEqualNumber()</title>
+<indexterm><primary>UnityAssertEqualNumber</primary><secondary>unity.c</secondary></indexterm>
+<indexterm><primary>unity.c</primary><secondary>UnityAssertEqualNumber</secondary></indexterm>
+<para><computeroutput>void UnityAssertEqualNumber (const <link linkend="_unity__internals_8h_1ab304e341ff16e7076e9d06cc9c64c2a7">UNITY_INT</link> expected, const <link linkend="_unity__internals_8h_1ab304e341ff16e7076e9d06cc9c64c2a7">UNITY_INT</link> actual, const char * msg, const <link linkend="_unity__internals_8h_1a5c76dbcaafb6db2a52336cf5d4835290">UNITY_LINE_TYPE</link> lineNumber, const <link linkend="_unity__internals_8h_1a828517387e75bc0b3ee6a99d2e0722a4">UNITY_DISPLAY_STYLE_T</link> style)</computeroutput></para><para>
+Definition at line 535 of file unity.c.</para>
+    </section><anchor xml:id="_unity_8c_1aea8fd35ccdacbbac33ca4395c6b9562b"/>    <section>
+    <title>UnityAssertEqualString()</title>
+<indexterm><primary>UnityAssertEqualString</primary><secondary>unity.c</secondary></indexterm>
+<indexterm><primary>unity.c</primary><secondary>UnityAssertEqualString</secondary></indexterm>
+<para><computeroutput>void UnityAssertEqualString (const char * expected, const char * actual, const char * msg, const <link linkend="_unity__internals_8h_1a5c76dbcaafb6db2a52336cf5d4835290">UNITY_LINE_TYPE</link> lineNumber)</computeroutput></para><para>
+Definition at line 1005 of file unity.c.</para>
+    </section><anchor xml:id="_unity_8c_1a38bca7a2b1d2b1d89f9e93e34e99df1f"/>    <section>
+    <title>UnityAssertEqualStringArray()</title>
+<indexterm><primary>UnityAssertEqualStringArray</primary><secondary>unity.c</secondary></indexterm>
+<indexterm><primary>unity.c</primary><secondary>UnityAssertEqualStringArray</secondary></indexterm>
+<para><computeroutput>void UnityAssertEqualStringArray (<link linkend="_unity__internals_8h_1a5db8f91b73d20fd7b6f1d9bfd28a2dc0">UNITY_INTERNAL_PTR</link> expected, const char ** actual, const <link linkend="_unity__internals_8h_1a711b62bcec9cafcd46479a4832adfa55">UNITY_UINT32</link> num_elements, const char * msg, const <link linkend="_unity__internals_8h_1a5c76dbcaafb6db2a52336cf5d4835290">UNITY_LINE_TYPE</link> lineNumber, const <link linkend="_unity__internals_8h_1a229eb7ffd452e7c158f1fe19005a817c">UNITY_FLAGS_T</link> flags)</computeroutput></para><para>
+Definition at line 1084 of file unity.c.</para>
+    </section><anchor xml:id="_unity_8c_1aafaf01a6294c0dc2fbe6fd0baab58f0b"/>    <section>
+    <title>UnityAssertEqualStringLen()</title>
+<indexterm><primary>UnityAssertEqualStringLen</primary><secondary>unity.c</secondary></indexterm>
+<indexterm><primary>unity.c</primary><secondary>UnityAssertEqualStringLen</secondary></indexterm>
+<para><computeroutput>void UnityAssertEqualStringLen (const char * expected, const char * actual, const <link linkend="_unity__internals_8h_1a711b62bcec9cafcd46479a4832adfa55">UNITY_UINT32</link> length, const char * msg, const <link linkend="_unity__internals_8h_1a5c76dbcaafb6db2a52336cf5d4835290">UNITY_LINE_TYPE</link> lineNumber)</computeroutput></para><para>
+Definition at line 1044 of file unity.c.</para>
+    </section><anchor xml:id="_unity_8c_1aa7909741e6f90c6af19e07b91c88ad4c"/>    <section>
+    <title>UnityAssertFloatSpecial()</title>
+<indexterm><primary>UnityAssertFloatSpecial</primary><secondary>unity.c</secondary></indexterm>
+<indexterm><primary>unity.c</primary><secondary>UnityAssertFloatSpecial</secondary></indexterm>
+<para><computeroutput>void UnityAssertFloatSpecial (const <link linkend="_unity__internals_8h_1ac4a36d11e8a7b250f2413ebb22e3092c">UNITY_FLOAT</link> actual, const char * msg, const <link linkend="_unity__internals_8h_1a5c76dbcaafb6db2a52336cf5d4835290">UNITY_LINE_TYPE</link> lineNumber, const <link linkend="_unity__internals_8h_1a1b89a0178ea753186faf9f3dc271e2ba">UNITY_FLOAT_TRAIT_T</link> style)</computeroutput></para><para>
+Definition at line 774 of file unity.c.</para>
+    </section><anchor xml:id="_unity_8c_1adc1934cb22540eed0b2b86e1f6aeb697"/>    <section>
+    <title>UnityAssertFloatsWithin()</title>
+<indexterm><primary>UnityAssertFloatsWithin</primary><secondary>unity.c</secondary></indexterm>
+<indexterm><primary>unity.c</primary><secondary>UnityAssertFloatsWithin</secondary></indexterm>
+<para><computeroutput>void UnityAssertFloatsWithin (const <link linkend="_unity__internals_8h_1ac4a36d11e8a7b250f2413ebb22e3092c">UNITY_FLOAT</link> delta, const <link linkend="_unity__internals_8h_1ac4a36d11e8a7b250f2413ebb22e3092c">UNITY_FLOAT</link> expected, const <link linkend="_unity__internals_8h_1ac4a36d11e8a7b250f2413ebb22e3092c">UNITY_FLOAT</link> actual, const char * msg, const <link linkend="_unity__internals_8h_1a5c76dbcaafb6db2a52336cf5d4835290">UNITY_LINE_TYPE</link> lineNumber)</computeroutput></para><para>
+Definition at line 755 of file unity.c.</para>
+    </section><anchor xml:id="_unity_8c_1a8a4659ab2a526ca3c93b7faf22bbf4b7"/>    <section>
+    <title>UnityAssertGreaterOrLessOrEqualNumber()</title>
+<indexterm><primary>UnityAssertGreaterOrLessOrEqualNumber</primary><secondary>unity.c</secondary></indexterm>
+<indexterm><primary>unity.c</primary><secondary>UnityAssertGreaterOrLessOrEqualNumber</secondary></indexterm>
+<para><computeroutput>void UnityAssertGreaterOrLessOrEqualNumber (const <link linkend="_unity__internals_8h_1ab304e341ff16e7076e9d06cc9c64c2a7">UNITY_INT</link> threshold, const <link linkend="_unity__internals_8h_1ab304e341ff16e7076e9d06cc9c64c2a7">UNITY_INT</link> actual, const <link linkend="_unity__internals_8h_1af032691a9e32795aa06770185ac14a48">UNITY_COMPARISON_T</link> compare, const char * msg, const <link linkend="_unity__internals_8h_1a5c76dbcaafb6db2a52336cf5d4835290">UNITY_LINE_TYPE</link> lineNumber, const <link linkend="_unity__internals_8h_1a828517387e75bc0b3ee6a99d2e0722a4">UNITY_DISPLAY_STYLE_T</link> style)</computeroutput></para><para>
+Definition at line 556 of file unity.c.</para>
+    </section><anchor xml:id="_unity_8c_1a1edf5167aa7021aba92c523328e8fa61"/>    <section>
+    <title>UnityAssertNumbersWithin()</title>
+<indexterm><primary>UnityAssertNumbersWithin</primary><secondary>unity.c</secondary></indexterm>
+<indexterm><primary>unity.c</primary><secondary>UnityAssertNumbersWithin</secondary></indexterm>
+<para><computeroutput>void UnityAssertNumbersWithin (const <link linkend="_unity__internals_8h_1abb5d2d06855829696244db2ff89290bd">UNITY_UINT</link> delta, const <link linkend="_unity__internals_8h_1ab304e341ff16e7076e9d06cc9c64c2a7">UNITY_INT</link> expected, const <link linkend="_unity__internals_8h_1ab304e341ff16e7076e9d06cc9c64c2a7">UNITY_INT</link> actual, const char * msg, const <link linkend="_unity__internals_8h_1a5c76dbcaafb6db2a52336cf5d4835290">UNITY_LINE_TYPE</link> lineNumber, const <link linkend="_unity__internals_8h_1a828517387e75bc0b3ee6a99d2e0722a4">UNITY_DISPLAY_STYLE_T</link> style)</computeroutput></para><para>
+Definition at line 966 of file unity.c.</para>
+    </section><anchor xml:id="_unity_8c_1aed50601fbdaea8fc0fef0c61cf877809"/>    <section>
+    <title>UnityBegin()</title>
+<indexterm><primary>UnityBegin</primary><secondary>unity.c</secondary></indexterm>
+<indexterm><primary>unity.c</primary><secondary>UnityBegin</secondary></indexterm>
+<para><computeroutput>void UnityBegin (const char * filename)</computeroutput></para><para>
+Definition at line 1350 of file unity.c.</para>
+    </section><anchor xml:id="_unity_8c_1a44f03f0124e59f6996da61946cc2a58e"/>    <section>
+    <title>UnityConcludeTest()</title>
+<indexterm><primary>UnityConcludeTest</primary><secondary>unity.c</secondary></indexterm>
+<indexterm><primary>unity.c</primary><secondary>UnityConcludeTest</secondary></indexterm>
+<para><computeroutput>void UnityConcludeTest (void )</computeroutput></para><para>
+Definition at line 376 of file unity.c.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../d5/ddd/unity_8c_a44f03f0124e59f6996da61946cc2a58e_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_unity_8c_1ae3c8272eef0f0b6228ca47b9dd1aa2af"/>    <section>
+    <title>UnityDefaultTestRun()</title>
+<indexterm><primary>UnityDefaultTestRun</primary><secondary>unity.c</secondary></indexterm>
+<indexterm><primary>unity.c</primary><secondary>UnityDefaultTestRun</secondary></indexterm>
+<para><computeroutput>void UnityDefaultTestRun (<link linkend="_unity__internals_8h_1a750c0436a18789b916e55d70aae12985">UnityTestFunction</link> Func, const char * FuncName, const int FuncLineNum)</computeroutput></para><para>
+Definition at line 1331 of file unity.c.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../d5/ddd/unity_8c_ae3c8272eef0f0b6228ca47b9dd1aa2af_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_unity_8c_1a4820ba04ff5e9a474fe38ab6633d30a0"/>    <section>
+    <title>UnityEnd()</title>
+<indexterm><primary>UnityEnd</primary><secondary>unity.c</secondary></indexterm>
+<indexterm><primary>unity.c</primary><secondary>UnityEnd</secondary></indexterm>
+<para><computeroutput>int UnityEnd (void )</computeroutput></para><para>
+Definition at line 1367 of file unity.c.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../d5/ddd/unity_8c_a4820ba04ff5e9a474fe38ab6633d30a0_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_unity_8c_1a0daba95a4950d8a5a06b6b2c843742b8"/>    <section>
+    <title>UnityFail()</title>
+<indexterm><primary>UnityFail</primary><secondary>unity.c</secondary></indexterm>
+<indexterm><primary>unity.c</primary><secondary>UnityFail</secondary></indexterm>
+<para><computeroutput>void UnityFail (const char * msg, const <link linkend="_unity__internals_8h_1a5c76dbcaafb6db2a52336cf5d4835290">UNITY_LINE_TYPE</link> line)</computeroutput></para><para>
+Definition at line 1281 of file unity.c.</para>
+    </section><anchor xml:id="_unity_8c_1a01b1539781210d836d875fa9c6957982"/>    <section>
+    <title>UnityFloatToPtr()</title>
+<indexterm><primary>UnityFloatToPtr</primary><secondary>unity.c</secondary></indexterm>
+<indexterm><primary>unity.c</primary><secondary>UnityFloatToPtr</secondary></indexterm>
+<para><computeroutput><link linkend="_unity__internals_8h_1a5db8f91b73d20fd7b6f1d9bfd28a2dc0">UNITY_INTERNAL_PTR</link> UnityFloatToPtr (const float num)</computeroutput></para><para>
+Definition at line 1262 of file unity.c.</para>
+    </section><anchor xml:id="_unity_8c_1a017e8c6a617d00312fd6688b73483284"/>    <section>
+    <title>UnityIgnore()</title>
+<indexterm><primary>UnityIgnore</primary><secondary>unity.c</secondary></indexterm>
+<indexterm><primary>unity.c</primary><secondary>UnityIgnore</secondary></indexterm>
+<para><computeroutput>void UnityIgnore (const char * msg, const <link linkend="_unity__internals_8h_1a5c76dbcaafb6db2a52336cf5d4835290">UNITY_LINE_TYPE</link> line)</computeroutput></para><para>
+Definition at line 1315 of file unity.c.</para>
+    </section><anchor xml:id="_unity_8c_1aed32d6a240e25d9493f6492882f7d3d5"/>    <section>
+    <title>UnityNumToPtr()</title>
+<indexterm><primary>UnityNumToPtr</primary><secondary>unity.c</secondary></indexterm>
+<indexterm><primary>unity.c</primary><secondary>UnityNumToPtr</secondary></indexterm>
+<para><computeroutput><link linkend="_unity__internals_8h_1a5db8f91b73d20fd7b6f1d9bfd28a2dc0">UNITY_INTERNAL_PTR</link> UnityNumToPtr (const <link linkend="_unity__internals_8h_1ab304e341ff16e7076e9d06cc9c64c2a7">UNITY_INT</link> num, const <link linkend="_unity__internals_8h_1ae9c38948acf740d92635783d49f7437c">UNITY_UINT8</link> size)</computeroutput></para><para>
+Definition at line 1238 of file unity.c.</para>
+    </section><anchor xml:id="_unity_8c_1accff2eb4cfd0273e8ad62c37639d3e3c"/>    <section>
+    <title>UnityPrint()</title>
+<indexterm><primary>UnityPrint</primary><secondary>unity.c</secondary></indexterm>
+<indexterm><primary>unity.c</primary><secondary>UnityPrint</secondary></indexterm>
+<para><computeroutput>void UnityPrint (const char * string)</computeroutput></para><para>
+Definition at line 70 of file unity.c.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../d5/ddd/unity_8c_accff2eb4cfd0273e8ad62c37639d3e3c_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../d5/ddd/unity_8c_accff2eb4cfd0273e8ad62c37639d3e3c_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_unity_8c_1ac3d39bc0740a28949a2ba689588491c2"/>    <section>
+    <title>UnityPrintFloat()</title>
+<indexterm><primary>UnityPrintFloat</primary><secondary>unity.c</secondary></indexterm>
+<indexterm><primary>unity.c</primary><secondary>UnityPrintFloat</secondary></indexterm>
+<para><computeroutput>void UnityPrintFloat (const <link linkend="_unity__internals_8h_1ac3bdb18f38e23a4343af34a7f4e0d4a0">UNITY_DOUBLE</link> input_number)</computeroutput></para><para>
+Definition at line 266 of file unity.c.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../d5/ddd/unity_8c_ac3d39bc0740a28949a2ba689588491c2_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_unity_8c_1a780817a15f2437360bd593c8fa7a1481"/>    <section>
+    <title>UnityPrintLen()</title>
+<indexterm><primary>UnityPrintLen</primary><secondary>unity.c</secondary></indexterm>
+<indexterm><primary>unity.c</primary><secondary>UnityPrintLen</secondary></indexterm>
+<para><computeroutput>void UnityPrintLen (const char * string, const <link linkend="_unity__internals_8h_1a711b62bcec9cafcd46479a4832adfa55">UNITY_UINT32</link> length)</computeroutput></para><para>
+Definition at line 119 of file unity.c.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../d5/ddd/unity_8c_a780817a15f2437360bd593c8fa7a1481_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_unity_8c_1a207d5b3e2bfe8042b0505066ccd07c9b"/>    <section>
+    <title>UnityPrintMask()</title>
+<indexterm><primary>UnityPrintMask</primary><secondary>unity.c</secondary></indexterm>
+<indexterm><primary>unity.c</primary><secondary>UnityPrintMask</secondary></indexterm>
+<para><computeroutput>void UnityPrintMask (const <link linkend="_unity__internals_8h_1abb5d2d06855829696244db2ff89290bd">UNITY_UINT</link> mask, const <link linkend="_unity__internals_8h_1abb5d2d06855829696244db2ff89290bd">UNITY_UINT</link> number)</computeroutput></para><para>
+Definition at line 233 of file unity.c.</para>
+    </section><anchor xml:id="_unity_8c_1a644211a214ab000dcabd5582c52e0313"/>    <section>
+    <title>UnityPrintNumber()</title>
+<indexterm><primary>UnityPrintNumber</primary><secondary>unity.c</secondary></indexterm>
+<indexterm><primary>unity.c</primary><secondary>UnityPrintNumber</secondary></indexterm>
+<para><computeroutput>void UnityPrintNumber (const <link linkend="_unity__internals_8h_1ab304e341ff16e7076e9d06cc9c64c2a7">UNITY_INT</link> number_to_print)</computeroutput></para><para>
+Definition at line 176 of file unity.c.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../d5/ddd/unity_8c_a644211a214ab000dcabd5582c52e0313_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../d5/ddd/unity_8c_a644211a214ab000dcabd5582c52e0313_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_unity_8c_1a83c7c7072b2f0e3cce93e56960da46e7"/>    <section>
+    <title>UnityPrintNumberByStyle()</title>
+<indexterm><primary>UnityPrintNumberByStyle</primary><secondary>unity.c</secondary></indexterm>
+<indexterm><primary>unity.c</primary><secondary>UnityPrintNumberByStyle</secondary></indexterm>
+<para><computeroutput>void UnityPrintNumberByStyle (const <link linkend="_unity__internals_8h_1ab304e341ff16e7076e9d06cc9c64c2a7">UNITY_INT</link> number, const <link linkend="_unity__internals_8h_1a828517387e75bc0b3ee6a99d2e0722a4">UNITY_DISPLAY_STYLE_T</link> style)</computeroutput></para><para>
+Definition at line 157 of file unity.c.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../d5/ddd/unity_8c_a83c7c7072b2f0e3cce93e56960da46e7_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_unity_8c_1ab5636c2c3e2d5ff0d89461e2323aa469"/>    <section>
+    <title>UnityPrintNumberHex()</title>
+<indexterm><primary>UnityPrintNumberHex</primary><secondary>unity.c</secondary></indexterm>
+<indexterm><primary>unity.c</primary><secondary>UnityPrintNumberHex</secondary></indexterm>
+<para><computeroutput>void UnityPrintNumberHex (const <link linkend="_unity__internals_8h_1abb5d2d06855829696244db2ff89290bd">UNITY_UINT</link> number, const char nibbles_to_print)</computeroutput></para><para>
+Definition at line 210 of file unity.c.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../d5/ddd/unity_8c_ab5636c2c3e2d5ff0d89461e2323aa469_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_unity_8c_1a3ef388786e9a8e769d13af2601b592dc"/>    <section>
+    <title>UnityPrintNumberUnsigned()</title>
+<indexterm><primary>UnityPrintNumberUnsigned</primary><secondary>unity.c</secondary></indexterm>
+<indexterm><primary>unity.c</primary><secondary>UnityPrintNumberUnsigned</secondary></indexterm>
+<para><computeroutput>void UnityPrintNumberUnsigned (const <link linkend="_unity__internals_8h_1abb5d2d06855829696244db2ff89290bd">UNITY_UINT</link> number)</computeroutput></para><para>
+Definition at line 191 of file unity.c.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../d5/ddd/unity_8c_a3ef388786e9a8e769d13af2601b592dc_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+<section>
+<title>Variable Documentation</title>
+<anchor xml:id="_unity_8c_1af900396d7b72ff2a7002e8befe8cf8f1"/>    <section>
+    <title>f</title>
+<indexterm><primary>f</primary><secondary>unity.c</secondary></indexterm>
+<indexterm><primary>unity.c</primary><secondary>f</secondary></indexterm>
+<para><computeroutput>float f</computeroutput></para><para>
+Definition at line 1231 of file unity.c.</para>
+    </section><anchor xml:id="_unity_8c_1a3ff3d9c5010aa22165fa26f8e301131e"/>    <section>
+    <title>i16</title>
+<indexterm><primary>i16</primary><secondary>unity.c</secondary></indexterm>
+<indexterm><primary>unity.c</primary><secondary>i16</secondary></indexterm>
+<para><computeroutput><link linkend="_unity__internals_8h_1af18ca161e8d679a2d3b75928112c1707">UNITY_INT16</link> i16</computeroutput></para><para>
+Definition at line 1225 of file unity.c.</para>
+    </section><anchor xml:id="_unity_8c_1ae9d133be8ac33cfb99b5b9646d7a5a87"/>    <section>
+    <title>i32</title>
+<indexterm><primary>i32</primary><secondary>unity.c</secondary></indexterm>
+<indexterm><primary>unity.c</primary><secondary>i32</secondary></indexterm>
+<para><computeroutput><link linkend="_unity__internals_8h_1a05b69a453107cea541ee62916ff349f9">UNITY_INT32</link> i32</computeroutput></para><para>
+Definition at line 1226 of file unity.c.</para>
+    </section><anchor xml:id="_unity_8c_1ad20eed15082bd5f03fa33cf3014e9a99"/>    <section>
+    <title>i8</title>
+<indexterm><primary>i8</primary><secondary>unity.c</secondary></indexterm>
+<indexterm><primary>unity.c</primary><secondary>i8</secondary></indexterm>
+<para><computeroutput><link linkend="_unity__internals_8h_1ad0279e5d512a86af7ff1cfda67b9f64e">UNITY_INT8</link> i8</computeroutput></para><para>
+Definition at line 1224 of file unity.c.</para>
+    </section><anchor xml:id="_unity_8c_1aad738f665f16eb2336b8bc33f432d0da"/>    <section>
+    <title>Unity</title>
+<indexterm><primary>Unity</primary><secondary>unity.c</secondary></indexterm>
+<indexterm><primary>unity.c</primary><secondary>Unity</secondary></indexterm>
+<para><computeroutput>struct <link linkend="_struct_u_n_i_t_y___s_t_o_r_a_g_e___t">UNITY_STORAGE_T</link> Unity</computeroutput></para><para>
+Definition at line 1 of file unity.c.</para>
+    </section><anchor xml:id="_unity_8c_1af5c213ecde93420aed908a92a5b32c66"/>    <section>
+    <title>UnityStrErr64</title>
+<indexterm><primary>UnityStrErr64</primary><secondary>unity.c</secondary></indexterm>
+<indexterm><primary>unity.c</primary><secondary>UnityStrErr64</secondary></indexterm>
+<para><computeroutput>const char UnityStrErr64[] = &quot;Unity 64-bit Support Disabled&quot;</computeroutput></para><para>
+Definition at line 58 of file unity.c.</para>
+    </section><anchor xml:id="_unity_8c_1ac8d03220554dfa13081f6a057ced349e"/>    <section>
+    <title>UnityStrErrDouble</title>
+<indexterm><primary>UnityStrErrDouble</primary><secondary>unity.c</secondary></indexterm>
+<indexterm><primary>unity.c</primary><secondary>UnityStrErrDouble</secondary></indexterm>
+<para><computeroutput>const char UnityStrErrDouble[] = &quot;Unity Double Precision Disabled&quot;</computeroutput></para><para>
+Definition at line 57 of file unity.c.</para>
+    </section><anchor xml:id="_unity_8c_1ab644636442c612d56dfadc6970d2af67"/>    <section>
+    <title>UnityStrErrFloat</title>
+<indexterm><primary>UnityStrErrFloat</primary><secondary>unity.c</secondary></indexterm>
+<indexterm><primary>unity.c</primary><secondary>UnityStrErrFloat</secondary></indexterm>
+<para><computeroutput>const char UnityStrErrFloat[] = &quot;Unity Floating Point Disabled&quot;</computeroutput></para><para>
+Definition at line 56 of file unity.c.</para>
+</section>
+</section>
+</section>

@@ -1,0 +1,105 @@
+.TH "Sources/nepMathFifo.c" 3 "Thu Nov 18 2021" "mpbTime" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Sources/nepMathFifo.c \- Provides functions to interface with a FIFO\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'nepMathFifo\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "eNepError_t \fBeNepMathFifoInit\fP (xNepMathFifo_t *pxFifo, uint16_t usSize, void *pvBuf)"
+.br
+.ti -1c
+.RI "eNepError_t \fBeNepMathFifoReset\fP (xNepMathFifo_t *pxFifo)"
+.br
+.ti -1c
+.RI "eNepError_t \fBeNepMathFifoPush\fP (xNepMathFifo_t *pxFifo, const void *pvData, uint16_t usLen, eBool_t eOverwrite)"
+.br
+.ti -1c
+.RI "eNepError_t \fBeNepMathFifoPop\fP (xNepMathFifo_t *pxFifo, void *pvData, uint16_t usLen)"
+.br
+.ti -1c
+.RI "eNepError_t \fBeNepMathFifoPeak\fP (xNepMathFifo_t *pxFifo, void *pvData, uint16_t usLen, uint32_t *pulBytesRead)"
+.br
+.ti -1c
+.RI "eNepError_t \fBeNepMathFifoIsFull\fP (xNepMathFifo_t *pxFifo, eBool_t *peFifoIsFull)"
+.br
+.ti -1c
+.RI "eNepError_t \fBeNepMathFifoIsEmpty\fP (xNepMathFifo_t *pxFifo, eBool_t *peFifoIsEmpty)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Provides functions to interface with a FIFO\&. 
+
+
+.PP
+\fBAuthor\fP
+.RS 4
+Felix Brousseau-Vaillancourt 
+.RE
+.PP
+\fBDate\fP
+.RS 4
+Created on 2019-04-26 
+.RE
+.PP
+\fBNote\fP
+.RS 4
+.RE
+.PP
+\fBCopyright\fP
+.RS 4
+NEP, Montreal, Qc 
+.SS "(C) COPYRIGHT 2015 NEP, Montreal, Quebec, Canada"
+.RE
+.PP
+.SS "(C) All rights reserved\&."
+.PP
+
+.br
+
+.br
+ This document contains confidential and proprietary information of NEPTRONIC (subject to a non-disclosure agreement) and shall not be disclosed, distributed, or reproduced in whole or in part, without the prior written authorization of NEPTRONIC\&. 
+.PP
+Definition in file \fBnepMathFifo\&.c\fP\&.
+.SH "Function Documentation"
+.PP 
+.SS "eNepError_t eNepMathFifoInit (xNepMathFifo_t * pxFifo, uint16_t usSize, void * pvBuf)"
+
+.PP
+Definition at line 29 of file nepMathFifo\&.c\&.
+.SS "eNepError_t eNepMathFifoIsEmpty (xNepMathFifo_t * pxFifo, eBool_t * peFifoIsEmpty)"
+
+.PP
+Definition at line 218 of file nepMathFifo\&.c\&.
+.SS "eNepError_t eNepMathFifoIsFull (xNepMathFifo_t * pxFifo, eBool_t * peFifoIsFull)"
+
+.PP
+Definition at line 206 of file nepMathFifo\&.c\&.
+.SS "eNepError_t eNepMathFifoPeak (xNepMathFifo_t * pxFifo, void * pvData, uint16_t usLen, uint32_t * pulBytesRead)"
+
+.PP
+Definition at line 160 of file nepMathFifo\&.c\&.
+.SS "eNepError_t eNepMathFifoPop (xNepMathFifo_t * pxFifo, void * pvData, uint16_t usLen)"
+
+.PP
+Definition at line 115 of file nepMathFifo\&.c\&.
+.SS "eNepError_t eNepMathFifoPush (xNepMathFifo_t * pxFifo, const void * pvData, uint16_t usLen, eBool_t eOverwrite)"
+
+.PP
+Definition at line 61 of file nepMathFifo\&.c\&.
+.SS "eNepError_t eNepMathFifoReset (xNepMathFifo_t * pxFifo)"
+
+.PP
+Definition at line 46 of file nepMathFifo\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mpbTime from the source code\&.

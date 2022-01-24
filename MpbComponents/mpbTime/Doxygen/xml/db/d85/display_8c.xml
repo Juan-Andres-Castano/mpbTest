@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="db/d85/display_8c" kind="file" language="C++">
+    <compoundname>display.c</compoundname>
+    <includes local="no">stdio.h</includes>
+    <includes refid="d4/d68/display_8h" local="yes">display.h</includes>
+    <incdepgraph>
+      <node id="4">
+        <label>stdbool.h</label>
+      </node>
+      <node id="1">
+        <label>UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/display.c</label>
+        <link refid="db/d85/display_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>display.h</label>
+        <link refid="d4/d68/display_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="db/d85/display_8c_1ace29b0b5f6128f04d1800a81a37ad248" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void display_turnOffStatusLed</definition>
+        <argsstring>(void)</argsstring>
+        <name>display_turnOffStatusLed</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/display.c" line="4" column="6" bodyfile="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/display.c" bodystart="4" bodyend="7"/>
+        <referencedby refid="d5/db3/event__processor_8c_1ae1d8acf4a49fc2dd494f7838a3d290c9" compoundref="d5/db3/event__processor_8c" startline="12" endline="16">event_deviceReset</referencedby>
+        <referencedby refid="df/da4/test__event__processor_8c_1aff1f691f0911be5857ddbe01e551c0a2" compoundref="df/da4/test__event__processor_8c" startline="17" endline="26">test_whenTheDeviceIsReset_thenTheStatusLedIsTurnedOff</referencedby>
+        <referencedby refid="df/da4/test__event__processor_8c_1ae0402ad0b5090fc576a46cd6a37e3098" compoundref="df/da4/test__event__processor_8c" startline="32" endline="41">test_whenThePowerReadingIsLessThan5_thenTheStatusLedIsNotTurnedOn</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d4/d68/display_8h" kindref="compound">display.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4" refid="db/d85/display_8c_1ace29b0b5f6128f04d1800a81a37ad248" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="db/d85/display_8c_1ace29b0b5f6128f04d1800a81a37ad248" kindref="member">display_turnOffStatusLed</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="5"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Display:<sp/>Status<sp/>LED<sp/>off&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="7"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/display.c"/>
+  </compounddef>
+</doxygen>

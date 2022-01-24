@@ -1,0 +1,263 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="de/dbc/fake__function__framework_2_r_e_a_d_m_e_8md" kind="file" language="Markdown">
+    <compoundname>README.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">#<sp/>A<sp/>Fake<sp/>Function<sp/>Framework<sp/>Plug-in<sp/>for<sp/>Ceedling</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">This<sp/>is<sp/>a<sp/>plug-in<sp/>for<sp/>[Ceedling](https://github.com/ThrowTheSwitch/Ceedling)<sp/>to<sp/>use<sp/>the<sp/>[Fake<sp/>Function<sp/>Framework](https://github.com/meekrosoft/fff)<sp/>for<sp/>mocking<sp/>instead<sp/>of<sp/>CMock.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Using<sp/>fff<sp/>provides<sp/>less<sp/>strict<sp/>mocking<sp/>than<sp/>CMock,<sp/>and<sp/>allows<sp/>for<sp/>more<sp/>loosely-coupled<sp/>tests.</highlight></codeline>
+<codeline><highlight class="normal">And,<sp/>when<sp/>tests<sp/>fail<sp/>--<sp/>since<sp/>you<sp/>get<sp/>the<sp/>actual<sp/>line<sp/>number<sp/>of<sp/>the<sp/>failure<sp/>--<sp/>it&apos;s<sp/>a<sp/>lot<sp/>easier<sp/>to<sp/>figure<sp/>out<sp/>what<sp/>went<sp/>wrong.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Installing<sp/>the<sp/>plug-in</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">To<sp/>use<sp/>the<sp/>plugin<sp/>you<sp/>need<sp/>to<sp/>1)<sp/>get<sp/>the<sp/>contents<sp/>of<sp/>this<sp/>repo<sp/>and<sp/>2)<sp/>configure<sp/>your<sp/>project<sp/>to<sp/>use<sp/>it.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Get<sp/>the<sp/>source</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>easiest<sp/>way<sp/>to<sp/>get<sp/>the<sp/>source<sp/>is<sp/>to<sp/>just<sp/>clone<sp/>this<sp/>repo<sp/>into<sp/>the<sp/>Ceedling<sp/>plugin<sp/>folder<sp/>for<sp/>your<sp/>existing<sp/>Ceedling<sp/>project.</highlight></codeline>
+<codeline><highlight class="normal">(Don&apos;t<sp/>have<sp/>a<sp/>Ceedling<sp/>project<sp/>already?<sp/>[Here<sp/>are<sp/>instructions<sp/>to<sp/>create<sp/>one.](http://www.electronvector.com/blog/try-embedded-test-driven-development-right-now-with-ceedling))</highlight></codeline>
+<codeline><highlight class="normal">From<sp/>within<sp/>`&lt;your-project&gt;/vendor/ceedling/plugins`,<sp/>run:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">`git<sp/>clone<sp/>https://github.com/ElectronVector/fake_function_framework.git`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">This<sp/>will<sp/>create<sp/>a<sp/>new<sp/>folder<sp/>named<sp/>`fake_function_framework`<sp/>in<sp/>the<sp/>plugins<sp/>folder.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Enable<sp/>the<sp/>plug-in.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>plug-in<sp/>is<sp/>enabled<sp/>from<sp/>within<sp/>your<sp/>project.yml<sp/>file.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">In<sp/>the<sp/>`:plugins`<sp/>configuration,<sp/>add<sp/>`fake_function_framework`<sp/>to<sp/>the<sp/>list<sp/>of<sp/>enabled<sp/>plugins:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```yaml</highlight></codeline>
+<codeline><highlight class="normal">:plugins:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>:load_paths:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>-<sp/>vendor/ceedling/plugins</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>:enabled:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>-<sp/>stdout_pretty_tests_report</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>-<sp/>module_generator</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>-<sp/>fake_function_framework</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">*Note<sp/>that<sp/>you<sp/>could<sp/>put<sp/>the<sp/>plugin<sp/>source<sp/>in<sp/>some<sp/>other<sp/>loaction.</highlight></codeline>
+<codeline><highlight class="normal">In<sp/>that<sp/>case<sp/>you&apos;d<sp/>need<sp/>to<sp/>add<sp/>a<sp/>new<sp/>path<sp/>the<sp/>`:load_paths`.*</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>How<sp/>to<sp/>use<sp/>it</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">You<sp/>use<sp/>fff<sp/>with<sp/>Ceedling<sp/>the<sp/>same<sp/>way<sp/>you<sp/>used<sp/>to<sp/>use<sp/>CMock.</highlight></codeline>
+<codeline><highlight class="normal">Modules<sp/>can<sp/>still<sp/>be<sp/>generated<sp/>with<sp/>the<sp/>default<sp/>module<sp/>generator:<sp/>`rake<sp/>module:create[my_module]`.</highlight></codeline>
+<codeline><highlight class="normal">If<sp/>you<sp/>want<sp/>to<sp/>&quot;mock&quot;<sp/>`some_module.h`<sp/>in<sp/>your<sp/>tests,<sp/>just<sp/>`#include<sp/>&quot;mock_some_module.h&quot;`.</highlight></codeline>
+<codeline><highlight class="normal">This<sp/>creates<sp/>a<sp/>fake<sp/>function<sp/>for<sp/>each<sp/>of<sp/>the<sp/>functions<sp/>defined<sp/>in<sp/>`some_module.h`.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>name<sp/>of<sp/>each<sp/>fake<sp/>is<sp/>the<sp/>original<sp/>function<sp/>name<sp/>with<sp/>an<sp/>appended<sp/>`_fake`.</highlight></codeline>
+<codeline><highlight class="normal">For<sp/>example,<sp/>if<sp/>we&apos;re<sp/>generating<sp/>fakes<sp/>for<sp/>a<sp/>stack<sp/>module<sp/>with<sp/>`push`<sp/>and<sp/>`pop`<sp/>functions,<sp/>we<sp/>would<sp/>have<sp/>the<sp/>fakes<sp/>`push_fake`<sp/>and<sp/>`pop_fake`.</highlight></codeline>
+<codeline><highlight class="normal">These<sp/>fakes<sp/>are<sp/>linked<sp/>into<sp/>our<sp/>test<sp/>executable<sp/>so<sp/>that<sp/>any<sp/>time<sp/>our<sp/>unit<sp/>under<sp/>test<sp/>calls<sp/>`push`<sp/>or<sp/>`pop`<sp/>our<sp/>fakes<sp/>are<sp/>called<sp/>instead.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Each<sp/>of<sp/>these<sp/>fakes<sp/>is<sp/>actually<sp/>a<sp/>structure<sp/>containing<sp/>information<sp/>about<sp/>how<sp/>the<sp/>function<sp/>was<sp/>called,<sp/>and<sp/>what<sp/>it<sp/>might<sp/>return.</highlight></codeline>
+<codeline><highlight class="normal">We<sp/>can<sp/>use<sp/>Unity<sp/>to<sp/>inspect<sp/>these<sp/>fakes<sp/>in<sp/>our<sp/>tests,<sp/>and<sp/>verify<sp/>the<sp/>interactions<sp/>of<sp/>our<sp/>units.</highlight></codeline>
+<codeline><highlight class="normal">There<sp/>is<sp/>also<sp/>a<sp/>global<sp/>structure<sp/>named<sp/>`fff`<sp/>which<sp/>we<sp/>can<sp/>use<sp/>to<sp/>check<sp/>the<sp/>sequence<sp/>of<sp/>calls.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>fakes<sp/>can<sp/>also<sp/>be<sp/>configured<sp/>to<sp/>return<sp/>particular<sp/>values,<sp/>so<sp/>you<sp/>can<sp/>exercise<sp/>the<sp/>unit<sp/>under<sp/>test<sp/>however<sp/>you<sp/>want.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>examples<sp/>below<sp/>explain<sp/>how<sp/>to<sp/>use<sp/>fff<sp/>to<sp/>test<sp/>a<sp/>variety<sp/>of<sp/>module<sp/>interactions.</highlight></codeline>
+<codeline><highlight class="normal">Each<sp/>example<sp/>uses<sp/>fakes<sp/>for<sp/>a<sp/>&quot;display&quot;<sp/>module,<sp/>created<sp/>from<sp/>a<sp/>display.h<sp/>file<sp/>with<sp/>`#include<sp/>&quot;mock_display.h&quot;`.<sp/>The<sp/>`display.h`<sp/>file<sp/>must<sp/>exist<sp/>and<sp/>must<sp/>contain<sp/>the<sp/>prototypes<sp/>for<sp/>the<sp/>functions<sp/>to<sp/>be<sp/>faked.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Test<sp/>that<sp/>a<sp/>function<sp/>was<sp/>called<sp/>once</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```c</highlight></codeline>
+<codeline><highlight class="normal">void</highlight></codeline>
+<codeline><highlight class="normal">test_whenTheDeviceIsReset_thenTheStatusLedIsTurnedOff()</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>When</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>event_deviceReset();</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>Then</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_EQUAL(1,<sp/>display_turnOffStatusLed_fake.call_count);</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Test<sp/>that<sp/>a<sp/>function<sp/>was<sp/>NOT<sp/>called</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```c</highlight></codeline>
+<codeline><highlight class="normal">void</highlight></codeline>
+<codeline><highlight class="normal">test_whenThePowerReadingIsLessThan5_thenTheStatusLedIsNotTurnedOn(void)</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>When</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>event_powerReadingUpdate(4);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>Then</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_EQUAL(0,<sp/>display_turnOnStatusLed_fake.call_count);</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Test<sp/>that<sp/>a<sp/>single<sp/>function<sp/>was<sp/>called<sp/>with<sp/>the<sp/>correct<sp/>argument</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```c</highlight></codeline>
+<codeline><highlight class="normal">void</highlight></codeline>
+<codeline><highlight class="normal">test_whenTheVolumeKnobIsMaxed_thenVolumeDisplayIsSetTo11(void)</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>When</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>event_volumeKnobMaxed();</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>Then</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_EQUAL(1,<sp/>display_setVolume_fake.call_count);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_EQUAL(11,<sp/>display_setVolume_fake.arg0_val);</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Test<sp/>that<sp/>calls<sp/>are<sp/>made<sp/>in<sp/>a<sp/>particular<sp/>sequence</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```c</highlight></codeline>
+<codeline><highlight class="normal">void</highlight></codeline>
+<codeline><highlight class="normal">test_whenTheModeSelectButtonIsPressed_thenTheDisplayModeIsCycled(void)</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>When</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>event_modeSelectButtonPressed();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>event_modeSelectButtonPressed();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>event_modeSelectButtonPressed();</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>Then</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_EQUAL_PTR((void*)display_setModeToMinimum,<sp/>fff.call_history[0]);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_EQUAL_PTR((void*)display_setModeToMaximum,<sp/>fff.call_history[1]);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_EQUAL_PTR((void*)display_setModeToAverage,<sp/>fff.call_history[2]);</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Fake<sp/>a<sp/>return<sp/>value<sp/>from<sp/>a<sp/>function</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```c</highlight></codeline>
+<codeline><highlight class="normal">void</highlight></codeline>
+<codeline><highlight class="normal">test_givenTheDisplayHasAnError_whenTheDeviceIsPoweredOn_thenTheDisplayIsPoweredDown(void)</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>Given</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>display_isError_fake.return_val<sp/>=<sp/>true;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>When</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>event_devicePoweredOn();</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>Then</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_EQUAL(1,<sp/>display_powerDown_fake.call_count);</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Fake<sp/>a<sp/>function<sp/>with<sp/>a<sp/>value<sp/>returned<sp/>by<sp/>reference</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```c</highlight></codeline>
+<codeline><highlight class="normal">void</highlight></codeline>
+<codeline><highlight class="normal">test_givenTheUserHasTypedSleep_whenItIsTimeToCheckTheKeyboard_theDisplayIsPoweredDown(void)</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>Given</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>char<sp/>mockedEntry[]<sp/>=<sp/>&quot;sleep&quot;;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/>return_mock_value(char<sp/>*<sp/>entry,<sp/>int<sp/>length)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(length<sp/>&gt;<sp/>strlen(mockedEntry))</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>strncpy(entry,<sp/>mockedEntry,<sp/>length);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>display_getKeyboardEntry_fake.custom_fake<sp/>=<sp/>return_mock_value;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>When</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>event_keyboardCheckTimerExpired();</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>Then</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_EQUAL(1,<sp/>display_powerDown_fake.call_count);</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Fake<sp/>a<sp/>function<sp/>with<sp/>a<sp/>function<sp/>pointer<sp/>parameter</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">void</highlight></codeline>
+<codeline><highlight class="normal">test_givenNewDataIsAvailable_whenTheDisplayHasUpdated_thenTheEventIsComplete(void)</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>A<sp/>mock<sp/>function<sp/>for<sp/>capturing<sp/>the<sp/>callback<sp/>handler<sp/>function<sp/>pointer.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>void(*registeredCallback)(void)<sp/>=<sp/>0;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/>mock_display_updateData(int<sp/>data,<sp/>void(*callback)(void))</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//Save<sp/>the<sp/>callback<sp/>function.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>registeredCallback<sp/>=<sp/>callback;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>display_updateData_fake.custom_fake<sp/>=<sp/>mock_display_updateData;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>Given</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>event_newDataAvailable(10);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>When</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>if<sp/>(registeredCallback<sp/>!=<sp/>0)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>registeredCallback();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>Then</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_EQUAL(true,<sp/>eventProcessor_isLastEventComplete());</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Helper<sp/>macros</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">For<sp/>convenience,<sp/>there<sp/>are<sp/>also<sp/>some<sp/>helper<sp/>macros<sp/>that<sp/>create<sp/>new<sp/>Unity-style<sp/>asserts:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>`TEST_ASSERT_CALLED(function)`:<sp/>Asserts<sp/>that<sp/>a<sp/>function<sp/>was<sp/>called<sp/>once.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`TEST_ASSERT_NOT_CALLED(function)`:<sp/>Asserts<sp/>that<sp/>a<sp/>function<sp/>was<sp/>never<sp/>called.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`TEST_ASSERT_CALLED_TIMES(times,<sp/>function)`:<sp/>Asserts<sp/>that<sp/>a<sp/>function<sp/>was<sp/>called<sp/>a<sp/>particular<sp/>number<sp/>of<sp/>times.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`TEST_ASSERT_CALLED_IN_ORDER(order,<sp/>function)`:<sp/>Asserts<sp/>that<sp/>a<sp/>function<sp/>was<sp/>called<sp/>in<sp/>a<sp/>particular<sp/>order.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Here&apos;s<sp/>how<sp/>you<sp/>might<sp/>use<sp/>one<sp/>of<sp/>these<sp/>instead<sp/>of<sp/>simply<sp/>checking<sp/>the<sp/>call_count<sp/>value:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```c</highlight></codeline>
+<codeline><highlight class="normal">void</highlight></codeline>
+<codeline><highlight class="normal">test_whenTheDeviceIsReset_thenTheStatusLedIsTurnedOff()</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>When</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>event_deviceReset();</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>Then</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>This<sp/>how<sp/>to<sp/>directly<sp/>use<sp/>fff...</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_EQUAL(1,<sp/>display_turnOffStatusLed_fake.call_count);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>...and<sp/>this<sp/>is<sp/>how<sp/>to<sp/>use<sp/>the<sp/>helper<sp/>macro.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_CALLED(display_turnOffStatusLed);</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Test<sp/>setup</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">All<sp/>of<sp/>the<sp/>fake<sp/>functions,<sp/>and<sp/>any<sp/>fff<sp/>global<sp/>state<sp/>are<sp/>all<sp/>reset<sp/>automatically<sp/>between<sp/>each<sp/>test.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>CMock<sp/>configuration</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Use<sp/>still<sp/>use<sp/>some<sp/>of<sp/>the<sp/>CMock<sp/>configuration<sp/>options<sp/>for<sp/>setting<sp/>things<sp/>like<sp/>the<sp/>mock<sp/>prefix,<sp/>and<sp/>for<sp/>including<sp/>additional<sp/>header<sp/>files<sp/>in<sp/>the<sp/>mock<sp/>files.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```yaml</highlight></codeline>
+<codeline><highlight class="normal">:cmock:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>:mock_prefix:<sp/>mock_</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:includes:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:includes_h_pre_orig_header:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:includes_h_post_orig_header:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:includes_c_pre_header:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:includes_c_post_header:</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Running<sp/>the<sp/>tests</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">There<sp/>are<sp/>unit<sp/>and<sp/>integration<sp/>tests<sp/>for<sp/>the<sp/>plug-in<sp/>itself.</highlight></codeline>
+<codeline><highlight class="normal">These<sp/>are<sp/>run<sp/>with<sp/>the<sp/>default<sp/>`rake`<sp/>task.</highlight></codeline>
+<codeline><highlight class="normal">The<sp/>integration<sp/>test<sp/>runs<sp/>the<sp/>tests<sp/>for<sp/>the<sp/>example<sp/>project<sp/>in<sp/>examples/fff_example.</highlight></codeline>
+<codeline><highlight class="normal">For<sp/>the<sp/>integration<sp/>tests<sp/>to<sp/>succeed,<sp/>this<sp/>repository<sp/>must<sp/>be<sp/>placed<sp/>in<sp/>a<sp/>Ceedling<sp/>tree<sp/>in<sp/>the<sp/>plugins<sp/>folder.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>More<sp/>examples</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">There<sp/>is<sp/>an<sp/>example<sp/>project<sp/>in<sp/>examples/fff_example.</highlight></codeline>
+<codeline><highlight class="normal">It<sp/>shows<sp/>how<sp/>to<sp/>use<sp/>the<sp/>plug-in<sp/>with<sp/>some<sp/>full-size<sp/>examples.</highlight></codeline>
+    </programlisting>
+    <location file="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/README.md"/>
+  </compounddef>
+</doxygen>

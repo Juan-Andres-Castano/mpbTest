@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_f0984ab69daefa91954353a817311c43" xml:lang="en-US">
+<title>UnitTestFramework/vendor/ceedling Directory Reference</title>
+<indexterm><primary>UnitTestFramework/vendor/ceedling Directory Reference</primary></indexterm>
+Directory dependency graph for ceedling:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="dir_f0984ab69daefa91954353a817311c43_dep.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Directories    </title>
+        <itemizedlist>
+            <listitem><para>directory <link linkend="_dir_fa2fe0ab050bde68678cdf57cbea9809">docs</link></para>
+</listitem>
+            <listitem><para>directory <link linkend="_dir_5038cffc520512455c394c8da4fd704d">plugins</link></para>
+</listitem>
+            <listitem><para>directory <link linkend="_dir_868bc21c59277f2a4b1a950135a8ea3b">vendor</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

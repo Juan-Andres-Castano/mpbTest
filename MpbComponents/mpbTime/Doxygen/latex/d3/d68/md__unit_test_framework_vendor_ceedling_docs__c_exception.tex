@@ -1,0 +1,141 @@
+CException is a basic exception framework for C, suitable for use in embedded applications. It provides an exception framework similar in use to C++, but with much less overhead.
+
+CException uses C standard library functions {\ttfamily setjmp} and {\ttfamily longjmp} to operate. As long as the target system has these two functions defined, this library should be useable with very little configuration. It even supports environments where multiple program flows are in use, such as real-\/time operating systems.
+
+There are about a gabillion exception frameworks using a similar setjmp/longjmp method out there... and there will probably be more in the future. Unfortunately, when we started our last embedded project, all those that existed either (a) did not support multiple tasks (therefore multiple stacks) or (b) were way more complex than we really wanted. CException was born.
+
+{\itshape Why use CException?}
+
+0. It\textquotesingle{}s ANSI C, and it beats passing error codes around.
+\begin{DoxyEnumerate}
+\item You want something simple... CException throws a single id. You can define those ID\textquotesingle{}s to be whatever you like. You might even choose which type that number is for your project. But that\textquotesingle{}s as far as it goes. We weren\textquotesingle{}t interested in passing objects or structs or strings... just simple error codes.
+\item Performance... CException can be configured for single tasking or multitasking. In single tasking, there is very little overhead past the setjmp/longjmp calls (which are already fast). In multitasking, your only additional overhead is the time it takes you to determine a unique task id 0 -\/ num\+\_\+tasks.
+\end{DoxyEnumerate}
+
+For the latest version, go to \href{http://throwtheswitch.org}{\texttt{ Throw\+The\+Switch.\+org}}\hypertarget{md__unit_test_framework_vendor_ceedling_docs__c_exception_autotoc_md24}{}\doxysection{CONTENTS OF THIS DOCUMENT}\label{md__unit_test_framework_vendor_ceedling_docs__c_exception_autotoc_md24}
+
+\begin{DoxyItemize}
+\item Usage
+\item Limitations $\ast$\+API
+\item Configuration
+\item Testing
+\item License
+\end{DoxyItemize}\hypertarget{md__unit_test_framework_vendor_ceedling_docs__c_exception_autotoc_md25}{}\doxysubsection{Usage}\label{md__unit_test_framework_vendor_ceedling_docs__c_exception_autotoc_md25}
+Code that is to be protected are wrapped in {\ttfamily Try \{ \} Catch \{ \}} blocks. The code directly following the Try call is \char`\"{}protected\char`\"{}, meaning that if any Throws occur, program control is directly transferred to the start of the Catch block.
+
+A numerical exception ID is included with Throw, and is made accessible from the Catch block.
+
+Throws can occur from within function calls (nested as deeply as you like) or directly from within the function itself.\hypertarget{md__unit_test_framework_vendor_ceedling_docs__c_exception_autotoc_md26}{}\doxysubsection{Limitations}\label{md__unit_test_framework_vendor_ceedling_docs__c_exception_autotoc_md26}
+This library was made to be as fast as possible, and provide basic exception handling. It is not a full-\/blown exception library. Because of this, there are a few limitations that should be observed in order to successfully utilize this library\+:
+
+
+\begin{DoxyEnumerate}
+\item Do not directly \char`\"{}return\char`\"{} from within a {\ttfamily Try} block, nor {\ttfamily goto} into or out of a {\ttfamily Try} block.
+
+{\itshape Why?}
+
+The {\ttfamily Try} macro allocates some local memory and alters a global pointer. These are cleaned up at the top of the {\ttfamily Catch} macro. Gotos and returns would bypass some of these steps, resulting in memory leaks or unpredictable behavior.
+\item If (a) you change local (stack) variables within your {\ttfamily Try} block, AND (b) wish to make use of the updated values after an exception is thrown, those variables should be made {\ttfamily volatile}. Note that this is ONLY for locals and ONLY when you need access to them after a {\ttfamily Throw}.
+
+{\itshape Why?}
+
+Compilers optimize. There is no way to guarantee that the actual memory location was updated and not just a register unless the variable is marked volatile.
+\item Memory which is {\ttfamily malloc}\textquotesingle{}d or {\ttfamily new}\textquotesingle{}d is not automatically released when an error is thrown. This will sometimes be desirable, and othertimes may not. It will be the responsibility of the {\ttfamily Catch} block to perform this kind of cleanup.
+
+{\itshape Why?}
+
+There\textquotesingle{}s just no easy way to track {\ttfamily malloc}\textquotesingle{}d memory, etc., without replacing or wrapping malloc calls or something like that. This is a light framework, so these options were not desirable.
+\end{DoxyEnumerate}\hypertarget{md__unit_test_framework_vendor_ceedling_docs__c_exception_autotoc_md27}{}\doxysubsection{API}\label{md__unit_test_framework_vendor_ceedling_docs__c_exception_autotoc_md27}
+\hypertarget{md__unit_test_framework_vendor_ceedling_docs__c_exception_autotoc_md28}{}\doxysubsubsection{Try}\label{md__unit_test_framework_vendor_ceedling_docs__c_exception_autotoc_md28}
+{\ttfamily Try} is a macro which starts a protected block. It MUST be followed by a pair of braces or a single protected line (similar to an \textquotesingle{}if\textquotesingle{}), enclosing the data that is to be protected. It {\bfseries{must}} be followed by a {\ttfamily Catch} block (don\textquotesingle{}t worry, you\textquotesingle{}ll get compiler errors to let you know if you mess any of that up).\hypertarget{md__unit_test_framework_vendor_ceedling_docs__c_exception_autotoc_md29}{}\doxysubsubsection{Catch(e)}\label{md__unit_test_framework_vendor_ceedling_docs__c_exception_autotoc_md29}
+{\ttfamily Catch} is a macro which ends the {\ttfamily Try} block and starts the error handling block. The {\ttfamily Catch} block is called if and only if an exception was thrown while within the {\ttfamily Try} block. This error was thrown by a {\ttfamily Throw} call somewhere within {\ttfamily Try} (or within a function called within {\ttfamily Try}, or a function called by a function called within {\ttfamily Try}, etc).
+
+The single parameter {\ttfamily e} is filled with the error code which was thrown. This can be used for reporting, conditional cleanup, etc. (or you can just ignore it if you really want... people ignore return codes all the time, right?). {\ttfamily e} should be of type {\ttfamily EXCEPTION\+\_\+T}\hypertarget{md__unit_test_framework_vendor_ceedling_docs__c_exception_autotoc_md30}{}\doxysubsubsection{Throw(e)}\label{md__unit_test_framework_vendor_ceedling_docs__c_exception_autotoc_md30}
+This is the method of throwing an error. A {\ttfamily Throw} should only occur from within a protected ({\ttfamily Try} ... {\ttfamily Catch}) block, though it may easily be nested many function calls deep without an impact on performance or functionality. {\ttfamily Throw} takes a single argument, which is an exception id which will be passed to {\ttfamily Catch} as the reason for the error.
+
+If you wish to rethrow an error, this can be done by calling {\ttfamily Throw(e)} with the error code you just caught. It {\bfseries{is}} valid to throw from a catch block.\hypertarget{md__unit_test_framework_vendor_ceedling_docs__c_exception_autotoc_md31}{}\doxysubsubsection{Exit\+Try()}\label{md__unit_test_framework_vendor_ceedling_docs__c_exception_autotoc_md31}
+On rare occasion, you might want to immediately exit your current {\ttfamily Try} block but {\bfseries{not}} treat this as an error. Don\textquotesingle{}t run the {\ttfamily Catch}. Just start executing from after the {\ttfamily Catch} as if nothing had happened... That\textquotesingle{}s what {\ttfamily Exit\+Try} is for.\hypertarget{md__unit_test_framework_vendor_ceedling_docs__c_exception_autotoc_md32}{}\doxysubsection{CONFIGURATION}\label{md__unit_test_framework_vendor_ceedling_docs__c_exception_autotoc_md32}
+CException is a mostly portable library. It has one universal dependency, and some macros which are required if working in a multi-\/tasking environment.
+
+
+\begin{DoxyEnumerate}
+\item The standard C library setjmp must be available. Since this is part of the standard library, chances are good that you\textquotesingle{}ll be fine.
+\item If working in a multitasking environment, methods for obtaining an index into an array of frames and to get the overall number of id\textquotesingle{}s are required. If the OS supports a method to retrieve Task ID\textquotesingle{}s, and those Tasks are number 0, 1, 2... you are in an ideal situation. Otherwise, a more creative mapping function may be required. Note that this function is likely to be called twice for each protected block and once during a throw. This is the only overhead in the system.
+\end{DoxyEnumerate}\hypertarget{md__unit_test_framework_vendor_ceedling_docs__c_exception_autotoc_md33}{}\doxysubsection{Exception.\+h}\label{md__unit_test_framework_vendor_ceedling_docs__c_exception_autotoc_md33}
+By convention, most projects include {\ttfamily Exception.\+h} which defines any further requirements, then calls {\ttfamily \mbox{\hyperlink{_c_exception_8h}{CException.\+h}}} to do the gruntwork. All of these are optional. You could directly include {\ttfamily \mbox{\hyperlink{_c_exception_8h}{CException.\+h}}} if you wanted and just use the defaults provided.
+
+
+\begin{DoxyItemize}
+\item {\ttfamily EXCEPTION\+\_\+T}
+\begin{DoxyItemize}
+\item Set this to the type you want your exception id\textquotesingle{}s to be. Defaults to \textquotesingle{}unsigned int\textquotesingle{}.
+\end{DoxyItemize}
+\item {\ttfamily EXCEPTION\+\_\+\+NONE}
+\begin{DoxyItemize}
+\item Set this to a number which will never be an exception id in your system. Defaults to {\ttfamily 0x5a5a5a5a}.
+\end{DoxyItemize}
+\item {\ttfamily EXCEPTION\+\_\+\+GET\+\_\+\+ID}
+\begin{DoxyItemize}
+\item If in a multi-\/tasking environment, this should be set to be a call to the function described in \#2 above. Defaults to just return {\ttfamily 0} all the time (good for single tasking environments)
+\end{DoxyItemize}
+\item {\ttfamily EXCEPTION\+\_\+\+NUM\+\_\+\+ID}
+\begin{DoxyItemize}
+\item If in a multi-\/tasking environment, this should be set to the number of ID\textquotesingle{}s required (usually the number of tasks in the system). Defaults to {\ttfamily 1} (for single tasking environments).
+\end{DoxyItemize}
+\item {\ttfamily \mbox{\hyperlink{_c_exception_8h_ac8517d98d7874a3e21e35c4e782220c1}{CEXCEPTION\+\_\+\+NO\+\_\+\+CATCH\+\_\+\+HANDLER(id)}}}
+\begin{DoxyItemize}
+\item This macro can be optionally specified. It allows you to specify code to be called when a Throw is made outside of {\ttfamily Try} ... {\ttfamily Catch} protection. Consider this the emergency fallback plan for when something has gone terribly wrong.
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+You may also want to include any header files which will commonly be needed by the rest of your application where it uses exception handling here. For example, OS header files or exception codes would be useful.
+
+Finally, there are some hook macros which you can implement to inject your own target-\/specific code in particular places. It is a rare instance where you will need these, but they are here if you need them\+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily CEXCEPTION\+\_\+\+HOOK\+\_\+\+START\+\_\+\+TRY}
+\begin{DoxyItemize}
+\item called immediately before the Try block
+\end{DoxyItemize}
+\item {\ttfamily CEXCEPTION\+\_\+\+HOOK\+\_\+\+HAPPY\+\_\+\+TRY}
+\begin{DoxyItemize}
+\item called immediately after the Try block if no exception was thrown
+\end{DoxyItemize}
+\item {\ttfamily CEXCEPTION\+\_\+\+HOOK\+\_\+\+AFTER\+\_\+\+TRY}
+\begin{DoxyItemize}
+\item called immediately after the Try block OR before an exception is caught
+\end{DoxyItemize}
+\item {\ttfamily CEXCEPTION\+\_\+\+HOOK\+\_\+\+START\+\_\+\+CATCH}
+\begin{DoxyItemize}
+\item called immediately before the catch
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{md__unit_test_framework_vendor_ceedling_docs__c_exception_autotoc_md34}{}\doxysubsection{TESTING}\label{md__unit_test_framework_vendor_ceedling_docs__c_exception_autotoc_md34}
+If you want to validate that CException works with your tools or that it works with your custom configuration, you may want to run the test suite.
+
+The test suite included makes use of the {\ttfamily Unity} Test Framework. It will require a native C compiler. The example makefile uses Min\+GW\textquotesingle{}s gcc. Modify the makefile to include the proper paths to tools, then run {\ttfamily make} to compile and run the test application.
+
+
+\begin{DoxyItemize}
+\item {\ttfamily C\+\_\+\+COMPILER}
+\begin{DoxyItemize}
+\item The C compiler to use to perform the tests
+\end{DoxyItemize}
+\item {\ttfamily C\+\_\+\+LIBS}
+\begin{DoxyItemize}
+\item The path to the C libraries (including setjmp)
+\end{DoxyItemize}
+\item {\ttfamily UNITY\+\_\+\+DIR}
+\begin{DoxyItemize}
+\item The path to the Unity framework (required to run tests) (get it at \href{http://throwtheswitch.org}{\texttt{ Throw\+The\+Switch.\+org}})
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{md__unit_test_framework_vendor_ceedling_docs__c_exception_autotoc_md35}{}\doxysubsection{LICENSE}\label{md__unit_test_framework_vendor_ceedling_docs__c_exception_autotoc_md35}
+This software is licensed under the MIT License
+
+Copyright (c) 2007-\/2017 Mark Vander\+Voord
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \char`\"{}\+Software\char`\"{}), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions\+:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED \char`\"{}\+AS IS\char`\"{}, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. 

@@ -1,0 +1,156 @@
+---
+
+# Notes:
+# Sample project C code is not presently written to produce a release artifact.
+# As such, release build options are disabled.
+# This sample, therefore, only demonstrates running a collection of unit tests.
+
+:project:
+  :use_exceptions: FALSE
+  :use_test_preprocessor: FALSE
+  :use_auxiliary_dependencies: TRUE
+  :generate_deep_dependencies: TRUE
+  :build_root: build
+#  :release_build: TRUE
+  :test_file_prefix: test_
+  :which_ceedling: vendor/ceedling
+  :default_tasks:
+    - test:all
+
+#:release_build:
+#  :output: MyApp.out
+#  :use_assembly: FALSE
+
+:environment:
+  - :path:
+    - 'C:\Program Files\IAR Systems\Embedded Workbench 9.0\arm\bin'
+    - 'C:\Program Files\IAR Systems\Embedded Workbench 9.0\common\bin'
+    - #{ENV['PATH']}
+
+
+:extension:
+  :executable: .out
+
+:paths:
+  :test:
+    - ../Tests/*
+  :source:
+    - ../Sources/*
+  :include:
+    - ../Includes/*
+    - ../../commun/*
+  :support:
+
+:defines:
+  # in order to add common defines:
+  #  1) remove the trailing [] from the :common: section
+  #  2) add entries to the :common: section (e.g. :test: has TEST defined)
+  :commmon: &common_defines []
+  :test:
+    - *common_defines
+    - TEST
+  :test_preprocess:
+    - *common_defines
+    - TEST
+
+:cmock:
+  :mock_prefix: mock_
+  :when_no_prototypes: :warn
+  :enforce_strict_ordering: TRUE
+  :plugins:
+    - :ignore
+    - :ignore_arg
+    - :expect_any_args
+    - :array
+    - :callback
+    - :return_thru_ptr
+  :treat_as:
+    uint8:    HEX8
+    uint16:   HEX16
+    uint32:   UINT32
+    int8:     INT8
+    bool:     UINT8
+  :treat_externs: :include 
+
+:gcov:
+    :html_report_type: basic
+
+:tools:
+# Ceedling defaults to using gcc for compiling, linking, etc.
+# As [:tools] is blank, gcc will be used (so long as it's in your system path)
+# See documentation to configure a given toolchain for use
+# For NAF's need to use IAR, https://stackoverflow.com/questions/41140188/how-can-i-configure-ceedling-for-an-iar-embedded-workbench-project
+# was implemented
+  :test_compiler:
+    :executable: iccarm
+    :name: 'iar test compiler'
+    :arguments:
+      # The following IAR compiler directive makes it behave like a proper Ceedling preprocessor. Additional defines
+      # can also be added.
+      - -D _DLIB_FILE_DESCRIPTOR=1
+      - --debug
+      - --endian=little
+      - --cpu=Cortex-M3
+      - -e
+      - --fpu=None
+      - -Ol
+      - --preprocess "build/test/list"
+      - --dlib_config "C:\Program Files\IAR Systems\Embedded Workbench 9.0\arm\inc\c\DLib_Config_Normal.h"
+      - -I"$": COLLECTION_PATHS_TEST_TOOLCHAIN_INCLUDE
+      - -I"$": COLLECTION_PATHS_TEST_SUPPORT_SOURCE_INCLUDE_VENDOR
+      - -o "${2}"
+      - --diag_suppress=Pa050
+      - '"${1}"'
+
+  :test_linker:
+    :executable: ilinkarm
+    :name: 'IAR test linker'
+    :arguments:
+      # MODULE LIBRARIES need to be added here
+      - --vfe
+      - --redirect _Printf=_PrintfFull
+      - --redirect _Scanf=_ScanfFull
+      - --semihosting
+      - --config "C:\Program Files\IAR Systems\Embedded Workbench 9.0\arm\config\generic_cortex.icf"
+      - --map "build/test/tests.map"
+      - -o "${2}"
+      - '"${1}"'
+
+  :test_fixture:
+    :executable: cspybat
+    :name: 'CSpyBat test runner'
+    :arguments:
+      - '"C:\Program Files\IAR Systems\Embedded Workbench 9.0\arm\bin\armproc.dll"'
+      - '"C:\Program Files\IAR Systems\Embedded Workbench 9.0\arm\bin\armsim2.dll"'
+      - '"${1}"'
+      - --plugin "C:\Program Files\IAR Systems\Embedded Workbench 9.0\arm\bin\armbat.dll"
+      - --silent
+      - --backend -B
+      - --endian=little
+      - --cpu=Cortex-M4
+      - --fpu=None
+      - --semihosting
+
+
+# LIBRARIES
+# These libraries are automatically injected into the build process. Those specified as
+# common will be used in all types of builds. Otherwise, libraries can be injected in just
+# tests or releases. These options are MERGED with the options in supplemental yaml files.
+:libraries:
+  :placement: :end
+  :flag: "${1}"  # or "-L ${1}" for example
+  :common: &common_libraries []
+  :test:
+    - *common_libraries
+  :release:
+    - *common_libraries
+
+:plugins:
+  :load_paths:
+    - vendor/ceedling/plugins
+  :enabled:
+    - xml_tests_report
+    - stdout_pretty_tests_report
+    - module_generator
+    #- raw_output_report
+...

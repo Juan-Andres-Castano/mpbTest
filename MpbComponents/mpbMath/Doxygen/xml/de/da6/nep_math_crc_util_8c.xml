@@ -1,0 +1,302 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="de/da6/nep_math_crc_util_8c" kind="file" language="C++">
+    <compoundname>nepMathCrcUtil.c</compoundname>
+    <includes local="yes">nepMathCrcUtil.h</includes>
+    <incdepgraph>
+      <node id="2">
+        <label>nepMathCrcUtil.h</label>
+      </node>
+      <node id="1">
+        <label>Sources/nepMathCrcUtil.c</label>
+        <link refid="de/da6/nep_math_crc_util_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="de/da6/nep_math_crc_util_8c_1a08ad1de66a2ce007d485e8dee7ef8f24" prot="public" static="no">
+        <name>NUMBER_OF_BITS_IN_BYTE</name>
+        <initializer>( 8 )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Sources/nepMathCrcUtil.c" line="22" column="9" bodyfile="Sources/nepMathCrcUtil.c" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="de/da6/nep_math_crc_util_8c_1a0592dba56693fad79136250c11e5a7fe" prot="public" static="no">
+        <name>MAX_SIZE</name>
+        <initializer>( 32 )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Sources/nepMathCrcUtil.c" line="23" column="9" bodyfile="Sources/nepMathCrcUtil.c" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="de/da6/nep_math_crc_util_8c_1aa611d8f7e5aa7a82486ee4fb0c64bc05" prot="public" static="no">
+        <name>BITMASK</name>
+        <param><defname>x</defname></param>
+        <initializer>( 1L &lt;&lt; ( x ) )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Sources/nepMathCrcUtil.c" line="27" column="9" bodyfile="Sources/nepMathCrcUtil.c" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="de/da6/nep_math_crc_util_8c_1a92f8f972a2c188371fcf0b561c44af97" prot="public" static="no">
+        <name>MASK</name>
+        <param><defname>x</defname></param>
+        <initializer>( 0xFFFFFFFF &gt;&gt; ( <ref refid="de/da6/nep_math_crc_util_8c_1a0592dba56693fad79136250c11e5a7fe" kindref="member">MAX_SIZE</ref> - x ) )</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Sources/nepMathCrcUtil.c" line="28" column="9" bodyfile="Sources/nepMathCrcUtil.c" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="de/da6/nep_math_crc_util_8c_1ab79d86a1ec1457c66f0602f7a617b7f2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void vNepMathCrcUtilReflectData</definition>
+        <argsstring>(uint8_t ucNumberOfBits, uint32_t ulData, uint32_t *pulResult)</argsstring>
+        <name>vNepMathCrcUtilReflectData</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>ucNumberOfBits</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>ulData</declname>
+        </param>
+        <param>
+          <type>uint32_t *</type>
+          <declname>pulResult</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Sources/nepMathCrcUtil.c" line="38" column="6" bodyfile="Sources/nepMathCrcUtil.c" bodystart="38" bodyend="59"/>
+        <references refid="de/da6/nep_math_crc_util_8c_1aa611d8f7e5aa7a82486ee4fb0c64bc05" compoundref="de/da6/nep_math_crc_util_8c" startline="27">BITMASK</references>
+        <referencedby refid="dc/dfe/nep_math_crc_8c_1ae4b22b6aa7650934381ae4c626c8d2f3" compoundref="dc/dfe/nep_math_crc_8c" startline="108" endline="158">eNepMathCrcCalculate</referencedby>
+        <referencedby refid="dc/dfe/nep_math_crc_8c_1a74b0fc377878a0f2c5150c9565775486" compoundref="dc/dfe/nep_math_crc_8c" startline="51" endline="105">eNepMathCrcValidate</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="de/da6/nep_math_crc_util_8c_1a72e193921a8c970fa71e9f65970610b2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void vNepMathCrcUtilReflectBytes</definition>
+        <argsstring>(uint32_t ulNumberOfBytes, const uint8_t *pucBuffer, uint8_t *pucResult)</argsstring>
+        <name>vNepMathCrcUtilReflectBytes</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>ulNumberOfBytes</declname>
+        </param>
+        <param>
+          <type>const uint8_t *</type>
+          <declname>pucBuffer</declname>
+        </param>
+        <param>
+          <type>uint8_t *</type>
+          <declname>pucResult</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Sources/nepMathCrcUtil.c" line="62" column="6" bodyfile="Sources/nepMathCrcUtil.c" bodystart="62" bodyend="90"/>
+        <references refid="de/da6/nep_math_crc_util_8c_1aa611d8f7e5aa7a82486ee4fb0c64bc05" compoundref="de/da6/nep_math_crc_util_8c" startline="27">BITMASK</references>
+        <references refid="de/da6/nep_math_crc_util_8c_1a08ad1de66a2ce007d485e8dee7ef8f24" compoundref="de/da6/nep_math_crc_util_8c" startline="22">NUMBER_OF_BITS_IN_BYTE</references>
+        <referencedby refid="dc/dfe/nep_math_crc_8c_1ae4b22b6aa7650934381ae4c626c8d2f3" compoundref="dc/dfe/nep_math_crc_8c" startline="108" endline="158">eNepMathCrcCalculate</referencedby>
+        <referencedby refid="dc/dfe/nep_math_crc_8c_1a74b0fc377878a0f2c5150c9565775486" compoundref="dc/dfe/nep_math_crc_8c" startline="51" endline="105">eNepMathCrcValidate</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="de/da6/nep_math_crc_util_8c_1a453ad598f464806296587ef558f1428e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void vNepMathCrcUtilCalculate</definition>
+        <argsstring>(uint8_t ucWidth, uint32_t ulInitial, uint32_t ulPolynomial, uint32_t ulNumberOfBytes, const uint8_t *pucBuffer, uint32_t *pulCrcValue)</argsstring>
+        <name>vNepMathCrcUtilCalculate</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>ucWidth</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>ulInitial</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>ulPolynomial</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>ulNumberOfBytes</declname>
+        </param>
+        <param>
+          <type>const uint8_t *</type>
+          <declname>pucBuffer</declname>
+        </param>
+        <param>
+          <type>uint32_t *</type>
+          <declname>pulCrcValue</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Sources/nepMathCrcUtil.c" line="93" column="6" bodyfile="Sources/nepMathCrcUtil.c" bodystart="93" bodyend="128"/>
+        <references refid="de/da6/nep_math_crc_util_8c_1aa611d8f7e5aa7a82486ee4fb0c64bc05" compoundref="de/da6/nep_math_crc_util_8c" startline="27">BITMASK</references>
+        <references refid="de/da6/nep_math_crc_util_8c_1a92f8f972a2c188371fcf0b561c44af97" compoundref="de/da6/nep_math_crc_util_8c" startline="28">MASK</references>
+        <references refid="de/da6/nep_math_crc_util_8c_1a08ad1de66a2ce007d485e8dee7ef8f24" compoundref="de/da6/nep_math_crc_util_8c" startline="22">NUMBER_OF_BITS_IN_BYTE</references>
+        <referencedby refid="dc/dfe/nep_math_crc_8c_1ae4b22b6aa7650934381ae4c626c8d2f3" compoundref="dc/dfe/nep_math_crc_8c" startline="108" endline="158">eNepMathCrcCalculate</referencedby>
+        <referencedby refid="dc/dfe/nep_math_crc_8c_1a74b0fc377878a0f2c5150c9565775486" compoundref="dc/dfe/nep_math_crc_8c" startline="51" endline="105">eNepMathCrcValidate</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>nepMathCrcUtil source file. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Philippe.Boulais </para>
+</simplesect>
+<simplesect kind="date"><para>Created on 11/8/2019 </para>
+</simplesect>
+<simplesect kind="copyright"><para>NEP, Montreal, Qc <heading level="2"><center><copy/> COPYRIGHT 2015 NEP, Montreal, Quebec, Canada</center></heading>
+</para>
+</simplesect>
+<heading level="2"><center><copy/> All rights reserved.</center></heading>
+</para>
+<para><linebreak/>
+<linebreak/>
+ <center>This document contains confidential and proprietary information of NEPTRONIC (subject to a non-disclosure agreement) and shall</center> <center>not be disclosed, distributed, or reproduced in whole or in part, without the prior written authorization of NEPTRONIC.</center> </para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Includes<sp/>-----------------------------------------------------------------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;nepMathCrcUtil.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Private<sp/>define<sp/>-----------------------------------------------------------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22" refid="de/da6/nep_math_crc_util_8c_1a08ad1de66a2ce007d485e8dee7ef8f24" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NUMBER_OF_BITS_IN_BYTE<sp/><sp/><sp/><sp/><sp/><sp/>(<sp/>8<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23" refid="de/da6/nep_math_crc_util_8c_1a0592dba56693fad79136250c11e5a7fe" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MAX_SIZE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(<sp/>32<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Private<sp/>macro<sp/>------------------------------------------------------------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27" refid="de/da6/nep_math_crc_util_8c_1aa611d8f7e5aa7a82486ee4fb0c64bc05" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>BITMASK(<sp/>x<sp/>)<sp/><sp/><sp/><sp/>(<sp/>1L<sp/>&lt;&lt;<sp/>(<sp/>x<sp/>)<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28" refid="de/da6/nep_math_crc_util_8c_1a92f8f972a2c188371fcf0b561c44af97" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MASK(<sp/>x<sp/>)<sp/><sp/><sp/><sp/><sp/><sp/><sp/>(<sp/>0xFFFFFFFF<sp/>&gt;&gt;<sp/>(<sp/>MAX_SIZE<sp/>-<sp/>x<sp/>)<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Private<sp/>enum<sp/>-------------------------------------------------------------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Private<sp/>struct<sp/>-----------------------------------------------------------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Private<sp/>variables<sp/>--------------------------------------------------------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>External<sp/>variables<sp/>-------------------------------------------------------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Private<sp/>function<sp/>prototypes<sp/>----------------------------------------------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Private<sp/>functions<sp/>--------------------------------------------------------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Exported<sp/>functions<sp/>-------------------------------------------------------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38" refid="de/da6/nep_math_crc_util_8c_1ab79d86a1ec1457c66f0602f7a617b7f2" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="de/da6/nep_math_crc_util_8c_1ab79d86a1ec1457c66f0602f7a617b7f2" kindref="member">vNepMathCrcUtilReflectData</ref>(<sp/>uint8_t<sp/>ucNumberOfBits,<sp/>uint32_t<sp/>ulData,<sp/>uint32_t<sp/>*pulResult<sp/>)</highlight></codeline>
+<codeline lineno="39"><highlight class="normal">{<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>ulResult<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>ulMask;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>vNeplibsAssertParam(<sp/>ucNumberOfBits<sp/>);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>vNeplibsAssertParam(<sp/>ulData<sp/>);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>vNeplibsAssertParam(<sp/>pulResult<sp/>);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>ulMask<sp/>=<sp/>(<sp/><ref refid="de/da6/nep_math_crc_util_8c_1aa611d8f7e5aa7a82486ee4fb0c64bc05" kindref="member">BITMASK</ref>(<sp/>ucNumberOfBits<sp/>-<sp/>1<sp/>)<sp/>);<sp/></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(<sp/>uint8_t<sp/>ucI<sp/>=<sp/>ucNumberOfBits;<sp/>ucI<sp/>&gt;<sp/>0;<sp/>ucI--<sp/>)</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>ulData<sp/>&amp;<sp/>1<sp/>)</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ulResult<sp/>|=<sp/>ulMask;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ulData<sp/>&gt;&gt;=<sp/>1;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ulMask<sp/>&gt;&gt;=<sp/>1<sp/>;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>*pulResult<sp/>=<sp/>ulResult;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62" refid="de/da6/nep_math_crc_util_8c_1a72e193921a8c970fa71e9f65970610b2" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="de/da6/nep_math_crc_util_8c_1a72e193921a8c970fa71e9f65970610b2" kindref="member">vNepMathCrcUtilReflectBytes</ref>(<sp/>uint32_t<sp/>ulNumberOfBytes,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t*<sp/>pucBuffer,<sp/>uint8_t*<sp/>pucResult<sp/>)</highlight></codeline>
+<codeline lineno="63"><highlight class="normal">{<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>ucResult;</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>ucMask;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>ucData;</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>vNeplibsAssertParam(<sp/>ulNumberOfBytes<sp/>);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>vNeplibsAssertParam(<sp/>pucBuffer<sp/>);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>vNeplibsAssertParam(<sp/>pucResult<sp/>);</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(<sp/>uint32_t<sp/>ulI<sp/>=<sp/>0;<sp/>ulI<sp/>&lt;<sp/>ulNumberOfBytes;<sp/>ulI++<sp/>)</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ucMask<sp/>=<sp/>(<sp/><ref refid="de/da6/nep_math_crc_util_8c_1aa611d8f7e5aa7a82486ee4fb0c64bc05" kindref="member">BITMASK</ref>(<sp/><ref refid="de/da6/nep_math_crc_util_8c_1a08ad1de66a2ce007d485e8dee7ef8f24" kindref="member">NUMBER_OF_BITS_IN_BYTE</ref><sp/>-<sp/>1<sp/>)<sp/>);<sp/></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ucResult<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ucData<sp/>=<sp/>pucBuffer[<sp/>ulI<sp/>];</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(<sp/>uint8_t<sp/>ucI<sp/>=<sp/><ref refid="de/da6/nep_math_crc_util_8c_1a08ad1de66a2ce007d485e8dee7ef8f24" kindref="member">NUMBER_OF_BITS_IN_BYTE</ref>;<sp/>ucI<sp/>&gt;<sp/>0;<sp/>ucI--<sp/>)</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>ucData<sp/>&amp;<sp/>1<sp/>)</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ucResult<sp/>|=<sp/>ucMask;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ucMask<sp/>&gt;&gt;=<sp/>1;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ucData<sp/>&gt;&gt;=<sp/>1;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pucResult[<sp/>ulI<sp/>]<sp/>=<sp/>ucResult;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="90"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93" refid="de/da6/nep_math_crc_util_8c_1a453ad598f464806296587ef558f1428e" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="de/da6/nep_math_crc_util_8c_1a453ad598f464806296587ef558f1428e" kindref="member">vNepMathCrcUtilCalculate</ref>(<sp/>uint8_t<sp/>ucWidth,<sp/>uint32_t<sp/>ulInitial,<sp/>uint32_t<sp/>ulPolynomial,<sp/>uint32_t<sp/>ulNumberOfBytes,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t*<sp/>pucBuffer,<sp/>uint32_t<sp/>*pulCrcValue<sp/>)</highlight></codeline>
+<codeline lineno="94"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>ulRemainder<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>ulTopBit;</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>vNeplibsAssertParam(<sp/>ucWidth<sp/>);</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>vNeplibsAssertParam(<sp/>ulPolynomial<sp/>);</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>vNeplibsAssertParam(<sp/>ulNumberOfBytes<sp/>);</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>vNeplibsAssertParam(<sp/>pucBuffer<sp/>);</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/>vNeplibsAssertParam(<sp/>pulCrcValue<sp/>);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>ulRemainder<sp/>=<sp/>ulInitial;</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(<sp/>uint32_t<sp/>ulI<sp/>=<sp/>ulNumberOfBytes;<sp/>ulI<sp/>&gt;<sp/>0;<sp/>ulI--,<sp/>pucBuffer++<sp/>)</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ulRemainder<sp/>=<sp/>(<sp/>ulRemainder<sp/>^<sp/>(<sp/>(<sp/>uint32_t<sp/>)*pucBuffer<sp/>&lt;&lt;<sp/>(<sp/>ucWidth<sp/>-<sp/>8<sp/>)<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ulTopBit<sp/><sp/><sp/><sp/>=<sp/>(<sp/><ref refid="de/da6/nep_math_crc_util_8c_1aa611d8f7e5aa7a82486ee4fb0c64bc05" kindref="member">BITMASK</ref>(<sp/>ucWidth<sp/>-<sp/>1<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Loop<sp/>over<sp/>each<sp/>bit<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(<sp/>uint8_t<sp/>ucI<sp/>=<sp/><ref refid="de/da6/nep_math_crc_util_8c_1a08ad1de66a2ce007d485e8dee7ef8f24" kindref="member">NUMBER_OF_BITS_IN_BYTE</ref>;<sp/>ucI<sp/>&gt;<sp/>0;<sp/>ucI--<sp/>)</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>if<sp/>MSB<sp/>is<sp/>set<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>ulRemainder<sp/>&amp;<sp/>ulTopBit<sp/>)</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ulRemainder<sp/>&lt;&lt;=<sp/>1;</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ulRemainder<sp/>^=<sp/>ulPolynomial;</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ulRemainder<sp/>&lt;&lt;=<sp/>1;</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/>ulRemainder<sp/>&amp;=<sp/><sp/><ref refid="de/da6/nep_math_crc_util_8c_1a92f8f972a2c188371fcf0b561c44af97" kindref="member">MASK</ref>(<sp/>ucWidth<sp/>);</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/>*pulCrcValue<sp/>=<sp/>ulRemainder;</highlight></codeline>
+<codeline lineno="128"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="Sources/nepMathCrcUtil.c"/>
+  </compounddef>
+</doxygen>

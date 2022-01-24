@@ -1,0 +1,217 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_event__processor_8c" xml:lang="en-US">
+<title>UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/event_processor.c File Reference</title>
+<indexterm><primary>UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/event_processor.c</primary></indexterm>
+<programlisting>#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &quot;event_processor.h&quot;
+#include &quot;display.h&quot;
+</programlisting>Include dependency graph for event_processor.c:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../d2/d64/event__processor_8c__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_event__processor_8c_1ae1d8acf4a49fc2dd494f7838a3d290c9">event_deviceReset</link> (void)</para>
+</listitem>
+            <listitem><para>void <link linkend="_event__processor_8c_1af0c058d318f845e4ad837756121715d9">event_volumeKnobMaxed</link> (void)</para>
+</listitem>
+            <listitem><para>void <link linkend="_event__processor_8c_1ab67dfe66cdf6520c6a2fe56416ec49ee">event_powerReadingUpdate</link> (int powerReading)</para>
+</listitem>
+            <listitem><para>void <link linkend="_event__processor_8c_1aea6c21cc8520a67d644f5eee64e266a9">event_modeSelectButtonPressed</link> (void)</para>
+</listitem>
+            <listitem><para>void <link linkend="_event__processor_8c_1a07ad329255bf724d42e83d7288b20905">event_devicePoweredOn</link> (void)</para>
+</listitem>
+            <listitem><para>void <link linkend="_event__processor_8c_1a215d1e5ccd386376a8f2f7ca5de2d6fa">event_keyboardCheckTimerExpired</link> (void)</para>
+</listitem>
+            <listitem><para>void <link linkend="_event__processor_8c_1ab6d73895a0010faeaf7ddf0eee24a974">event_newDataAvailable</link> (int data)</para>
+</listitem>
+            <listitem><para>bool <link linkend="_event__processor_8c_1ae764507cd003774bd368b2785bb8566b">eventProcessor_isLastEventComplete</link> (void)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_event__processor_8c_1a07ad329255bf724d42e83d7288b20905"/>    <section>
+    <title>event_devicePoweredOn()</title>
+<indexterm><primary>event_devicePoweredOn</primary><secondary>event_processor.c</secondary></indexterm>
+<indexterm><primary>event_processor.c</primary><secondary>event_devicePoweredOn</secondary></indexterm>
+<para><computeroutput>void event_devicePoweredOn (void )</computeroutput></para><para>
+Definition at line 56 of file event_processor.c.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../d5/db3/event__processor_8c_a07ad329255bf724d42e83d7288b20905_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../d5/db3/event__processor_8c_a07ad329255bf724d42e83d7288b20905_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_event__processor_8c_1ae1d8acf4a49fc2dd494f7838a3d290c9"/>    <section>
+    <title>event_deviceReset()</title>
+<indexterm><primary>event_deviceReset</primary><secondary>event_processor.c</secondary></indexterm>
+<indexterm><primary>event_processor.c</primary><secondary>event_deviceReset</secondary></indexterm>
+<para><computeroutput>void event_deviceReset (void )</computeroutput></para><para>
+Definition at line 12 of file event_processor.c.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../d5/db3/event__processor_8c_ae1d8acf4a49fc2dd494f7838a3d290c9_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../d5/db3/event__processor_8c_ae1d8acf4a49fc2dd494f7838a3d290c9_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_event__processor_8c_1a215d1e5ccd386376a8f2f7ca5de2d6fa"/>    <section>
+    <title>event_keyboardCheckTimerExpired()</title>
+<indexterm><primary>event_keyboardCheckTimerExpired</primary><secondary>event_processor.c</secondary></indexterm>
+<indexterm><primary>event_processor.c</primary><secondary>event_keyboardCheckTimerExpired</secondary></indexterm>
+<para><computeroutput>void event_keyboardCheckTimerExpired (void )</computeroutput></para><para>
+Definition at line 64 of file event_processor.c.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../d5/db3/event__processor_8c_a215d1e5ccd386376a8f2f7ca5de2d6fa_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../d5/db3/event__processor_8c_a215d1e5ccd386376a8f2f7ca5de2d6fa_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_event__processor_8c_1aea6c21cc8520a67d644f5eee64e266a9"/>    <section>
+    <title>event_modeSelectButtonPressed()</title>
+<indexterm><primary>event_modeSelectButtonPressed</primary><secondary>event_processor.c</secondary></indexterm>
+<indexterm><primary>event_processor.c</primary><secondary>event_modeSelectButtonPressed</secondary></indexterm>
+<para><computeroutput>void event_modeSelectButtonPressed (void )</computeroutput></para><para>
+Definition at line 31 of file event_processor.c.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../d5/db3/event__processor_8c_aea6c21cc8520a67d644f5eee64e266a9_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../d5/db3/event__processor_8c_aea6c21cc8520a67d644f5eee64e266a9_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_event__processor_8c_1ab6d73895a0010faeaf7ddf0eee24a974"/>    <section>
+    <title>event_newDataAvailable()</title>
+<indexterm><primary>event_newDataAvailable</primary><secondary>event_processor.c</secondary></indexterm>
+<indexterm><primary>event_processor.c</primary><secondary>event_newDataAvailable</secondary></indexterm>
+<para><computeroutput>void event_newDataAvailable (int data)</computeroutput></para><para>
+Definition at line 84 of file event_processor.c.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../d5/db3/event__processor_8c_ab6d73895a0010faeaf7ddf0eee24a974_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_event__processor_8c_1ab67dfe66cdf6520c6a2fe56416ec49ee"/>    <section>
+    <title>event_powerReadingUpdate()</title>
+<indexterm><primary>event_powerReadingUpdate</primary><secondary>event_processor.c</secondary></indexterm>
+<indexterm><primary>event_processor.c</primary><secondary>event_powerReadingUpdate</secondary></indexterm>
+<para><computeroutput>void event_powerReadingUpdate (int powerReading)</computeroutput></para><para>
+Definition at line 23 of file event_processor.c.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../d5/db3/event__processor_8c_ab67dfe66cdf6520c6a2fe56416ec49ee_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../d5/db3/event__processor_8c_ab67dfe66cdf6520c6a2fe56416ec49ee_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_event__processor_8c_1af0c058d318f845e4ad837756121715d9"/>    <section>
+    <title>event_volumeKnobMaxed()</title>
+<indexterm><primary>event_volumeKnobMaxed</primary><secondary>event_processor.c</secondary></indexterm>
+<indexterm><primary>event_processor.c</primary><secondary>event_volumeKnobMaxed</secondary></indexterm>
+<para><computeroutput>void event_volumeKnobMaxed (void )</computeroutput></para><para>
+Definition at line 18 of file event_processor.c.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../d5/db3/event__processor_8c_af0c058d318f845e4ad837756121715d9_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../d5/db3/event__processor_8c_af0c058d318f845e4ad837756121715d9_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_event__processor_8c_1ae764507cd003774bd368b2785bb8566b"/>    <section>
+    <title>eventProcessor_isLastEventComplete()</title>
+<indexterm><primary>eventProcessor_isLastEventComplete</primary><secondary>event_processor.c</secondary></indexterm>
+<indexterm><primary>event_processor.c</primary><secondary>eventProcessor_isLastEventComplete</secondary></indexterm>
+<para><computeroutput>bool eventProcessor_isLastEventComplete (void )</computeroutput></para><para>
+Definition at line 90 of file event_processor.c.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../d5/db3/event__processor_8c_ae764507cd003774bd368b2785bb8566b_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+</section>

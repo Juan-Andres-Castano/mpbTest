@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="dc/dd6/md__unit_test_framework_vendor_ceedling_plugins_command_hooks__r_e_a_d_m_e" kind="page">
+    <compoundname>md_UnitTestFramework_vendor_ceedling_plugins_command_hooks_README</compoundname>
+    <title>ceedling-command-hooks</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Plugin for easily calling command line tools at various points in the build process</para>
+<para>Define any of these sections in :tools: to provide additional hooks to be called on demand:</para>
+<para><programlisting><codeline><highlight class="normal">:pre_mock_generate</highlight></codeline>
+<codeline><highlight class="normal">:post_mock_generate</highlight></codeline>
+<codeline><highlight class="normal">:pre_runner_generate</highlight></codeline>
+<codeline><highlight class="normal">:post_runner_generate</highlight></codeline>
+<codeline><highlight class="normal">:pre_compile_execute</highlight></codeline>
+<codeline><highlight class="normal">:post_compile_execute</highlight></codeline>
+<codeline><highlight class="normal">:pre_link_execute</highlight></codeline>
+<codeline><highlight class="normal">:post_link_execute</highlight></codeline>
+<codeline><highlight class="normal">:pre_test_fixture_execute</highlight></codeline>
+<codeline><highlight class="normal">:pre_test_fixture_execute</highlight></codeline>
+<codeline><highlight class="normal">:pre_test</highlight></codeline>
+<codeline><highlight class="normal">:post_test</highlight></codeline>
+<codeline><highlight class="normal">:pre_release</highlight></codeline>
+<codeline><highlight class="normal">:post_release</highlight></codeline>
+<codeline><highlight class="normal">:pre_build</highlight></codeline>
+<codeline><highlight class="normal">:post_build</highlight></codeline>
+</programlisting></para>
+<para>Each of these tools can support an :executable string and an :args list, like so:</para>
+<para><programlisting><codeline><highlight class="normal">:tools:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>:post_link_execute:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>:executable:<sp/>objcopy.exe</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>:args:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>${1}<sp/>#This<sp/>is<sp/>replaced<sp/>with<sp/>the<sp/>executable<sp/>name</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>output.srec</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>--strip-all</highlight></codeline>
+</programlisting></para>
+<para>You may also specify an array of executables to be called in a particular place, like so:</para>
+<para><programlisting><codeline><highlight class="normal">:tools:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>:post_test:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>-<sp/><sp/>:executable:<sp/>echo</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:args:<sp/>&quot;${1}<sp/>was<sp/>glorious!&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>-<sp/><sp/>:executable:<sp/>echo</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:args:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>it<sp/>kinda<sp/>made<sp/>me<sp/>cry<sp/>a<sp/>little.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>you?</highlight></codeline>
+</programlisting></para>
+<para>Happy Tweaking! </para>
+    </detaileddescription>
+    <location file="UnitTestFramework/vendor/ceedling/plugins/command_hooks/README.md"/>
+  </compounddef>
+</doxygen>

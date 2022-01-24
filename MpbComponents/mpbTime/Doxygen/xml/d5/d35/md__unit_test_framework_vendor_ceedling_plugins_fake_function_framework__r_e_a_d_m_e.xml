@@ -1,0 +1,223 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="d5/d35/md__unit_test_framework_vendor_ceedling_plugins_fake_function_framework__r_e_a_d_m_e" kind="page">
+    <compoundname>md_UnitTestFramework_vendor_ceedling_plugins_fake_function_framework_README</compoundname>
+    <title>A Fake Function Framework Plug-in for Ceedling</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>This is a plug-in for <ulink url="https://github.com/ThrowTheSwitch/Ceedling">Ceedling</ulink> to use the <ulink url="https://github.com/meekrosoft/fff">Fake Function Framework</ulink> for mocking instead of CMock.</para>
+<para>Using fff provides less strict mocking than CMock, and allows for more loosely-coupled tests. And, when tests fail <ndash/> since you get the actual line number of the failure <ndash/> it&apos;s a lot easier to figure out what went wrong.</para>
+<sect1 id="d5/d35/md__unit_test_framework_vendor_ceedling_plugins_fake_function_framework__r_e_a_d_m_e_1autotoc_md291">
+<title>Installing the plug-in</title>
+<para>To use the plugin you need to 1) get the contents of this repo and 2) configure your project to use it.</para>
+<sect2 id="d5/d35/md__unit_test_framework_vendor_ceedling_plugins_fake_function_framework__r_e_a_d_m_e_1autotoc_md292">
+<title>Get the source</title>
+<para>The easiest way to get the source is to just clone this repo into the Ceedling plugin folder for your existing Ceedling project. (Don&apos;t have a Ceedling project already? <ulink url="http://www.electronvector.com/blog/try-embedded-test-driven-development-right-now-with-ceedling">Here are instructions to create one.</ulink>) From within <computeroutput>&lt;your-project&gt;/vendor/ceedling/plugins</computeroutput>, run:</para>
+<para><computeroutput>git clone <ulink url="https://github.com/ElectronVector/fake_function_framework.git">https://github.com/ElectronVector/fake_function_framework.git</ulink></computeroutput></para>
+<para>This will create a new folder named <computeroutput>fake_function_framework</computeroutput> in the plugins folder.</para>
+</sect2>
+<sect2 id="d5/d35/md__unit_test_framework_vendor_ceedling_plugins_fake_function_framework__r_e_a_d_m_e_1autotoc_md293">
+<title>Enable the plug-in.</title>
+<para>The plug-in is enabled from within your project.yml file.</para>
+<para>In the <computeroutput>:plugins</computeroutput> configuration, add <computeroutput>fake_function_framework</computeroutput> to the list of enabled plugins:</para>
+<para><programlisting filename=".yaml"><codeline><highlight class="normal">:plugins:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>:load_paths:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>-<sp/>vendor/ceedling/plugins</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>:enabled:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>-<sp/>stdout_pretty_tests_report</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>-<sp/>module_generator</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>-<sp/>fake_function_framework</highlight></codeline>
+</programlisting> <emphasis>Note that you could put the plugin source in some other loaction. In that case you&apos;d need to add a new path the <computeroutput>:load_paths</computeroutput>.</emphasis></para>
+</sect2>
+</sect1>
+<sect1 id="d5/d35/md__unit_test_framework_vendor_ceedling_plugins_fake_function_framework__r_e_a_d_m_e_1autotoc_md294">
+<title>How to use it</title>
+<para>You use fff with Ceedling the same way you used to use CMock. Modules can still be generated with the default module generator: <computeroutput>rake module:create[my_module]</computeroutput>. If you want to &quot;mock&quot; <computeroutput>some_module.h</computeroutput> in your tests, just <computeroutput>#include &quot;mock_some_module.h&quot;</computeroutput>. This creates a fake function for each of the functions defined in <computeroutput>some_module.h</computeroutput>.</para>
+<para>The name of each fake is the original function name with an appended <computeroutput>_fake</computeroutput>. For example, if we&apos;re generating fakes for a stack module with <computeroutput>push</computeroutput> and <computeroutput>pop</computeroutput> functions, we would have the fakes <computeroutput>push_fake</computeroutput> and <computeroutput>pop_fake</computeroutput>. These fakes are linked into our test executable so that any time our unit under test calls <computeroutput>push</computeroutput> or <computeroutput>pop</computeroutput> our fakes are called instead.</para>
+<para>Each of these fakes is actually a structure containing information about how the function was called, and what it might return. We can use Unity to inspect these fakes in our tests, and verify the interactions of our units. There is also a global structure named <computeroutput>fff</computeroutput> which we can use to check the sequence of calls.</para>
+<para>The fakes can also be configured to return particular values, so you can exercise the unit under test however you want.</para>
+<para>The examples below explain how to use fff to test a variety of module interactions. Each example uses fakes for a &quot;display&quot; module, created from a <ref refid="d4/d68/display_8h" kindref="compound">display.h</ref> file with <computeroutput>#include &quot;mock_display.h&quot;</computeroutput>. The <computeroutput><ref refid="d4/d68/display_8h" kindref="compound">display.h</ref></computeroutput> file must exist and must contain the prototypes for the functions to be faked.</para>
+<sect2 id="d5/d35/md__unit_test_framework_vendor_ceedling_plugins_fake_function_framework__r_e_a_d_m_e_1autotoc_md295">
+<title>Test that a function was called once</title>
+<para><programlisting filename=".c"><codeline><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><ref refid="df/da4/test__event__processor_8c_1aff1f691f0911be5857ddbe01e551c0a2" kindref="member">test_whenTheDeviceIsReset_thenTheStatusLedIsTurnedOff</ref>()</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>When</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d5/db3/event__processor_8c_1ae1d8acf4a49fc2dd494f7838a3d290c9" kindref="member">event_deviceReset</ref>();</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Then</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d6/db4/unity_8h_1af9e5695d6c7cf634206ea6d062cb54c9" kindref="member">TEST_ASSERT_EQUAL</ref>(1,<sp/>display_turnOffStatusLed_fake.call_count);</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting></para>
+</sect2>
+<sect2 id="d5/d35/md__unit_test_framework_vendor_ceedling_plugins_fake_function_framework__r_e_a_d_m_e_1autotoc_md296">
+<title>Test that a function was NOT called</title>
+<para><programlisting filename=".c"><codeline><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><ref refid="df/da4/test__event__processor_8c_1ae0402ad0b5090fc576a46cd6a37e3098" kindref="member">test_whenThePowerReadingIsLessThan5_thenTheStatusLedIsNotTurnedOn</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>When</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d5/db3/event__processor_8c_1ab67dfe66cdf6520c6a2fe56416ec49ee" kindref="member">event_powerReadingUpdate</ref>(4);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Then</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d6/db4/unity_8h_1af9e5695d6c7cf634206ea6d062cb54c9" kindref="member">TEST_ASSERT_EQUAL</ref>(0,<sp/>display_turnOnStatusLed_fake.call_count);</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting></para>
+</sect2>
+</sect1>
+<sect1 id="d5/d35/md__unit_test_framework_vendor_ceedling_plugins_fake_function_framework__r_e_a_d_m_e_1autotoc_md297">
+<title>Test that a single function was called with the correct argument</title>
+<para><programlisting filename=".c"><codeline><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><ref refid="df/da4/test__event__processor_8c_1ab3dbd650a187ae78cbc203e26c7da3a5" kindref="member">test_whenTheVolumeKnobIsMaxed_thenVolumeDisplayIsSetTo11</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>When</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d5/db3/event__processor_8c_1af0c058d318f845e4ad837756121715d9" kindref="member">event_volumeKnobMaxed</ref>();</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Then</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d6/db4/unity_8h_1af9e5695d6c7cf634206ea6d062cb54c9" kindref="member">TEST_ASSERT_EQUAL</ref>(1,<sp/>display_setVolume_fake.call_count);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d6/db4/unity_8h_1af9e5695d6c7cf634206ea6d062cb54c9" kindref="member">TEST_ASSERT_EQUAL</ref>(11,<sp/>display_setVolume_fake.arg0_val);</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting></para>
+</sect1>
+<sect1 id="d5/d35/md__unit_test_framework_vendor_ceedling_plugins_fake_function_framework__r_e_a_d_m_e_1autotoc_md298">
+<title>Test that calls are made in a particular sequence</title>
+<para><programlisting filename=".c"><codeline><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><ref refid="df/da4/test__event__processor_8c_1ae77b983df3ecc38c9338c8a1c1747199" kindref="member">test_whenTheModeSelectButtonIsPressed_thenTheDisplayModeIsCycled</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>When</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d5/db3/event__processor_8c_1aea6c21cc8520a67d644f5eee64e266a9" kindref="member">event_modeSelectButtonPressed</ref>();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d5/db3/event__processor_8c_1aea6c21cc8520a67d644f5eee64e266a9" kindref="member">event_modeSelectButtonPressed</ref>();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d5/db3/event__processor_8c_1aea6c21cc8520a67d644f5eee64e266a9" kindref="member">event_modeSelectButtonPressed</ref>();</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Then</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d6/db4/unity_8h_1a765240c346d79b58ef22d81982aced18" kindref="member">TEST_ASSERT_EQUAL_PTR</ref>((</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*)<ref refid="d4/d68/display_8h_1a4f4309083204c27565cd4943c558bf35" kindref="member">display_setModeToMinimum</ref>,<sp/>fff.call_history[0]);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d6/db4/unity_8h_1a765240c346d79b58ef22d81982aced18" kindref="member">TEST_ASSERT_EQUAL_PTR</ref>((</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*)<ref refid="d4/d68/display_8h_1a3ecd07af6041cf61b0c60150b5866c84" kindref="member">display_setModeToMaximum</ref>,<sp/>fff.call_history[1]);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d6/db4/unity_8h_1a765240c346d79b58ef22d81982aced18" kindref="member">TEST_ASSERT_EQUAL_PTR</ref>((</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*)<ref refid="d4/d68/display_8h_1a80fe0f40254a3d87f017e7d4a3a75de4" kindref="member">display_setModeToAverage</ref>,<sp/>fff.call_history[2]);</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting></para>
+</sect1>
+<sect1 id="d5/d35/md__unit_test_framework_vendor_ceedling_plugins_fake_function_framework__r_e_a_d_m_e_1autotoc_md299">
+<title>Fake a return value from a function</title>
+<para><programlisting filename=".c"><codeline><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><ref refid="df/da4/test__event__processor_8c_1aaade2183eab43ecade551f4ce2710653" kindref="member">test_givenTheDisplayHasAnError_whenTheDeviceIsPoweredOn_thenTheDisplayIsPoweredDown</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Given</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>display_isError_fake.return_val<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>When</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d5/db3/event__processor_8c_1a07ad329255bf724d42e83d7288b20905" kindref="member">event_devicePoweredOn</ref>();</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Then</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d6/db4/unity_8h_1af9e5695d6c7cf634206ea6d062cb54c9" kindref="member">TEST_ASSERT_EQUAL</ref>(1,<sp/>display_powerDown_fake.call_count);</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting></para>
+</sect1>
+<sect1 id="d5/d35/md__unit_test_framework_vendor_ceedling_plugins_fake_function_framework__r_e_a_d_m_e_1autotoc_md300">
+<title>Fake a function with a value returned by reference</title>
+<para><programlisting filename=".c"><codeline><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><ref refid="df/da4/test__event__processor_8c_1a534f0b7275d9d4a29985cacf3e8342aa" kindref="member">test_givenTheUserHasTypedSleep_whenItIsTimeToCheckTheKeyboard_theDisplayIsPoweredDown</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Given</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>mockedEntry[]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;sleep&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>return_mock_value(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>entry,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>length)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(length<sp/>&gt;<sp/>strlen(mockedEntry))</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>strncpy(entry,<sp/>mockedEntry,<sp/>length);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>display_getKeyboardEntry_fake.custom_fake<sp/>=<sp/>return_mock_value;</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>When</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d5/db3/event__processor_8c_1a215d1e5ccd386376a8f2f7ca5de2d6fa" kindref="member">event_keyboardCheckTimerExpired</ref>();</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Then</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d6/db4/unity_8h_1af9e5695d6c7cf634206ea6d062cb54c9" kindref="member">TEST_ASSERT_EQUAL</ref>(1,<sp/>display_powerDown_fake.call_count);</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting></para>
+</sect1>
+<sect1 id="d5/d35/md__unit_test_framework_vendor_ceedling_plugins_fake_function_framework__r_e_a_d_m_e_1autotoc_md301">
+<title>Fake a function with a function pointer parameter</title>
+<para><programlisting><codeline><highlight class="normal">void</highlight></codeline>
+<codeline><highlight class="normal">test_givenNewDataIsAvailable_whenTheDisplayHasUpdated_thenTheEventIsComplete(void)</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>A<sp/>mock<sp/>function<sp/>for<sp/>capturing<sp/>the<sp/>callback<sp/>handler<sp/>function<sp/>pointer.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>void(*registeredCallback)(void)<sp/>=<sp/>0;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/>mock_display_updateData(int<sp/>data,<sp/>void(*callback)(void))</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//Save<sp/>the<sp/>callback<sp/>function.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>registeredCallback<sp/>=<sp/>callback;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>display_updateData_fake.custom_fake<sp/>=<sp/>mock_display_updateData;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>Given</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>event_newDataAvailable(10);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>When</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>if<sp/>(registeredCallback<sp/>!=<sp/>0)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>registeredCallback();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>Then</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>TEST_ASSERT_EQUAL(true,<sp/>eventProcessor_isLastEventComplete());</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting></para>
+</sect1>
+<sect1 id="d5/d35/md__unit_test_framework_vendor_ceedling_plugins_fake_function_framework__r_e_a_d_m_e_1autotoc_md302">
+<title>Helper macros</title>
+<para>For convenience, there are also some helper macros that create new Unity-style asserts:</para>
+<para><itemizedlist>
+<listitem><para><computeroutput><ref refid="dc/d1c/fff__unity__helper_8h_1a700b2bf57333b08698a494792c335bd1" kindref="member">TEST_ASSERT_CALLED(function)</ref></computeroutput>: Asserts that a function was called once.</para>
+</listitem><listitem><para><computeroutput><ref refid="dc/d1c/fff__unity__helper_8h_1affc90aa528332c5c767fd7bd7542d525" kindref="member">TEST_ASSERT_NOT_CALLED(function)</ref></computeroutput>: Asserts that a function was never called.</para>
+</listitem><listitem><para><computeroutput><ref refid="dc/d1c/fff__unity__helper_8h_1a77e70db5c9f2a7482308e7dae59f9182" kindref="member">TEST_ASSERT_CALLED_TIMES(times, function)</ref></computeroutput>: Asserts that a function was called a particular number of times.</para>
+</listitem><listitem><para><computeroutput><ref refid="dc/d1c/fff__unity__helper_8h_1af21f27d62b55519b5f72bb32724df80d" kindref="member">TEST_ASSERT_CALLED_IN_ORDER(order, function)</ref></computeroutput>: Asserts that a function was called in a particular order.</para>
+</listitem></itemizedlist>
+</para>
+<para>Here&apos;s how you might use one of these instead of simply checking the call_count value:</para>
+<para><programlisting filename=".c"><codeline><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><ref refid="df/da4/test__event__processor_8c_1aff1f691f0911be5857ddbe01e551c0a2" kindref="member">test_whenTheDeviceIsReset_thenTheStatusLedIsTurnedOff</ref>()</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>When</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d5/db3/event__processor_8c_1ae1d8acf4a49fc2dd494f7838a3d290c9" kindref="member">event_deviceReset</ref>();</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Then</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>This<sp/>how<sp/>to<sp/>directly<sp/>use<sp/>fff...</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d6/db4/unity_8h_1af9e5695d6c7cf634206ea6d062cb54c9" kindref="member">TEST_ASSERT_EQUAL</ref>(1,<sp/>display_turnOffStatusLed_fake.call_count);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>...and<sp/>this<sp/>is<sp/>how<sp/>to<sp/>use<sp/>the<sp/>helper<sp/>macro.</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="dc/d1c/fff__unity__helper_8h_1a700b2bf57333b08698a494792c335bd1" kindref="member">TEST_ASSERT_CALLED</ref>(<ref refid="db/d85/display_8c_1ace29b0b5f6128f04d1800a81a37ad248" kindref="member">display_turnOffStatusLed</ref>);</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting></para>
+</sect1>
+<sect1 id="d5/d35/md__unit_test_framework_vendor_ceedling_plugins_fake_function_framework__r_e_a_d_m_e_1autotoc_md303">
+<title>Test setup</title>
+<para>All of the fake functions, and any fff global state are all reset automatically between each test.</para>
+</sect1>
+<sect1 id="d5/d35/md__unit_test_framework_vendor_ceedling_plugins_fake_function_framework__r_e_a_d_m_e_1autotoc_md304">
+<title>CMock configuration</title>
+<para>Use still use some of the CMock configuration options for setting things like the mock prefix, and for including additional header files in the mock files.</para>
+<para><programlisting filename=".yaml"><codeline><highlight class="normal">:cmock:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>:mock_prefix:<sp/>mock_</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:includes:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:includes_h_pre_orig_header:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:includes_h_post_orig_header:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:includes_c_pre_header:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:includes_c_post_header:</highlight></codeline>
+</programlisting></para>
+</sect1>
+<sect1 id="d5/d35/md__unit_test_framework_vendor_ceedling_plugins_fake_function_framework__r_e_a_d_m_e_1autotoc_md305">
+<title>Running the tests</title>
+<para>There are unit and integration tests for the plug-in itself. These are run with the default <computeroutput>rake</computeroutput> task. The integration test runs the tests for the example project in examples/fff_example. For the integration tests to succeed, this repository must be placed in a Ceedling tree in the plugins folder.</para>
+</sect1>
+<sect1 id="d5/d35/md__unit_test_framework_vendor_ceedling_plugins_fake_function_framework__r_e_a_d_m_e_1autotoc_md306">
+<title>More examples</title>
+<para>There is an example project in examples/fff_example. It shows how to use the plug-in with some full-size examples. </para>
+</sect1>
+    </detaileddescription>
+    <location file="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/README.md"/>
+  </compounddef>
+</doxygen>

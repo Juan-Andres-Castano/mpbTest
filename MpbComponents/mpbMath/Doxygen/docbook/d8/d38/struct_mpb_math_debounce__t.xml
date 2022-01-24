@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_struct_mpb_math_debounce__t" xml:lang="en-US">
+<title>MpbMathDebounce_t Struct Reference</title>
+<indexterm><primary>MpbMathDebounce_t</primary></indexterm>
+<para>
+
+<para>Structure to debounce a AC/DC signal. </para>
+ 
+</para>
+<para>
+<computeroutput>#include &lt;mpbMathDebounce.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para>uint32_t <link linkend="_struct_mpb_math_debounce__t_1a9f4a39506f550cff2e04187eee990ba4">ulOffCount</link></para>
+</listitem>
+            <listitem><para>uint32_t <link linkend="_struct_mpb_math_debounce__t_1a1efe957574b7a82c8d332db044e595c0">ulOnCount</link></para>
+</listitem>
+            <listitem><para>uint32_t <link linkend="_struct_mpb_math_debounce__t_1a48b0292c9e5fb70c01d50317b2c72cd9">ulCount</link></para>
+</listitem>
+            <listitem><para>eBool_t <link linkend="_struct_mpb_math_debounce__t_1ae03c2434821fa0b74a7fffe6b52f5b92">bNewProbablyState</link></para>
+</listitem>
+            <listitem><para>eBool_t <link linkend="_struct_mpb_math_debounce__t_1a9dfd44a0d75d471716ec021b15d5725a">bActualState</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Structure to debounce a AC/DC signal. </para>
+<para>
+Definition at line 29 of file mpbMathDebounce.h.</para>
+</section>
+<section>
+<title>Field Documentation</title>
+<anchor xml:id="_struct_mpb_math_debounce__t_1a9dfd44a0d75d471716ec021b15d5725a"/>    <section>
+    <title>bActualState</title>
+<indexterm><primary>bActualState</primary><secondary>MpbMathDebounce_t</secondary></indexterm>
+<indexterm><primary>MpbMathDebounce_t</primary><secondary>bActualState</secondary></indexterm>
+<para><computeroutput>eBool_t bActualState</computeroutput></para>
+<para>the actual real state </para>
+<para>
+Definition at line 35 of file mpbMathDebounce.h.</para>
+    </section><anchor xml:id="_struct_mpb_math_debounce__t_1ae03c2434821fa0b74a7fffe6b52f5b92"/>    <section>
+    <title>bNewProbablyState</title>
+<indexterm><primary>bNewProbablyState</primary><secondary>MpbMathDebounce_t</secondary></indexterm>
+<indexterm><primary>MpbMathDebounce_t</primary><secondary>bNewProbablyState</secondary></indexterm>
+<para><computeroutput>eBool_t bNewProbablyState</computeroutput></para>
+<para>the new state </para>
+<para>
+Definition at line 34 of file mpbMathDebounce.h.</para>
+    </section><anchor xml:id="_struct_mpb_math_debounce__t_1a48b0292c9e5fb70c01d50317b2c72cd9"/>    <section>
+    <title>ulCount</title>
+<indexterm><primary>ulCount</primary><secondary>MpbMathDebounce_t</secondary></indexterm>
+<indexterm><primary>MpbMathDebounce_t</primary><secondary>ulCount</secondary></indexterm>
+<para><computeroutput>uint32_t ulCount</computeroutput></para>
+<para>the number of consecutive value </para>
+<para>
+Definition at line 33 of file mpbMathDebounce.h.</para>
+    </section><anchor xml:id="_struct_mpb_math_debounce__t_1a9f4a39506f550cff2e04187eee990ba4"/>    <section>
+    <title>ulOffCount</title>
+<indexterm><primary>ulOffCount</primary><secondary>MpbMathDebounce_t</secondary></indexterm>
+<indexterm><primary>MpbMathDebounce_t</primary><secondary>ulOffCount</secondary></indexterm>
+<para><computeroutput>uint32_t ulOffCount</computeroutput></para>
+<para>the number of consecutive value for the state to be considered off </para>
+<para>
+Definition at line 31 of file mpbMathDebounce.h.</para>
+    </section><anchor xml:id="_struct_mpb_math_debounce__t_1a1efe957574b7a82c8d332db044e595c0"/>    <section>
+    <title>ulOnCount</title>
+<indexterm><primary>ulOnCount</primary><secondary>MpbMathDebounce_t</secondary></indexterm>
+<indexterm><primary>MpbMathDebounce_t</primary><secondary>ulOnCount</secondary></indexterm>
+<para><computeroutput>uint32_t ulOnCount</computeroutput></para>
+<para>the number of consecutive value for the state to be considered on </para>
+<para>
+Definition at line 32 of file mpbMathDebounce.h.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+Includes/<link linkend="_mpb_math_debounce_8h">mpbMathDebounce.h</link></section>
+</section>

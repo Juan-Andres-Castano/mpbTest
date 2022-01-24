@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="dir_1bf6694b413d28a194548ccf5193e5ad" kind="dir">
+    <compoundname>UnitTestFramework/vendor/ceedling/vendor/c_exception</compoundname>
+    <innerdir refid="dir_01057549c1696d64350f2057430a5656">UnitTestFramework/vendor/ceedling/vendor/c_exception/lib</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="UnitTestFramework/vendor/ceedling/vendor/c_exception/"/>
+  </compounddef>
+</doxygen>

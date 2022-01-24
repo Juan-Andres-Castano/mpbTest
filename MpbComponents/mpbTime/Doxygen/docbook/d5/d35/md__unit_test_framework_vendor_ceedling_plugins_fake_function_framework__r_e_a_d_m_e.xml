@@ -1,0 +1,248 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md__unit_test_framework_vendor_ceedling_plugins_fake_function_framework__r_e_a_d_m_e" xml:lang="en-US">
+
+<para>This is a plug-in for <link xlink:href="https://github.com/ThrowTheSwitch/Ceedling">Ceedling</link> to use the <link xlink:href="https://github.com/meekrosoft/fff">Fake Function Framework</link> for mocking instead of CMock.</para>
+
+<para>Using fff provides less strict mocking than CMock, and allows for more loosely-coupled tests. And, when tests fail &#8211; since you get the actual line number of the failure &#8211; it&apos;s a lot easier to figure out what went wrong.</para>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_plugins_fake_function_framework__r_e_a_d_m_e_1autotoc_md291">
+<title>Installing the plug-in</title>
+
+<para>To use the plugin you need to 1) get the contents of this repo and 2) configure your project to use it.</para>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_plugins_fake_function_framework__r_e_a_d_m_e_1autotoc_md292">
+<title>Get the source</title>
+
+<para>The easiest way to get the source is to just clone this repo into the Ceedling plugin folder for your existing Ceedling project. (Don&apos;t have a Ceedling project already? <link xlink:href="http://www.electronvector.com/blog/try-embedded-test-driven-development-right-now-with-ceedling">Here are instructions to create one.</link>) From within <computeroutput>&lt;your-project&gt;/vendor/ceedling/plugins</computeroutput>, run:</para>
+
+<para><computeroutput>git clone <link xlink:href="https://github.com/ElectronVector/fake_function_framework.git">https://github.com/ElectronVector/fake_function_framework.git</link></computeroutput></para>
+
+<para>This will create a new folder named <computeroutput>fake_function_framework</computeroutput> in the plugins folder.</para>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_plugins_fake_function_framework__r_e_a_d_m_e_1autotoc_md293">
+<title>Enable the plug-in.</title>
+
+<para>The plug-in is enabled from within your project.yml file.</para>
+
+<para>In the <computeroutput>:plugins</computeroutput> configuration, add <computeroutput>fake_function_framework</computeroutput> to the list of enabled plugins:</para>
+
+<para><literallayout><computeroutput>:plugins:
+&#32;&#32;:load_paths:
+&#32;&#32;&#32;&#32;-&#32;vendor/ceedling/plugins
+&#32;&#32;:enabled:
+&#32;&#32;&#32;&#32;-&#32;stdout_pretty_tests_report
+&#32;&#32;&#32;&#32;-&#32;module_generator
+&#32;&#32;&#32;&#32;-&#32;fake_function_framework
+</computeroutput></literallayout> <emphasis>Note that you could put the plugin source in some other loaction. In that case you&apos;d need to add a new path the <computeroutput>:load_paths</computeroutput>.</emphasis></para>
+</section>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_plugins_fake_function_framework__r_e_a_d_m_e_1autotoc_md294">
+<title>How to use it</title>
+
+<para>You use fff with Ceedling the same way you used to use CMock. Modules can still be generated with the default module generator: <computeroutput>rake module:create[my_module]</computeroutput>. If you want to &quot;mock&quot; <computeroutput>some_module.h</computeroutput> in your tests, just <computeroutput>#include &quot;mock_some_module.h&quot;</computeroutput>. This creates a fake function for each of the functions defined in <computeroutput>some_module.h</computeroutput>.</para>
+
+<para>The name of each fake is the original function name with an appended <computeroutput>_fake</computeroutput>. For example, if we&apos;re generating fakes for a stack module with <computeroutput>push</computeroutput> and <computeroutput>pop</computeroutput> functions, we would have the fakes <computeroutput>push_fake</computeroutput> and <computeroutput>pop_fake</computeroutput>. These fakes are linked into our test executable so that any time our unit under test calls <computeroutput>push</computeroutput> or <computeroutput>pop</computeroutput> our fakes are called instead.</para>
+
+<para>Each of these fakes is actually a structure containing information about how the function was called, and what it might return. We can use Unity to inspect these fakes in our tests, and verify the interactions of our units. There is also a global structure named <computeroutput>fff</computeroutput> which we can use to check the sequence of calls.</para>
+
+<para>The fakes can also be configured to return particular values, so you can exercise the unit under test however you want.</para>
+
+<para>The examples below explain how to use fff to test a variety of module interactions. Each example uses fakes for a &quot;display&quot; module, created from a <link linkend="_display_8h">display.h</link> file with <computeroutput>#include &quot;mock_display.h&quot;</computeroutput>. The <computeroutput><link linkend="_display_8h">display.h</link></computeroutput> file must exist and must contain the prototypes for the functions to be faked.</para>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_plugins_fake_function_framework__r_e_a_d_m_e_1autotoc_md295">
+<title>Test that a function was called once</title>
+
+<para><literallayout><computeroutput>void
+test_whenTheDeviceIsReset_thenTheStatusLedIsTurnedOff()
+{
+&#32;&#32;&#32;&#32;//&#32;When
+&#32;&#32;&#32;&#32;event_deviceReset();
+
+&#32;&#32;&#32;&#32;//&#32;Then
+&#32;&#32;&#32;&#32;TEST_ASSERT_EQUAL(1,&#32;display_turnOffStatusLed_fake.call_count);
+}
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_plugins_fake_function_framework__r_e_a_d_m_e_1autotoc_md296">
+<title>Test that a function was NOT called</title>
+
+<para><literallayout><computeroutput>void
+test_whenThePowerReadingIsLessThan5_thenTheStatusLedIsNotTurnedOn(void)
+{
+&#32;&#32;&#32;&#32;//&#32;When
+&#32;&#32;&#32;&#32;event_powerReadingUpdate(4);
+
+&#32;&#32;&#32;&#32;//&#32;Then
+&#32;&#32;&#32;&#32;TEST_ASSERT_EQUAL(0,&#32;display_turnOnStatusLed_fake.call_count);
+}
+</computeroutput></literallayout></para>
+</section>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_plugins_fake_function_framework__r_e_a_d_m_e_1autotoc_md297">
+<title>Test that a single function was called with the correct argument</title>
+
+<para><literallayout><computeroutput>void
+test_whenTheVolumeKnobIsMaxed_thenVolumeDisplayIsSetTo11(void)
+{
+&#32;&#32;&#32;&#32;//&#32;When
+&#32;&#32;&#32;&#32;event_volumeKnobMaxed();
+
+&#32;&#32;&#32;&#32;//&#32;Then
+&#32;&#32;&#32;&#32;TEST_ASSERT_EQUAL(1,&#32;display_setVolume_fake.call_count);
+&#32;&#32;&#32;&#32;TEST_ASSERT_EQUAL(11,&#32;display_setVolume_fake.arg0_val);
+}
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_plugins_fake_function_framework__r_e_a_d_m_e_1autotoc_md298">
+<title>Test that calls are made in a particular sequence</title>
+
+<para><literallayout><computeroutput>void
+test_whenTheModeSelectButtonIsPressed_thenTheDisplayModeIsCycled(void)
+{
+&#32;&#32;&#32;&#32;//&#32;When
+&#32;&#32;&#32;&#32;event_modeSelectButtonPressed();
+&#32;&#32;&#32;&#32;event_modeSelectButtonPressed();
+&#32;&#32;&#32;&#32;event_modeSelectButtonPressed();
+
+&#32;&#32;&#32;&#32;//&#32;Then
+&#32;&#32;&#32;&#32;TEST_ASSERT_EQUAL_PTR((void*)display_setModeToMinimum,&#32;fff.call_history[0]);
+&#32;&#32;&#32;&#32;TEST_ASSERT_EQUAL_PTR((void*)display_setModeToMaximum,&#32;fff.call_history[1]);
+&#32;&#32;&#32;&#32;TEST_ASSERT_EQUAL_PTR((void*)display_setModeToAverage,&#32;fff.call_history[2]);
+}
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_plugins_fake_function_framework__r_e_a_d_m_e_1autotoc_md299">
+<title>Fake a return value from a function</title>
+
+<para><literallayout><computeroutput>void
+test_givenTheDisplayHasAnError_whenTheDeviceIsPoweredOn_thenTheDisplayIsPoweredDown(void)
+{
+&#32;&#32;&#32;&#32;//&#32;Given
+&#32;&#32;&#32;&#32;display_isError_fake.return_val&#32;=&#32;true;
+
+&#32;&#32;&#32;&#32;//&#32;When
+&#32;&#32;&#32;&#32;event_devicePoweredOn();
+
+&#32;&#32;&#32;&#32;//&#32;Then
+&#32;&#32;&#32;&#32;TEST_ASSERT_EQUAL(1,&#32;display_powerDown_fake.call_count);
+}
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_plugins_fake_function_framework__r_e_a_d_m_e_1autotoc_md300">
+<title>Fake a function with a value returned by reference</title>
+
+<para><literallayout><computeroutput>void
+test_givenTheUserHasTypedSleep_whenItIsTimeToCheckTheKeyboard_theDisplayIsPoweredDown(void)
+{
+&#32;&#32;&#32;&#32;//&#32;Given
+&#32;&#32;&#32;&#32;char&#32;mockedEntry[]&#32;=&#32;&quot;sleep&quot;;
+&#32;&#32;&#32;&#32;void&#32;return_mock_value(char&#32;*&#32;entry,&#32;int&#32;length)
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;if&#32;(length&#32;&gt;&#32;strlen(mockedEntry))
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;strncpy(entry,&#32;mockedEntry,&#32;length);
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+&#32;&#32;&#32;&#32;}
+&#32;&#32;&#32;&#32;display_getKeyboardEntry_fake.custom_fake&#32;=&#32;return_mock_value;
+
+&#32;&#32;&#32;&#32;//&#32;When
+&#32;&#32;&#32;&#32;event_keyboardCheckTimerExpired();
+
+&#32;&#32;&#32;&#32;//&#32;Then
+&#32;&#32;&#32;&#32;TEST_ASSERT_EQUAL(1,&#32;display_powerDown_fake.call_count);
+}
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_plugins_fake_function_framework__r_e_a_d_m_e_1autotoc_md301">
+<title>Fake a function with a function pointer parameter</title>
+
+<para><literallayout><computeroutput>void
+test_givenNewDataIsAvailable_whenTheDisplayHasUpdated_thenTheEventIsComplete(void)
+{
+&#32;&#32;&#32;&#32;//&#32;A&#32;mock&#32;function&#32;for&#32;capturing&#32;the&#32;callback&#32;handler&#32;function&#32;pointer.
+&#32;&#32;&#32;&#32;void(*registeredCallback)(void)&#32;=&#32;0;
+&#32;&#32;&#32;&#32;void&#32;mock_display_updateData(int&#32;data,&#32;void(*callback)(void))
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//Save&#32;the&#32;callback&#32;function.
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;registeredCallback&#32;=&#32;callback;
+&#32;&#32;&#32;&#32;}
+&#32;&#32;&#32;&#32;display_updateData_fake.custom_fake&#32;=&#32;mock_display_updateData;
+
+&#32;&#32;&#32;&#32;//&#32;Given
+&#32;&#32;&#32;&#32;event_newDataAvailable(10);
+
+&#32;&#32;&#32;&#32;//&#32;When
+&#32;&#32;&#32;&#32;if&#32;(registeredCallback&#32;!=&#32;0)
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;registeredCallback();
+&#32;&#32;&#32;&#32;}
+
+&#32;&#32;&#32;&#32;//&#32;Then
+&#32;&#32;&#32;&#32;TEST_ASSERT_EQUAL(true,&#32;eventProcessor_isLastEventComplete());
+}
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_plugins_fake_function_framework__r_e_a_d_m_e_1autotoc_md302">
+<title>Helper macros</title>
+
+<para>For convenience, there are also some helper macros that create new Unity-style asserts:</para>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput><link linkend="_fff__unity__helper_8h_1a700b2bf57333b08698a494792c335bd1">TEST_ASSERT_CALLED(function)</link></computeroutput>: Asserts that a function was called once.</para>
+</listitem><listitem>
+<para><computeroutput><link linkend="_fff__unity__helper_8h_1affc90aa528332c5c767fd7bd7542d525">TEST_ASSERT_NOT_CALLED(function)</link></computeroutput>: Asserts that a function was never called.</para>
+</listitem><listitem>
+<para><computeroutput><link linkend="_fff__unity__helper_8h_1a77e70db5c9f2a7482308e7dae59f9182">TEST_ASSERT_CALLED_TIMES(times, function)</link></computeroutput>: Asserts that a function was called a particular number of times.</para>
+</listitem><listitem>
+<para><computeroutput><link linkend="_fff__unity__helper_8h_1af21f27d62b55519b5f72bb32724df80d">TEST_ASSERT_CALLED_IN_ORDER(order, function)</link></computeroutput>: Asserts that a function was called in a particular order.</para>
+</listitem></itemizedlist>
+</para>
+
+<para>Here&apos;s how you might use one of these instead of simply checking the call_count value:</para>
+
+<para><literallayout><computeroutput>void
+test_whenTheDeviceIsReset_thenTheStatusLedIsTurnedOff()
+{
+&#32;&#32;&#32;&#32;//&#32;When
+&#32;&#32;&#32;&#32;event_deviceReset();
+
+&#32;&#32;&#32;&#32;//&#32;Then
+&#32;&#32;&#32;&#32;//&#32;This&#32;how&#32;to&#32;directly&#32;use&#32;fff...
+&#32;&#32;&#32;&#32;TEST_ASSERT_EQUAL(1,&#32;display_turnOffStatusLed_fake.call_count);
+&#32;&#32;&#32;&#32;//&#32;...and&#32;this&#32;is&#32;how&#32;to&#32;use&#32;the&#32;helper&#32;macro.
+&#32;&#32;&#32;&#32;TEST_ASSERT_CALLED(display_turnOffStatusLed);
+}
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_plugins_fake_function_framework__r_e_a_d_m_e_1autotoc_md303">
+<title>Test setup</title>
+
+<para>All of the fake functions, and any fff global state are all reset automatically between each test.</para>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_plugins_fake_function_framework__r_e_a_d_m_e_1autotoc_md304">
+<title>CMock configuration</title>
+
+<para>Use still use some of the CMock configuration options for setting things like the mock prefix, and for including additional header files in the mock files.</para>
+
+<para><literallayout><computeroutput>:cmock:
+&#32;&#32;&#32;&#32;:mock_prefix:&#32;mock_
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;:includes:
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;-
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;:includes_h_pre_orig_header:
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;-
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;:includes_h_post_orig_header:
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;-
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;:includes_c_pre_header:
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;-
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;:includes_c_post_header:
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_plugins_fake_function_framework__r_e_a_d_m_e_1autotoc_md305">
+<title>Running the tests</title>
+
+<para>There are unit and integration tests for the plug-in itself. These are run with the default <computeroutput>rake</computeroutput> task. The integration test runs the tests for the example project in examples/fff_example. For the integration tests to succeed, this repository must be placed in a Ceedling tree in the plugins folder.</para>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_plugins_fake_function_framework__r_e_a_d_m_e_1autotoc_md306">
+<title>More examples</title>
+
+<para>There is an example project in examples/fff_example. It shows how to use the plug-in with some full-size examples. </para>
+</section>
+</section>

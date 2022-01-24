@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_struct_u_n_i_t_y___s_t_o_r_a_g_e___t" xml:lang="en-US">
+<title>UNITY_STORAGE_T Struct Reference</title>
+<indexterm><primary>UNITY_STORAGE_T</primary></indexterm>
+<para>
+<computeroutput>#include &lt;unity_internals.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para>const char * <link linkend="_struct_u_n_i_t_y___s_t_o_r_a_g_e___t_1a190c9e7550689c6dceedff539e650336">TestFile</link></para>
+</listitem>
+            <listitem><para>const char * <link linkend="_struct_u_n_i_t_y___s_t_o_r_a_g_e___t_1a6779e1e7dc5d26835d5ca7009242e77c">CurrentTestName</link></para>
+</listitem>
+            <listitem><para>const char * <link linkend="_struct_u_n_i_t_y___s_t_o_r_a_g_e___t_1a83cef77fb47897cfe6c4dba18d9f36c0">CurrentDetail1</link></para>
+</listitem>
+            <listitem><para>const char * <link linkend="_struct_u_n_i_t_y___s_t_o_r_a_g_e___t_1a46f31dad8da75fe0c1ece891fbb3208b">CurrentDetail2</link></para>
+</listitem>
+            <listitem><para><link linkend="_unity__internals_8h_1a5c76dbcaafb6db2a52336cf5d4835290">UNITY_LINE_TYPE</link> <link linkend="_struct_u_n_i_t_y___s_t_o_r_a_g_e___t_1af263a120c12a489e9310ef9f36444128">CurrentTestLineNumber</link></para>
+</listitem>
+            <listitem><para><link linkend="_unity__internals_8h_1ab5186738706785ae0189b382e45911d9">UNITY_COUNTER_TYPE</link> <link linkend="_struct_u_n_i_t_y___s_t_o_r_a_g_e___t_1a82127e77cd34e1a1c2b0281e3597d5ba">NumberOfTests</link></para>
+</listitem>
+            <listitem><para><link linkend="_unity__internals_8h_1ab5186738706785ae0189b382e45911d9">UNITY_COUNTER_TYPE</link> <link linkend="_struct_u_n_i_t_y___s_t_o_r_a_g_e___t_1a09833b8f72da6d7982f37ebc33111252">TestFailures</link></para>
+</listitem>
+            <listitem><para><link linkend="_unity__internals_8h_1ab5186738706785ae0189b382e45911d9">UNITY_COUNTER_TYPE</link> <link linkend="_struct_u_n_i_t_y___s_t_o_r_a_g_e___t_1a4fd439067fb0c1a82a5219077a513cda">TestIgnores</link></para>
+</listitem>
+            <listitem><para><link linkend="_unity__internals_8h_1ab5186738706785ae0189b382e45911d9">UNITY_COUNTER_TYPE</link> <link linkend="_struct_u_n_i_t_y___s_t_o_r_a_g_e___t_1a60446b592f7989b0f639da4132032a43">CurrentTestFailed</link></para>
+</listitem>
+            <listitem><para><link linkend="_unity__internals_8h_1ab5186738706785ae0189b382e45911d9">UNITY_COUNTER_TYPE</link> <link linkend="_struct_u_n_i_t_y___s_t_o_r_a_g_e___t_1ad69a0f6ea7ca97f43b963c8218eca9d6">CurrentTestIgnored</link></para>
+</listitem>
+            <listitem><para>jmp_buf <link linkend="_struct_u_n_i_t_y___s_t_o_r_a_g_e___t_1add1ad6305e99da2ddf841e32dfbd8bd5">AbortFrame</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line 427 of file unity_internals.h.</para>
+</section>
+<section>
+<title>Field Documentation</title>
+<anchor xml:id="_struct_u_n_i_t_y___s_t_o_r_a_g_e___t_1add1ad6305e99da2ddf841e32dfbd8bd5"/>    <section>
+    <title>AbortFrame</title>
+<indexterm><primary>AbortFrame</primary><secondary>UNITY_STORAGE_T</secondary></indexterm>
+<indexterm><primary>UNITY_STORAGE_T</primary><secondary>AbortFrame</secondary></indexterm>
+<para><computeroutput>jmp_buf AbortFrame</computeroutput></para><para>
+Definition at line 446 of file unity_internals.h.</para>
+    </section><anchor xml:id="_struct_u_n_i_t_y___s_t_o_r_a_g_e___t_1a83cef77fb47897cfe6c4dba18d9f36c0"/>    <section>
+    <title>CurrentDetail1</title>
+<indexterm><primary>CurrentDetail1</primary><secondary>UNITY_STORAGE_T</secondary></indexterm>
+<indexterm><primary>UNITY_STORAGE_T</primary><secondary>CurrentDetail1</secondary></indexterm>
+<para><computeroutput>const char* CurrentDetail1</computeroutput></para><para>
+Definition at line 432 of file unity_internals.h.</para>
+    </section><anchor xml:id="_struct_u_n_i_t_y___s_t_o_r_a_g_e___t_1a46f31dad8da75fe0c1ece891fbb3208b"/>    <section>
+    <title>CurrentDetail2</title>
+<indexterm><primary>CurrentDetail2</primary><secondary>UNITY_STORAGE_T</secondary></indexterm>
+<indexterm><primary>UNITY_STORAGE_T</primary><secondary>CurrentDetail2</secondary></indexterm>
+<para><computeroutput>const char* CurrentDetail2</computeroutput></para><para>
+Definition at line 433 of file unity_internals.h.</para>
+    </section><anchor xml:id="_struct_u_n_i_t_y___s_t_o_r_a_g_e___t_1a60446b592f7989b0f639da4132032a43"/>    <section>
+    <title>CurrentTestFailed</title>
+<indexterm><primary>CurrentTestFailed</primary><secondary>UNITY_STORAGE_T</secondary></indexterm>
+<indexterm><primary>UNITY_STORAGE_T</primary><secondary>CurrentTestFailed</secondary></indexterm>
+<para><computeroutput><link linkend="_unity__internals_8h_1ab5186738706785ae0189b382e45911d9">UNITY_COUNTER_TYPE</link> CurrentTestFailed</computeroutput></para><para>
+Definition at line 439 of file unity_internals.h.</para>
+    </section><anchor xml:id="_struct_u_n_i_t_y___s_t_o_r_a_g_e___t_1ad69a0f6ea7ca97f43b963c8218eca9d6"/>    <section>
+    <title>CurrentTestIgnored</title>
+<indexterm><primary>CurrentTestIgnored</primary><secondary>UNITY_STORAGE_T</secondary></indexterm>
+<indexterm><primary>UNITY_STORAGE_T</primary><secondary>CurrentTestIgnored</secondary></indexterm>
+<para><computeroutput><link linkend="_unity__internals_8h_1ab5186738706785ae0189b382e45911d9">UNITY_COUNTER_TYPE</link> CurrentTestIgnored</computeroutput></para><para>
+Definition at line 440 of file unity_internals.h.</para>
+    </section><anchor xml:id="_struct_u_n_i_t_y___s_t_o_r_a_g_e___t_1af263a120c12a489e9310ef9f36444128"/>    <section>
+    <title>CurrentTestLineNumber</title>
+<indexterm><primary>CurrentTestLineNumber</primary><secondary>UNITY_STORAGE_T</secondary></indexterm>
+<indexterm><primary>UNITY_STORAGE_T</primary><secondary>CurrentTestLineNumber</secondary></indexterm>
+<para><computeroutput><link linkend="_unity__internals_8h_1a5c76dbcaafb6db2a52336cf5d4835290">UNITY_LINE_TYPE</link> CurrentTestLineNumber</computeroutput></para><para>
+Definition at line 435 of file unity_internals.h.</para>
+    </section><anchor xml:id="_struct_u_n_i_t_y___s_t_o_r_a_g_e___t_1a6779e1e7dc5d26835d5ca7009242e77c"/>    <section>
+    <title>CurrentTestName</title>
+<indexterm><primary>CurrentTestName</primary><secondary>UNITY_STORAGE_T</secondary></indexterm>
+<indexterm><primary>UNITY_STORAGE_T</primary><secondary>CurrentTestName</secondary></indexterm>
+<para><computeroutput>const char* CurrentTestName</computeroutput></para><para>
+Definition at line 430 of file unity_internals.h.</para>
+    </section><anchor xml:id="_struct_u_n_i_t_y___s_t_o_r_a_g_e___t_1a82127e77cd34e1a1c2b0281e3597d5ba"/>    <section>
+    <title>NumberOfTests</title>
+<indexterm><primary>NumberOfTests</primary><secondary>UNITY_STORAGE_T</secondary></indexterm>
+<indexterm><primary>UNITY_STORAGE_T</primary><secondary>NumberOfTests</secondary></indexterm>
+<para><computeroutput><link linkend="_unity__internals_8h_1ab5186738706785ae0189b382e45911d9">UNITY_COUNTER_TYPE</link> NumberOfTests</computeroutput></para><para>
+Definition at line 436 of file unity_internals.h.</para>
+    </section><anchor xml:id="_struct_u_n_i_t_y___s_t_o_r_a_g_e___t_1a09833b8f72da6d7982f37ebc33111252"/>    <section>
+    <title>TestFailures</title>
+<indexterm><primary>TestFailures</primary><secondary>UNITY_STORAGE_T</secondary></indexterm>
+<indexterm><primary>UNITY_STORAGE_T</primary><secondary>TestFailures</secondary></indexterm>
+<para><computeroutput><link linkend="_unity__internals_8h_1ab5186738706785ae0189b382e45911d9">UNITY_COUNTER_TYPE</link> TestFailures</computeroutput></para><para>
+Definition at line 437 of file unity_internals.h.</para>
+    </section><anchor xml:id="_struct_u_n_i_t_y___s_t_o_r_a_g_e___t_1a190c9e7550689c6dceedff539e650336"/>    <section>
+    <title>TestFile</title>
+<indexterm><primary>TestFile</primary><secondary>UNITY_STORAGE_T</secondary></indexterm>
+<indexterm><primary>UNITY_STORAGE_T</primary><secondary>TestFile</secondary></indexterm>
+<para><computeroutput>const char* TestFile</computeroutput></para><para>
+Definition at line 429 of file unity_internals.h.</para>
+    </section><anchor xml:id="_struct_u_n_i_t_y___s_t_o_r_a_g_e___t_1a4fd439067fb0c1a82a5219077a513cda"/>    <section>
+    <title>TestIgnores</title>
+<indexterm><primary>TestIgnores</primary><secondary>UNITY_STORAGE_T</secondary></indexterm>
+<indexterm><primary>UNITY_STORAGE_T</primary><secondary>TestIgnores</secondary></indexterm>
+<para><computeroutput><link linkend="_unity__internals_8h_1ab5186738706785ae0189b382e45911d9">UNITY_COUNTER_TYPE</link> TestIgnores</computeroutput></para><para>
+Definition at line 438 of file unity_internals.h.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+UnitTestFramework/vendor/ceedling/vendor/unity/src/<link linkend="_unity__internals_8h">unity_internals.h</link></section>
+</section>

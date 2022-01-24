@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="d8/d52/mpbtimebase_8d" kind="file" language="D">
+    <compoundname>mpbtimebase.d</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal">./objects/mpbtimebase.o:<sp/>Sources\mpbTimeBase.c<sp/>Includes\mpbTimeBase.h<sp/>\
+<sp/><sp/>Includes\mpblibs.h<sp/>C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdint.h<sp/>\
+<sp/><sp/>C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdlib.h<sp/>\
+<sp/><sp/>C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\string.h<sp/>\
+<sp/><sp/>C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdarg.h<sp/>\
+<sp/><sp/>C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stddef.h</highlight></codeline>
+<codeline lineno="2"><highlight class="normal">    </programlisting>
+</highlight></codeline>
+    <location file="Objects/mpbtimebase.d"/>
+  </compounddef>
+</doxygen>

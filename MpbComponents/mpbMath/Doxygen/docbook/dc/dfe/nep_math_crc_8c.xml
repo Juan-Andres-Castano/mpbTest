@@ -1,0 +1,123 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_nep_math_crc_8c" xml:lang="en-US">
+<title>Sources/nepMathCrc.c File Reference</title>
+<indexterm><primary>Sources/nepMathCrc.c</primary></indexterm>
+<para>
+
+<para>nepMathCrc source file. </para>
+ 
+</para>
+<programlisting>#include &quot;nepMathCrc.h&quot;
+</programlisting>Include dependency graph for nepMathCrc.c:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../de/d0d/nep_math_crc_8c__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="_nep_math_crc_8c_1af30cbba1d76511ef7db6fd355271f4f0">MASK_32_BITS</link>   ( 0xFFFFFFFF )</para>
+</listitem>
+            <listitem><para>#define <link linkend="_nep_math_crc_8c_1aa923c3643ca1e17e2107331fee1f6800">NUMBER_OF_BITS_IN_INTEGER</link>   ( 32 )</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>eNepError_t <link linkend="_nep_math_crc_8c_1a00ac5a8bf8d3f19ad776f0a71fa24467">eNepMathCrcInit</link> (uint8_t ucWidth, uint32_t ulInitial, uint32_t ulPolynomial, uint32_t ulXorOutput, eBool_t bRefInput, eBool_t bRefOutput, xNepCrc_t *pxNepCrc)</para>
+</listitem>
+            <listitem><para>eNepError_t <link linkend="_nep_math_crc_8c_1a74b0fc377878a0f2c5150c9565775486">eNepMathCrcValidate</link> (xNepCrc_t xNepCrc, uint32_t ulCrcRead, uint32_t ulNumberOfBytes, const uint8_t *pucBuffer)</para>
+</listitem>
+            <listitem><para>eNepError_t <link linkend="_nep_math_crc_8c_1ae4b22b6aa7650934381ae4c626c8d2f3">eNepMathCrcCalculate</link> (xNepCrc_t xNepCrc, uint32_t ulNumberOfBytes, const uint8_t *pucBuffer, uint32_t *pulCrcValue)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>nepMathCrc source file. </para>
+
+<para><formalpara><title>Author</title>
+
+<para>Philippe.Boulais </para>
+</formalpara>
+<formalpara><title>Date</title>
+
+<para>Created on 2019-11-13. </para>
+</formalpara>
+<formalpara><title>Copyright</title>
+
+<para>NEP, Montreal, Qc <formalpara><title><informaltable frame='none'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>&#169; COPYRIGHT 2015 NEP, Montreal, Quebec, Canada</entry></row></tbody></tgroup></informaltable></title></formalpara>
+</para>
+</formalpara>
+<formalpara><title><informaltable frame='none'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>&#169; All rights reserved.</entry></row></tbody></tgroup></informaltable></title></formalpara>
+</para>
+
+<para>
+<literallayout>&#160;&#xa;</literallayout>
+
+<literallayout>&#160;&#xa;</literallayout>
+ <informaltable frame='none'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>This document contains confidential and proprietary information of NEPTRONIC (subject to a non-disclosure agreement) and shall</entry></row></tbody></tgroup></informaltable> <informaltable frame='none'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>not be disclosed, distributed, or reproduced in whole or in part, without the prior written authorization of NEPTRONIC.</entry></row></tbody></tgroup></informaltable> </para>
+</section>
+<section>
+<title>Macro Definition Documentation</title>
+<anchor xml:id="_nep_math_crc_8c_1af30cbba1d76511ef7db6fd355271f4f0"/>    <section>
+    <title>MASK_32_BITS</title>
+<indexterm><primary>MASK_32_BITS</primary><secondary>nepMathCrc.c</secondary></indexterm>
+<indexterm><primary>nepMathCrc.c</primary><secondary>MASK_32_BITS</secondary></indexterm>
+<para><computeroutput>#define MASK_32_BITS   ( 0xFFFFFFFF )</computeroutput></para><para>
+Definition at line 22 of file nepMathCrc.c.</para>
+    </section><anchor xml:id="_nep_math_crc_8c_1aa923c3643ca1e17e2107331fee1f6800"/>    <section>
+    <title>NUMBER_OF_BITS_IN_INTEGER</title>
+<indexterm><primary>NUMBER_OF_BITS_IN_INTEGER</primary><secondary>nepMathCrc.c</secondary></indexterm>
+<indexterm><primary>nepMathCrc.c</primary><secondary>NUMBER_OF_BITS_IN_INTEGER</secondary></indexterm>
+<para><computeroutput>#define NUMBER_OF_BITS_IN_INTEGER   ( 32 )</computeroutput></para><para>
+Definition at line 23 of file nepMathCrc.c.</para>
+</section>
+</section>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_nep_math_crc_8c_1ae4b22b6aa7650934381ae4c626c8d2f3"/>    <section>
+    <title>eNepMathCrcCalculate()</title>
+<indexterm><primary>eNepMathCrcCalculate</primary><secondary>nepMathCrc.c</secondary></indexterm>
+<indexterm><primary>nepMathCrc.c</primary><secondary>eNepMathCrcCalculate</secondary></indexterm>
+<para><computeroutput>eNepError_t eNepMathCrcCalculate (xNepCrc_t xNepCrc, uint32_t ulNumberOfBytes, const uint8_t * pucBuffer, uint32_t * pulCrcValue)</computeroutput></para><para>
+Definition at line 108 of file nepMathCrc.c.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../dc/dfe/nep_math_crc_8c_ae4b22b6aa7650934381ae4c626c8d2f3_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_nep_math_crc_8c_1a00ac5a8bf8d3f19ad776f0a71fa24467"/>    <section>
+    <title>eNepMathCrcInit()</title>
+<indexterm><primary>eNepMathCrcInit</primary><secondary>nepMathCrc.c</secondary></indexterm>
+<indexterm><primary>nepMathCrc.c</primary><secondary>eNepMathCrcInit</secondary></indexterm>
+<para><computeroutput>eNepError_t eNepMathCrcInit (uint8_t ucWidth, uint32_t ulInitial, uint32_t ulPolynomial, uint32_t ulXorOutput, eBool_t bRefInput, eBool_t bRefOutput, xNepCrc_t * pxNepCrc)</computeroutput></para><para>
+Definition at line 34 of file nepMathCrc.c.</para>
+    </section><anchor xml:id="_nep_math_crc_8c_1a74b0fc377878a0f2c5150c9565775486"/>    <section>
+    <title>eNepMathCrcValidate()</title>
+<indexterm><primary>eNepMathCrcValidate</primary><secondary>nepMathCrc.c</secondary></indexterm>
+<indexterm><primary>nepMathCrc.c</primary><secondary>eNepMathCrcValidate</secondary></indexterm>
+<para><computeroutput>eNepError_t eNepMathCrcValidate (xNepCrc_t xNepCrc, uint32_t ulCrcRead, uint32_t ulNumberOfBytes, const uint8_t * pucBuffer)</computeroutput></para><para>
+Definition at line 51 of file nepMathCrc.c.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../dc/dfe/nep_math_crc_8c_a74b0fc377878a0f2c5150c9565775486_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+</section>

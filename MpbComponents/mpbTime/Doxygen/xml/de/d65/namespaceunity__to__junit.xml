@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="de/d65/namespaceunity__to__junit" kind="namespace" language="Python">
+    <compoundname>unity_to_junit</compoundname>
+    <innerclass refid="d7/d8a/classunity__to__junit_1_1_unity_test_summary" prot="public">unity_to_junit::UnityTestSummary</innerclass>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="de/d65/namespaceunity__to__junit_1a0344bc35e417f905ee690ec56ca4cfd9" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>uts</definition>
+        <argsstring></argsstring>
+        <name>uts</name>
+        <initializer>=  <ref refid="d7/d8a/classunity__to__junit_1_1_unity_test_summary" kindref="compound">UnityTestSummary</ref>()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/vendor/unity/auto/unity_to_junit.py" line="124" column="1" bodyfile="UnitTestFramework/vendor/ceedling/vendor/unity/auto/unity_to_junit.py" bodystart="124" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="de/d65/namespaceunity__to__junit_1a2b4c6e9ac9427c5d76712b14dd3817cd" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>string targets_dir</definition>
+        <argsstring></argsstring>
+        <name>targets_dir</name>
+        <initializer>=  sys.argv[1]</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/vendor/unity/auto/unity_to_junit.py" line="128" column="1" bodyfile="UnitTestFramework/vendor/ceedling/vendor/unity/auto/unity_to_junit.py" bodystart="128" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="de/d65/namespaceunity__to__junit_1aca9a7ee02fb8663e9e2971ca4052b0c6" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>targets</definition>
+        <argsstring></argsstring>
+        <name>targets</name>
+        <initializer>=  list(map(lambda x: x.replace(&apos;\\&apos;, &apos;/&apos;), glob(<ref refid="de/d65/namespaceunity__to__junit_1a2b4c6e9ac9427c5d76712b14dd3817cd" kindref="member">targets_dir</ref> + &apos;*.test*&apos;)))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/vendor/unity/auto/unity_to_junit.py" line="131" column="1" bodyfile="UnitTestFramework/vendor/ceedling/vendor/unity/auto/unity_to_junit.py" bodystart="131" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="de/d65/namespaceunity__to__junit_1ab33cf7205359ee0f91488c87df1577a0" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>root_path</definition>
+        <argsstring></argsstring>
+        <name>root_path</name>
+        <initializer>=  sys.argv[2]</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/vendor/unity/auto/unity_to_junit.py" line="138" column="1" bodyfile="UnitTestFramework/vendor/ceedling/vendor/unity/auto/unity_to_junit.py" bodystart="138" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="UnitTestFramework/vendor/ceedling/vendor/unity/auto/unity_to_junit.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

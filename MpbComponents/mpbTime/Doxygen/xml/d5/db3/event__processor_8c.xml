@@ -1,0 +1,327 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="d5/db3/event__processor_8c" kind="file" language="C++">
+    <compoundname>event_processor.c</compoundname>
+    <includes local="no">stdio.h</includes>
+    <includes local="no">string.h</includes>
+    <includes refid="d9/d06/event__processor_8h" local="yes">event_processor.h</includes>
+    <includes refid="d4/d68/display_8h" local="yes">display.h</includes>
+    <incdepgraph>
+      <node id="5">
+        <label>stdbool.h</label>
+      </node>
+      <node id="1">
+        <label>UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/event_processor.c</label>
+        <link refid="d5/db3/event__processor_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>event_processor.h</label>
+        <link refid="d9/d06/event__processor_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>string.h</label>
+      </node>
+      <node id="6">
+        <label>display.h</label>
+        <link refid="d4/d68/display_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="d5/db3/event__processor_8c_1a3e18b78418302c2505625ae783692cce" prot="public" static="yes" mutable="no">
+        <type>bool</type>
+        <definition>bool event_lastComplete</definition>
+        <argsstring></argsstring>
+        <name>event_lastComplete</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/event_processor.c" line="76" column="13" bodyfile="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/event_processor.c" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="d5/db3/event__processor_8c_1ae1d8acf4a49fc2dd494f7838a3d290c9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void event_deviceReset</definition>
+        <argsstring>(void)</argsstring>
+        <name>event_deviceReset</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/event_processor.c" line="12" column="6" bodyfile="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/event_processor.c" bodystart="12" bodyend="16"/>
+        <references refid="db/d85/display_8c_1ace29b0b5f6128f04d1800a81a37ad248" compoundref="db/d85/display_8c" startline="4" endline="7">display_turnOffStatusLed</references>
+        <referencedby refid="df/da4/test__event__processor_8c_1aff1f691f0911be5857ddbe01e551c0a2" compoundref="df/da4/test__event__processor_8c" startline="17" endline="26">test_whenTheDeviceIsReset_thenTheStatusLedIsTurnedOff</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d5/db3/event__processor_8c_1af0c058d318f845e4ad837756121715d9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void event_volumeKnobMaxed</definition>
+        <argsstring>(void)</argsstring>
+        <name>event_volumeKnobMaxed</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/event_processor.c" line="18" column="6" bodyfile="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/event_processor.c" bodystart="18" bodyend="21"/>
+        <references refid="d4/d68/display_8h_1a2a83d6ee1f6b970cadaf80d069d6cb78">display_setVolume</references>
+        <referencedby refid="df/da4/test__event__processor_8c_1ab3dbd650a187ae78cbc203e26c7da3a5" compoundref="df/da4/test__event__processor_8c" startline="47" endline="57">test_whenTheVolumeKnobIsMaxed_thenVolumeDisplayIsSetTo11</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d5/db3/event__processor_8c_1ab67dfe66cdf6520c6a2fe56416ec49ee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void event_powerReadingUpdate</definition>
+        <argsstring>(int powerReading)</argsstring>
+        <name>event_powerReadingUpdate</name>
+        <param>
+          <type>int</type>
+          <declname>powerReading</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/event_processor.c" line="23" column="6" bodyfile="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/event_processor.c" bodystart="23" bodyend="29"/>
+        <references refid="d4/d68/display_8h_1afe3765474613174779452f7453b51bca">display_turnOnStatusLed</references>
+        <referencedby refid="df/da4/test__event__processor_8c_1ae0402ad0b5090fc576a46cd6a37e3098" compoundref="df/da4/test__event__processor_8c" startline="32" endline="41">test_whenThePowerReadingIsLessThan5_thenTheStatusLedIsNotTurnedOn</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d5/db3/event__processor_8c_1aea6c21cc8520a67d644f5eee64e266a9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void event_modeSelectButtonPressed</definition>
+        <argsstring>(void)</argsstring>
+        <name>event_modeSelectButtonPressed</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/event_processor.c" line="31" column="6" bodyfile="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/event_processor.c" bodystart="31" bodyend="54"/>
+        <references refid="d4/d68/display_8h_1a80fe0f40254a3d87f017e7d4a3a75de4">display_setModeToAverage</references>
+        <references refid="d4/d68/display_8h_1a3ecd07af6041cf61b0c60150b5866c84">display_setModeToMaximum</references>
+        <references refid="d4/d68/display_8h_1a4f4309083204c27565cd4943c558bf35">display_setModeToMinimum</references>
+        <referencedby refid="df/da4/test__event__processor_8c_1ae77b983df3ecc38c9338c8a1c1747199" compoundref="df/da4/test__event__processor_8c" startline="64" endline="79">test_whenTheModeSelectButtonIsPressed_thenTheDisplayModeIsCycled</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d5/db3/event__processor_8c_1a07ad329255bf724d42e83d7288b20905" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void event_devicePoweredOn</definition>
+        <argsstring>(void)</argsstring>
+        <name>event_devicePoweredOn</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/event_processor.c" line="56" column="6" bodyfile="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/event_processor.c" bodystart="56" bodyend="62"/>
+        <references refid="d4/d68/display_8h_1a5e53a692fe6fb0e657002a703dab5ade">display_isError</references>
+        <references refid="d4/d68/display_8h_1a33e97a1d26f45f9f14f3428a9cad2ff8">display_powerDown</references>
+        <referencedby refid="df/da4/test__event__processor_8c_1aaade2183eab43ecade551f4ce2710653" compoundref="df/da4/test__event__processor_8c" startline="85" endline="97">test_givenTheDisplayHasAnError_whenTheDeviceIsPoweredOn_thenTheDisplayIsPoweredDown</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d5/db3/event__processor_8c_1a215d1e5ccd386376a8f2f7ca5de2d6fa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void event_keyboardCheckTimerExpired</definition>
+        <argsstring>(void)</argsstring>
+        <name>event_keyboardCheckTimerExpired</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/event_processor.c" line="64" column="6" bodyfile="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/event_processor.c" bodystart="64" bodyend="74"/>
+        <references refid="d4/d68/display_8h_1ad3acc697e3c1f49d46c5fe833a68c8e4">display_getKeyboardEntry</references>
+        <references refid="d4/d68/display_8h_1a33e97a1d26f45f9f14f3428a9cad2ff8">display_powerDown</references>
+        <referencedby refid="df/da4/test__event__processor_8c_1a534f0b7275d9d4a29985cacf3e8342aa" compoundref="df/da4/test__event__processor_8c" startline="107" endline="127">test_givenTheUserHasTypedSleep_whenItIsTimeToCheckTheKeyboard_theDisplayIsPoweredDown</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d5/db3/event__processor_8c_1a78200e9dff89e9255481003c17951065" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void displayUpdateComplete</definition>
+        <argsstring>(void)</argsstring>
+        <name>displayUpdateComplete</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/event_processor.c" line="79" column="13" bodyfile="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/event_processor.c" bodystart="79" bodyend="82"/>
+      </memberdef>
+      <memberdef kind="function" id="d5/db3/event__processor_8c_1ab6d73895a0010faeaf7ddf0eee24a974" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void event_newDataAvailable</definition>
+        <argsstring>(int data)</argsstring>
+        <name>event_newDataAvailable</name>
+        <param>
+          <type>int</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/event_processor.c" line="84" column="6" bodyfile="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/event_processor.c" bodystart="84" bodyend="88"/>
+        <referencedby refid="df/da4/test__event__processor_8c_1a7e135676f8e037e0dbd2a72ef83e409c" compoundref="df/da4/test__event__processor_8c" startline="133" endline="155">test_givenNewDataIsAvailable_whenTheDisplayHasUpdated_thenTheEventIsComplete</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d5/db3/event__processor_8c_1ae764507cd003774bd368b2785bb8566b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool eventProcessor_isLastEventComplete</definition>
+        <argsstring>(void)</argsstring>
+        <name>eventProcessor_isLastEventComplete</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/event_processor.c" line="90" column="6" bodyfile="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/event_processor.c" bodystart="90" bodyend="93"/>
+        <referencedby refid="df/da4/test__event__processor_8c_1a7e135676f8e037e0dbd2a72ef83e409c" compoundref="df/da4/test__event__processor_8c" startline="133" endline="155">test_givenNewDataIsAvailable_whenTheDisplayHasUpdated_thenTheEventIsComplete</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/><sp/><sp/><sp/>This<sp/>module<sp/>implements<sp/>some<sp/>business<sp/>logic<sp/>to<sp/>test.</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"></highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/><sp/><sp/><sp/>Signal<sp/>events<sp/>by<sp/>calling<sp/>the<sp/>functions<sp/>on<sp/>the<sp/>module.</highlight></codeline>
+<codeline lineno="5"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d9/d06/event__processor_8h" kindref="compound">event_processor.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d4/d68/display_8h" kindref="compound">display.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12" refid="d5/db3/event__processor_8c_1ae1d8acf4a49fc2dd494f7838a3d290c9" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d5/db3/event__processor_8c_1ae1d8acf4a49fc2dd494f7838a3d290c9" kindref="member">event_deviceReset</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="13"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//printf<sp/>(&quot;Device<sp/>reset\n&quot;);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="db/d85/display_8c_1ace29b0b5f6128f04d1800a81a37ad248" kindref="member">display_turnOffStatusLed</ref>();</highlight></codeline>
+<codeline lineno="16"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18" refid="d5/db3/event__processor_8c_1af0c058d318f845e4ad837756121715d9" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d5/db3/event__processor_8c_1af0c058d318f845e4ad837756121715d9" kindref="member">event_volumeKnobMaxed</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="19"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d4/d68/display_8h_1a2a83d6ee1f6b970cadaf80d069d6cb78" kindref="member">display_setVolume</ref>(11);</highlight></codeline>
+<codeline lineno="21"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23" refid="d5/db3/event__processor_8c_1ab67dfe66cdf6520c6a2fe56416ec49ee" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d5/db3/event__processor_8c_1ab67dfe66cdf6520c6a2fe56416ec49ee" kindref="member">event_powerReadingUpdate</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>powerReading)</highlight></codeline>
+<codeline lineno="24"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(powerReading<sp/>&gt;=<sp/>5)</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d4/d68/display_8h_1afe3765474613174779452f7453b51bca" kindref="member">display_turnOnStatusLed</ref>();</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="29"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31" refid="d5/db3/event__processor_8c_1aea6c21cc8520a67d644f5eee64e266a9" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d5/db3/event__processor_8c_1aea6c21cc8520a67d644f5eee64e266a9" kindref="member">event_modeSelectButtonPressed</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="32"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>mode<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(mode<sp/>==<sp/>0)</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d4/d68/display_8h_1a4f4309083204c27565cd4943c558bf35" kindref="member">display_setModeToMinimum</ref>();</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mode++;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(mode<sp/>==<sp/>1)</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d4/d68/display_8h_1a3ecd07af6041cf61b0c60150b5866c84" kindref="member">display_setModeToMaximum</ref>();</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mode++;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(mode<sp/>==<sp/>2)</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d4/d68/display_8h_1a80fe0f40254a3d87f017e7d4a3a75de4" kindref="member">display_setModeToAverage</ref>();</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mode++;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mode<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="54"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56" refid="d5/db3/event__processor_8c_1a07ad329255bf724d42e83d7288b20905" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d5/db3/event__processor_8c_1a07ad329255bf724d42e83d7288b20905" kindref="member">event_devicePoweredOn</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="57"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="d4/d68/display_8h_1a5e53a692fe6fb0e657002a703dab5ade" kindref="member">display_isError</ref>())</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d4/d68/display_8h_1a33e97a1d26f45f9f14f3428a9cad2ff8" kindref="member">display_powerDown</ref>();</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="62"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64" refid="d5/db3/event__processor_8c_1a215d1e5ccd386376a8f2f7ca5de2d6fa" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d5/db3/event__processor_8c_1a215d1e5ccd386376a8f2f7ca5de2d6fa" kindref="member">event_keyboardCheckTimerExpired</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="65"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>userEntry[100];</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d4/d68/display_8h_1ad3acc697e3c1f49d46c5fe833a68c8e4" kindref="member">display_getKeyboardEntry</ref>(userEntry,<sp/>100);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(strcmp(userEntry,<sp/></highlight><highlight class="stringliteral">&quot;sleep&quot;</highlight><highlight class="normal">)<sp/>==<sp/>0)</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d4/d68/display_8h_1a33e97a1d26f45f9f14f3428a9cad2ff8" kindref="member">display_powerDown</ref>();</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="74"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>event_lastComplete<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Function<sp/>called<sp/>when<sp/>the<sp/>display<sp/>update<sp/>is<sp/>complete.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>displayUpdateComplete(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="80"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>event_lastComplete<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="82"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84" refid="d5/db3/event__processor_8c_1ab6d73895a0010faeaf7ddf0eee24a974" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d5/db3/event__processor_8c_1ab6d73895a0010faeaf7ddf0eee24a974" kindref="member">event_newDataAvailable</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>data)</highlight></codeline>
+<codeline lineno="85"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>event_lastComplete<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d4/d68/display_8h_1a0aa9daa96db07abd80cd2a8e6d0afc44" kindref="member">display_updateData</ref>(data,<sp/>displayUpdateComplete);</highlight></codeline>
+<codeline lineno="88"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90" refid="d5/db3/event__processor_8c_1ae764507cd003774bd368b2785bb8566b" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="d5/db3/event__processor_8c_1ae764507cd003774bd368b2785bb8566b" kindref="member">eventProcessor_isLastEventComplete</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="91"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>event_lastComplete;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/event_processor.c"/>
+  </compounddef>
+</doxygen>

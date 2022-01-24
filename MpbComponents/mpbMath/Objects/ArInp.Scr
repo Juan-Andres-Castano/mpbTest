@@ -1,0 +1,2 @@
+--create .\Objects\mpbMath.lib
+.\objects\mpbmathdebounce.o

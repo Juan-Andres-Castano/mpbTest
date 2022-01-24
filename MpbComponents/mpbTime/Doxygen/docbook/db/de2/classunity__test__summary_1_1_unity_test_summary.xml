@@ -1,0 +1,166 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classunity__test__summary_1_1_unity_test_summary" xml:lang="en-US">
+<title>UnityTestSummary Class Reference</title>
+<indexterm><primary>UnityTestSummary</primary></indexterm>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>def <link linkend="_classunity__test__summary_1_1_unity_test_summary_1ae64f0875afe3067b97ba370b354b9213">__init__</link> (self)</para>
+</listitem>
+            <listitem><para>def <link linkend="_classunity__test__summary_1_1_unity_test_summary_1ad22709b2e67308af35f55680d5a026e0">run</link> (self)</para>
+</listitem>
+            <listitem><para>def <link linkend="_classunity__test__summary_1_1_unity_test_summary_1af3f7b9f92d7b39ccf3b07a1587bdfc7a">set_targets</link> (self, target_array)</para>
+</listitem>
+            <listitem><para>def <link linkend="_classunity__test__summary_1_1_unity_test_summary_1a1e8dafe08b35cf63ac0634a3d75c4f08">set_root_path</link> (self, path)</para>
+</listitem>
+            <listitem><para>def <link linkend="_classunity__test__summary_1_1_unity_test_summary_1a4d9e93a5e1fe8aafe04297b28a589f22">usage</link> (self, err_msg=None)</para>
+</listitem>
+            <listitem><para>def <link linkend="_classunity__test__summary_1_1_unity_test_summary_1a8c72b61d684c3be1d991dc6b1a21ab26">get_details</link> (self, result_file, lines)</para>
+</listitem>
+            <listitem><para>def <link linkend="_classunity__test__summary_1_1_unity_test_summary_1a59108e8467c4fb4824bc80b083e1211c">parse_test_summary</link> (self, summary)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_classunity__test__summary_1_1_unity_test_summary_1a4b7febb5dfb963ed99f5e7870abce71b">report</link></para>
+</listitem>
+            <listitem><para><link linkend="_classunity__test__summary_1_1_unity_test_summary_1a90653bae142aad764571b7e484d34f4e">total_tests</link></para>
+</listitem>
+            <listitem><para><link linkend="_classunity__test__summary_1_1_unity_test_summary_1ad617fd03e0c7ac85dd3111c2acd763b2">failures</link></para>
+</listitem>
+            <listitem><para><link linkend="_classunity__test__summary_1_1_unity_test_summary_1a37cf6b909fd9f164e7a5ebc707fb40a8">ignored</link></para>
+</listitem>
+            <listitem><para><link linkend="_classunity__test__summary_1_1_unity_test_summary_1aca9a7ee02fb8663e9e2971ca4052b0c6">targets</link></para>
+</listitem>
+            <listitem><para><link linkend="_classunity__test__summary_1_1_unity_test_summary_1ab4b8daf4b8ea9d39568719e1e320076f">root</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line 13 of file unity_test_summary.py.</para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_classunity__test__summary_1_1_unity_test_summary_1ae64f0875afe3067b97ba370b354b9213"/>    <section>
+    <title>__init__()</title>
+<indexterm><primary>__init__</primary><secondary>UnityTestSummary</secondary></indexterm>
+<indexterm><primary>UnityTestSummary</primary><secondary>__init__</secondary></indexterm>
+<para><computeroutput>def __init__ ( self)</computeroutput></para><para>
+Definition at line 14 of file unity_test_summary.py.</para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_classunity__test__summary_1_1_unity_test_summary_1a8c72b61d684c3be1d991dc6b1a21ab26"/>    <section>
+    <title>get_details()</title>
+<indexterm><primary>get_details</primary><secondary>UnityTestSummary</secondary></indexterm>
+<indexterm><primary>UnityTestSummary</primary><secondary>get_details</secondary></indexterm>
+<para><computeroutput>def get_details ( self,  result_file,  lines)</computeroutput></para><para>
+Definition at line 85 of file unity_test_summary.py.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../db/de2/classunity__test__summary_1_1_unity_test_summary_a8c72b61d684c3be1d991dc6b1a21ab26_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_classunity__test__summary_1_1_unity_test_summary_1a59108e8467c4fb4824bc80b083e1211c"/>    <section>
+    <title>parse_test_summary()</title>
+<indexterm><primary>parse_test_summary</primary><secondary>UnityTestSummary</secondary></indexterm>
+<indexterm><primary>UnityTestSummary</primary><secondary>parse_test_summary</secondary></indexterm>
+<para><computeroutput>def parse_test_summary ( self,  summary)</computeroutput></para><para>
+Definition at line 108 of file unity_test_summary.py.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../db/de2/classunity__test__summary_1_1_unity_test_summary_a59108e8467c4fb4824bc80b083e1211c_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_classunity__test__summary_1_1_unity_test_summary_1ad22709b2e67308af35f55680d5a026e0"/>    <section>
+    <title>run()</title>
+<indexterm><primary>run</primary><secondary>UnityTestSummary</secondary></indexterm>
+<indexterm><primary>UnityTestSummary</primary><secondary>run</secondary></indexterm>
+<para><computeroutput>def run ( self)</computeroutput></para><para>
+Definition at line 20 of file unity_test_summary.py.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../db/de2/classunity__test__summary_1_1_unity_test_summary_ad22709b2e67308af35f55680d5a026e0_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_classunity__test__summary_1_1_unity_test_summary_1a1e8dafe08b35cf63ac0634a3d75c4f08"/>    <section>
+    <title>set_root_path()</title>
+<indexterm><primary>set_root_path</primary><secondary>UnityTestSummary</secondary></indexterm>
+<indexterm><primary>UnityTestSummary</primary><secondary>set_root_path</secondary></indexterm>
+<para><computeroutput>def set_root_path ( self,  path)</computeroutput></para><para>
+Definition at line 71 of file unity_test_summary.py.</para>
+    </section><anchor xml:id="_classunity__test__summary_1_1_unity_test_summary_1af3f7b9f92d7b39ccf3b07a1587bdfc7a"/>    <section>
+    <title>set_targets()</title>
+<indexterm><primary>set_targets</primary><secondary>UnityTestSummary</secondary></indexterm>
+<indexterm><primary>UnityTestSummary</primary><secondary>set_targets</secondary></indexterm>
+<para><computeroutput>def set_targets ( self,  target_array)</computeroutput></para><para>
+Definition at line 68 of file unity_test_summary.py.</para>
+    </section><anchor xml:id="_classunity__test__summary_1_1_unity_test_summary_1a4d9e93a5e1fe8aafe04297b28a589f22"/>    <section>
+    <title>usage()</title>
+<indexterm><primary>usage</primary><secondary>UnityTestSummary</secondary></indexterm>
+<indexterm><primary>UnityTestSummary</primary><secondary>usage</secondary></indexterm>
+<para><computeroutput>def usage ( self,  err_msg = <computeroutput>None</computeroutput>
+)</computeroutput></para><para>
+Definition at line 74 of file unity_test_summary.py.</para>
+</section>
+</section>
+<section>
+<title>Field Documentation</title>
+<anchor xml:id="_classunity__test__summary_1_1_unity_test_summary_1ad617fd03e0c7ac85dd3111c2acd763b2"/>    <section>
+    <title>failures</title>
+<indexterm><primary>failures</primary><secondary>UnityTestSummary</secondary></indexterm>
+<indexterm><primary>UnityTestSummary</primary><secondary>failures</secondary></indexterm>
+<para><computeroutput>failures</computeroutput></para><para>
+Definition at line 17 of file unity_test_summary.py.</para>
+    </section><anchor xml:id="_classunity__test__summary_1_1_unity_test_summary_1a37cf6b909fd9f164e7a5ebc707fb40a8"/>    <section>
+    <title>ignored</title>
+<indexterm><primary>ignored</primary><secondary>UnityTestSummary</secondary></indexterm>
+<indexterm><primary>UnityTestSummary</primary><secondary>ignored</secondary></indexterm>
+<para><computeroutput>ignored</computeroutput></para><para>
+Definition at line 18 of file unity_test_summary.py.</para>
+    </section><anchor xml:id="_classunity__test__summary_1_1_unity_test_summary_1a4b7febb5dfb963ed99f5e7870abce71b"/>    <section>
+    <title>report</title>
+<indexterm><primary>report</primary><secondary>UnityTestSummary</secondary></indexterm>
+<indexterm><primary>UnityTestSummary</primary><secondary>report</secondary></indexterm>
+<para><computeroutput>report</computeroutput></para><para>
+Definition at line 15 of file unity_test_summary.py.</para>
+    </section><anchor xml:id="_classunity__test__summary_1_1_unity_test_summary_1ab4b8daf4b8ea9d39568719e1e320076f"/>    <section>
+    <title>root</title>
+<indexterm><primary>root</primary><secondary>UnityTestSummary</secondary></indexterm>
+<indexterm><primary>UnityTestSummary</primary><secondary>root</secondary></indexterm>
+<para><computeroutput>root</computeroutput></para><para>
+Definition at line 72 of file unity_test_summary.py.</para>
+    </section><anchor xml:id="_classunity__test__summary_1_1_unity_test_summary_1aca9a7ee02fb8663e9e2971ca4052b0c6"/>    <section>
+    <title>targets</title>
+<indexterm><primary>targets</primary><secondary>UnityTestSummary</secondary></indexterm>
+<indexterm><primary>UnityTestSummary</primary><secondary>targets</secondary></indexterm>
+<para><computeroutput>targets</computeroutput></para><para>
+Definition at line 69 of file unity_test_summary.py.</para>
+    </section><anchor xml:id="_classunity__test__summary_1_1_unity_test_summary_1a90653bae142aad764571b7e484d34f4e"/>    <section>
+    <title>total_tests</title>
+<indexterm><primary>total_tests</primary><secondary>UnityTestSummary</secondary></indexterm>
+<indexterm><primary>UnityTestSummary</primary><secondary>total_tests</secondary></indexterm>
+<para><computeroutput>total_tests</computeroutput></para><para>
+Definition at line 16 of file unity_test_summary.py.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+UnitTestFramework/vendor/ceedling/vendor/unity/auto/<link linkend="_unity__test__summary_8py">unity_test_summary.py</link></section>
+</section>

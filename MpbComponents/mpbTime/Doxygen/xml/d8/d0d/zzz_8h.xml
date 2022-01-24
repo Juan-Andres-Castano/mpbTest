@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="d8/d0d/zzz_8h" kind="file" language="C++">
+    <compoundname>zzz.h</compoundname>
+    <includedby refid="d0/d87/foo_8c" local="yes">UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/foo.c</includedby>
+    <includedby refid="d2/d57/zzz_8c" local="yes">UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/subfolder/zzz.c</includedby>
+    <invincdepgraph>
+      <node id="3">
+        <label>UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/subfolder/zzz.c</label>
+        <link refid="d2/d57/zzz_8c"/>
+      </node>
+      <node id="1">
+        <label>UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/subfolder/zzz.h</label>
+        <link refid="d8/d0d/zzz_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/foo.c</label>
+        <link refid="d0/d87/foo_8c"/>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="d8/d0d/zzz_8h_1a60434c2f6b957b98a5a3fdd9141ba65e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int zzz_sleep</definition>
+        <argsstring>(int time, char *name)</argsstring>
+        <name>zzz_sleep</name>
+        <param>
+          <type>int</type>
+          <declname>time</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/subfolder/zzz.h" line="4" column="5" declfile="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/subfolder/zzz.h" declline="4" declcolumn="5"/>
+        <referencedby refid="d0/d87/foo_8c_1a6db1ba1a48b0fce98eb0773a86e379d1" compoundref="d0/d87/foo_8c" startline="5" endline="8">foo_turn_on</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>zzz_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>zzz_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4" refid="d8/d0d/zzz_8h_1a60434c2f6b957b98a5a3fdd9141ba65e" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="d8/d0d/zzz_8h_1a60434c2f6b957b98a5a3fdd9141ba65e" kindref="member">zzz_sleep</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>time,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>name);</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>zzz_H</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/subfolder/zzz.h"/>
+  </compounddef>
+</doxygen>

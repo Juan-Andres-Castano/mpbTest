@@ -1,0 +1,122 @@
+\hypertarget{nep_math_crc_8c}{}\doxysection{Sources/nep\+Math\+Crc.c File Reference}
+\label{nep_math_crc_8c}\index{Sources/nepMathCrc.c@{Sources/nepMathCrc.c}}
+
+
+nep\+Math\+Crc source file.  
+
+
+{\ttfamily \#include \char`\"{}nep\+Math\+Crc.\+h\char`\"{}}\newline
+Include dependency graph for nep\+Math\+Crc.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=196pt]{de/d0d/nep_math_crc_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{nep_math_crc_8c_af30cbba1d76511ef7db6fd355271f4f0}{MASK\+\_\+32\+\_\+\+BITS}}~( 0x\+FFFFFFFF )
+\item 
+\#define \mbox{\hyperlink{nep_math_crc_8c_aa923c3643ca1e17e2107331fee1f6800}{NUMBER\+\_\+\+OF\+\_\+\+BITS\+\_\+\+IN\+\_\+\+INTEGER}}~( 32 )
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+e\+Nep\+Error\+\_\+t \mbox{\hyperlink{nep_math_crc_8c_a00ac5a8bf8d3f19ad776f0a71fa24467}{e\+Nep\+Math\+Crc\+Init}} (uint8\+\_\+t uc\+Width, uint32\+\_\+t ul\+Initial, uint32\+\_\+t ul\+Polynomial, uint32\+\_\+t ul\+Xor\+Output, e\+Bool\+\_\+t b\+Ref\+Input, e\+Bool\+\_\+t b\+Ref\+Output, x\+Nep\+Crc\+\_\+t $\ast$px\+Nep\+Crc)
+\item 
+e\+Nep\+Error\+\_\+t \mbox{\hyperlink{nep_math_crc_8c_a74b0fc377878a0f2c5150c9565775486}{e\+Nep\+Math\+Crc\+Validate}} (x\+Nep\+Crc\+\_\+t x\+Nep\+Crc, uint32\+\_\+t ul\+Crc\+Read, uint32\+\_\+t ul\+Number\+Of\+Bytes, const uint8\+\_\+t $\ast$puc\+Buffer)
+\item 
+e\+Nep\+Error\+\_\+t \mbox{\hyperlink{nep_math_crc_8c_ae4b22b6aa7650934381ae4c626c8d2f3}{e\+Nep\+Math\+Crc\+Calculate}} (x\+Nep\+Crc\+\_\+t x\+Nep\+Crc, uint32\+\_\+t ul\+Number\+Of\+Bytes, const uint8\+\_\+t $\ast$puc\+Buffer, uint32\+\_\+t $\ast$pul\+Crc\+Value)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+nep\+Math\+Crc source file. 
+
+\begin{DoxyAuthor}{Author}
+Philippe.\+Boulais 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+Created on 2019-\/11-\/13. 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+NEP, Montreal, Qc \doxysubsubsection*{\begin{center}\copyright{} COPYRIGHT 2015 NEP, Montreal, Quebec, Canada\end{center} }
+\end{DoxyCopyright}
+\doxysubsubsection*{\begin{center}\copyright{} All rights reserved.\end{center} }
+
+~\newline
+~\newline
+ \begin{center}This document contains confidential and proprietary information of NEPTRONIC (subject to a non-\/disclosure agreement) and shall\end{center}  \begin{center}not be disclosed, distributed, or reproduced in whole or in part, without the prior written authorization of NEPTRONIC.\end{center}  
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{nep_math_crc_8c_af30cbba1d76511ef7db6fd355271f4f0}\label{nep_math_crc_8c_af30cbba1d76511ef7db6fd355271f4f0}} 
+\index{nepMathCrc.c@{nepMathCrc.c}!MASK\_32\_BITS@{MASK\_32\_BITS}}
+\index{MASK\_32\_BITS@{MASK\_32\_BITS}!nepMathCrc.c@{nepMathCrc.c}}
+\doxysubsubsection{\texorpdfstring{MASK\_32\_BITS}{MASK\_32\_BITS}}
+{\footnotesize\ttfamily \#define MASK\+\_\+32\+\_\+\+BITS~( 0x\+FFFFFFFF )}
+
+
+
+Definition at line 22 of file nep\+Math\+Crc.\+c.
+
+\mbox{\Hypertarget{nep_math_crc_8c_aa923c3643ca1e17e2107331fee1f6800}\label{nep_math_crc_8c_aa923c3643ca1e17e2107331fee1f6800}} 
+\index{nepMathCrc.c@{nepMathCrc.c}!NUMBER\_OF\_BITS\_IN\_INTEGER@{NUMBER\_OF\_BITS\_IN\_INTEGER}}
+\index{NUMBER\_OF\_BITS\_IN\_INTEGER@{NUMBER\_OF\_BITS\_IN\_INTEGER}!nepMathCrc.c@{nepMathCrc.c}}
+\doxysubsubsection{\texorpdfstring{NUMBER\_OF\_BITS\_IN\_INTEGER}{NUMBER\_OF\_BITS\_IN\_INTEGER}}
+{\footnotesize\ttfamily \#define NUMBER\+\_\+\+OF\+\_\+\+BITS\+\_\+\+IN\+\_\+\+INTEGER~( 32 )}
+
+
+
+Definition at line 23 of file nep\+Math\+Crc.\+c.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{nep_math_crc_8c_ae4b22b6aa7650934381ae4c626c8d2f3}\label{nep_math_crc_8c_ae4b22b6aa7650934381ae4c626c8d2f3}} 
+\index{nepMathCrc.c@{nepMathCrc.c}!eNepMathCrcCalculate@{eNepMathCrcCalculate}}
+\index{eNepMathCrcCalculate@{eNepMathCrcCalculate}!nepMathCrc.c@{nepMathCrc.c}}
+\doxysubsubsection{\texorpdfstring{eNepMathCrcCalculate()}{eNepMathCrcCalculate()}}
+{\footnotesize\ttfamily e\+Nep\+Error\+\_\+t e\+Nep\+Math\+Crc\+Calculate (\begin{DoxyParamCaption}\item[{x\+Nep\+Crc\+\_\+t}]{x\+Nep\+Crc,  }\item[{uint32\+\_\+t}]{ul\+Number\+Of\+Bytes,  }\item[{const uint8\+\_\+t $\ast$}]{puc\+Buffer,  }\item[{uint32\+\_\+t $\ast$}]{pul\+Crc\+Value }\end{DoxyParamCaption})}
+
+
+
+Definition at line 108 of file nep\+Math\+Crc.\+c.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dc/dfe/nep_math_crc_8c_ae4b22b6aa7650934381ae4c626c8d2f3_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{nep_math_crc_8c_a00ac5a8bf8d3f19ad776f0a71fa24467}\label{nep_math_crc_8c_a00ac5a8bf8d3f19ad776f0a71fa24467}} 
+\index{nepMathCrc.c@{nepMathCrc.c}!eNepMathCrcInit@{eNepMathCrcInit}}
+\index{eNepMathCrcInit@{eNepMathCrcInit}!nepMathCrc.c@{nepMathCrc.c}}
+\doxysubsubsection{\texorpdfstring{eNepMathCrcInit()}{eNepMathCrcInit()}}
+{\footnotesize\ttfamily e\+Nep\+Error\+\_\+t e\+Nep\+Math\+Crc\+Init (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{uc\+Width,  }\item[{uint32\+\_\+t}]{ul\+Initial,  }\item[{uint32\+\_\+t}]{ul\+Polynomial,  }\item[{uint32\+\_\+t}]{ul\+Xor\+Output,  }\item[{e\+Bool\+\_\+t}]{b\+Ref\+Input,  }\item[{e\+Bool\+\_\+t}]{b\+Ref\+Output,  }\item[{x\+Nep\+Crc\+\_\+t $\ast$}]{px\+Nep\+Crc }\end{DoxyParamCaption})}
+
+
+
+Definition at line 34 of file nep\+Math\+Crc.\+c.
+
+\mbox{\Hypertarget{nep_math_crc_8c_a74b0fc377878a0f2c5150c9565775486}\label{nep_math_crc_8c_a74b0fc377878a0f2c5150c9565775486}} 
+\index{nepMathCrc.c@{nepMathCrc.c}!eNepMathCrcValidate@{eNepMathCrcValidate}}
+\index{eNepMathCrcValidate@{eNepMathCrcValidate}!nepMathCrc.c@{nepMathCrc.c}}
+\doxysubsubsection{\texorpdfstring{eNepMathCrcValidate()}{eNepMathCrcValidate()}}
+{\footnotesize\ttfamily e\+Nep\+Error\+\_\+t e\+Nep\+Math\+Crc\+Validate (\begin{DoxyParamCaption}\item[{x\+Nep\+Crc\+\_\+t}]{x\+Nep\+Crc,  }\item[{uint32\+\_\+t}]{ul\+Crc\+Read,  }\item[{uint32\+\_\+t}]{ul\+Number\+Of\+Bytes,  }\item[{const uint8\+\_\+t $\ast$}]{puc\+Buffer }\end{DoxyParamCaption})}
+
+
+
+Definition at line 51 of file nep\+Math\+Crc.\+c.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dc/dfe/nep_math_crc_8c_a74b0fc377878a0f2c5150c9565775486_cgraph}
+\end{center}
+\end{figure}

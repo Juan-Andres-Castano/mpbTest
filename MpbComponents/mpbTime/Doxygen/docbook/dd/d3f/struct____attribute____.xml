@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_struct____attribute____" xml:lang="en-US">
+<title>__attribute__ Struct Reference</title>
+<indexterm><primary>__attribute__</primary></indexterm>
+<para>
+
+<para>Timebase internal structure. </para>
+ 
+</para>
+<para>
+<computeroutput>#include &lt;mpbTimeBase.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para>uint32_t <link linkend="_struct____attribute_____1a28b9cc899120ec9ffd6e8da7d9f942d7">ulTick</link></para>
+</listitem>
+            <listitem><para>uint32_t <link linkend="_struct____attribute_____1a61b238636c68d18bbdefbcb66a471e06">ulMs</link></para>
+</listitem>
+            <listitem><para>uint32_t <link linkend="_struct____attribute_____1a3b0dcca8eb83c3e0b988503dad43892d">ulSecond</link></para>
+</listitem>
+            <listitem><para>uint16_t <link linkend="_struct____attribute_____1a1503812b6f48f3ed72640c203ccc6a93">usMsCount</link></para>
+</listitem>
+            <listitem><para>uint8_t <link linkend="_struct____attribute_____1aeda5671258a37f74b1320aa19d0c11f3">ucTickCount</link></para>
+</listitem>
+            <listitem><para>uint8_t <link linkend="_struct____attribute_____1a9fccf6b9c59b071b6d5e36273a32e3fd">ucTickReload</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Timebase internal structure. </para>
+<para>
+Definition at line 29 of file mpbTimeBase.h.</para>
+</section>
+<section>
+<title>Field Documentation</title>
+<anchor xml:id="_struct____attribute_____1aeda5671258a37f74b1320aa19d0c11f3"/>    <section>
+    <title>ucTickCount</title>
+<indexterm><primary>ucTickCount</primary><secondary>__attribute__</secondary></indexterm>
+<indexterm><primary>__attribute__</primary><secondary>ucTickCount</secondary></indexterm>
+<para><computeroutput>uint8_t ucTickCount</computeroutput></para>
+<para>the actual tick count </para>
+<para>
+Definition at line 35 of file mpbTimeBase.h.</para>
+    </section><anchor xml:id="_struct____attribute_____1a9fccf6b9c59b071b6d5e36273a32e3fd"/>    <section>
+    <title>ucTickReload</title>
+<indexterm><primary>ucTickReload</primary><secondary>__attribute__</secondary></indexterm>
+<indexterm><primary>__attribute__</primary><secondary>ucTickReload</secondary></indexterm>
+<para><computeroutput>uint8_t ucTickReload</computeroutput></para>
+<para>the initial tick load </para>
+<para>
+Definition at line 36 of file mpbTimeBase.h.</para>
+    </section><anchor xml:id="_struct____attribute_____1a61b238636c68d18bbdefbcb66a471e06"/>    <section>
+    <title>ulMs</title>
+<indexterm><primary>ulMs</primary><secondary>__attribute__</secondary></indexterm>
+<indexterm><primary>__attribute__</primary><secondary>ulMs</secondary></indexterm>
+<para><computeroutput>uint32_t ulMs</computeroutput></para>
+<para>the actual Ms count </para>
+<para>
+Definition at line 32 of file mpbTimeBase.h.</para>
+    </section><anchor xml:id="_struct____attribute_____1a3b0dcca8eb83c3e0b988503dad43892d"/>    <section>
+    <title>ulSecond</title>
+<indexterm><primary>ulSecond</primary><secondary>__attribute__</secondary></indexterm>
+<indexterm><primary>__attribute__</primary><secondary>ulSecond</secondary></indexterm>
+<para><computeroutput>uint32_t ulSecond</computeroutput></para>
+<para>the actual seconds count </para>
+<para>
+Definition at line 33 of file mpbTimeBase.h.</para>
+    </section><anchor xml:id="_struct____attribute_____1a28b9cc899120ec9ffd6e8da7d9f942d7"/>    <section>
+    <title>ulTick</title>
+<indexterm><primary>ulTick</primary><secondary>__attribute__</secondary></indexterm>
+<indexterm><primary>__attribute__</primary><secondary>ulTick</secondary></indexterm>
+<para><computeroutput>uint32_t ulTick</computeroutput></para>
+<para>the actual tick increment </para>
+<para>
+Definition at line 31 of file mpbTimeBase.h.</para>
+    </section><anchor xml:id="_struct____attribute_____1a1503812b6f48f3ed72640c203ccc6a93"/>    <section>
+    <title>usMsCount</title>
+<indexterm><primary>usMsCount</primary><secondary>__attribute__</secondary></indexterm>
+<indexterm><primary>__attribute__</primary><secondary>usMsCount</secondary></indexterm>
+<para><computeroutput>uint16_t usMsCount</computeroutput></para>
+<para>the actual miliseconds count </para>
+<para>
+Definition at line 34 of file mpbTimeBase.h.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+Includes/<link linkend="_mpb_time_base_8h">mpbTimeBase.h</link></section>
+</section>

@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md__unit_test_framework_vendor_ceedling_plugins_command_hooks__r_e_a_d_m_e" xml:lang="en-US">
+
+<para>Plugin for easily calling command line tools at various points in the build process</para>
+
+<para>Define any of these sections in :tools: to provide additional hooks to be called on demand:</para>
+
+<para><literallayout><computeroutput>:pre_mock_generate
+:post_mock_generate
+:pre_runner_generate
+:post_runner_generate
+:pre_compile_execute
+:post_compile_execute
+:pre_link_execute
+:post_link_execute
+:pre_test_fixture_execute
+:pre_test_fixture_execute
+:pre_test
+:post_test
+:pre_release
+:post_release
+:pre_build
+:post_build
+</computeroutput></literallayout></para>
+
+<para>Each of these tools can support an :executable string and an :args list, like so:</para>
+
+<para><literallayout><computeroutput>:tools:
+&#32;&#32;:post_link_execute:
+&#32;&#32;&#32;&#32;:executable:&#32;objcopy.exe
+&#32;&#32;&#32;&#32;:args:
+&#32;&#32;&#32;&#32;&#32;&#32;-&#32;${1}&#32;#This&#32;is&#32;replaced&#32;with&#32;the&#32;executable&#32;name
+&#32;&#32;&#32;&#32;&#32;&#32;-&#32;output.srec
+&#32;&#32;&#32;&#32;&#32;&#32;-&#32;--strip-all
+</computeroutput></literallayout></para>
+
+<para>You may also specify an array of executables to be called in a particular place, like so:</para>
+
+<para><literallayout><computeroutput>:tools:
+&#32;&#32;:post_test:
+&#32;&#32;&#32;&#32;-&#32;&#32;:executable:&#32;echo
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;:args:&#32;&quot;${1}&#32;was&#32;glorious!&quot;
+&#32;&#32;&#32;&#32;-&#32;&#32;:executable:&#32;echo
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;:args:
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;-&#32;it&#32;kinda&#32;made&#32;me&#32;cry&#32;a&#32;little.
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;-&#32;you?
+</computeroutput></literallayout></para>
+
+<para>Happy Tweaking! </para>
+</section>

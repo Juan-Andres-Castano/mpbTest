@@ -1,0 +1,616 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="d7/dd6/_c_mock___summary_8md" kind="file" language="Markdown">
+    <compoundname>CMock_Summary.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">CMock:<sp/>A<sp/>Summary</highlight></codeline>
+<codeline><highlight class="normal">================</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*[ThrowTheSwitch.org](http://throwtheswitch.org)*</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*This<sp/>documentation<sp/>is<sp/>released<sp/>under<sp/>a<sp/>Creative<sp/>Commons<sp/>3.0<sp/>Attribution<sp/>Share-Alike<sp/>License*</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">What<sp/>Exactly<sp/>Are<sp/>We<sp/>Talking<sp/>About<sp/>Here?</highlight></codeline>
+<codeline><highlight class="normal">---------------------------------------</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">CMock<sp/>is<sp/>a<sp/>nice<sp/>little<sp/>tool<sp/>which<sp/>takes<sp/>your<sp/>header<sp/>files<sp/>and<sp/>creates</highlight></codeline>
+<codeline><highlight class="normal">a<sp/>Mock<sp/>interface<sp/>for<sp/>it<sp/>so<sp/>that<sp/>you<sp/>can<sp/>more<sp/>easily<sp/>unit<sp/>test<sp/>modules</highlight></codeline>
+<codeline><highlight class="normal">that<sp/>touch<sp/>other<sp/>modules.<sp/>For<sp/>each<sp/>function<sp/>prototype<sp/>in<sp/>your</highlight></codeline>
+<codeline><highlight class="normal">header,<sp/>like<sp/>this<sp/>one:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>int<sp/>DoesSomething(int<sp/>a,<sp/>int<sp/>b);</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">...you<sp/>get<sp/>an<sp/>automatically<sp/>generated<sp/>DoesSomething<sp/>function</highlight></codeline>
+<codeline><highlight class="normal">that<sp/>you<sp/>can<sp/>link<sp/>to<sp/>instead<sp/>of<sp/>your<sp/>real<sp/>DoesSomething<sp/>function.</highlight></codeline>
+<codeline><highlight class="normal">By<sp/>using<sp/>this<sp/>Mocked<sp/>version,<sp/>you<sp/>can<sp/>then<sp/>verify<sp/>that<sp/>it<sp/>receives</highlight></codeline>
+<codeline><highlight class="normal">the<sp/>data<sp/>you<sp/>want,<sp/>and<sp/>make<sp/>it<sp/>return<sp/>whatever<sp/>data<sp/>you<sp/>desire,</highlight></codeline>
+<codeline><highlight class="normal">make<sp/>it<sp/>throw<sp/>errors<sp/>when<sp/>you<sp/>want,<sp/>and<sp/>more...<sp/>Create<sp/>these<sp/>for</highlight></codeline>
+<codeline><highlight class="normal">everything<sp/>your<sp/>latest<sp/>real<sp/>module<sp/>touches,<sp/>and<sp/>you&apos;re<sp/>suddenly</highlight></codeline>
+<codeline><highlight class="normal">in<sp/>a<sp/>position<sp/>of<sp/>power:<sp/>You<sp/>can<sp/>control<sp/>and<sp/>verify<sp/>every<sp/>detail</highlight></codeline>
+<codeline><highlight class="normal">of<sp/>your<sp/>latest<sp/>creation.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">To<sp/>make<sp/>that<sp/>easier,<sp/>CMock<sp/>also<sp/>gives<sp/>you<sp/>a<sp/>bunch<sp/>of<sp/>functions</highlight></codeline>
+<codeline><highlight class="normal">like<sp/>the<sp/>ones<sp/>below,<sp/>so<sp/>you<sp/>can<sp/>tell<sp/>that<sp/>generated<sp/>DoesSomething</highlight></codeline>
+<codeline><highlight class="normal">function<sp/>how<sp/>to<sp/>behave<sp/>for<sp/>each<sp/>test:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/>DoesSomething_ExpectAndReturn(int<sp/>a,<sp/>int<sp/>b,<sp/>int<sp/>toReturn);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/>DoesSomething_ExpectAndThrow(int<sp/>a,<sp/>int<sp/>b,<sp/>EXCEPTION_T<sp/>error);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/>DoesSomething_StubWithCallback(CMOCK_DoesSomething_CALLBACK<sp/>YourCallback);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>void<sp/>DoesSomething_IgnoreAndReturn(int<sp/>toReturn);</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">You<sp/>can<sp/>pile<sp/>a<sp/>bunch<sp/>of<sp/>these<sp/>back<sp/>to<sp/>back,<sp/>and<sp/>it<sp/>remembers<sp/>what</highlight></codeline>
+<codeline><highlight class="normal">you<sp/>wanted<sp/>to<sp/>pass<sp/>when,<sp/>like<sp/>so:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>test_CallsDoesSomething_ShouldDoJustThat(void)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>DoesSomething_ExpectAndReturn(1,2,3);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>DoesSomething_ExpectAndReturn(4,5,6);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>DoesSomething_ExpectAndThrow(7,8,<sp/>STATUS_ERROR_OOPS);</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CallsDoesSomething(<sp/>);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">This<sp/>test<sp/>will<sp/>call<sp/>CallsDoesSomething,<sp/>which<sp/>is<sp/>the<sp/>function</highlight></codeline>
+<codeline><highlight class="normal">we<sp/>are<sp/>testing.<sp/>We<sp/>are<sp/>expecting<sp/>that<sp/>function<sp/>to<sp/>call<sp/>DoesSomething</highlight></codeline>
+<codeline><highlight class="normal">three<sp/>times.<sp/>The<sp/>first<sp/>time,<sp/>we<sp/>check<sp/>to<sp/>make<sp/>sure<sp/>it&apos;s<sp/>called</highlight></codeline>
+<codeline><highlight class="normal">as<sp/>DoesSomething(1,<sp/>2)<sp/>and<sp/>we&apos;ll<sp/>magically<sp/>return<sp/>a<sp/>3.<sp/>The<sp/>second</highlight></codeline>
+<codeline><highlight class="normal">time<sp/>we<sp/>check<sp/>for<sp/>DoesSomething(4,<sp/>5)<sp/>and<sp/>we&apos;ll<sp/>return<sp/>a<sp/>6.<sp/>The</highlight></codeline>
+<codeline><highlight class="normal">third<sp/>time<sp/>we<sp/>verify<sp/>DoesSomething(7,<sp/>8)<sp/>and<sp/>we&apos;ll<sp/>throw<sp/>an<sp/>error</highlight></codeline>
+<codeline><highlight class="normal">instead<sp/>of<sp/>returning<sp/>anything.<sp/>If<sp/>CallsDoesSomething<sp/>gets</highlight></codeline>
+<codeline><highlight class="normal">any<sp/>of<sp/>this<sp/>wrong,<sp/>it<sp/>fails<sp/>the<sp/>test.<sp/>It<sp/>will<sp/>fail<sp/>if<sp/>you<sp/>didn&apos;t</highlight></codeline>
+<codeline><highlight class="normal">call<sp/>DoesSomething<sp/>enough,<sp/>or<sp/>too<sp/>much,<sp/>or<sp/>with<sp/>the<sp/>wrong<sp/>arguments,</highlight></codeline>
+<codeline><highlight class="normal">or<sp/>in<sp/>the<sp/>wrong<sp/>order.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">CMock<sp/>is<sp/>based<sp/>on<sp/>Unity,<sp/>which<sp/>it<sp/>uses<sp/>for<sp/>all<sp/>internal<sp/>testing.</highlight></codeline>
+<codeline><highlight class="normal">It<sp/>uses<sp/>Ruby<sp/>to<sp/>do<sp/>all<sp/>the<sp/>main<sp/>work<sp/>(versions<sp/>2.0.0<sp/>and<sp/>above).</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Installing</highlight></codeline>
+<codeline><highlight class="normal">==========</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>first<sp/>thing<sp/>you<sp/>need<sp/>to<sp/>do<sp/>to<sp/>install<sp/>CMock<sp/>is<sp/>to<sp/>get<sp/>yourself</highlight></codeline>
+<codeline><highlight class="normal">a<sp/>copy<sp/>of<sp/>Ruby.<sp/>If<sp/>you&apos;re<sp/>on<sp/>linux<sp/>or<sp/>osx,<sp/>you<sp/>probably<sp/>already</highlight></codeline>
+<codeline><highlight class="normal">have<sp/>it.<sp/>You<sp/>can<sp/>prove<sp/>it<sp/>by<sp/>typing<sp/>the<sp/>following:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>ruby<sp/>--version</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">If<sp/>it<sp/>replied<sp/>in<sp/>a<sp/>way<sp/>that<sp/>implies<sp/>ignorance,<sp/>then<sp/>you&apos;re<sp/>going<sp/>to</highlight></codeline>
+<codeline><highlight class="normal">need<sp/>to<sp/>install<sp/>it.<sp/>You<sp/>can<sp/>go<sp/>to<sp/>[ruby-lang](https://ruby-lang.org)</highlight></codeline>
+<codeline><highlight class="normal">to<sp/>get<sp/>the<sp/>latest<sp/>version.<sp/>You&apos;re<sp/>also<sp/>going<sp/>to<sp/>need<sp/>to<sp/>do<sp/>that<sp/>if<sp/>it</highlight></codeline>
+<codeline><highlight class="normal">replied<sp/>with<sp/>a<sp/>version<sp/>that<sp/>is<sp/>older<sp/>than<sp/>2.0.0.<sp/>Go<sp/>ahead.<sp/>We&apos;ll<sp/>wait.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Once<sp/>you<sp/>have<sp/>Ruby,<sp/>you<sp/>have<sp/>three<sp/>options:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>Clone<sp/>the<sp/>latest<sp/>[CMock<sp/>repo<sp/>on<sp/>github](https://github.com/ThrowTheSwitch/CMock/)</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>Download<sp/>the<sp/>latest<sp/>[CMock<sp/>zip<sp/>from<sp/>github](https://github.com/ThrowTheSwitch/CMock/)</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>Install<sp/>Ceedling<sp/>(which<sp/>has<sp/>it<sp/>built<sp/>in!)<sp/>through<sp/>your<sp/>commandline<sp/>using<sp/>`gem<sp/>install<sp/>ceedling`.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Generated<sp/>Mock<sp/>Module<sp/>Summary</highlight></codeline>
+<codeline><highlight class="normal">=============================</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">In<sp/>addition<sp/>to<sp/>the<sp/>mocks<sp/>themselves,<sp/>CMock<sp/>will<sp/>generate<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">following<sp/>functions<sp/>for<sp/>use<sp/>in<sp/>your<sp/>tests.<sp/>The<sp/>expect<sp/>functions</highlight></codeline>
+<codeline><highlight class="normal">are<sp/>always<sp/>generated.<sp/>The<sp/>other<sp/>functions<sp/>are<sp/>only<sp/>generated</highlight></codeline>
+<codeline><highlight class="normal">if<sp/>those<sp/>plugins<sp/>are<sp/>enabled:</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Expect:</highlight></codeline>
+<codeline><highlight class="normal">-------</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Your<sp/>basic<sp/>staple<sp/>Expects<sp/>which<sp/>will<sp/>be<sp/>used<sp/>for<sp/>most<sp/>of<sp/>your<sp/>day</highlight></codeline>
+<codeline><highlight class="normal">to<sp/>day<sp/>CMock<sp/>work.<sp/>By<sp/>calling<sp/>this,<sp/>you<sp/>are<sp/>telling<sp/>CMock<sp/>that<sp/>you</highlight></codeline>
+<codeline><highlight class="normal">expect<sp/>that<sp/>function<sp/>to<sp/>be<sp/>called<sp/>during<sp/>your<sp/>test.<sp/>It<sp/>also<sp/>specifies</highlight></codeline>
+<codeline><highlight class="normal">which<sp/>arguments<sp/>you<sp/>expect<sp/>it<sp/>to<sp/>be<sp/>called<sp/>with,<sp/>and<sp/>what<sp/>return</highlight></codeline>
+<codeline><highlight class="normal">value<sp/>you<sp/>want<sp/>returned<sp/>when<sp/>that<sp/>happens.<sp/>You<sp/>can<sp/>call<sp/>this<sp/>function</highlight></codeline>
+<codeline><highlight class="normal">multiple<sp/>times<sp/>back<sp/>to<sp/>back<sp/>in<sp/>order<sp/>to<sp/>queue<sp/>up<sp/>multiple<sp/>calls.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>`void<sp/>func(void)`<sp/>=&gt;<sp/>`void<sp/>func_Expect(void)`</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>`void<sp/>func(params)`<sp/>=&gt;<sp/>`void<sp/>func_Expect(expected_params)`</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>`retval<sp/>func(void)`<sp/>=&gt;<sp/>`void<sp/>func_ExpectAndReturn(retval_to_return)`</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>`retval<sp/>func(params)`<sp/>=&gt;<sp/>`void<sp/>func_ExpectAndReturn(expected_params,<sp/>retval_to_return)`</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">ExpectAnyArgs:</highlight></codeline>
+<codeline><highlight class="normal">--------------</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">This<sp/>behaves<sp/>just<sp/>like<sp/>the<sp/>Expects<sp/>calls,<sp/>except<sp/>that<sp/>it<sp/>doesn&apos;t<sp/>really</highlight></codeline>
+<codeline><highlight class="normal">care<sp/>what<sp/>the<sp/>arguments<sp/>are<sp/>that<sp/>the<sp/>mock<sp/>gets<sp/>called<sp/>with.<sp/>It<sp/>still<sp/>counts</highlight></codeline>
+<codeline><highlight class="normal">the<sp/>number<sp/>of<sp/>times<sp/>the<sp/>mock<sp/>is<sp/>called<sp/>and<sp/>it<sp/>still<sp/>handles<sp/>return<sp/>values</highlight></codeline>
+<codeline><highlight class="normal">if<sp/>there<sp/>are<sp/>some.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>`void<sp/>func(void)`<sp/>=&gt;<sp/>`void<sp/>func_ExpectAnyArgs(void)`</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>`void<sp/>func(params)`<sp/>=&gt;<sp/>`void<sp/>func_ExpectAnyArgs(void)`</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>`retval<sp/>func(void)`<sp/>=&gt;<sp/>`void<sp/>func_ExpectAnyArgsAndReturn(retval_to_return)`</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>`retval<sp/>func(params)`<sp/>=&gt;<sp/>`void<sp/>func_ExpectAnyArgsAndReturn(retval_to_return)`</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Array:</highlight></codeline>
+<codeline><highlight class="normal">------</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">An<sp/>ExpectWithArray<sp/>is<sp/>another<sp/>variant<sp/>of<sp/>Expect.<sp/>Like<sp/>expect,<sp/>it<sp/>cares<sp/>about</highlight></codeline>
+<codeline><highlight class="normal">the<sp/>number<sp/>of<sp/>times<sp/>a<sp/>mock<sp/>is<sp/>called,<sp/>the<sp/>arguments<sp/>it<sp/>is<sp/>called<sp/>with,<sp/>and<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">values<sp/>it<sp/>is<sp/>to<sp/>return.<sp/>This<sp/>variant<sp/>has<sp/>another<sp/>feature,<sp/>though.<sp/>For<sp/>anything</highlight></codeline>
+<codeline><highlight class="normal">that<sp/>resembles<sp/>a<sp/>pointer<sp/>or<sp/>array,<sp/>it<sp/>breaks<sp/>the<sp/>argument<sp/>into<sp/>TWO<sp/>arguments.</highlight></codeline>
+<codeline><highlight class="normal">The<sp/>first<sp/>is<sp/>the<sp/>original<sp/>pointer.<sp/>The<sp/>second<sp/>specify<sp/>the<sp/>number<sp/>of<sp/>elements</highlight></codeline>
+<codeline><highlight class="normal">it<sp/>is<sp/>to<sp/>verify<sp/>of<sp/>that<sp/>array.<sp/>If<sp/>you<sp/>specify<sp/>1,<sp/>it&apos;ll<sp/>check<sp/>one<sp/>object.<sp/>If<sp/>2,</highlight></codeline>
+<codeline><highlight class="normal">it&apos;ll<sp/>assume<sp/>your<sp/>pointer<sp/>is<sp/>pointing<sp/>at<sp/>the<sp/>first<sp/>of<sp/>two<sp/>elements<sp/>in<sp/>an<sp/>array.</highlight></codeline>
+<codeline><highlight class="normal">If<sp/>you<sp/>specify<sp/>zero<sp/>elements,<sp/>it<sp/>will<sp/>check<sp/>just<sp/>the<sp/>pointer<sp/>if</highlight></codeline>
+<codeline><highlight class="normal">`:smart`<sp/>mode<sp/>is<sp/>configured<sp/>or<sp/>fail<sp/>if<sp/>`:compare_data`<sp/>is<sp/>set.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>`void<sp/>func(void)`<sp/>=&gt;<sp/>(nothing.<sp/>In<sp/>fact,<sp/>an<sp/>additional<sp/>function<sp/>is<sp/>only<sp/>generated<sp/>if<sp/>the<sp/>params<sp/>list<sp/>contains<sp/>pointers)</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>`void<sp/>func(ptr<sp/>*<sp/>param,<sp/>other)`<sp/>=&gt;<sp/>`void<sp/>func_ExpectWithArray(ptr*<sp/>param,<sp/>int<sp/>param_depth,<sp/>other)`</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>`retval<sp/>func(void)`<sp/>=&gt;<sp/>(nothing.<sp/>In<sp/>fact,<sp/>an<sp/>additional<sp/>function<sp/>is<sp/>only<sp/>generated<sp/>if<sp/>the<sp/>params<sp/>list<sp/>contains<sp/>pointers)</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>`retval<sp/>func(other,<sp/>ptr*<sp/>param)`<sp/>=&gt;<sp/>`void<sp/>func_ExpectWithArrayAndReturn(other,<sp/>ptr*<sp/>param,<sp/>int<sp/>param_depth,<sp/>retval_to_return)`</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Ignore:</highlight></codeline>
+<codeline><highlight class="normal">-------</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Maybe<sp/>you<sp/>don&apos;t<sp/>care<sp/>about<sp/>the<sp/>number<sp/>of<sp/>times<sp/>a<sp/>particular<sp/>function<sp/>is<sp/>called<sp/>or</highlight></codeline>
+<codeline><highlight class="normal">the<sp/>actual<sp/>arguments<sp/>it<sp/>is<sp/>called<sp/>with.<sp/>In<sp/>that<sp/>case,<sp/>you<sp/>want<sp/>to<sp/>use<sp/>Ignore.<sp/>Ignore</highlight></codeline>
+<codeline><highlight class="normal">only<sp/>needs<sp/>to<sp/>be<sp/>called<sp/>once<sp/>per<sp/>test.<sp/>It<sp/>will<sp/>then<sp/>ignore<sp/>any<sp/>further<sp/>calls<sp/>to<sp/>that</highlight></codeline>
+<codeline><highlight class="normal">particular<sp/>mock.<sp/>The<sp/>IgnoreAndReturn<sp/>works<sp/>similarly,<sp/>except<sp/>that<sp/>it<sp/>has<sp/>the<sp/>added</highlight></codeline>
+<codeline><highlight class="normal">benefit<sp/>of<sp/>knowing<sp/>what<sp/>to<sp/>return<sp/>when<sp/>that<sp/>call<sp/>happens.<sp/>If<sp/>the<sp/>mock<sp/>is<sp/>called<sp/>more</highlight></codeline>
+<codeline><highlight class="normal">times<sp/>than<sp/>IgnoreAndReturn<sp/>was<sp/>called,<sp/>it<sp/>will<sp/>keep<sp/>returning<sp/>the<sp/>last<sp/>value<sp/>without</highlight></codeline>
+<codeline><highlight class="normal">complaint.<sp/>If<sp/>it&apos;s<sp/>called<sp/>less<sp/>times,<sp/>it<sp/>will<sp/>also<sp/>ignore<sp/>that.<sp/>You<sp/>SAID<sp/>you<sp/>didn&apos;t</highlight></codeline>
+<codeline><highlight class="normal">care<sp/>how<sp/>many<sp/>times<sp/>it<sp/>was<sp/>called,<sp/>right?</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>`void<sp/>func(void)`<sp/>=&gt;<sp/>`void<sp/>func_Ignore(void)`</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>`void<sp/>func(params)`<sp/>=&gt;<sp/>`void<sp/>func_Ignore(void)`</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>`retval<sp/>func(void)`<sp/>=&gt;<sp/>`void<sp/>func_IgnoreAndReturn(retval_to_return)`</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>`retval<sp/>func(params)`<sp/>=&gt;<sp/>`void<sp/>func_IgnoreAndReturn(retval_to_return)`</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Ignore<sp/>Arg:</highlight></codeline>
+<codeline><highlight class="normal">------------</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Maybe<sp/>you<sp/>overall<sp/>want<sp/>to<sp/>use<sp/>Expect<sp/>and<sp/>its<sp/>similar<sp/>variations,<sp/>but<sp/>you<sp/>don&apos;t<sp/>care</highlight></codeline>
+<codeline><highlight class="normal">what<sp/>is<sp/>passed<sp/>to<sp/>a<sp/>particular<sp/>argument.<sp/>This<sp/>is<sp/>particularly<sp/>useful<sp/>when<sp/>that<sp/>argument</highlight></codeline>
+<codeline><highlight class="normal">is<sp/>a<sp/>pointer<sp/>to<sp/>a<sp/>value<sp/>that<sp/>is<sp/>supposed<sp/>to<sp/>be<sp/>filled<sp/>in<sp/>by<sp/>the<sp/>function.<sp/>You<sp/>don&apos;t<sp/>want</highlight></codeline>
+<codeline><highlight class="normal">to<sp/>use<sp/>ExpectAnyArgs,<sp/>because<sp/>you<sp/>still<sp/>care<sp/>about<sp/>the<sp/>other<sp/>arguments.<sp/>Instead,<sp/>before</highlight></codeline>
+<codeline><highlight class="normal">any<sp/>of<sp/>your<sp/>Expect<sp/>calls<sp/>are<sp/>made,<sp/>you<sp/>can<sp/>call<sp/>this<sp/>function.<sp/>It<sp/>tells<sp/>CMock<sp/>to<sp/>ignore</highlight></codeline>
+<codeline><highlight class="normal">a<sp/>particular<sp/>argument<sp/>for<sp/>the<sp/>rest<sp/>of<sp/>this<sp/>test,<sp/>for<sp/>this<sp/>mock<sp/>function.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>`void<sp/>func(params)`<sp/>=&gt;<sp/>`void<sp/>func_IgnoreArg_paramName(void)`</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">ReturnThruPtr:</highlight></codeline>
+<codeline><highlight class="normal">--------------</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Another<sp/>option<sp/>which<sp/>operates<sp/>on<sp/>a<sp/>particular<sp/>argument<sp/>of<sp/>a<sp/>function<sp/>is<sp/>the<sp/>ReturnThruPtr</highlight></codeline>
+<codeline><highlight class="normal">plugin.<sp/>For<sp/>every<sp/>argument<sp/>that<sp/>resembles<sp/>a<sp/>pointer<sp/>or<sp/>reference,<sp/>CMock<sp/>generates<sp/>an</highlight></codeline>
+<codeline><highlight class="normal">instance<sp/>of<sp/>this<sp/>function.<sp/>Just<sp/>as<sp/>the<sp/>AndReturn<sp/>functions<sp/>support<sp/>injecting<sp/>one<sp/>or<sp/>more</highlight></codeline>
+<codeline><highlight class="normal">return<sp/>values<sp/>into<sp/>a<sp/>queue,<sp/>this<sp/>function<sp/>lets<sp/>you<sp/>specify<sp/>one<sp/>or<sp/>more<sp/>return<sp/>values<sp/>which</highlight></codeline>
+<codeline><highlight class="normal">are<sp/>queued<sp/>up<sp/>and<sp/>copied<sp/>into<sp/>the<sp/>space<sp/>being<sp/>pointed<sp/>at<sp/>each<sp/>time<sp/>the<sp/>mock<sp/>is<sp/>called.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>`void<sp/>func(param1)`<sp/>=&gt;<sp/>`void<sp/>func_ReturnThruPtr_paramName(val_to_return)`</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>=&gt;<sp/>`void<sp/>func_ReturnArrayThruPtr_paramName(cal_to_return,<sp/>len)`</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>=&gt;<sp/>`void<sp/>func_ReturnMemThruPtr_paramName(val_to_return,<sp/>size)`</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Callback:</highlight></codeline>
+<codeline><highlight class="normal">---------</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">If<sp/>all<sp/>those<sp/>other<sp/>options<sp/>don&apos;t<sp/>work,<sp/>and<sp/>you<sp/>really<sp/>need<sp/>to<sp/>do<sp/>something<sp/>custom,<sp/>you</highlight></codeline>
+<codeline><highlight class="normal">still<sp/>have<sp/>a<sp/>choice.<sp/>As<sp/>soon<sp/>as<sp/>you<sp/>stub<sp/>a<sp/>callback<sp/>in<sp/>a<sp/>test,<sp/>it<sp/>will<sp/>call<sp/>the<sp/>callback</highlight></codeline>
+<codeline><highlight class="normal">whenever<sp/>the<sp/>mock<sp/>is<sp/>encountered<sp/>and<sp/>return<sp/>the<sp/>retval<sp/>returned<sp/>from<sp/>the<sp/>callback<sp/>(if<sp/>any)</highlight></codeline>
+<codeline><highlight class="normal">instead<sp/>of<sp/>performing<sp/>the<sp/>usual<sp/>expect<sp/>checks.<sp/>It<sp/>can<sp/>be<sp/>configured<sp/>to<sp/>check<sp/>the<sp/>arguments</highlight></codeline>
+<codeline><highlight class="normal">first<sp/>(like<sp/>expects)<sp/>or<sp/>just<sp/>jump<sp/>directly<sp/>to<sp/>the<sp/>callback.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>`void<sp/>func(void)`<sp/>=&gt;<sp/>`void<sp/>func_StubWithCallback(CMOCK_func_CALLBACK<sp/>callback)`</highlight></codeline>
+<codeline><highlight class="normal">where<sp/>`CMOCK_func_CALLBACK`<sp/>looks<sp/>like:<sp/>`void<sp/>func(int<sp/>NumCalls)`</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>`void<sp/>func(params)`<sp/>=&gt;<sp/>`void<sp/>func_StubWithCallback(CMOCK_func_CALLBACK<sp/>callback)`</highlight></codeline>
+<codeline><highlight class="normal">where<sp/>`CMOCK_func_CALLBACK`<sp/>looks<sp/>like:<sp/>`void<sp/>func(params,<sp/>int<sp/>NumCalls)`</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>`retval<sp/>func(void)`<sp/>=&gt;<sp/>`void<sp/>func_StubWithCallback(CMOCK_func_CALLBACK<sp/>callback)`</highlight></codeline>
+<codeline><highlight class="normal">where<sp/>`CMOCK_func_CALLBACK`<sp/>looks<sp/>like:<sp/>`retval<sp/>func(int<sp/>NumCalls)`</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>`retval<sp/>func(params)`<sp/>=&gt;<sp/>`void<sp/>func_StubWithCallback(CMOCK_func_CALLBACK<sp/>callback)`</highlight></codeline>
+<codeline><highlight class="normal">where<sp/>`CMOCK_func_CALLBACK`<sp/>looks<sp/>like:<sp/>`retval<sp/>func(params,<sp/>int<sp/>NumCalls)`</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Cexception:</highlight></codeline>
+<codeline><highlight class="normal">-----------</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Finally,<sp/>if<sp/>you<sp/>are<sp/>using<sp/>Cexception<sp/>for<sp/>error<sp/>handling,<sp/>you<sp/>can<sp/>use<sp/>this<sp/>to<sp/>throw<sp/>errors</highlight></codeline>
+<codeline><highlight class="normal">from<sp/>inside<sp/>mocks.<sp/>Like<sp/>Expects,<sp/>it<sp/>remembers<sp/>which<sp/>call<sp/>was<sp/>supposed<sp/>to<sp/>throw<sp/>the<sp/>error,</highlight></codeline>
+<codeline><highlight class="normal">and<sp/>it<sp/>still<sp/>checks<sp/>parameters<sp/>first.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>`void<sp/>func(void)`<sp/>=&gt;<sp/>`void<sp/>func_ExpectAndThrow(value_to_throw)`</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>`void<sp/>func(params)`<sp/>=&gt;<sp/>`void<sp/>func_ExpectAndThrow(expected_params,<sp/>value_to_throw)`</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>`retval<sp/>func(void)`<sp/>=&gt;<sp/>`void<sp/>func_ExpectAndThrow(value_to_throw)`</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>`retval<sp/>func(params)`<sp/>=&gt;<sp/>`void<sp/>func_ExpectAndThrow(expected_params,<sp/>value_to_throw)`</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Running<sp/>CMock</highlight></codeline>
+<codeline><highlight class="normal">=============</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">CMock<sp/>is<sp/>a<sp/>Ruby<sp/>script<sp/>and<sp/>class.<sp/>You<sp/>can<sp/>therefore<sp/>use<sp/>it<sp/>directly</highlight></codeline>
+<codeline><highlight class="normal">from<sp/>the<sp/>command<sp/>line,<sp/>or<sp/>include<sp/>it<sp/>in<sp/>your<sp/>own<sp/>scripts<sp/>or<sp/>rakefiles.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Mocking<sp/>from<sp/>the<sp/>Command<sp/>Line</highlight></codeline>
+<codeline><highlight class="normal">-----------------------------</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">After<sp/>unpacking<sp/>CMock,<sp/>you<sp/>will<sp/>find<sp/>cmock.rb<sp/>in<sp/>the<sp/>&apos;lib&apos;<sp/>directory.</highlight></codeline>
+<codeline><highlight class="normal">This<sp/>is<sp/>the<sp/>file<sp/>that<sp/>you<sp/>want<sp/>to<sp/>run.<sp/>It<sp/>takes<sp/>a<sp/>list<sp/>of<sp/>header<sp/>files</highlight></codeline>
+<codeline><highlight class="normal">to<sp/>be<sp/>mocked,<sp/>as<sp/>well<sp/>as<sp/>an<sp/>optional<sp/>yaml<sp/>file<sp/>for<sp/>a<sp/>more<sp/>detailed</highlight></codeline>
+<codeline><highlight class="normal">configuration<sp/>(see<sp/>config<sp/>options<sp/>below).</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">For<sp/>example,<sp/>this<sp/>will<sp/>create<sp/>three<sp/>mocks<sp/>using<sp/>the<sp/>configuration</highlight></codeline>
+<codeline><highlight class="normal">specified<sp/>in<sp/>MyConfig.yml:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>ruby<sp/>cmock.rb<sp/>-oMyConfig.yml<sp/>super.h<sp/>duper.h<sp/>awesome.h</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">And<sp/>this<sp/>will<sp/>create<sp/>two<sp/>mocks<sp/>using<sp/>the<sp/>default<sp/>configuration:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>ruby<sp/>cmock.rb<sp/>../mocking/stuff/is/fun.h<sp/>../try/it/yourself.h</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Mocking<sp/>From<sp/>Scripts<sp/>or<sp/>Rake</highlight></codeline>
+<codeline><highlight class="normal">----------------------------</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">CMock<sp/>can<sp/>be<sp/>used<sp/>directly<sp/>from<sp/>your<sp/>own<sp/>scripts<sp/>or<sp/>from<sp/>a<sp/>rakefile.</highlight></codeline>
+<codeline><highlight class="normal">Start<sp/>by<sp/>including<sp/>cmock.rb,<sp/>then<sp/>create<sp/>an<sp/>instance<sp/>of<sp/>CMock.</highlight></codeline>
+<codeline><highlight class="normal">When<sp/>you<sp/>create<sp/>your<sp/>instance,<sp/>you<sp/>may<sp/>initialize<sp/>it<sp/>in<sp/>one<sp/>of</highlight></codeline>
+<codeline><highlight class="normal">three<sp/>ways.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">You<sp/>may<sp/>specify<sp/>nothing,<sp/>allowing<sp/>it<sp/>to<sp/>run<sp/>with<sp/>default<sp/>settings:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>require<sp/>&apos;cmock.rb&apos;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>cmock<sp/>=<sp/>CMock.new</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">You<sp/>may<sp/>specify<sp/>a<sp/>YAML<sp/>file<sp/>containing<sp/>the<sp/>configuration<sp/>options</highlight></codeline>
+<codeline><highlight class="normal">you<sp/>desire:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>cmock<sp/>=<sp/>CMock.new(&apos;../MyConfig.yml&apos;)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">You<sp/>may<sp/>specify<sp/>the<sp/>options<sp/>explicitly:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>cmock<sp/>=<sp/>Cmock.new(:plugins<sp/>=&gt;<sp/>[:cexception,<sp/>:ignore],<sp/>:mock_path<sp/>=&gt;<sp/>&apos;my/mocks/&apos;)</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Config<sp/>Options:</highlight></codeline>
+<codeline><highlight class="normal">---------------</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>following<sp/>configuration<sp/>options<sp/>can<sp/>be<sp/>specified<sp/>in<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">yaml<sp/>file<sp/>or<sp/>directly<sp/>when<sp/>instantiating.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Passed<sp/>as<sp/>Ruby,<sp/>they<sp/>look<sp/>like<sp/>this:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{<sp/>:attributes<sp/>=&gt;<sp/>[“__funky”,<sp/>“__intrinsic”],<sp/>:when_ptr<sp/>=&gt;<sp/>:compare<sp/>}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Defined<sp/>in<sp/>the<sp/>yaml<sp/>file,<sp/>they<sp/>look<sp/>more<sp/>like<sp/>this:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:cmock:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:attributes:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>__funky</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>__intrinsic</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:when_ptr:<sp/>:compare</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">In<sp/>all<sp/>cases,<sp/>you<sp/>can<sp/>just<sp/>include<sp/>the<sp/>things<sp/>that<sp/>you<sp/>want<sp/>to<sp/>override</highlight></codeline>
+<codeline><highlight class="normal">from<sp/>the<sp/>defaults.<sp/>We&apos;ve<sp/>tried<sp/>to<sp/>specify<sp/>what<sp/>the<sp/>defaults<sp/>are<sp/>below.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>`:attributes`:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>These<sp/>are<sp/>attributes<sp/>that<sp/>CMock<sp/>should<sp/>ignore<sp/>for<sp/>you<sp/>for<sp/>testing</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>purposes.<sp/>Custom<sp/>compiler<sp/>extensions<sp/>and<sp/>externs<sp/>are<sp/>handy<sp/>things<sp/>to</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>put<sp/>here.<sp/>If<sp/>your<sp/>compiler<sp/>is<sp/>choking<sp/>on<sp/>some<sp/>extended<sp/>syntax,<sp/>this</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>is<sp/>often<sp/>a<sp/>good<sp/>place<sp/>to<sp/>look.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>defaults:<sp/>[&apos;__ramfunc&apos;,<sp/>&apos;__irq&apos;,<sp/>&apos;__fiq&apos;,<sp/>&apos;register&apos;,<sp/>&apos;extern&apos;]</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>**note:**<sp/>this<sp/>option<sp/>will<sp/>reinsert<sp/>these<sp/>attributes<sp/>onto<sp/>the<sp/>mock&apos;s<sp/>calls.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>If<sp/>that<sp/>isn&apos;t<sp/>what<sp/>you<sp/>are<sp/>looking<sp/>for,<sp/>check<sp/>out<sp/>:strippables.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>`:c_calling_conventions`:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Similarly,<sp/>CMock<sp/>may<sp/>need<sp/>to<sp/>understand<sp/>which<sp/>C<sp/>calling<sp/>conventions</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>might<sp/>show<sp/>up<sp/>in<sp/>your<sp/>codebase.<sp/>If<sp/>it<sp/>encounters<sp/>something<sp/>it<sp/>doesn&apos;t</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>recognize,<sp/>it&apos;s<sp/>not<sp/>going<sp/>to<sp/>mock<sp/>it.<sp/>We<sp/>have<sp/>the<sp/>most<sp/>common<sp/>covered,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>but<sp/>there<sp/>are<sp/>many<sp/>compilers<sp/>out<sp/>there,<sp/>and<sp/>therefore<sp/>many<sp/>other<sp/>options.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>defaults:<sp/>[&apos;__stdcall&apos;,<sp/>&apos;__cdecl&apos;,<sp/>&apos;__fastcall&apos;]</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>**note:**<sp/>this<sp/>option<sp/>will<sp/>reinsert<sp/>these<sp/>attributes<sp/>onto<sp/>the<sp/>mock&apos;s<sp/>calls.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>If<sp/>that<sp/>isn&apos;t<sp/>what<sp/>you<sp/>are<sp/>looking<sp/>for,<sp/>check<sp/>out<sp/>:strippables.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>`:callback_after_arg_check`:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Tell<sp/>`:callback`<sp/>plugin<sp/>to<sp/>do<sp/>the<sp/>normal<sp/>argument<sp/>checking<sp/>**before**<sp/>it</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>calls<sp/>the<sp/>callback<sp/>function<sp/>by<sp/>setting<sp/>this<sp/>to<sp/>true.<sp/>When<sp/>false,<sp/>the</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>callback<sp/>function<sp/>is<sp/>called<sp/>**instead**<sp/>of<sp/>the<sp/>argument<sp/>verification.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>default:<sp/>false</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>`:callback_include_count`:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Tell<sp/>`:callback`<sp/>plugin<sp/>to<sp/>include<sp/>an<sp/>extra<sp/>parameter<sp/>to<sp/>specify<sp/>the</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>number<sp/>of<sp/>times<sp/>the<sp/>callback<sp/>has<sp/>been<sp/>called.<sp/>If<sp/>set<sp/>to<sp/>false,<sp/>the</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>callback<sp/>has<sp/>the<sp/>same<sp/>interface<sp/>as<sp/>the<sp/>mocked<sp/>function.<sp/>This<sp/>can<sp/>be</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>handy<sp/>when<sp/>you&apos;re<sp/>wanting<sp/>to<sp/>use<sp/>callback<sp/>as<sp/>a<sp/>stub.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>default:<sp/>true</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>`:cexception_include`:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Tell<sp/>`:cexception`<sp/>plugin<sp/>where<sp/>to<sp/>find<sp/>CException.h...<sp/>You<sp/>only<sp/>need<sp/>to</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>define<sp/>this<sp/>if<sp/>it&apos;s<sp/>not<sp/>in<sp/>your<sp/>build<sp/>path<sp/>already...<sp/>which<sp/>it<sp/>usually</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>will<sp/>be<sp/>for<sp/>the<sp/>purpose<sp/>of<sp/>your<sp/>builds.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>default:<sp/>*nil*</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>`:enforce_strict_ordering`:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>CMock<sp/>always<sp/>enforces<sp/>the<sp/>order<sp/>that<sp/>you<sp/>call<sp/>a<sp/>particular<sp/>function,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>so<sp/>if<sp/>you<sp/>expect<sp/>GrabNabber(int<sp/>size)<sp/>to<sp/>be<sp/>called<sp/>three<sp/>times,<sp/>it</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>will<sp/>verify<sp/>that<sp/>the<sp/>sizes<sp/>are<sp/>in<sp/>the<sp/>order<sp/>you<sp/>specified.<sp/>You<sp/>might</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*also*<sp/>want<sp/>to<sp/>make<sp/>sure<sp/>that<sp/>all<sp/>different<sp/>functions<sp/>are<sp/>called<sp/>in<sp/>a</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>particular<sp/>order.<sp/>If<sp/>so,<sp/>set<sp/>this<sp/>to<sp/>true.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>default:<sp/>false</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>`:framework`:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Currently<sp/>the<sp/>only<sp/>option<sp/>is<sp/>`:unity.`<sp/>Eventually<sp/>if<sp/>we<sp/>support<sp/>other</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>unity<sp/>test<sp/>frameworks<sp/>(or<sp/>if<sp/>you<sp/>write<sp/>one<sp/>for<sp/>us),<sp/>they&apos;ll<sp/>get<sp/>added</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>here.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>:<sp/>default:<sp/>:unity</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>`:includes`:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>An<sp/>array<sp/>of<sp/>additional<sp/>include<sp/>files<sp/>which<sp/>should<sp/>be<sp/>added<sp/>to<sp/>the</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>mocks.<sp/>Useful<sp/>for<sp/>global<sp/>types<sp/>and<sp/>definitions<sp/>used<sp/>in<sp/>your<sp/>project.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>There<sp/>are<sp/>more<sp/>specific<sp/>versions<sp/>if<sp/>you<sp/>care<sp/>WHERE<sp/>in<sp/>the<sp/>mock<sp/>files</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>the<sp/>includes<sp/>get<sp/>placed.<sp/>You<sp/>can<sp/>define<sp/>any<sp/>or<sp/>all<sp/>of<sp/>these<sp/>options.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>`:includes`</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>`:includes_h_pre_orig_header`</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>`:includes_h_post_orig_header`</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>`:includes_c_pre_header`</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>`:includes_c_post_header`</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>default:<sp/>nil<sp/>#for<sp/>all<sp/>5<sp/>options</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>`:memcmp_if_unknown`:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>C<sp/>developers<sp/>create<sp/>a<sp/>lot<sp/>of<sp/>types,<sp/>either<sp/>through<sp/>typedef<sp/>or<sp/>preprocessor</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>macros.<sp/>CMock<sp/>isn&apos;t<sp/>going<sp/>to<sp/>automatically<sp/>know<sp/>what<sp/>you<sp/>were<sp/>thinking<sp/>all</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>the<sp/>time<sp/>(though<sp/>it<sp/>tries<sp/>its<sp/>best).<sp/>If<sp/>it<sp/>comes<sp/>across<sp/>a<sp/>type<sp/>it<sp/>doesn&apos;t</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>recognize,<sp/>you<sp/>have<sp/>a<sp/>choice<sp/>on<sp/>how<sp/>you<sp/>want<sp/>it<sp/>to<sp/>handle<sp/>it.<sp/>It<sp/>can<sp/>either</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>perform<sp/>a<sp/>raw<sp/>memory<sp/>comparison<sp/>and<sp/>report<sp/>any<sp/>differences,<sp/>or<sp/>it<sp/>can<sp/>fail</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>with<sp/>a<sp/>meaningful<sp/>message.<sp/>Either<sp/>way,<sp/>this<sp/>feature<sp/>will<sp/>only<sp/>happen<sp/>after</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>all<sp/>other<sp/>mechanisms<sp/>have<sp/>failed<sp/>(The<sp/>thing<sp/>encountered<sp/>isn&apos;t<sp/>a<sp/>standard</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>type.<sp/>It<sp/>isn&apos;t<sp/>in<sp/>the<sp/>:treat_as<sp/>list.<sp/>It<sp/>isn&apos;t<sp/>in<sp/>a<sp/>custom<sp/>unity_helper).</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>default:<sp/>true</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>`:mock_path`:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>The<sp/>directory<sp/>where<sp/>you<sp/>would<sp/>like<sp/>the<sp/>mock<sp/>files<sp/>generated<sp/>to<sp/>be</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>placed.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>default:<sp/>mocks</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>`:mock_prefix`:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>The<sp/>prefix<sp/>to<sp/>prepend<sp/>to<sp/>your<sp/>mock<sp/>files.<sp/>For<sp/>example,<sp/>if<sp/>it&apos;s<sp/>“Mock”,<sp/>a<sp/>file</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>“USART.h”<sp/>will<sp/>get<sp/>a<sp/>mock<sp/>called<sp/>“MockUSART.c”.<sp/>This<sp/>CAN<sp/>be<sp/>used<sp/>with<sp/>a<sp/>suffix</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>at<sp/>the<sp/>same<sp/>time.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>default:<sp/>Mock</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>`:mock_suffix`:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>The<sp/>suffix<sp/>to<sp/>append<sp/>to<sp/>your<sp/>mock<sp/>files.<sp/>For<sp/>example,<sp/>it<sp/>it&apos;s<sp/>&quot;_Mock&quot;,<sp/>a<sp/>file</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;USART.h&quot;<sp/>will<sp/>get<sp/>a<sp/>mock<sp/>called<sp/>&quot;USART_Mock.h&quot;.<sp/>This<sp/>CAN<sp/>be<sp/>used<sp/>with<sp/>a<sp/>prefix</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>at<sp/>the<sp/>same<sp/>time.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>default:<sp/>&quot;&quot;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>`:plugins`:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>An<sp/>array<sp/>of<sp/>which<sp/>plugins<sp/>to<sp/>enable.<sp/>&apos;:expect&apos;<sp/>is<sp/>always<sp/>active.<sp/>Also</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>available<sp/>currently:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>`:ignore`</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>`:ignore_arg`</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>`:expect_any_args`</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>`:array`</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>`:cexception`</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>`:callback`</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>`:return_thru_ptr`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>`:strippables`:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>An<sp/>array<sp/>containing<sp/>a<sp/>list<sp/>of<sp/>items<sp/>to<sp/>remove<sp/>from<sp/>the<sp/>header</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>before<sp/>deciding<sp/>what<sp/>should<sp/>be<sp/>mocked.<sp/>This<sp/>can<sp/>be<sp/>something<sp/>simple</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>like<sp/>a<sp/>compiler<sp/>extension<sp/>CMock<sp/>wouldn&apos;t<sp/>recognize,<sp/>or<sp/>could<sp/>be<sp/>a</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>regex<sp/>to<sp/>reject<sp/>certain<sp/>function<sp/>name<sp/>patterns.<sp/>This<sp/>is<sp/>a<sp/>great<sp/>way<sp/>to</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>get<sp/>rid<sp/>of<sp/>compiler<sp/>extensions<sp/>when<sp/>your<sp/>test<sp/>compiler<sp/>doesn&apos;t<sp/>support</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>them.<sp/>For<sp/>example,<sp/>use<sp/>`:strippables:<sp/>[&apos;(?:functionName\s*\(+.*?\)+)&apos;]`</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>to<sp/>prevent<sp/>a<sp/>function<sp/>`functionName`<sp/>from<sp/>being<sp/>mocked.<sp/>By<sp/>default,<sp/>it</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>is<sp/>ignoring<sp/>all<sp/>gcc<sp/>attribute<sp/>extensions.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>default:<sp/>[&apos;(?:__attribute__\s*\(+.*?\)+)&apos;]</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>`:subdir`:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>This<sp/>is<sp/>a<sp/>relative<sp/>subdirectory<sp/>for<sp/>your<sp/>mocks.<sp/><sp/>Set<sp/>this<sp/>to<sp/>e.g.<sp/>&quot;sys&quot;<sp/>in</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>order<sp/>to<sp/>create<sp/>a<sp/>mock<sp/>for<sp/>`sys/types.h`<sp/>in<sp/>`(:mock_path)/sys/`.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>default:<sp/>&quot;&quot;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>`:treat_as`:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>The<sp/>`:treat_as`<sp/>list<sp/>is<sp/>a<sp/>shortcut<sp/>for<sp/>when<sp/>you<sp/>have<sp/>created<sp/>typedefs</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>of<sp/>standard<sp/>types.<sp/>Why<sp/>create<sp/>a<sp/>custom<sp/>unity<sp/>helper<sp/>for<sp/>UINT16<sp/>when</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>the<sp/>unity<sp/>function<sp/>TEST_ASSERT_EQUAL_HEX16<sp/>will<sp/>work<sp/>just<sp/>perfectly?</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Just<sp/>add<sp/>&apos;UINT16&apos;<sp/>=&gt;<sp/>&apos;HEX16&apos;<sp/>to<sp/>your<sp/>list<sp/>(actually,<sp/>don&apos;t.<sp/>We<sp/>already</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>did<sp/>that<sp/>one<sp/>for<sp/>you).<sp/>Maybe<sp/>you<sp/>have<sp/>a<sp/>type<sp/>that<sp/>is<sp/>a<sp/>pointer<sp/>to<sp/>an</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>array<sp/>of<sp/>unsigned<sp/>characters?<sp/>No<sp/>problem,<sp/>just<sp/>add<sp/>&apos;UINT8_T*&apos;<sp/>=&gt;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&apos;HEX8*&apos;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>NOTE:<sp/>unlike<sp/>the<sp/>other<sp/>options,<sp/>your<sp/>specifications<sp/>MERGE<sp/>with<sp/>the</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>default<sp/>list.<sp/>Therefore,<sp/>if<sp/>you<sp/>want<sp/>to<sp/>override<sp/>something,<sp/>you<sp/>must</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>reassign<sp/>it<sp/>to<sp/>something<sp/>else<sp/>(or<sp/>to<sp/>*nil*<sp/>if<sp/>you<sp/>don&apos;t<sp/>want<sp/>it)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>default:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>*<sp/>&apos;int&apos;:<sp/>&apos;INT&apos;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>*<sp/>&apos;char&apos;:<sp/>&apos;INT8&apos;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>*<sp/>&apos;short&apos;:<sp/>&apos;INT16&apos;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>*<sp/>&apos;long&apos;:<sp/>&apos;INT&apos;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>*<sp/>&apos;int8&apos;:<sp/>&apos;INT8&apos;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>*<sp/>&apos;int16&apos;:<sp/>&apos;INT16&apos;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>*<sp/>&apos;int32&apos;:<sp/>&apos;INT&apos;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>*<sp/>&apos;int8_t&apos;:<sp/>&apos;INT8&apos;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>*<sp/>&apos;int16_t&apos;:<sp/>&apos;INT16&apos;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>*<sp/>&apos;int32_t&apos;:<sp/>&apos;INT&apos;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>*<sp/>&apos;INT8_T&apos;:<sp/>&apos;INT8&apos;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>*<sp/>&apos;INT16_T&apos;:<sp/>&apos;INT16&apos;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>*<sp/>&apos;INT32_T&apos;:<sp/>&apos;INT&apos;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>*<sp/>&apos;bool&apos;:<sp/>&apos;INT&apos;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>*<sp/>&apos;bool_t&apos;:<sp/>&apos;INT&apos;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>*<sp/>&apos;BOOL&apos;:<sp/>&apos;INT&apos;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>*<sp/>&apos;BOOL_T&apos;:<sp/>&apos;INT&apos;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>*<sp/>&apos;unsigned<sp/>int&apos;:<sp/>&apos;HEX32&apos;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>*<sp/>&apos;unsigned<sp/>long&apos;:<sp/>&apos;HEX32&apos;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>*<sp/>&apos;uint32&apos;:<sp/>&apos;HEX32&apos;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>*<sp/>&apos;uint32_t&apos;:<sp/>&apos;HEX32&apos;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>*<sp/>&apos;UINT32&apos;:<sp/>&apos;HEX32&apos;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>*<sp/>&apos;UINT32_T&apos;:<sp/>&apos;HEX32&apos;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>*<sp/>&apos;void*&apos;:<sp/>&apos;HEX8_ARRAY&apos;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>*<sp/>&apos;unsigned<sp/>short&apos;:<sp/>&apos;HEX16&apos;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>*<sp/>&apos;uint16&apos;:<sp/>&apos;HEX16&apos;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>*<sp/>&apos;uint16_t&apos;:<sp/>&apos;HEX16&apos;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>*<sp/>&apos;UINT16&apos;:<sp/>&apos;HEX16&apos;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>*<sp/>&apos;UINT16_T&apos;:<sp/>&apos;HEX16&apos;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>*<sp/>&apos;unsigned<sp/>char&apos;:<sp/>&apos;HEX8&apos;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>*<sp/>&apos;uint8&apos;:<sp/>&apos;HEX8&apos;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>*<sp/>&apos;uint8_t&apos;:<sp/>&apos;HEX8&apos;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>*<sp/>&apos;UINT8&apos;:<sp/>&apos;HEX8&apos;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>*<sp/>&apos;UINT8_T&apos;:<sp/>&apos;HEX8&apos;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>*<sp/>&apos;char*&apos;:<sp/>&apos;STRING&apos;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>*<sp/>&apos;pCHAR&apos;:<sp/>&apos;STRING&apos;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>*<sp/>&apos;cstring&apos;:<sp/>&apos;STRING&apos;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>*<sp/>&apos;CSTRING&apos;:<sp/>&apos;STRING&apos;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>*<sp/>&apos;float&apos;:<sp/>&apos;FLOAT&apos;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>*<sp/>&apos;double&apos;:<sp/>&apos;FLOAT&apos;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>`:treat_as_void`:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>We&apos;ve<sp/>seen<sp/>&quot;fun&quot;<sp/>legacy<sp/>systems<sp/>typedef<sp/>&apos;void&apos;<sp/>with<sp/>a<sp/>custom<sp/>type,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>like<sp/>MY_VOID.<sp/>Add<sp/>any<sp/>instances<sp/>of<sp/>those<sp/>to<sp/>this<sp/>list<sp/>to<sp/>help<sp/>CMock</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>understand<sp/>how<sp/>to<sp/>deal<sp/>with<sp/>your<sp/>code.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>default:<sp/>[]</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>`:treat_externs`:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>This<sp/>specifies<sp/>how<sp/>you<sp/>want<sp/>CMock<sp/>to<sp/>handle<sp/>functions<sp/>that<sp/>have<sp/>been</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>marked<sp/>as<sp/>extern<sp/>in<sp/>the<sp/>header<sp/>file.<sp/>Should<sp/>it<sp/>mock<sp/>them?</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>`:include`<sp/>will<sp/>mock<sp/>externed<sp/>functions</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>`:exclude`<sp/>will<sp/>ignore<sp/>externed<sp/>functions<sp/>(default).</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>`:unity_helper_path`:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>If<sp/>you<sp/>have<sp/>created<sp/>a<sp/>header<sp/>with<sp/>your<sp/>own<sp/>extensions<sp/>to<sp/>unity<sp/>to</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>handle<sp/>your<sp/>own<sp/>types,<sp/>you<sp/>can<sp/>set<sp/>this<sp/>argument<sp/>to<sp/>that<sp/>path.<sp/>CMock</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>will<sp/>then<sp/>automagically<sp/>pull<sp/>in<sp/>your<sp/>helpers<sp/>and<sp/>use<sp/>them.<sp/>The<sp/>only</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>trick<sp/>is<sp/>that<sp/>you<sp/>make<sp/>sure<sp/>you<sp/>follow<sp/>the<sp/>naming<sp/>convention:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>`UNITY_TEST_ASSERT_EQUAL_YourType`.<sp/>If<sp/>it<sp/>finds<sp/>macros<sp/>of<sp/>the<sp/>right</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>shape<sp/>that<sp/>match<sp/>that<sp/>pattern,<sp/>it&apos;ll<sp/>use<sp/>them.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>default:<sp/>[]</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>`:verbosity`:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>How<sp/>loud<sp/>should<sp/>CMock<sp/>be?</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>0<sp/>for<sp/>errors<sp/>only</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>1<sp/>for<sp/>errors<sp/>and<sp/>warnings</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>2<sp/>for<sp/>normal<sp/>(default)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>3<sp/>for<sp/>verbose</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>`:weak`:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>When<sp/>set<sp/>this<sp/>to<sp/>some<sp/>value,<sp/>the<sp/>generated<sp/>mocks<sp/>are<sp/>defined<sp/>as<sp/>weak</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>symbols<sp/>using<sp/>the<sp/>configured<sp/>format.<sp/>This<sp/>allows<sp/>them<sp/>to<sp/>be<sp/>overridden</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>in<sp/>particular<sp/>tests.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>Set<sp/>to<sp/>&apos;__attribute<sp/>((weak))&apos;<sp/>for<sp/>weak<sp/>mocks<sp/>when<sp/>using<sp/>GCC.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>Set<sp/>to<sp/>any<sp/>non-empty<sp/>string<sp/>for<sp/>weak<sp/>mocks<sp/>when<sp/>using<sp/>IAR.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>default:<sp/>&quot;&quot;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>`:when_no_prototypes`:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>When<sp/>you<sp/>give<sp/>CMock<sp/>a<sp/>header<sp/>file<sp/>and<sp/>ask<sp/>it<sp/>to<sp/>create<sp/>a<sp/>mock<sp/>out<sp/>of</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>it,<sp/>it<sp/>usually<sp/>contains<sp/>function<sp/>prototypes<sp/>(otherwise<sp/>what<sp/>was<sp/>the</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>point?).<sp/>You<sp/>can<sp/>control<sp/>what<sp/>happens<sp/>when<sp/>this<sp/>isn&apos;t<sp/>true.<sp/>You<sp/>can</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>set<sp/>this<sp/>to<sp/>`:warn,`<sp/>`:ignore,`<sp/>or<sp/>`:error`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>default:<sp/>:warn</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>`:when_ptr`:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>You<sp/>can<sp/>customize<sp/>how<sp/>CMock<sp/>deals<sp/>with<sp/>pointers<sp/>(c<sp/>strings<sp/>result<sp/>in</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>string<sp/>comparisons...<sp/>we&apos;re<sp/>talking<sp/>about<sp/>**other**<sp/>pointers<sp/>here).<sp/>Your</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>options<sp/>are<sp/>`:compare_ptr`<sp/>to<sp/>just<sp/>verify<sp/>the<sp/>pointers<sp/>are<sp/>the<sp/>same,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>`:compare_data`<sp/>or<sp/>`:smart`<sp/>to<sp/>verify<sp/>that<sp/>the<sp/>data<sp/>is<sp/>the<sp/>same.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>`:compare_data`<sp/>and<sp/>`:smart`<sp/>behaviors<sp/>will<sp/>change<sp/>slightly<sp/>based<sp/>on</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>if<sp/>you<sp/>have<sp/>the<sp/>array<sp/>plugin<sp/>enabled.<sp/>By<sp/>default,<sp/>they<sp/>compare<sp/>a</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>single<sp/>element<sp/>of<sp/>what<sp/>is<sp/>being<sp/>pointed<sp/>to.<sp/>So<sp/>if<sp/>you<sp/>have<sp/>a<sp/>pointer</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>to<sp/>a<sp/>struct<sp/>called<sp/>ORGAN_T,<sp/>it<sp/>will<sp/>compare<sp/>one<sp/>ORGAN_T<sp/>(whatever<sp/>that</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>is).</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>default:<sp/>:smart</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>`:fail_on_unexpected_calls`:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>By<sp/>default,<sp/>CMock<sp/>will<sp/>fail<sp/>a<sp/>test<sp/>if<sp/>a<sp/>mock<sp/>is<sp/>called<sp/>without<sp/>_Expect<sp/>and<sp/>_Ignore</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>called<sp/>first.<sp/>While<sp/>this<sp/>forces<sp/>test<sp/>writers<sp/>to<sp/>be<sp/>more<sp/>explicit<sp/>in<sp/>their<sp/>expectations,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>it<sp/>can<sp/>clutter<sp/>tests<sp/>with<sp/>_Expect<sp/>or<sp/>_Ignore<sp/>calls<sp/>for<sp/>functions<sp/>which<sp/>are<sp/>not<sp/>the<sp/>focus</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>of<sp/>the<sp/>test.<sp/>While<sp/>this<sp/>is<sp/>a<sp/>good<sp/>indicator<sp/>that<sp/>this<sp/>module<sp/>should<sp/>be<sp/>refactored,<sp/>some</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>users<sp/>are<sp/>not<sp/>fans<sp/>of<sp/>the<sp/>additional<sp/>noise.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Therefore,<sp/>:fail_on_unexpected_calls<sp/>can<sp/>be<sp/>set<sp/>to<sp/>false<sp/>to<sp/>force<sp/>all<sp/>mocks<sp/>to<sp/>start<sp/>with</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>the<sp/>assumption<sp/>that<sp/>they<sp/>are<sp/>operating<sp/>as<sp/>_Ignore<sp/>unless<sp/>otherwise<sp/>specified.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>default:<sp/>true</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>**note:**</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>If<sp/>this<sp/>option<sp/>is<sp/>disabled,<sp/>the<sp/>mocked<sp/>functions<sp/>will<sp/>return</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>a<sp/>default<sp/>value<sp/>(0)<sp/>when<sp/>called<sp/>(and<sp/>only<sp/>if<sp/>they<sp/>have<sp/>to<sp/>return<sp/>something<sp/>of<sp/>course).</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Compiled<sp/>Options:</highlight></codeline>
+<codeline><highlight class="normal">-----------------</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">A<sp/>number<sp/>of<sp/>#defines<sp/>also<sp/>exist<sp/>for<sp/>customizing<sp/>the<sp/>cmock<sp/>experience.</highlight></codeline>
+<codeline><highlight class="normal">Feel<sp/>free<sp/>to<sp/>pass<sp/>these<sp/>into<sp/>your<sp/>compiler<sp/>or<sp/>whatever<sp/>is<sp/>most</highlight></codeline>
+<codeline><highlight class="normal">convenient.<sp/>CMock<sp/>will<sp/>otherwise<sp/>do<sp/>its<sp/>best<sp/>to<sp/>guess<sp/>what<sp/>you<sp/>want</highlight></codeline>
+<codeline><highlight class="normal">based<sp/>on<sp/>other<sp/>settings,<sp/>particularly<sp/>Unity&apos;s<sp/>settings.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>`CMOCK_MEM_STATIC`<sp/>or<sp/>`CMOCK_MEM_DYNAMIC`</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>Define<sp/>one<sp/>of<sp/>these<sp/>to<sp/>determine<sp/>if<sp/>you<sp/>want<sp/>to<sp/>dynamically<sp/>add</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>memory<sp/>during<sp/>tests<sp/>as<sp/>required<sp/>from<sp/>the<sp/>heap.<sp/>If<sp/>static,<sp/>you</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>can<sp/>control<sp/>the<sp/>total<sp/>footprint<sp/>of<sp/>Cmock.<sp/>If<sp/>dynamic,<sp/>you<sp/>will</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>need<sp/>to<sp/>make<sp/>sure<sp/>you<sp/>make<sp/>some<sp/>heap<sp/>space<sp/>available<sp/>for<sp/>Cmock.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>`CMOCK_MEM_SIZE`</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>In<sp/>static<sp/>mode<sp/>this<sp/>is<sp/>the<sp/>total<sp/>amount<sp/>of<sp/>memory<sp/>you<sp/>are<sp/>allocating</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>to<sp/>Cmock.<sp/>In<sp/>Dynamic<sp/>mode<sp/>this<sp/>is<sp/>the<sp/>size<sp/>of<sp/>each<sp/>chunk<sp/>allocated</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>at<sp/>once<sp/>(larger<sp/>numbers<sp/>grab<sp/>more<sp/>memory<sp/>but<sp/>require<sp/>less<sp/>mallocs).</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>`CMOCK_MEM_ALIGN`</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>The<sp/>way<sp/>to<sp/>align<sp/>your<sp/>data<sp/>to.<sp/>Not<sp/>everything<sp/>is<sp/>as<sp/>flexible<sp/>as</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>a<sp/>PC,<sp/>as<sp/>most<sp/>embedded<sp/>designers<sp/>know.<sp/>This<sp/>defaults<sp/>to<sp/>2,<sp/>meaning</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>align<sp/>to<sp/>the<sp/>closest<sp/>2^2<sp/>-&gt;<sp/>4<sp/>bytes<sp/>(32<sp/>bits).<sp/>You<sp/>can<sp/>turn<sp/>off<sp/>alignment</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>by<sp/>setting<sp/>0,<sp/>force<sp/>alignment<sp/>to<sp/>the<sp/>closest<sp/>uint16<sp/>with<sp/>1<sp/>or<sp/>even</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>to<sp/>the<sp/>closest<sp/>uint64<sp/>with<sp/>3.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>`CMOCK_MEM_PTR_AS_INT`</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>This<sp/>is<sp/>used<sp/>internally<sp/>to<sp/>hold<sp/>pointers...<sp/>it<sp/>needs<sp/>to<sp/>be<sp/>big</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>enough.<sp/>On<sp/>most<sp/>processors<sp/>a<sp/>pointer<sp/>is<sp/>the<sp/>same<sp/>as<sp/>an<sp/>unsigned</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>long...<sp/>but<sp/>maybe<sp/>that&apos;s<sp/>not<sp/>true<sp/>for<sp/>yours?</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>`CMOCK_MEM_INDEX_TYPE`</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>This<sp/>needs<sp/>to<sp/>be<sp/>something<sp/>big<sp/>enough<sp/>to<sp/>point<sp/>anywhere<sp/>in<sp/>Cmock&apos;s</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>memory<sp/>space...<sp/>usually<sp/>it&apos;s<sp/>an<sp/>unsigned<sp/>int.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Examples</highlight></codeline>
+<codeline><highlight class="normal">========</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">You<sp/>can<sp/>look<sp/>in<sp/>the<sp/>[examples<sp/>directory](/examples/)<sp/>for<sp/>a<sp/>couple<sp/>of<sp/>examples<sp/>on<sp/>how</highlight></codeline>
+<codeline><highlight class="normal">you<sp/>might<sp/>tool<sp/>CMock<sp/>into<sp/>your<sp/>build<sp/>process.<sp/>You<sp/>may<sp/>also<sp/>want<sp/>to<sp/>consider</highlight></codeline>
+<codeline><highlight class="normal">using<sp/>[Ceedling](https://throwtheswitch.org/ceedling).<sp/>Please<sp/>note<sp/>that</highlight></codeline>
+<codeline><highlight class="normal">these<sp/>examples<sp/>are<sp/>meant<sp/>to<sp/>show<sp/>how<sp/>the<sp/>build<sp/>process<sp/>works.<sp/>They<sp/>have</highlight></codeline>
+<codeline><highlight class="normal">failing<sp/>tests<sp/>ON<sp/>PURPOSE<sp/>to<sp/>show<sp/>what<sp/>that<sp/>would<sp/>look<sp/>like.<sp/>Don&apos;t<sp/>be<sp/>alarmed.<sp/>;)</highlight></codeline>
+<codeline></codeline>
+    </programlisting>
+    <location file="UnitTestFramework/vendor/ceedling/docs/CMock_Summary.md"/>
+  </compounddef>
+</doxygen>

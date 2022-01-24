@@ -1,0 +1,154 @@
+\hypertarget{nep_math_crc_util_8c}{}\doxysection{Sources/nep\+Math\+Crc\+Util.c File Reference}
+\label{nep_math_crc_util_8c}\index{Sources/nepMathCrcUtil.c@{Sources/nepMathCrcUtil.c}}
+
+
+nep\+Math\+Crc\+Util source file.  
+
+
+{\ttfamily \#include \char`\"{}nep\+Math\+Crc\+Util.\+h\char`\"{}}\newline
+Include dependency graph for nep\+Math\+Crc\+Util.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=211pt]{d9/dc1/nep_math_crc_util_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{nep_math_crc_util_8c_a08ad1de66a2ce007d485e8dee7ef8f24}{NUMBER\+\_\+\+OF\+\_\+\+BITS\+\_\+\+IN\+\_\+\+BYTE}}~( 8 )
+\item 
+\#define \mbox{\hyperlink{nep_math_crc_util_8c_a0592dba56693fad79136250c11e5a7fe}{MAX\+\_\+\+SIZE}}~( 32 )
+\item 
+\#define \mbox{\hyperlink{nep_math_crc_util_8c_aa611d8f7e5aa7a82486ee4fb0c64bc05}{BITMASK}}(x)~( 1L $<$$<$ ( x ) )
+\item 
+\#define \mbox{\hyperlink{nep_math_crc_util_8c_a92f8f972a2c188371fcf0b561c44af97}{MASK}}(x)~( 0x\+FFFFFFFF $>$$>$ ( \mbox{\hyperlink{nep_math_crc_util_8c_a0592dba56693fad79136250c11e5a7fe}{MAX\+\_\+\+SIZE}} -\/ x ) )
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{nep_math_crc_util_8c_ab79d86a1ec1457c66f0602f7a617b7f2}{v\+Nep\+Math\+Crc\+Util\+Reflect\+Data}} (uint8\+\_\+t uc\+Number\+Of\+Bits, uint32\+\_\+t ul\+Data, uint32\+\_\+t $\ast$pul\+Result)
+\item 
+void \mbox{\hyperlink{nep_math_crc_util_8c_a72e193921a8c970fa71e9f65970610b2}{v\+Nep\+Math\+Crc\+Util\+Reflect\+Bytes}} (uint32\+\_\+t ul\+Number\+Of\+Bytes, const uint8\+\_\+t $\ast$puc\+Buffer, uint8\+\_\+t $\ast$puc\+Result)
+\item 
+void \mbox{\hyperlink{nep_math_crc_util_8c_a453ad598f464806296587ef558f1428e}{v\+Nep\+Math\+Crc\+Util\+Calculate}} (uint8\+\_\+t uc\+Width, uint32\+\_\+t ul\+Initial, uint32\+\_\+t ul\+Polynomial, uint32\+\_\+t ul\+Number\+Of\+Bytes, const uint8\+\_\+t $\ast$puc\+Buffer, uint32\+\_\+t $\ast$pul\+Crc\+Value)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+nep\+Math\+Crc\+Util source file. 
+
+\begin{DoxyAuthor}{Author}
+Philippe.\+Boulais 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+Created on 11/8/2019 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+NEP, Montreal, Qc \doxysubsubsection*{\begin{center}\copyright{} COPYRIGHT 2015 NEP, Montreal, Quebec, Canada\end{center} }
+\end{DoxyCopyright}
+\doxysubsubsection*{\begin{center}\copyright{} All rights reserved.\end{center} }
+
+~\newline
+~\newline
+ \begin{center}This document contains confidential and proprietary information of NEPTRONIC (subject to a non-\/disclosure agreement) and shall\end{center}  \begin{center}not be disclosed, distributed, or reproduced in whole or in part, without the prior written authorization of NEPTRONIC.\end{center}  
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{nep_math_crc_util_8c_aa611d8f7e5aa7a82486ee4fb0c64bc05}\label{nep_math_crc_util_8c_aa611d8f7e5aa7a82486ee4fb0c64bc05}} 
+\index{nepMathCrcUtil.c@{nepMathCrcUtil.c}!BITMASK@{BITMASK}}
+\index{BITMASK@{BITMASK}!nepMathCrcUtil.c@{nepMathCrcUtil.c}}
+\doxysubsubsection{\texorpdfstring{BITMASK}{BITMASK}}
+{\footnotesize\ttfamily \#define BITMASK(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~( 1L $<$$<$ ( x ) )}
+
+
+
+Definition at line 27 of file nep\+Math\+Crc\+Util.\+c.
+
+\mbox{\Hypertarget{nep_math_crc_util_8c_a92f8f972a2c188371fcf0b561c44af97}\label{nep_math_crc_util_8c_a92f8f972a2c188371fcf0b561c44af97}} 
+\index{nepMathCrcUtil.c@{nepMathCrcUtil.c}!MASK@{MASK}}
+\index{MASK@{MASK}!nepMathCrcUtil.c@{nepMathCrcUtil.c}}
+\doxysubsubsection{\texorpdfstring{MASK}{MASK}}
+{\footnotesize\ttfamily \#define MASK(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~( 0x\+FFFFFFFF $>$$>$ ( \mbox{\hyperlink{nep_math_crc_util_8c_a0592dba56693fad79136250c11e5a7fe}{MAX\+\_\+\+SIZE}} -\/ x ) )}
+
+
+
+Definition at line 28 of file nep\+Math\+Crc\+Util.\+c.
+
+\mbox{\Hypertarget{nep_math_crc_util_8c_a0592dba56693fad79136250c11e5a7fe}\label{nep_math_crc_util_8c_a0592dba56693fad79136250c11e5a7fe}} 
+\index{nepMathCrcUtil.c@{nepMathCrcUtil.c}!MAX\_SIZE@{MAX\_SIZE}}
+\index{MAX\_SIZE@{MAX\_SIZE}!nepMathCrcUtil.c@{nepMathCrcUtil.c}}
+\doxysubsubsection{\texorpdfstring{MAX\_SIZE}{MAX\_SIZE}}
+{\footnotesize\ttfamily \#define MAX\+\_\+\+SIZE~( 32 )}
+
+
+
+Definition at line 23 of file nep\+Math\+Crc\+Util.\+c.
+
+\mbox{\Hypertarget{nep_math_crc_util_8c_a08ad1de66a2ce007d485e8dee7ef8f24}\label{nep_math_crc_util_8c_a08ad1de66a2ce007d485e8dee7ef8f24}} 
+\index{nepMathCrcUtil.c@{nepMathCrcUtil.c}!NUMBER\_OF\_BITS\_IN\_BYTE@{NUMBER\_OF\_BITS\_IN\_BYTE}}
+\index{NUMBER\_OF\_BITS\_IN\_BYTE@{NUMBER\_OF\_BITS\_IN\_BYTE}!nepMathCrcUtil.c@{nepMathCrcUtil.c}}
+\doxysubsubsection{\texorpdfstring{NUMBER\_OF\_BITS\_IN\_BYTE}{NUMBER\_OF\_BITS\_IN\_BYTE}}
+{\footnotesize\ttfamily \#define NUMBER\+\_\+\+OF\+\_\+\+BITS\+\_\+\+IN\+\_\+\+BYTE~( 8 )}
+
+
+
+Definition at line 22 of file nep\+Math\+Crc\+Util.\+c.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{nep_math_crc_util_8c_a453ad598f464806296587ef558f1428e}\label{nep_math_crc_util_8c_a453ad598f464806296587ef558f1428e}} 
+\index{nepMathCrcUtil.c@{nepMathCrcUtil.c}!vNepMathCrcUtilCalculate@{vNepMathCrcUtilCalculate}}
+\index{vNepMathCrcUtilCalculate@{vNepMathCrcUtilCalculate}!nepMathCrcUtil.c@{nepMathCrcUtil.c}}
+\doxysubsubsection{\texorpdfstring{vNepMathCrcUtilCalculate()}{vNepMathCrcUtilCalculate()}}
+{\footnotesize\ttfamily void v\+Nep\+Math\+Crc\+Util\+Calculate (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{uc\+Width,  }\item[{uint32\+\_\+t}]{ul\+Initial,  }\item[{uint32\+\_\+t}]{ul\+Polynomial,  }\item[{uint32\+\_\+t}]{ul\+Number\+Of\+Bytes,  }\item[{const uint8\+\_\+t $\ast$}]{puc\+Buffer,  }\item[{uint32\+\_\+t $\ast$}]{pul\+Crc\+Value }\end{DoxyParamCaption})}
+
+
+
+Definition at line 93 of file nep\+Math\+Crc\+Util.\+c.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{de/da6/nep_math_crc_util_8c_a453ad598f464806296587ef558f1428e_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{nep_math_crc_util_8c_a72e193921a8c970fa71e9f65970610b2}\label{nep_math_crc_util_8c_a72e193921a8c970fa71e9f65970610b2}} 
+\index{nepMathCrcUtil.c@{nepMathCrcUtil.c}!vNepMathCrcUtilReflectBytes@{vNepMathCrcUtilReflectBytes}}
+\index{vNepMathCrcUtilReflectBytes@{vNepMathCrcUtilReflectBytes}!nepMathCrcUtil.c@{nepMathCrcUtil.c}}
+\doxysubsubsection{\texorpdfstring{vNepMathCrcUtilReflectBytes()}{vNepMathCrcUtilReflectBytes()}}
+{\footnotesize\ttfamily void v\+Nep\+Math\+Crc\+Util\+Reflect\+Bytes (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{ul\+Number\+Of\+Bytes,  }\item[{const uint8\+\_\+t $\ast$}]{puc\+Buffer,  }\item[{uint8\+\_\+t $\ast$}]{puc\+Result }\end{DoxyParamCaption})}
+
+
+
+Definition at line 62 of file nep\+Math\+Crc\+Util.\+c.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{de/da6/nep_math_crc_util_8c_a72e193921a8c970fa71e9f65970610b2_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{nep_math_crc_util_8c_ab79d86a1ec1457c66f0602f7a617b7f2}\label{nep_math_crc_util_8c_ab79d86a1ec1457c66f0602f7a617b7f2}} 
+\index{nepMathCrcUtil.c@{nepMathCrcUtil.c}!vNepMathCrcUtilReflectData@{vNepMathCrcUtilReflectData}}
+\index{vNepMathCrcUtilReflectData@{vNepMathCrcUtilReflectData}!nepMathCrcUtil.c@{nepMathCrcUtil.c}}
+\doxysubsubsection{\texorpdfstring{vNepMathCrcUtilReflectData()}{vNepMathCrcUtilReflectData()}}
+{\footnotesize\ttfamily void v\+Nep\+Math\+Crc\+Util\+Reflect\+Data (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{uc\+Number\+Of\+Bits,  }\item[{uint32\+\_\+t}]{ul\+Data,  }\item[{uint32\+\_\+t $\ast$}]{pul\+Result }\end{DoxyParamCaption})}
+
+
+
+Definition at line 38 of file nep\+Math\+Crc\+Util.\+c.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{de/da6/nep_math_crc_util_8c_ab79d86a1ec1457c66f0602f7a617b7f2_icgraph}
+\end{center}
+\end{figure}

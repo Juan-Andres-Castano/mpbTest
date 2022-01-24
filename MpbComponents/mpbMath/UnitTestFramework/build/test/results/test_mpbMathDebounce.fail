@@ -1,0 +1,32 @@
+---
+:source:
+  :path: "../Tests"
+  :file: test_mpbMathDebounce.c
+:successes:
+- :test: test_vMpbMathDebounceInit_Shall_fail_if_no_valid_pointer_is_allocated_for_Debouncing_fail
+  :line: 41
+  :message: ''
+- :test: test_vMpbMathDebounceInit_Shall_set_Values_GreaterThan_0_Success
+  :line: 52
+  :message: ''
+- :test: test_vMpbMathDebounceInit_Shall_run_with_initial_value_EqualTo_0_Success
+  :line: 69
+  :message: ''
+- :test: test_vMpbMathDebounceUpdate_Shall_fill_the_ADT_with_correct_values_Success
+  :line: 88
+  :message: ''
+- :test: test_vMpbMathDebounceUpdate_OverCount_Success
+  :line: 131
+  :message: ''
+:failures:
+- :test: test_vMpbMathDebounceUpdate_Shall_Debounce_the_OFF_state_At_X_OFF_repetitions_Success
+  :line: 127
+  :message: Expected 0 Was 1
+:ignores: []
+:counts:
+  :total: 6
+  :passed: 5
+  :failed: 1
+  :ignored: 0
+:stdout: []
+:time: 1.2554858000366949

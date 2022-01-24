@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_2cfeece2d2f07a1921e1b797415540e2" xml:lang="en-US">
+<title>UnitTestFramework/vendor/ceedling/vendor/unity/auto Directory Reference</title>
+<indexterm><primary>UnitTestFramework/vendor/ceedling/vendor/unity/auto Directory Reference</primary></indexterm>
+<simplesect>
+    <title>Files    </title>
+        <itemizedlist>
+            <listitem><para>file <link linkend="_unity__test__summary_8py">unity_test_summary.py</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_unity__to__junit_8py">unity_to_junit.py</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

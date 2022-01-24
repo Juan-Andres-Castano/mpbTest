@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_namespaceunity__test__summary" xml:lang="en-US">
+<title>unity_test_summary Namespace Reference</title>
+<indexterm><primary>unity_test_summary</primary></indexterm>
+<simplesect>
+    <title>Data Structures    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_classunity__test__summary_1_1_unity_test_summary">UnityTestSummary</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_namespaceunity__test__summary_1a0344bc35e417f905ee690ec56ca4cfd9">uts</link> = <link linkend="_classunity__test__summary_1_1_unity_test_summary">UnityTestSummary</link>()</para>
+</listitem>
+            <listitem><para><link linkend="_namespaceunity__test__summary_1a2b4c6e9ac9427c5d76712b14dd3817cd">targets_dir</link> = sys.argv[1]</para>
+</listitem>
+            <listitem><para><link linkend="_namespaceunity__test__summary_1aca9a7ee02fb8663e9e2971ca4052b0c6">targets</link> = list(map(lambda x: x.replace(&apos;\\&apos;, &apos;/&apos;), glob(<link linkend="_namespaceunity__test__summary_1a2b4c6e9ac9427c5d76712b14dd3817cd">targets_dir</link> + &apos;*.test*&apos;)))</para>
+</listitem>
+            <listitem><para><link linkend="_namespaceunity__test__summary_1ab33cf7205359ee0f91488c87df1577a0">root_path</link> = sys.argv[2]</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Variable Documentation</title>
+<anchor xml:id="_namespaceunity__test__summary_1ab33cf7205359ee0f91488c87df1577a0"/>    <section>
+    <title>root_path</title>
+<indexterm><primary>root_path</primary><secondary>unity_test_summary</secondary></indexterm>
+<indexterm><primary>unity_test_summary</primary><secondary>root_path</secondary></indexterm>
+<para><computeroutput>root_path = sys.argv[2]</computeroutput></para><para>
+Definition at line 131 of file unity_test_summary.py.</para>
+    </section><anchor xml:id="_namespaceunity__test__summary_1aca9a7ee02fb8663e9e2971ca4052b0c6"/>    <section>
+    <title>targets</title>
+<indexterm><primary>targets</primary><secondary>unity_test_summary</secondary></indexterm>
+<indexterm><primary>unity_test_summary</primary><secondary>targets</secondary></indexterm>
+<para><computeroutput>targets = list(map(lambda x: x.replace(&apos;\\&apos;, &apos;/&apos;), glob(<link linkend="_namespaceunity__test__summary_1a2b4c6e9ac9427c5d76712b14dd3817cd">targets_dir</link> + &apos;*.test*&apos;)))</computeroutput></para><para>
+Definition at line 124 of file unity_test_summary.py.</para>
+    </section><anchor xml:id="_namespaceunity__test__summary_1a2b4c6e9ac9427c5d76712b14dd3817cd"/>    <section>
+    <title>targets_dir</title>
+<indexterm><primary>targets_dir</primary><secondary>unity_test_summary</secondary></indexterm>
+<indexterm><primary>unity_test_summary</primary><secondary>targets_dir</secondary></indexterm>
+<para><computeroutput>string targets_dir = sys.argv[1]</computeroutput></para><para>
+Definition at line 121 of file unity_test_summary.py.</para>
+    </section><anchor xml:id="_namespaceunity__test__summary_1a0344bc35e417f905ee690ec56ca4cfd9"/>    <section>
+    <title>uts</title>
+<indexterm><primary>uts</primary><secondary>unity_test_summary</secondary></indexterm>
+<indexterm><primary>unity_test_summary</primary><secondary>uts</secondary></indexterm>
+<para><computeroutput>uts = <link linkend="_classunity__test__summary_1_1_unity_test_summary">UnityTestSummary</link>()</computeroutput></para><para>
+Definition at line 117 of file unity_test_summary.py.</para>
+</section>
+</section>
+</section>

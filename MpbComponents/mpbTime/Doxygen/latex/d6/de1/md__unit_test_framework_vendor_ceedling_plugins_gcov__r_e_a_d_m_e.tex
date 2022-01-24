@@ -1,0 +1,38 @@
+Plugin for integrating GNU GCov code coverage tool into Ceedling projects. Currently only designed for the gcov command (like LCOV for example). In the future we could configure this to work with other code coverage tools.
+
+This plugin currently uses {\ttfamily gcovr} to generate HTML reports as a utility. The normal gcov plugin {\itshape must} be run first for this report to generate.
+
+Gcovr can be installed via pip like so\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{pip install gcovr}
+
+\end{DoxyCode}
+
+
+There are two types of gcovr HTML reports that can be configured in your {\ttfamily project.\+yml}. To create a basic HTML report with only the overall file information use the following config.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{:gcov:}
+\DoxyCodeLine{  :html\_report\_type: basic}
+
+\end{DoxyCode}
+ To create a detailed HTML report with line by line breakdown of the coverage use the following config.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{:gcov:}
+\DoxyCodeLine{  :html\_report\_type: detailed}
+
+\end{DoxyCode}
+
+
+These reports will be found in {\ttfamily build/artifacts/gcov}.\hypertarget{md__unit_test_framework_vendor_ceedling_plugins_gcov__r_e_a_d_m_e_autotoc_md307}{}\doxysection{To-\/\+Do list}\label{md__unit_test_framework_vendor_ceedling_plugins_gcov__r_e_a_d_m_e_autotoc_md307}
+
+\begin{DoxyItemize}
+\item Generate overall report (combined statistics from all files with coverage)
+\item Generate coverage output files
+\item Easier option override for better customisation 
+\end{DoxyItemize}

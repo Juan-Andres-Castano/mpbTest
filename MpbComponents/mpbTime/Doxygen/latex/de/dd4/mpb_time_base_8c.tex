@@ -1,0 +1,266 @@
+\hypertarget{mpb_time_base_8c}{}\doxysection{Sources/mpb\+Time\+Base.c File Reference}
+\label{mpb_time_base_8c}\index{Sources/mpbTimeBase.c@{Sources/mpbTimeBase.c}}
+
+
+~\newline
+ This library proveies a management system for the timing of the differents process in the application. Each on of the timers neeeded in a application should be initialized, triggerd inside a timer interruption and read for verify his deadline.  
+
+
+{\ttfamily \#include \char`\"{}mpb\+Time\+Base.\+h\char`\"{}}\newline
+Include dependency graph for mpb\+Time\+Base.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{de/d57/mpb_time_base_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41}{e\+Mpb\+Error\+\_\+t}} \mbox{\hyperlink{mpb_time_base_8c_abc4f7fb8dcd9e568855485653669221a}{e\+Mpb\+Time\+Base\+Init}} (mpb\+Time\+Base\+\_\+t $\ast$px\+Time\+Base, uint8\+\_\+t uc\+Tick\+Per\+Ms)
+\begin{DoxyCompactList}\small\item\em Initialize the timebase structure. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41}{e\+Mpb\+Error\+\_\+t}} \mbox{\hyperlink{mpb_time_base_8c_a6cc648d8b1c13459689754a7b9a5ee0c}{e\+Mpb\+Time\+Base\+Tick}} (mpb\+Time\+Base\+\_\+t $\ast$px\+Time\+Base)
+\begin{DoxyCompactList}\small\item\em Tick of the timebase structure. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{mpb_time_base_8c_a69948f4a4a22d7d95ecf39af55bfe6dd}{ul\+Mpb\+Time\+Base\+Get\+Tick}} (mpb\+Time\+Base\+\_\+t $\ast$px\+Time\+Base)
+\begin{DoxyCompactList}\small\item\em Get the number of ticks. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{mpb_time_base_8c_a0a8b5da1e9949559a78ac7cade9f60ba}{ul\+Mpb\+Time\+Base\+Get\+Ms}} (mpb\+Time\+Base\+\_\+t $\ast$px\+Time\+Base)
+\begin{DoxyCompactList}\small\item\em Get the number of miliseconds. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{mpb_time_base_8c_ad06e7c793bdc9e4608c6501d00756b73}{ul\+Mpb\+Time\+Base\+Get\+Second}} (mpb\+Time\+Base\+\_\+t $\ast$px\+Time\+Base)
+\begin{DoxyCompactList}\small\item\em Get the number of seconds. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{mpb_time_base_8c_abac386caa33523404f7cfdef66e30268}{ul\+Mpb\+Time\+Base\+Get\+Minute}} (mpb\+Time\+Base\+\_\+t $\ast$px\+Time\+Base)
+\begin{DoxyCompactList}\small\item\em Get the number of minutes. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{mpb_time_base_8c_a661099fb9f3980c616f9e8c91e9dfb49}{ul\+Mpb\+Time\+Base\+Get\+Hour}} (mpb\+Time\+Base\+\_\+t $\ast$px\+Time\+Base)
+\begin{DoxyCompactList}\small\item\em Get the number of hour. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{mpblibs_8h_a1116febe513ac4a62e1096d1fc2c363a}{e\+Bool\+\_\+t}} \mbox{\hyperlink{mpb_time_base_8c_a60da84dfb6398977db7548d0a33101f8}{e\+Mpb\+Time\+Base\+Is\+Delay\+Done}} (uint32\+\_\+t ul\+Counter, uint32\+\_\+t ul\+Time\+Stamp)
+\begin{DoxyCompactList}\small\item\em Check if the delay is completed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+~\newline
+ This library proveies a management system for the timing of the differents process in the application. Each on of the timers neeeded in a application should be initialized, triggerd inside a timer interruption and read for verify his deadline. 
+
+\begin{DoxyAuthor}{Author}
+juan andres Castano 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+Created on 2021-\/11-\/18 
+\end{DoxyDate}
+\begin{DoxyNote}{Note}
+
+\end{DoxyNote}
+\begin{DoxyCopyright}{Copyright}
+MPB, Montreal, Qc \doxysubsubsection*{\begin{center}\copyright{} COPYRIGHT 2021 MPB, Montreal, Quebec, Canada\end{center} }
+\end{DoxyCopyright}
+\doxysubsubsection*{\begin{center}\copyright{} All rights reserved.\end{center} }
+
+~\newline
+~\newline
+ \begin{center}This document contains confidential and proprietary information of MPB (subject to a non-\/disclosure agreement) and shall\end{center}  \begin{center}not be disclosed, distributed, or reproduced in whole or in part, without the prior written authorization of MPB.\end{center} 
+
+\begin{DoxyVerb}Usage Example\end{DoxyVerb}
+ this library allows to instantiate all the timers the application needs. alls are instatiated from the same hardware timer. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{mpbTimeBase\_t *myTimeBase = \mbox{\hyperlink{mpb_time_base_8h_abc4f7fb8dcd9e568855485653669221a}{eMpbTimeBaseInit}}( \&myTimeBase, 1000 );}
+\DoxyCodeLine{inside a timer interruption: \mbox{\hyperlink{mpb_time_base_8h_a6cc648d8b1c13459689754a7b9a5ee0c}{eMpbTimeBaseTick}}( \&myTimeBase ) ; \textcolor{comment}{//usually timer on 1ms}}
+\DoxyCodeLine{uint32\_t timerValue = \mbox{\hyperlink{mpb_time_base_8h_a69948f4a4a22d7d95ecf39af55bfe6dd}{ulMpbTimeBaseGetTick}}( \&myTimeBase );}
+
+\end{DoxyCode}
+ 
+\begin{DoxyParams}{Parameters}
+{\em mpb\+Time\+Base\+\_\+t} & datatype for aech timer. \\
+\hline
+{\em ticks.} & uint32 valur. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+returns the time counting in several formats or a delay. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+could be instantiate in everywhere of the application. in that point the timer instantiation should be placed. 
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+none. 
+\end{DoxyWarning}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{mpb_time_base_8c_abc4f7fb8dcd9e568855485653669221a}\label{mpb_time_base_8c_abc4f7fb8dcd9e568855485653669221a}} 
+\index{mpbTimeBase.c@{mpbTimeBase.c}!eMpbTimeBaseInit@{eMpbTimeBaseInit}}
+\index{eMpbTimeBaseInit@{eMpbTimeBaseInit}!mpbTimeBase.c@{mpbTimeBase.c}}
+\doxysubsubsection{\texorpdfstring{eMpbTimeBaseInit()}{eMpbTimeBaseInit()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41}{e\+Mpb\+Error\+\_\+t}} e\+Mpb\+Time\+Base\+Init (\begin{DoxyParamCaption}\item[{mpb\+Time\+Base\+\_\+t $\ast$}]{px\+Time\+Base,  }\item[{uint8\+\_\+t}]{uc\+Tick\+Per\+Ms }\end{DoxyParamCaption})}
+
+
+
+Initialize the timebase structure. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em px\+Time\+Base} & pointer to the timebase structure \\
+\hline
+\mbox{\texttt{ in}}  & {\em uc\+Tick\+Per\+Ms} & the number of tick per miliseconds \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Success or library error message 
+\end{DoxyReturn}
+
+
+Definition at line 46 of file mpb\+Time\+Base.\+c.
+
+\mbox{\Hypertarget{mpb_time_base_8c_a60da84dfb6398977db7548d0a33101f8}\label{mpb_time_base_8c_a60da84dfb6398977db7548d0a33101f8}} 
+\index{mpbTimeBase.c@{mpbTimeBase.c}!eMpbTimeBaseIsDelayDone@{eMpbTimeBaseIsDelayDone}}
+\index{eMpbTimeBaseIsDelayDone@{eMpbTimeBaseIsDelayDone}!mpbTimeBase.c@{mpbTimeBase.c}}
+\doxysubsubsection{\texorpdfstring{eMpbTimeBaseIsDelayDone()}{eMpbTimeBaseIsDelayDone()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{mpblibs_8h_a1116febe513ac4a62e1096d1fc2c363a}{e\+Bool\+\_\+t}} e\+Mpb\+Time\+Base\+Is\+Delay\+Done (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{ul\+Counter,  }\item[{uint32\+\_\+t}]{ul\+Time\+Stamp }\end{DoxyParamCaption})}
+
+
+
+Check if the delay is completed. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em ul\+Counter} & the value of the timer \\
+\hline
+\mbox{\texttt{ in}}  & {\em ul\+Time\+Stamp} & the value at which the timer is completed \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+e\+True if the delay is completed, e\+False otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 124 of file mpb\+Time\+Base.\+c.
+
+\mbox{\Hypertarget{mpb_time_base_8c_a6cc648d8b1c13459689754a7b9a5ee0c}\label{mpb_time_base_8c_a6cc648d8b1c13459689754a7b9a5ee0c}} 
+\index{mpbTimeBase.c@{mpbTimeBase.c}!eMpbTimeBaseTick@{eMpbTimeBaseTick}}
+\index{eMpbTimeBaseTick@{eMpbTimeBaseTick}!mpbTimeBase.c@{mpbTimeBase.c}}
+\doxysubsubsection{\texorpdfstring{eMpbTimeBaseTick()}{eMpbTimeBaseTick()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{mpblibs_8h_a83e19efe0ceb2ec5e6ff0a57ca789d41}{e\+Mpb\+Error\+\_\+t}} e\+Mpb\+Time\+Base\+Tick (\begin{DoxyParamCaption}\item[{mpb\+Time\+Base\+\_\+t $\ast$}]{px\+Time\+Base }\end{DoxyParamCaption})}
+
+
+
+Tick of the timebase structure. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em px\+Time\+Base} & pointer to the timebase structure \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Success or library error message 
+\end{DoxyReturn}
+
+
+Definition at line 65 of file mpb\+Time\+Base.\+c.
+
+\mbox{\Hypertarget{mpb_time_base_8c_a661099fb9f3980c616f9e8c91e9dfb49}\label{mpb_time_base_8c_a661099fb9f3980c616f9e8c91e9dfb49}} 
+\index{mpbTimeBase.c@{mpbTimeBase.c}!ulMpbTimeBaseGetHour@{ulMpbTimeBaseGetHour}}
+\index{ulMpbTimeBaseGetHour@{ulMpbTimeBaseGetHour}!mpbTimeBase.c@{mpbTimeBase.c}}
+\doxysubsubsection{\texorpdfstring{ulMpbTimeBaseGetHour()}{ulMpbTimeBaseGetHour()}}
+{\footnotesize\ttfamily uint32\+\_\+t ul\+Mpb\+Time\+Base\+Get\+Hour (\begin{DoxyParamCaption}\item[{mpb\+Time\+Base\+\_\+t $\ast$}]{px\+Time\+Base }\end{DoxyParamCaption})}
+
+
+
+Get the number of hour. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em px\+Time\+Base} & pointer to the timebase structure \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of hour past since init 
+\end{DoxyReturn}
+
+
+Definition at line 118 of file mpb\+Time\+Base.\+c.
+
+\mbox{\Hypertarget{mpb_time_base_8c_abac386caa33523404f7cfdef66e30268}\label{mpb_time_base_8c_abac386caa33523404f7cfdef66e30268}} 
+\index{mpbTimeBase.c@{mpbTimeBase.c}!ulMpbTimeBaseGetMinute@{ulMpbTimeBaseGetMinute}}
+\index{ulMpbTimeBaseGetMinute@{ulMpbTimeBaseGetMinute}!mpbTimeBase.c@{mpbTimeBase.c}}
+\doxysubsubsection{\texorpdfstring{ulMpbTimeBaseGetMinute()}{ulMpbTimeBaseGetMinute()}}
+{\footnotesize\ttfamily uint32\+\_\+t ul\+Mpb\+Time\+Base\+Get\+Minute (\begin{DoxyParamCaption}\item[{mpb\+Time\+Base\+\_\+t $\ast$}]{px\+Time\+Base }\end{DoxyParamCaption})}
+
+
+
+Get the number of minutes. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em px\+Time\+Base} & pointer to the timebase structure \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of minutes past since init 
+\end{DoxyReturn}
+
+
+Definition at line 112 of file mpb\+Time\+Base.\+c.
+
+\mbox{\Hypertarget{mpb_time_base_8c_a0a8b5da1e9949559a78ac7cade9f60ba}\label{mpb_time_base_8c_a0a8b5da1e9949559a78ac7cade9f60ba}} 
+\index{mpbTimeBase.c@{mpbTimeBase.c}!ulMpbTimeBaseGetMs@{ulMpbTimeBaseGetMs}}
+\index{ulMpbTimeBaseGetMs@{ulMpbTimeBaseGetMs}!mpbTimeBase.c@{mpbTimeBase.c}}
+\doxysubsubsection{\texorpdfstring{ulMpbTimeBaseGetMs()}{ulMpbTimeBaseGetMs()}}
+{\footnotesize\ttfamily uint32\+\_\+t ul\+Mpb\+Time\+Base\+Get\+Ms (\begin{DoxyParamCaption}\item[{mpb\+Time\+Base\+\_\+t $\ast$}]{px\+Time\+Base }\end{DoxyParamCaption})}
+
+
+
+Get the number of miliseconds. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em px\+Time\+Base} & pointer to the timebase structure \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of miliseconds past since init 
+\end{DoxyReturn}
+
+
+Definition at line 100 of file mpb\+Time\+Base.\+c.
+
+\mbox{\Hypertarget{mpb_time_base_8c_ad06e7c793bdc9e4608c6501d00756b73}\label{mpb_time_base_8c_ad06e7c793bdc9e4608c6501d00756b73}} 
+\index{mpbTimeBase.c@{mpbTimeBase.c}!ulMpbTimeBaseGetSecond@{ulMpbTimeBaseGetSecond}}
+\index{ulMpbTimeBaseGetSecond@{ulMpbTimeBaseGetSecond}!mpbTimeBase.c@{mpbTimeBase.c}}
+\doxysubsubsection{\texorpdfstring{ulMpbTimeBaseGetSecond()}{ulMpbTimeBaseGetSecond()}}
+{\footnotesize\ttfamily uint32\+\_\+t ul\+Mpb\+Time\+Base\+Get\+Second (\begin{DoxyParamCaption}\item[{mpb\+Time\+Base\+\_\+t $\ast$}]{px\+Time\+Base }\end{DoxyParamCaption})}
+
+
+
+Get the number of seconds. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em px\+Time\+Base} & pointer to the timebase structure \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of seconds past since init 
+\end{DoxyReturn}
+
+
+Definition at line 106 of file mpb\+Time\+Base.\+c.
+
+\mbox{\Hypertarget{mpb_time_base_8c_a69948f4a4a22d7d95ecf39af55bfe6dd}\label{mpb_time_base_8c_a69948f4a4a22d7d95ecf39af55bfe6dd}} 
+\index{mpbTimeBase.c@{mpbTimeBase.c}!ulMpbTimeBaseGetTick@{ulMpbTimeBaseGetTick}}
+\index{ulMpbTimeBaseGetTick@{ulMpbTimeBaseGetTick}!mpbTimeBase.c@{mpbTimeBase.c}}
+\doxysubsubsection{\texorpdfstring{ulMpbTimeBaseGetTick()}{ulMpbTimeBaseGetTick()}}
+{\footnotesize\ttfamily uint32\+\_\+t ul\+Mpb\+Time\+Base\+Get\+Tick (\begin{DoxyParamCaption}\item[{mpb\+Time\+Base\+\_\+t $\ast$}]{px\+Time\+Base }\end{DoxyParamCaption})}
+
+
+
+Get the number of ticks. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em px\+Time\+Base} & pointer to the timebase structure \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of tick past since init 
+\end{DoxyReturn}
+
+
+Definition at line 94 of file mpb\+Time\+Base.\+c.
+

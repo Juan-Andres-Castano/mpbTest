@@ -1,0 +1,1180 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_mpblibs_8h" xml:lang="en-US">
+<title>Includes/mpblibs.h File Reference</title>
+<indexterm><primary>Includes/mpblibs.h</primary></indexterm>
+<para>
+
+<para>This header provides common definitions needed mpb library @description. </para>
+ 
+</para>
+<programlisting>#include &lt;stdint.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+#include &lt;stdarg.h&gt;
+#include &lt;stddef.h&gt;
+</programlisting>Include dependency graph for mpblibs.h:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../dd/da7/mpblibs_8h__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+This graph shows which files directly or indirectly include this file:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../d2/de1/mpblibs_8h__dep__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="_mpblibs_8h_1ac7c4b8d34e6a2bba87b3087c3ed85d33">USE_HEAP</link></para>
+</listitem>
+            <listitem><para>#define <link linkend="_mpblibs_8h_1aaef0f1be1a04bc1e009f58444c78bfd8">USE_NEP_HEAP</link></para>
+</listitem>
+            <listitem><para>#define <link linkend="_mpblibs_8h_1a2e90499a479278efe715329cf93c04e6">USE_MALLOC_FAILED_HOOK</link></para>
+</listitem>
+            <listitem><para>#define <link linkend="_mpblibs_8h_1a5be40d2b5f27bf3acccdc6c8d90171c3">eMpbATTR_PACKED</link>   __packed</para>
+</listitem>
+            <listitem><para>#define <link linkend="_mpblibs_8h_1a64f83e73cfc447367c9ef8c1cacabe8c">__nop</link>()</para>
+
+<para>
+<literallayout>&#160;&#xa;</literallayout>
+ </para>
+</listitem>
+            <listitem><para>#define <link linkend="_mpblibs_8h_1a32b8b02632a14416704460518cdedda5">vMpblibsAssertParam</link>(expr)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Typedefs    </title>
+        <itemizedlist>
+            <listitem><para>typedef uint32_t <link linkend="_mpblibs_8h_1aea4188cfb1472f9bb606fd2566133e34">handle_t</link></para>
+
+<para>user define handle </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Enumerations    </title>
+        <itemizedlist>
+            <listitem><para>enum <link linkend="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41">eMpbError_t</link> { 
+<link linkend="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41a3df453108b088af1ab4d781dcf1d0c15">eSuccess</link> = 0
+, <link linkend="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41a3850b8824af139a4e2f0f5bcc536ec16">eInvalidParameter</link> = -1
+, <link linkend="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41a5f9683ba69a8e110f1e9d9185fbf0236">eAccessDenied</link> = -2
+, <link linkend="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41a3def441bb594afa0f663b20ed78bc9a8">eBusy</link> = -3
+, 
+<link linkend="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41a599c82586e4b1b1db272307f53b38aa4">eTimeout</link> = -4
+, <link linkend="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41a430555d8b53bb7285afcc709f5115a25">eBufferEmpty</link> = -5
+, <link linkend="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41a0a3c97f7fb557ed9b295e7af58cd3128">eBufferFull</link> = -6
+, <link linkend="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41a3610e92d54689c1f61254a55170eddac">eBufferOverflow</link> = -7
+, 
+<link linkend="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41ab41c7d96f3b5a6c9a1056665a2d37851">eOutOfMemory</link> = -8
+, <link linkend="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41a9f5feef0f1f1ff204fd87a98c55d4095">eCheckFailed</link> = -9
+, <link linkend="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41aa72aef087c5a686ead6c3d7c4fe9af74">eCorrupted</link> = -10
+, <link linkend="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41ae3501655f30f07acaf1b0003bc6e5e62">eOutOfRange</link> = -11
+, 
+<link linkend="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41a8ce9ac1d4d3ff6d7603156c8e9db6552">eNotFound</link> = -12
+, <link linkend="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41a2cdfc91caa9a3637ca36317db742a47a">eInvalidObject</link> = -13
+, <link linkend="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41abbb0a5db83a6ea06c8a1c075a0d835c4">eNotDiscarded</link> = -14
+, <link linkend="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41afb7dc9bcbc444b967afb095ece4a6fbc">eNotRegistered</link> = -15
+, 
+<link linkend="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41aa92c7ecd0c521213904721b3e68a65c7">ePropertyNotSuported</link> = -16
+, <link linkend="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41a8dfbd2aec3afb9ccf44633b7175c2d42">eObjectTypeNotSuported</link> = -17
+, <link linkend="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41a24dab14c021bd5e4d08ba769c05a2b6a">eDriverError</link> = -18
+, <link linkend="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41afa17af642e091fa381c0f4b825e59850">eUnknownError</link> = -19
+, 
+<link linkend="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41a4565dfb18b7a56d3a5b875ca488a6b5b">eInternalDeviceError</link> = -20
+ }</para>
+
+<para>Mpb defined error codes. </para>
+</listitem>
+            <listitem><para>enum <link linkend="_mpblibs_8h_1a1baaea34cc49f177f93f0e10145eb352">eAccess_t</link> { <link linkend="_mpblibs_8h_1a1baaea34cc49f177f93f0e10145eb352a9fa9300dac6bd2ee4fe699e1024d94ee">eREAD_ACCESS</link> = 0
+, <link linkend="_mpblibs_8h_1a1baaea34cc49f177f93f0e10145eb352ae428fb1494a19ae3c65640137906988e">eWRITE_ACCESS</link> = 1
+ }</para>
+
+<para>Mpbtronic define access. </para>
+</listitem>
+            <listitem><para>enum <link linkend="_mpblibs_8h_1a1116febe513ac4a62e1096d1fc2c363a">eBool_t</link> { <link linkend="_mpblibs_8h_1a1116febe513ac4a62e1096d1fc2c363aa511514f9eb3e5e6e7d2474a98c17bc95">eFalse</link> = 0
+, <link linkend="_mpblibs_8h_1a1116febe513ac4a62e1096d1fc2c363aa82bcaa7cbf3a5b23fc4fba17f9261272">eTrue</link> = !eFalse
+ }</para>
+
+<para>boolean definition </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_mpblibs_8h_1aa57acc54a557120db7be004053db1364">vMpblibsUsDelay</link> (uint32_t ulDelay)</para>
+
+<para>Delay for the specified number of micro seconds. </para>
+</listitem>
+            <listitem><para><link linkend="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41">eMpbError_t</link> <link linkend="_mpblibs_8h_1a643ca31d0250ccf8bea980d017e75a58">eMpblibsOpen</link> (<link linkend="_mpblibs_8h_1aea4188cfb1472f9bb606fd2566133e34">handle_t</link> xStream, const uint32_t ulFlags)</para>
+
+<para>opens, optionally takes control and optionally initializes an peripheral channel </para>
+</listitem>
+            <listitem><para><link linkend="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41">eMpbError_t</link> <link linkend="_mpblibs_8h_1ab36b1093281a79e89df6bc15c7665638">eMpblibsClose</link> (<link linkend="_mpblibs_8h_1aea4188cfb1472f9bb606fd2566133e34">handle_t</link> xStream)</para>
+
+<para>closes, optionnaly releases control and optionally deinitializes peripheral channel </para>
+</listitem>
+            <listitem><para><link linkend="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41">eMpbError_t</link> <link linkend="_mpblibs_8h_1ab33b7250bac578100156ec98be1506d5">eMpblibsRead</link> (<link linkend="_mpblibs_8h_1aea4188cfb1472f9bb606fd2566133e34">handle_t</link> xStream, size_t xAddrCmdSize, const void *pvAddrCmd, void *const pvBuffer, const size_t xBytes, size_t *pxBytesRead)</para>
+
+<para>
+<literallayout>&#160;&#xa;</literallayout>
+ </para>
+</listitem>
+            <listitem><para><link linkend="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41">eMpbError_t</link> <link linkend="_mpblibs_8h_1addabdaa25875fd0be83fbebf6d9b9a63">eMpblibsWrite</link> (<link linkend="_mpblibs_8h_1aea4188cfb1472f9bb606fd2566133e34">handle_t</link> xStream, size_t xAddrCmdSize, const void *pvAddrCmd, const void *pvBuffer, const size_t xBytes, size_t *pxBytesWritten)</para>
+
+<para>
+<literallayout>&#160;&#xa;</literallayout>
+ </para>
+</listitem>
+            <listitem><para><link linkend="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41">eMpbError_t</link> <link linkend="_mpblibs_8h_1ae8ab22981886806f6c96eddcf3648b99">eMpblibsIoCtl</link> (<link linkend="_mpblibs_8h_1aea4188cfb1472f9bb606fd2566133e34">handle_t</link> xStream, uint32_t ulRequest, void *pvValue)</para>
+</listitem>
+            <listitem><para><link linkend="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41">eMpbError_t</link> <link linkend="_mpblibs_8h_1ae24c87925bec628438823d751ce28945">eMpblibsI2CRequest</link> (<link linkend="_mpblibs_8h_1a1baaea34cc49f177f93f0e10145eb352">eAccess_t</link> eAccess, <link linkend="_mpblibs_8h_1aea4188cfb1472f9bb606fd2566133e34">handle_t</link> xI2Cx, uint8_t ucDevAddr, size_t xAddrCmdSize, const void *pvAddrCmd, void *pvBuffer, size_t xBytes, size_t *pxBytesRW)</para>
+
+<para>
+<literallayout>&#160;&#xa;</literallayout>
+ </para>
+</listitem>
+            <listitem><para><link linkend="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41">eMpbError_t</link> <link linkend="_mpblibs_8h_1a57dc81afcaf7f53c3f40fbf94ce543e8">eMpblibsSPIBytesReadWrite</link> (<link linkend="_mpblibs_8h_1aea4188cfb1472f9bb606fd2566133e34">handle_t</link> xSPIx, void *const pvBytesOut, void *pvBytesIn, size_t xBytes)</para>
+</listitem>
+            <listitem><para><link linkend="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41">eMpbError_t</link> <link linkend="_mpblibs_8h_1a9c8ed36ba5fc73abc945db36f07093e2">eMpblibsSPIBlockReadWrite</link> (<link linkend="_mpblibs_8h_1a1baaea34cc49f177f93f0e10145eb352">eAccess_t</link> eAccess, <link linkend="_mpblibs_8h_1aea4188cfb1472f9bb606fd2566133e34">handle_t</link> xSPIx, void *pvBuffer, size_t xBytes, size_t *pxBytesRW)</para>
+</listitem>
+            <listitem><para><link linkend="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41">eMpbError_t</link> <link linkend="_mpblibs_8h_1a99671c017e74b8e321883711657d379d">eMpblibsUartInit</link> (<link linkend="_mpblibs_8h_1aea4188cfb1472f9bb606fd2566133e34">handle_t</link> xUARTx, <link linkend="_mpblibs_8h_1aea4188cfb1472f9bb606fd2566133e34">handle_t</link> xGPIOx, uint32_t ulPin, uint32_t ulBaudRate, uint8_t ucWordLength, uint8_t ucStopBits, uint8_t ucParity, size_t xSilenceBits, size_t xFrameTimeoutBits)</para>
+</listitem>
+            <listitem><para><link linkend="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41">eMpbError_t</link> <link linkend="_mpblibs_8h_1a4985f208ca479e6220b1c7ee29272393">eMpblibsUartRead</link> (<link linkend="_mpblibs_8h_1aea4188cfb1472f9bb606fd2566133e34">handle_t</link> xUARTx, void *const pvBuffer, size_t xBytes, size_t *pxBytesRead, uint32_t ulMsTimeout)</para>
+</listitem>
+            <listitem><para><link linkend="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41">eMpbError_t</link> <link linkend="_mpblibs_8h_1a9df6d174472789a6686acf8382f477e5">eMpblibsUartWrite</link> (<link linkend="_mpblibs_8h_1aea4188cfb1472f9bb606fd2566133e34">handle_t</link> xUARTx, const void *pvBuffer, size_t xBytes, size_t *pxBytesWritten, uint32_t ulMsTimeout)</para>
+</listitem>
+            <listitem><para><link linkend="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41">eMpbError_t</link> <link linkend="_mpblibs_8h_1abb13ab3139806d22c7bc4bb531005d29">eMpblibsPwrMonInit</link> (void)</para>
+</listitem>
+            <listitem><para><link linkend="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41">eMpbError_t</link> <link linkend="_mpblibs_8h_1aabbefd5da0d16e9307544e02b15bc07b">eMpblibsPwrMonWaitPwrUp</link> (void)</para>
+</listitem>
+            <listitem><para>int <link linkend="_mpblibs_8h_1a97ce594607035faceb813e22acc64030">sMpblibsPwrMonIsLow</link> (void)</para>
+</listitem>
+            <listitem><para>void <link linkend="_mpblibs_8h_1a6e744a80f67d4b8a6548f8eb7b663470">vMpblibsPowerMonitorSoftReset</link> (void)</para>
+
+<para>Do a soft reset of the system. </para>
+</listitem>
+            <listitem><para><link linkend="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41">eMpbError_t</link> <link linkend="_mpblibs_8h_1a1ef53a0f200b470e6854c1d5c1cca538">eMpblibsAnalogReadRaw</link> (<link linkend="_mpblibs_8h_1aea4188cfb1472f9bb606fd2566133e34">handle_t</link> xANALOGx, int32_t *plReading)</para>
+</listitem>
+            <listitem><para><link linkend="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41">eMpbError_t</link> <link linkend="_mpblibs_8h_1ab2970804a7f6d102a545f0339b432314">eMpblibsAnalogReadmV</link> (<link linkend="_mpblibs_8h_1aea4188cfb1472f9bb606fd2566133e34">handle_t</link> xANALOGx, int32_t *plReading)</para>
+</listitem>
+            <listitem><para><link linkend="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41">eMpbError_t</link> <link linkend="_mpblibs_8h_1a794c9ea4ea4b68f2495afa6cccaf4355">eMpblibsAnalogReadRes</link> (<link linkend="_mpblibs_8h_1aea4188cfb1472f9bb606fd2566133e34">handle_t</link> xANALOGx, int32_t lResolution, int32_t *plReading)</para>
+</listitem>
+            <listitem><para><link linkend="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41">eMpbError_t</link> <link linkend="_mpblibs_8h_1a967a436257376a53a7f384abea242671">eMpblibsAnalogWriteRaw</link> (<link linkend="_mpblibs_8h_1aea4188cfb1472f9bb606fd2566133e34">handle_t</link> xANALOGx, int32_t lOutput)</para>
+</listitem>
+            <listitem><para><link linkend="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41">eMpbError_t</link> <link linkend="_mpblibs_8h_1a6d55173401c7ed0bc62ee51c6666a475">eMpblibsAnalogWritemV</link> (<link linkend="_mpblibs_8h_1aea4188cfb1472f9bb606fd2566133e34">handle_t</link> xANALOGx, int32_t lOutput)</para>
+</listitem>
+            <listitem><para><link linkend="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41">eMpbError_t</link> <link linkend="_mpblibs_8h_1a9deebf53f2e0d959103353c0d2a24a51">eMpblibsAnalogWriteRes</link> (<link linkend="_mpblibs_8h_1aea4188cfb1472f9bb606fd2566133e34">handle_t</link> xANALOGx, int32_t lResolution, int32_t lOutput)</para>
+</listitem>
+            <listitem><para><link linkend="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41">eMpbError_t</link> <link linkend="_mpblibs_8h_1af12f280fd24c7935ac12121c97fdf806">eMpblibsBinaryRead</link> (<link linkend="_mpblibs_8h_1aea4188cfb1472f9bb606fd2566133e34">handle_t</link> xBINARYx, <link linkend="_mpblibs_8h_1a1116febe513ac4a62e1096d1fc2c363a">eBool_t</link> *peState)</para>
+</listitem>
+            <listitem><para><link linkend="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41">eMpbError_t</link> <link linkend="_mpblibs_8h_1a3fc5cfd4a4f6078f66e17c010fd6243b">eMpblibsBinaryWrite</link> (<link linkend="_mpblibs_8h_1aea4188cfb1472f9bb606fd2566133e34">handle_t</link> xBINARYx, <link linkend="_mpblibs_8h_1a1116febe513ac4a62e1096d1fc2c363a">eBool_t</link> eState)</para>
+</listitem>
+            <listitem><para><link linkend="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41">eMpbError_t</link> <link linkend="_mpblibs_8h_1a43103ae924d54707ea536cd8bccc330d">eMpblibsBinaryToggle</link> (<link linkend="_mpblibs_8h_1aea4188cfb1472f9bb606fd2566133e34">handle_t</link> xBINARYx)</para>
+</listitem>
+            <listitem><para><link linkend="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41">eMpbError_t</link> <link linkend="_mpblibs_8h_1ad036997433fb1293f106a4bb696943ef">eMpblibsMalloc</link> (void **ppvMemBlock, size_t xSize)</para>
+</listitem>
+            <listitem><para><link linkend="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41">eMpbError_t</link> <link linkend="_mpblibs_8h_1a6b70ece72c639f88ecdb64e1bff68d52">eMpblibsRealloc</link> (void **ppvMemBlock, size_t xSize)</para>
+</listitem>
+            <listitem><para>void <link linkend="_mpblibs_8h_1abf9d6756e1c391f627ef82cedfbd3daf">vMpblibsFree</link> (void **ppvMemBlock)</para>
+</listitem>
+            <listitem><para>size_t <link linkend="_mpblibs_8h_1adbe40fe763b2ce7c126b0002f104b9af">xMpblibsGetFreeHeapSize</link> (void)</para>
+</listitem>
+            <listitem><para>size_t <link linkend="_mpblibs_8h_1af4a5651f995c3e909071126a6c2efddc">xMpblibsGetMinEverFreeHeapSize</link> (void)</para>
+</listitem>
+            <listitem><para>void <link linkend="_mpblibs_8h_1a35e6a0f02f66b82bdf12c11321b1e008">vMpblibsMallocFailedHook</link> (size_t xSizeRequired)</para>
+</listitem>
+            <listitem><para>void <link linkend="_mpblibs_8h_1a0dbc68dca2eb32f532e33d5cb19010df">vMpblibsAssertFailed</link> (char const *func, char const *file, int line)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>This header provides common definitions needed mpb library @description. </para>
+
+<para><formalpara><title>Author</title>
+
+<para>juan </para>
+</formalpara>
+<formalpara><title>Date</title>
+
+<para>Created on 2021-03-1 </para>
+</formalpara>
+<note><title>Note</title>
+
+<para>indent using tab size : 4 </para>
+</note>
+<formalpara><title>Copyright</title>
+
+<para>MPB, Montreal, Qc <formalpara><title><informaltable frame='none'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>&#169; COPYRIGHT 2021 Mpb, Montreal, Quebec, Canada</entry></row></tbody></tgroup></informaltable></title></formalpara>
+</para>
+</formalpara>
+<formalpara><title><informaltable frame='none'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>&#169; All rights reserved.</entry></row></tbody></tgroup></informaltable></title></formalpara>
+</para>
+
+<para>
+<literallayout>&#160;&#xa;</literallayout>
+
+<literallayout>&#160;&#xa;</literallayout>
+ <informaltable frame='none'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>This document contains confidential and proprietary information of MPB (subject to a non-disclosure agreement) and shall</entry></row></tbody></tgroup></informaltable> <informaltable frame='none'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>not be disclosed, distributed, or reproduced in whole or in part, without the prior written authorization of NEPTRONIC.</entry></row></tbody></tgroup></informaltable> </para>
+</section>
+<section>
+<title>Macro Definition Documentation</title>
+<anchor xml:id="_mpblibs_8h_1a64f83e73cfc447367c9ef8c1cacabe8c"/>    <section>
+    <title>__nop</title>
+<indexterm><primary>__nop</primary><secondary>mpblibs.h</secondary></indexterm>
+<indexterm><primary>mpblibs.h</primary><secondary>__nop</secondary></indexterm>
+<para><computeroutput>#define __nop( )</computeroutput></para><para>
+
+<para>
+<literallayout>&#160;&#xa;</literallayout>
+ </para>
+</para>
+<para>
+Definition at line 107 of file mpblibs.h.</para>
+    </section><anchor xml:id="_mpblibs_8h_1a5be40d2b5f27bf3acccdc6c8d90171c3"/>    <section>
+    <title>eMpbATTR_PACKED</title>
+<indexterm><primary>eMpbATTR_PACKED</primary><secondary>mpblibs.h</secondary></indexterm>
+<indexterm><primary>mpblibs.h</primary><secondary>eMpbATTR_PACKED</secondary></indexterm>
+<para><computeroutput>#define eMpbATTR_PACKED   __packed</computeroutput></para><para>
+Definition at line 95 of file mpblibs.h.</para>
+    </section><anchor xml:id="_mpblibs_8h_1ac7c4b8d34e6a2bba87b3087c3ed85d33"/>    <section>
+    <title>USE_HEAP</title>
+<indexterm><primary>USE_HEAP</primary><secondary>mpblibs.h</secondary></indexterm>
+<indexterm><primary>mpblibs.h</primary><secondary>USE_HEAP</secondary></indexterm>
+<para><computeroutput>#define USE_HEAP</computeroutput></para><para>
+Definition at line 91 of file mpblibs.h.</para>
+    </section><anchor xml:id="_mpblibs_8h_1a2e90499a479278efe715329cf93c04e6"/>    <section>
+    <title>USE_MALLOC_FAILED_HOOK</title>
+<indexterm><primary>USE_MALLOC_FAILED_HOOK</primary><secondary>mpblibs.h</secondary></indexterm>
+<indexterm><primary>mpblibs.h</primary><secondary>USE_MALLOC_FAILED_HOOK</secondary></indexterm>
+<para><computeroutput>#define USE_MALLOC_FAILED_HOOK</computeroutput></para><para>
+Definition at line 93 of file mpblibs.h.</para>
+    </section><anchor xml:id="_mpblibs_8h_1aaef0f1be1a04bc1e009f58444c78bfd8"/>    <section>
+    <title>USE_NEP_HEAP</title>
+<indexterm><primary>USE_NEP_HEAP</primary><secondary>mpblibs.h</secondary></indexterm>
+<indexterm><primary>mpblibs.h</primary><secondary>USE_NEP_HEAP</secondary></indexterm>
+<para><computeroutput>#define USE_NEP_HEAP</computeroutput></para><para>
+Definition at line 92 of file mpblibs.h.</para>
+    </section><anchor xml:id="_mpblibs_8h_1a32b8b02632a14416704460518cdedda5"/>    <section>
+    <title>vMpblibsAssertParam</title>
+<indexterm><primary>vMpblibsAssertParam</primary><secondary>mpblibs.h</secondary></indexterm>
+<indexterm><primary>mpblibs.h</primary><secondary>vMpblibsAssertParam</secondary></indexterm>
+<para><computeroutput>#define vMpblibsAssertParam( expr)</computeroutput></para>
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>expr</entry>
+                                <entry>
+<para>expression to be evaluated </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <note><title>Note</title>
+
+<para></para>
+</note>
+</para>
+<para>
+Definition at line 337 of file mpblibs.h.</para>
+</section>
+</section>
+<section>
+<title>Typedef Documentation</title>
+<anchor xml:id="_mpblibs_8h_1aea4188cfb1472f9bb606fd2566133e34"/>    <section>
+    <title>handle_t</title>
+<indexterm><primary>handle_t</primary><secondary>mpblibs.h</secondary></indexterm>
+<indexterm><primary>mpblibs.h</primary><secondary>handle_t</secondary></indexterm>
+<para><computeroutput>typedef uint32_t <link linkend="_mpblibs_8h_1aea4188cfb1472f9bb606fd2566133e34">handle_t</link></computeroutput></para><para>
+
+<para>user define handle </para>
+</para>
+<para>
+Definition at line 86 of file mpblibs.h.</para>
+</section>
+</section>
+<section>
+<title>Enumeration Type Documentation</title>
+<anchor xml:id="_mpblibs_8h_1a1baaea34cc49f177f93f0e10145eb352"/>    <section>
+    <title>eAccess_t</title>
+<indexterm><primary>eAccess_t</primary><secondary>mpblibs.h</secondary></indexterm>
+<indexterm><primary>mpblibs.h</primary><secondary>eAccess_t</secondary></indexterm>
+<para><computeroutput>enum <link linkend="_mpblibs_8h_1a1baaea34cc49f177f93f0e10145eb352">eAccess_t</link></computeroutput></para><para>
+
+<para>Mpbtronic define access. </para>
+</para>
+<informaltable frame="all">
+<title>Enumerator</title>
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<tbody>
+<row><entry><indexterm><primary>eREAD_ACCESS</primary><secondary>mpblibs.h</secondary></indexterm>
+<indexterm><primary>mpblibs.h</primary><secondary>eREAD_ACCESS</secondary></indexterm>
+<anchor xml:id="_mpblibs_8h_1a1baaea34cc49f177f93f0e10145eb352a9fa9300dac6bd2ee4fe699e1024d94ee"/>eREAD_ACCESS</entry><entry></entry></row><row><entry><indexterm><primary>eWRITE_ACCESS</primary><secondary>mpblibs.h</secondary></indexterm>
+<indexterm><primary>mpblibs.h</primary><secondary>eWRITE_ACCESS</secondary></indexterm>
+<anchor xml:id="_mpblibs_8h_1a1baaea34cc49f177f93f0e10145eb352ae428fb1494a19ae3c65640137906988e"/>eWRITE_ACCESS</entry><entry></entry></row>    </tbody>
+    </tgroup>
+</informaltable>
+<para>
+Definition at line 66 of file mpblibs.h.</para>
+    </section><anchor xml:id="_mpblibs_8h_1a1116febe513ac4a62e1096d1fc2c363a"/>    <section>
+    <title>eBool_t</title>
+<indexterm><primary>eBool_t</primary><secondary>mpblibs.h</secondary></indexterm>
+<indexterm><primary>mpblibs.h</primary><secondary>eBool_t</secondary></indexterm>
+<para><computeroutput>enum <link linkend="_mpblibs_8h_1a1116febe513ac4a62e1096d1fc2c363a">eBool_t</link></computeroutput></para><para>
+
+<para>boolean definition </para>
+</para>
+<informaltable frame="all">
+<title>Enumerator</title>
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<tbody>
+<row><entry><indexterm><primary>eFalse</primary><secondary>mpblibs.h</secondary></indexterm>
+<indexterm><primary>mpblibs.h</primary><secondary>eFalse</secondary></indexterm>
+<anchor xml:id="_mpblibs_8h_1a1116febe513ac4a62e1096d1fc2c363aa511514f9eb3e5e6e7d2474a98c17bc95"/>eFalse</entry><entry></entry></row><row><entry><indexterm><primary>eTrue</primary><secondary>mpblibs.h</secondary></indexterm>
+<indexterm><primary>mpblibs.h</primary><secondary>eTrue</secondary></indexterm>
+<anchor xml:id="_mpblibs_8h_1a1116febe513ac4a62e1096d1fc2c363aa82bcaa7cbf3a5b23fc4fba17f9261272"/>eTrue</entry><entry></entry></row>    </tbody>
+    </tgroup>
+</informaltable>
+<para>
+Definition at line 76 of file mpblibs.h.</para>
+    </section><anchor xml:id="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41"/>    <section>
+    <title>eMpbError_t</title>
+<indexterm><primary>eMpbError_t</primary><secondary>mpblibs.h</secondary></indexterm>
+<indexterm><primary>mpblibs.h</primary><secondary>eMpbError_t</secondary></indexterm>
+<para><computeroutput>enum <link linkend="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41">eMpbError_t</link></computeroutput></para><para>
+
+<para>Mpb defined error codes. </para>
+</para>
+<informaltable frame="all">
+<title>Enumerator</title>
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<tbody>
+<row><entry><indexterm><primary>eSuccess</primary><secondary>mpblibs.h</secondary></indexterm>
+<indexterm><primary>mpblibs.h</primary><secondary>eSuccess</secondary></indexterm>
+<anchor xml:id="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41a3df453108b088af1ab4d781dcf1d0c15"/>eSuccess</entry><entry></entry></row><row><entry><indexterm><primary>eInvalidParameter</primary><secondary>mpblibs.h</secondary></indexterm>
+<indexterm><primary>mpblibs.h</primary><secondary>eInvalidParameter</secondary></indexterm>
+<anchor xml:id="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41a3850b8824af139a4e2f0f5bcc536ec16"/>eInvalidParameter</entry><entry></entry></row><row><entry><indexterm><primary>eAccessDenied</primary><secondary>mpblibs.h</secondary></indexterm>
+<indexterm><primary>mpblibs.h</primary><secondary>eAccessDenied</secondary></indexterm>
+<anchor xml:id="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41a5f9683ba69a8e110f1e9d9185fbf0236"/>eAccessDenied</entry><entry></entry></row><row><entry><indexterm><primary>eBusy</primary><secondary>mpblibs.h</secondary></indexterm>
+<indexterm><primary>mpblibs.h</primary><secondary>eBusy</secondary></indexterm>
+<anchor xml:id="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41a3def441bb594afa0f663b20ed78bc9a8"/>eBusy</entry><entry></entry></row><row><entry><indexterm><primary>eTimeout</primary><secondary>mpblibs.h</secondary></indexterm>
+<indexterm><primary>mpblibs.h</primary><secondary>eTimeout</secondary></indexterm>
+<anchor xml:id="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41a599c82586e4b1b1db272307f53b38aa4"/>eTimeout</entry><entry></entry></row><row><entry><indexterm><primary>eBufferEmpty</primary><secondary>mpblibs.h</secondary></indexterm>
+<indexterm><primary>mpblibs.h</primary><secondary>eBufferEmpty</secondary></indexterm>
+<anchor xml:id="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41a430555d8b53bb7285afcc709f5115a25"/>eBufferEmpty</entry><entry></entry></row><row><entry><indexterm><primary>eBufferFull</primary><secondary>mpblibs.h</secondary></indexterm>
+<indexterm><primary>mpblibs.h</primary><secondary>eBufferFull</secondary></indexterm>
+<anchor xml:id="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41a0a3c97f7fb557ed9b295e7af58cd3128"/>eBufferFull</entry><entry></entry></row><row><entry><indexterm><primary>eBufferOverflow</primary><secondary>mpblibs.h</secondary></indexterm>
+<indexterm><primary>mpblibs.h</primary><secondary>eBufferOverflow</secondary></indexterm>
+<anchor xml:id="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41a3610e92d54689c1f61254a55170eddac"/>eBufferOverflow</entry><entry></entry></row><row><entry><indexterm><primary>eOutOfMemory</primary><secondary>mpblibs.h</secondary></indexterm>
+<indexterm><primary>mpblibs.h</primary><secondary>eOutOfMemory</secondary></indexterm>
+<anchor xml:id="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41ab41c7d96f3b5a6c9a1056665a2d37851"/>eOutOfMemory</entry><entry></entry></row><row><entry><indexterm><primary>eCheckFailed</primary><secondary>mpblibs.h</secondary></indexterm>
+<indexterm><primary>mpblibs.h</primary><secondary>eCheckFailed</secondary></indexterm>
+<anchor xml:id="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41a9f5feef0f1f1ff204fd87a98c55d4095"/>eCheckFailed</entry><entry></entry></row><row><entry><indexterm><primary>eCorrupted</primary><secondary>mpblibs.h</secondary></indexterm>
+<indexterm><primary>mpblibs.h</primary><secondary>eCorrupted</secondary></indexterm>
+<anchor xml:id="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41aa72aef087c5a686ead6c3d7c4fe9af74"/>eCorrupted</entry><entry></entry></row><row><entry><indexterm><primary>eOutOfRange</primary><secondary>mpblibs.h</secondary></indexterm>
+<indexterm><primary>mpblibs.h</primary><secondary>eOutOfRange</secondary></indexterm>
+<anchor xml:id="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41ae3501655f30f07acaf1b0003bc6e5e62"/>eOutOfRange</entry><entry></entry></row><row><entry><indexterm><primary>eNotFound</primary><secondary>mpblibs.h</secondary></indexterm>
+<indexterm><primary>mpblibs.h</primary><secondary>eNotFound</secondary></indexterm>
+<anchor xml:id="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41a8ce9ac1d4d3ff6d7603156c8e9db6552"/>eNotFound</entry><entry></entry></row><row><entry><indexterm><primary>eInvalidObject</primary><secondary>mpblibs.h</secondary></indexterm>
+<indexterm><primary>mpblibs.h</primary><secondary>eInvalidObject</secondary></indexterm>
+<anchor xml:id="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41a2cdfc91caa9a3637ca36317db742a47a"/>eInvalidObject</entry><entry></entry></row><row><entry><indexterm><primary>eNotDiscarded</primary><secondary>mpblibs.h</secondary></indexterm>
+<indexterm><primary>mpblibs.h</primary><secondary>eNotDiscarded</secondary></indexterm>
+<anchor xml:id="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41abbb0a5db83a6ea06c8a1c075a0d835c4"/>eNotDiscarded</entry><entry></entry></row><row><entry><indexterm><primary>eNotRegistered</primary><secondary>mpblibs.h</secondary></indexterm>
+<indexterm><primary>mpblibs.h</primary><secondary>eNotRegistered</secondary></indexterm>
+<anchor xml:id="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41afb7dc9bcbc444b967afb095ece4a6fbc"/>eNotRegistered</entry><entry></entry></row><row><entry><indexterm><primary>ePropertyNotSuported</primary><secondary>mpblibs.h</secondary></indexterm>
+<indexterm><primary>mpblibs.h</primary><secondary>ePropertyNotSuported</secondary></indexterm>
+<anchor xml:id="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41aa92c7ecd0c521213904721b3e68a65c7"/>ePropertyNotSuported</entry><entry></entry></row><row><entry><indexterm><primary>eObjectTypeNotSuported</primary><secondary>mpblibs.h</secondary></indexterm>
+<indexterm><primary>mpblibs.h</primary><secondary>eObjectTypeNotSuported</secondary></indexterm>
+<anchor xml:id="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41a8dfbd2aec3afb9ccf44633b7175c2d42"/>eObjectTypeNotSuported</entry><entry></entry></row><row><entry><indexterm><primary>eDriverError</primary><secondary>mpblibs.h</secondary></indexterm>
+<indexterm><primary>mpblibs.h</primary><secondary>eDriverError</secondary></indexterm>
+<anchor xml:id="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41a24dab14c021bd5e4d08ba769c05a2b6a"/>eDriverError</entry><entry></entry></row><row><entry><indexterm><primary>eUnknownError</primary><secondary>mpblibs.h</secondary></indexterm>
+<indexterm><primary>mpblibs.h</primary><secondary>eUnknownError</secondary></indexterm>
+<anchor xml:id="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41afa17af642e091fa381c0f4b825e59850"/>eUnknownError</entry><entry></entry></row><row><entry><indexterm><primary>eInternalDeviceError</primary><secondary>mpblibs.h</secondary></indexterm>
+<indexterm><primary>mpblibs.h</primary><secondary>eInternalDeviceError</secondary></indexterm>
+<anchor xml:id="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41a4565dfb18b7a56d3a5b875ca488a6b5b"/>eInternalDeviceError</entry><entry></entry></row>    </tbody>
+    </tgroup>
+</informaltable>
+<para>
+Definition at line 37 of file mpblibs.h.</para>
+</section>
+</section>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_mpblibs_8h_1ab2970804a7f6d102a545f0339b432314"/>    <section>
+    <title>eMpblibsAnalogReadmV()</title>
+<indexterm><primary>eMpblibsAnalogReadmV</primary><secondary>mpblibs.h</secondary></indexterm>
+<indexterm><primary>mpblibs.h</primary><secondary>eMpblibsAnalogReadmV</secondary></indexterm>
+<para><computeroutput><link linkend="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41">eMpbError_t</link> eMpblibsAnalogReadmV (<link linkend="_mpblibs_8h_1aea4188cfb1472f9bb606fd2566133e34">handle_t</link> xANALOGx, int32_t * plReading)</computeroutput></para>    </section><anchor xml:id="_mpblibs_8h_1a1ef53a0f200b470e6854c1d5c1cca538"/>    <section>
+    <title>eMpblibsAnalogReadRaw()</title>
+<indexterm><primary>eMpblibsAnalogReadRaw</primary><secondary>mpblibs.h</secondary></indexterm>
+<indexterm><primary>mpblibs.h</primary><secondary>eMpblibsAnalogReadRaw</secondary></indexterm>
+<para><computeroutput><link linkend="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41">eMpbError_t</link> eMpblibsAnalogReadRaw (<link linkend="_mpblibs_8h_1aea4188cfb1472f9bb606fd2566133e34">handle_t</link> xANALOGx, int32_t * plReading)</computeroutput></para>
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>xANALOGx</entry>
+                                <entry>
+<para>Analog peripheral value handle </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>plReading</entry>
+                                <entry>
+<para>Pointer on variable where to save reading value. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>lResolution</entry>
+                                <entry>
+<para>resolution or range in which to return reading </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>success or librairie error message </para>
+</formalpara>
+<note><title>Note</title>
+
+<para></para>
+</note>
+</para>
+    </section><anchor xml:id="_mpblibs_8h_1a794c9ea4ea4b68f2495afa6cccaf4355"/>    <section>
+    <title>eMpblibsAnalogReadRes()</title>
+<indexterm><primary>eMpblibsAnalogReadRes</primary><secondary>mpblibs.h</secondary></indexterm>
+<indexterm><primary>mpblibs.h</primary><secondary>eMpblibsAnalogReadRes</secondary></indexterm>
+<para><computeroutput><link linkend="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41">eMpbError_t</link> eMpblibsAnalogReadRes (<link linkend="_mpblibs_8h_1aea4188cfb1472f9bb606fd2566133e34">handle_t</link> xANALOGx, int32_t lResolution, int32_t * plReading)</computeroutput></para>    </section><anchor xml:id="_mpblibs_8h_1a6d55173401c7ed0bc62ee51c6666a475"/>    <section>
+    <title>eMpblibsAnalogWritemV()</title>
+<indexterm><primary>eMpblibsAnalogWritemV</primary><secondary>mpblibs.h</secondary></indexterm>
+<indexterm><primary>mpblibs.h</primary><secondary>eMpblibsAnalogWritemV</secondary></indexterm>
+<para><computeroutput><link linkend="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41">eMpbError_t</link> eMpblibsAnalogWritemV (<link linkend="_mpblibs_8h_1aea4188cfb1472f9bb606fd2566133e34">handle_t</link> xANALOGx, int32_t lOutput)</computeroutput></para>    </section><anchor xml:id="_mpblibs_8h_1a967a436257376a53a7f384abea242671"/>    <section>
+    <title>eMpblibsAnalogWriteRaw()</title>
+<indexterm><primary>eMpblibsAnalogWriteRaw</primary><secondary>mpblibs.h</secondary></indexterm>
+<indexterm><primary>mpblibs.h</primary><secondary>eMpblibsAnalogWriteRaw</secondary></indexterm>
+<para><computeroutput><link linkend="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41">eMpbError_t</link> eMpblibsAnalogWriteRaw (<link linkend="_mpblibs_8h_1aea4188cfb1472f9bb606fd2566133e34">handle_t</link> xANALOGx, int32_t lOutput)</computeroutput></para>
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>xANALOGx</entry>
+                                <entry>
+<para>Analog peripheral value handle </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>lOutput</entry>
+                                <entry>
+<para>value to write to Analog peripheral </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>lResolution</entry>
+                                <entry>
+<para>resolution or range of lOutput </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>success or librairie error message </para>
+</formalpara>
+<note><title>Note</title>
+
+<para></para>
+</note>
+</para>
+    </section><anchor xml:id="_mpblibs_8h_1a9deebf53f2e0d959103353c0d2a24a51"/>    <section>
+    <title>eMpblibsAnalogWriteRes()</title>
+<indexterm><primary>eMpblibsAnalogWriteRes</primary><secondary>mpblibs.h</secondary></indexterm>
+<indexterm><primary>mpblibs.h</primary><secondary>eMpblibsAnalogWriteRes</secondary></indexterm>
+<para><computeroutput><link linkend="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41">eMpbError_t</link> eMpblibsAnalogWriteRes (<link linkend="_mpblibs_8h_1aea4188cfb1472f9bb606fd2566133e34">handle_t</link> xANALOGx, int32_t lResolution, int32_t lOutput)</computeroutput></para>    </section><anchor xml:id="_mpblibs_8h_1af12f280fd24c7935ac12121c97fdf806"/>    <section>
+    <title>eMpblibsBinaryRead()</title>
+<indexterm><primary>eMpblibsBinaryRead</primary><secondary>mpblibs.h</secondary></indexterm>
+<indexterm><primary>mpblibs.h</primary><secondary>eMpblibsBinaryRead</secondary></indexterm>
+<para><computeroutput><link linkend="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41">eMpbError_t</link> eMpblibsBinaryRead (<link linkend="_mpblibs_8h_1aea4188cfb1472f9bb606fd2566133e34">handle_t</link> xBINARYx, <link linkend="_mpblibs_8h_1a1116febe513ac4a62e1096d1fc2c363a">eBool_t</link> * peState)</computeroutput></para>
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>xBINARYx</entry>
+                                <entry>
+<para>Binary peripheral value handle </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>peState</entry>
+                                <entry>
+<para>Pointer on variable where to save reading value. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>eState</entry>
+                                <entry>
+<para>value to write to binary peripheral </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>success or librairie error message </para>
+</formalpara>
+<note><title>Note</title>
+
+<para></para>
+</note>
+</para>
+    </section><anchor xml:id="_mpblibs_8h_1a43103ae924d54707ea536cd8bccc330d"/>    <section>
+    <title>eMpblibsBinaryToggle()</title>
+<indexterm><primary>eMpblibsBinaryToggle</primary><secondary>mpblibs.h</secondary></indexterm>
+<indexterm><primary>mpblibs.h</primary><secondary>eMpblibsBinaryToggle</secondary></indexterm>
+<para><computeroutput><link linkend="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41">eMpbError_t</link> eMpblibsBinaryToggle (<link linkend="_mpblibs_8h_1aea4188cfb1472f9bb606fd2566133e34">handle_t</link> xBINARYx)</computeroutput></para>    </section><anchor xml:id="_mpblibs_8h_1a3fc5cfd4a4f6078f66e17c010fd6243b"/>    <section>
+    <title>eMpblibsBinaryWrite()</title>
+<indexterm><primary>eMpblibsBinaryWrite</primary><secondary>mpblibs.h</secondary></indexterm>
+<indexterm><primary>mpblibs.h</primary><secondary>eMpblibsBinaryWrite</secondary></indexterm>
+<para><computeroutput><link linkend="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41">eMpbError_t</link> eMpblibsBinaryWrite (<link linkend="_mpblibs_8h_1aea4188cfb1472f9bb606fd2566133e34">handle_t</link> xBINARYx, <link linkend="_mpblibs_8h_1a1116febe513ac4a62e1096d1fc2c363a">eBool_t</link> eState)</computeroutput></para>    </section><anchor xml:id="_mpblibs_8h_1ab36b1093281a79e89df6bc15c7665638"/>    <section>
+    <title>eMpblibsClose()</title>
+<indexterm><primary>eMpblibsClose</primary><secondary>mpblibs.h</secondary></indexterm>
+<indexterm><primary>mpblibs.h</primary><secondary>eMpblibsClose</secondary></indexterm>
+<para><computeroutput><link linkend="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41">eMpbError_t</link> eMpblibsClose (<link linkend="_mpblibs_8h_1aea4188cfb1472f9bb606fd2566133e34">handle_t</link> xStream)</computeroutput></para><para>
+
+<para>closes, optionnaly releases control and optionally deinitializes peripheral channel </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>xStream</entry>
+                                <entry>
+<para>Application specific peripheral channel identifier </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>success or librairie error message </para>
+</formalpara>
+<note><title>Note</title>
+
+<para>This is a good place to add RTOS support for mutex. eMpb_Open should be called for multiple consecutive access algorithm along with eMpb_Close. </para>
+</note>
+</para>
+    </section><anchor xml:id="_mpblibs_8h_1ae24c87925bec628438823d751ce28945"/>    <section>
+    <title>eMpblibsI2CRequest()</title>
+<indexterm><primary>eMpblibsI2CRequest</primary><secondary>mpblibs.h</secondary></indexterm>
+<indexterm><primary>mpblibs.h</primary><secondary>eMpblibsI2CRequest</secondary></indexterm>
+<para><computeroutput><link linkend="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41">eMpbError_t</link> eMpblibsI2CRequest (<link linkend="_mpblibs_8h_1a1baaea34cc49f177f93f0e10145eb352">eAccess_t</link> eAccess, <link linkend="_mpblibs_8h_1aea4188cfb1472f9bb606fd2566133e34">handle_t</link> xI2Cx, uint8_t ucDevAddr, size_t xAddrCmdSize, const void * pvAddrCmd, void * pvBuffer, size_t xBytes, size_t * pxBytesRW)</computeroutput></para><para>
+
+<para>
+<literallayout>&#160;&#xa;</literallayout>
+ </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>eAccess</entry>
+                                <entry>
+<para>Read / Write access request </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>xI2Cx</entry>
+                                <entry>
+<para>I2C peripheral handle, HAL dependant. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>DevAddr</entry>
+                                <entry>
+<para>Application specific external device address </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>xAddrCmdSize</entry>
+                                <entry>
+<para>Size in bytes of Memory Address or Device Command sent at the beginning of transaction. Can be 0. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>pvAddrCmd</entry>
+                                <entry>
+<para>Pointer to address or command buffer sent. NULL if xAddrCmdSize = 0, else not NULL. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>pvBuffer</entry>
+                                <entry>
+<para>Pointer on data to be written or where to save read bytes </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>xBytes</entry>
+                                <entry>
+<para>number of bytes to be written or read </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>pxBytesRW</entry>
+                                <entry>
+<para>Pointer where to save number of bytes written or read. Can be NULL. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>success or librairie error message </para>
+</formalpara>
+<note><title>Note</title>
+
+<para>
+<literallayout>&#160;&#xa;</literallayout>
+ </para>
+</note>
+</para>
+    </section><anchor xml:id="_mpblibs_8h_1ae8ab22981886806f6c96eddcf3648b99"/>    <section>
+    <title>eMpblibsIoCtl()</title>
+<indexterm><primary>eMpblibsIoCtl</primary><secondary>mpblibs.h</secondary></indexterm>
+<indexterm><primary>mpblibs.h</primary><secondary>eMpblibsIoCtl</secondary></indexterm>
+<para><computeroutput><link linkend="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41">eMpbError_t</link> eMpblibsIoCtl (<link linkend="_mpblibs_8h_1aea4188cfb1472f9bb606fd2566133e34">handle_t</link> xStream, uint32_t ulRequest, void * pvValue)</computeroutput></para>
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>xStream</entry>
+                                <entry>
+<para>Application specific peripheral channel identifier </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>ulRequest</entry>
+                                <entry>
+<para>Control Request Identifier. Application Specific. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>pvValue</entry>
+                                <entry>
+<para>pointer on write value or where to save read value. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>success or librairie error message </para>
+</formalpara>
+<note><title>Note</title>
+
+<para></para>
+</note>
+</para>
+    </section><anchor xml:id="_mpblibs_8h_1ad036997433fb1293f106a4bb696943ef"/>    <section>
+    <title>eMpblibsMalloc()</title>
+<indexterm><primary>eMpblibsMalloc</primary><secondary>mpblibs.h</secondary></indexterm>
+<indexterm><primary>mpblibs.h</primary><secondary>eMpblibsMalloc</secondary></indexterm>
+<para><computeroutput><link linkend="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41">eMpbError_t</link> eMpblibsMalloc (void ** ppvMemBlock, size_t xSize)</computeroutput></para>
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>ppvMemBlock</entry>
+                                <entry>
+<para>pointer to the memory block pointer </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>xSize</entry>
+                                <entry>
+<para>size of the memory block to be allocated </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>success or librairie error message </para>
+</formalpara>
+<note><title>Note</title>
+
+<para></para>
+</note>
+</para>
+    </section><anchor xml:id="_mpblibs_8h_1a643ca31d0250ccf8bea980d017e75a58"/>    <section>
+    <title>eMpblibsOpen()</title>
+<indexterm><primary>eMpblibsOpen</primary><secondary>mpblibs.h</secondary></indexterm>
+<indexterm><primary>mpblibs.h</primary><secondary>eMpblibsOpen</secondary></indexterm>
+<para><computeroutput><link linkend="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41">eMpbError_t</link> eMpblibsOpen (<link linkend="_mpblibs_8h_1aea4188cfb1472f9bb606fd2566133e34">handle_t</link> xStream, const uint32_t ulFlags)</computeroutput></para><para>
+
+<para>opens, optionally takes control and optionally initializes an peripheral channel </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>xStream</entry>
+                                <entry>
+<para>Application specific peripheral channel identifier </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>ulFlags</entry>
+                                <entry>
+<para>Application specific flags for stream initialization </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>success or librairie error message </para>
+</formalpara>
+<note><title>Note</title>
+
+<para>A peripheral channel can be define by its communication protocole (Modbus_COM1, BACnet_COM1, etc) or by target external device driver (PCA9555_1, M24C32_1, etc) This is a good place to add RTOS support for mutex or initialize low level layer. eMpb_Open should be called for multiple consecutive access algorithm along with eMpb_Close. </para>
+</note>
+</para>
+    </section><anchor xml:id="_mpblibs_8h_1abb13ab3139806d22c7bc4bb531005d29"/>    <section>
+    <title>eMpblibsPwrMonInit()</title>
+<indexterm><primary>eMpblibsPwrMonInit</primary><secondary>mpblibs.h</secondary></indexterm>
+<indexterm><primary>mpblibs.h</primary><secondary>eMpblibsPwrMonInit</secondary></indexterm>
+<para><computeroutput><link linkend="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41">eMpbError_t</link> eMpblibsPwrMonInit (void )</computeroutput></para>
+<para><formalpara><title>Returns</title>
+
+<para>success or librairie error message </para>
+</formalpara>
+<note><title>Note</title>
+
+<para></para>
+</note>
+</para>
+    </section><anchor xml:id="_mpblibs_8h_1aabbefd5da0d16e9307544e02b15bc07b"/>    <section>
+    <title>eMpblibsPwrMonWaitPwrUp()</title>
+<indexterm><primary>eMpblibsPwrMonWaitPwrUp</primary><secondary>mpblibs.h</secondary></indexterm>
+<indexterm><primary>mpblibs.h</primary><secondary>eMpblibsPwrMonWaitPwrUp</secondary></indexterm>
+<para><computeroutput><link linkend="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41">eMpbError_t</link> eMpblibsPwrMonWaitPwrUp (void )</computeroutput></para>
+<para><formalpara><title>Returns</title>
+
+<para>success or librairie error message </para>
+</formalpara>
+<note><title>Note</title>
+
+<para></para>
+</note>
+</para>
+    </section><anchor xml:id="_mpblibs_8h_1ab33b7250bac578100156ec98be1506d5"/>    <section>
+    <title>eMpblibsRead()</title>
+<indexterm><primary>eMpblibsRead</primary><secondary>mpblibs.h</secondary></indexterm>
+<indexterm><primary>mpblibs.h</primary><secondary>eMpblibsRead</secondary></indexterm>
+<para><computeroutput><link linkend="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41">eMpbError_t</link> eMpblibsRead (<link linkend="_mpblibs_8h_1aea4188cfb1472f9bb606fd2566133e34">handle_t</link> xStream, size_t xAddrCmdSize, const void * pvAddrCmd, void *const pvBuffer, const size_t xBytes, size_t * pxBytesRead)</computeroutput></para><para>
+
+<para>
+<literallayout>&#160;&#xa;</literallayout>
+ </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>xStream</entry>
+                                <entry>
+<para>Application specific peripheral channel identifier </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>xAddrCmdSize</entry>
+                                <entry>
+<para>Size in bytes of Memory Address or Device Command sent at the beginning of transaction. Can be 0. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>pvAddrCmd</entry>
+                                <entry>
+<para>Pointer to address or command buffer sent. NULL if xAddrCmdSize = 0, else not NULL. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>pvBuffer</entry>
+                                <entry>
+<para>Pointer where to receive read data </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>xBytes</entry>
+                                <entry>
+<para>Number of bytes to be read </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>pxBytesRead</entry>
+                                <entry>
+<para>Pointer where to save number of bytes read. Can be NULL. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>success or librairie error message </para>
+</formalpara>
+<note><title>Note</title>
+
+<para>
+<literallayout>&#160;&#xa;</literallayout>
+ </para>
+</note>
+</para>
+    </section><anchor xml:id="_mpblibs_8h_1a6b70ece72c639f88ecdb64e1bff68d52"/>    <section>
+    <title>eMpblibsRealloc()</title>
+<indexterm><primary>eMpblibsRealloc</primary><secondary>mpblibs.h</secondary></indexterm>
+<indexterm><primary>mpblibs.h</primary><secondary>eMpblibsRealloc</secondary></indexterm>
+<para><computeroutput><link linkend="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41">eMpbError_t</link> eMpblibsRealloc (void ** ppvMemBlock, size_t xSize)</computeroutput></para>    </section><anchor xml:id="_mpblibs_8h_1a9c8ed36ba5fc73abc945db36f07093e2"/>    <section>
+    <title>eMpblibsSPIBlockReadWrite()</title>
+<indexterm><primary>eMpblibsSPIBlockReadWrite</primary><secondary>mpblibs.h</secondary></indexterm>
+<indexterm><primary>mpblibs.h</primary><secondary>eMpblibsSPIBlockReadWrite</secondary></indexterm>
+<para><computeroutput><link linkend="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41">eMpbError_t</link> eMpblibsSPIBlockReadWrite (<link linkend="_mpblibs_8h_1a1baaea34cc49f177f93f0e10145eb352">eAccess_t</link> eAccess, <link linkend="_mpblibs_8h_1aea4188cfb1472f9bb606fd2566133e34">handle_t</link> xSPIx, void * pvBuffer, size_t xBytes, size_t * pxBytesRW)</computeroutput></para>
+<para><formalpara><title>Returns</title>
+
+<para>success or librairie error message </para>
+</formalpara>
+<note><title>Note</title>
+
+<para></para>
+</note>
+</para>
+    </section><anchor xml:id="_mpblibs_8h_1a57dc81afcaf7f53c3f40fbf94ce543e8"/>    <section>
+    <title>eMpblibsSPIBytesReadWrite()</title>
+<indexterm><primary>eMpblibsSPIBytesReadWrite</primary><secondary>mpblibs.h</secondary></indexterm>
+<indexterm><primary>mpblibs.h</primary><secondary>eMpblibsSPIBytesReadWrite</secondary></indexterm>
+<para><computeroutput><link linkend="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41">eMpbError_t</link> eMpblibsSPIBytesReadWrite (<link linkend="_mpblibs_8h_1aea4188cfb1472f9bb606fd2566133e34">handle_t</link> xSPIx, void *const pvBytesOut, void * pvBytesIn, size_t xBytes)</computeroutput></para>
+<para><formalpara><title>Returns</title>
+
+<para>success or librairie error message </para>
+</formalpara>
+<note><title>Note</title>
+
+<para></para>
+</note>
+</para>
+    </section><anchor xml:id="_mpblibs_8h_1a99671c017e74b8e321883711657d379d"/>    <section>
+    <title>eMpblibsUartInit()</title>
+<indexterm><primary>eMpblibsUartInit</primary><secondary>mpblibs.h</secondary></indexterm>
+<indexterm><primary>mpblibs.h</primary><secondary>eMpblibsUartInit</secondary></indexterm>
+<para><computeroutput><link linkend="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41">eMpbError_t</link> eMpblibsUartInit (<link linkend="_mpblibs_8h_1aea4188cfb1472f9bb606fd2566133e34">handle_t</link> xUARTx, <link linkend="_mpblibs_8h_1aea4188cfb1472f9bb606fd2566133e34">handle_t</link> xGPIOx, uint32_t ulPin, uint32_t ulBaudRate, uint8_t ucWordLength, uint8_t ucStopBits, uint8_t ucParity, size_t xSilenceBits, size_t xFrameTimeoutBits)</computeroutput></para>
+<para><formalpara><title>Returns</title>
+
+<para>success or librairie error message </para>
+</formalpara>
+<note><title>Note</title>
+
+<para></para>
+</note>
+</para>
+    </section><anchor xml:id="_mpblibs_8h_1a4985f208ca479e6220b1c7ee29272393"/>    <section>
+    <title>eMpblibsUartRead()</title>
+<indexterm><primary>eMpblibsUartRead</primary><secondary>mpblibs.h</secondary></indexterm>
+<indexterm><primary>mpblibs.h</primary><secondary>eMpblibsUartRead</secondary></indexterm>
+<para><computeroutput><link linkend="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41">eMpbError_t</link> eMpblibsUartRead (<link linkend="_mpblibs_8h_1aea4188cfb1472f9bb606fd2566133e34">handle_t</link> xUARTx, void *const pvBuffer, size_t xBytes, size_t * pxBytesRead, uint32_t ulMsTimeout)</computeroutput></para>
+<para><formalpara><title>Returns</title>
+
+<para>success or librairie error message </para>
+</formalpara>
+<note><title>Note</title>
+
+<para></para>
+</note>
+</para>
+    </section><anchor xml:id="_mpblibs_8h_1a9df6d174472789a6686acf8382f477e5"/>    <section>
+    <title>eMpblibsUartWrite()</title>
+<indexterm><primary>eMpblibsUartWrite</primary><secondary>mpblibs.h</secondary></indexterm>
+<indexterm><primary>mpblibs.h</primary><secondary>eMpblibsUartWrite</secondary></indexterm>
+<para><computeroutput><link linkend="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41">eMpbError_t</link> eMpblibsUartWrite (<link linkend="_mpblibs_8h_1aea4188cfb1472f9bb606fd2566133e34">handle_t</link> xUARTx, const void * pvBuffer, size_t xBytes, size_t * pxBytesWritten, uint32_t ulMsTimeout)</computeroutput></para>
+<para><formalpara><title>Returns</title>
+
+<para>success or librairie error message </para>
+</formalpara>
+<note><title>Note</title>
+
+<para></para>
+</note>
+</para>
+    </section><anchor xml:id="_mpblibs_8h_1addabdaa25875fd0be83fbebf6d9b9a63"/>    <section>
+    <title>eMpblibsWrite()</title>
+<indexterm><primary>eMpblibsWrite</primary><secondary>mpblibs.h</secondary></indexterm>
+<indexterm><primary>mpblibs.h</primary><secondary>eMpblibsWrite</secondary></indexterm>
+<para><computeroutput><link linkend="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41">eMpbError_t</link> eMpblibsWrite (<link linkend="_mpblibs_8h_1aea4188cfb1472f9bb606fd2566133e34">handle_t</link> xStream, size_t xAddrCmdSize, const void * pvAddrCmd, const void * pvBuffer, const size_t xBytes, size_t * pxBytesWritten)</computeroutput></para><para>
+
+<para>
+<literallayout>&#160;&#xa;</literallayout>
+ </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>xStream</entry>
+                                <entry>
+<para>Application specific peripheral channel identifier </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>xAddrCmdSize</entry>
+                                <entry>
+<para>Size in bytes of Memory Address or Device Command sent at the beginning of transaction. Can be 0. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>pvAddrCmd</entry>
+                                <entry>
+<para>Pointer to address or command buffer sent. NULL if xAddrCmdSize = 0, else not NULL. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>pvBuffer</entry>
+                                <entry>
+<para>Pointer on data to be written </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>xBytes</entry>
+                                <entry>
+<para>number of bytes to be written </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>pxBytesRead</entry>
+                                <entry>
+<para>Pointer where to save number of bytes written. Can be NULL. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>success or librairie error message </para>
+</formalpara>
+<note><title>Note</title>
+
+<para>
+<literallayout>&#160;&#xa;</literallayout>
+ </para>
+</note>
+</para>
+    </section><anchor xml:id="_mpblibs_8h_1a97ce594607035faceb813e22acc64030"/>    <section>
+    <title>sMpblibsPwrMonIsLow()</title>
+<indexterm><primary>sMpblibsPwrMonIsLow</primary><secondary>mpblibs.h</secondary></indexterm>
+<indexterm><primary>mpblibs.h</primary><secondary>sMpblibsPwrMonIsLow</secondary></indexterm>
+<para><computeroutput>int sMpblibsPwrMonIsLow (void )</computeroutput></para>
+<para><formalpara><title>Returns</title>
+
+<para>success or librairie error message </para>
+</formalpara>
+<note><title>Note</title>
+
+<para></para>
+</note>
+</para>
+    </section><anchor xml:id="_mpblibs_8h_1a0dbc68dca2eb32f532e33d5cb19010df"/>    <section>
+    <title>vMpblibsAssertFailed()</title>
+<indexterm><primary>vMpblibsAssertFailed</primary><secondary>mpblibs.h</secondary></indexterm>
+<indexterm><primary>mpblibs.h</primary><secondary>vMpblibsAssertFailed</secondary></indexterm>
+<para><computeroutput>void vMpblibsAssertFailed (char const * func, char const * file, int line)</computeroutput></para>    </section><anchor xml:id="_mpblibs_8h_1abf9d6756e1c391f627ef82cedfbd3daf"/>    <section>
+    <title>vMpblibsFree()</title>
+<indexterm><primary>vMpblibsFree</primary><secondary>mpblibs.h</secondary></indexterm>
+<indexterm><primary>mpblibs.h</primary><secondary>vMpblibsFree</secondary></indexterm>
+<para><computeroutput>void vMpblibsFree (void ** ppvMemBlock)</computeroutput></para>    </section><anchor xml:id="_mpblibs_8h_1a35e6a0f02f66b82bdf12c11321b1e008"/>    <section>
+    <title>vMpblibsMallocFailedHook()</title>
+<indexterm><primary>vMpblibsMallocFailedHook</primary><secondary>mpblibs.h</secondary></indexterm>
+<indexterm><primary>mpblibs.h</primary><secondary>vMpblibsMallocFailedHook</secondary></indexterm>
+<para><computeroutput>void vMpblibsMallocFailedHook (size_t xSizeRequired)</computeroutput></para>    </section><anchor xml:id="_mpblibs_8h_1a6e744a80f67d4b8a6548f8eb7b663470"/>    <section>
+    <title>vMpblibsPowerMonitorSoftReset()</title>
+<indexterm><primary>vMpblibsPowerMonitorSoftReset</primary><secondary>mpblibs.h</secondary></indexterm>
+<indexterm><primary>mpblibs.h</primary><secondary>vMpblibsPowerMonitorSoftReset</secondary></indexterm>
+<para><computeroutput>void vMpblibsPowerMonitorSoftReset (void )</computeroutput></para><para>
+
+<para>Do a soft reset of the system. </para>
+</para>
+    </section><anchor xml:id="_mpblibs_8h_1aa57acc54a557120db7be004053db1364"/>    <section>
+    <title>vMpblibsUsDelay()</title>
+<indexterm><primary>vMpblibsUsDelay</primary><secondary>mpblibs.h</secondary></indexterm>
+<indexterm><primary>mpblibs.h</primary><secondary>vMpblibsUsDelay</secondary></indexterm>
+<para><computeroutput>void vMpblibsUsDelay (uint32_t ulDelay)</computeroutput></para><para>
+
+<para>Delay for the specified number of micro seconds. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>ulDelay</entry>
+                                <entry>
+<para>Blocking delay in micro seconds </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <note><title>Note</title>
+
+<para>Blocking </para>
+</note>
+</para>
+    </section><anchor xml:id="_mpblibs_8h_1adbe40fe763b2ce7c126b0002f104b9af"/>    <section>
+    <title>xMpblibsGetFreeHeapSize()</title>
+<indexterm><primary>xMpblibsGetFreeHeapSize</primary><secondary>mpblibs.h</secondary></indexterm>
+<indexterm><primary>mpblibs.h</primary><secondary>xMpblibsGetFreeHeapSize</secondary></indexterm>
+<para><computeroutput>size_t xMpblibsGetFreeHeapSize (void )</computeroutput></para>    </section><anchor xml:id="_mpblibs_8h_1af4a5651f995c3e909071126a6c2efddc"/>    <section>
+    <title>xMpblibsGetMinEverFreeHeapSize()</title>
+<indexterm><primary>xMpblibsGetMinEverFreeHeapSize</primary><secondary>mpblibs.h</secondary></indexterm>
+<indexterm><primary>mpblibs.h</primary><secondary>xMpblibsGetMinEverFreeHeapSize</secondary></indexterm>
+<para><computeroutput>size_t xMpblibsGetMinEverFreeHeapSize (void )</computeroutput></para></section>
+</section>
+</section>

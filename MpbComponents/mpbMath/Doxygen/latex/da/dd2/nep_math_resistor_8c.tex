@@ -1,0 +1,260 @@
+\hypertarget{nep_math_resistor_8c}{}\doxysection{Sources/nep\+Math\+Resistor.c File Reference}
+\label{nep_math_resistor_8c}\index{Sources/nepMathResistor.c@{Sources/nepMathResistor.c}}
+
+
+Library for equations involving resistors.  
+
+
+{\ttfamily \#include \char`\"{}nep\+Math\+Resistor.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}nep\+Math\+Division.\+h\char`\"{}}\newline
+Include dependency graph for nep\+Math\+Resistor.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=292pt]{df/d5f/nep_math_resistor_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+e\+Nep\+Error\+\_\+t \mbox{\hyperlink{nep_math_resistor_8c_ae5241ccf59b79d82ffe76311b914bfbc}{e\+Nep\+Math\+Resistor\+Voltage\+Divider\+Get\+Vout}} (uint32\+\_\+t ul\+Pull\+Up\+Resistor, uint32\+\_\+t ul\+Pull\+Down\+Resistor, uint32\+\_\+t ul\+Input\+Voltage, uint32\+\_\+t $\ast$pul\+Output\+Voltage)
+\item 
+e\+Nep\+Error\+\_\+t \mbox{\hyperlink{nep_math_resistor_8c_ad6a10945de079e239869469c8c1bc054}{e\+Nep\+Math\+Resistor\+Voltage\+Divider\+Get\+Vin}} (uint32\+\_\+t ul\+Pull\+Up\+Resistor, uint32\+\_\+t ul\+Pull\+Down\+Resistor, uint32\+\_\+t ul\+Output\+Voltage, uint32\+\_\+t $\ast$pul\+Input\+Voltage)
+\item 
+e\+Nep\+Error\+\_\+t \mbox{\hyperlink{nep_math_resistor_8c_ad6509ffdb6a78f10334d325d9e6b895f}{e\+Nep\+Math\+Resistor\+Voltage\+Divider\+Get\+Pull\+Up\+Resistor}} (uint32\+\_\+t ul\+Pull\+Down\+Resistor, uint32\+\_\+t ul\+Input\+Voltage, uint32\+\_\+t ul\+Output\+Voltage, uint32\+\_\+t $\ast$pul\+Pull\+Up\+Resistor)
+\item 
+e\+Nep\+Error\+\_\+t \mbox{\hyperlink{nep_math_resistor_8c_a75fa877038a4bed9de5cf7890ceec403}{e\+Nep\+Math\+Resistor\+Voltage\+Divider\+Get\+Pull\+Down\+Resistor}} (uint32\+\_\+t ul\+Pull\+Up\+Resistor, uint32\+\_\+t ul\+Input\+Voltage, uint32\+\_\+t ul\+Output\+Voltage, uint32\+\_\+t $\ast$pul\+Pull\+Down\+Resistor)
+\item 
+e\+Nep\+Error\+\_\+t \mbox{\hyperlink{nep_math_resistor_8c_a3bc59e61833953e8d391383db62cbe64}{e\+Nep\+Math\+Resistor\+Float\+Voltage\+Divider\+Get\+Vout}} (uint32\+\_\+t ul\+Pull\+Up\+Resistor, uint32\+\_\+t ul\+Pull\+Down\+Resistor, float x\+Input\+Voltage, float $\ast$px\+Output\+Voltage)
+\item 
+e\+Nep\+Error\+\_\+t \mbox{\hyperlink{nep_math_resistor_8c_a54f1101c214cf059e1203ef6b488f5c5}{e\+Nep\+Math\+Resistor\+Float\+Voltage\+Divider\+Get\+Vin}} (uint32\+\_\+t ul\+Pull\+Up\+Resistor, uint32\+\_\+t ul\+Pull\+Down\+Resistor, float x\+Output\+Voltage, float $\ast$px\+Input\+Voltage)
+\item 
+e\+Nep\+Error\+\_\+t \mbox{\hyperlink{nep_math_resistor_8c_ae6ac45228bdb8a9aa944d570664f317b}{e\+Nep\+Math\+Resistor\+Float\+Voltage\+Divider\+Get\+Pull\+Up\+Resistor}} (uint32\+\_\+t ul\+Pull\+Down\+Resistor, float x\+Input\+Voltage, float x\+Output\+Voltage, uint32\+\_\+t $\ast$pul\+Pull\+Up\+Resistor)
+\item 
+e\+Nep\+Error\+\_\+t \mbox{\hyperlink{nep_math_resistor_8c_a6c3ddde27117d4b228e68a0a1ecc33e2}{e\+Nep\+Math\+Resistor\+Float\+Voltage\+Divider\+Get\+Pull\+Down\+Resistor}} (uint32\+\_\+t ul\+Pull\+Up\+Resistor, float x\+Input\+Voltage, float x\+Output\+Voltage, uint32\+\_\+t $\ast$pul\+Pull\+Down\+Resistor)
+\item 
+e\+Nep\+Error\+\_\+t \mbox{\hyperlink{nep_math_resistor_8c_aa16d01ecd4069f9a07ce4bf732c4ff48}{e\+Nep\+Math\+Resistor\+Get\+Equivalent\+In\+Parallel}} (uint32\+\_\+t ul\+Resistor1, uint32\+\_\+t ul\+Resistor2, uint32\+\_\+t $\ast$pul\+Equivalent\+Resistor)
+\item 
+e\+Nep\+Error\+\_\+t \mbox{\hyperlink{nep_math_resistor_8c_a26cc1a93ad3c10d09c7a54a6bc75affe}{e\+Nep\+Math\+Resistor\+Get\+Resistor\+In\+Parallel}} (uint32\+\_\+t ul\+Equivalent\+Resistor, uint32\+\_\+t ul\+Resistor1, uint32\+\_\+t $\ast$pul\+Resistor2)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Library for equations involving resistors. 
+
+\begin{DoxyAuthor}{Author}
+Mikael Plouffe 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+Created on 2019-\/04-\/25 
+\end{DoxyDate}
+\begin{DoxyNote}{Note}
+
+\end{DoxyNote}
+\begin{DoxyCopyright}{Copyright}
+NEP, Montreal, Qc \doxysubsubsection*{\begin{center}\copyright{} COPYRIGHT 2015 NEP, Montreal, Quebec, Canada\end{center} }
+\end{DoxyCopyright}
+\doxysubsubsection*{\begin{center}\copyright{} All rights reserved.\end{center} }
+
+~\newline
+~\newline
+ \begin{center}This document contains confidential and proprietary information of NEPTRONIC (subject to a non-\/disclosure agreement) and shall\end{center}  \begin{center}not be disclosed, distributed, or reproduced in whole or in part, without the prior written authorization of NEPTRONIC.\end{center}  
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{nep_math_resistor_8c_a6c3ddde27117d4b228e68a0a1ecc33e2}\label{nep_math_resistor_8c_a6c3ddde27117d4b228e68a0a1ecc33e2}} 
+\index{nepMathResistor.c@{nepMathResistor.c}!eNepMathResistorFloatVoltageDividerGetPullDownResistor@{eNepMathResistorFloatVoltageDividerGetPullDownResistor}}
+\index{eNepMathResistorFloatVoltageDividerGetPullDownResistor@{eNepMathResistorFloatVoltageDividerGetPullDownResistor}!nepMathResistor.c@{nepMathResistor.c}}
+\doxysubsubsection{\texorpdfstring{eNepMathResistorFloatVoltageDividerGetPullDownResistor()}{eNepMathResistorFloatVoltageDividerGetPullDownResistor()}}
+{\footnotesize\ttfamily e\+Nep\+Error\+\_\+t e\+Nep\+Math\+Resistor\+Float\+Voltage\+Divider\+Get\+Pull\+Down\+Resistor (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{ul\+Pull\+Up\+Resistor,  }\item[{float}]{x\+Input\+Voltage,  }\item[{float}]{x\+Output\+Voltage,  }\item[{uint32\+\_\+t $\ast$}]{pul\+Pull\+Down\+Resistor }\end{DoxyParamCaption})}
+
+
+
+Definition at line 129 of file nep\+Math\+Resistor.\+c.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/dd2/nep_math_resistor_8c_a6c3ddde27117d4b228e68a0a1ecc33e2_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{nep_math_resistor_8c_ae6ac45228bdb8a9aa944d570664f317b}\label{nep_math_resistor_8c_ae6ac45228bdb8a9aa944d570664f317b}} 
+\index{nepMathResistor.c@{nepMathResistor.c}!eNepMathResistorFloatVoltageDividerGetPullUpResistor@{eNepMathResistorFloatVoltageDividerGetPullUpResistor}}
+\index{eNepMathResistorFloatVoltageDividerGetPullUpResistor@{eNepMathResistorFloatVoltageDividerGetPullUpResistor}!nepMathResistor.c@{nepMathResistor.c}}
+\doxysubsubsection{\texorpdfstring{eNepMathResistorFloatVoltageDividerGetPullUpResistor()}{eNepMathResistorFloatVoltageDividerGetPullUpResistor()}}
+{\footnotesize\ttfamily e\+Nep\+Error\+\_\+t e\+Nep\+Math\+Resistor\+Float\+Voltage\+Divider\+Get\+Pull\+Up\+Resistor (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{ul\+Pull\+Down\+Resistor,  }\item[{float}]{x\+Input\+Voltage,  }\item[{float}]{x\+Output\+Voltage,  }\item[{uint32\+\_\+t $\ast$}]{pul\+Pull\+Up\+Resistor }\end{DoxyParamCaption})}
+
+
+
+Definition at line 107 of file nep\+Math\+Resistor.\+c.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/dd2/nep_math_resistor_8c_ae6ac45228bdb8a9aa944d570664f317b_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{nep_math_resistor_8c_a54f1101c214cf059e1203ef6b488f5c5}\label{nep_math_resistor_8c_a54f1101c214cf059e1203ef6b488f5c5}} 
+\index{nepMathResistor.c@{nepMathResistor.c}!eNepMathResistorFloatVoltageDividerGetVin@{eNepMathResistorFloatVoltageDividerGetVin}}
+\index{eNepMathResistorFloatVoltageDividerGetVin@{eNepMathResistorFloatVoltageDividerGetVin}!nepMathResistor.c@{nepMathResistor.c}}
+\doxysubsubsection{\texorpdfstring{eNepMathResistorFloatVoltageDividerGetVin()}{eNepMathResistorFloatVoltageDividerGetVin()}}
+{\footnotesize\ttfamily e\+Nep\+Error\+\_\+t e\+Nep\+Math\+Resistor\+Float\+Voltage\+Divider\+Get\+Vin (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{ul\+Pull\+Up\+Resistor,  }\item[{uint32\+\_\+t}]{ul\+Pull\+Down\+Resistor,  }\item[{float}]{x\+Output\+Voltage,  }\item[{float $\ast$}]{px\+Input\+Voltage }\end{DoxyParamCaption})}
+
+
+
+Definition at line 96 of file nep\+Math\+Resistor.\+c.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/dd2/nep_math_resistor_8c_a54f1101c214cf059e1203ef6b488f5c5_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/dd2/nep_math_resistor_8c_a54f1101c214cf059e1203ef6b488f5c5_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{nep_math_resistor_8c_a3bc59e61833953e8d391383db62cbe64}\label{nep_math_resistor_8c_a3bc59e61833953e8d391383db62cbe64}} 
+\index{nepMathResistor.c@{nepMathResistor.c}!eNepMathResistorFloatVoltageDividerGetVout@{eNepMathResistorFloatVoltageDividerGetVout}}
+\index{eNepMathResistorFloatVoltageDividerGetVout@{eNepMathResistorFloatVoltageDividerGetVout}!nepMathResistor.c@{nepMathResistor.c}}
+\doxysubsubsection{\texorpdfstring{eNepMathResistorFloatVoltageDividerGetVout()}{eNepMathResistorFloatVoltageDividerGetVout()}}
+{\footnotesize\ttfamily e\+Nep\+Error\+\_\+t e\+Nep\+Math\+Resistor\+Float\+Voltage\+Divider\+Get\+Vout (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{ul\+Pull\+Up\+Resistor,  }\item[{uint32\+\_\+t}]{ul\+Pull\+Down\+Resistor,  }\item[{float}]{x\+Input\+Voltage,  }\item[{float $\ast$}]{px\+Output\+Voltage }\end{DoxyParamCaption})}
+
+
+
+Definition at line 85 of file nep\+Math\+Resistor.\+c.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/dd2/nep_math_resistor_8c_a3bc59e61833953e8d391383db62cbe64_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{nep_math_resistor_8c_aa16d01ecd4069f9a07ce4bf732c4ff48}\label{nep_math_resistor_8c_aa16d01ecd4069f9a07ce4bf732c4ff48}} 
+\index{nepMathResistor.c@{nepMathResistor.c}!eNepMathResistorGetEquivalentInParallel@{eNepMathResistorGetEquivalentInParallel}}
+\index{eNepMathResistorGetEquivalentInParallel@{eNepMathResistorGetEquivalentInParallel}!nepMathResistor.c@{nepMathResistor.c}}
+\doxysubsubsection{\texorpdfstring{eNepMathResistorGetEquivalentInParallel()}{eNepMathResistorGetEquivalentInParallel()}}
+{\footnotesize\ttfamily e\+Nep\+Error\+\_\+t e\+Nep\+Math\+Resistor\+Get\+Equivalent\+In\+Parallel (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{ul\+Resistor1,  }\item[{uint32\+\_\+t}]{ul\+Resistor2,  }\item[{uint32\+\_\+t $\ast$}]{pul\+Equivalent\+Resistor }\end{DoxyParamCaption})}
+
+
+
+Definition at line 150 of file nep\+Math\+Resistor.\+c.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/dd2/nep_math_resistor_8c_aa16d01ecd4069f9a07ce4bf732c4ff48_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/dd2/nep_math_resistor_8c_aa16d01ecd4069f9a07ce4bf732c4ff48_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{nep_math_resistor_8c_a26cc1a93ad3c10d09c7a54a6bc75affe}\label{nep_math_resistor_8c_a26cc1a93ad3c10d09c7a54a6bc75affe}} 
+\index{nepMathResistor.c@{nepMathResistor.c}!eNepMathResistorGetResistorInParallel@{eNepMathResistorGetResistorInParallel}}
+\index{eNepMathResistorGetResistorInParallel@{eNepMathResistorGetResistorInParallel}!nepMathResistor.c@{nepMathResistor.c}}
+\doxysubsubsection{\texorpdfstring{eNepMathResistorGetResistorInParallel()}{eNepMathResistorGetResistorInParallel()}}
+{\footnotesize\ttfamily e\+Nep\+Error\+\_\+t e\+Nep\+Math\+Resistor\+Get\+Resistor\+In\+Parallel (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{ul\+Equivalent\+Resistor,  }\item[{uint32\+\_\+t}]{ul\+Resistor1,  }\item[{uint32\+\_\+t $\ast$}]{pul\+Resistor2 }\end{DoxyParamCaption})}
+
+
+
+Definition at line 161 of file nep\+Math\+Resistor.\+c.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/dd2/nep_math_resistor_8c_a26cc1a93ad3c10d09c7a54a6bc75affe_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{nep_math_resistor_8c_a75fa877038a4bed9de5cf7890ceec403}\label{nep_math_resistor_8c_a75fa877038a4bed9de5cf7890ceec403}} 
+\index{nepMathResistor.c@{nepMathResistor.c}!eNepMathResistorVoltageDividerGetPullDownResistor@{eNepMathResistorVoltageDividerGetPullDownResistor}}
+\index{eNepMathResistorVoltageDividerGetPullDownResistor@{eNepMathResistorVoltageDividerGetPullDownResistor}!nepMathResistor.c@{nepMathResistor.c}}
+\doxysubsubsection{\texorpdfstring{eNepMathResistorVoltageDividerGetPullDownResistor()}{eNepMathResistorVoltageDividerGetPullDownResistor()}}
+{\footnotesize\ttfamily e\+Nep\+Error\+\_\+t e\+Nep\+Math\+Resistor\+Voltage\+Divider\+Get\+Pull\+Down\+Resistor (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{ul\+Pull\+Up\+Resistor,  }\item[{uint32\+\_\+t}]{ul\+Input\+Voltage,  }\item[{uint32\+\_\+t}]{ul\+Output\+Voltage,  }\item[{uint32\+\_\+t $\ast$}]{pul\+Pull\+Down\+Resistor }\end{DoxyParamCaption})}
+
+
+
+Definition at line 74 of file nep\+Math\+Resistor.\+c.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/dd2/nep_math_resistor_8c_a75fa877038a4bed9de5cf7890ceec403_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{nep_math_resistor_8c_ad6509ffdb6a78f10334d325d9e6b895f}\label{nep_math_resistor_8c_ad6509ffdb6a78f10334d325d9e6b895f}} 
+\index{nepMathResistor.c@{nepMathResistor.c}!eNepMathResistorVoltageDividerGetPullUpResistor@{eNepMathResistorVoltageDividerGetPullUpResistor}}
+\index{eNepMathResistorVoltageDividerGetPullUpResistor@{eNepMathResistorVoltageDividerGetPullUpResistor}!nepMathResistor.c@{nepMathResistor.c}}
+\doxysubsubsection{\texorpdfstring{eNepMathResistorVoltageDividerGetPullUpResistor()}{eNepMathResistorVoltageDividerGetPullUpResistor()}}
+{\footnotesize\ttfamily e\+Nep\+Error\+\_\+t e\+Nep\+Math\+Resistor\+Voltage\+Divider\+Get\+Pull\+Up\+Resistor (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{ul\+Pull\+Down\+Resistor,  }\item[{uint32\+\_\+t}]{ul\+Input\+Voltage,  }\item[{uint32\+\_\+t}]{ul\+Output\+Voltage,  }\item[{uint32\+\_\+t $\ast$}]{pul\+Pull\+Up\+Resistor }\end{DoxyParamCaption})}
+
+
+
+Definition at line 52 of file nep\+Math\+Resistor.\+c.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/dd2/nep_math_resistor_8c_ad6509ffdb6a78f10334d325d9e6b895f_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{nep_math_resistor_8c_ad6a10945de079e239869469c8c1bc054}\label{nep_math_resistor_8c_ad6a10945de079e239869469c8c1bc054}} 
+\index{nepMathResistor.c@{nepMathResistor.c}!eNepMathResistorVoltageDividerGetVin@{eNepMathResistorVoltageDividerGetVin}}
+\index{eNepMathResistorVoltageDividerGetVin@{eNepMathResistorVoltageDividerGetVin}!nepMathResistor.c@{nepMathResistor.c}}
+\doxysubsubsection{\texorpdfstring{eNepMathResistorVoltageDividerGetVin()}{eNepMathResistorVoltageDividerGetVin()}}
+{\footnotesize\ttfamily e\+Nep\+Error\+\_\+t e\+Nep\+Math\+Resistor\+Voltage\+Divider\+Get\+Vin (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{ul\+Pull\+Up\+Resistor,  }\item[{uint32\+\_\+t}]{ul\+Pull\+Down\+Resistor,  }\item[{uint32\+\_\+t}]{ul\+Output\+Voltage,  }\item[{uint32\+\_\+t $\ast$}]{pul\+Input\+Voltage }\end{DoxyParamCaption})}
+
+
+
+Definition at line 41 of file nep\+Math\+Resistor.\+c.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/dd2/nep_math_resistor_8c_ad6a10945de079e239869469c8c1bc054_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{nep_math_resistor_8c_ae5241ccf59b79d82ffe76311b914bfbc}\label{nep_math_resistor_8c_ae5241ccf59b79d82ffe76311b914bfbc}} 
+\index{nepMathResistor.c@{nepMathResistor.c}!eNepMathResistorVoltageDividerGetVout@{eNepMathResistorVoltageDividerGetVout}}
+\index{eNepMathResistorVoltageDividerGetVout@{eNepMathResistorVoltageDividerGetVout}!nepMathResistor.c@{nepMathResistor.c}}
+\doxysubsubsection{\texorpdfstring{eNepMathResistorVoltageDividerGetVout()}{eNepMathResistorVoltageDividerGetVout()}}
+{\footnotesize\ttfamily e\+Nep\+Error\+\_\+t e\+Nep\+Math\+Resistor\+Voltage\+Divider\+Get\+Vout (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{ul\+Pull\+Up\+Resistor,  }\item[{uint32\+\_\+t}]{ul\+Pull\+Down\+Resistor,  }\item[{uint32\+\_\+t}]{ul\+Input\+Voltage,  }\item[{uint32\+\_\+t $\ast$}]{pul\+Output\+Voltage }\end{DoxyParamCaption})}
+
+
+
+Definition at line 30 of file nep\+Math\+Resistor.\+c.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/dd2/nep_math_resistor_8c_ae5241ccf59b79d82ffe76311b914bfbc_cgraph}
+\end{center}
+\end{figure}

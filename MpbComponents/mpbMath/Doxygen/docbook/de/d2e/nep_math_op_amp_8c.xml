@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_nep_math_op_amp_8c" xml:lang="en-US">
+<title>Sources/nepMathOpAmp.c File Reference</title>
+<indexterm><primary>Sources/nepMathOpAmp.c</primary></indexterm>
+<para>
+
+<para>Library to simulate an operational amplifier. It is able caclulate the input voltage from the output voltage and vice versa. </para>
+ 
+</para>
+<programlisting>#include &quot;nepMathOpAmp.h&quot;
+#include &quot;nepMathDivision.h&quot;
+#include &quot;nepMathResistor.h&quot;
+</programlisting>Include dependency graph for nepMathOpAmp.c:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../df/da3/nep_math_op_amp_8c__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>eNepError_t <link linkend="_nep_math_op_amp_8c_1a1b5e1782b97c8215b4c34c1b248c3117">eNepMathOpAmpGetOutputVoltage</link> (float xInputVoltage, const xNepMathOpAmpConfig_t *pxOpAmpConfig, float *pxOutputVoltage)</para>
+</listitem>
+            <listitem><para>eNepError_t <link linkend="_nep_math_op_amp_8c_1a9f2f34a28fe863b20e6a0eb6392038be">eNepMathOpAmpInitCircuit</link> (xNepMathOpAmpConfig_t *pxOpAmpConfig, uint32_t ulPullUpResistor, uint32_t ulFeedbackResistor, uint32_t ulPullDownResistor, float xPullUpVoltage)</para>
+</listitem>
+            <listitem><para>eNepError_t <link linkend="_nep_math_op_amp_8c_1a5a0bb1d71f4ffe260f124b7ef2e4bfd1">eNepMathOpAmpInitGain</link> (xNepMathOpAmpConfig_t *pxOpAmpConfig, float xGain)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Library to simulate an operational amplifier. It is able caclulate the input voltage from the output voltage and vice versa. </para>
+
+<para><formalpara><title>Author</title>
+
+<para>Mikael Plouffe </para>
+</formalpara>
+<formalpara><title>Date</title>
+
+<para>Created on 2019-04-26 </para>
+</formalpara>
+<note><title>Note</title>
+
+<para></para>
+</note>
+<formalpara><title>Copyright</title>
+
+<para>NEP, Montreal, Qc <formalpara><title><informaltable frame='none'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>&#169; COPYRIGHT 2015 NEP, Montreal, Quebec, Canada</entry></row></tbody></tgroup></informaltable></title></formalpara>
+</para>
+</formalpara>
+<formalpara><title><informaltable frame='none'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>&#169; All rights reserved.</entry></row></tbody></tgroup></informaltable></title></formalpara>
+</para>
+
+<para>
+<literallayout>&#160;&#xa;</literallayout>
+
+<literallayout>&#160;&#xa;</literallayout>
+ <informaltable frame='none'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>This document contains confidential and proprietary information of NEPTRONIC (subject to a non-disclosure agreement) and shall</entry></row></tbody></tgroup></informaltable> <informaltable frame='none'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>not be disclosed, distributed, or reproduced in whole or in part, without the prior written authorization of NEPTRONIC.</entry></row></tbody></tgroup></informaltable> </para>
+</section>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_nep_math_op_amp_8c_1a1b5e1782b97c8215b4c34c1b248c3117"/>    <section>
+    <title>eNepMathOpAmpGetOutputVoltage()</title>
+<indexterm><primary>eNepMathOpAmpGetOutputVoltage</primary><secondary>nepMathOpAmp.c</secondary></indexterm>
+<indexterm><primary>nepMathOpAmp.c</primary><secondary>eNepMathOpAmpGetOutputVoltage</secondary></indexterm>
+<para><computeroutput>eNepError_t eNepMathOpAmpGetOutputVoltage (float xInputVoltage, const xNepMathOpAmpConfig_t * pxOpAmpConfig, float * pxOutputVoltage)</computeroutput></para><para>
+Definition at line 103 of file nepMathOpAmp.c.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../de/d2e/nep_math_op_amp_8c_a1b5e1782b97c8215b4c34c1b248c3117_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_nep_math_op_amp_8c_1a9f2f34a28fe863b20e6a0eb6392038be"/>    <section>
+    <title>eNepMathOpAmpInitCircuit()</title>
+<indexterm><primary>eNepMathOpAmpInitCircuit</primary><secondary>nepMathOpAmp.c</secondary></indexterm>
+<indexterm><primary>nepMathOpAmp.c</primary><secondary>eNepMathOpAmpInitCircuit</secondary></indexterm>
+<para><computeroutput>eNepError_t eNepMathOpAmpInitCircuit (xNepMathOpAmpConfig_t * pxOpAmpConfig, uint32_t ulPullUpResistor, uint32_t ulFeedbackResistor, uint32_t ulPullDownResistor, float xPullUpVoltage)</computeroutput></para><para>
+Definition at line 169 of file nepMathOpAmp.c.</para>
+    </section><anchor xml:id="_nep_math_op_amp_8c_1a5a0bb1d71f4ffe260f124b7ef2e4bfd1"/>    <section>
+    <title>eNepMathOpAmpInitGain()</title>
+<indexterm><primary>eNepMathOpAmpInitGain</primary><secondary>nepMathOpAmp.c</secondary></indexterm>
+<indexterm><primary>nepMathOpAmp.c</primary><secondary>eNepMathOpAmpInitGain</secondary></indexterm>
+<para><computeroutput>eNepError_t eNepMathOpAmpInitGain (xNepMathOpAmpConfig_t * pxOpAmpConfig, float xGain)</computeroutput></para><para>
+Definition at line 192 of file nepMathOpAmp.c.</para>
+</section>
+</section>
+</section>

@@ -1,0 +1,305 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="d8/d3d/_c_exception_8md" kind="file" language="Markdown">
+    <compoundname>CException.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline></codeline>
+<codeline><highlight class="normal">CException</highlight></codeline>
+<codeline><highlight class="normal">==========</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">CException<sp/>is<sp/>a<sp/>basic<sp/>exception<sp/>framework<sp/>for<sp/>C,<sp/>suitable<sp/>for<sp/>use<sp/>in</highlight></codeline>
+<codeline><highlight class="normal">embedded<sp/>applications.<sp/><sp/>It<sp/>provides<sp/>an<sp/>exception<sp/>framework<sp/>similar<sp/>in</highlight></codeline>
+<codeline><highlight class="normal">use<sp/>to<sp/>C++,<sp/>but<sp/>with<sp/>much<sp/>less<sp/>overhead.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">CException<sp/>uses<sp/>C<sp/>standard<sp/>library<sp/>functions<sp/>`setjmp`<sp/>and<sp/>`longjmp`<sp/>to</highlight></codeline>
+<codeline><highlight class="normal">operate.<sp/><sp/>As<sp/>long<sp/>as<sp/>the<sp/>target<sp/>system<sp/>has<sp/>these<sp/>two<sp/>functions<sp/>defined,</highlight></codeline>
+<codeline><highlight class="normal">this<sp/>library<sp/>should<sp/>be<sp/>useable<sp/>with<sp/>very<sp/>little<sp/>configuration.<sp/><sp/>It</highlight></codeline>
+<codeline><highlight class="normal">even<sp/>supports<sp/>environments<sp/>where<sp/>multiple<sp/>program<sp/>flows<sp/>are<sp/>in<sp/>use,</highlight></codeline>
+<codeline><highlight class="normal">such<sp/>as<sp/>real-time<sp/>operating<sp/>systems.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">There<sp/>are<sp/>about<sp/>a<sp/>gabillion<sp/>exception<sp/>frameworks<sp/>using<sp/>a<sp/>similar</highlight></codeline>
+<codeline><highlight class="normal">setjmp/longjmp<sp/>method<sp/>out<sp/>there...<sp/>and<sp/>there<sp/>will<sp/>probably<sp/>be<sp/>more</highlight></codeline>
+<codeline><highlight class="normal">in<sp/>the<sp/>future.<sp/>Unfortunately,<sp/>when<sp/>we<sp/>started<sp/>our<sp/>last<sp/>embedded</highlight></codeline>
+<codeline><highlight class="normal">project,<sp/>all<sp/>those<sp/>that<sp/>existed<sp/>either<sp/>(a)<sp/>did<sp/>not<sp/>support<sp/>multiple</highlight></codeline>
+<codeline><highlight class="normal">tasks<sp/>(therefore<sp/>multiple<sp/>stacks)<sp/>or<sp/>(b)<sp/>were<sp/>way<sp/>more<sp/>complex<sp/>than</highlight></codeline>
+<codeline><highlight class="normal">we<sp/>really<sp/>wanted.<sp/><sp/>CException<sp/>was<sp/>born.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*Why<sp/>use<sp/>CException?*</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">0.<sp/>It&apos;s<sp/>ANSI<sp/>C,<sp/>and<sp/>it<sp/>beats<sp/>passing<sp/>error<sp/>codes<sp/>around.</highlight></codeline>
+<codeline><highlight class="normal">1.<sp/>You<sp/>want<sp/>something<sp/>simple...<sp/>CException<sp/>throws<sp/>a<sp/>single<sp/>id.<sp/>You<sp/>can</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>define<sp/>those<sp/>ID&apos;s<sp/>to<sp/>be<sp/>whatever<sp/>you<sp/>like.<sp/>You<sp/>might<sp/>even<sp/>choose<sp/>which</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>type<sp/>that<sp/>number<sp/>is<sp/>for<sp/>your<sp/>project.<sp/>But<sp/>that&apos;s<sp/>as<sp/>far<sp/>as<sp/>it<sp/>goes.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>We<sp/>weren&apos;t<sp/>interested<sp/>in<sp/>passing<sp/>objects<sp/>or<sp/>structs<sp/>or<sp/>strings...</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>just<sp/>simple<sp/>error<sp/>codes.</highlight></codeline>
+<codeline><highlight class="normal">2.<sp/>Performance...<sp/>CException<sp/>can<sp/>be<sp/>configured<sp/>for<sp/>single<sp/>tasking<sp/>or</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>multitasking.<sp/>In<sp/>single<sp/>tasking,<sp/>there<sp/>is<sp/>very<sp/>little<sp/>overhead<sp/>past</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>the<sp/>setjmp/longjmp<sp/>calls<sp/>(which<sp/>are<sp/>already<sp/>fast).<sp/>In<sp/>multitasking,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>your<sp/>only<sp/>additional<sp/>overhead<sp/>is<sp/>the<sp/>time<sp/>it<sp/>takes<sp/>you<sp/>to<sp/>determine</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>a<sp/>unique<sp/>task<sp/>id<sp/>0<sp/>-<sp/>num_tasks.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">For<sp/>the<sp/>latest<sp/>version,<sp/>go<sp/>to<sp/>[ThrowTheSwitch.org](http://throwtheswitch.org)</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">CONTENTS<sp/>OF<sp/>THIS<sp/>DOCUMENT</highlight></codeline>
+<codeline><highlight class="normal">=========================</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>Usage</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>Limitations</highlight></codeline>
+<codeline><highlight class="normal">*API</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>Configuration</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>Testing</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>License</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Usage</highlight></codeline>
+<codeline><highlight class="normal">-----</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Code<sp/>that<sp/>is<sp/>to<sp/>be<sp/>protected<sp/>are<sp/>wrapped<sp/>in<sp/>`Try<sp/>{<sp/>}<sp/>Catch<sp/>{<sp/>}`<sp/>blocks.</highlight></codeline>
+<codeline><highlight class="normal">The<sp/>code<sp/>directly<sp/>following<sp/>the<sp/>Try<sp/>call<sp/>is<sp/>&quot;protected&quot;,<sp/>meaning<sp/>that</highlight></codeline>
+<codeline><highlight class="normal">if<sp/>any<sp/>Throws<sp/>occur,<sp/>program<sp/>control<sp/>is<sp/>directly<sp/>transferred<sp/>to<sp/>the</highlight></codeline>
+<codeline><highlight class="normal">start<sp/>of<sp/>the<sp/>Catch<sp/>block.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">A<sp/>numerical<sp/>exception<sp/>ID<sp/>is<sp/>included<sp/>with<sp/>Throw,<sp/>and<sp/>is<sp/>made<sp/>accessible</highlight></codeline>
+<codeline><highlight class="normal">from<sp/>the<sp/>Catch<sp/>block.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Throws<sp/>can<sp/>occur<sp/>from<sp/>within<sp/>function<sp/>calls<sp/>(nested<sp/>as<sp/>deeply<sp/>as<sp/>you</highlight></codeline>
+<codeline><highlight class="normal">like)<sp/>or<sp/>directly<sp/>from<sp/>within<sp/>the<sp/>function<sp/>itself.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Limitations</highlight></codeline>
+<codeline><highlight class="normal">-----------</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">This<sp/>library<sp/>was<sp/>made<sp/>to<sp/>be<sp/>as<sp/>fast<sp/>as<sp/>possible,<sp/>and<sp/>provide<sp/>basic</highlight></codeline>
+<codeline><highlight class="normal">exception<sp/>handling.<sp/><sp/>It<sp/>is<sp/>not<sp/>a<sp/>full-blown<sp/>exception<sp/>library.<sp/><sp/>Because</highlight></codeline>
+<codeline><highlight class="normal">of<sp/>this,<sp/>there<sp/>are<sp/>a<sp/>few<sp/>limitations<sp/>that<sp/>should<sp/>be<sp/>observed<sp/>in<sp/>order</highlight></codeline>
+<codeline><highlight class="normal">to<sp/>successfully<sp/>utilize<sp/>this<sp/>library:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">1.<sp/>Do<sp/>not<sp/>directly<sp/>&quot;return&quot;<sp/>from<sp/>within<sp/>a<sp/>`Try`<sp/>block,<sp/>nor<sp/>`goto`</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>into<sp/>or<sp/>out<sp/>of<sp/>a<sp/>`Try`<sp/>block.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>*Why?*</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>The<sp/>`Try`<sp/>macro<sp/>allocates<sp/>some<sp/>local<sp/>memory<sp/>and<sp/>alters<sp/>a<sp/>global</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>pointer.<sp/><sp/>These<sp/>are<sp/>cleaned<sp/>up<sp/>at<sp/>the<sp/>top<sp/>of<sp/>the<sp/>`Catch`<sp/>macro.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>Gotos<sp/>and<sp/>returns<sp/>would<sp/>bypass<sp/>some<sp/>of<sp/>these<sp/>steps,<sp/>resulting<sp/>in</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>memory<sp/>leaks<sp/>or<sp/>unpredictable<sp/>behavior.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">2.<sp/>If<sp/>(a)<sp/>you<sp/>change<sp/>local<sp/>(stack)<sp/>variables<sp/>within<sp/>your<sp/>`Try`<sp/>block,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>AND<sp/>(b)<sp/>wish<sp/>to<sp/>make<sp/>use<sp/>of<sp/>the<sp/>updated<sp/>values<sp/>after<sp/>an<sp/>exception</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>is<sp/>thrown,<sp/>those<sp/>variables<sp/>should<sp/>be<sp/>made<sp/>`volatile`.<sp/>Note<sp/>that<sp/>this</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>is<sp/>ONLY<sp/>for<sp/>locals<sp/>and<sp/>ONLY<sp/>when<sp/>you<sp/>need<sp/>access<sp/>to<sp/>them<sp/>after<sp/>a</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>`Throw`.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>*Why?*</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>Compilers<sp/>optimize.<sp/><sp/>There<sp/>is<sp/>no<sp/>way<sp/>to<sp/>guarantee<sp/>that<sp/>the<sp/>actual</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>memory<sp/>location<sp/>was<sp/>updated<sp/>and<sp/>not<sp/>just<sp/>a<sp/>register<sp/>unless<sp/>the</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>variable<sp/>is<sp/>marked<sp/>volatile.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">3.<sp/>Memory<sp/>which<sp/>is<sp/>`malloc`&apos;d<sp/>or<sp/>`new`&apos;d<sp/>is<sp/>not<sp/>automatically<sp/>released</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>when<sp/>an<sp/>error<sp/>is<sp/>thrown.<sp/><sp/>This<sp/>will<sp/>sometimes<sp/>be<sp/>desirable,<sp/>and</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>othertimes<sp/>may<sp/>not.<sp/><sp/>It<sp/>will<sp/>be<sp/>the<sp/>responsibility<sp/>of<sp/>the<sp/>`Catch`</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>block<sp/>to<sp/>perform<sp/>this<sp/>kind<sp/>of<sp/>cleanup.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>*Why?*</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>There&apos;s<sp/>just<sp/>no<sp/>easy<sp/>way<sp/>to<sp/>track<sp/>`malloc`&apos;d<sp/>memory,<sp/>etc.,<sp/>without</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>replacing<sp/>or<sp/>wrapping<sp/>malloc<sp/>calls<sp/>or<sp/>something<sp/>like<sp/>that.<sp/><sp/>This</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>is<sp/>a<sp/>light<sp/>framework,<sp/>so<sp/>these<sp/>options<sp/>were<sp/>not<sp/>desirable.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">API</highlight></codeline>
+<codeline><highlight class="normal">---</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###Try</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">`Try`<sp/>is<sp/>a<sp/>macro<sp/>which<sp/>starts<sp/>a<sp/>protected<sp/>block.<sp/><sp/>It<sp/>MUST<sp/>be<sp/>followed<sp/>by</highlight></codeline>
+<codeline><highlight class="normal">a<sp/>pair<sp/>of<sp/>braces<sp/>or<sp/>a<sp/>single<sp/>protected<sp/>line<sp/>(similar<sp/>to<sp/>an<sp/>&apos;if&apos;),</highlight></codeline>
+<codeline><highlight class="normal">enclosing<sp/>the<sp/>data<sp/>that<sp/>is<sp/>to<sp/>be<sp/>protected.<sp/><sp/>It<sp/>**must**<sp/>be<sp/>followed<sp/>by<sp/>a</highlight></codeline>
+<codeline><highlight class="normal">`Catch`<sp/>block<sp/>(don&apos;t<sp/>worry,<sp/>you&apos;ll<sp/>get<sp/>compiler<sp/>errors<sp/>to<sp/>let<sp/>you<sp/>know<sp/>if</highlight></codeline>
+<codeline><highlight class="normal">you<sp/>mess<sp/>any<sp/>of<sp/>that<sp/>up).</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###Catch(e)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">`Catch`<sp/>is<sp/>a<sp/>macro<sp/>which<sp/>ends<sp/>the<sp/>`Try`<sp/>block<sp/>and<sp/>starts<sp/>the<sp/>error<sp/>handling</highlight></codeline>
+<codeline><highlight class="normal">block.<sp/>The<sp/>`Catch`<sp/>block<sp/>is<sp/>called<sp/>if<sp/>and<sp/>only<sp/>if<sp/>an<sp/>exception<sp/>was<sp/>thrown</highlight></codeline>
+<codeline><highlight class="normal">while<sp/>within<sp/>the<sp/>`Try`<sp/>block.<sp/><sp/>This<sp/>error<sp/>was<sp/>thrown<sp/>by<sp/>a<sp/>`Throw`<sp/>call</highlight></codeline>
+<codeline><highlight class="normal">somewhere<sp/>within<sp/>`Try`<sp/>(or<sp/>within<sp/>a<sp/>function<sp/>called<sp/>within<sp/>`Try`,<sp/>or<sp/>a<sp/>function</highlight></codeline>
+<codeline><highlight class="normal">called<sp/>by<sp/>a<sp/>function<sp/>called<sp/>within<sp/>`Try`,<sp/>etc).</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>single<sp/>parameter<sp/>`e`<sp/>is<sp/>filled<sp/>with<sp/>the<sp/>error<sp/>code<sp/>which<sp/>was<sp/>thrown.</highlight></codeline>
+<codeline><highlight class="normal">This<sp/>can<sp/>be<sp/>used<sp/>for<sp/>reporting,<sp/>conditional<sp/>cleanup,<sp/>etc.<sp/>(or<sp/>you<sp/>can<sp/>just</highlight></codeline>
+<codeline><highlight class="normal">ignore<sp/>it<sp/>if<sp/>you<sp/>really<sp/>want...<sp/>people<sp/>ignore<sp/>return<sp/>codes<sp/>all<sp/>the<sp/>time,</highlight></codeline>
+<codeline><highlight class="normal">right?).<sp/><sp/>`e`<sp/>should<sp/>be<sp/>of<sp/>type<sp/>`EXCEPTION_T`</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###Throw(e)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">This<sp/>is<sp/>the<sp/>method<sp/>of<sp/>throwing<sp/>an<sp/>error.<sp/>A<sp/>`Throw`<sp/>should<sp/>only<sp/>occur<sp/>from<sp/>within<sp/>a</highlight></codeline>
+<codeline><highlight class="normal">protected<sp/>(`Try`<sp/>...<sp/>`Catch`)<sp/>block,<sp/>though<sp/>it<sp/>may<sp/>easily<sp/>be<sp/>nested<sp/>many<sp/>function</highlight></codeline>
+<codeline><highlight class="normal">calls<sp/>deep<sp/>without<sp/>an<sp/>impact<sp/>on<sp/>performance<sp/>or<sp/>functionality.<sp/>`Throw`<sp/>takes</highlight></codeline>
+<codeline><highlight class="normal">a<sp/>single<sp/>argument,<sp/>which<sp/>is<sp/>an<sp/>exception<sp/>id<sp/>which<sp/>will<sp/>be<sp/>passed<sp/>to<sp/>`Catch`</highlight></codeline>
+<codeline><highlight class="normal">as<sp/>the<sp/>reason<sp/>for<sp/>the<sp/>error.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">If<sp/>you<sp/>wish<sp/>to<sp/>rethrow<sp/>an<sp/>error,<sp/>this<sp/>can<sp/>be<sp/>done<sp/>by<sp/>calling<sp/>`Throw(e)`<sp/>with</highlight></codeline>
+<codeline><highlight class="normal">the<sp/>error<sp/>code<sp/>you<sp/>just<sp/>caught.<sp/><sp/>It<sp/>**is**<sp/>valid<sp/>to<sp/>throw<sp/>from<sp/>a<sp/>catch<sp/>block.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###ExitTry()</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">On<sp/>rare<sp/>occasion,<sp/>you<sp/>might<sp/>want<sp/>to<sp/>immediately<sp/>exit<sp/>your<sp/>current<sp/>`Try`<sp/>block</highlight></codeline>
+<codeline><highlight class="normal">but<sp/>**not**<sp/>treat<sp/>this<sp/>as<sp/>an<sp/>error.<sp/>Don&apos;t<sp/>run<sp/>the<sp/>`Catch`.<sp/>Just<sp/>start<sp/>executing</highlight></codeline>
+<codeline><highlight class="normal">from<sp/>after<sp/>the<sp/>`Catch`<sp/>as<sp/>if<sp/>nothing<sp/>had<sp/>happened...<sp/>That&apos;s<sp/>what<sp/>`ExitTry`<sp/>is</highlight></codeline>
+<codeline><highlight class="normal">for.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">CONFIGURATION</highlight></codeline>
+<codeline><highlight class="normal">-------------</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">CException<sp/>is<sp/>a<sp/>mostly<sp/>portable<sp/>library.<sp/><sp/>It<sp/>has<sp/>one<sp/>universal</highlight></codeline>
+<codeline><highlight class="normal">dependency,<sp/>and<sp/>some<sp/>macros<sp/>which<sp/>are<sp/>required<sp/>if<sp/>working<sp/>in<sp/>a</highlight></codeline>
+<codeline><highlight class="normal">multi-tasking<sp/>environment.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">1.<sp/>The<sp/>standard<sp/>C<sp/>library<sp/>setjmp<sp/>must<sp/>be<sp/>available.<sp/><sp/>Since<sp/>this<sp/>is<sp/>part</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>of<sp/>the<sp/>standard<sp/>library,<sp/>chances<sp/>are<sp/>good<sp/>that<sp/>you&apos;ll<sp/>be<sp/>fine.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">2.<sp/>If<sp/>working<sp/>in<sp/>a<sp/>multitasking<sp/>environment,<sp/>methods<sp/>for<sp/>obtaining<sp/>an</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>index<sp/>into<sp/>an<sp/>array<sp/>of<sp/>frames<sp/>and<sp/>to<sp/>get<sp/>the<sp/>overall<sp/>number<sp/>of</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>id&apos;s<sp/>are<sp/>required.<sp/><sp/>If<sp/>the<sp/>OS<sp/>supports<sp/>a<sp/>method<sp/>to<sp/>retrieve<sp/>Task</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>ID&apos;s,<sp/>and<sp/>those<sp/>Tasks<sp/>are<sp/>number<sp/>0,<sp/>1,<sp/>2...<sp/>you<sp/>are<sp/>in<sp/>an<sp/>ideal</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>situation.<sp/><sp/>Otherwise,<sp/>a<sp/>more<sp/>creative<sp/>mapping<sp/>function<sp/>may<sp/>be</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>required.<sp/><sp/>Note<sp/>that<sp/>this<sp/>function<sp/>is<sp/>likely<sp/>to<sp/>be<sp/>called<sp/>twice</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>for<sp/>each<sp/>protected<sp/>block<sp/>and<sp/>once<sp/>during<sp/>a<sp/>throw.<sp/><sp/>This<sp/>is<sp/>the</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>only<sp/>overhead<sp/>in<sp/>the<sp/>system.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Exception.h</highlight></codeline>
+<codeline><highlight class="normal">-----------</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">By<sp/>convention,<sp/>most<sp/>projects<sp/>include<sp/>`Exception.h`<sp/>which<sp/>defines<sp/>any</highlight></codeline>
+<codeline><highlight class="normal">further<sp/>requirements,<sp/>then<sp/>calls<sp/>`CException.h`<sp/>to<sp/>do<sp/>the<sp/>gruntwork.<sp/><sp/>All</highlight></codeline>
+<codeline><highlight class="normal">of<sp/>these<sp/>are<sp/>optional.<sp/><sp/>You<sp/>could<sp/>directly<sp/>include<sp/>`CException.h`<sp/>if</highlight></codeline>
+<codeline><highlight class="normal">you<sp/>wanted<sp/>and<sp/>just<sp/>use<sp/>the<sp/>defaults<sp/>provided.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>`EXCEPTION_T`</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>Set<sp/>this<sp/>to<sp/>the<sp/>type<sp/>you<sp/>want<sp/>your<sp/>exception<sp/>id&apos;s<sp/>to<sp/>be.<sp/><sp/>Defaults<sp/>to<sp/>&apos;unsigned<sp/>int&apos;.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>`EXCEPTION_NONE`</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>Set<sp/>this<sp/>to<sp/>a<sp/>number<sp/>which<sp/>will<sp/>never<sp/>be<sp/>an<sp/>exception<sp/>id<sp/>in<sp/>your<sp/>system.<sp/><sp/>Defaults<sp/>to<sp/>`0x5a5a5a5a`.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>`EXCEPTION_GET_ID`</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>If<sp/>in<sp/>a<sp/>multi-tasking<sp/>environment,<sp/>this<sp/>should<sp/>be</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>set<sp/>to<sp/>be<sp/>a<sp/>call<sp/>to<sp/>the<sp/>function<sp/>described<sp/>in<sp/>#2<sp/>above.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>Defaults<sp/>to<sp/>just<sp/>return<sp/>`0`<sp/>all<sp/>the<sp/>time<sp/>(good<sp/>for</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>single<sp/>tasking<sp/>environments)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>`EXCEPTION_NUM_ID`</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>If<sp/>in<sp/>a<sp/>multi-tasking<sp/>environment,<sp/>this<sp/>should<sp/>be<sp/>set</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>to<sp/>the<sp/>number<sp/>of<sp/>ID&apos;s<sp/>required<sp/>(usually<sp/>the<sp/>number<sp/>of</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>tasks<sp/>in<sp/>the<sp/>system).<sp/><sp/>Defaults<sp/>to<sp/>`1`<sp/>(for<sp/>single</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>tasking<sp/>environments).</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>`CEXCEPTION_NO_CATCH_HANDLER(id)`</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>This<sp/>macro<sp/>can<sp/>be<sp/>optionally<sp/>specified.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>It<sp/>allows<sp/>you<sp/>to<sp/>specify<sp/>code<sp/>to<sp/>be<sp/>called<sp/>when<sp/>a<sp/>Throw</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>is<sp/>made<sp/>outside<sp/>of<sp/>`Try`<sp/>...<sp/>`Catch`<sp/>protection.<sp/><sp/>Consider</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>this<sp/>the<sp/>emergency<sp/>fallback<sp/>plan<sp/>for<sp/>when<sp/>something<sp/>has</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>gone<sp/>terribly<sp/>wrong.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">You<sp/>may<sp/>also<sp/>want<sp/>to<sp/>include<sp/>any<sp/>header<sp/>files<sp/>which<sp/>will<sp/>commonly<sp/>be</highlight></codeline>
+<codeline><highlight class="normal">needed<sp/>by<sp/>the<sp/>rest<sp/>of<sp/>your<sp/>application<sp/>where<sp/>it<sp/>uses<sp/>exception<sp/>handling</highlight></codeline>
+<codeline><highlight class="normal">here.<sp/><sp/>For<sp/>example,<sp/>OS<sp/>header<sp/>files<sp/>or<sp/>exception<sp/>codes<sp/>would<sp/>be<sp/>useful.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Finally,<sp/>there<sp/>are<sp/>some<sp/>hook<sp/>macros<sp/>which<sp/>you<sp/>can<sp/>implement<sp/>to<sp/>inject</highlight></codeline>
+<codeline><highlight class="normal">your<sp/>own<sp/>target-specific<sp/>code<sp/>in<sp/>particular<sp/>places.<sp/>It<sp/>is<sp/>a<sp/>rare<sp/>instance</highlight></codeline>
+<codeline><highlight class="normal">where<sp/>you<sp/>will<sp/>need<sp/>these,<sp/>but<sp/>they<sp/>are<sp/>here<sp/>if<sp/>you<sp/>need<sp/>them:</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>`CEXCEPTION_HOOK_START_TRY`</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>called<sp/>immediately<sp/>before<sp/>the<sp/>Try<sp/>block</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>`CEXCEPTION_HOOK_HAPPY_TRY`</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>called<sp/>immediately<sp/>after<sp/>the<sp/>Try<sp/>block<sp/>if<sp/>no<sp/>exception<sp/>was<sp/>thrown</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>`CEXCEPTION_HOOK_AFTER_TRY`</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>called<sp/>immediately<sp/>after<sp/>the<sp/>Try<sp/>block<sp/>OR<sp/>before<sp/>an<sp/>exception<sp/>is<sp/>caught</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>`CEXCEPTION_HOOK_START_CATCH`</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>called<sp/>immediately<sp/>before<sp/>the<sp/>catch</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">TESTING</highlight></codeline>
+<codeline><highlight class="normal">-------</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">If<sp/>you<sp/>want<sp/>to<sp/>validate<sp/>that<sp/>CException<sp/>works<sp/>with<sp/>your<sp/>tools<sp/>or<sp/>that</highlight></codeline>
+<codeline><highlight class="normal">it<sp/>works<sp/>with<sp/>your<sp/>custom<sp/>configuration,<sp/>you<sp/>may<sp/>want<sp/>to<sp/>run<sp/>the<sp/>test</highlight></codeline>
+<codeline><highlight class="normal">suite.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>test<sp/>suite<sp/>included<sp/>makes<sp/>use<sp/>of<sp/>the<sp/>`Unity`<sp/>Test<sp/>Framework.<sp/><sp/>It<sp/>will</highlight></codeline>
+<codeline><highlight class="normal">require<sp/>a<sp/>native<sp/>C<sp/>compiler.<sp/>The<sp/>example<sp/>makefile<sp/>uses<sp/>MinGW&apos;s<sp/>gcc.</highlight></codeline>
+<codeline><highlight class="normal">Modify<sp/>the<sp/>makefile<sp/>to<sp/>include<sp/>the<sp/>proper<sp/>paths<sp/>to<sp/>tools,<sp/>then<sp/>run<sp/>`make`</highlight></codeline>
+<codeline><highlight class="normal">to<sp/>compile<sp/>and<sp/>run<sp/>the<sp/>test<sp/>application.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>`C_COMPILER`</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>The<sp/>C<sp/>compiler<sp/>to<sp/>use<sp/>to<sp/>perform<sp/>the<sp/>tests</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>`C_LIBS`</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>The<sp/>path<sp/>to<sp/>the<sp/>C<sp/>libraries<sp/>(including<sp/>setjmp)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>`UNITY_DIR`</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>*<sp/>The<sp/>path<sp/>to<sp/>the<sp/>Unity<sp/>framework<sp/>(required<sp/>to<sp/>run<sp/>tests)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>(get<sp/>it<sp/>at<sp/>[ThrowTheSwitch.org](http://throwtheswitch.org))</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">LICENSE</highlight></codeline>
+<codeline><highlight class="normal">-------</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">This<sp/>software<sp/>is<sp/>licensed<sp/>under<sp/>the<sp/>MIT<sp/>License</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Copyright<sp/>(c)<sp/>2007-2017<sp/>Mark<sp/>VanderVoord</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Permission<sp/>is<sp/>hereby<sp/>granted,<sp/>free<sp/>of<sp/>charge,<sp/>to<sp/>any<sp/>person<sp/>obtaining<sp/>a<sp/>copy</highlight></codeline>
+<codeline><highlight class="normal">of<sp/>this<sp/>software<sp/>and<sp/>associated<sp/>documentation<sp/>files<sp/>(the<sp/>&quot;Software&quot;),<sp/>to<sp/>deal</highlight></codeline>
+<codeline><highlight class="normal">in<sp/>the<sp/>Software<sp/>without<sp/>restriction,<sp/>including<sp/>without<sp/>limitation<sp/>the<sp/>rights</highlight></codeline>
+<codeline><highlight class="normal">to<sp/>use,<sp/>copy,<sp/>modify,<sp/>merge,<sp/>publish,<sp/>distribute,<sp/>sublicense,<sp/>and/or<sp/>sell</highlight></codeline>
+<codeline><highlight class="normal">copies<sp/>of<sp/>the<sp/>Software,<sp/>and<sp/>to<sp/>permit<sp/>persons<sp/>to<sp/>whom<sp/>the<sp/>Software<sp/>is</highlight></codeline>
+<codeline><highlight class="normal">furnished<sp/>to<sp/>do<sp/>so,<sp/>subject<sp/>to<sp/>the<sp/>following<sp/>conditions:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>above<sp/>copyright<sp/>notice<sp/>and<sp/>this<sp/>permission<sp/>notice<sp/>shall<sp/>be<sp/>included<sp/>in</highlight></codeline>
+<codeline><highlight class="normal">all<sp/>copies<sp/>or<sp/>substantial<sp/>portions<sp/>of<sp/>the<sp/>Software.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">THE<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>&quot;AS<sp/>IS&quot;,<sp/>WITHOUT<sp/>WARRANTY<sp/>OF<sp/>ANY<sp/>KIND,<sp/>EXPRESS<sp/>OR</highlight></codeline>
+<codeline><highlight class="normal">IMPLIED,<sp/>INCLUDING<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO<sp/>THE<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY,</highlight></codeline>
+<codeline><highlight class="normal">FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE<sp/>AND<sp/>NONINFRINGEMENT.<sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>THE</highlight></codeline>
+<codeline><highlight class="normal">AUTHORS<sp/>OR<sp/>COPYRIGHT<sp/>HOLDERS<sp/>BE<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>CLAIM,<sp/>DAMAGES<sp/>OR<sp/>OTHER</highlight></codeline>
+<codeline><highlight class="normal">LIABILITY,<sp/>WHETHER<sp/>IN<sp/>AN<sp/>ACTION<sp/>OF<sp/>CONTRACT,<sp/>TORT<sp/>OR<sp/>OTHERWISE,<sp/>ARISING<sp/>FROM,</highlight></codeline>
+<codeline><highlight class="normal">OUT<sp/>OF<sp/>OR<sp/>IN<sp/>CONNECTION<sp/>WITH<sp/>THE<sp/>SOFTWARE<sp/>OR<sp/>THE<sp/>USE<sp/>OR<sp/>OTHER<sp/>DEALINGS<sp/>IN</highlight></codeline>
+<codeline><highlight class="normal">THE<sp/>SOFTWARE.</highlight></codeline>
+    </programlisting>
+    <location file="UnitTestFramework/vendor/ceedling/docs/CException.md"/>
+  </compounddef>
+</doxygen>

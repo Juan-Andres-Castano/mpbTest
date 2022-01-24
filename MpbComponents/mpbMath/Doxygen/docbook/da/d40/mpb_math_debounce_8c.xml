@@ -1,0 +1,214 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_mpb_math_debounce_8c" xml:lang="en-US">
+<title>Sources/mpbMathDebounce.c File Reference</title>
+<indexterm><primary>Sources/mpbMathDebounce.c</primary></indexterm>
+<para>
+
+<para>
+<literallayout>&#160;&#xa;</literallayout>
+ This library provides a management system for the debouncing of digital inputs. </para>
+ 
+</para>
+<programlisting>#include &quot;mpbMathDebounce.h&quot;
+</programlisting>Include dependency graph for mpbMathDebounce.c:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../d1/d15/mpb_math_debounce_8c__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>eMpbError_t <link linkend="_mpb_math_debounce_8c_1a58a6dae34450c1d974441fdd2f779774">vMpbMathDebounceInit</link> (<link linkend="_struct_mpb_math_debounce__t">MpbMathDebounce_t</link> *pxMpbMathDebounce, uint32_t ulOnCount, uint32_t ulOffCount, eBool_t bInitialState)</para>
+
+<para>Initialize the debounce structure. </para>
+</listitem>
+            <listitem><para>eMpbError_t <link linkend="_mpb_math_debounce_8c_1a94957f03bff3a5732fc9741dc88bcbd6">vMpbMathDebounceUpdate</link> (<link linkend="_struct_mpb_math_debounce__t">MpbMathDebounce_t</link> *pxMpbMathDebounce, eBool_t bActualState, eBool_t *pbFinalState)</para>
+
+<para>Updates the state of the debounce. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>
+<literallayout>&#160;&#xa;</literallayout>
+ This library provides a management system for the debouncing of digital inputs. </para>
+
+<para><formalpara><title>Author</title>
+
+<para>juan </para>
+</formalpara>
+<formalpara><title>Date</title>
+
+<para>Created on 2021-11-18 </para>
+</formalpara>
+<note><title>Note</title>
+
+<para></para>
+</note>
+<formalpara><title>Copyright</title>
+
+<para>MPB, Montreal, Qc <formalpara><title><informaltable frame='none'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>&#169; COPYRIGHT 2021 MPB, Montreal, Quebec, Canada</entry></row></tbody></tgroup></informaltable></title></formalpara>
+</para>
+</formalpara>
+<formalpara><title><informaltable frame='none'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>&#169; All rights reserved.</entry></row></tbody></tgroup></informaltable></title></formalpara>
+</para>
+
+<para>
+<literallayout>&#160;&#xa;</literallayout>
+
+<literallayout>&#160;&#xa;</literallayout>
+ <informaltable frame='none'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>This document contains confidential and proprietary information of MPB (subject to a non-disclosure agreement) and shall</entry></row></tbody></tgroup></informaltable> <informaltable frame='none'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>not be disclosed, distributed, or reproduced in whole or in part, without the prior written authorization of MPB.</entry></row></tbody></tgroup></informaltable></para>
+
+<para><literallayout><computeroutput>Usage Example</computeroutput></literallayout> this library allows to debounbce all the inputs AC/DC the application needs. <literallayout><computeroutput>vMpbMathDebounceInit(&#32;&amp;MyMpbMathDebounce,&#32;&#32;ulOnCount,&#32;ullOffCount,&#32;slValue&#32;);
+eMpbError&#32;=&#32;vMpbMathDebounceUpdate(&#32;&amp;MyMpbMathDebounce,&#32;slValue,&#32;&amp;pslState&#32;);
+plState&#32;will&#32;give&#32;you&#32;the&#32;filtered&#32;input
+</computeroutput></literallayout> 
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry><link linkend="_struct_mpb_math_debounce__t">MpbMathDebounce_t</link></entry>
+                                <entry>
+<para>datatype for the debouncing. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>ulOnCount, ullOffCount.</entry>
+                                <entry>
+<para>config. of the debouncer. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>pslState. final read. </para>
+</formalpara>
+<note><title>Note</title>
+
+<para>could be instantiate in everywhere of the application. in that point the timer instantiation should be placed. </para>
+</note>
+<warning><title>Warning</title>
+
+<para>none. </para>
+</warning>
+</para>
+</section>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_mpb_math_debounce_8c_1a58a6dae34450c1d974441fdd2f779774"/>    <section>
+    <title>vMpbMathDebounceInit()</title>
+<indexterm><primary>vMpbMathDebounceInit</primary><secondary>mpbMathDebounce.c</secondary></indexterm>
+<indexterm><primary>mpbMathDebounce.c</primary><secondary>vMpbMathDebounceInit</secondary></indexterm>
+<para><computeroutput>eMpbError_t vMpbMathDebounceInit (<link linkend="_struct_mpb_math_debounce__t">MpbMathDebounce_t</link> * pxMpbMathDebounce, uint32_t ulOnCount, uint32_t ulOffCount, eBool_t bInitialState)</computeroutput></para><para>
+
+<para>Initialize the debounce structure. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>in                                </entry>                                <entry>ulOnCount</entry>
+                                <entry>
+<para>the number of on count desired </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>ulOffCount</entry>
+                                <entry>
+<para>the number of off count desired </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>slValue</entry>
+                                <entry>
+<para>the inital value </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>out                                </entry>                                <entry>pxMpbMathDebounce</entry>
+                                <entry>
+<para>the initialize debounce structure </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line 41 of file mpbMathDebounce.c.</para>
+    </section><anchor xml:id="_mpb_math_debounce_8c_1a94957f03bff3a5732fc9741dc88bcbd6"/>    <section>
+    <title>vMpbMathDebounceUpdate()</title>
+<indexterm><primary>vMpbMathDebounceUpdate</primary><secondary>mpbMathDebounce.c</secondary></indexterm>
+<indexterm><primary>mpbMathDebounce.c</primary><secondary>vMpbMathDebounceUpdate</secondary></indexterm>
+<para><computeroutput>eMpbError_t vMpbMathDebounceUpdate (<link linkend="_struct_mpb_math_debounce__t">MpbMathDebounce_t</link> * pxMpbMathDebounce, eBool_t bActualState, eBool_t * pbFinalState)</computeroutput></para><para>
+
+<para>Updates the state of the debounce. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>in                                </entry>                                <entry>pxMpbMathDebounce</entry>
+                                <entry>
+<para>the debounce structure </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>slValue</entry>
+                                <entry>
+<para>the new value </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>out                                </entry>                                <entry>pslState</entry>
+                                <entry>
+<para>the debounce state </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line 63 of file mpbMathDebounce.c.</para>
+</section>
+</section>
+</section>

@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_937900b87e0c7a5fa01190c395fb83f7" xml:lang="en-US">
+<title>Sources Directory Reference</title>
+<indexterm><primary>Sources Directory Reference</primary></indexterm>
+Directory dependency graph for Sources:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="dir_937900b87e0c7a5fa01190c395fb83f7_dep.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Files    </title>
+        <itemizedlist>
+            <listitem><para>file <link linkend="_mpb_time_base_8c">mpbTimeBase.c</link></para>
+
+<para>
+<literallayout>&#160;&#xa;</literallayout>
+ This library proveies a management system for the timing of the differents process in the application. Each on of the timers neeeded in a application should be initialized, triggerd inside a timer interruption and read for verify his deadline. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

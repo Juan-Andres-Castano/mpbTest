@@ -1,0 +1,93 @@
+.TH "Sources/nepMathDivision.c" 3 "Thu Nov 18 2021" "mpbTime" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Sources/nepMathDivision.c \- Library to calculate divisions\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'nepMathDivision\&.h'\fP
+.br
+\fC#include 'nepMath\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "float \fBvroundf\fP (float var)"
+.br
+.ti -1c
+.RI "eNepError_t \fBeNepMathDivisionU32\fP (uint32_t ulNumerator, uint32_t ulDenominator, uint32_t *pulResult)"
+.br
+.ti -1c
+.RI "eNepError_t \fBeNepMathDivisionFloat\fP (float fNumerator, float fDenominator, float *pfResult)"
+.br
+.ti -1c
+.RI "eNepError_t \fBeNepMathDivisionDouble\fP (double fdNumerator, double fdDenominator, double *pdfResult)"
+.br
+.ti -1c
+.RI "eNepError_t \fBeNepMathDivisionS64\fP (int64_t sllNumerator, int64_t sllDenominator, int64_t *psllResult)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Library to calculate divisions\&. 
+
+
+.PP
+\fBAuthor\fP
+.RS 4
+Mikael Plouffe 
+.RE
+.PP
+\fBDate\fP
+.RS 4
+Created on 2019-04-25 
+.RE
+.PP
+\fBNote\fP
+.RS 4
+.RE
+.PP
+\fBCopyright\fP
+.RS 4
+NEP, Montreal, Qc 
+.SS "(C) COPYRIGHT 2015 NEP, Montreal, Quebec, Canada"
+.RE
+.PP
+.SS "(C) All rights reserved\&."
+.PP
+
+.br
+
+.br
+ This document contains confidential and proprietary information of NEPTRONIC (subject to a non-disclosure agreement) and shall not be disclosed, distributed, or reproduced in whole or in part, without the prior written authorization of NEPTRONIC\&. 
+.PP
+Definition in file \fBnepMathDivision\&.c\fP\&.
+.SH "Function Documentation"
+.PP 
+.SS "eNepError_t eNepMathDivisionDouble (double fdNumerator, double fdDenominator, double * pdfResult)"
+
+.PP
+Definition at line 110 of file nepMathDivision\&.c\&.
+.SS "eNepError_t eNepMathDivisionFloat (float fNumerator, float fDenominator, float * pfResult)"
+
+.PP
+Definition at line 82 of file nepMathDivision\&.c\&.
+.SS "eNepError_t eNepMathDivisionS64 (int64_t sllNumerator, int64_t sllDenominator, int64_t * psllResult)"
+
+.PP
+Definition at line 155 of file nepMathDivision\&.c\&.
+.SS "eNepError_t eNepMathDivisionU32 (uint32_t ulNumerator, uint32_t ulDenominator, uint32_t * pulResult)"
+
+.PP
+Definition at line 67 of file nepMathDivision\&.c\&.
+.SS "float vroundf (float var)"
+
+.PP
+Definition at line 33 of file nepMathDivision\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mpbTime from the source code\&.

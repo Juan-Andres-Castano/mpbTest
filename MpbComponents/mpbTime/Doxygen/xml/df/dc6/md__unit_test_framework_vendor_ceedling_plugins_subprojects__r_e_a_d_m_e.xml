@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="df/dc6/md__unit_test_framework_vendor_ceedling_plugins_subprojects__r_e_a_d_m_e" kind="page">
+    <compoundname>md_UnitTestFramework_vendor_ceedling_plugins_subprojects_README</compoundname>
+    <title>ceedling-subprojects</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Plugin for supporting subprojects that are built as static libraries. It continues to support <linebreak/>
+ dependency tracking, without getting confused between your main project files and your <linebreak/>
+ subproject files. It accepts different compiler flags and linker flags, allowing you to <linebreak/>
+ optimize for your situation.</para>
+<para>First, you&apos;re going to want to add the extension to your list of known extensions:</para>
+<para><programlisting><codeline><highlight class="normal">:extension:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>:subprojects:<sp/>&apos;.a&apos;</highlight></codeline>
+</programlisting></para>
+<para>Define a new section called :subprojects. There, you can list as many subprojects <linebreak/>
+ as you may need under the :paths key. For each, you specify a unique place to build <linebreak/>
+ and a unique name.</para>
+<para><programlisting><codeline><highlight class="normal">:subprojects:<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>:paths:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>-<sp/>:name:<sp/>libprojectA</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>:source:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>./subprojectA/first/dir</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>./subprojectA/second/dir</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>:include:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>./subprojectA/include/dir</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>:build_root:<sp/>./subprojectA/build/dir</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>:defines:<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>DEFINE_JUST_FOR_THIS_FILE</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>AND_ANOTHER</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>-<sp/>:name:<sp/>libprojectB</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>:source:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>./subprojectB/only/dir</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>:include:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>./subprojectB/first/include/dir</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>./subprojectB/second/include/dir</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>:build_root:<sp/>./subprojectB/build/dir</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/>:defines:<sp/>[]<sp/>#none<sp/>for<sp/>this<sp/>one</highlight></codeline>
+</programlisting></para>
+<para>You can specify the compiler and linker, just as you would a release build:</para>
+<para><programlisting><codeline><highlight class="normal">:tools:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>:subprojects_compiler:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>:executable:<sp/>gcc</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>:arguments:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>-g</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>-I&quot;$&quot;:<sp/>COLLECTION_PATHS_SUBPROJECTS</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>-D$:<sp/>COLLECTION_DEFINES_SUBPROJECTS</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>-c<sp/>&quot;${1}&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>-o<sp/>&quot;${2}&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>:subprojects_linker:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>:executable:<sp/>ar</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>:arguments:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>rcs</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>${2}</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>-<sp/>${1}</highlight></codeline>
+</programlisting></para>
+<para>That&apos;s all there is to it! Happy Hacking! </para>
+    </detaileddescription>
+    <location file="UnitTestFramework/vendor/ceedling/plugins/subprojects/README.md"/>
+  </compounddef>
+</doxygen>

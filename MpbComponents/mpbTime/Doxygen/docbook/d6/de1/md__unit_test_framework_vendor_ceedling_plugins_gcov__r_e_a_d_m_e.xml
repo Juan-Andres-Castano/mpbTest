@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md__unit_test_framework_vendor_ceedling_plugins_gcov__r_e_a_d_m_e" xml:lang="en-US">
+
+<para>Plugin for integrating GNU GCov code coverage tool into Ceedling projects. Currently only designed for the gcov command (like LCOV for example). In the future we could configure this to work with other code coverage tools.</para>
+
+<para>This plugin currently uses <computeroutput>gcovr</computeroutput> to generate HTML reports as a utility. The normal gcov plugin <emphasis>must</emphasis> be run first for this report to generate.</para>
+
+<para>Gcovr can be installed via pip like so:</para>
+
+<para><literallayout><computeroutput>pip&#32;install&#32;gcovr
+</computeroutput></literallayout></para>
+
+<para>There are two types of gcovr HTML reports that can be configured in your <computeroutput>project.yml</computeroutput>. To create a basic HTML report with only the overall file information use the following config.</para>
+
+<para><literallayout><computeroutput>:gcov:
+&#32;&#32;:html_report_type:&#32;basic
+</computeroutput></literallayout> To create a detailed HTML report with line by line breakdown of the coverage use the following config.</para>
+
+<para><literallayout><computeroutput>:gcov:
+&#32;&#32;:html_report_type:&#32;detailed
+</computeroutput></literallayout></para>
+
+<para>These reports will be found in <computeroutput>build/artifacts/gcov</computeroutput>.</para>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_plugins_gcov__r_e_a_d_m_e_1autotoc_md307">
+<title>To-Do list</title>
+
+<para><itemizedlist>
+<listitem>
+<para>Generate overall report (combined statistics from all files with coverage)</para>
+</listitem><listitem>
+<para>Generate coverage output files</para>
+</listitem><listitem>
+<para>Easier option override for better customisation </para>
+</listitem></itemizedlist>
+</para>
+</section>
+</section>

@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="dir_5038cffc520512455c394c8da4fd704d" kind="dir">
+    <compoundname>UnitTestFramework/vendor/ceedling/plugins</compoundname>
+    <innerdir refid="dir_636dff26abb563d7c92f0d684de45b04">UnitTestFramework/vendor/ceedling/plugins/beep</innerdir>
+    <innerdir refid="dir_7f2d042ac0dc124dfe41c3089d6dda6b">UnitTestFramework/vendor/ceedling/plugins/command_hooks</innerdir>
+    <innerdir refid="dir_dfd1759c1a4bdbeb65758f6d9d289e9a">UnitTestFramework/vendor/ceedling/plugins/fake_function_framework</innerdir>
+    <innerdir refid="dir_9207ac77005087f75f28f06b6fc6ca36">UnitTestFramework/vendor/ceedling/plugins/gcov</innerdir>
+    <innerdir refid="dir_ce66d33f7d2be5b21c5157f8b55799fe">UnitTestFramework/vendor/ceedling/plugins/subprojects</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="UnitTestFramework/vendor/ceedling/plugins/"/>
+  </compounddef>
+</doxygen>

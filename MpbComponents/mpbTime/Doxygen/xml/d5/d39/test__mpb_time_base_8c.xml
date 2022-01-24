@@ -1,0 +1,535 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="d5/d39/test__mpb_time_base_8c" kind="file" language="C++">
+    <compoundname>test_mpbTimeBase.c</compoundname>
+    <includes refid="d6/db4/unity_8h" local="yes">unity.h</includes>
+    <includes refid="d2/dbb/mpblibs_8h" local="yes">mpblibs.h</includes>
+    <includes refid="d3/d91/mpb_time_base_8h" local="yes">mpbTimeBase.h</includes>
+    <incdepgraph>
+      <node id="13">
+        <label>stdarg.h</label>
+      </node>
+      <node id="2">
+        <label>unity.h</label>
+        <link refid="d6/db4/unity_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>stdint.h</label>
+      </node>
+      <node id="11">
+        <label>stdlib.h</label>
+      </node>
+      <node id="4">
+        <label>setjmp.h</label>
+      </node>
+      <node id="14">
+        <label>stddef.h</label>
+      </node>
+      <node id="15">
+        <label>mpbTimeBase.h</label>
+        <link refid="d3/d91/mpb_time_base_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>unity_internals.h</label>
+        <link refid="d8/de3/unity__internals_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>limits.h</label>
+      </node>
+      <node id="10">
+        <label>mpblibs.h</label>
+        <link refid="d2/dbb/mpblibs_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>string.h</label>
+      </node>
+      <node id="1">
+        <label>Tests/test_mpbTimeBase.c</label>
+        <link refid="d5/d39/test__mpb_time_base_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>time.h</label>
+      </node>
+      <node id="5">
+        <label>math.h</label>
+      </node>
+      <node id="9">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="d5/d39/test__mpb_time_base_8c_1a7e45006d3ac5dcd53da5667245cff877" prot="public" static="no" mutable="no">
+        <type><ref refid="d2/dbb/mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41" kindref="member">eMpbError_t</ref></type>
+        <definition>eMpbError_t eMpbError</definition>
+        <argsstring></argsstring>
+        <name>eMpbError</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Tests/test_mpbTimeBase.c" line="25" column="13" bodyfile="Tests/test_mpbTimeBase.c" bodystart="25" bodyend="-1"/>
+        <referencedby refid="d5/d39/test__mpb_time_base_8c_1ae8f6f34c3dbcccce54023f33bcdd7994" compoundref="d5/d39/test__mpb_time_base_8c" startline="45" endline="58">test_eMpbTimeBaseInit_InvalidParam_Fail</referencedby>
+        <referencedby refid="d5/d39/test__mpb_time_base_8c_1a95f3a453af78cd84a83985d8ad6d6858" compoundref="d5/d39/test__mpb_time_base_8c" startline="61" endline="75">test_eMpbTimeBaseInit_Success</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="d5/d39/test__mpb_time_base_8c_1a63326a1b70b6e3f070e51687798e02de" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setUp</definition>
+        <argsstring>()</argsstring>
+        <name>setUp</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Tests/test_mpbTimeBase.c" line="31" column="6" bodyfile="Tests/test_mpbTimeBase.c" bodystart="31" bodyend="34"/>
+        <referencedby refid="d5/ddd/unity_8c_1ae3c8272eef0f0b6228ca47b9dd1aa2af" compoundref="d5/ddd/unity_8c" startline="1331" endline="1347">UnityDefaultTestRun</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d5/d39/test__mpb_time_base_8c_1ab804e0f66def63262c1d6b4e3d2a2bd7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void tearDown</definition>
+        <argsstring>()</argsstring>
+        <name>tearDown</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Tests/test_mpbTimeBase.c" line="36" column="6" bodyfile="Tests/test_mpbTimeBase.c" bodystart="36" bodyend="39"/>
+        <referencedby refid="d5/ddd/unity_8c_1ae3c8272eef0f0b6228ca47b9dd1aa2af" compoundref="d5/ddd/unity_8c" startline="1331" endline="1347">UnityDefaultTestRun</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d5/d39/test__mpb_time_base_8c_1ae8f6f34c3dbcccce54023f33bcdd7994" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void test_eMpbTimeBaseInit_InvalidParam_Fail</definition>
+        <argsstring>()</argsstring>
+        <name>test_eMpbTimeBaseInit_InvalidParam_Fail</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Tests/test_mpbTimeBase.c" line="45" column="6" bodyfile="Tests/test_mpbTimeBase.c" bodystart="45" bodyend="58"/>
+        <references refid="d2/dbb/mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41a3850b8824af139a4e2f0f5bcc536ec16" compoundref="d2/dbb/mpblibs_8h" startline="40">eInvalidParameter</references>
+        <references refid="d5/d39/test__mpb_time_base_8c_1a7e45006d3ac5dcd53da5667245cff877" compoundref="d5/d39/test__mpb_time_base_8c" startline="25">eMpbError</references>
+        <references refid="d3/d91/mpb_time_base_8h_1abc4f7fb8dcd9e568855485653669221a" compoundref="de/dd4/mpb_time_base_8c" startline="49" endline="65">eMpbTimeBaseInit</references>
+        <references refid="d6/db4/unity_8h_1af9e5695d6c7cf634206ea6d062cb54c9" compoundref="d6/db4/unity_8h" startline="133">TEST_ASSERT_EQUAL</references>
+      </memberdef>
+      <memberdef kind="function" id="d5/d39/test__mpb_time_base_8c_1a95f3a453af78cd84a83985d8ad6d6858" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void test_eMpbTimeBaseInit_Success</definition>
+        <argsstring>()</argsstring>
+        <name>test_eMpbTimeBaseInit_Success</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Tests/test_mpbTimeBase.c" line="61" column="6" bodyfile="Tests/test_mpbTimeBase.c" bodystart="61" bodyend="75"/>
+        <references refid="d5/d39/test__mpb_time_base_8c_1a7e45006d3ac5dcd53da5667245cff877" compoundref="d5/d39/test__mpb_time_base_8c" startline="25">eMpbError</references>
+        <references refid="d3/d91/mpb_time_base_8h_1abc4f7fb8dcd9e568855485653669221a" compoundref="de/dd4/mpb_time_base_8c" startline="49" endline="65">eMpbTimeBaseInit</references>
+        <references refid="d2/dbb/mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41a3df453108b088af1ab4d781dcf1d0c15" compoundref="d2/dbb/mpblibs_8h" startline="39">eSuccess</references>
+        <references refid="d6/db4/unity_8h_1af9e5695d6c7cf634206ea6d062cb54c9" compoundref="d6/db4/unity_8h" startline="133">TEST_ASSERT_EQUAL</references>
+        <references refid="d6/db4/unity_8h_1a512d845c79aa29b47e1bcac1be7a800b" compoundref="d6/db4/unity_8h" startline="137">TEST_ASSERT_EQUAL_UINT16</references>
+        <references refid="d6/db4/unity_8h_1a91619799eeed1bc1d534d46921b54bd4" compoundref="d6/db4/unity_8h" startline="138">TEST_ASSERT_EQUAL_UINT32</references>
+        <references refid="d6/db4/unity_8h_1a2c6e320e9ab4b461e3396bc543f71f16" compoundref="d6/db4/unity_8h" startline="136">TEST_ASSERT_EQUAL_UINT8</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>juan </para>
+</simplesect>
+<simplesect kind="date"><para>Created on 2021-11-17 </para>
+</simplesect>
+<simplesect kind="note"><para></para>
+</simplesect>
+<simplesect kind="copyright"><para>MPB, Montreal, Qc <heading level="2"><center><copy/> COPYRIGHT 2021 MPB, Montreal, Quebec, Canada</center></heading>
+</para>
+</simplesect>
+<heading level="2"><center><copy/> All rights reserved.</center></heading>
+</para>
+<para><linebreak/>
+<linebreak/>
+ <center>This document contains confidential and proprietary information of MPB (subject to a non-disclosure agreement) and shall</center> <center>not be disclosed, distributed, or reproduced in whole or in part, without the prior written authorization of MPB.</center> </para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Includes<sp/>------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d6/db4/unity_8h" kindref="compound">unity.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d2/dbb/mpblibs_8h" kindref="compound">mpblibs.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d3/d91/mpb_time_base_8h" kindref="compound">mpbTimeBase.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Private<sp/>define<sp/>------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Private<sp/>macro<sp/>-------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Private<sp/>enum<sp/>--------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Private<sp/>struct<sp/>------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Private<sp/>variables<sp/>---------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25" refid="d5/d39/test__mpb_time_base_8c_1a7e45006d3ac5dcd53da5667245cff877" refkind="member"><highlight class="normal"><ref refid="d2/dbb/mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41" kindref="member">eMpbError_t</ref><sp/><ref refid="d5/d39/test__mpb_time_base_8c_1a7e45006d3ac5dcd53da5667245cff877" kindref="member">eMpbError</ref>;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>External<sp/>variables<sp/>--------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Private<sp/>function<sp/>prototypes<sp/>-----------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Private<sp/>functions<sp/>---------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Exported<sp/>functions<sp/>--------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31" refid="d5/d39/test__mpb_time_base_8c_1a63326a1b70b6e3f070e51687798e02de" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d5/d39/test__mpb_time_base_8c_1a63326a1b70b6e3f070e51687798e02de" kindref="member">setUp</ref>()</highlight></codeline>
+<codeline lineno="32"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="34"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------------*/</highlight><highlight class="normal"><sp/></highlight></codeline>
+<codeline lineno="36" refid="d5/d39/test__mpb_time_base_8c_1ab804e0f66def63262c1d6b4e3d2a2bd7" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d5/d39/test__mpb_time_base_8c_1ab804e0f66def63262c1d6b4e3d2a2bd7" kindref="member">tearDown</ref>()</highlight></codeline>
+<codeline lineno="37"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="39"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="comment">/*******************************************************************************</highlight></codeline>
+<codeline lineno="42"><highlight class="comment">eNepTimeBaseInit<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="43"><highlight class="comment">*******************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45" refid="d5/d39/test__mpb_time_base_8c_1ae8f6f34c3dbcccce54023f33bcdd7994" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d5/d39/test__mpb_time_base_8c_1ae8f6f34c3dbcccce54023f33bcdd7994" kindref="member">test_eMpbTimeBaseInit_InvalidParam_Fail</ref>()</highlight></codeline>
+<codeline lineno="46"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>mpbTimeBase_t<sp/>xTimeBase;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>ucMockTickPerMs<sp/>=<sp/>2;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d5/d39/test__mpb_time_base_8c_1a7e45006d3ac5dcd53da5667245cff877" kindref="member">eMpbError</ref><sp/>=<sp/><ref refid="d3/d91/mpb_time_base_8h_1abc4f7fb8dcd9e568855485653669221a" kindref="member">eMpbTimeBaseInit</ref>(<sp/>NULL,<sp/>0<sp/>);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d6/db4/unity_8h_1af9e5695d6c7cf634206ea6d062cb54c9" kindref="member">TEST_ASSERT_EQUAL</ref>(<sp/><ref refid="d2/dbb/mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41a3850b8824af139a4e2f0f5bcc536ec16" kindref="member">eInvalidParameter</ref>,<sp/><ref refid="d5/d39/test__mpb_time_base_8c_1a7e45006d3ac5dcd53da5667245cff877" kindref="member">eMpbError</ref><sp/>);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d5/d39/test__mpb_time_base_8c_1a7e45006d3ac5dcd53da5667245cff877" kindref="member">eMpbError</ref><sp/>=<sp/><ref refid="d3/d91/mpb_time_base_8h_1abc4f7fb8dcd9e568855485653669221a" kindref="member">eMpbTimeBaseInit</ref>(<sp/>NULL,<sp/>ucMockTickPerMs<sp/>);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d6/db4/unity_8h_1af9e5695d6c7cf634206ea6d062cb54c9" kindref="member">TEST_ASSERT_EQUAL</ref>(<sp/><ref refid="d2/dbb/mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41a3850b8824af139a4e2f0f5bcc536ec16" kindref="member">eInvalidParameter</ref>,<sp/><ref refid="d5/d39/test__mpb_time_base_8c_1a7e45006d3ac5dcd53da5667245cff877" kindref="member">eMpbError</ref><sp/>);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d5/d39/test__mpb_time_base_8c_1a7e45006d3ac5dcd53da5667245cff877" kindref="member">eMpbError</ref><sp/>=<sp/><ref refid="d3/d91/mpb_time_base_8h_1abc4f7fb8dcd9e568855485653669221a" kindref="member">eMpbTimeBaseInit</ref>(<sp/>&amp;xTimeBase,<sp/>0<sp/>);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d6/db4/unity_8h_1af9e5695d6c7cf634206ea6d062cb54c9" kindref="member">TEST_ASSERT_EQUAL</ref>(<sp/><ref refid="d2/dbb/mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41a3850b8824af139a4e2f0f5bcc536ec16" kindref="member">eInvalidParameter</ref>,<sp/><ref refid="d5/d39/test__mpb_time_base_8c_1a7e45006d3ac5dcd53da5667245cff877" kindref="member">eMpbError</ref><sp/>);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61" refid="d5/d39/test__mpb_time_base_8c_1a95f3a453af78cd84a83985d8ad6d6858" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d5/d39/test__mpb_time_base_8c_1a95f3a453af78cd84a83985d8ad6d6858" kindref="member">test_eMpbTimeBaseInit_Success</ref>()</highlight></codeline>
+<codeline lineno="62"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>mpbTimeBase_t<sp/>xTimeBase;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>ucMockTickPerMs<sp/>=<sp/>2;</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d5/d39/test__mpb_time_base_8c_1a7e45006d3ac5dcd53da5667245cff877" kindref="member">eMpbError</ref><sp/>=<sp/><ref refid="d3/d91/mpb_time_base_8h_1abc4f7fb8dcd9e568855485653669221a" kindref="member">eMpbTimeBaseInit</ref>(<sp/>&amp;xTimeBase,<sp/>ucMockTickPerMs<sp/>);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d6/db4/unity_8h_1af9e5695d6c7cf634206ea6d062cb54c9" kindref="member">TEST_ASSERT_EQUAL</ref>(<sp/><ref refid="d2/dbb/mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41a3df453108b088af1ab4d781dcf1d0c15" kindref="member">eSuccess</ref>,<sp/><ref refid="d5/d39/test__mpb_time_base_8c_1a7e45006d3ac5dcd53da5667245cff877" kindref="member">eMpbError</ref><sp/>);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d6/db4/unity_8h_1a91619799eeed1bc1d534d46921b54bd4" kindref="member">TEST_ASSERT_EQUAL_UINT32</ref>(<sp/>0,<sp/>xTimeBase.ulTick<sp/>);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d6/db4/unity_8h_1a91619799eeed1bc1d534d46921b54bd4" kindref="member">TEST_ASSERT_EQUAL_UINT32</ref>(<sp/>0,<sp/>xTimeBase.ulMs<sp/>);</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d6/db4/unity_8h_1a91619799eeed1bc1d534d46921b54bd4" kindref="member">TEST_ASSERT_EQUAL_UINT32</ref>(<sp/>0,<sp/>xTimeBase.ulSecond<sp/>);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d6/db4/unity_8h_1a512d845c79aa29b47e1bcac1be7a800b" kindref="member">TEST_ASSERT_EQUAL_UINT16</ref>(<sp/>1000,<sp/>xTimeBase.usMsCount<sp/>);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d6/db4/unity_8h_1a2c6e320e9ab4b461e3396bc543f71f16" kindref="member">TEST_ASSERT_EQUAL_UINT8</ref>(<sp/>ucMockTickPerMs,<sp/>xTimeBase.ucTickCount<sp/>);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d6/db4/unity_8h_1a2c6e320e9ab4b461e3396bc543f71f16" kindref="member">TEST_ASSERT_EQUAL_UINT8</ref>(<sp/>ucMockTickPerMs,<sp/>xTimeBase.ucTickReload<sp/>);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight><highlight class="comment">/*******************************************************************************</highlight></codeline>
+<codeline lineno="78"><highlight class="comment">eNepTimeBaseTick<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="79"><highlight class="comment">*******************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight><highlight class="comment">//void<sp/>test_eNepTimeBaseTick_InvalidParam_Fail()</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight><highlight class="comment">//{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>eNepError<sp/>=<sp/>eNepTimeBaseTick(<sp/>NULL<sp/>);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>TEST_ASSERT_EQUAL(<sp/>eInvalidParameter,<sp/>eNepError<sp/>);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight><highlight class="comment">//}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight><highlight class="comment">//void<sp/>test_eNepTimeBaseTick_2TickPerMs_Success()</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight><highlight class="comment">//{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>nepTimeBase_t<sp/>xTimeBase;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>uint8_t<sp/>ucMockTickPerMs<sp/>=<sp/>2;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>eNepTimeBaseInit(<sp/>&amp;xTimeBase,<sp/>ucMockTickPerMs<sp/>);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>eNepError<sp/>=<sp/>eNepTimeBaseTick(<sp/>&amp;xTimeBase<sp/>);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>TEST_ASSERT_EQUAL(<sp/>eSuccess,<sp/>eNepError<sp/>);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>TEST_ASSERT_EQUAL_UINT32(<sp/>1,<sp/>xTimeBase.ulTick<sp/>);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>TEST_ASSERT_EQUAL_UINT32(<sp/>0,<sp/>xTimeBase.ulMs<sp/>);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>TEST_ASSERT_EQUAL_UINT32(<sp/>0,<sp/>xTimeBase.ulSecond<sp/>);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>TEST_ASSERT_EQUAL_UINT16(<sp/>1000,<sp/>xTimeBase.usMsCount<sp/>);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>TEST_ASSERT_EQUAL_UINT8(<sp/>(<sp/>ucMockTickPerMs<sp/>-<sp/>1<sp/>),<sp/>xTimeBase.ucTickCount<sp/>);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight><highlight class="comment">//}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight><highlight class="comment">//void<sp/>test_eNepTimeBaseTick_1TickPerMs_Success()</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight><highlight class="comment">//{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>nepTimeBase_t<sp/>xTimeBase;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>uint8_t<sp/>ucMockTickPerMs<sp/>=<sp/>1;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>eNepTimeBaseInit(<sp/>&amp;xTimeBase,<sp/>ucMockTickPerMs<sp/>);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>eNepError<sp/>=<sp/>eNepTimeBaseTick(<sp/>&amp;xTimeBase<sp/>);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>TEST_ASSERT_EQUAL(<sp/>eSuccess,<sp/>eNepError<sp/>);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>TEST_ASSERT_EQUAL_UINT32(<sp/>1,<sp/>xTimeBase.ulTick<sp/>);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>TEST_ASSERT_EQUAL_UINT32(<sp/>1,<sp/>xTimeBase.ulMs<sp/>);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>TEST_ASSERT_EQUAL_UINT32(<sp/>0,<sp/>xTimeBase.ulSecond<sp/>);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>TEST_ASSERT_EQUAL_UINT16(<sp/>(<sp/>1000<sp/>-<sp/>1<sp/>),<sp/>xTimeBase.usMsCount<sp/>);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>TEST_ASSERT_EQUAL_UINT8(<sp/>ucMockTickPerMs,<sp/>xTimeBase.ucTickCount<sp/>);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight><highlight class="comment">//}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight><highlight class="comment">//void<sp/>test_eNepTimeBaseTick_1Second_Success()</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight><highlight class="comment">//{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>nepTimeBase_t<sp/>xTimeBase;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>uint8_t<sp/>ucMockTickPerMs<sp/>=<sp/>1;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>uint32_t<sp/>ulTickCount<sp/>=<sp/>1000;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>eNepError<sp/>=<sp/>eNepTimeBaseInit(<sp/>&amp;xTimeBase,<sp/>ucMockTickPerMs<sp/>);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>for(<sp/>uint32_t<sp/>ulI<sp/>=<sp/>0;<sp/>ulI<sp/>&lt;<sp/>ulTickCount;<sp/>ulI++<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>eNepError<sp/>=<sp/>eNepTimeBaseTick(<sp/>&amp;xTimeBase<sp/>);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>TEST_ASSERT_EQUAL(<sp/>eSuccess,<sp/>eNepError<sp/>);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>TEST_ASSERT_EQUAL_UINT32(<sp/>1000,<sp/>xTimeBase.ulTick<sp/>);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>TEST_ASSERT_EQUAL_UINT32(<sp/>1000,<sp/>xTimeBase.ulMs<sp/>);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>TEST_ASSERT_EQUAL_UINT32(<sp/>1,<sp/>xTimeBase.ulSecond<sp/>);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>TEST_ASSERT_EQUAL_UINT16(<sp/>1000,<sp/>xTimeBase.usMsCount<sp/>);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>TEST_ASSERT_EQUAL_UINT8(<sp/>ucMockTickPerMs,<sp/>xTimeBase.ucTickCount<sp/>);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight><highlight class="comment">//}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight><highlight class="comment">/*******************************************************************************</highlight></codeline>
+<codeline lineno="147"><highlight class="comment">ulNepTimeBaseGetTick<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="148"><highlight class="comment">*******************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight><highlight class="comment">//void<sp/>test_ulNepTimeBaseGetTick_Success()</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight><highlight class="comment">//{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>nepTimeBase_t<sp/>xTimeBase;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>uint8_t<sp/>ucMockTickPerMs<sp/>=<sp/>1;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>uint32_t<sp/>ulTickCount<sp/>=<sp/>40;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>eNepTimeBaseInit(<sp/>&amp;xTimeBase,<sp/>ucMockTickPerMs<sp/>);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>for(<sp/>uint32_t<sp/>ulI<sp/>=<sp/>0;<sp/>ulI<sp/>&lt;<sp/>ulTickCount;<sp/>ulI++<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>eNepTimeBaseTick(<sp/>&amp;xTimeBase<sp/>);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>TEST_ASSERT_EQUAL_UINT32(<sp/>40,<sp/>ulNepTimeBaseGetTick(<sp/>&amp;xTimeBase<sp/>)<sp/>);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="163"><highlight class="normal"></highlight><highlight class="comment">//}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="164"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"></highlight><highlight class="comment">/*******************************************************************************</highlight></codeline>
+<codeline lineno="166"><highlight class="comment">ulNepTimeBaseGetMs<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="167"><highlight class="comment">*******************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"></highlight><highlight class="comment">//void<sp/>test_ulNepTimeBaseGetMs_Success()</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"></highlight><highlight class="comment">//{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>nepTimeBase_t<sp/>xTimeBase;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>uint8_t<sp/>ucMockTickPerMs<sp/>=<sp/>2;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>uint32_t<sp/>ulTickCount<sp/>=<sp/>40;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="174"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="175"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>eNepTimeBaseInit(<sp/>&amp;xTimeBase,<sp/>ucMockTickPerMs<sp/>);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="176"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>for(<sp/>uint32_t<sp/>ulI<sp/>=<sp/>0;<sp/>ulI<sp/>&lt;<sp/>ulTickCount;<sp/>ulI++<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="178"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>eNepTimeBaseTick(<sp/>&amp;xTimeBase<sp/>);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="180"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="181"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>TEST_ASSERT_EQUAL_UINT32(<sp/>20,<sp/>ulNepTimeBaseGetMs(<sp/>&amp;xTimeBase<sp/>)<sp/>);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="182"><highlight class="normal"></highlight><highlight class="comment">//}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="183"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="184"><highlight class="normal"></highlight><highlight class="comment">/*******************************************************************************</highlight></codeline>
+<codeline lineno="185"><highlight class="comment">ulNepTimeBaseGetSecond<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="186"><highlight class="comment">*******************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="187"><highlight class="normal"></highlight></codeline>
+<codeline lineno="188"><highlight class="normal"></highlight><highlight class="comment">//void<sp/>test_ulNepTimeBaseGetSecond_Success()</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="189"><highlight class="normal"></highlight><highlight class="comment">//{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="190"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>nepTimeBase_t<sp/>xTimeBase;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="191"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>uint8_t<sp/>ucMockTickPerMs<sp/>=<sp/>1;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="192"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>uint32_t<sp/>ulTickCount<sp/>=<sp/>2000;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="193"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="194"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>eNepTimeBaseInit(<sp/>&amp;xTimeBase,<sp/>ucMockTickPerMs<sp/>);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="195"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>for(<sp/>uint32_t<sp/>ulI<sp/>=<sp/>0;<sp/>ulI<sp/>&lt;<sp/>ulTickCount;<sp/>ulI++<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="196"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="197"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>eNepTimeBaseTick(<sp/>&amp;xTimeBase<sp/>);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="198"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="199"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="200"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>TEST_ASSERT_EQUAL_UINT32(<sp/>2,<sp/>ulNepTimeBaseGetSecond(<sp/>&amp;xTimeBase<sp/>)<sp/>);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="201"><highlight class="normal"></highlight><highlight class="comment">//}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="202"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="203"><highlight class="normal"></highlight><highlight class="comment">/*******************************************************************************</highlight></codeline>
+<codeline lineno="204"><highlight class="comment">ulNepTimeBaseGetMinute<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="205"><highlight class="comment">*******************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="206"><highlight class="normal"></highlight></codeline>
+<codeline lineno="207"><highlight class="normal"></highlight><highlight class="comment">//void<sp/>test_ulNepTimeBaseGetMinute_0minute_Success()</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="208"><highlight class="normal"></highlight><highlight class="comment">//{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="209"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>nepTimeBase_t<sp/>xTimeBase;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="210"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>uint8_t<sp/>ucMockTickPerMs<sp/>=<sp/>1;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="211"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>uint32_t<sp/>ulTickCount<sp/>=<sp/>59000;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="212"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="213"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>eNepTimeBaseInit(<sp/>&amp;xTimeBase,<sp/>ucMockTickPerMs<sp/>);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="214"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>for(<sp/>uint32_t<sp/>ulI<sp/>=<sp/>0;<sp/>ulI<sp/>&lt;<sp/>ulTickCount;<sp/>ulI++<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="215"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="216"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>eNepTimeBaseTick(<sp/>&amp;xTimeBase<sp/>);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="217"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="218"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="219"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>TEST_ASSERT_EQUAL_UINT32(<sp/>0,<sp/>ulNepTimeBaseGetMinute(<sp/>&amp;xTimeBase<sp/>)<sp/>);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="220"><highlight class="normal"></highlight><highlight class="comment">//}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="221"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="222"><highlight class="normal"></highlight></codeline>
+<codeline lineno="223"><highlight class="normal"></highlight><highlight class="comment">//void<sp/>test_ulNepTimeBaseGetMinute_1minute_Success()</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="224"><highlight class="normal"></highlight><highlight class="comment">//{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="225"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>nepTimeBase_t<sp/>xTimeBase;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="226"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>uint8_t<sp/>ucMockTickPerMs<sp/>=<sp/>1;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="227"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>uint32_t<sp/>ulTickCount<sp/>=<sp/>60000;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="228"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="229"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>eNepTimeBaseInit(<sp/>&amp;xTimeBase,<sp/>ucMockTickPerMs<sp/>);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="230"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>for(<sp/>uint32_t<sp/>ulI<sp/>=<sp/>0;<sp/>ulI<sp/>&lt;<sp/>ulTickCount;<sp/>ulI++<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="231"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="232"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>eNepTimeBaseTick(<sp/>&amp;xTimeBase<sp/>);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="233"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="234"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="235"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>TEST_ASSERT_EQUAL_UINT32(<sp/>1,<sp/>ulNepTimeBaseGetMinute(<sp/>&amp;xTimeBase<sp/>)<sp/>);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="236"><highlight class="normal"></highlight><highlight class="comment">//}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="237"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="238"><highlight class="normal"></highlight></codeline>
+<codeline lineno="239"><highlight class="normal"></highlight><highlight class="comment">//void<sp/>test_ulNepTimeBaseGetMinute_2minutes_Success()</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="240"><highlight class="normal"></highlight><highlight class="comment">//{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="241"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>nepTimeBase_t<sp/>xTimeBase;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="242"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>uint8_t<sp/>ucMockTickPerMs<sp/>=<sp/>1;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="243"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>uint32_t<sp/>ulTickCount<sp/>=<sp/>142000;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="244"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="245"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>eNepTimeBaseInit(<sp/>&amp;xTimeBase,<sp/>ucMockTickPerMs<sp/>);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="246"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>for(<sp/>uint32_t<sp/>ulI<sp/>=<sp/>0;<sp/>ulI<sp/>&lt;<sp/>ulTickCount;<sp/>ulI++<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="247"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="248"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>eNepTimeBaseTick(<sp/>&amp;xTimeBase<sp/>);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="249"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="250"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="251"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>TEST_ASSERT_EQUAL_UINT32(<sp/>2,<sp/>ulNepTimeBaseGetMinute(<sp/>&amp;xTimeBase<sp/>)<sp/>);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="252"><highlight class="normal"></highlight><highlight class="comment">//}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="253"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="254"><highlight class="normal"></highlight><highlight class="comment">/*******************************************************************************</highlight></codeline>
+<codeline lineno="255"><highlight class="comment">ulNepTimeBaseGetHour<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="256"><highlight class="comment">*******************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="257"><highlight class="normal"></highlight></codeline>
+<codeline lineno="258"><highlight class="normal"></highlight><highlight class="comment">//void<sp/>test_ulNepTimeBaseGetHour_0Hour_Success()</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="259"><highlight class="normal"></highlight><highlight class="comment">//{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="260"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>nepTimeBase_t<sp/>xTimeBase;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="261"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>uint8_t<sp/>ucMockTickPerMs<sp/>=<sp/>1;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="262"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>uint32_t<sp/>ulTickCount<sp/>=<sp/>10;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="263"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="264"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>eNepTimeBaseInit(<sp/>&amp;xTimeBase,<sp/>ucMockTickPerMs<sp/>);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="265"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>for(<sp/>uint32_t<sp/>ulI<sp/>=<sp/>0;<sp/>ulI<sp/>&lt;<sp/>ulTickCount;<sp/>ulI++<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="266"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="267"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>eNepTimeBaseTick(<sp/>&amp;xTimeBase<sp/>);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="268"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="269"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="270"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>TEST_ASSERT_EQUAL_UINT32(<sp/>0,<sp/>ulNepTimeBaseGetHour(<sp/>&amp;xTimeBase<sp/>)<sp/>);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="271"><highlight class="normal"></highlight><highlight class="comment">//}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="272"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="273"><highlight class="normal"></highlight></codeline>
+<codeline lineno="274"><highlight class="normal"></highlight><highlight class="comment">//void<sp/>test_ulNepTimeBaseGetHour_1Hour_Success()</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="275"><highlight class="normal"></highlight><highlight class="comment">//{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="276"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>nepTimeBase_t<sp/>xTimeBase;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="277"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>uint8_t<sp/>ucMockTickPerMs<sp/>=<sp/>1;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="278"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>uint32_t<sp/>ulTickCount<sp/>=<sp/>1;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="279"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="280"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>/*<sp/>Cheat<sp/>tick<sp/>count<sp/>because<sp/>test<sp/>is<sp/>too<sp/>long<sp/>otherwise<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="281"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>eNepTimeBaseInit(<sp/>&amp;xTimeBase,<sp/>ucMockTickPerMs<sp/>);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="282"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>xTimeBase.ulTick<sp/>=<sp/>3599999;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="283"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>xTimeBase.ulMs<sp/>=<sp/>3599999;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="284"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>xTimeBase.ulSecond<sp/>=<sp/>3599;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="285"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>xTimeBase.usMsCount<sp/>=<sp/>1;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="286"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="287"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>for(<sp/>uint32_t<sp/>ulI<sp/>=<sp/>0;<sp/>ulI<sp/>&lt;<sp/>ulTickCount;<sp/>ulI++<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="288"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="289"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>eNepTimeBaseTick(<sp/>&amp;xTimeBase<sp/>);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="290"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="291"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="292"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>TEST_ASSERT_EQUAL_UINT32(<sp/>1,<sp/>ulNepTimeBaseGetHour(<sp/>&amp;xTimeBase<sp/>)<sp/>);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="293"><highlight class="normal"></highlight><highlight class="comment">//}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="294"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="295"><highlight class="normal"></highlight></codeline>
+<codeline lineno="296"><highlight class="normal"></highlight><highlight class="comment">//void<sp/>test_ulNepTimeBaseGetHour_MoreThen1Hour_Success()</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="297"><highlight class="normal"></highlight><highlight class="comment">//{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="298"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>nepTimeBase_t<sp/>xTimeBase;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="299"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>uint8_t<sp/>ucMockTickPerMs<sp/>=<sp/>1;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="300"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>uint32_t<sp/>ulTickCount<sp/>=<sp/>1;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="301"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="302"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>/*<sp/>Cheat<sp/>tick<sp/>count<sp/>because<sp/>test<sp/>is<sp/>too<sp/>long<sp/>otherwise<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="303"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>eNepTimeBaseInit(<sp/>&amp;xTimeBase,<sp/>ucMockTickPerMs<sp/>);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="304"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>xTimeBase.ulTick<sp/>=<sp/>3799000;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="305"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>xTimeBase.ulMs<sp/>=<sp/>3799000;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="306"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>xTimeBase.ulSecond<sp/>=<sp/>3799;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="307"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="308"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>for(<sp/>uint32_t<sp/>ulI<sp/>=<sp/>0;<sp/>ulI<sp/>&lt;<sp/>ulTickCount;<sp/>ulI++<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="309"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="310"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>eNepTimeBaseTick(<sp/>&amp;xTimeBase<sp/>);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="311"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="312"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="313"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>TEST_ASSERT_EQUAL_UINT32(<sp/>1,<sp/>ulNepTimeBaseGetHour(<sp/>&amp;xTimeBase<sp/>)<sp/>);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="314"><highlight class="normal"></highlight><highlight class="comment">//}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="315"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="316"><highlight class="normal"></highlight><highlight class="comment">/*******************************************************************************</highlight></codeline>
+<codeline lineno="317"><highlight class="comment">eNepTimeBaseIsDelayDone<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="318"><highlight class="comment">*******************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="319"><highlight class="normal"></highlight></codeline>
+<codeline lineno="320"><highlight class="normal"></highlight><highlight class="comment">//void<sp/>test_eNepTimeBaseIsDelayDone_eTrue_Success()</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="321"><highlight class="normal"></highlight><highlight class="comment">//{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="322"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>eBool_t<sp/>eDelayCompleted;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="323"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>uint32_t<sp/>ulMockCounter<sp/>=<sp/>2000,<sp/>ulMockTimeStamp<sp/>=<sp/>1000;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="324"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="325"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>eDelayCompleted<sp/>=<sp/>eNepTimeBaseIsDelayDone(<sp/>ulMockCounter,<sp/>ulMockTimeStamp<sp/>);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="326"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="327"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>TEST_ASSERT_EQUAL(<sp/>eTrue,<sp/>eDelayCompleted<sp/>);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="328"><highlight class="normal"></highlight><highlight class="comment">//}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="329"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="330"><highlight class="normal"></highlight></codeline>
+<codeline lineno="331"><highlight class="normal"></highlight><highlight class="comment">//void<sp/>test_eNepTimeBaseIsDelayDone_eFalse_Success()</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="332"><highlight class="normal"></highlight><highlight class="comment">//{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="333"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>eBool_t<sp/>eDelayCompleted;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="334"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>uint32_t<sp/>ulMockCounter<sp/>=<sp/>44575,<sp/>ulMockTimeStamp<sp/>=<sp/>48477;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="335"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="336"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>eDelayCompleted<sp/>=<sp/>eNepTimeBaseIsDelayDone(<sp/>ulMockCounter,<sp/>ulMockTimeStamp<sp/>);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="337"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="338"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>TEST_ASSERT_EQUAL(<sp/>eFalse,<sp/>eDelayCompleted<sp/>);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="339"><highlight class="normal"></highlight><highlight class="comment">//}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="340"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="341"><highlight class="normal"></highlight></codeline>
+<codeline lineno="342"><highlight class="normal"></highlight><highlight class="comment">//void<sp/>test_eNepTimeBaseIsDelayDone_eFalse_OverFlow_Success()</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="343"><highlight class="normal"></highlight><highlight class="comment">//{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="344"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>eBool_t<sp/>eDelayCompleted;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="345"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>uint32_t<sp/>ulMockCounter<sp/>=<sp/>0xFFFFFFFF,<sp/>ulMockTimeStamp<sp/>=<sp/>0;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="346"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="347"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>eDelayCompleted<sp/>=<sp/>eNepTimeBaseIsDelayDone(<sp/>ulMockCounter,<sp/>ulMockTimeStamp<sp/>);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="348"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="349"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>TEST_ASSERT_EQUAL(<sp/>eFalse,<sp/>eDelayCompleted<sp/>);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="350"><highlight class="normal"></highlight><highlight class="comment">//}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="351"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="Tests/test_mpbTimeBase.c"/>
+  </compounddef>
+</doxygen>

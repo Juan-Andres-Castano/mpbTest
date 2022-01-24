@@ -1,0 +1,140 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_test__mpb_time_base_8c" xml:lang="en-US">
+<title>Tests/test_mpbTimeBase.c File Reference</title>
+<indexterm><primary>Tests/test_mpbTimeBase.c</primary></indexterm>
+<programlisting>#include &quot;unity.h&quot;
+#include &quot;mpblibs.h&quot;
+#include &quot;mpbTimeBase.h&quot;
+</programlisting>Include dependency graph for test_mpbTimeBase.c:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../d4/d92/test__mpb_time_base_8c__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_test__mpb_time_base_8c_1a63326a1b70b6e3f070e51687798e02de">setUp</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_test__mpb_time_base_8c_1ab804e0f66def63262c1d6b4e3d2a2bd7">tearDown</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_test__mpb_time_base_8c_1ae8f6f34c3dbcccce54023f33bcdd7994">test_eMpbTimeBaseInit_InvalidParam_Fail</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_test__mpb_time_base_8c_1a95f3a453af78cd84a83985d8ad6d6858">test_eMpbTimeBaseInit_Success</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41">eMpbError_t</link> <link linkend="_test__mpb_time_base_8c_1a7e45006d3ac5dcd53da5667245cff877">eMpbError</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para><formalpara><title>Author</title>
+
+<para>juan </para>
+</formalpara>
+<formalpara><title>Date</title>
+
+<para>Created on 2021-11-17 </para>
+</formalpara>
+<note><title>Note</title>
+
+<para></para>
+</note>
+<formalpara><title>Copyright</title>
+
+<para>MPB, Montreal, Qc <formalpara><title><informaltable frame='none'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>&#169; COPYRIGHT 2021 MPB, Montreal, Quebec, Canada</entry></row></tbody></tgroup></informaltable></title></formalpara>
+</para>
+</formalpara>
+<formalpara><title><informaltable frame='none'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>&#169; All rights reserved.</entry></row></tbody></tgroup></informaltable></title></formalpara>
+</para>
+
+<para>
+<literallayout>&#160;&#xa;</literallayout>
+
+<literallayout>&#160;&#xa;</literallayout>
+ <informaltable frame='none'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>This document contains confidential and proprietary information of MPB (subject to a non-disclosure agreement) and shall</entry></row></tbody></tgroup></informaltable> <informaltable frame='none'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>not be disclosed, distributed, or reproduced in whole or in part, without the prior written authorization of MPB.</entry></row></tbody></tgroup></informaltable> </para>
+</section>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_test__mpb_time_base_8c_1a63326a1b70b6e3f070e51687798e02de"/>    <section>
+    <title>setUp()</title>
+<indexterm><primary>setUp</primary><secondary>test_mpbTimeBase.c</secondary></indexterm>
+<indexterm><primary>test_mpbTimeBase.c</primary><secondary>setUp</secondary></indexterm>
+<para><computeroutput>void setUp (void )</computeroutput></para><para>
+Definition at line 31 of file test_mpbTimeBase.c.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../d5/d39/test__mpb_time_base_8c_a63326a1b70b6e3f070e51687798e02de_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_test__mpb_time_base_8c_1ab804e0f66def63262c1d6b4e3d2a2bd7"/>    <section>
+    <title>tearDown()</title>
+<indexterm><primary>tearDown</primary><secondary>test_mpbTimeBase.c</secondary></indexterm>
+<indexterm><primary>test_mpbTimeBase.c</primary><secondary>tearDown</secondary></indexterm>
+<para><computeroutput>void tearDown (void )</computeroutput></para><para>
+Definition at line 36 of file test_mpbTimeBase.c.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../d5/d39/test__mpb_time_base_8c_ab804e0f66def63262c1d6b4e3d2a2bd7_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_test__mpb_time_base_8c_1ae8f6f34c3dbcccce54023f33bcdd7994"/>    <section>
+    <title>test_eMpbTimeBaseInit_InvalidParam_Fail()</title>
+<indexterm><primary>test_eMpbTimeBaseInit_InvalidParam_Fail</primary><secondary>test_mpbTimeBase.c</secondary></indexterm>
+<indexterm><primary>test_mpbTimeBase.c</primary><secondary>test_eMpbTimeBaseInit_InvalidParam_Fail</secondary></indexterm>
+<para><computeroutput>void test_eMpbTimeBaseInit_InvalidParam_Fail ( )</computeroutput></para><para>
+Definition at line 45 of file test_mpbTimeBase.c.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../d5/d39/test__mpb_time_base_8c_ae8f6f34c3dbcccce54023f33bcdd7994_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_test__mpb_time_base_8c_1a95f3a453af78cd84a83985d8ad6d6858"/>    <section>
+    <title>test_eMpbTimeBaseInit_Success()</title>
+<indexterm><primary>test_eMpbTimeBaseInit_Success</primary><secondary>test_mpbTimeBase.c</secondary></indexterm>
+<indexterm><primary>test_mpbTimeBase.c</primary><secondary>test_eMpbTimeBaseInit_Success</secondary></indexterm>
+<para><computeroutput>void test_eMpbTimeBaseInit_Success ( )</computeroutput></para><para>
+Definition at line 61 of file test_mpbTimeBase.c.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../d5/d39/test__mpb_time_base_8c_a95f3a453af78cd84a83985d8ad6d6858_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+<section>
+<title>Variable Documentation</title>
+<anchor xml:id="_test__mpb_time_base_8c_1a7e45006d3ac5dcd53da5667245cff877"/>    <section>
+    <title>eMpbError</title>
+<indexterm><primary>eMpbError</primary><secondary>test_mpbTimeBase.c</secondary></indexterm>
+<indexterm><primary>test_mpbTimeBase.c</primary><secondary>eMpbError</secondary></indexterm>
+<para><computeroutput><link linkend="_mpblibs_8h_1a83e19efe0ceb2ec5e6ff0a57ca789d41">eMpbError_t</link> eMpbError</computeroutput></para><para>
+Definition at line 25 of file test_mpbTimeBase.c.</para>
+</section>
+</section>
+</section>

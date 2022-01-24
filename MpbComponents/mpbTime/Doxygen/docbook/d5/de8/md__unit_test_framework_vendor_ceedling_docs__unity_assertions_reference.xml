@@ -1,0 +1,703 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference" xml:lang="en-US">
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md71">
+<title>Background and Overview</title>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md72">
+<title>Super Condensed Version</title>
+
+<para><itemizedlist>
+<listitem>
+<para>An assertion establishes truth (i.e. boolean True) for a single condition. Upon boolean False, an assertion stops execution and reports the failure.</para>
+</listitem><listitem>
+<para>Unity is mainly a rich collection of assertions and the support to gather up and easily execute those assertions.</para>
+</listitem><listitem>
+<para>The structure of Unity allows you to easily separate test assertions from source code in, well, test code.</para>
+</listitem><listitem>
+<para>Unity&apos;s assertions:</para>
+</listitem><listitem>
+<para>Come in many, many flavors to handle different C types and assertion cases.</para>
+</listitem><listitem>
+<para>Use context to provide detailed and helpful failure messages.</para>
+</listitem><listitem>
+<para>Document types, expected values, and basic behavior in your source code for free.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md73">
+<title>Unity Is Several Things But Mainly It&apos;s Assertions</title>
+
+<para>One way to think of Unity is simply as a rich collection of assertions you can use to establish whether your source code behaves the way you think it does. Unity provides a framework to easily organize and execute those assertions in test code separate from your source code.</para>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md74">
+<title>What&apos;s an Assertion?</title>
+
+<para>At their core, assertions are an establishment of truth - boolean truth. Was this thing equal to that thing? Does that code doohickey have such-and-such property or not? You get the idea. Assertions are executable code (to appreciate the big picture on this read up on the difference between [link:Dynamic Verification and Static Analysis]). A failing assertion stops execution and reports an error through some appropriate I/O channel (e.g. stdout, GUI, file, blinky light).</para>
+
+<para>Fundamentally, for dynamic verification all you need is a single assertion mechanism. In fact, that&apos;s what the <link xlink:href="http://en.wikipedia.org/en/wiki/Assert.h">assert() macro in C&apos;s standard library</link> is for. So why not just use it? Well, we can do far better in the reporting department. C&apos;s <computeroutput>assert()</computeroutput> is pretty dumb as-is and is particularly poor for handling common data types like arrays, structs, etc. And, without some other support, it&apos;s far too tempting to litter source code with C&apos;s <computeroutput>assert()</computeroutput>&apos;s. It&apos;s generally much cleaner, manageable, and more useful to separate test and source code in the way Unity facilitates.</para>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md75">
+<title>Unity&apos;s Assertions: Helpful Messages &lt;em&gt;and&lt;/em&gt; Free Source Code Documentation</title>
+
+<para>Asserting a simple truth condition is valuable, but using the context of the assertion is even more valuable. For instance, if you know you&apos;re comparing bit flags and not just integers, then why not use that context to give explicit, readable, bit-level feedback when an assertion fails?</para>
+
+<para>That&apos;s what Unity&apos;s collection of assertions do - capture context to give you helpful, meaningful assertion failure messages. In fact, the assertions themselves also serve as executable documentation about types and values in your source code. So long as your tests remain current with your source and all those tests pass, you have a detailed, up-to-date view of the intent and mechanisms in your source code. And due to a wondrous mystery, well-tested code usually tends to be well designed code.</para>
+</section>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md76">
+<title>Assertion Conventions and Configurations</title>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md77">
+<title>Naming and Parameter Conventions</title>
+
+<para>The convention of assertion parameters generally follows this order: <literallayout><computeroutput>TEST_ASSERT_X( {modifiers}, {expected}, actual, {size/count} )
+</computeroutput></literallayout> The very simplest assertion possible uses only a single &quot;actual&quot; parameter (e.g. a simple null check).</para>
+
+<para>&quot;Actual&quot; is the value being tested and unlike the other parameters in an assertion construction is the only parameter present in all assertion variants. &quot;Modifiers&quot; are masks, ranges, bit flag specifiers, floating point deltas. &quot;Expected&quot; is your expected value (duh) to compare to an &quot;actual&quot; value; it&apos;s marked as an optional parameter because some assertions only need a single &quot;actual&quot; parameter (e.g. null check). &quot;Size/count&quot; refers to string lengths, number of array elements, etc.</para>
+
+<para>Many of Unity&apos;s assertions are clear duplications in that the same data type is handled by several assertions. The differences among these are in how failure messages are presented. For instance, a <computeroutput>_HEX</computeroutput> variant of an assertion prints the expected and actual values of that assertion formatted as hexadecimal.</para>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md78">
+<title>TEST_ASSERT_X_MESSAGE Variants</title>
+
+<para><emphasis>All</emphasis> assertions are complemented with a variant that includes a simple string message as a final parameter. The string you specify is appended to an assertion failure message in Unity output.</para>
+
+<para>For brevity, the assertion variants with a message parameter are not listed below. Just tack on <computeroutput>_MESSAGE</computeroutput> as the final component to any assertion name in the reference list below and add a string as the final parameter.</para>
+
+<para><emphasis>Example:</emphasis> <literallayout><computeroutput>TEST_ASSERT_X( {modifiers}, {expected}, actual, {size/count} )
+</computeroutput></literallayout> becomes messageified like thus... <literallayout><computeroutput>TEST_ASSERT_X_MESSAGE( {modifiers}, {expected}, actual, {size/count}, message )
+</computeroutput></literallayout> Notes:<itemizedlist>
+<listitem>
+<para>The <computeroutput>_MESSAGE</computeroutput> variants intentionally do not support <computeroutput>printf</computeroutput> style formatting since many embedded projects don&apos;t support or avoid <computeroutput>printf</computeroutput> for various reasons. It is possible to use <computeroutput>sprintf</computeroutput> before the assertion to assemble a complex fail message, if necessary.</para>
+</listitem><listitem>
+<para>If you want to output a counter value within an assertion fail message (e.g. from a loop) , building up an array of results and then using one of the <computeroutput>_ARRAY</computeroutput> assertions (see below) might be a handy alternative to <computeroutput>sprintf</computeroutput>.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md79">
+<title>TEST_ASSERT_X_ARRAY Variants</title>
+
+<para>Unity provides a collection of assertions for arrays containing a variety of types. These are documented in the Array section below. These are almost on par with the <computeroutput>_MESSAGE</computeroutput>variants of Unity&apos;s Asserts in that for pretty much any Unity type assertion you can tack on <computeroutput>_ARRAY</computeroutput> and run assertions on an entire block of memory. <literallayout><computeroutput>TEST_ASSERT_EQUAL_TYPEX_ARRAY( expected, actual, {size/count} )
+</computeroutput></literallayout> &quot;Expected&quot; is an array itself. &quot;Size/count&quot; is one or two parameters necessary to establish the number of array elements and perhaps the length of elements within the array.</para>
+
+<para>Notes:<itemizedlist>
+<listitem>
+<para>The <computeroutput>_MESSAGE</computeroutput> variant convention still applies here to array assertions. The <computeroutput>_MESSAGE</computeroutput> variants of the <computeroutput>_ARRAY</computeroutput> assertions have names ending with <computeroutput>_ARRAY_MESSAGE</computeroutput>.</para>
+</listitem><listitem>
+<para>Assertions for handling arrays of floating point values are grouped with float and double assertions (see immediately following section).</para>
+</listitem></itemizedlist>
+</para>
+</section>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md80">
+<title>TEST_ASSERT_EACH_EQUAL_X Variants</title>
+
+<para>Unity provides a collection of assertions for arrays containing a variety of types which can be compared to a single value as well. These are documented in the Each Equal section below. these are almost on par with the <computeroutput>_MESSAGE</computeroutput> variants of Unity&apos;s Asserts in that for pretty much any Unity type assertion you can inject _EACH_EQUAL and run assertions on an entire block of memory. <literallayout><computeroutput>TEST_ASSERT_EACH_EQUAL_TYPEX( expected, actual, {size/count} )
+</computeroutput></literallayout> &quot;Expected&quot; is a single value to compare to. &quot;Actual&quot; is an array where each element will be compared to the expected value. &quot;Size/count&quot; is one of two parameters necessary to establish the number of array elements and perhaps the length of elements within the array.</para>
+
+<para>Notes:<itemizedlist>
+<listitem>
+<para>The <computeroutput>_MESSAGE</computeroutput> variant convention still applies here to Each Equal assertions.</para>
+</listitem><listitem>
+<para>Assertions for handling Each Equal of floating point values are grouped with float and double assertions (see immediately following section).</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md81">
+<title>Configuration</title>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md82">
+<title>Floating Point Support Is Optional</title>
+
+<para>Support for floating point types is configurable. That is, by defining the appropriate preprocessor symbols, floats and doubles can be individually enabled or disabled in Unity code. This is useful for embedded targets with no floating point math support (i.e. Unity compiles free of errors for fixed point only platforms). See Unity documentation for specifics.</para>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md83">
+<title>Maximum Data Type Width Is Configurable</title>
+
+<para>Not all targets support 64 bit wide types or even 32 bit wide types. Define the appropriate preprocessor symbols and Unity will omit all operations from compilation that exceed the maximum width of your target. See Unity documentation for specifics.</para>
+</section>
+</section>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md84">
+<title>The Assertions in All Their Blessed Glory</title>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md85">
+<title>Basic Fail and Ignore</title>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md86">
+<title>&lt;tt&gt;TEST_FAIL()&lt;/tt&gt;</title>
+
+<para>This fella is most often used in special conditions where your test code is performing logic beyond a simple assertion. That is, in practice, <computeroutput><link linkend="_unity_8h_1acf4d2a6eb579e0c4d02cd64c8f350aa2">TEST_FAIL()</link></computeroutput> will always be found inside a conditional code block.</para>
+
+<para><emphasis>Examples:</emphasis><itemizedlist>
+<listitem>
+<para>Executing a state machine multiple times that increments a counter your test code then verifies as a final step.</para>
+</listitem><listitem>
+<para>Triggering an exception and verifying it (as in Try / Catch / Throw - see the <link xlink:href="https://github.com/ThrowTheSwitch/CException">CException</link> project).</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md87">
+<title>&lt;tt&gt;TEST_IGNORE()&lt;/tt&gt;</title>
+
+<para>Marks a test case (i.e. function meant to contain test assertions) as ignored. Usually this is employed as a breadcrumb to come back and implement a test case. An ignored test case has effects if other assertions are in the enclosing test case (see Unity documentation for more).</para>
+</section>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md88">
+<title>Boolean</title>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md89">
+<title>&lt;tt&gt;TEST_ASSERT (condition)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md90">
+<title>&lt;tt&gt;TEST_ASSERT_TRUE (condition)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md91">
+<title>&lt;tt&gt;TEST_ASSERT_FALSE (condition)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md92">
+<title>&lt;tt&gt;TEST_ASSERT_UNLESS (condition)&lt;/tt&gt;</title>
+
+<para>A simple wording variation on <computeroutput>TEST_ASSERT_FALSE</computeroutput>.The semantics of <computeroutput>TEST_ASSERT_UNLESS</computeroutput> aid readability in certain test constructions or conditional statements.</para>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md93">
+<title>&lt;tt&gt;TEST_ASSERT_NULL (pointer)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md94">
+<title>&lt;tt&gt;TEST_ASSERT_NOT_NULL (pointer)&lt;/tt&gt;</title>
+</section>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md95">
+<title>Signed and Unsigned Integers (of all sizes)</title>
+
+<para>Large integer sizes can be disabled for build targets that do not support them. For example, if your target only supports up to 16 bit types, by defining the appropriate symbols Unity can be configured to omit 32 and 64 bit operations that would break compilation (see Unity documentation for more). Refer to Advanced Asserting later in this document for advice on dealing with other word sizes.</para>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md96">
+<title>&lt;tt&gt;TEST_ASSERT_EQUAL_INT (expected, actual)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md97">
+<title>&lt;tt&gt;TEST_ASSERT_EQUAL_INT8 (expected, actual)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md98">
+<title>&lt;tt&gt;TEST_ASSERT_EQUAL_INT16 (expected, actual)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md99">
+<title>&lt;tt&gt;TEST_ASSERT_EQUAL_INT32 (expected, actual)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md100">
+<title>&lt;tt&gt;TEST_ASSERT_EQUAL_INT64 (expected, actual)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md101">
+<title>&lt;tt&gt;TEST_ASSERT_EQUAL (expected, actual)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md102">
+<title>&lt;tt&gt;TEST_ASSERT_NOT_EQUAL (expected, actual)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md103">
+<title>&lt;tt&gt;TEST_ASSERT_EQUAL_UINT (expected, actual)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md104">
+<title>&lt;tt&gt;TEST_ASSERT_EQUAL_UINT8 (expected, actual)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md105">
+<title>&lt;tt&gt;TEST_ASSERT_EQUAL_UINT16 (expected, actual)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md106">
+<title>&lt;tt&gt;TEST_ASSERT_EQUAL_UINT32 (expected, actual)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md107">
+<title>&lt;tt&gt;TEST_ASSERT_EQUAL_UINT64 (expected, actual)&lt;/tt&gt;</title>
+</section>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md108">
+<title>Unsigned Integers (of all sizes) in Hexadecimal</title>
+
+<para>All <computeroutput>_HEX</computeroutput> assertions are identical in function to unsigned integer assertions but produce failure messages with the <computeroutput>expected</computeroutput> and <computeroutput>actual</computeroutput> values formatted in hexadecimal. Unity output is big endian.</para>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md109">
+<title>&lt;tt&gt;TEST_ASSERT_EQUAL_HEX (expected, actual)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md110">
+<title>&lt;tt&gt;TEST_ASSERT_EQUAL_HEX8 (expected, actual)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md111">
+<title>&lt;tt&gt;TEST_ASSERT_EQUAL_HEX16 (expected, actual)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md112">
+<title>&lt;tt&gt;TEST_ASSERT_EQUAL_HEX32 (expected, actual)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md113">
+<title>&lt;tt&gt;TEST_ASSERT_EQUAL_HEX64 (expected, actual)&lt;/tt&gt;</title>
+</section>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md114">
+<title>Masked and Bit-level Assertions</title>
+
+<para>Masked and bit-level assertions produce output formatted in hexadecimal. Unity output is big endian.</para>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md115">
+<title>&lt;tt&gt;TEST_ASSERT_BITS (mask, expected, actual)&lt;/tt&gt;</title>
+
+<para>Only compares the masked (i.e. high) bits of <computeroutput>expected</computeroutput> and <computeroutput>actual</computeroutput> parameters.</para>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md116">
+<title>&lt;tt&gt;TEST_ASSERT_BITS_HIGH (mask, actual)&lt;/tt&gt;</title>
+
+<para>Asserts the masked bits of the <computeroutput>actual</computeroutput> parameter are high.</para>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md117">
+<title>&lt;tt&gt;TEST_ASSERT_BITS_LOW (mask, actual)&lt;/tt&gt;</title>
+
+<para>Asserts the masked bits of the <computeroutput>actual</computeroutput> parameter are low.</para>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md118">
+<title>&lt;tt&gt;TEST_ASSERT_BIT_HIGH (bit, actual)&lt;/tt&gt;</title>
+
+<para>Asserts the specified bit of the <computeroutput>actual</computeroutput> parameter is high.</para>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md119">
+<title>&lt;tt&gt;TEST_ASSERT_BIT_LOW (bit, actual)&lt;/tt&gt;</title>
+
+<para>Asserts the specified bit of the <computeroutput>actual</computeroutput> parameter is low.</para>
+</section>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md120">
+<title>Integer Less Than / Greater Than</title>
+
+<para>These assertions verify that the <computeroutput>actual</computeroutput> parameter is less than or greater than <computeroutput>threshold</computeroutput> (exclusive). For example, if the threshold value is 0 for the greater than assertion will fail if it is 0 or less.</para>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md121">
+<title>&lt;tt&gt;TEST_ASSERT_GREATER_THAN (threshold, actual)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md122">
+<title>&lt;tt&gt;TEST_ASSERT_GREATER_THAN_INT (threshold, actual)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md123">
+<title>&lt;tt&gt;TEST_ASSERT_GREATER_THAN_INT8 (threshold, actual)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md124">
+<title>&lt;tt&gt;TEST_ASSERT_GREATER_THAN_INT16 (threshold, actual)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md125">
+<title>&lt;tt&gt;TEST_ASSERT_GREATER_THAN_INT32 (threshold, actual)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md126">
+<title>&lt;tt&gt;TEST_ASSERT_GREATER_THAN_UINT (threshold, actual)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md127">
+<title>&lt;tt&gt;TEST_ASSERT_GREATER_THAN_UINT8 (threshold, actual)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md128">
+<title>&lt;tt&gt;TEST_ASSERT_GREATER_THAN_UINT16 (threshold, actual)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md129">
+<title>&lt;tt&gt;TEST_ASSERT_GREATER_THAN_UINT32 (threshold, actual)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md130">
+<title>&lt;tt&gt;TEST_ASSERT_GREATER_THAN_HEX8 (threshold, actual)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md131">
+<title>&lt;tt&gt;TEST_ASSERT_GREATER_THAN_HEX16 (threshold, actual)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md132">
+<title>&lt;tt&gt;TEST_ASSERT_GREATER_THAN_HEX32 (threshold, actual)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md133">
+<title>&lt;tt&gt;TEST_ASSERT_LESS_THAN (threshold, actual)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md134">
+<title>&lt;tt&gt;TEST_ASSERT_LESS_THAN_INT (threshold, actual)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md135">
+<title>&lt;tt&gt;TEST_ASSERT_LESS_THAN_INT8 (threshold, actual)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md136">
+<title>&lt;tt&gt;TEST_ASSERT_LESS_THAN_INT16 (threshold, actual)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md137">
+<title>&lt;tt&gt;TEST_ASSERT_LESS_THAN_INT32 (threshold, actual)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md138">
+<title>&lt;tt&gt;TEST_ASSERT_LESS_THAN_UINT (threshold, actual)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md139">
+<title>&lt;tt&gt;TEST_ASSERT_LESS_THAN_UINT8 (threshold, actual)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md140">
+<title>&lt;tt&gt;TEST_ASSERT_LESS_THAN_UINT16 (threshold, actual)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md141">
+<title>&lt;tt&gt;TEST_ASSERT_LESS_THAN_UINT32 (threshold, actual)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md142">
+<title>&lt;tt&gt;TEST_ASSERT_LESS_THAN_HEX8 (threshold, actual)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md143">
+<title>&lt;tt&gt;TEST_ASSERT_LESS_THAN_HEX16 (threshold, actual)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md144">
+<title>&lt;tt&gt;TEST_ASSERT_LESS_THAN_HEX32 (threshold, actual)&lt;/tt&gt;</title>
+</section>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md145">
+<title>Integer Ranges (of all sizes)</title>
+
+<para>These assertions verify that the <computeroutput>expected</computeroutput> parameter is within +/- <computeroutput>delta</computeroutput> (inclusive) of the <computeroutput>actual</computeroutput> parameter. For example, if the expected value is 10 and the delta is 3 then the assertion will fail for any value outside the range of 7 - 13.</para>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md146">
+<title>&lt;tt&gt;TEST_ASSERT_INT_WITHIN (delta, expected, actual)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md147">
+<title>&lt;tt&gt;TEST_ASSERT_INT8_WITHIN (delta, expected, actual)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md148">
+<title>&lt;tt&gt;TEST_ASSERT_INT16_WITHIN (delta, expected, actual)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md149">
+<title>&lt;tt&gt;TEST_ASSERT_INT32_WITHIN (delta, expected, actual)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md150">
+<title>&lt;tt&gt;TEST_ASSERT_INT64_WITHIN (delta, expected, actual)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md151">
+<title>&lt;tt&gt;TEST_ASSERT_UINT_WITHIN (delta, expected, actual)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md152">
+<title>&lt;tt&gt;TEST_ASSERT_UINT8_WITHIN (delta, expected, actual)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md153">
+<title>&lt;tt&gt;TEST_ASSERT_UINT16_WITHIN (delta, expected, actual)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md154">
+<title>&lt;tt&gt;TEST_ASSERT_UINT32_WITHIN (delta, expected, actual)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md155">
+<title>&lt;tt&gt;TEST_ASSERT_UINT64_WITHIN (delta, expected, actual)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md156">
+<title>&lt;tt&gt;TEST_ASSERT_HEX_WITHIN (delta, expected, actual)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md157">
+<title>&lt;tt&gt;TEST_ASSERT_HEX8_WITHIN (delta, expected, actual)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md158">
+<title>&lt;tt&gt;TEST_ASSERT_HEX16_WITHIN (delta, expected, actual)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md159">
+<title>&lt;tt&gt;TEST_ASSERT_HEX32_WITHIN (delta, expected, actual)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md160">
+<title>&lt;tt&gt;TEST_ASSERT_HEX64_WITHIN (delta, expected, actual)&lt;/tt&gt;</title>
+</section>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md161">
+<title>Structs and Strings</title>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md162">
+<title>&lt;tt&gt;TEST_ASSERT_EQUAL_PTR (expected, actual)&lt;/tt&gt;</title>
+
+<para>Asserts that the pointers point to the same memory location.</para>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md163">
+<title>&lt;tt&gt;TEST_ASSERT_EQUAL_STRING (expected, actual)&lt;/tt&gt;</title>
+
+<para>Asserts that the null terminated (&#8216;&#8217;\0&apos;`)strings are identical. If strings are of different lengths or any portion of the strings before their terminators differ, the assertion fails. Two NULL strings (i.e. zero length) are considered equivalent.</para>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md164">
+<title>&lt;tt&gt;TEST_ASSERT_EQUAL_MEMORY (expected, actual, len)&lt;/tt&gt;</title>
+
+<para>Asserts that the contents of the memory specified by the <computeroutput>expected</computeroutput> and <computeroutput>actual</computeroutput> pointers is identical. The size of the memory blocks in bytes is specified by the <computeroutput>len</computeroutput> parameter.</para>
+</section>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md165">
+<title>Arrays</title>
+
+<para><computeroutput>expected</computeroutput> and <computeroutput>actual</computeroutput> parameters are both arrays. <computeroutput>num_elements</computeroutput> specifies the number of elements in the arrays to compare.</para>
+
+<para><computeroutput>_HEX</computeroutput> assertions produce failure messages with expected and actual array contents formatted in hexadecimal.</para>
+
+<para>For array of strings comparison behavior, see comments for <computeroutput>TEST_ASSERT_EQUAL_STRING</computeroutput> in the preceding section.</para>
+
+<para>Assertions fail upon the first element in the compared arrays found not to match. Failure messages specify the array index of the failed comparison.</para>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md166">
+<title>&lt;tt&gt;TEST_ASSERT_EQUAL_INT_ARRAY (expected, actual, num_elements)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md167">
+<title>&lt;tt&gt;TEST_ASSERT_EQUAL_INT8_ARRAY (expected, actual, num_elements)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md168">
+<title>&lt;tt&gt;TEST_ASSERT_EQUAL_INT16_ARRAY (expected, actual, num_elements)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md169">
+<title>&lt;tt&gt;TEST_ASSERT_EQUAL_INT32_ARRAY (expected, actual, num_elements)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md170">
+<title>&lt;tt&gt;TEST_ASSERT_EQUAL_INT64_ARRAY (expected, actual, num_elements)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md171">
+<title>&lt;tt&gt;TEST_ASSERT_EQUAL_UINT_ARRAY (expected, actual, num_elements)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md172">
+<title>&lt;tt&gt;TEST_ASSERT_EQUAL_UINT8_ARRAY (expected, actual, num_elements)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md173">
+<title>&lt;tt&gt;TEST_ASSERT_EQUAL_UINT16_ARRAY (expected, actual, num_elements)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md174">
+<title>&lt;tt&gt;TEST_ASSERT_EQUAL_UINT32_ARRAY (expected, actual, num_elements)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md175">
+<title>&lt;tt&gt;TEST_ASSERT_EQUAL_UINT64_ARRAY (expected, actual, num_elements)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md176">
+<title>&lt;tt&gt;TEST_ASSERT_EQUAL_HEX_ARRAY (expected, actual, num_elements)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md177">
+<title>&lt;tt&gt;TEST_ASSERT_EQUAL_HEX8_ARRAY (expected, actual, num_elements)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md178">
+<title>&lt;tt&gt;TEST_ASSERT_EQUAL_HEX16_ARRAY (expected, actual, num_elements)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md179">
+<title>&lt;tt&gt;TEST_ASSERT_EQUAL_HEX32_ARRAY (expected, actual, num_elements)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md180">
+<title>&lt;tt&gt;TEST_ASSERT_EQUAL_HEX64_ARRAY (expected, actual, num_elements)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md181">
+<title>&lt;tt&gt;TEST_ASSERT_EQUAL_PTR_ARRAY (expected, actual, num_elements)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md182">
+<title>&lt;tt&gt;TEST_ASSERT_EQUAL_STRING_ARRAY (expected, actual, num_elements)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md183">
+<title>&lt;tt&gt;TEST_ASSERT_EQUAL_MEMORY_ARRAY (expected, actual, len, num_elements)&lt;/tt&gt;</title>
+
+<para><computeroutput>len</computeroutput> is the memory in bytes to be compared at each array element.</para>
+</section>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md184">
+<title>Each Equal (Arrays to Single Value)</title>
+
+<para><computeroutput>expected</computeroutput> are single values and <computeroutput>actual</computeroutput> are arrays. <computeroutput>num_elements</computeroutput> specifies the number of elements in the arrays to compare.</para>
+
+<para><computeroutput>_HEX</computeroutput> assertions produce failure messages with expected and actual array contents formatted in hexadecimal.</para>
+
+<para>Assertions fail upon the first element in the compared arrays found not to match. Failure messages specify the array index of the failed comparison.</para>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md185">
+<title>&lt;tt&gt;TEST_ASSERT_EACH_EQUAL_INT (expected, actual, num_elements)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md186">
+<title>&lt;tt&gt;TEST_ASSERT_EACH_EQUAL_INT8 (expected, actual, num_elements)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md187">
+<title>&lt;tt&gt;TEST_ASSERT_EACH_EQUAL_INT16 (expected, actual, num_elements)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md188">
+<title>&lt;tt&gt;TEST_ASSERT_EACH_EQUAL_INT32 (expected, actual, num_elements)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md189">
+<title>&lt;tt&gt;TEST_ASSERT_EACH_EQUAL_INT64 (expected, actual, num_elements)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md190">
+<title>&lt;tt&gt;TEST_ASSERT_EACH_EQUAL_UINT (expected, actual, num_elements)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md191">
+<title>&lt;tt&gt;TEST_ASSERT_EACH_EQUAL_UINT8 (expected, actual, num_elements)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md192">
+<title>&lt;tt&gt;TEST_ASSERT_EACH_EQUAL_UINT16 (expected, actual, num_elements)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md193">
+<title>&lt;tt&gt;TEST_ASSERT_EACH_EQUAL_UINT32 (expected, actual, num_elements)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md194">
+<title>&lt;tt&gt;TEST_ASSERT_EACH_EQUAL_UINT64 (expected, actual, num_elements)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md195">
+<title>&lt;tt&gt;TEST_ASSERT_EACH_EQUAL_HEX (expected, actual, num_elements)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md196">
+<title>&lt;tt&gt;TEST_ASSERT_EACH_EQUAL_HEX8 (expected, actual, num_elements)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md197">
+<title>&lt;tt&gt;TEST_ASSERT_EACH_EQUAL_HEX16 (expected, actual, num_elements)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md198">
+<title>&lt;tt&gt;TEST_ASSERT_EACH_EQUAL_HEX32 (expected, actual, num_elements)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md199">
+<title>&lt;tt&gt;TEST_ASSERT_EACH_EQUAL_HEX64 (expected, actual, num_elements)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md200">
+<title>&lt;tt&gt;TEST_ASSERT_EACH_EQUAL_PTR (expected, actual, num_elements)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md201">
+<title>&lt;tt&gt;TEST_ASSERT_EACH_EQUAL_STRING (expected, actual, num_elements)&lt;/tt&gt;</title>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md202">
+<title>&lt;tt&gt;TEST_ASSERT_EACH_EQUAL_MEMORY (expected, actual, len, num_elements)&lt;/tt&gt;</title>
+
+<para><computeroutput>len</computeroutput> is the memory in bytes to be compared at each array element.</para>
+</section>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md203">
+<title>Floating Point (If enabled)</title>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md204">
+<title>&lt;tt&gt;TEST_ASSERT_FLOAT_WITHIN (delta, expected, actual)&lt;/tt&gt;</title>
+
+<para>Asserts that the <computeroutput>actual</computeroutput> value is within +/- <computeroutput>delta</computeroutput> of the <computeroutput>expected</computeroutput> value. The nature of floating point representation is such that exact evaluations of equality are not guaranteed.</para>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md205">
+<title>&lt;tt&gt;TEST_ASSERT_EQUAL_FLOAT (expected, actual)&lt;/tt&gt;</title>
+
+<para>Asserts that the ?actual?value is &quot;close enough to be considered equal&quot; to the <computeroutput>expected</computeroutput> value. If you are curious about the details, refer to the Advanced Asserting section for more details on this. Omitting a user-specified delta in a floating point assertion is both a shorthand convenience and a requirement of code generation conventions for CMock.</para>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md206">
+<title>&lt;tt&gt;TEST_ASSERT_EQUAL_FLOAT_ARRAY (expected, actual, num_elements)&lt;/tt&gt;</title>
+
+<para>See Array assertion section for details. Note that individual array element float comparisons are executed using T?EST_ASSERT_EQUAL_FLOAT?.That is, user specified delta comparison values requires a custom-implemented floating point array assertion.</para>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md207">
+<title>&lt;tt&gt;TEST_ASSERT_FLOAT_IS_INF (actual)&lt;/tt&gt;</title>
+
+<para>Asserts that <computeroutput>actual</computeroutput> parameter is equivalent to positive infinity floating point representation.</para>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md208">
+<title>&lt;tt&gt;TEST_ASSERT_FLOAT_IS_NEG_INF (actual)&lt;/tt&gt;</title>
+
+<para>Asserts that <computeroutput>actual</computeroutput> parameter is equivalent to negative infinity floating point representation.</para>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md209">
+<title>&lt;tt&gt;TEST_ASSERT_FLOAT_IS_NAN (actual)&lt;/tt&gt;</title>
+
+<para>Asserts that <computeroutput>actual</computeroutput> parameter is a Not A Number floating point representation.</para>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md210">
+<title>&lt;tt&gt;TEST_ASSERT_FLOAT_IS_DETERMINATE (actual)&lt;/tt&gt;</title>
+
+<para>Asserts that ?actual?parameter is a floating point representation usable for mathematical operations. That is, the <computeroutput>actual</computeroutput> parameter is neither positive infinity nor negative infinity nor Not A Number floating point representations.</para>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md211">
+<title>&lt;tt&gt;TEST_ASSERT_FLOAT_IS_NOT_INF (actual)&lt;/tt&gt;</title>
+
+<para>Asserts that <computeroutput>actual</computeroutput> parameter is a value other than positive infinity floating point representation.</para>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md212">
+<title>&lt;tt&gt;TEST_ASSERT_FLOAT_IS_NOT_NEG_INF (actual)&lt;/tt&gt;</title>
+
+<para>Asserts that <computeroutput>actual</computeroutput> parameter is a value other than negative infinity floating point representation.</para>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md213">
+<title>&lt;tt&gt;TEST_ASSERT_FLOAT_IS_NOT_NAN (actual)&lt;/tt&gt;</title>
+
+<para>Asserts that <computeroutput>actual</computeroutput> parameter is a value other than Not A Number floating point representation.</para>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md214">
+<title>&lt;tt&gt;TEST_ASSERT_FLOAT_IS_NOT_DETERMINATE (actual)&lt;/tt&gt;</title>
+
+<para>Asserts that <computeroutput>actual</computeroutput> parameter is not usable for mathematical operations. That is, the <computeroutput>actual</computeroutput> parameter is either positive infinity or negative infinity or Not A Number floating point representations.</para>
+</section>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md215">
+<title>Double (If enabled)</title>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md216">
+<title>&lt;tt&gt;TEST_ASSERT_DOUBLE_WITHIN (delta, expected, actual)&lt;/tt&gt;</title>
+
+<para>Asserts that the <computeroutput>actual</computeroutput> value is within +/- <computeroutput>delta</computeroutput> of the <computeroutput>expected</computeroutput> value. The nature of floating point representation is such that exact evaluations of equality are not guaranteed.</para>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md217">
+<title>&lt;tt&gt;TEST_ASSERT_EQUAL_DOUBLE (expected, actual)&lt;/tt&gt;</title>
+
+<para>Asserts that the <computeroutput>actual</computeroutput> value is &quot;close enough to be considered equal&quot; to the <computeroutput>expected</computeroutput> value. If you are curious about the details, refer to the Advanced Asserting section for more details. Omitting a user-specified delta in a floating point assertion is both a shorthand convenience and a requirement of code generation conventions for CMock.</para>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md218">
+<title>&lt;tt&gt;TEST_ASSERT_EQUAL_DOUBLE_ARRAY (expected, actual, num_elements)&lt;/tt&gt;</title>
+
+<para>See Array assertion section for details. Note that individual array element double comparisons are executed using <computeroutput>TEST_ASSERT_EQUAL_DOUBLE</computeroutput>.That is, user specified delta comparison values requires a custom implemented double array assertion.</para>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md219">
+<title>&lt;tt&gt;TEST_ASSERT_DOUBLE_IS_INF (actual)&lt;/tt&gt;</title>
+
+<para>Asserts that <computeroutput>actual</computeroutput> parameter is equivalent to positive infinity floating point representation.</para>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md220">
+<title>&lt;tt&gt;TEST_ASSERT_DOUBLE_IS_NEG_INF (actual)&lt;/tt&gt;</title>
+
+<para>Asserts that <computeroutput>actual</computeroutput> parameter is equivalent to negative infinity floating point representation.</para>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md221">
+<title>&lt;tt&gt;TEST_ASSERT_DOUBLE_IS_NAN (actual)&lt;/tt&gt;</title>
+
+<para>Asserts that <computeroutput>actual</computeroutput> parameter is a Not A Number floating point representation.</para>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md222">
+<title>&lt;tt&gt;TEST_ASSERT_DOUBLE_IS_DETERMINATE (actual)&lt;/tt&gt;</title>
+
+<para>Asserts that <computeroutput>actual</computeroutput> parameter is a floating point representation usable for mathematical operations. That is, the ?actual?parameter is neither positive infinity nor negative infinity nor Not A Number floating point representations.</para>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md223">
+<title>&lt;tt&gt;TEST_ASSERT_DOUBLE_IS_NOT_INF (actual)&lt;/tt&gt;</title>
+
+<para>Asserts that <computeroutput>actual</computeroutput> parameter is a value other than positive infinity floating point representation.</para>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md224">
+<title>&lt;tt&gt;TEST_ASSERT_DOUBLE_IS_NOT_NEG_INF (actual)&lt;/tt&gt;</title>
+
+<para>Asserts that <computeroutput>actual</computeroutput> parameter is a value other than negative infinity floating point representation.</para>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md225">
+<title>&lt;tt&gt;TEST_ASSERT_DOUBLE_IS_NOT_NAN (actual)&lt;/tt&gt;</title>
+
+<para>Asserts that <computeroutput>actual</computeroutput> parameter is a value other than Not A Number floating point representation.</para>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md226">
+<title>&lt;tt&gt;TEST_ASSERT_DOUBLE_IS_NOT_DETERMINATE (actual)&lt;/tt&gt;</title>
+
+<para>Asserts that <computeroutput>actual</computeroutput> parameter is not usable for mathematical operations. That is, the <computeroutput>actual</computeroutput> parameter is either positive infinity or negative infinity or Not A Number floating point representations.</para>
+</section>
+</section>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md227">
+<title>Advanced Asserting: Details On Tricky Assertions</title>
+
+<para>This section helps you understand how to deal with some of the trickier assertion situations you may run into. It will give you a glimpse into some of the under-the-hood details of Unity&apos;s assertion mechanisms. If you&apos;re one of those people who likes to know what is going on in the background, read on. If not, feel free to ignore the rest of this document until you need it.</para>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md228">
+<title>How do the EQUAL assertions work for FLOAT and DOUBLE?</title>
+
+<para>As you may know, directly checking for equality between a pair of floats or a pair of doubles is sloppy at best and an outright no-no at worst. Floating point values can often be represented in multiple ways, particularly after a series of operations on a value. Initializing a variable to the value of 2.0 is likely to result in a floating point representation of 2 x 20,but a series of mathematical operations might result in a representation of 8 x 2-2 that also evaluates to a value of 2. At some point repeated operations cause equality checks to fail.</para>
+
+<para>So Unity doesn&apos;t do direct floating point comparisons for equality. Instead, it checks if two floating point values are &quot;really close.&quot; If you leave Unity running with defaults, &quot;really close&quot; means &quot;within a significant bit or two.&quot; Under the hood, <computeroutput>TEST_ASSERT_EQUAL_FLOAT</computeroutput> is really <computeroutput>TEST_ASSERT_FLOAT_WITHIN</computeroutput> with the <computeroutput>delta</computeroutput> parameter calculated on the fly. For single precision, delta is the expected value multiplied by 0.00001, producing a very small proportional range around the expected value.</para>
+
+<para>If you are expecting a value of 20,000.0 the delta is calculated to be 0.2. So any value between 19,999.8 and 20,000.2 will satisfy the equality check. This works out to be roughly a single bit of range for a single-precision number, and that&apos;s just about as tight a tolerance as you can reasonably get from a floating point value.</para>
+
+<para>So what happens when it&apos;s zero? Zero - even more than other floating point values - can be represented many different ways. It doesn&apos;t matter if you have 0 x 20 or 0 x 263.It&apos;s still zero, right? Luckily, if you subtract these values from each other, they will always produce a difference of zero, which will still fall between 0 plus or minus a delta of 0. So it still works!</para>
+
+<para>Double precision floating point numbers use a much smaller multiplier, again approximating a single bit of error.</para>
+
+<para>If you don&apos;t like these ranges and you want to make your floating point equality assertions less strict, you can change these multipliers to whatever you like by defining UNITY_FLOAT_PRECISION and UNITY_DOUBLE_PRECISION. See Unity documentation for more.</para>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_assertions_reference_1autotoc_md229">
+<title>How do we deal with targets with non-standard int sizes?</title>
+
+<para>It&apos;s &quot;fun&quot; that C is a standard where something as fundamental as an integer varies by target. According to the C standard, an <computeroutput>int</computeroutput> is to be the target&apos;s natural register size, and it should be at least 16-bits and a multiple of a byte. It also guarantees an order of sizes:</para>
+
+<para><literallayout><computeroutput>char&#32;&lt;=&#32;short&#32;&lt;=&#32;int&#32;&lt;=&#32;long&#32;&lt;=&#32;long&#32;long
+</computeroutput></literallayout></para>
+
+<para>Most often, <computeroutput>int</computeroutput> is 32-bits. In many cases in the embedded world, <computeroutput>int</computeroutput> is 16-bits. There are rare microcontrollers out there that have 24-bit integers, and this remains perfectly standard C.</para>
+
+<para>To make things even more interesting, there are compilers and targets out there that have a hard choice to make. What if their natural register size is 10-bits or 12-bits? Clearly they can&apos;t fulfill <emphasis>both</emphasis> the requirement to be at least 16-bits AND the requirement to match the natural register size. In these situations, they often choose the natural register size, leaving us with something like this:</para>
+
+<para><literallayout><computeroutput>char&#32;(8&#32;bit)&#32;&lt;=&#32;short&#32;(12&#32;bit)&#32;&lt;=&#32;int&#32;(12&#32;bit)&#32;&lt;=&#32;long&#32;(16&#32;bit)
+</computeroutput></literallayout></para>
+
+<para>Um... yikes. It&apos;s obviously breaking a rule or two... but they had to break SOME rules, so they made a choice.</para>
+
+<para>When the C99 standard rolled around, it introduced alternate standard-size types. It also introduced macros for pulling in MIN/MAX values for your integer types. It&apos;s glorious! Unfortunately, many embedded compilers can&apos;t be relied upon to use the C99 types (Sometimes because they have weird register sizes as described above. Sometimes because they don&apos;t feel like it?).</para>
+
+<para>A goal of Unity from the beginning was to support every combination of microcontroller or microprocessor and C compiler. Over time, we&apos;ve gotten really close to this. There are a few tricks that you should be aware of, though, if you&apos;re going to do this effectively on some of these more idiosyncratic targets.</para>
+
+<para>First, when setting up Unity for a new target, you&apos;re going to want to pay special attention to the macros for automatically detecting types (where available) or manually configuring them yourself. You can get information on both of these in Unity&apos;s documentation.</para>
+
+<para>What about the times where you suddenly need to deal with something odd, like a 24-bit <computeroutput>int</computeroutput>? The simplest solution is to use the next size up. If you have a 24-bit <computeroutput>int</computeroutput>, configure Unity to use 32-bit integers. If you have a 12-bit <computeroutput>int</computeroutput>, configure Unity to use 16 bits. There are two ways this is going to affect you:</para>
+
+<para><orderedlist>
+<listitem>
+<para>When Unity displays errors for you, it&apos;s going to pad the upper unused bits with zeros.</para>
+</listitem><listitem>
+<para>You&apos;re going to have to be careful of assertions that perform signed operations, particularly <computeroutput>TEST_ASSERT_INT_WITHIN</computeroutput>.Such assertions might wrap your <computeroutput>int</computeroutput> in the wrong place, and you could experience false failures. You can always back down to a simple <computeroutput>TEST_ASSERT</computeroutput> and do the operations yourself.</para>
+</listitem></orderedlist>
+</para>
+
+<para><emphasis>Find The Latest of This And More at <link xlink:href="https://throwtheswitch.org">ThrowTheSwitch.org</link></emphasis> </para>
+</section>
+</section>
+</section>

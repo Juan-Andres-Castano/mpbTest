@@ -1,0 +1,181 @@
+.TH "UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock.c" 3 "Thu Nov 18 2021" "mpbTime" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+UnitTestFramework/vendor/ceedling/vendor/cmock/src/cmock.c
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'unity\&.h'\fP
+.br
+\fC#include 'cmock\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBCMock_Guts_Buffer\fP   ((unsigned char*)CMock_Guts_BufferArray)"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBCMOCK_MEM_INDEX_TYPE\fP \fBCMock_Guts_MemNew\fP (\fBCMOCK_MEM_INDEX_TYPE\fP size)"
+.br
+.ti -1c
+.RI "\fBCMOCK_MEM_INDEX_TYPE\fP \fBCMock_Guts_MemChain\fP (\fBCMOCK_MEM_INDEX_TYPE\fP root_index, \fBCMOCK_MEM_INDEX_TYPE\fP obj_index)"
+.br
+.ti -1c
+.RI "\fBCMOCK_MEM_INDEX_TYPE\fP \fBCMock_Guts_MemNext\fP (\fBCMOCK_MEM_INDEX_TYPE\fP previous_item_index)"
+.br
+.ti -1c
+.RI "\fBCMOCK_MEM_INDEX_TYPE\fP \fBCMock_Guts_MemEndOfChain\fP (\fBCMOCK_MEM_INDEX_TYPE\fP root_index)"
+.br
+.ti -1c
+.RI "void * \fBCMock_Guts_GetAddressFor\fP (\fBCMOCK_MEM_INDEX_TYPE\fP index)"
+.br
+.ti -1c
+.RI "\fBCMOCK_MEM_INDEX_TYPE\fP \fBCMock_Guts_MemBytesFree\fP (void)"
+.br
+.ti -1c
+.RI "\fBCMOCK_MEM_INDEX_TYPE\fP \fBCMock_Guts_MemBytesUsed\fP (void)"
+.br
+.ti -1c
+.RI "void \fBCMock_Guts_MemFreeAll\fP (void)"
+.br
+.ti -1c
+.RI "void \fBCMock_Guts_MemFreeFinal\fP (void)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "const char * \fBCMockStringOutOfMemory\fP = 'CMock has run out of memory\&. Please allocate more\&.'"
+.br
+.ti -1c
+.RI "const char * \fBCMockStringCalledMore\fP = 'Called more times than expected\&.'"
+.br
+.ti -1c
+.RI "const char * \fBCMockStringCalledLess\fP = 'Called less times than expected\&.'"
+.br
+.ti -1c
+.RI "const char * \fBCMockStringCalledEarly\fP = 'Called earlier than expected\&.'"
+.br
+.ti -1c
+.RI "const char * \fBCMockStringCalledLate\fP = 'Called later than expected\&.'"
+.br
+.ti -1c
+.RI "const char * \fBCMockStringCallOrder\fP = 'Called out of order\&.'"
+.br
+.ti -1c
+.RI "const char * \fBCMockStringIgnPreExp\fP = 'IgnoreArg called before Expect\&.'"
+.br
+.ti -1c
+.RI "const char * \fBCMockStringPtrPreExp\fP = 'ReturnThruPtr called before Expect\&.'"
+.br
+.ti -1c
+.RI "const char * \fBCMockStringPtrIsNULL\fP = 'Pointer is NULL\&.'"
+.br
+.ti -1c
+.RI "const char * \fBCMockStringExpNULL\fP = 'Expected NULL\&.'"
+.br
+.ti -1c
+.RI "const char * \fBCMockStringMismatch\fP = 'Function called with unexpected argument value\&.'"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define CMock_Guts_Buffer   ((unsigned char*)CMock_Guts_BufferArray)"
+
+.PP
+Definition at line 30 of file cmock\&.c\&.
+.SH "Function Documentation"
+.PP 
+.SS "void* CMock_Guts_GetAddressFor (\fBCMOCK_MEM_INDEX_TYPE\fP index)"
+
+.PP
+Definition at line 160 of file cmock\&.c\&.
+.SS "\fBCMOCK_MEM_INDEX_TYPE\fP CMock_Guts_MemBytesFree (void)"
+
+.PP
+Definition at line 175 of file cmock\&.c\&.
+.SS "\fBCMOCK_MEM_INDEX_TYPE\fP CMock_Guts_MemBytesUsed (void)"
+
+.PP
+Definition at line 183 of file cmock\&.c\&.
+.SS "\fBCMOCK_MEM_INDEX_TYPE\fP CMock_Guts_MemChain (\fBCMOCK_MEM_INDEX_TYPE\fP root_index, \fBCMOCK_MEM_INDEX_TYPE\fP obj_index)"
+
+.PP
+Definition at line 76 of file cmock\&.c\&.
+.SS "\fBCMOCK_MEM_INDEX_TYPE\fP CMock_Guts_MemEndOfChain (\fBCMOCK_MEM_INDEX_TYPE\fP root_index)"
+
+.PP
+Definition at line 142 of file cmock\&.c\&.
+.SS "void CMock_Guts_MemFreeAll (void)"
+
+.PP
+Definition at line 191 of file cmock\&.c\&.
+.SS "void CMock_Guts_MemFreeFinal (void)"
+
+.PP
+Definition at line 199 of file cmock\&.c\&.
+.SS "\fBCMOCK_MEM_INDEX_TYPE\fP CMock_Guts_MemNew (\fBCMOCK_MEM_INDEX_TYPE\fP size)"
+
+.PP
+Definition at line 38 of file cmock\&.c\&.
+.SS "\fBCMOCK_MEM_INDEX_TYPE\fP CMock_Guts_MemNext (\fBCMOCK_MEM_INDEX_TYPE\fP previous_item_index)"
+
+.PP
+Definition at line 120 of file cmock\&.c\&.
+.SH "Variable Documentation"
+.PP 
+.SS "const char* CMockStringCalledEarly = 'Called earlier than expected\&.'"
+
+.PP
+Definition at line 14 of file cmock\&.c\&.
+.SS "const char* CMockStringCalledLate = 'Called later than expected\&.'"
+
+.PP
+Definition at line 15 of file cmock\&.c\&.
+.SS "const char* CMockStringCalledLess = 'Called less times than expected\&.'"
+
+.PP
+Definition at line 13 of file cmock\&.c\&.
+.SS "const char* CMockStringCalledMore = 'Called more times than expected\&.'"
+
+.PP
+Definition at line 12 of file cmock\&.c\&.
+.SS "const char* CMockStringCallOrder = 'Called out of order\&.'"
+
+.PP
+Definition at line 16 of file cmock\&.c\&.
+.SS "const char* CMockStringExpNULL = 'Expected NULL\&.'"
+
+.PP
+Definition at line 20 of file cmock\&.c\&.
+.SS "const char* CMockStringIgnPreExp = 'IgnoreArg called before Expect\&.'"
+
+.PP
+Definition at line 17 of file cmock\&.c\&.
+.SS "const char* CMockStringMismatch = 'Function called with unexpected argument value\&.'"
+
+.PP
+Definition at line 21 of file cmock\&.c\&.
+.SS "const char* CMockStringOutOfMemory = 'CMock has run out of memory\&. Please allocate more\&.'"
+
+.PP
+Definition at line 11 of file cmock\&.c\&.
+.SS "const char* CMockStringPtrIsNULL = 'Pointer is NULL\&.'"
+
+.PP
+Definition at line 19 of file cmock\&.c\&.
+.SS "const char* CMockStringPtrPreExp = 'ReturnThruPtr called before Expect\&.'"
+
+.PP
+Definition at line 18 of file cmock\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mpbTime from the source code\&.

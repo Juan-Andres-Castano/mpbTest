@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_nep_math_average_8c" xml:lang="en-US">
+<title>Sources/nepMathAverage.c File Reference</title>
+<indexterm><primary>Sources/nepMathAverage.c</primary></indexterm>
+<para>
+
+<para>Library to calculate average. </para>
+ 
+</para>
+<programlisting>#include &quot;nepMathAverage.h&quot;
+#include &quot;nepMathDivision.h&quot;
+</programlisting>Include dependency graph for nepMathAverage.c:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../d0/d3b/nep_math_average_8c__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>eNepError_t <link linkend="_nep_math_average_8c_1a668a4757f277337489afa1f06b5ce7f5">eNepMathAverageS32</link> (const int32_t *pslArray, uint16_t usLength, int32_t *pslResult)</para>
+</listitem>
+            <listitem><para>eNepError_t <link linkend="_nep_math_average_8c_1a7c618890b7de463bd3c7d4da0c2b1eeb">eNepMathAverageFloat</link> (const float *pxArray, uint16_t usLength, float *pxResult)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Library to calculate average. </para>
+
+<para><formalpara><title>Author</title>
+
+<para>Mikael Plouffe </para>
+</formalpara>
+<formalpara><title>Date</title>
+
+<para>Created on 2019-04-25 </para>
+</formalpara>
+<formalpara><title>Copyright</title>
+
+<para>NEP, Montreal, Qc <formalpara><title><informaltable frame='none'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>&#169; COPYRIGHT 2015 NEP, Montreal, Quebec, Canada</entry></row></tbody></tgroup></informaltable></title></formalpara>
+</para>
+</formalpara>
+<formalpara><title><informaltable frame='none'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>&#169; All rights reserved.</entry></row></tbody></tgroup></informaltable></title></formalpara>
+</para>
+
+<para>
+<literallayout>&#160;&#xa;</literallayout>
+
+<literallayout>&#160;&#xa;</literallayout>
+ <informaltable frame='none'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>This document contains confidential and proprietary information of NEPTRONIC (subject to a non-disclosure agreement) and shall</entry></row></tbody></tgroup></informaltable> <informaltable frame='none'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>not be disclosed, distributed, or reproduced in whole or in part, without the prior written authorization of NEPTRONIC.</entry></row></tbody></tgroup></informaltable> </para>
+</section>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_nep_math_average_8c_1a7c618890b7de463bd3c7d4da0c2b1eeb"/>    <section>
+    <title>eNepMathAverageFloat()</title>
+<indexterm><primary>eNepMathAverageFloat</primary><secondary>nepMathAverage.c</secondary></indexterm>
+<indexterm><primary>nepMathAverage.c</primary><secondary>eNepMathAverageFloat</secondary></indexterm>
+<para><computeroutput>eNepError_t eNepMathAverageFloat (const float * pxArray, uint16_t usLength, float * pxResult)</computeroutput></para><para>
+Definition at line 54 of file nepMathAverage.c.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../d5/dbd/nep_math_average_8c_a7c618890b7de463bd3c7d4da0c2b1eeb_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_nep_math_average_8c_1a668a4757f277337489afa1f06b5ce7f5"/>    <section>
+    <title>eNepMathAverageS32()</title>
+<indexterm><primary>eNepMathAverageS32</primary><secondary>nepMathAverage.c</secondary></indexterm>
+<indexterm><primary>nepMathAverage.c</primary><secondary>eNepMathAverageS32</secondary></indexterm>
+<para><computeroutput>eNepError_t eNepMathAverageS32 (const int32_t * pslArray, uint16_t usLength, int32_t * pslResult)</computeroutput></para><para>
+Definition at line 29 of file nepMathAverage.c.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../d5/dbd/nep_math_average_8c_a668a4757f277337489afa1f06b5ce7f5_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+</section>

@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="d5/dc7/beep_2_r_e_a_d_m_e_8md" kind="file" language="Markdown">
+    <compoundname>README.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">ceedling-beep</highlight></codeline>
+<codeline><highlight class="normal">=============</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">This<sp/>is<sp/>a<sp/>simple<sp/>plugin<sp/>that<sp/>just<sp/>beeps<sp/>at<sp/>the<sp/>end<sp/>of<sp/>a<sp/>build<sp/>and/or<sp/>test<sp/>sequence.<sp/>Are<sp/>you<sp/>getting<sp/>too<sp/>distracted<sp/>surfing</highlight></codeline>
+<codeline><highlight class="normal">the<sp/>internet,<sp/>chatting<sp/>with<sp/>coworkers,<sp/>or<sp/>swordfighting<sp/>while<sp/>it&apos;s<sp/>building<sp/>or<sp/>testing?<sp/>The<sp/>friendly<sp/>beep<sp/>will<sp/>let<sp/>you<sp/>know</highlight></codeline>
+<codeline><highlight class="normal">it&apos;s<sp/>time<sp/>to<sp/>pay<sp/>attention<sp/>again.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">This<sp/>plugin<sp/>has<sp/>very<sp/>few<sp/>configuration<sp/>options.<sp/>At<sp/>this<sp/>time<sp/>it<sp/>can<sp/>beep<sp/>on<sp/>completion<sp/>of<sp/>a<sp/>task<sp/>and/or<sp/>on<sp/>an<sp/>error<sp/>condition.</highlight></codeline>
+<codeline><highlight class="normal">For<sp/>each<sp/>of<sp/>these,<sp/>you<sp/>can<sp/>configure<sp/>the<sp/>method<sp/>that<sp/>it<sp/>should<sp/>beep.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">:tools:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>:beep_on_done:<sp/>:bell</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>:beep_on_error:<sp/>:bell</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Each<sp/>of<sp/>these<sp/>have<sp/>the<sp/>following<sp/>options:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/>-<sp/>:bell<sp/>-<sp/>this<sp/>option<sp/>uses<sp/>the<sp/>ASCII<sp/>bell<sp/>character<sp/>out<sp/>stdout</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>-<sp/>:speaker_test<sp/>-<sp/>this<sp/>uses<sp/>the<sp/>linux<sp/>speaker-test<sp/>command<sp/>if<sp/>installed</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Very<sp/>likely,<sp/>we&apos;ll<sp/>be<sp/>adding<sp/>to<sp/>this<sp/>list<sp/>if<sp/>people<sp/>find<sp/>this<sp/>to<sp/>be<sp/>useful.</highlight></codeline>
+    </programlisting>
+    <location file="UnitTestFramework/vendor/ceedling/plugins/beep/README.md"/>
+  </compounddef>
+</doxygen>

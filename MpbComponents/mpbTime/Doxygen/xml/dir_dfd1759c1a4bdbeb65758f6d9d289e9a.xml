@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="dir_dfd1759c1a4bdbeb65758f6d9d289e9a" kind="dir">
+    <compoundname>UnitTestFramework/vendor/ceedling/plugins/fake_function_framework</compoundname>
+    <innerdir refid="dir_6bd9a66bb4b4ca3fd7295362af1dd79e">UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples</innerdir>
+    <innerdir refid="dir_bc0e8a5e45d7403684d68ee37b1655e4">UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/src</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,292 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="mpb_time_base_8c" kind="file" language="C++">
+    <compoundname>mpbTimeBase.c</compoundname>
+    <includes local="yes">mpbTimeBase.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>Sources/mpbTimeBase.c</label>
+        <link refid="mpb_time_base_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>mpbTimeBase.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="mpb_time_base_8c_1abc4f7fb8dcd9e568855485653669221a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>eMpbError_t</type>
+        <definition>eMpbError_t eMpbTimeBaseInit</definition>
+        <argsstring>(mpbTimeBase_t *pxTimeBase, uint8_t ucTickPerMs)</argsstring>
+        <name>eMpbTimeBaseInit</name>
+        <param>
+          <type>mpbTimeBase_t *</type>
+          <declname>pxTimeBase</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>ucTickPerMs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Sources/mpbTimeBase.c" line="28" column="13" bodyfile="Sources/mpbTimeBase.c" bodystart="28" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="mpb_time_base_8c_1a6cc648d8b1c13459689754a7b9a5ee0c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>eMpbError_t</type>
+        <definition>eMpbError_t eMpbTimeBaseTick</definition>
+        <argsstring>(mpbTimeBase_t *pxTimeBase)</argsstring>
+        <name>eMpbTimeBaseTick</name>
+        <param>
+          <type>mpbTimeBase_t *</type>
+          <declname>pxTimeBase</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Sources/mpbTimeBase.c" line="47" column="13" bodyfile="Sources/mpbTimeBase.c" bodystart="47" bodyend="73"/>
+      </memberdef>
+      <memberdef kind="function" id="mpb_time_base_8c_1a69948f4a4a22d7d95ecf39af55bfe6dd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t ulMpbTimeBaseGetTick</definition>
+        <argsstring>(mpbTimeBase_t *pxTimeBase)</argsstring>
+        <name>ulMpbTimeBaseGetTick</name>
+        <param>
+          <type>mpbTimeBase_t *</type>
+          <declname>pxTimeBase</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Sources/mpbTimeBase.c" line="76" column="10" bodyfile="Sources/mpbTimeBase.c" bodystart="76" bodyend="79"/>
+      </memberdef>
+      <memberdef kind="function" id="mpb_time_base_8c_1a0a8b5da1e9949559a78ac7cade9f60ba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t ulMpbTimeBaseGetMs</definition>
+        <argsstring>(mpbTimeBase_t *pxTimeBase)</argsstring>
+        <name>ulMpbTimeBaseGetMs</name>
+        <param>
+          <type>mpbTimeBase_t *</type>
+          <declname>pxTimeBase</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Sources/mpbTimeBase.c" line="82" column="10" bodyfile="Sources/mpbTimeBase.c" bodystart="82" bodyend="85"/>
+      </memberdef>
+      <memberdef kind="function" id="mpb_time_base_8c_1ad06e7c793bdc9e4608c6501d00756b73" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t ulMpbTimeBaseGetSecond</definition>
+        <argsstring>(mpbTimeBase_t *pxTimeBase)</argsstring>
+        <name>ulMpbTimeBaseGetSecond</name>
+        <param>
+          <type>mpbTimeBase_t *</type>
+          <declname>pxTimeBase</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Sources/mpbTimeBase.c" line="88" column="10" bodyfile="Sources/mpbTimeBase.c" bodystart="88" bodyend="91"/>
+      </memberdef>
+      <memberdef kind="function" id="mpb_time_base_8c_1abac386caa33523404f7cfdef66e30268" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t ulMpbTimeBaseGetMinute</definition>
+        <argsstring>(mpbTimeBase_t *pxTimeBase)</argsstring>
+        <name>ulMpbTimeBaseGetMinute</name>
+        <param>
+          <type>mpbTimeBase_t *</type>
+          <declname>pxTimeBase</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Sources/mpbTimeBase.c" line="94" column="10" bodyfile="Sources/mpbTimeBase.c" bodystart="94" bodyend="97"/>
+      </memberdef>
+      <memberdef kind="function" id="mpb_time_base_8c_1a661099fb9f3980c616f9e8c91e9dfb49" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t ulMpbTimeBaseGetHour</definition>
+        <argsstring>(mpbTimeBase_t *pxTimeBase)</argsstring>
+        <name>ulMpbTimeBaseGetHour</name>
+        <param>
+          <type>mpbTimeBase_t *</type>
+          <declname>pxTimeBase</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Sources/mpbTimeBase.c" line="100" column="10" bodyfile="Sources/mpbTimeBase.c" bodystart="100" bodyend="103"/>
+      </memberdef>
+      <memberdef kind="function" id="mpb_time_base_8c_1a60da84dfb6398977db7548d0a33101f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>eBool_t</type>
+        <definition>eBool_t eMpbTimeBaseIsDelayDone</definition>
+        <argsstring>(uint32_t ulCounter, uint32_t ulTimeStamp)</argsstring>
+        <name>eMpbTimeBaseIsDelayDone</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>ulCounter</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>ulTimeStamp</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Sources/mpbTimeBase.c" line="106" column="9" bodyfile="Sources/mpbTimeBase.c" bodystart="106" bodyend="116"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para><linebreak/>
+ </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>juan </para>
+</simplesect>
+<simplesect kind="date"><para>Created on 2021-03-1 </para>
+</simplesect>
+<simplesect kind="note"><para></para>
+</simplesect>
+<simplesect kind="copyright"><para>MPB, Montreal, Qc <heading level="2"><center><copy/> COPYRIGHT 2021 MPB, Montreal, Quebec, Canada</center></heading>
+</para>
+</simplesect>
+<heading level="2"><center><copy/> All rights reserved.</center></heading>
+</para>
+<para><linebreak/>
+<linebreak/>
+ <center>This document contains confidential and proprietary information of MPB (subject to a non-disclosure agreement) and shall</center> <center>not be disclosed, distributed, or reproduced in whole or in part, without the prior written authorization of MPB.</center> </para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Includes<sp/>-----------------------------------------------------------------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;mpbTimeBase.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Private<sp/>define<sp/>-----------------------------------------------------------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Private<sp/>macro<sp/>------------------------------------------------------------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Private<sp/>enum<sp/>-------------------------------------------------------------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Private<sp/>struct<sp/>-----------------------------------------------------------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Private<sp/>variables<sp/>--------------------------------------------------------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>External<sp/>variables<sp/>-------------------------------------------------------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Private<sp/>function<sp/>prototypes<sp/>----------------------------------------------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Private<sp/>functions<sp/>--------------------------------------------------------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Exported<sp/>functions<sp/>-------------------------------------------------------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28" refid="mpb_time_base_8c_1abc4f7fb8dcd9e568855485653669221a" refkind="member"><highlight class="normal">eMpbError_t<sp/><ref refid="mpb_time_base_8c_1abc4f7fb8dcd9e568855485653669221a" kindref="member">eMpbTimeBaseInit</ref>(<sp/>mpbTimeBase_t<sp/>*pxTimeBase,<sp/>uint8_t<sp/>ucTickPerMs<sp/>)</highlight></codeline>
+<codeline lineno="29"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Validate<sp/>Entry<sp/>Parameter<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>(<sp/>pxTimeBase<sp/>==<sp/>NULL<sp/>)<sp/>||<sp/>(<sp/>ucTickPerMs<sp/>==<sp/>0<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>eInvalidParameter;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>pxTimeBase-&gt;ulTick<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>pxTimeBase-&gt;ulMs<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>pxTimeBase-&gt;ulSecond<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>pxTimeBase-&gt;usMsCount<sp/>=<sp/>1000;<sp/></highlight><highlight class="comment">/*<sp/>1000<sp/>ms<sp/>in<sp/>a<sp/>sec<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>pxTimeBase-&gt;ucTickCount<sp/>=<sp/>ucTickPerMs;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>pxTimeBase-&gt;ucTickReload<sp/>=<sp/>ucTickPerMs;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>eSuccess;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47" refid="mpb_time_base_8c_1a6cc648d8b1c13459689754a7b9a5ee0c" refkind="member"><highlight class="normal">eMpbError_t<sp/><ref refid="mpb_time_base_8c_1a6cc648d8b1c13459689754a7b9a5ee0c" kindref="member">eMpbTimeBaseTick</ref>(<sp/>mpbTimeBase_t<sp/>*pxTimeBase<sp/>)</highlight></codeline>
+<codeline lineno="48"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Validate<sp/>Entry<sp/>Parameter<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>pxTimeBase<sp/>==<sp/>NULL<sp/>)</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>eInvalidParameter;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>pxTimeBase-&gt;ulTick++;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Update<sp/>sec<sp/>and<sp/>ms<sp/>counter*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>pxTimeBase-&gt;ucTickCount--;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>pxTimeBase-&gt;ucTickCount<sp/>==<sp/>0<sp/>)</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pxTimeBase-&gt;ucTickCount<sp/>=<sp/>pxTimeBase-&gt;ucTickReload;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pxTimeBase-&gt;ulMs++;</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pxTimeBase-&gt;usMsCount--;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Update<sp/>seconds<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>pxTimeBase-&gt;usMsCount<sp/>==<sp/>0<sp/>)</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pxTimeBase-&gt;usMsCount<sp/>=<sp/>1000;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pxTimeBase-&gt;ulSecond++;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>eSuccess;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76" refid="mpb_time_base_8c_1a69948f4a4a22d7d95ecf39af55bfe6dd" refkind="member"><highlight class="normal">uint32_t<sp/><ref refid="mpb_time_base_8c_1a69948f4a4a22d7d95ecf39af55bfe6dd" kindref="member">ulMpbTimeBaseGetTick</ref>(<sp/>mpbTimeBase_t<sp/>*pxTimeBase<sp/>)</highlight></codeline>
+<codeline lineno="77"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>pxTimeBase-&gt;ulTick;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82" refid="mpb_time_base_8c_1a0a8b5da1e9949559a78ac7cade9f60ba" refkind="member"><highlight class="normal">uint32_t<sp/><ref refid="mpb_time_base_8c_1a0a8b5da1e9949559a78ac7cade9f60ba" kindref="member">ulMpbTimeBaseGetMs</ref>(<sp/>mpbTimeBase_t<sp/>*pxTimeBase<sp/>)</highlight></codeline>
+<codeline lineno="83"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>pxTimeBase-&gt;ulMs;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88" refid="mpb_time_base_8c_1ad06e7c793bdc9e4608c6501d00756b73" refkind="member"><highlight class="normal">uint32_t<sp/><ref refid="mpb_time_base_8c_1ad06e7c793bdc9e4608c6501d00756b73" kindref="member">ulMpbTimeBaseGetSecond</ref>(<sp/>mpbTimeBase_t<sp/>*pxTimeBase<sp/>)</highlight></codeline>
+<codeline lineno="89"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>pxTimeBase-&gt;ulSecond;</highlight></codeline>
+<codeline lineno="91"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94" refid="mpb_time_base_8c_1abac386caa33523404f7cfdef66e30268" refkind="member"><highlight class="normal">uint32_t<sp/><ref refid="mpb_time_base_8c_1abac386caa33523404f7cfdef66e30268" kindref="member">ulMpbTimeBaseGetMinute</ref>(<sp/>mpbTimeBase_t<sp/>*pxTimeBase<sp/>)</highlight></codeline>
+<codeline lineno="95"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(<sp/>pxTimeBase-&gt;ulSecond<sp/>/<sp/>60<sp/>);</highlight></codeline>
+<codeline lineno="97"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100" refid="mpb_time_base_8c_1a661099fb9f3980c616f9e8c91e9dfb49" refkind="member"><highlight class="normal">uint32_t<sp/><ref refid="mpb_time_base_8c_1a661099fb9f3980c616f9e8c91e9dfb49" kindref="member">ulMpbTimeBaseGetHour</ref>(<sp/>mpbTimeBase_t<sp/>*pxTimeBase<sp/>)</highlight></codeline>
+<codeline lineno="101"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(<sp/>pxTimeBase-&gt;ulSecond<sp/>/<sp/>3600<sp/>);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106" refid="mpb_time_base_8c_1a60da84dfb6398977db7548d0a33101f8" refkind="member"><highlight class="normal">eBool_t<sp/><ref refid="mpb_time_base_8c_1a60da84dfb6398977db7548d0a33101f8" kindref="member">eMpbTimeBaseIsDelayDone</ref>(<sp/>uint32_t<sp/>ulCounter,<sp/>uint32_t<sp/>ulTimeStamp<sp/>)</highlight></codeline>
+<codeline lineno="107"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>(<sp/>int32_t<sp/>)(<sp/>ulCounter<sp/>-<sp/>ulTimeStamp<sp/>)<sp/>&gt;=<sp/>0<sp/>)</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>eTrue;</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>eFalse;</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="116"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="Sources/mpbTimeBase.c"/>
+  </compounddef>
+</doxygen>

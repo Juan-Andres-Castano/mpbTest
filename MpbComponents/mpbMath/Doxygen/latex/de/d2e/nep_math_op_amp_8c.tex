@@ -1,0 +1,89 @@
+\hypertarget{nep_math_op_amp_8c}{}\doxysection{Sources/nep\+Math\+Op\+Amp.c File Reference}
+\label{nep_math_op_amp_8c}\index{Sources/nepMathOpAmp.c@{Sources/nepMathOpAmp.c}}
+
+
+Library to simulate an operational amplifier. It is able caclulate the input voltage from the output voltage and vice versa.  
+
+
+{\ttfamily \#include \char`\"{}nep\+Math\+Op\+Amp.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}nep\+Math\+Division.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}nep\+Math\+Resistor.\+h\char`\"{}}\newline
+Include dependency graph for nep\+Math\+Op\+Amp.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{df/da3/nep_math_op_amp_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+e\+Nep\+Error\+\_\+t \mbox{\hyperlink{nep_math_op_amp_8c_a1b5e1782b97c8215b4c34c1b248c3117}{e\+Nep\+Math\+Op\+Amp\+Get\+Output\+Voltage}} (float x\+Input\+Voltage, const x\+Nep\+Math\+Op\+Amp\+Config\+\_\+t $\ast$px\+Op\+Amp\+Config, float $\ast$px\+Output\+Voltage)
+\item 
+e\+Nep\+Error\+\_\+t \mbox{\hyperlink{nep_math_op_amp_8c_a9f2f34a28fe863b20e6a0eb6392038be}{e\+Nep\+Math\+Op\+Amp\+Init\+Circuit}} (x\+Nep\+Math\+Op\+Amp\+Config\+\_\+t $\ast$px\+Op\+Amp\+Config, uint32\+\_\+t ul\+Pull\+Up\+Resistor, uint32\+\_\+t ul\+Feedback\+Resistor, uint32\+\_\+t ul\+Pull\+Down\+Resistor, float x\+Pull\+Up\+Voltage)
+\item 
+e\+Nep\+Error\+\_\+t \mbox{\hyperlink{nep_math_op_amp_8c_a5a0bb1d71f4ffe260f124b7ef2e4bfd1}{e\+Nep\+Math\+Op\+Amp\+Init\+Gain}} (x\+Nep\+Math\+Op\+Amp\+Config\+\_\+t $\ast$px\+Op\+Amp\+Config, float x\+Gain)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Library to simulate an operational amplifier. It is able caclulate the input voltage from the output voltage and vice versa. 
+
+\begin{DoxyAuthor}{Author}
+Mikael Plouffe 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+Created on 2019-\/04-\/26 
+\end{DoxyDate}
+\begin{DoxyNote}{Note}
+
+\end{DoxyNote}
+\begin{DoxyCopyright}{Copyright}
+NEP, Montreal, Qc \doxysubsubsection*{\begin{center}\copyright{} COPYRIGHT 2015 NEP, Montreal, Quebec, Canada\end{center} }
+\end{DoxyCopyright}
+\doxysubsubsection*{\begin{center}\copyright{} All rights reserved.\end{center} }
+
+~\newline
+~\newline
+ \begin{center}This document contains confidential and proprietary information of NEPTRONIC (subject to a non-\/disclosure agreement) and shall\end{center}  \begin{center}not be disclosed, distributed, or reproduced in whole or in part, without the prior written authorization of NEPTRONIC.\end{center}  
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{nep_math_op_amp_8c_a1b5e1782b97c8215b4c34c1b248c3117}\label{nep_math_op_amp_8c_a1b5e1782b97c8215b4c34c1b248c3117}} 
+\index{nepMathOpAmp.c@{nepMathOpAmp.c}!eNepMathOpAmpGetOutputVoltage@{eNepMathOpAmpGetOutputVoltage}}
+\index{eNepMathOpAmpGetOutputVoltage@{eNepMathOpAmpGetOutputVoltage}!nepMathOpAmp.c@{nepMathOpAmp.c}}
+\doxysubsubsection{\texorpdfstring{eNepMathOpAmpGetOutputVoltage()}{eNepMathOpAmpGetOutputVoltage()}}
+{\footnotesize\ttfamily e\+Nep\+Error\+\_\+t e\+Nep\+Math\+Op\+Amp\+Get\+Output\+Voltage (\begin{DoxyParamCaption}\item[{float}]{x\+Input\+Voltage,  }\item[{const x\+Nep\+Math\+Op\+Amp\+Config\+\_\+t $\ast$}]{px\+Op\+Amp\+Config,  }\item[{float $\ast$}]{px\+Output\+Voltage }\end{DoxyParamCaption})}
+
+
+
+Definition at line 103 of file nep\+Math\+Op\+Amp.\+c.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{de/d2e/nep_math_op_amp_8c_a1b5e1782b97c8215b4c34c1b248c3117_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{nep_math_op_amp_8c_a9f2f34a28fe863b20e6a0eb6392038be}\label{nep_math_op_amp_8c_a9f2f34a28fe863b20e6a0eb6392038be}} 
+\index{nepMathOpAmp.c@{nepMathOpAmp.c}!eNepMathOpAmpInitCircuit@{eNepMathOpAmpInitCircuit}}
+\index{eNepMathOpAmpInitCircuit@{eNepMathOpAmpInitCircuit}!nepMathOpAmp.c@{nepMathOpAmp.c}}
+\doxysubsubsection{\texorpdfstring{eNepMathOpAmpInitCircuit()}{eNepMathOpAmpInitCircuit()}}
+{\footnotesize\ttfamily e\+Nep\+Error\+\_\+t e\+Nep\+Math\+Op\+Amp\+Init\+Circuit (\begin{DoxyParamCaption}\item[{x\+Nep\+Math\+Op\+Amp\+Config\+\_\+t $\ast$}]{px\+Op\+Amp\+Config,  }\item[{uint32\+\_\+t}]{ul\+Pull\+Up\+Resistor,  }\item[{uint32\+\_\+t}]{ul\+Feedback\+Resistor,  }\item[{uint32\+\_\+t}]{ul\+Pull\+Down\+Resistor,  }\item[{float}]{x\+Pull\+Up\+Voltage }\end{DoxyParamCaption})}
+
+
+
+Definition at line 169 of file nep\+Math\+Op\+Amp.\+c.
+
+\mbox{\Hypertarget{nep_math_op_amp_8c_a5a0bb1d71f4ffe260f124b7ef2e4bfd1}\label{nep_math_op_amp_8c_a5a0bb1d71f4ffe260f124b7ef2e4bfd1}} 
+\index{nepMathOpAmp.c@{nepMathOpAmp.c}!eNepMathOpAmpInitGain@{eNepMathOpAmpInitGain}}
+\index{eNepMathOpAmpInitGain@{eNepMathOpAmpInitGain}!nepMathOpAmp.c@{nepMathOpAmp.c}}
+\doxysubsubsection{\texorpdfstring{eNepMathOpAmpInitGain()}{eNepMathOpAmpInitGain()}}
+{\footnotesize\ttfamily e\+Nep\+Error\+\_\+t e\+Nep\+Math\+Op\+Amp\+Init\+Gain (\begin{DoxyParamCaption}\item[{x\+Nep\+Math\+Op\+Amp\+Config\+\_\+t $\ast$}]{px\+Op\+Amp\+Config,  }\item[{float}]{x\+Gain }\end{DoxyParamCaption})}
+
+
+
+Definition at line 192 of file nep\+Math\+Op\+Amp.\+c.
+

@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="d7/dcd/custom__types_8h" kind="file" language="C++">
+    <compoundname>custom_types.h</compoundname>
+    <includedby refid="d7/d34/bar_8h" local="yes">UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/bar.h</includedby>
+    <invincdepgraph>
+      <node id="3">
+        <label>UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/bar.c</label>
+        <link refid="d2/de9/bar_8c"/>
+      </node>
+      <node id="2">
+        <label>UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/bar.h</label>
+        <link refid="d7/d34/bar_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/custom_types.h</label>
+        <link refid="d7/dcd/custom__types_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/foo.c</label>
+        <link refid="d0/d87/foo_8c"/>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="d7/dcd/custom__types_8h_1a2c8a6ce22d71d2c8e9ad86362eac1a2f" prot="public" static="no">
+        <type>int</type>
+        <definition>typedef int custom_t</definition>
+        <argsstring></argsstring>
+        <name>custom_t</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/custom_types.h" line="4" column="13" bodyfile="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/custom_types.h" bodystart="4" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>custom_types_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>custom_types_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4" refid="d7/dcd/custom__types_8h_1a2c8a6ce22d71d2c8e9ad86362eac1a2f" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="d7/dcd/custom__types_8h_1a2c8a6ce22d71d2c8e9ad86362eac1a2f" kindref="member">custom_t</ref>;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/custom_types.h"/>
+  </compounddef>
+</doxygen>

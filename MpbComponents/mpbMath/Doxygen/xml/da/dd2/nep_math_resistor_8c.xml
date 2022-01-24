@@ -1,0 +1,497 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="da/dd2/nep_math_resistor_8c" kind="file" language="C++">
+    <compoundname>nepMathResistor.c</compoundname>
+    <includes local="yes">nepMathResistor.h</includes>
+    <includes local="yes">nepMathDivision.h</includes>
+    <incdepgraph>
+      <node id="3">
+        <label>nepMathDivision.h</label>
+      </node>
+      <node id="1">
+        <label>Sources/nepMathResistor.c</label>
+        <link refid="da/dd2/nep_math_resistor_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>nepMathResistor.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="da/dd2/nep_math_resistor_8c_1ae5241ccf59b79d82ffe76311b914bfbc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>eNepError_t</type>
+        <definition>eNepError_t eNepMathResistorVoltageDividerGetVout</definition>
+        <argsstring>(uint32_t ulPullUpResistor, uint32_t ulPullDownResistor, uint32_t ulInputVoltage, uint32_t *pulOutputVoltage)</argsstring>
+        <name>eNepMathResistorVoltageDividerGetVout</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>ulPullUpResistor</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>ulPullDownResistor</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>ulInputVoltage</declname>
+        </param>
+        <param>
+          <type>uint32_t *</type>
+          <declname>pulOutputVoltage</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Sources/nepMathResistor.c" line="30" column="13" bodyfile="Sources/nepMathResistor.c" bodystart="30" bodyend="38"/>
+        <references refid="d4/da2/nep_math_division_8c_1a35af8352eb0a3b5cc48d29d628c2fea5" compoundref="d4/da2/nep_math_division_8c" startline="67" endline="79">eNepMathDivisionU32</references>
+      </memberdef>
+      <memberdef kind="function" id="da/dd2/nep_math_resistor_8c_1ad6a10945de079e239869469c8c1bc054" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>eNepError_t</type>
+        <definition>eNepError_t eNepMathResistorVoltageDividerGetVin</definition>
+        <argsstring>(uint32_t ulPullUpResistor, uint32_t ulPullDownResistor, uint32_t ulOutputVoltage, uint32_t *pulInputVoltage)</argsstring>
+        <name>eNepMathResistorVoltageDividerGetVin</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>ulPullUpResistor</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>ulPullDownResistor</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>ulOutputVoltage</declname>
+        </param>
+        <param>
+          <type>uint32_t *</type>
+          <declname>pulInputVoltage</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Sources/nepMathResistor.c" line="41" column="13" bodyfile="Sources/nepMathResistor.c" bodystart="41" bodyend="49"/>
+        <references refid="d4/da2/nep_math_division_8c_1a35af8352eb0a3b5cc48d29d628c2fea5" compoundref="d4/da2/nep_math_division_8c" startline="67" endline="79">eNepMathDivisionU32</references>
+      </memberdef>
+      <memberdef kind="function" id="da/dd2/nep_math_resistor_8c_1ad6509ffdb6a78f10334d325d9e6b895f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>eNepError_t</type>
+        <definition>eNepError_t eNepMathResistorVoltageDividerGetPullUpResistor</definition>
+        <argsstring>(uint32_t ulPullDownResistor, uint32_t ulInputVoltage, uint32_t ulOutputVoltage, uint32_t *pulPullUpResistor)</argsstring>
+        <name>eNepMathResistorVoltageDividerGetPullUpResistor</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>ulPullDownResistor</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>ulInputVoltage</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>ulOutputVoltage</declname>
+        </param>
+        <param>
+          <type>uint32_t *</type>
+          <declname>pulPullUpResistor</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Sources/nepMathResistor.c" line="52" column="13" bodyfile="Sources/nepMathResistor.c" bodystart="52" bodyend="71"/>
+        <references refid="d4/da2/nep_math_division_8c_1a35af8352eb0a3b5cc48d29d628c2fea5" compoundref="d4/da2/nep_math_division_8c" startline="67" endline="79">eNepMathDivisionU32</references>
+      </memberdef>
+      <memberdef kind="function" id="da/dd2/nep_math_resistor_8c_1a75fa877038a4bed9de5cf7890ceec403" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>eNepError_t</type>
+        <definition>eNepError_t eNepMathResistorVoltageDividerGetPullDownResistor</definition>
+        <argsstring>(uint32_t ulPullUpResistor, uint32_t ulInputVoltage, uint32_t ulOutputVoltage, uint32_t *pulPullDownResistor)</argsstring>
+        <name>eNepMathResistorVoltageDividerGetPullDownResistor</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>ulPullUpResistor</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>ulInputVoltage</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>ulOutputVoltage</declname>
+        </param>
+        <param>
+          <type>uint32_t *</type>
+          <declname>pulPullDownResistor</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Sources/nepMathResistor.c" line="74" column="13" bodyfile="Sources/nepMathResistor.c" bodystart="74" bodyend="82"/>
+        <references refid="d4/da2/nep_math_division_8c_1a35af8352eb0a3b5cc48d29d628c2fea5" compoundref="d4/da2/nep_math_division_8c" startline="67" endline="79">eNepMathDivisionU32</references>
+      </memberdef>
+      <memberdef kind="function" id="da/dd2/nep_math_resistor_8c_1a3bc59e61833953e8d391383db62cbe64" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>eNepError_t</type>
+        <definition>eNepError_t eNepMathResistorFloatVoltageDividerGetVout</definition>
+        <argsstring>(uint32_t ulPullUpResistor, uint32_t ulPullDownResistor, float xInputVoltage, float *pxOutputVoltage)</argsstring>
+        <name>eNepMathResistorFloatVoltageDividerGetVout</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>ulPullUpResistor</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>ulPullDownResistor</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>xInputVoltage</declname>
+        </param>
+        <param>
+          <type>float *</type>
+          <declname>pxOutputVoltage</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Sources/nepMathResistor.c" line="85" column="13" bodyfile="Sources/nepMathResistor.c" bodystart="85" bodyend="93"/>
+        <references refid="d4/da2/nep_math_division_8c_1a60ac84a774c7fbaee274bcf455462144" compoundref="d4/da2/nep_math_division_8c" startline="82" endline="107">eNepMathDivisionFloat</references>
+      </memberdef>
+      <memberdef kind="function" id="da/dd2/nep_math_resistor_8c_1a54f1101c214cf059e1203ef6b488f5c5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>eNepError_t</type>
+        <definition>eNepError_t eNepMathResistorFloatVoltageDividerGetVin</definition>
+        <argsstring>(uint32_t ulPullUpResistor, uint32_t ulPullDownResistor, float xOutputVoltage, float *pxInputVoltage)</argsstring>
+        <name>eNepMathResistorFloatVoltageDividerGetVin</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>ulPullUpResistor</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>ulPullDownResistor</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>xOutputVoltage</declname>
+        </param>
+        <param>
+          <type>float *</type>
+          <declname>pxInputVoltage</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Sources/nepMathResistor.c" line="96" column="13" bodyfile="Sources/nepMathResistor.c" bodystart="96" bodyend="104"/>
+        <references refid="d4/da2/nep_math_division_8c_1a60ac84a774c7fbaee274bcf455462144" compoundref="d4/da2/nep_math_division_8c" startline="82" endline="107">eNepMathDivisionFloat</references>
+        <referencedby refid="de/d2e/nep_math_op_amp_8c_1a1b5e1782b97c8215b4c34c1b248c3117" compoundref="de/d2e/nep_math_op_amp_8c" startline="103" endline="166">eNepMathOpAmpGetOutputVoltage</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="da/dd2/nep_math_resistor_8c_1ae6ac45228bdb8a9aa944d570664f317b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>eNepError_t</type>
+        <definition>eNepError_t eNepMathResistorFloatVoltageDividerGetPullUpResistor</definition>
+        <argsstring>(uint32_t ulPullDownResistor, float xInputVoltage, float xOutputVoltage, uint32_t *pulPullUpResistor)</argsstring>
+        <name>eNepMathResistorFloatVoltageDividerGetPullUpResistor</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>ulPullDownResistor</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>xInputVoltage</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>xOutputVoltage</declname>
+        </param>
+        <param>
+          <type>uint32_t *</type>
+          <declname>pulPullUpResistor</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Sources/nepMathResistor.c" line="107" column="13" bodyfile="Sources/nepMathResistor.c" bodystart="107" bodyend="126"/>
+        <references refid="d4/da2/nep_math_division_8c_1a60ac84a774c7fbaee274bcf455462144" compoundref="d4/da2/nep_math_division_8c" startline="82" endline="107">eNepMathDivisionFloat</references>
+      </memberdef>
+      <memberdef kind="function" id="da/dd2/nep_math_resistor_8c_1a6c3ddde27117d4b228e68a0a1ecc33e2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>eNepError_t</type>
+        <definition>eNepError_t eNepMathResistorFloatVoltageDividerGetPullDownResistor</definition>
+        <argsstring>(uint32_t ulPullUpResistor, float xInputVoltage, float xOutputVoltage, uint32_t *pulPullDownResistor)</argsstring>
+        <name>eNepMathResistorFloatVoltageDividerGetPullDownResistor</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>ulPullUpResistor</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>xInputVoltage</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>xOutputVoltage</declname>
+        </param>
+        <param>
+          <type>uint32_t *</type>
+          <declname>pulPullDownResistor</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Sources/nepMathResistor.c" line="129" column="13" bodyfile="Sources/nepMathResistor.c" bodystart="129" bodyend="147"/>
+        <references refid="d4/da2/nep_math_division_8c_1a60ac84a774c7fbaee274bcf455462144" compoundref="d4/da2/nep_math_division_8c" startline="82" endline="107">eNepMathDivisionFloat</references>
+      </memberdef>
+      <memberdef kind="function" id="da/dd2/nep_math_resistor_8c_1aa16d01ecd4069f9a07ce4bf732c4ff48" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>eNepError_t</type>
+        <definition>eNepError_t eNepMathResistorGetEquivalentInParallel</definition>
+        <argsstring>(uint32_t ulResistor1, uint32_t ulResistor2, uint32_t *pulEquivalentResistor)</argsstring>
+        <name>eNepMathResistorGetEquivalentInParallel</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>ulResistor1</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>ulResistor2</declname>
+        </param>
+        <param>
+          <type>uint32_t *</type>
+          <declname>pulEquivalentResistor</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Sources/nepMathResistor.c" line="150" column="13" bodyfile="Sources/nepMathResistor.c" bodystart="150" bodyend="158"/>
+        <references refid="d4/da2/nep_math_division_8c_1a35af8352eb0a3b5cc48d29d628c2fea5" compoundref="d4/da2/nep_math_division_8c" startline="67" endline="79">eNepMathDivisionU32</references>
+        <referencedby refid="de/d2e/nep_math_op_amp_8c_1a1b5e1782b97c8215b4c34c1b248c3117" compoundref="de/d2e/nep_math_op_amp_8c" startline="103" endline="166">eNepMathOpAmpGetOutputVoltage</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="da/dd2/nep_math_resistor_8c_1a26cc1a93ad3c10d09c7a54a6bc75affe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>eNepError_t</type>
+        <definition>eNepError_t eNepMathResistorGetResistorInParallel</definition>
+        <argsstring>(uint32_t ulEquivalentResistor, uint32_t ulResistor1, uint32_t *pulResistor2)</argsstring>
+        <name>eNepMathResistorGetResistorInParallel</name>
+        <param>
+          <type>uint32_t</type>
+          <declname>ulEquivalentResistor</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>ulResistor1</declname>
+        </param>
+        <param>
+          <type>uint32_t *</type>
+          <declname>pulResistor2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Sources/nepMathResistor.c" line="161" column="13" bodyfile="Sources/nepMathResistor.c" bodystart="161" bodyend="169"/>
+        <references refid="d4/da2/nep_math_division_8c_1a35af8352eb0a3b5cc48d29d628c2fea5" compoundref="d4/da2/nep_math_division_8c" startline="67" endline="79">eNepMathDivisionU32</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Library for equations involving resistors. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Mikael Plouffe </para>
+</simplesect>
+<simplesect kind="date"><para>Created on 2019-04-25 </para>
+</simplesect>
+<simplesect kind="note"><para></para>
+</simplesect>
+<simplesect kind="copyright"><para>NEP, Montreal, Qc <heading level="2"><center><copy/> COPYRIGHT 2015 NEP, Montreal, Quebec, Canada</center></heading>
+</para>
+</simplesect>
+<heading level="2"><center><copy/> All rights reserved.</center></heading>
+</para>
+<para><linebreak/>
+<linebreak/>
+ <center>This document contains confidential and proprietary information of NEPTRONIC (subject to a non-disclosure agreement) and shall</center> <center>not be disclosed, distributed, or reproduced in whole or in part, without the prior written authorization of NEPTRONIC.</center> </para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Includes<sp/>-----------------------------------------------------------------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;nepMathResistor.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;nepMathDivision.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Private<sp/>define<sp/>-----------------------------------------------------------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Private<sp/>macro<sp/>------------------------------------------------------------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Private<sp/>enum<sp/>-------------------------------------------------------------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Private<sp/>struct<sp/>-----------------------------------------------------------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Private<sp/>variables<sp/>--------------------------------------------------------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>External<sp/>variables<sp/>-------------------------------------------------------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Private<sp/>function<sp/>prototypes<sp/>----------------------------------------------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Private<sp/>functions<sp/>--------------------------------------------------------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Exported<sp/>functions<sp/>-------------------------------------------------------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30" refid="da/dd2/nep_math_resistor_8c_1ae5241ccf59b79d82ffe76311b914bfbc" refkind="member"><highlight class="normal">eNepError_t<sp/><ref refid="da/dd2/nep_math_resistor_8c_1ae5241ccf59b79d82ffe76311b914bfbc" kindref="member">eNepMathResistorVoltageDividerGetVout</ref>(<sp/>uint32_t<sp/>ulPullUpResistor,<sp/>uint32_t<sp/>ulPullDownResistor,<sp/>uint32_t<sp/>ulInputVoltage,<sp/>uint32_t<sp/>*pulOutputVoltage<sp/>)</highlight></codeline>
+<codeline lineno="31"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>pulOutputVoltage<sp/>==<sp/>NULL<sp/>)</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>eInvalidParameter;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d4/da2/nep_math_division_8c_1a35af8352eb0a3b5cc48d29d628c2fea5" kindref="member">eNepMathDivisionU32</ref>(<sp/>(<sp/>ulInputVoltage<sp/>*<sp/>ulPullDownResistor<sp/>),<sp/>(<sp/>ulPullUpResistor<sp/>+<sp/>ulPullDownResistor<sp/>),<sp/>pulOutputVoltage<sp/>);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41" refid="da/dd2/nep_math_resistor_8c_1ad6a10945de079e239869469c8c1bc054" refkind="member"><highlight class="normal">eNepError_t<sp/><ref refid="da/dd2/nep_math_resistor_8c_1ad6a10945de079e239869469c8c1bc054" kindref="member">eNepMathResistorVoltageDividerGetVin</ref>(<sp/>uint32_t<sp/>ulPullUpResistor,<sp/>uint32_t<sp/>ulPullDownResistor,<sp/>uint32_t<sp/>ulOutputVoltage,<sp/>uint32_t<sp/>*pulInputVoltage<sp/>)</highlight></codeline>
+<codeline lineno="42"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>pulInputVoltage<sp/>==<sp/>NULL<sp/>)</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>eInvalidParameter;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d4/da2/nep_math_division_8c_1a35af8352eb0a3b5cc48d29d628c2fea5" kindref="member">eNepMathDivisionU32</ref>(<sp/>(<sp/>(<sp/>ulPullUpResistor<sp/>+<sp/>ulPullDownResistor<sp/>)<sp/>*<sp/>ulOutputVoltage<sp/>),<sp/>ulPullDownResistor,<sp/>pulInputVoltage<sp/>);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52" refid="da/dd2/nep_math_resistor_8c_1ad6509ffdb6a78f10334d325d9e6b895f" refkind="member"><highlight class="normal">eNepError_t<sp/><ref refid="da/dd2/nep_math_resistor_8c_1ad6509ffdb6a78f10334d325d9e6b895f" kindref="member">eNepMathResistorVoltageDividerGetPullUpResistor</ref>(<sp/>uint32_t<sp/>ulPullDownResistor,<sp/>uint32_t<sp/>ulInputVoltage,<sp/>uint32_t<sp/>ulOutputVoltage,<sp/>uint32_t<sp/>*pulPullUpResistor<sp/>)</highlight></codeline>
+<codeline lineno="53"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>eNepError_t<sp/>eResult;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>ulGain;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>pulPullUpResistor<sp/>==<sp/>NULL<sp/>)</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>eInvalidParameter;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>eResult<sp/>=<sp/><ref refid="d4/da2/nep_math_division_8c_1a35af8352eb0a3b5cc48d29d628c2fea5" kindref="member">eNepMathDivisionU32</ref>(<sp/>ulInputVoltage,<sp/>ulOutputVoltage,<sp/>&amp;ulGain<sp/>);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>eResult<sp/>!=<sp/>eSuccess<sp/>)</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>eResult;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>*pulPullUpResistor<sp/>=<sp/>(<sp/>ulPullDownResistor<sp/>*<sp/>(<sp/>ulGain<sp/>-<sp/>1<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>eSuccess;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74" refid="da/dd2/nep_math_resistor_8c_1a75fa877038a4bed9de5cf7890ceec403" refkind="member"><highlight class="normal">eNepError_t<sp/><ref refid="da/dd2/nep_math_resistor_8c_1a75fa877038a4bed9de5cf7890ceec403" kindref="member">eNepMathResistorVoltageDividerGetPullDownResistor</ref>(<sp/>uint32_t<sp/>ulPullUpResistor,<sp/>uint32_t<sp/>ulInputVoltage,<sp/>uint32_t<sp/>ulOutputVoltage,<sp/>uint32_t<sp/>*pulPullDownResistor<sp/>)</highlight></codeline>
+<codeline lineno="75"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>(<sp/>ulOutputVoltage<sp/>&gt;<sp/>ulInputVoltage<sp/>)<sp/>||<sp/>(<sp/>pulPullDownResistor<sp/>==<sp/>NULL<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>eInvalidParameter;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d4/da2/nep_math_division_8c_1a35af8352eb0a3b5cc48d29d628c2fea5" kindref="member">eNepMathDivisionU32</ref>(<sp/>(<sp/>ulPullUpResistor<sp/>*<sp/>ulOutputVoltage<sp/>),<sp/>(<sp/>ulInputVoltage<sp/>-<sp/>ulOutputVoltage<sp/>),<sp/>pulPullDownResistor<sp/>);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85" refid="da/dd2/nep_math_resistor_8c_1a3bc59e61833953e8d391383db62cbe64" refkind="member"><highlight class="normal">eNepError_t<sp/><ref refid="da/dd2/nep_math_resistor_8c_1a3bc59e61833953e8d391383db62cbe64" kindref="member">eNepMathResistorFloatVoltageDividerGetVout</ref>(<sp/>uint32_t<sp/>ulPullUpResistor,<sp/>uint32_t<sp/>ulPullDownResistor,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>xInputVoltage,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>*pxOutputVoltage<sp/>)</highlight></codeline>
+<codeline lineno="86"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>pxOutputVoltage<sp/>==<sp/>NULL<sp/>)</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>eInvalidParameter;</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d4/da2/nep_math_division_8c_1a60ac84a774c7fbaee274bcf455462144" kindref="member">eNepMathDivisionFloat</ref>(<sp/>(<sp/>xInputVoltage<sp/>*<sp/>ulPullDownResistor<sp/>),<sp/>(<sp/>ulPullUpResistor<sp/>+<sp/>ulPullDownResistor<sp/>),<sp/>pxOutputVoltage<sp/>);</highlight></codeline>
+<codeline lineno="93"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96" refid="da/dd2/nep_math_resistor_8c_1a54f1101c214cf059e1203ef6b488f5c5" refkind="member"><highlight class="normal">eNepError_t<sp/><ref refid="da/dd2/nep_math_resistor_8c_1a54f1101c214cf059e1203ef6b488f5c5" kindref="member">eNepMathResistorFloatVoltageDividerGetVin</ref>(<sp/>uint32_t<sp/>ulPullUpResistor,<sp/>uint32_t<sp/>ulPullDownResistor,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>xOutputVoltage,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>*pxInputVoltage<sp/>)</highlight></codeline>
+<codeline lineno="97"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>pxInputVoltage<sp/>==<sp/>NULL<sp/>)</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>eInvalidParameter;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d4/da2/nep_math_division_8c_1a60ac84a774c7fbaee274bcf455462144" kindref="member">eNepMathDivisionFloat</ref>(<sp/>(<sp/>(<sp/>ulPullUpResistor<sp/>+<sp/>ulPullDownResistor<sp/>)<sp/>*<sp/>xOutputVoltage<sp/>),<sp/>ulPullDownResistor,<sp/>pxInputVoltage<sp/>);</highlight></codeline>
+<codeline lineno="104"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107" refid="da/dd2/nep_math_resistor_8c_1ae6ac45228bdb8a9aa944d570664f317b" refkind="member"><highlight class="normal">eNepError_t<sp/><ref refid="da/dd2/nep_math_resistor_8c_1ae6ac45228bdb8a9aa944d570664f317b" kindref="member">eNepMathResistorFloatVoltageDividerGetPullUpResistor</ref>(<sp/>uint32_t<sp/>ulPullDownResistor,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>xInputVoltage,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>xOutputVoltage,<sp/>uint32_t<sp/>*pulPullUpResistor<sp/>)</highlight></codeline>
+<codeline lineno="108"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/>eNepError_t<sp/>eResult;</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>xGain;</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>pulPullUpResistor<sp/>==<sp/>NULL<sp/>)</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>eInvalidParameter;</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/>eResult<sp/>=<sp/><ref refid="d4/da2/nep_math_division_8c_1a60ac84a774c7fbaee274bcf455462144" kindref="member">eNepMathDivisionFloat</ref>(<sp/>xInputVoltage,<sp/>xOutputVoltage,<sp/>&amp;xGain<sp/>);</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>eResult<sp/>!=<sp/>eSuccess<sp/>)</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>eResult;</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/>*pulPullUpResistor<sp/>=<sp/>(<sp/>uint32_t<sp/>)(<sp/>ulPullDownResistor<sp/>*<sp/>(<sp/>xGain<sp/>-<sp/>1<sp/>)<sp/>);</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>eSuccess;</highlight></codeline>
+<codeline lineno="126"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight></codeline>
+<codeline lineno="129" refid="da/dd2/nep_math_resistor_8c_1a6c3ddde27117d4b228e68a0a1ecc33e2" refkind="member"><highlight class="normal">eNepError_t<sp/><ref refid="da/dd2/nep_math_resistor_8c_1a6c3ddde27117d4b228e68a0a1ecc33e2" kindref="member">eNepMathResistorFloatVoltageDividerGetPullDownResistor</ref>(<sp/>uint32_t<sp/>ulPullUpResistor,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>xInputVoltage,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>xOutputVoltage,<sp/>uint32_t<sp/>*pulPullDownResistor<sp/>)</highlight></codeline>
+<codeline lineno="130"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>xPullDownResistor;</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/>eNepError_t<sp/>eResult;</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>(<sp/>xOutputVoltage<sp/>&gt;<sp/>xInputVoltage<sp/>)<sp/>||<sp/>(<sp/>pulPullDownResistor<sp/>==<sp/>NULL<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>eInvalidParameter;</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/>eResult<sp/>=<sp/><ref refid="d4/da2/nep_math_division_8c_1a60ac84a774c7fbaee274bcf455462144" kindref="member">eNepMathDivisionFloat</ref>(<sp/>(<sp/>ulPullUpResistor<sp/>*<sp/>xOutputVoltage<sp/>),<sp/>(<sp/>xInputVoltage<sp/>-<sp/>xOutputVoltage<sp/>),<sp/>&amp;xPullDownResistor<sp/>);</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>eResult<sp/>!=<sp/>eSuccess<sp/>)</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>eResult;</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/>*pulPullDownResistor<sp/>=<sp/>(<sp/>uint32_t<sp/>)xPullDownResistor;</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>eSuccess;</highlight></codeline>
+<codeline lineno="147"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight></codeline>
+<codeline lineno="150" refid="da/dd2/nep_math_resistor_8c_1aa16d01ecd4069f9a07ce4bf732c4ff48" refkind="member"><highlight class="normal">eNepError_t<sp/><ref refid="da/dd2/nep_math_resistor_8c_1aa16d01ecd4069f9a07ce4bf732c4ff48" kindref="member">eNepMathResistorGetEquivalentInParallel</ref>(<sp/>uint32_t<sp/>ulResistor1,<sp/>uint32_t<sp/>ulResistor2,<sp/>uint32_t<sp/>*pulEquivalentResistor<sp/>)</highlight></codeline>
+<codeline lineno="151"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>pulEquivalentResistor<sp/>==<sp/>NULL<sp/>)</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>eInvalidParameter;</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d4/da2/nep_math_division_8c_1a35af8352eb0a3b5cc48d29d628c2fea5" kindref="member">eNepMathDivisionU32</ref>(<sp/>(<sp/>ulResistor1<sp/>*<sp/>ulResistor2<sp/>),<sp/>(<sp/>ulResistor1<sp/>+<sp/>ulResistor2<sp/>),<sp/>pulEquivalentResistor<sp/>);</highlight></codeline>
+<codeline lineno="158"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight></codeline>
+<codeline lineno="161" refid="da/dd2/nep_math_resistor_8c_1a26cc1a93ad3c10d09c7a54a6bc75affe" refkind="member"><highlight class="normal">eNepError_t<sp/><ref refid="da/dd2/nep_math_resistor_8c_1a26cc1a93ad3c10d09c7a54a6bc75affe" kindref="member">eNepMathResistorGetResistorInParallel</ref>(<sp/>uint32_t<sp/>ulEquivalentResistor,<sp/>uint32_t<sp/>ulResistor1,<sp/>uint32_t<sp/>*pulResistor2<sp/>)</highlight></codeline>
+<codeline lineno="162"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>(<sp/>ulEquivalentResistor<sp/>&gt;<sp/>ulResistor1<sp/>)<sp/>||<sp/>(<sp/>pulResistor2<sp/>==<sp/>NULL<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>eInvalidParameter;</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d4/da2/nep_math_division_8c_1a35af8352eb0a3b5cc48d29d628c2fea5" kindref="member">eNepMathDivisionU32</ref>(<sp/>(<sp/>ulEquivalentResistor<sp/>*<sp/>ulResistor1<sp/>),<sp/>(<sp/>ulResistor1<sp/>-<sp/>ulEquivalentResistor<sp/>),<sp/>pulResistor2<sp/>);</highlight></codeline>
+<codeline lineno="169"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------------*/</highlight></codeline>
+    </programlisting>
+    <location file="Sources/nepMathResistor.c"/>
+  </compounddef>
+</doxygen>

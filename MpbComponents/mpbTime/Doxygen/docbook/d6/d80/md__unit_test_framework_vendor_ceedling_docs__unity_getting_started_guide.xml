@@ -1,0 +1,130 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_getting_started_guide" xml:lang="en-US">
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_getting_started_guide_1autotoc_md269">
+<title>Welcome</title>
+
+<para>Congratulations. You&apos;re now the proud owner of your very own pile of bits! What are you going to do with all these ones and zeros? This document should be able to help you decide just that.</para>
+
+<para>Unity is a unit test framework. The goal has been to keep it small and functional. The core Unity test framework is three files: a single C file and a couple header files. These team up to provide functions and macros to make testing easier.</para>
+
+<para>Unity was designed to be cross-platform. It works hard to stick with C standards while still providing support for the many embedded C compilers that bend the rules. Unity has been used with many compilers, including GCC, IAR, Clang, Green Hills, Microchip, and MS Visual Studio. It&apos;s not much work to get it to work with a new target.</para>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_getting_started_guide_1autotoc_md270">
+<title>Overview of the Documents</title>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_getting_started_guide_1autotoc_md271">
+<title>Unity Assertions reference</title>
+
+<para>This document will guide you through all the assertion options provided by Unity. This is going to be your unit testing bread and butter. You&apos;ll spend more time with assertions than any other part of Unity.</para>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_getting_started_guide_1autotoc_md272">
+<title>Unity Assertions Cheat Sheet</title>
+
+<para>This document contains an abridged summary of the assertions described in the previous document. It&apos;s perfect for printing and referencing while you familiarize yourself with Unity&apos;s options.</para>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_getting_started_guide_1autotoc_md273">
+<title>Unity Configuration Guide</title>
+
+<para>This document is the one to reference when you are going to use Unity with a new target or compiler. It&apos;ll guide you through the configuration options and will help you customize your testing experience to meet your needs.</para>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_getting_started_guide_1autotoc_md274">
+<title>Unity Helper Scripts</title>
+
+<para>This document describes the helper scripts that are available for simplifying your testing workflow. It describes the collection of optional Ruby scripts included in the auto directory of your Unity installation. Neither Ruby nor these scripts are necessary for using Unity. They are provided as a convenience for those who wish to use them.</para>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_getting_started_guide_1autotoc_md275">
+<title>Unity License</title>
+
+<para>What&apos;s an open source project without a license file? This brief document describes the terms you&apos;re agreeing to when you use this software. Basically, we want it to be useful to you in whatever context you want to use it, but please don&apos;t blame us if you run into problems.</para>
+</section>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_getting_started_guide_1autotoc_md276">
+<title>Overview of the Folders</title>
+
+<para>If you have obtained Unity through Github or something similar, you might be surprised by just how much stuff you suddenly have staring you in the face. Don&apos;t worry, Unity itself is very small. The rest of it is just there to make your life easier. You can ignore it or use it at your convenience. Here&apos;s an overview of everything in the project.</para>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput>src</computeroutput> - This is the code you care about! This folder contains a C file and two header files. These three files <emphasis>are</emphasis> Unity.</para>
+</listitem><listitem>
+<para><computeroutput>docs</computeroutput> - You&apos;re reading this document, so it&apos;s possible you have found your way into this folder already. This is where all the handy documentation can be found.</para>
+</listitem><listitem>
+<para><computeroutput>examples</computeroutput> - This contains a few examples of using Unity.</para>
+</listitem><listitem>
+<para><computeroutput>extras</computeroutput> - These are optional add ons to Unity that are not part of the core project. If you&apos;ve reached us through James Grenning&apos;s book, you&apos;re going to want to look here.</para>
+</listitem><listitem>
+<para><computeroutput>test</computeroutput> - This is how Unity and its scripts are all tested. If you&apos;re just using Unity, you&apos;ll likely never need to go in here. If you are the lucky team member who gets to port Unity to a new toolchain, this is a good place to verify everything is configured properly.</para>
+</listitem><listitem>
+<para><computeroutput>auto</computeroutput> - Here you will find helpful Ruby scripts for simplifying your test workflow. They are purely optional and are not required to make use of Unity.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_getting_started_guide_1autotoc_md277">
+<title>How to Create A Test File</title>
+
+<para>Test files are C files. Most often you will create a single test file for each C module that you want to test. The test file should include <link linkend="_unity_8h">unity.h</link> and the header for your C module to be tested.</para>
+
+<para>Next, a test file will include a <computeroutput><link linkend="_test__mpb_time_base_8c_1a63326a1b70b6e3f070e51687798e02de">setUp()</link></computeroutput> and <computeroutput><link linkend="_test__mpb_time_base_8c_1ab804e0f66def63262c1d6b4e3d2a2bd7">tearDown()</link></computeroutput> function. The setUp function can contain anything you would like to run before each test. The tearDown function can contain anything you would like to run after each test. Both functions accept no arguments and return nothing. You may leave either or both of these blank if you have no need for them. If you&apos;re using a compiler that is configured to make these functions optional, you may leave them off completely. Not sure? Give it a try. If you compiler complains that it can&apos;t find setUp or tearDown when it links, you&apos;ll know you need to at least include an empty function for these.</para>
+
+<para>The majority of the file will be a series of test functions. Test functions follow the convention of starting with the word &quot;test_&quot; or &quot;spec_&quot;. You don&apos;t HAVE to name them this way, but it makes it clear what functions are tests for other developers. Also, the automated scripts that come with Unity or Ceedling will default to looking for test functions to be prefixed this way. Test functions take no arguments and return nothing. All test accounting is handled internally in Unity.</para>
+
+<para>Finally, at the bottom of your test file, you will write a <computeroutput><link linkend="_test__mpb_time_base__runner_8c_1a840291bc02cba5474a4cb46a9b9566fe">main()</link></computeroutput> function. This function will call <computeroutput><link linkend="_unity__internals_8h_1aaad15a5d10e50a412d0a6851d0e5091a">UNITY_BEGIN()</link></computeroutput>, then <computeroutput>RUN_TEST</computeroutput> for each test, and finally <computeroutput><link linkend="_unity__internals_8h_1aa519129d3af737eb796fc91720fae26a">UNITY_END()</link></computeroutput>.This is what will actually trigger each of those test functions to run, so it is important that each function gets its own <computeroutput>RUN_TEST</computeroutput> call.</para>
+
+<para>Remembering to add each test to the main function can get to be tedious. If you enjoy using helper scripts in your build process, you might consider making use of our handy generate_test_runner.rb script. This will create the main function and all the calls for you, assuming that you have followed the suggested naming conventions. In this case, there is no need for you to include the main function in your test file at all.</para>
+
+<para>When you&apos;re done, your test file will look something like this:</para>
+
+<para><literallayout><computeroutput>#include&#32;&quot;unity.h&quot;
+#include&#32;&quot;file_to_test.h&quot;
+
+void&#32;setUp(void)&#32;{
+&#32;&#32;&#32;&#32;//&#32;set&#32;stuff&#32;up&#32;here
+}
+
+void&#32;tearDown(void)&#32;{
+&#32;&#32;&#32;&#32;//&#32;clean&#32;stuff&#32;up&#32;here
+}
+
+void&#32;test_function_should_doBlahAndBlah(void)&#32;{
+&#32;&#32;&#32;&#32;//test&#32;stuff
+}
+
+void&#32;test_function_should_doAlsoDoBlah(void)&#32;{
+&#32;&#32;&#32;&#32;//more&#32;test&#32;stuff
+}
+
+int&#32;main(void)&#32;{
+&#32;&#32;&#32;&#32;UNITY_BEGIN();
+&#32;&#32;&#32;&#32;RUN_TEST(test_function_should_doBlahAndBlah);
+&#32;&#32;&#32;&#32;RUN_TEST(test_function_should_doAlsoDoBlah);
+&#32;&#32;&#32;&#32;return&#32;UNITY_END();
+}
+</computeroutput></literallayout></para>
+
+<para>It&apos;s possible that you will need more customization than this, eventually. For that sort of thing, you&apos;re going to want to look at the configuration guide. This should be enough to get you going, though.</para>
+</section>
+<section xml:id="_md__unit_test_framework_vendor_ceedling_docs__unity_getting_started_guide_1autotoc_md278">
+<title>How to Build and Run A Test File</title>
+
+<para>This is the single biggest challenge to picking up a new unit testing framework, at least in a language like C or C++. These languages are REALLY good at getting you &quot;close to the metal&quot; (why is the phrase metal? Wouldn&apos;t it be more accurate to say &quot;close to the silicon&quot;?). While this feature is usually a good thing, it can make testing more challenging.</para>
+
+<para>You have two really good options for toolchains. Depending on where you&apos;re coming from, it might surprise you that neither of these options is running the unit tests on your hardware. There are many reasons for this, but here&apos;s a short version:<itemizedlist>
+<listitem>
+<para>On hardware, you have too many constraints (processing power, memory, etc),</para>
+</listitem><listitem>
+<para>On hardware, you don&apos;t have complete control over all registers,</para>
+</listitem><listitem>
+<para>On hardware, unit testing is more challenging,</para>
+</listitem><listitem>
+<para>Unit testing isn&apos;t System testing. Keep them separate.</para>
+</listitem></itemizedlist>
+</para>
+
+<para>Instead of running your tests on your actual hardware, most developers choose to develop them as native applications (using gcc or MSVC for example) or as applications running on a simulator. Either is a good option. Native apps have the advantages of being faster and easier to set up. Simulator apps have the advantage of working with the same compiler as your target application. The options for configuring these are discussed in the configuration guide.</para>
+
+<para>To get either to work, you might need to make a few changes to the file containing your register set (discussed later).</para>
+
+<para>In either case, a test is built by linking unity, the test file, and the C file(s) being tested. These files create an executable which can be run as the test set for that module. Then, this process is repeated for the next test file. This flexibility of separating tests into individual executables allows us to much more thoroughly unit test our system and it keeps all the test code out of our final release!</para>
+
+<para><emphasis>Find The Latest of This And More at <link xlink:href="https://throwtheswitch.org">ThrowTheSwitch.org</link></emphasis> </para>
+</section>
+</section>

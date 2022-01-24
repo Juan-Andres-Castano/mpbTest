@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_foo_8c" xml:lang="en-US">
+<title>UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/foo.c File Reference</title>
+<indexterm><primary>UnitTestFramework/vendor/ceedling/plugins/fake_function_framework/examples/fff_example/src/foo.c</primary></indexterm>
+<programlisting>#include &quot;foo.h&quot;
+#include &quot;bar.h&quot;
+#include &quot;subfolder/zzz.h&quot;
+</programlisting>Include dependency graph for foo.c:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../d2/d97/foo_8c__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_foo_8c_1a6db1ba1a48b0fce98eb0773a86e379d1">foo_turn_on</link> (void)</para>
+</listitem>
+            <listitem><para>void <link linkend="_foo_8c_1a11f21c107c4e0bba2850a7b8343b7ef7">foo_print_message</link> (const char *message)</para>
+</listitem>
+            <listitem><para>void <link linkend="_foo_8c_1a50473552f0ce06c1a06c1774f9f3501d">foo_print_special_message</link> (void)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_foo_8c_1a11f21c107c4e0bba2850a7b8343b7ef7"/>    <section>
+    <title>foo_print_message()</title>
+<indexterm><primary>foo_print_message</primary><secondary>foo.c</secondary></indexterm>
+<indexterm><primary>foo.c</primary><secondary>foo_print_message</secondary></indexterm>
+<para><computeroutput>void foo_print_message (const char * message)</computeroutput></para><para>
+Definition at line 10 of file foo.c.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../d0/d87/foo_8c_a11f21c107c4e0bba2850a7b8343b7ef7_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../d0/d87/foo_8c_a11f21c107c4e0bba2850a7b8343b7ef7_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_foo_8c_1a50473552f0ce06c1a06c1774f9f3501d"/>    <section>
+    <title>foo_print_special_message()</title>
+<indexterm><primary>foo_print_special_message</primary><secondary>foo.c</secondary></indexterm>
+<indexterm><primary>foo.c</primary><secondary>foo_print_special_message</secondary></indexterm>
+<para><computeroutput>void foo_print_special_message (void )</computeroutput></para><para>
+Definition at line 14 of file foo.c.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../d0/d87/foo_8c_a50473552f0ce06c1a06c1774f9f3501d_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../d0/d87/foo_8c_a50473552f0ce06c1a06c1774f9f3501d_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+    </section><anchor xml:id="_foo_8c_1a6db1ba1a48b0fce98eb0773a86e379d1"/>    <section>
+    <title>foo_turn_on()</title>
+<indexterm><primary>foo_turn_on</primary><secondary>foo.c</secondary></indexterm>
+<indexterm><primary>foo.c</primary><secondary>foo_turn_on</secondary></indexterm>
+<para><computeroutput>void foo_turn_on (void )</computeroutput></para><para>
+Definition at line 5 of file foo.c.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../d0/d87/foo_8c_a6db1ba1a48b0fce98eb0773a86e379d1_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="../../d0/d87/foo_8c_a6db1ba1a48b0fce98eb0773a86e379d1_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+</section>

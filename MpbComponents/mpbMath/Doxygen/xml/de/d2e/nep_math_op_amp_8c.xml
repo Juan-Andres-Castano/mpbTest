@@ -1,0 +1,330 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="de/d2e/nep_math_op_amp_8c" kind="file" language="C++">
+    <compoundname>nepMathOpAmp.c</compoundname>
+    <includes local="yes">nepMathOpAmp.h</includes>
+    <includes local="yes">nepMathDivision.h</includes>
+    <includes local="yes">nepMathResistor.h</includes>
+    <incdepgraph>
+      <node id="3">
+        <label>nepMathDivision.h</label>
+      </node>
+      <node id="1">
+        <label>Sources/nepMathOpAmp.c</label>
+        <link refid="de/d2e/nep_math_op_amp_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>nepMathOpAmp.h</label>
+      </node>
+      <node id="4">
+        <label>nepMathResistor.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="de/d2e/nep_math_op_amp_8c_1a1b5e1782b97c8215b4c34c1b248c3117" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>eNepError_t</type>
+        <definition>eNepError_t eNepMathOpAmpGetOutputVoltage</definition>
+        <argsstring>(float xInputVoltage, const xNepMathOpAmpConfig_t *pxOpAmpConfig, float *pxOutputVoltage)</argsstring>
+        <name>eNepMathOpAmpGetOutputVoltage</name>
+        <param>
+          <type>float</type>
+          <declname>xInputVoltage</declname>
+        </param>
+        <param>
+          <type>const xNepMathOpAmpConfig_t *</type>
+          <declname>pxOpAmpConfig</declname>
+        </param>
+        <param>
+          <type>float *</type>
+          <declname>pxOutputVoltage</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Sources/nepMathOpAmp.c" line="103" column="13" bodyfile="Sources/nepMathOpAmp.c" bodystart="103" bodyend="166"/>
+        <references refid="d4/da2/nep_math_division_8c_1a60ac84a774c7fbaee274bcf455462144" compoundref="d4/da2/nep_math_division_8c" startline="82" endline="107">eNepMathDivisionFloat</references>
+        <references refid="da/dd2/nep_math_resistor_8c_1a54f1101c214cf059e1203ef6b488f5c5" compoundref="da/dd2/nep_math_resistor_8c" startline="96" endline="104">eNepMathResistorFloatVoltageDividerGetVin</references>
+        <references refid="da/dd2/nep_math_resistor_8c_1aa16d01ecd4069f9a07ce4bf732c4ff48" compoundref="da/dd2/nep_math_resistor_8c" startline="150" endline="158">eNepMathResistorGetEquivalentInParallel</references>
+      </memberdef>
+      <memberdef kind="function" id="de/d2e/nep_math_op_amp_8c_1a9f2f34a28fe863b20e6a0eb6392038be" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>eNepError_t</type>
+        <definition>eNepError_t eNepMathOpAmpInitCircuit</definition>
+        <argsstring>(xNepMathOpAmpConfig_t *pxOpAmpConfig, uint32_t ulPullUpResistor, uint32_t ulFeedbackResistor, uint32_t ulPullDownResistor, float xPullUpVoltage)</argsstring>
+        <name>eNepMathOpAmpInitCircuit</name>
+        <param>
+          <type>xNepMathOpAmpConfig_t *</type>
+          <declname>pxOpAmpConfig</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>ulPullUpResistor</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>ulFeedbackResistor</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>ulPullDownResistor</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>xPullUpVoltage</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Sources/nepMathOpAmp.c" line="169" column="13" bodyfile="Sources/nepMathOpAmp.c" bodystart="169" bodyend="189"/>
+      </memberdef>
+      <memberdef kind="function" id="de/d2e/nep_math_op_amp_8c_1a5a0bb1d71f4ffe260f124b7ef2e4bfd1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>eNepError_t</type>
+        <definition>eNepError_t eNepMathOpAmpInitGain</definition>
+        <argsstring>(xNepMathOpAmpConfig_t *pxOpAmpConfig, float xGain)</argsstring>
+        <name>eNepMathOpAmpInitGain</name>
+        <param>
+          <type>xNepMathOpAmpConfig_t *</type>
+          <declname>pxOpAmpConfig</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>xGain</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Sources/nepMathOpAmp.c" line="192" column="13" bodyfile="Sources/nepMathOpAmp.c" bodystart="192" bodyend="210"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Library to simulate an operational amplifier. It is able caclulate the input voltage from the output voltage and vice versa. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Mikael Plouffe </para>
+</simplesect>
+<simplesect kind="date"><para>Created on 2019-04-26 </para>
+</simplesect>
+<simplesect kind="note"><para></para>
+</simplesect>
+<simplesect kind="copyright"><para>NEP, Montreal, Qc <heading level="2"><center><copy/> COPYRIGHT 2015 NEP, Montreal, Quebec, Canada</center></heading>
+</para>
+</simplesect>
+<heading level="2"><center><copy/> All rights reserved.</center></heading>
+</para>
+<para><linebreak/>
+<linebreak/>
+ <center>This document contains confidential and proprietary information of NEPTRONIC (subject to a non-disclosure agreement) and shall</center> <center>not be disclosed, distributed, or reproduced in whole or in part, without the prior written authorization of NEPTRONIC.</center> </para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Includes<sp/>-----------------------------------------------------------------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;nepMathOpAmp.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;nepMathDivision.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;nepMathResistor.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Private<sp/>define<sp/>-----------------------------------------------------------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Private<sp/>macro<sp/>------------------------------------------------------------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Private<sp/>enum<sp/>-------------------------------------------------------------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Private<sp/>struct<sp/>-----------------------------------------------------------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Private<sp/>variables<sp/>--------------------------------------------------------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>External<sp/>variables<sp/>-------------------------------------------------------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Private<sp/>function<sp/>prototypes<sp/>----------------------------------------------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Private<sp/>functions<sp/>--------------------------------------------------------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Exported<sp/>functions<sp/>-------------------------------------------------------<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="comment">//eNepError_t<sp/>eNepMathOpAmpGetInputVoltage(<sp/>float<sp/>xOutputVoltage,<sp/>const<sp/>xNepMathOpAmpConfig_t<sp/>*pxOpAmpConfig,<sp/>float<sp/>*pxInputVoltage<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="comment">//{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>eNepError_t<sp/>eResult<sp/>=<sp/>eInvalidParameter;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>float<sp/>xOutputCurrent,<sp/>xPullUpCurrent;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>uint32_t<sp/>ulEquivalentResistor;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>if(<sp/>(<sp/>pxOpAmpConfig<sp/>==<sp/>NULL<sp/>)<sp/>||<sp/>(<sp/>pxInputVoltage<sp/>==<sp/>NULL<sp/>)<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>eResult;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>/*<sp/>Checking<sp/>if<sp/>we<sp/>are<sp/>in<sp/>circuit<sp/>mode<sp/>or<sp/>gain<sp/>mode<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>if(<sp/>(<sp/>pxOpAmpConfig-&gt;xGain<sp/>==<sp/>0<sp/>)<sp/>&amp;&amp;<sp/>(<sp/>pxOpAmpConfig-&gt;ulPullDownResistor<sp/>!=<sp/>0<sp/>)<sp/>&amp;&amp;<sp/>(<sp/>pxOpAmpConfig-&gt;ulFeedbackResistor<sp/>!=<sp/>0<sp/>)<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>/*<sp/>If<sp/>there<sp/>isn&apos;t<sp/>a<sp/>pull<sp/>up<sp/>setup<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>if(<sp/>(<sp/>pxOpAmpConfig-&gt;ulPullUpResistor<sp/>==<sp/>0<sp/>)<sp/>&amp;&amp;<sp/>(<sp/>pxOpAmpConfig-&gt;xPullUpVoltage<sp/>==<sp/>0<sp/>)<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eResult<sp/>=<sp/>eNepMathResistorFloatVoltageDividerGetVout(<sp/>pxOpAmpConfig-&gt;ulFeedbackResistor,<sp/>pxOpAmpConfig-&gt;ulPullDownResistor,<sp/>xOutputVoltage,<sp/>pxInputVoltage<sp/>);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if(<sp/>eResult<sp/>!=<sp/>eSuccess<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>eResult;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eResult<sp/>=<sp/>eNepMathDivisionFloat(<sp/>xOutputVoltage,<sp/>pxOpAmpConfig-&gt;ulFeedbackResistor,<sp/>&amp;xOutputCurrent<sp/>);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if(<sp/>eResult<sp/>!=<sp/>eSuccess<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>eResult;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eResult<sp/>=<sp/>eNepMathDivisionFloat(<sp/>pxOpAmpConfig-&gt;xPullUpVoltage,<sp/>pxOpAmpConfig-&gt;ulPullUpResistor,<sp/>&amp;xPullUpCurrent<sp/>);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if(<sp/>eResult<sp/>!=<sp/>eSuccess<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>eResult;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eResult<sp/>=<sp/>eNepMathResistorGetEquivalentInParallel(<sp/>pxOpAmpConfig-&gt;ulPullDownResistor,<sp/>pxOpAmpConfig-&gt;ulFeedbackResistor,<sp/>&amp;ulEquivalentResistor<sp/>);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if(<sp/>eResult<sp/>!=<sp/>eSuccess<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>eResult;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eResult<sp/>=<sp/>eNepMathResistorGetEquivalentInParallel(<sp/>ulEquivalentResistor,<sp/>pxOpAmpConfig-&gt;ulPullUpResistor,<sp/>&amp;ulEquivalentResistor<sp/>);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if(<sp/>eResult<sp/>!=<sp/>eSuccess<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>eResult;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*pxInputVoltage<sp/>=<sp/>(<sp/>xOutputCurrent<sp/>+<sp/>xPullUpCurrent<sp/>)<sp/>*<sp/>ulEquivalentResistor;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>else<sp/>if(<sp/>(<sp/>pxOpAmpConfig-&gt;xGain<sp/>&gt;<sp/>0<sp/>)<sp/>&amp;&amp;<sp/>(<sp/>pxOpAmpConfig-&gt;ulPullDownResistor<sp/>==<sp/>0<sp/>)<sp/>&amp;&amp;<sp/>(<sp/>pxOpAmpConfig-&gt;ulFeedbackResistor<sp/>==<sp/>0<sp/>)<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>eResult<sp/>=<sp/>eNepMathDivisionFloat(<sp/>xOutputVoltage,<sp/>pxOpAmpConfig-&gt;xGain,<sp/>pxInputVoltage<sp/>);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>if(<sp/>eResult<sp/>!=<sp/>eSuccess<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>eResult;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>else<sp/>/*<sp/>should<sp/>never<sp/>be<sp/>here<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>eInvalidParameter;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>return<sp/>eResult;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight><highlight class="comment">//}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="103" refid="de/d2e/nep_math_op_amp_8c_1a1b5e1782b97c8215b4c34c1b248c3117" refkind="member"><highlight class="normal">eNepError_t<sp/><ref refid="de/d2e/nep_math_op_amp_8c_1a1b5e1782b97c8215b4c34c1b248c3117" kindref="member">eNepMathOpAmpGetOutputVoltage</ref>(<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>xInputVoltage,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>xNepMathOpAmpConfig_t<sp/>*pxOpAmpConfig,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>*pxOutputVoltage<sp/>)</highlight></codeline>
+<codeline lineno="104"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/>eNepError_t<sp/>eResult<sp/>=<sp/>eInvalidParameter;</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>xInputCurrent,<sp/>xPullUpCurrent;</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>ulEquivalentResistor;</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>(<sp/>pxOpAmpConfig<sp/>==<sp/>NULL<sp/>)<sp/>||<sp/>(<sp/>pxOutputVoltage<sp/>==<sp/>NULL<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>eResult;</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Checking<sp/>if<sp/>we<sp/>are<sp/>in<sp/>circuit<sp/>mode<sp/>or<sp/>gain<sp/>mode<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>(<sp/>pxOpAmpConfig-&gt;xGain<sp/>==<sp/>0<sp/>)<sp/>&amp;&amp;<sp/>(<sp/>pxOpAmpConfig-&gt;ulPullDownResistor<sp/>!=<sp/>0<sp/>)<sp/>&amp;&amp;<sp/>(<sp/>pxOpAmpConfig-&gt;ulFeedbackResistor<sp/>!=<sp/>0<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>If<sp/>there<sp/>isn&apos;t<sp/>a<sp/>pull<sp/>up<sp/>setup<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>(<sp/>pxOpAmpConfig-&gt;ulPullUpResistor<sp/>==<sp/>0<sp/>)<sp/>&amp;&amp;<sp/>(<sp/>pxOpAmpConfig-&gt;xPullUpVoltage<sp/>==<sp/>0<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eResult<sp/>=<sp/><ref refid="da/dd2/nep_math_resistor_8c_1a54f1101c214cf059e1203ef6b488f5c5" kindref="member">eNepMathResistorFloatVoltageDividerGetVin</ref>(<sp/>pxOpAmpConfig-&gt;ulFeedbackResistor,<sp/>pxOpAmpConfig-&gt;ulPullDownResistor,<sp/>xInputVoltage,<sp/>pxOutputVoltage<sp/>);</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>eResult<sp/>!=<sp/>eSuccess<sp/>)</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>eResult;</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eResult<sp/>=<sp/><ref refid="da/dd2/nep_math_resistor_8c_1aa16d01ecd4069f9a07ce4bf732c4ff48" kindref="member">eNepMathResistorGetEquivalentInParallel</ref>(<sp/>pxOpAmpConfig-&gt;ulPullDownResistor,<sp/>pxOpAmpConfig-&gt;ulFeedbackResistor,<sp/>&amp;ulEquivalentResistor<sp/>);</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>eResult<sp/>!=<sp/>eSuccess<sp/>)</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>eResult;</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eResult<sp/>=<sp/><ref refid="da/dd2/nep_math_resistor_8c_1aa16d01ecd4069f9a07ce4bf732c4ff48" kindref="member">eNepMathResistorGetEquivalentInParallel</ref>(<sp/>ulEquivalentResistor,<sp/>pxOpAmpConfig-&gt;ulPullUpResistor,<sp/>&amp;ulEquivalentResistor<sp/>);</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>eResult<sp/>!=<sp/>eSuccess<sp/>)</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>eResult;</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eResult<sp/>=<sp/><ref refid="d4/da2/nep_math_division_8c_1a60ac84a774c7fbaee274bcf455462144" kindref="member">eNepMathDivisionFloat</ref>(<sp/>pxOpAmpConfig-&gt;xPullUpVoltage,<sp/>pxOpAmpConfig-&gt;ulPullUpResistor,<sp/>&amp;xPullUpCurrent<sp/>);</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>eResult<sp/>!=<sp/>eSuccess<sp/>)</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>eResult;</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eResult<sp/>=<sp/><ref refid="d4/da2/nep_math_division_8c_1a60ac84a774c7fbaee274bcf455462144" kindref="member">eNepMathDivisionFloat</ref>(<sp/>xInputVoltage,<sp/>ulEquivalentResistor,<sp/>&amp;xInputCurrent<sp/>);</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>eResult<sp/>!=<sp/>eSuccess<sp/>)</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>eResult;</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*pxOutputVoltage<sp/>=<sp/>(<sp/>xInputCurrent<sp/>-<sp/>xPullUpCurrent<sp/>)<sp/>*<sp/>pxOpAmpConfig-&gt;ulFeedbackResistor;</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>(<sp/>pxOpAmpConfig-&gt;xGain<sp/>&gt;<sp/>0<sp/>)<sp/>&amp;&amp;<sp/>(<sp/>pxOpAmpConfig-&gt;ulPullDownResistor<sp/>==<sp/>0<sp/>)<sp/>&amp;&amp;<sp/>(<sp/>pxOpAmpConfig-&gt;ulFeedbackResistor<sp/>==<sp/>0<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*pxOutputVoltage<sp/>=<sp/>xInputVoltage<sp/>*<sp/>pxOpAmpConfig-&gt;xGain;</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eResult<sp/>=<sp/>eSuccess;</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>eInvalidParameter;</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>eResult;</highlight></codeline>
+<codeline lineno="166"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight></codeline>
+<codeline lineno="169" refid="de/d2e/nep_math_op_amp_8c_1a9f2f34a28fe863b20e6a0eb6392038be" refkind="member"><highlight class="normal">eNepError_t<sp/><ref refid="de/d2e/nep_math_op_amp_8c_1a9f2f34a28fe863b20e6a0eb6392038be" kindref="member">eNepMathOpAmpInitCircuit</ref>(<sp/>xNepMathOpAmpConfig_t<sp/>*pxOpAmpConfig,<sp/>uint32_t<sp/>ulPullUpResistor,<sp/>uint32_t<sp/>ulFeedbackResistor,<sp/>uint32_t<sp/>ulPullDownResistor,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>xPullUpVoltage<sp/>)</highlight></codeline>
+<codeline lineno="170"><highlight class="normal">{<sp/></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>pxOpAmpConfig<sp/>==<sp/>NULL<sp/>)</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>eInvalidParameter;</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Feedback<sp/>and<sp/>pull<sp/>down<sp/>resistors<sp/>can&apos;t<sp/>be<sp/>0.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Either<sp/>both<sp/>pull<sp/>up<sp/>voltage<sp/>and<sp/>resistance<sp/>are<sp/>0,<sp/>or<sp/>higher<sp/>than<sp/>0<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>(<sp/>ulFeedbackResistor<sp/>!=<sp/>0<sp/>)<sp/>&amp;&amp;<sp/>(<sp/>(<sp/>(<sp/>ulPullUpResistor<sp/>==<sp/>0<sp/>)<sp/>&amp;&amp;<sp/>(<sp/>xPullUpVoltage<sp/>==<sp/>0<sp/>)<sp/>)<sp/>||<sp/>(<sp/>(<sp/>ulPullUpResistor<sp/>!=<sp/>0<sp/>)<sp/>&amp;&amp;<sp/>(<sp/>xPullUpVoltage<sp/>!=<sp/>0<sp/>)<sp/>)<sp/>)<sp/>&amp;&amp;<sp/>(<sp/>ulPullDownResistor<sp/>!=<sp/>0<sp/>)<sp/>)</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pxOpAmpConfig-&gt;xGain<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pxOpAmpConfig-&gt;xPullUpVoltage<sp/>=<sp/>xPullUpVoltage;</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pxOpAmpConfig-&gt;ulPullUpResistor<sp/>=<sp/>ulPullUpResistor;</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pxOpAmpConfig-&gt;ulPullDownResistor<sp/>=<sp/>ulPullDownResistor;</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pxOpAmpConfig-&gt;ulFeedbackResistor<sp/>=<sp/>ulFeedbackResistor;</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>eSuccess;</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>eInvalidParameter;</highlight></codeline>
+<codeline lineno="189"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="191"><highlight class="normal"></highlight></codeline>
+<codeline lineno="192" refid="de/d2e/nep_math_op_amp_8c_1a5a0bb1d71f4ffe260f124b7ef2e4bfd1" refkind="member"><highlight class="normal">eNepError_t<sp/><ref refid="de/d2e/nep_math_op_amp_8c_1a5a0bb1d71f4ffe260f124b7ef2e4bfd1" kindref="member">eNepMathOpAmpInitGain</ref>(<sp/>xNepMathOpAmpConfig_t<sp/>*pxOpAmpConfig,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>xGain<sp/>)</highlight></codeline>
+<codeline lineno="193"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>pxOpAmpConfig<sp/>==<sp/>NULL<sp/>)</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>eInvalidParameter;</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>xGain<sp/>&gt;<sp/>0<sp/>)</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pxOpAmpConfig-&gt;xGain<sp/>=<sp/>xGain;</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pxOpAmpConfig-&gt;xPullUpVoltage<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pxOpAmpConfig-&gt;ulPullUpResistor<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pxOpAmpConfig-&gt;ulPullDownResistor<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pxOpAmpConfig-&gt;ulFeedbackResistor<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>eSuccess;</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>eInvalidParameter;</highlight></codeline>
+<codeline lineno="210"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"></highlight><highlight class="comment">/*----------------------------------------------------------------------------*/</highlight></codeline>
+    </programlisting>
+    <location file="Sources/nepMathOpAmp.c"/>
+  </compounddef>
+</doxygen>

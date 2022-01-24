@@ -1,0 +1,81 @@
+.TH "Sources/nepMathOpAmp.c" 3 "Thu Nov 18 2021" "mpbTime" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Sources/nepMathOpAmp.c \- Library to simulate an operational amplifier\&. It is able caclulate the input voltage from the output voltage and vice versa\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'nepMathOpAmp\&.h'\fP
+.br
+\fC#include 'nepMathDivision\&.h'\fP
+.br
+\fC#include 'nepMathResistor\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "eNepError_t \fBeNepMathOpAmpGetOutputVoltage\fP (float xInputVoltage, const xNepMathOpAmpConfig_t *pxOpAmpConfig, float *pxOutputVoltage)"
+.br
+.ti -1c
+.RI "eNepError_t \fBeNepMathOpAmpInitCircuit\fP (xNepMathOpAmpConfig_t *pxOpAmpConfig, uint32_t ulPullUpResistor, uint32_t ulFeedbackResistor, uint32_t ulPullDownResistor, float xPullUpVoltage)"
+.br
+.ti -1c
+.RI "eNepError_t \fBeNepMathOpAmpInitGain\fP (xNepMathOpAmpConfig_t *pxOpAmpConfig, float xGain)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Library to simulate an operational amplifier\&. It is able caclulate the input voltage from the output voltage and vice versa\&. 
+
+
+.PP
+\fBAuthor\fP
+.RS 4
+Mikael Plouffe 
+.RE
+.PP
+\fBDate\fP
+.RS 4
+Created on 2019-04-26 
+.RE
+.PP
+\fBNote\fP
+.RS 4
+.RE
+.PP
+\fBCopyright\fP
+.RS 4
+NEP, Montreal, Qc 
+.SS "(C) COPYRIGHT 2015 NEP, Montreal, Quebec, Canada"
+.RE
+.PP
+.SS "(C) All rights reserved\&."
+.PP
+
+.br
+
+.br
+ This document contains confidential and proprietary information of NEPTRONIC (subject to a non-disclosure agreement) and shall not be disclosed, distributed, or reproduced in whole or in part, without the prior written authorization of NEPTRONIC\&. 
+.PP
+Definition in file \fBnepMathOpAmp\&.c\fP\&.
+.SH "Function Documentation"
+.PP 
+.SS "eNepError_t eNepMathOpAmpGetOutputVoltage (float xInputVoltage, const xNepMathOpAmpConfig_t * pxOpAmpConfig, float * pxOutputVoltage)"
+
+.PP
+Definition at line 103 of file nepMathOpAmp\&.c\&.
+.SS "eNepError_t eNepMathOpAmpInitCircuit (xNepMathOpAmpConfig_t * pxOpAmpConfig, uint32_t ulPullUpResistor, uint32_t ulFeedbackResistor, uint32_t ulPullDownResistor, float xPullUpVoltage)"
+
+.PP
+Definition at line 169 of file nepMathOpAmp\&.c\&.
+.SS "eNepError_t eNepMathOpAmpInitGain (xNepMathOpAmpConfig_t * pxOpAmpConfig, float xGain)"
+
+.PP
+Definition at line 192 of file nepMathOpAmp\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mpbTime from the source code\&.

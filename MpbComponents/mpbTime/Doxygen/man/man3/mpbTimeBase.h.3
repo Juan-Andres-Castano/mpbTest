@@ -1,0 +1,241 @@
+.TH "Includes/mpbTimeBase.h" 3 "Thu Nov 18 2021" "mpbTime" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Includes/mpbTimeBase.h
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'mpblibs\&.h'\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fB__attribute__\fP"
+.br
+.RI "Timebase internal structure\&. "
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBeMpbError_t\fP \fBeMpbTimeBaseInit\fP (mpbTimeBase_t *pxTimeBase, uint8_t ucTickPerMs)"
+.br
+.RI "Initialize the timebase structure\&. "
+.ti -1c
+.RI "\fBeMpbError_t\fP \fBeMpbTimeBaseTick\fP (mpbTimeBase_t *pxTimeBase)"
+.br
+.RI "Tick of the timebase structure\&. "
+.ti -1c
+.RI "uint32_t \fBulMpbTimeBaseGetTick\fP (mpbTimeBase_t *pxTimeBase)"
+.br
+.RI "Get the number of ticks\&. "
+.ti -1c
+.RI "uint32_t \fBulMpbTimeBaseGetMs\fP (mpbTimeBase_t *pxTimeBase)"
+.br
+.RI "Get the number of miliseconds\&. "
+.ti -1c
+.RI "uint32_t \fBulMpbTimeBaseGetSecond\fP (mpbTimeBase_t *pxTimeBase)"
+.br
+.RI "Get the number of seconds\&. "
+.ti -1c
+.RI "uint32_t \fBulMpbTimeBaseGetMinute\fP (mpbTimeBase_t *pxTimeBase)"
+.br
+.RI "Get the number of minutes\&. "
+.ti -1c
+.RI "uint32_t \fBulMpbTimeBaseGetHour\fP (mpbTimeBase_t *pxTimeBase)"
+.br
+.RI "Get the number of hour\&. "
+.ti -1c
+.RI "\fBeBool_t\fP \fBeMpbTimeBaseIsDelayDone\fP (uint32_t ulCounter, uint32_t ulTimeStamp)"
+.br
+.RI "Check if the delay is completed\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.PP
+\fBAuthor\fP
+.RS 4
+juan 
+.RE
+.PP
+\fBDate\fP
+.RS 4
+Created on 2021-11-17 
+.RE
+.PP
+\fBNote\fP
+.RS 4
+.RE
+.PP
+\fBCopyright\fP
+.RS 4
+MPB, Montreal, Qc 
+.SS "(C) COPYRIGHT 2021 MPB, Montreal, Quebec, Canada"
+.RE
+.PP
+.SS "(C) All rights reserved\&."
+.PP
+
+.br
+
+.br
+ This document contains confidential and proprietary information of MPB (subject to a non-disclosure agreement) and shall not be disclosed, distributed, or reproduced in whole or in part, without the prior written authorization of MPB\&. 
+.PP
+Definition in file \fBmpbTimeBase\&.h\fP\&.
+.SH "Function Documentation"
+.PP 
+.SS "\fBeMpbError_t\fP eMpbTimeBaseInit (mpbTimeBase_t * pxTimeBase, uint8_t ucTickPerMs)"
+
+.PP
+Initialize the timebase structure\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIpxTimeBase\fP pointer to the timebase structure 
+.br
+\fIucTickPerMs\fP the number of tick per miliseconds 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Success or library error message 
+.RE
+.PP
+
+.PP
+Definition at line 46 of file mpbTimeBase\&.c\&.
+.SS "\fBeBool_t\fP eMpbTimeBaseIsDelayDone (uint32_t ulCounter, uint32_t ulTimeStamp)"
+
+.PP
+Check if the delay is completed\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIulCounter\fP the value of the timer 
+.br
+\fIulTimeStamp\fP the value at which the timer is completed 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+eTrue if the delay is completed, eFalse otherwise 
+.RE
+.PP
+
+.PP
+Definition at line 124 of file mpbTimeBase\&.c\&.
+.SS "\fBeMpbError_t\fP eMpbTimeBaseTick (mpbTimeBase_t * pxTimeBase)"
+
+.PP
+Tick of the timebase structure\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIpxTimeBase\fP pointer to the timebase structure 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Success or library error message 
+.RE
+.PP
+
+.PP
+Definition at line 65 of file mpbTimeBase\&.c\&.
+.SS "uint32_t ulMpbTimeBaseGetHour (mpbTimeBase_t * pxTimeBase)"
+
+.PP
+Get the number of hour\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIpxTimeBase\fP pointer to the timebase structure 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The number of hour past since init 
+.RE
+.PP
+
+.PP
+Definition at line 118 of file mpbTimeBase\&.c\&.
+.SS "uint32_t ulMpbTimeBaseGetMinute (mpbTimeBase_t * pxTimeBase)"
+
+.PP
+Get the number of minutes\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIpxTimeBase\fP pointer to the timebase structure 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The number of minutes past since init 
+.RE
+.PP
+
+.PP
+Definition at line 112 of file mpbTimeBase\&.c\&.
+.SS "uint32_t ulMpbTimeBaseGetMs (mpbTimeBase_t * pxTimeBase)"
+
+.PP
+Get the number of miliseconds\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIpxTimeBase\fP pointer to the timebase structure 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The number of miliseconds past since init 
+.RE
+.PP
+
+.PP
+Definition at line 100 of file mpbTimeBase\&.c\&.
+.SS "uint32_t ulMpbTimeBaseGetSecond (mpbTimeBase_t * pxTimeBase)"
+
+.PP
+Get the number of seconds\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIpxTimeBase\fP pointer to the timebase structure 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The number of seconds past since init 
+.RE
+.PP
+
+.PP
+Definition at line 106 of file mpbTimeBase\&.c\&.
+.SS "uint32_t ulMpbTimeBaseGetTick (mpbTimeBase_t * pxTimeBase)"
+
+.PP
+Get the number of ticks\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIpxTimeBase\fP pointer to the timebase structure 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The number of tick past since init 
+.RE
+.PP
+
+.PP
+Definition at line 94 of file mpbTimeBase\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mpbTime from the source code\&.

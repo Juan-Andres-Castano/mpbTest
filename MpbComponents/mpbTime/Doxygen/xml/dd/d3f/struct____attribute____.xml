@@ -1,0 +1,107 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="dd/d3f/struct____attribute____" kind="struct" language="C++" prot="public">
+    <compoundname>__attribute__</compoundname>
+    <includes refid="d3/d91/mpb_time_base_8h" local="no">mpbTimeBase.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="dd/d3f/struct____attribute_____1a28b9cc899120ec9ffd6e8da7d9f942d7" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t ulTick</definition>
+        <argsstring></argsstring>
+        <name>ulTick</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>the actual tick increment </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Includes/mpbTimeBase.h" line="31" column="10" bodyfile="Includes/mpbTimeBase.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="dd/d3f/struct____attribute_____1a61b238636c68d18bbdefbcb66a471e06" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t ulMs</definition>
+        <argsstring></argsstring>
+        <name>ulMs</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>the actual Ms count </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Includes/mpbTimeBase.h" line="32" column="10" bodyfile="Includes/mpbTimeBase.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="dd/d3f/struct____attribute_____1a3b0dcca8eb83c3e0b988503dad43892d" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t ulSecond</definition>
+        <argsstring></argsstring>
+        <name>ulSecond</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>the actual seconds count </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Includes/mpbTimeBase.h" line="33" column="10" bodyfile="Includes/mpbTimeBase.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="dd/d3f/struct____attribute_____1a1503812b6f48f3ed72640c203ccc6a93" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t usMsCount</definition>
+        <argsstring></argsstring>
+        <name>usMsCount</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>the actual miliseconds count </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Includes/mpbTimeBase.h" line="34" column="10" bodyfile="Includes/mpbTimeBase.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="dd/d3f/struct____attribute_____1aeda5671258a37f74b1320aa19d0c11f3" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t ucTickCount</definition>
+        <argsstring></argsstring>
+        <name>ucTickCount</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>the actual tick count </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Includes/mpbTimeBase.h" line="35" column="9" bodyfile="Includes/mpbTimeBase.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="dd/d3f/struct____attribute_____1a9fccf6b9c59b071b6d5e36273a32e3fd" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t ucTickReload</definition>
+        <argsstring></argsstring>
+        <name>ucTickReload</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>the initial tick load </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Includes/mpbTimeBase.h" line="36" column="9" bodyfile="Includes/mpbTimeBase.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Timebase internal structure. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Includes/mpbTimeBase.h" line="29" column="1" bodyfile="Includes/mpbTimeBase.h" bodystart="30" bodyend="37"/>
+    <listofallmembers>
+      <member refid="dd/d3f/struct____attribute_____1aeda5671258a37f74b1320aa19d0c11f3" prot="public" virt="non-virtual"><scope>__attribute__</scope><name>ucTickCount</name></member>
+      <member refid="dd/d3f/struct____attribute_____1a9fccf6b9c59b071b6d5e36273a32e3fd" prot="public" virt="non-virtual"><scope>__attribute__</scope><name>ucTickReload</name></member>
+      <member refid="dd/d3f/struct____attribute_____1a61b238636c68d18bbdefbcb66a471e06" prot="public" virt="non-virtual"><scope>__attribute__</scope><name>ulMs</name></member>
+      <member refid="dd/d3f/struct____attribute_____1a3b0dcca8eb83c3e0b988503dad43892d" prot="public" virt="non-virtual"><scope>__attribute__</scope><name>ulSecond</name></member>
+      <member refid="dd/d3f/struct____attribute_____1a28b9cc899120ec9ffd6e8da7d9f942d7" prot="public" virt="non-virtual"><scope>__attribute__</scope><name>ulTick</name></member>
+      <member refid="dd/d3f/struct____attribute_____1a1503812b6f48f3ed72640c203ccc6a93" prot="public" virt="non-virtual"><scope>__attribute__</scope><name>usMsCount</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

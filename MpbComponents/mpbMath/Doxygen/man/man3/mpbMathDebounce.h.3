@@ -1,0 +1,105 @@
+.TH "Includes/mpbMathDebounce.h" 3 "Tue Nov 23 2021" "mpbDebouncing" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Includes/mpbMathDebounce.h
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'mpblibs\&.h'\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBMpbMathDebounce_t\fP"
+.br
+.RI "Structure to debounce a AC/DC signal\&. "
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "eMpbError_t \fBvMpbMathDebounceInit\fP (\fBMpbMathDebounce_t\fP *pxMpbMathDebounce, uint32_t ulOnCount, uint32_t ulOffCount, eBool_t bInitialState)"
+.br
+.RI "Initialize the debounce structure\&. "
+.ti -1c
+.RI "eMpbError_t \fBvMpbMathDebounceUpdate\fP (\fBMpbMathDebounce_t\fP *pxMpbMathDebounce, eBool_t bActualState, eBool_t *pbFinalState)"
+.br
+.RI "Updates the state of the debounce\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.PP
+\fBAuthor\fP
+.RS 4
+juan andres 
+.RE
+.PP
+\fBDate\fP
+.RS 4
+Created on 2021-11-18 
+.RE
+.PP
+\fBNote\fP
+.RS 4
+.RE
+.PP
+\fBCopyright\fP
+.RS 4
+MPB, Montreal, Qc 
+.SS "(C) COPYRIGHT 2021 MPB, Montreal, Quebec, Canada"
+.RE
+.PP
+.SS "(C) All rights reserved\&."
+.PP
+
+.br
+
+.br
+ This document contains confidential and proprietary information of MPB (subject to a non-disclosure agreement) and shall not be disclosed, distributed, or reproduced in whole or in part, without the prior written authorization of MPB\&. 
+.PP
+Definition in file \fBmpbMathDebounce\&.h\fP\&.
+.SH "Function Documentation"
+.PP 
+.SS "eMpbError_t vMpbMathDebounceInit (\fBMpbMathDebounce_t\fP * pxMpbMathDebounce, uint32_t ulOnCount, uint32_t ulOffCount, eBool_t bInitialState)"
+
+.PP
+Initialize the debounce structure\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIulOnCount\fP the number of on count desired 
+.br
+\fIulOffCount\fP the number of off count desired 
+.br
+\fIslValue\fP the inital value 
+.br
+\fIpxMpbMathDebounce\fP the initialize debounce structure 
+.RE
+.PP
+
+.PP
+Definition at line 41 of file mpbMathDebounce\&.c\&.
+.SS "eMpbError_t vMpbMathDebounceUpdate (\fBMpbMathDebounce_t\fP * pxMpbMathDebounce, eBool_t bActualState, eBool_t * pbFinalState)"
+
+.PP
+Updates the state of the debounce\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIpxMpbMathDebounce\fP the debounce structure 
+.br
+\fIslValue\fP the new value 
+.br
+\fIpslState\fP the debounce state 
+.RE
+.PP
+
+.PP
+Definition at line 63 of file mpbMathDebounce\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mpbDebouncing from the source code\&.
